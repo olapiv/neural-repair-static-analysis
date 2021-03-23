@@ -4,29 +4,38 @@ while read GH_REPO_URL do
 
     git clone GH_REPO_URL github_repo_to_fix/
 
-    # TODO: Get latest commit
-    LAST_COMMIT = ""
+    LAST_COMMIT=$(git log -n 1 --pretty=format:"%H")
 
     declare -a SOLUTION_FILES=("file1.sltn" "file2.sltn" "file.sltn")
     # TODO: Search for all .sltn files
 
+    # Cannot apply roslynator by file; only by project/solution;
+    # Might as well apply to entire solution.
     for SOLUTION_FILE in "${SOLUTION_FILES[@]}" do
+
         for ASSEMBLY_DLL in /analyzer_assemblies/*.dll; do
 
-            while IFS=, read -r col1 col2 DIAGNOSTIC_ID do
+            # Breaking down resulting diff into single diagnostics; 
+            # Checking pre-filled csv-file to filter out possible DIAGNOSTIC_IDs
+            while IFS=, read -r col1 col2 ASSEMBLY_DLL_CSV DIAGNOSTIC_ID do
 
-                # TODO: Check if row in assembly_breakdown is from ASSEMBLY_DLL; else continue
-
+                if [ "$ASSEMBLY_DLL" != "$ASSEMBLY_DLL_CSV" ]; then
+                    continue
+                fi
+                
                 # TODO: Check exact Roslynator flags again; Specifically:
                 #   --ignore-compiler-errors
 
+                FILENAME = $SOLUTION_FILE + "__" + $LAST_COMMIT + "__" + $DIAGNOSTIC_ID
+                ANALYSIS_FILEPATH = "/analysis_files/" + $FILENAME + ".xml"
+                DIFF_FILEPATH = "/diffs/" + $FILENAME + ".diff"
+
+                # TODO: Check what the xml files look like.
+                roslynator analyze SOLUTION_FILE -v quiet --output $ANALYSIS_FILEPATH --ignore-analyzer-references --analyzer-assemblies ASSEMBLY_DLL --supported-diagnostics $DIAGNOSTIC_ID
+
+                # This basically produces a diff
                 roslynator fix SOLUTION_FILE --ignore-analyzer-references --analyzer-assemblies ASSEMBLY_DLL --supported-diagnostics $DIAGNOSTIC_ID
-                # Problem: This produces a diff
-                # --> We do not know which diagnostic instance prooduced which codefix
-
-                DIFF_FILENAME = $SOLUTION_FILE + "__" + $LAST_COMMIT + "__" + $DIAGNOSTIC_ID + ".diff"
                 git diff > $DIFF_FILENAME
-
                 git reset --hard
 
             done < assembly_breakdown.csv
