@@ -2,8 +2,8 @@
 
 ## Links
 
-* [https://docs.microsoft.com/en-us/nuget/api/search-query-service-resource](Documenation to Search packages with Nuget Rest API)
-* [https://github.com/microsoft/msrc-dpu-learning-to-represent-edits/blob/master/sampled_repos.txt](Github repos from Learning to Represent Edits)
+* [Documenation to Search packages with Nuget Rest API](https://docs.microsoft.com/en-us/nuget/api/search-query-service-resource)
+* [Github repos from Learning to Represent Edits](https://github.com/microsoft/msrc-dpu-learning-to-represent-edits/blob/master/sampled_repos.txt)
 
 1. install_dependencies.sh
 2. create_dataset.sh
