@@ -13,13 +13,13 @@ while read GH_REPO_URL do
     # Might as well apply to entire solution.
     for SOLUTION_FILE in "${SOLUTION_FILES[@]}" do
 
-        for ASSEMBLY_DLL in /analyzer_assemblies/*.dll; do
+        for ANALYZER_PACKAGE in /nuget_analyzer_packages/; do
 
             # Breaking down resulting diff into single diagnostics; 
             # Checking pre-filled csv-file to filter out possible DIAGNOSTIC_IDs
-            while IFS=, read -r col1 col2 ASSEMBLY_DLL_CSV DIAGNOSTIC_ID do
+            while IFS=, read -r col1 col2 ANALYZER_PACKAGE_CSV DIAGNOSTIC_ID do
 
-                if [ "$ASSEMBLY_DLL" != "$ASSEMBLY_DLL_CSV" ]; then
+                if [ "$ANALYZER_PACKAGE" != "$ANALYZER_PACKAGE_CSV" ]; then
                     continue
                 fi
 
@@ -32,19 +32,20 @@ while read GH_REPO_URL do
                     --output $ANALYSIS_FILEPATH \
                     --report-not-configurable \  # Mostly compiler diagnostics (CSxxxx)
                     --ignore-analyzer-references \  # Only use our own analyzer assemblies 
-                    --analyzer-assemblies ASSEMBLY_DLL \
+                    --analyzer-assemblies $ANALYZER_PACKAGE \
                     --supported-diagnostics $DIAGNOSTIC_ID
 
                 # This basically produces a diff
                 roslynator fix SOLUTION_FILE 
                     --ignore-analyzer-references \
-                    --analyzer-assemblies ASSEMBLY_DLL \
+                    --analyzer-assemblies $ANALYZER_PACKAGE \
                     --supported-diagnostics $DIAGNOSTIC_ID
 
                 git diff > $DIFF_FILENAME
                 git reset --hard
 
-            done < assembly_breakdown.csv
+            # TODO: Write code to prepare this file
+            done < analyzer_package_details.csv
 
         done
     done
