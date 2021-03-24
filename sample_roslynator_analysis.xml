@@ -3,16 +3,15 @@
   <CodeAnalysis>
     <Summary>
       <Diagnostic Id="CA1018" Title="Mark attributes with AttributeUsageAttribute" Count="6" />
-      <Diagnostic Id="CA1401" Title="P/Invokes should not be visible" Count="89" />
-      <Diagnostic Id="CA1507" Title="Use nameof to express symbol names" Count="1" />
-      <Diagnostic Id="CA1806" Title="Do not ignore method results" Count="23" />
-      <Diagnostic Id="CA1816" Title="Dispose methods should call SuppressFinalize" Count="2" />
-      <Diagnostic Id="CA1822" Title="Mark members as static" Count="106" />
-      <Diagnostic Id="CA1824" Title="Mark assemblies with NeutralResourcesLanguageAttribute" Count="1" />
-      <Diagnostic Id="CA1829" Title="Use Length/Count property instead of Count() when available" Count="3" />
+      <Diagnostic Id="CA1401" Title="P/Invokes should not be visible" Count="100" />
+      <Diagnostic Id="CA1806" Title="Do not ignore method results" Count="26" />
+      <Diagnostic Id="CA1816" Title="Dispose methods should call SuppressFinalize" Count="3" />
+      <Diagnostic Id="CA1822" Title="Mark members as static" Count="229" />
+      <Diagnostic Id="CA1827" Title="Do not use Count() or LongCount() when Any() can be used" Count="1" />
+      <Diagnostic Id="CA1829" Title="Use Length/Count property instead of Count() when available" Count="12" />
       <Diagnostic Id="CA1834" Title="Consider using 'StringBuilder.Append(char)' when applicable" Count="1" />
-      <Diagnostic Id="CA2101" Title="Specify marshaling for P/Invoke string arguments" Count="10" />
-      <Diagnostic Id="CA2211" Title="Non-constant fields should not be visible" Count="29" />
+      <Diagnostic Id="CA2101" Title="Specify marshaling for P/Invoke string arguments" Count="12" />
+      <Diagnostic Id="CA2211" Title="Non-constant fields should not be visible" Count="57" />
       <Diagnostic Id="CS0012" Title="" Count="71" />
       <Diagnostic Id="CS0028" Title="Method has the wrong signature to be an entry point" Count="4" />
       <Diagnostic Id="CS0029" Title="" Count="1" />
@@ -29,12 +28,62 @@
       <Diagnostic Id="CS5001" Title="" Count="4" />
     </Summary>
     <Projects>
+      <Project Name="AppCommon" FilePath="C:\Users\vlohse\source\repos\acat\src\Applications\AppCommon\AppCommon.csproj">
+        <Diagnostics>
+          <Diagnostic Id="CA1827">
+            <Severity>Info</Severity>
+            <Message>Count() is used where Any() could be used instead to improve performance</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Applications\AppCommon\AppCommon.cs</FilePath>
+            <Location Line="254" Character="17" />
+          </Diagnostic>
+          <Diagnostic Id="CA2211">
+            <Severity>Info</Severity>
+            <Message>Non-constant fields should not be visible</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Applications\AppCommon\OldACATPreferences.cs</FilePath>
+            <Location Line="75" Character="30" />
+          </Diagnostic>
+          <Diagnostic Id="CA2211">
+            <Severity>Info</Severity>
+            <Message>Non-constant fields should not be visible</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Applications\AppCommon\OldACATPreferences.cs</FilePath>
+            <Location Line="78" Character="30" />
+          </Diagnostic>
+          <Diagnostic Id="CA2211">
+            <Severity>Info</Severity>
+            <Message>Non-constant fields should not be visible</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Applications\AppCommon\OldPreferences.cs</FilePath>
+            <Location Line="81" Character="32" />
+          </Diagnostic>
+        </Diagnostics>
+      </Project>
+      <Project Name="MSWordAgent" FilePath="C:\Users\vlohse\source\repos\acat\src\Extensions\Default\AppAgents\MSWordAgent\MSWordAgent.csproj">
+        <Diagnostics>
+          <Diagnostic Id="CA2211">
+            <Severity>Info</Severity>
+            <Message>Non-constant fields should not be visible</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Extensions\Default\AppAgents\MSWordAgent\MSWordAgentSettings.cs</FilePath>
+            <Location Line="74" Character="30" />
+          </Diagnostic>
+        </Diagnostics>
+      </Project>
+      <Project Name="SAPIEngine" FilePath="C:\Users\vlohse\source\repos\acat\src\Extensions\Default\TTSEngines\SAPIEngine\SAPIEngine.csproj">
+        <Diagnostics>
+          <Diagnostic Id="CA2211">
+            <Severity>Info</Severity>
+            <Message>Non-constant fields should not be visible</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Extensions\Default\TTSEngines\SAPIEngine\SAPISettings.cs</FilePath>
+            <Location Line="39" Character="30" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'stringToVoiceGender' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Extensions\Default\TTSEngines\SAPIEngine\SettingsForm.cs</FilePath>
+            <Location Line="337" Character="29" />
+          </Diagnostic>
+        </Diagnostics>
+      </Project>
       <Project Name="Core" FilePath="C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\Core.csproj">
         <Diagnostics>
-          <Diagnostic Id="CA1824">
-            <Severity>Info</Severity>
-            <Message>Mark assemblies with NeutralResourcesLanguageAttribute</Message>
-          </Diagnostic>
           <Diagnostic Id="CA1822">
             <Severity>Info</Severity>
             <Message>Member 'GetAbbreviationsFilePath' does not access instance data and can be marked as static</Message>
@@ -923,12 +972,6 @@
             <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\Utility\AutomationEventManager.cs</FilePath>
             <Location Line="337" Character="21" />
           </Diagnostic>
-          <Diagnostic Id="CA1507">
-            <Severity>Info</Severity>
-            <Message>Use nameof in place of string literal 'data'</Message>
-            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\Utility\BlockingQueue.cs</FilePath>
-            <Location Line="91" Character="63" />
-          </Diagnostic>
           <Diagnostic Id="CA1018">
             <Severity>Info</Severity>
             <Message>Specify AttributeUsage on DescriptorAttribute</Message>
@@ -1654,6 +1697,1168 @@
             <Message>Non-constant fields should not be visible</Message>
             <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\WordPredictorManagement\WordPredictionManager.cs</FilePath>
             <Location Line="47" Character="30" />
+          </Diagnostic>
+        </Diagnostics>
+      </Project>
+      <Project Name="DialogControlAgent" FilePath="C:\Users\vlohse\source\repos\acat\src\Extensions\Default\AppAgents\DialogControlAgent\DialogControlAgent.csproj">
+        <Diagnostics>
+          <Diagnostic Id="CA2211">
+            <Severity>Info</Severity>
+            <Message>Non-constant fields should not be visible</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Extensions\Default\AppAgents\DialogControlAgent\DialogControlAgentSettings.cs</FilePath>
+            <Location Line="39" Character="30" />
+          </Diagnostic>
+        </Diagnostics>
+      </Project>
+      <Project Name="MenuControlAgent" FilePath="C:\Users\vlohse\source\repos\acat\src\Extensions\Default\AppAgents\MenuControlAgent\MenuControlAgent.csproj">
+        <Diagnostics>
+          <Diagnostic Id="CA2211">
+            <Severity>Info</Severity>
+            <Message>Non-constant fields should not be visible</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Extensions\Default\AppAgents\MenuControlAgent\MenuControlAgentSettings.cs</FilePath>
+            <Location Line="74" Character="30" />
+          </Diagnostic>
+        </Diagnostics>
+      </Project>
+      <Project Name="VisionUtils" FilePath="C:\Users\vlohse\source\repos\acat\src\Extensions\Default\Actuators\Vision\VisionUtils\VisionUtils.csproj">
+        <Diagnostics>
+          <Diagnostic Id="CA1401">
+            <Severity>Info</Severity>
+            <Message>P/Invoke method 'acatVision' should not be visible</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Extensions\Default\Actuators\Vision\VisionUtils\VisionSensor.cs</FilePath>
+            <Location Line="37" Character="35" />
+          </Diagnostic>
+          <Diagnostic Id="CA1401">
+            <Severity>Info</Severity>
+            <Message>P/Invoke method 'hideVideoWindow' should not be visible</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Extensions\Default\Actuators\Vision\VisionUtils\VisionSensor.cs</FilePath>
+            <Location Line="40" Character="35" />
+          </Diagnostic>
+          <Diagnostic Id="CA1401">
+            <Severity>Info</Severity>
+            <Message>P/Invoke method 'init' should not be visible</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Extensions\Default\Actuators\Vision\VisionUtils\VisionSensor.cs</FilePath>
+            <Location Line="43" Character="35" />
+          </Diagnostic>
+          <Diagnostic Id="CA1401">
+            <Severity>Info</Severity>
+            <Message>P/Invoke method 'isVideoWindowVisible' should not be visible</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Extensions\Default\Actuators\Vision\VisionUtils\VisionSensor.cs</FilePath>
+            <Location Line="46" Character="35" />
+          </Diagnostic>
+          <Diagnostic Id="CA1401">
+            <Severity>Info</Severity>
+            <Message>P/Invoke method 'quit' should not be visible</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Extensions\Default\Actuators\Vision\VisionUtils\VisionSensor.cs</FilePath>
+            <Location Line="49" Character="35" />
+          </Diagnostic>
+          <Diagnostic Id="CA1401">
+            <Severity>Info</Severity>
+            <Message>P/Invoke method 'selectCamera' should not be visible</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Extensions\Default\Actuators\Vision\VisionUtils\VisionSensor.cs</FilePath>
+            <Location Line="52" Character="35" />
+          </Diagnostic>
+          <Diagnostic Id="CA1401">
+            <Severity>Info</Severity>
+            <Message>P/Invoke method 'SetVisionEventHandler' should not be visible</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Extensions\Default\Actuators\Vision\VisionUtils\VisionSensor.cs</FilePath>
+            <Location Line="55" Character="35" />
+          </Diagnostic>
+          <Diagnostic Id="CA1401">
+            <Severity>Info</Severity>
+            <Message>P/Invoke method 'showVideoWindow' should not be visible</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Extensions\Default\Actuators\Vision\VisionUtils\VisionSensor.cs</FilePath>
+            <Location Line="58" Character="35" />
+          </Diagnostic>
+          <Diagnostic Id="CA1401">
+            <Severity>Info</Severity>
+            <Message>P/Invoke method 'visionCommand' should not be visible</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Extensions\Default\Actuators\Vision\VisionUtils\VisionSensor.cs</FilePath>
+            <Location Line="61" Character="35" />
+          </Diagnostic>
+          <Diagnostic Id="CA2101">
+            <Severity>Info</Severity>
+            <Message>Specify marshaling for P/Invoke string arguments</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Extensions\Default\Actuators\Vision\VisionUtils\VisionSensor.cs</FilePath>
+            <Location Line="51" Character="10" />
+          </Diagnostic>
+          <Diagnostic Id="CA2101">
+            <Severity>Info</Severity>
+            <Message>Specify marshaling for P/Invoke string arguments</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Extensions\Default\Actuators\Vision\VisionUtils\VisionSensor.cs</FilePath>
+            <Location Line="60" Character="10" />
+          </Diagnostic>
+        </Diagnostics>
+      </Project>
+      <Project Name="VisionTryout" FilePath="C:\Users\vlohse\source\repos\acat\src\Extensions\Default\Actuators\Vision\VisionTryout\VisionTryout.csproj">
+        <Diagnostics>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'CallbackFromVision' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Extensions\Default\Actuators\Vision\VisionTryout\VisionTryoutForm.cs</FilePath>
+            <Location Line="115" Character="22" />
+          </Diagnostic>
+        </Diagnostics>
+      </Project>
+      <Project Name="SpellCheck" FilePath="C:\Users\vlohse\source\repos\acat\src\Extensions\Default\SpellCheckers\SpellCheck\SpellCheck.csproj">
+        <Diagnostics>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'getSpellCheckFilePath' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Extensions\Default\SpellCheckers\SpellCheck\SpellChecker.cs</FilePath>
+            <Location Line="236" Character="24" />
+          </Diagnostic>
+        </Diagnostics>
+      </Project>
+      <Project Name="NewFileAgent" FilePath="C:\Users\vlohse\source\repos\acat\src\Extensions\Default\FunctionalAgents\NewFileAgent\NewFileAgent.csproj">
+        <Diagnostics>
+          <Diagnostic Id="CA2211">
+            <Severity>Info</Severity>
+            <Message>Non-constant fields should not be visible</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Extensions\Default\FunctionalAgents\NewFileAgent\CreateFileSettings.cs</FilePath>
+            <Location Line="39" Character="30" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'activateWindow' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Extensions\Default\FunctionalAgents\NewFileAgent\NewFileAgent.cs</FilePath>
+            <Location Line="376" Character="22" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'checkValidOrCreate' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Extensions\Default\FunctionalAgents\NewFileAgent\NewFileAgent.cs</FilePath>
+            <Location Line="392" Character="22" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'waitForWordWindow' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Extensions\Default\FunctionalAgents\NewFileAgent\NewFileAgent.cs</FilePath>
+            <Location Line="666" Character="22" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'hasValidCharacters' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Extensions\Default\FunctionalAgents\NewFileAgent\NewFileNameForm.cs</FilePath>
+            <Location Line="212" Character="22" />
+          </Diagnostic>
+        </Diagnostics>
+      </Project>
+      <Project Name="ChromeBrowserAgent" FilePath="C:\Users\vlohse\source\repos\acat\src\Extensions\Default\AppAgents\ChromeBrowserAgent\ChromeBrowserAgent.csproj">
+        <Diagnostics>
+          <Diagnostic Id="CA2211">
+            <Severity>Info</Severity>
+            <Message>Non-constant fields should not be visible</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Extensions\Default\AppAgents\ChromeBrowserAgent\ChromeBrowserAgentSettings.cs</FilePath>
+            <Location Line="38" Character="30" />
+          </Diagnostic>
+        </Diagnostics>
+      </Project>
+      <Project Name="VolumeSettingsAgent" FilePath="C:\Users\vlohse\source\repos\acat\src\Extensions\Default\FunctionalAgents\VolumeSettingsAgent\VolumeSettingsAgent.csproj">
+        <Diagnostics>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'doVolumeTest' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Extensions\Default\FunctionalAgents\VolumeSettingsAgent\VolumeSettingsScanner.cs</FilePath>
+            <Location Line="366" Character="22" />
+          </Diagnostic>
+        </Diagnostics>
+      </Project>
+      <Project Name="WindowsExplorerAgent" FilePath="C:\Users\vlohse\source\repos\acat\src\Extensions\Default\AppAgents\WindowsExplorerAgent\WindowsExplorerAgent.csproj">
+        <Diagnostics>
+          <Diagnostic Id="CA2211">
+            <Severity>Info</Severity>
+            <Message>Non-constant fields should not be visible</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Extensions\Default\AppAgents\WindowsExplorerAgent\WindowsExplorerAgentSettings.cs</FilePath>
+            <Location Line="38" Character="30" />
+          </Diagnostic>
+        </Diagnostics>
+      </Project>
+      <Project Name="OutlookAgent" FilePath="C:\Users\vlohse\source\repos\acat\src\Extensions\Default\AppAgents\OutlookAgent\OutlookAgent.csproj">
+        <Diagnostics>
+          <Diagnostic Id="CA2211">
+            <Severity>Info</Severity>
+            <Message>Non-constant fields should not be visible</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Extensions\Default\AppAgents\OutlookAgent\OutlookAgentSettings.cs</FilePath>
+            <Location Line="38" Character="30" />
+          </Diagnostic>
+        </Diagnostics>
+      </Project>
+      <Project Name="AcrobatReaderAgent" FilePath="C:\Users\vlohse\source\repos\acat\src\Extensions\Default\AppAgents\AcrobatReaderAgent\AcrobatReaderAgent.csproj">
+        <Diagnostics>
+          <Diagnostic Id="CA2211">
+            <Severity>Info</Severity>
+            <Message>Non-constant fields should not be visible</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Extensions\Default\AppAgents\AcrobatReaderAgent\AcrobatReaderAgentSettings.cs</FilePath>
+            <Location Line="38" Character="30" />
+          </Diagnostic>
+        </Diagnostics>
+      </Project>
+      <Project Name="InternetExplorerAgent" FilePath="C:\Users\vlohse\source\repos\acat\src\Extensions\Default\AppAgents\InternetExplorerAgent\InternetExplorerAgent.csproj">
+        <Diagnostics>
+          <Diagnostic Id="CA2211">
+            <Severity>Info</Severity>
+            <Message>Non-constant fields should not be visible</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Extensions\Default\AppAgents\InternetExplorerAgent\InternetExplorerAgentSettings.cs</FilePath>
+            <Location Line="38" Character="30" />
+          </Diagnostic>
+        </Diagnostics>
+      </Project>
+      <Project Name="PresageBase" FilePath="C:\Users\vlohse\source\repos\acat\src\Extensions\Default\WordPredictors\PresageBase\PresageBase.csproj">
+        <Diagnostics>
+          <Diagnostic Id="CA2211">
+            <Severity>Info</Severity>
+            <Message>Non-constant fields should not be visible</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Extensions\Default\WordPredictors\PresageBase\PresageSettingsBase.cs</FilePath>
+            <Location Line="38" Character="30" />
+          </Diagnostic>
+          <Diagnostic Id="CA1816">
+            <Severity>Info</Severity>
+            <Message>Change PresageWordPredictorBase.Dispose() to call GC.SuppressFinalize(object). This will prevent derived types that introduce a finalizer from needing to re-implement 'IDisposable' to call it.</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Extensions\Default\WordPredictors\PresageBase\PresageWordPredictorBase.cs</FilePath>
+            <Location Line="197" Character="29" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'getAppRelativeDBPath' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Extensions\Default\WordPredictors\PresageBase\PresageWordPredictorBase.cs</FilePath>
+            <Location Line="472" Character="26" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'getPresageInstallDir' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Extensions\Default\WordPredictors\PresageBase\PresageWordPredictorBase.cs</FilePath>
+            <Location Line="534" Character="26" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'getUserRelativePath' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Extensions\Default\WordPredictors\PresageBase\PresageWordPredictorBase.cs</FilePath>
+            <Location Line="550" Character="26" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'isPresageRunning' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Extensions\Default\WordPredictors\PresageBase\PresageWordPredictorBase.cs</FilePath>
+            <Location Line="608" Character="24" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'killPresage' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Extensions\Default\WordPredictors\PresageBase\PresageWordPredictorBase.cs</FilePath>
+            <Location Line="617" Character="24" />
+          </Diagnostic>
+          <Diagnostic Id="CA1829">
+            <Severity>Info</Severity>
+            <Message>Use the "Count" property instead of Enumerable.Count()</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Extensions\Default\WordPredictors\PresageBase\PresageWordPredictorBase.cs</FilePath>
+            <Location Line="710" Character="81" />
+          </Diagnostic>
+        </Diagnostics>
+      </Project>
+      <Project Name="TalkWindowAgent" FilePath="C:\Users\vlohse\source\repos\acat\src\Extensions\Default\AppAgents\TalkWindowAgent\TalkWindowAgent.csproj">
+        <Diagnostics>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'handleSpeechControl' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Extensions\Default\AppAgents\TalkWindowAgent\TalkWindowContextMenu.cs</FilePath>
+            <Location Line="152" Character="22" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'showZoomMenu' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Extensions\Default\AppAgents\TalkWindowAgent\TalkWindowContextMenu.cs</FilePath>
+            <Location Line="243" Character="22" />
+          </Diagnostic>
+        </Diagnostics>
+      </Project>
+      <Project Name="Extension" FilePath="C:\Users\vlohse\source\repos\acat\src\Libraries\ACATExtension\Extension.csproj">
+        <Diagnostics>
+          <Diagnostic Id="CA2211">
+            <Severity>Info</Severity>
+            <Message>Non-constant fields should not be visible</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATExtension\ACATPreferences.cs</FilePath>
+            <Location Line="37" Character="30" />
+          </Diagnostic>
+          <Diagnostic Id="CA2211">
+            <Severity>Info</Severity>
+            <Message>Non-constant fields should not be visible</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATExtension\ACATPreferences.cs</FilePath>
+            <Location Line="40" Character="30" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'isRecentDocuments' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATExtension\AppAgents\MSWord\MSWordAgentBase.cs</FilePath>
+            <Location Line="320" Character="24" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'launchLectureManager' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATExtension\AppAgents\MSWord\MSWordAgentBase.cs</FilePath>
+            <Location Line="332" Character="30" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'getFileNameFromWindow' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATExtension\AppAgents\Notepad\NotepadAgentBase.cs</FilePath>
+            <Location Line="218" Character="24" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'actuateStandardControl' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATExtension\AppAgents\Outlook\OutlookAgentBase.cs</FilePath>
+            <Location Line="531" Character="24" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'getContextualMenuForWindow' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATExtension\AppAgents\Outlook\OutlookAgentBase.cs</FilePath>
+            <Location Line="684" Character="26" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'getOutlookVersion' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATExtension\AppAgents\Outlook\OutlookAgentBase.cs</FilePath>
+            <Location Line="768" Character="23" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'gotoNextField' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATExtension\AppAgents\Outlook\OutlookAgentBase.cs</FilePath>
+            <Location Line="802" Character="24" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'gotoPreviousField' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATExtension\AppAgents\Outlook\OutlookAgentBase.cs</FilePath>
+            <Location Line="810" Character="24" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'IsOutlookInstalled' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATExtension\AppAgents\Outlook\OutlookAgentBase.cs</FilePath>
+            <Location Line="931" Character="24" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'isMessageBodyField' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATExtension\AppAgents\Outlook\OutlookAgentBase.cs</FilePath>
+            <Location Line="1010" Character="22" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'isSubjectField' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATExtension\AppAgents\Outlook\OutlookAgentBase.cs</FilePath>
+            <Location Line="1023" Character="22" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'isTopLevelWindow' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATExtension\AppAgents\Outlook\OutlookAgentBase.cs</FilePath>
+            <Location Line="1035" Character="22" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'getTalkWindowSelectedTextOrPara' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATExtension\AppAgents\TalkWindow\TalkWindowAgentBase.cs</FilePath>
+            <Location Line="233" Character="26" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'getTalkTextWinAutomationElement' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATExtension\AppAgents\TalkWindow\TalkWindowAgentBase.cs</FilePath>
+            <Location Line="338" Character="35" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'getWindowElement' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATExtension\AppAgents\WindowsExplorer\WindowsExplorerAgentBase.cs</FilePath>
+            <Location Line="316" Character="37" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'isDesktopWindow' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATExtension\AppAgents\WindowsExplorer\WindowsExplorerAgentBase.cs</FilePath>
+            <Location Line="335" Character="24" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'isFileExplorer' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATExtension\AppAgents\WindowsExplorer\WindowsExplorerAgentBase.cs</FilePath>
+            <Location Line="367" Character="24" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'getFileNameFromWindow' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATExtension\AppAgents\Wordpad\WordPadAgentBase.cs</FilePath>
+            <Location Line="248" Character="24" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'findTitleBar' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATExtension\CommandHandlers\AppWindowManagementHandler.cs</FilePath>
+            <Location Line="243" Character="35" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'turnOffSelectMode' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATExtension\CommandHandlers\DocumentEditingHandler.cs</FilePath>
+            <Location Line="132" Character="22" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'sendFunctionKey' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATExtension\CommandHandlers\FunctionKeyHandler.cs</FilePath>
+            <Location Line="69" Character="24" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'launchLectureManager' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATExtension\CommandHandlers\LectureManagerHandler.cs</FilePath>
+            <Location Line="74" Character="28" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'quitApplication' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATExtension\CommandHandlers\MiscCommandHandler.cs</FilePath>
+            <Location Line="82" Character="22" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'switchLanguageHandler' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATExtension\CommandHandlers\MiscCommandHandler.cs</FilePath>
+            <Location Line="103" Character="22" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'turnOnSelectModeIfStickyShiftEnabled' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATExtension\CommandHandlers\NavigationHandler.cs</FilePath>
+            <Location Line="152" Character="22" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'handleAbbreviationSettings' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATExtension\CommandHandlers\ShowAbbreviationsHandler.cs</FilePath>
+            <Location Line="65" Character="28" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'showAboutBox' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATExtension\CommandHandlers\ShowDialogsHandler.cs</FilePath>
+            <Location Line="104" Character="22" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'showDialog' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATExtension\CommandHandlers\ShowDialogsHandler.cs</FilePath>
+            <Location Line="126" Character="22" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'settingsMenuHandler' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATExtension\CommandHandlers\ShowMenusHandler.cs</FilePath>
+            <Location Line="103" Character="22" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'showNewFileDialog' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATExtension\CommandHandlers\ShowNewFileDialogHandler.cs</FilePath>
+            <Location Line="65" Character="28" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'handlePhrasesEdit' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATExtension\CommandHandlers\ShowPhraseSpeakHandler.cs</FilePath>
+            <Location Line="87" Character="28" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'handlePhraseSpeak' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATExtension\CommandHandlers\ShowPhraseSpeakHandler.cs</FilePath>
+            <Location Line="104" Character="28" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'ResizeToFitDesktop' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATExtension\UI\AlphabetScannerCommon.cs</FilePath>
+            <Location Line="383" Character="21" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'contains' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATExtension\UI\AlphabetScannerCommon.cs</FilePath>
+            <Location Line="528" Character="22" />
+          </Diagnostic>
+        </Diagnostics>
+      </Project>
+      <Project Name="VisionActuator" FilePath="C:\Users\vlohse\source\repos\acat\src\Extensions\Default\Actuators\Vision\VisionActuator\VisionActuator.csproj">
+        <Diagnostics>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'buttonClose_Click' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Extensions\Default\Actuators\Vision\VisionActuator\PrefChooseForm.cs</FilePath>
+            <Location Line="78" Character="22" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'tableLayoutPanel1_Paint' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Extensions\Default\Actuators\Vision\VisionActuator\PrefChooseForm.cs</FilePath>
+            <Location Line="197" Character="22" />
+          </Diagnostic>
+          <Diagnostic Id="CA2211">
+            <Severity>Info</Severity>
+            <Message>Non-constant fields should not be visible</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Extensions\Default\Actuators\Vision\VisionActuator\Settings.cs</FilePath>
+            <Location Line="73" Character="30" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'triggerEvent' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Extensions\Default\Actuators\Vision\VisionActuator\VisionActuator.cs</FilePath>
+            <Location Line="282" Character="24" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'hasCameraListChanged' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Extensions\Default\Actuators\Vision\VisionActuator\VisionActuator.cs</FilePath>
+            <Location Line="474" Character="22" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'isCameraInstalled' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Extensions\Default\Actuators\Vision\VisionActuator\VisionActuator.cs</FilePath>
+            <Location Line="507" Character="22" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'unInit' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Extensions\Default\Actuators\Vision\VisionActuator\VisionActuator.cs</FilePath>
+            <Location Line="537" Character="22" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'unInit' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Extensions\Default\Actuators\Vision\VisionActuator\VisionActuatorSwitch.cs</FilePath>
+            <Location Line="98" Character="22" />
+          </Diagnostic>
+        </Diagnostics>
+      </Project>
+      <Project Name="LectureManagerAgent" FilePath="C:\Users\vlohse\source\repos\acat\src\Extensions\Default\FunctionalAgents\LectureManagerAgent\LectureManagerAgent.csproj">
+        <Diagnostics>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'closeCurrentPanel' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Extensions\Default\FunctionalAgents\LectureManagerAgent\LectureManagerAgent.cs</FilePath>
+            <Location Line="446" Character="22" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'getLectureManagerPanel' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Extensions\Default\FunctionalAgents\LectureManagerAgent\LectureManagerAgent.cs</FilePath>
+            <Location Line="471" Character="22" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'isContextMenuIcon' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Extensions\Default\FunctionalAgents\LectureManagerAgent\LectureManagerAgent.cs</FilePath>
+            <Location Line="484" Character="22" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'isContextMenuText' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Extensions\Default\FunctionalAgents\LectureManagerAgent\LectureManagerAgent.cs</FilePath>
+            <Location Line="495" Character="22" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'isMainFormActive' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Extensions\Default\FunctionalAgents\LectureManagerAgent\LectureManagerAgent.cs</FilePath>
+            <Location Line="504" Character="22" />
+          </Diagnostic>
+          <Diagnostic Id="CA1401">
+            <Severity>Info</Severity>
+            <Message>P/Invoke method 'GetCursorPos' should not be visible</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Extensions\Default\FunctionalAgents\LectureManagerAgent\LectureManagerMainForm.cs</FilePath>
+            <Location Line="328" Character="35" />
+          </Diagnostic>
+          <Diagnostic Id="CA1401">
+            <Severity>Info</Severity>
+            <Message>P/Invoke method 'SendMessage' should not be visible</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Extensions\Default\FunctionalAgents\LectureManagerAgent\LectureManagerMainForm.cs</FilePath>
+            <Location Line="331" Character="34" />
+          </Diagnostic>
+          <Diagnostic Id="CA1806">
+            <Severity>Info</Severity>
+            <Message>setCaretPosAndSelect calls SendMessage but does not use the HRESULT or error code that the method returns. This could lead to unexpected behavior in error conditions or low-resource situations. Use the result in a conditional statement, assign the result to a variable, or pass it as an argument to another method.</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Extensions\Default\FunctionalAgents\LectureManagerAgent\LectureManagerMainForm.cs</FilePath>
+            <Location Line="1464" Character="17" />
+          </Diagnostic>
+          <Diagnostic Id="CA1806">
+            <Severity>Info</Severity>
+            <Message>setCaretPosAndSelect calls SendMessage but does not use the HRESULT or error code that the method returns. This could lead to unexpected behavior in error conditions or low-resource situations. Use the result in a conditional statement, assign the result to a variable, or pass it as an argument to another method.</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Extensions\Default\FunctionalAgents\LectureManagerAgent\LectureManagerMainForm.cs</FilePath>
+            <Location Line="1480" Character="21" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'getSpeechBufferSize' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Extensions\Default\FunctionalAgents\LectureManagerAgent\LectureManagerMainForm.cs</FilePath>
+            <Location Line="871" Character="21" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'getSpeechTimerInterval' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Extensions\Default\FunctionalAgents\LectureManagerAgent\LectureManagerMainForm.cs</FilePath>
+            <Location Line="894" Character="21" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'getWords' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Extensions\Default\FunctionalAgents\LectureManagerAgent\LectureManagerMainForm.cs</FilePath>
+            <Location Line="924" Character="30" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'isEnd' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Extensions\Default\FunctionalAgents\LectureManagerAgent\LectureManagerMainForm.cs</FilePath>
+            <Location Line="1036" Character="22" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'isParagraphTerminator' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Extensions\Default\FunctionalAgents\LectureManagerAgent\LectureManagerMainForm.cs</FilePath>
+            <Location Line="1061" Character="22" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'isSentenceTerminator' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Extensions\Default\FunctionalAgents\LectureManagerAgent\LectureManagerMainForm.cs</FilePath>
+            <Location Line="1072" Character="22" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'isWhiteSpace' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Extensions\Default\FunctionalAgents\LectureManagerAgent\LectureManagerMainForm.cs</FilePath>
+            <Location Line="1082" Character="22" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'IsValid' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Extensions\Default\FunctionalAgents\LectureManagerAgent\LectureManagerMainForm.cs</FilePath>
+            <Location Line="1849" Character="25" />
+          </Diagnostic>
+          <Diagnostic Id="CA1829">
+            <Severity>Info</Severity>
+            <Message>Use the "Count" property instead of Enumerable.Count()</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Extensions\Default\FunctionalAgents\LectureManagerAgent\LectureManagerMainForm.cs</FilePath>
+            <Location Line="1365" Character="35" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'getTextFromWordFile' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Extensions\Default\FunctionalAgents\LectureManagerAgent\TextDocumentReader.cs</FilePath>
+            <Location Line="77" Character="24" />
+          </Diagnostic>
+        </Diagnostics>
+      </Project>
+      <Project Name="SampleActuator" FilePath="C:\Users\vlohse\source\repos\acat\src\Extensions\Default\Actuators\SampleActuator\SampleActuator.csproj">
+        <Diagnostics>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'unInit' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Extensions\Default\Actuators\SampleActuator\SampleActuatorSwitch.cs</FilePath>
+            <Location Line="98" Character="22" />
+          </Diagnostic>
+          <Diagnostic Id="CA2211">
+            <Severity>Info</Severity>
+            <Message>Non-constant fields should not be visible</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Extensions\Default\Actuators\SampleActuator\Settings.cs</FilePath>
+            <Location Line="37" Character="30" />
+          </Diagnostic>
+        </Diagnostics>
+      </Project>
+      <Project Name="Scanners" FilePath="C:\Users\vlohse\source\repos\acat\src\Extensions\Default\UI\Scanners\Scanners.csproj">
+        <Diagnostics>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'createGridMouseMover' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Extensions\Default\UI\Scanners\MouseScanner.cs</FilePath>
+            <Location Line="325" Character="32" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'OnRunCommand' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Extensions\Default\UI\Scanners\SwitchLanguageScanner.cs</FilePath>
+            <Location Line="326" Character="21" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'setFormStyles' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Extensions\Default\UI\Scanners\SwitchLanguageScanner.cs</FilePath>
+            <Location Line="679" Character="30" />
+          </Diagnostic>
+        </Diagnostics>
+      </Project>
+      <Project Name="FireFoxAgent" FilePath="C:\Users\vlohse\source\repos\acat\src\Extensions\Default\AppAgents\FireFoxAgent\FireFoxAgent.csproj">
+        <Diagnostics>
+          <Diagnostic Id="CA2211">
+            <Severity>Info</Severity>
+            <Message>Non-constant fields should not be visible</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Extensions\Default\AppAgents\FireFoxAgent\FireFoxAgentSettings.cs</FilePath>
+            <Location Line="38" Character="30" />
+          </Diagnostic>
+        </Diagnostics>
+      </Project>
+      <Project Name="WordpadAgent" FilePath="C:\Users\vlohse\source\repos\acat\src\Extensions\Default\AppAgents\WordpadAgent\WordpadAgent.csproj">
+        <Diagnostics>
+          <Diagnostic Id="CA2211">
+            <Severity>Info</Severity>
+            <Message>Non-constant fields should not be visible</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Extensions\Default\AppAgents\WordpadAgent\WordPadAgentSettings.cs</FilePath>
+            <Location Line="38" Character="30" />
+          </Diagnostic>
+        </Diagnostics>
+      </Project>
+      <Project Name="FoxitReaderAgent" FilePath="C:\Users\vlohse\source\repos\acat\src\Extensions\Default\AppAgents\FoxitReaderAgent\FoxitReaderAgent.csproj">
+        <Diagnostics>
+          <Diagnostic Id="CA2211">
+            <Severity>Info</Severity>
+            <Message>Non-constant fields should not be visible</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Extensions\Default\AppAgents\FoxitReaderAgent\FoxitReaderAgentSettings.cs</FilePath>
+            <Location Line="38" Character="30" />
+          </Diagnostic>
+        </Diagnostics>
+      </Project>
+      <Project Name="ACATDashboard" FilePath="C:\Users\vlohse\source\repos\acat\src\Applications\ACATDashboard\ACATDashboard.csproj">
+        <Diagnostics>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'bigMessageBox' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Applications\ACATDashboard\DashboardForm.cs</FilePath>
+            <Location Line="235" Character="30" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'getIconAsBitmap' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Applications\ACATDashboard\DashboardForm.cs</FilePath>
+            <Location Line="484" Character="24" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'setListViewSpacing' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Applications\ACATDashboard\DashboardForm.cs</FilePath>
+            <Location Line="695" Character="22" />
+          </Diagnostic>
+          <Diagnostic Id="CA2211">
+            <Severity>Info</Severity>
+            <Message>Non-constant fields should not be visible</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Applications\ACATDashboard\DashboardSettings.cs</FilePath>
+            <Location Line="75" Character="30" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'GetDataFromResource' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Applications\ACATDashboard\IconExtractor.cs</FilePath>
+            <Location Line="208" Character="24" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'GetFileName' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Applications\ACATDashboard\IconExtractor.cs</FilePath>
+            <Location Line="234" Character="24" />
+          </Diagnostic>
+          <Diagnostic Id="CA1806">
+            <Severity>Info</Severity>
+            <Message>Main calls ShowWindow but does not use the HRESULT or error code that the method returns. This could lead to unexpected behavior in error conditions or low-resource situations. Use the result in a conditional statement, assign the result to a variable, or pass it as an argument to another method.</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Applications\ACATDashboard\Program.cs</FilePath>
+            <Location Line="65" Character="21" />
+          </Diagnostic>
+        </Diagnostics>
+      </Project>
+      <Project Name="Dialogs" FilePath="C:\Users\vlohse\source\repos\acat\src\Extensions\Default\UI\Dialogs\Dialogs.csproj">
+        <Diagnostics>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'clearTextBox' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Extensions\Default\UI\Dialogs\ACATTryoutForm.cs</FilePath>
+            <Location Line="331" Character="22" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'checkPINCode' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Extensions\Default\UI\Dialogs\ScreenLockSettingsForm.cs</FilePath>
+            <Location Line="210" Character="25" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'textToSpeech' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Extensions\Default\UI\Dialogs\TalkWindowForm.cs</FilePath>
+            <Location Line="466" Character="22" />
+          </Diagnostic>
+        </Diagnostics>
+      </Project>
+      <Project Name="DLLHostAgent" FilePath="C:\Users\vlohse\source\repos\acat\src\Extensions\Default\AppAgents\DLLHostAgent\DLLHostAgent.csproj">
+        <Diagnostics>
+          <Diagnostic Id="CA2211">
+            <Severity>Info</Severity>
+            <Message>Non-constant fields should not be visible</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Extensions\Default\AppAgents\DLLHostAgent\DLLHostAgentSettings.cs</FilePath>
+            <Location Line="39" Character="30" />
+          </Diagnostic>
+        </Diagnostics>
+      </Project>
+      <Project Name="MediaPlayerAgent" FilePath="C:\Users\vlohse\source\repos\acat\src\Extensions\Default\AppAgents\MediaPlayerAgent\MediaPlayerAgent.csproj">
+        <Diagnostics>
+          <Diagnostic Id="CA2211">
+            <Severity>Info</Severity>
+            <Message>Non-constant fields should not be visible</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Extensions\Default\AppAgents\MediaPlayerAgent\MediaPlayerAgentSettings.cs</FilePath>
+            <Location Line="38" Character="30" />
+          </Diagnostic>
+        </Diagnostics>
+      </Project>
+      <Project Name="AbbreviationsAgent" FilePath="C:\Users\vlohse\source\repos\acat\src\Extensions\Default\FunctionalAgents\AbbreviationsAgent\AbbreviationsAgent.csproj">
+        <Diagnostics>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'includeAbbr' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Extensions\Default\FunctionalAgents\AbbreviationsAgent\AbbreviationsScanner.cs</FilePath>
+            <Location Line="845" Character="22" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'modeToString' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Extensions\Default\FunctionalAgents\AbbreviationsAgent\AbbreviationsScanner.cs</FilePath>
+            <Location Line="863" Character="24" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'setFormStyles' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Extensions\Default\FunctionalAgents\AbbreviationsAgent\AbbreviationsScanner.cs</FilePath>
+            <Location Line="982" Character="30" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'sort' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Extensions\Default\FunctionalAgents\AbbreviationsAgent\AbbreviationsScanner.cs</FilePath>
+            <Location Line="994" Character="36" />
+          </Diagnostic>
+          <Diagnostic Id="CA1829">
+            <Severity>Info</Severity>
+            <Message>Use the "Count" property instead of Enumerable.Count()</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Extensions\Default\FunctionalAgents\AbbreviationsAgent\AbbreviationsScanner.cs</FilePath>
+            <Location Line="909" Character="18" />
+          </Diagnostic>
+        </Diagnostics>
+      </Project>
+      <Project Name="SwitchWindowsAgent" FilePath="C:\Users\vlohse\source\repos\acat\src\Extensions\Default\FunctionalAgents\SwitchWindowsAgent\SwitchWindowsAgent.csproj">
+        <Diagnostics>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'closeScanner' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Extensions\Default\FunctionalAgents\SwitchWindowsAgent\SwitchWindowsAgent.cs</FilePath>
+            <Location Line="255" Character="22" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'confirm' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Extensions\Default\FunctionalAgents\SwitchWindowsAgent\SwitchWindowsAgent.cs</FilePath>
+            <Location Line="269" Character="22" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'OnRunCommand' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Extensions\Default\FunctionalAgents\SwitchWindowsAgent\SwitchWindowsScanner.cs</FilePath>
+            <Location Line="423" Character="21" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'filterWindows' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Extensions\Default\FunctionalAgents\SwitchWindowsAgent\SwitchWindowsScanner.cs</FilePath>
+            <Location Line="560" Character="46" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'setFormStyles' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Extensions\Default\FunctionalAgents\SwitchWindowsAgent\SwitchWindowsScanner.cs</FilePath>
+            <Location Line="888" Character="30" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'sortWindowList' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Extensions\Default\FunctionalAgents\SwitchWindowsAgent\SwitchWindowsScanner.cs</FilePath>
+            <Location Line="910" Character="46" />
+          </Diagnostic>
+          <Diagnostic Id="CA1829">
+            <Severity>Info</Severity>
+            <Message>Use the "Count" property instead of Enumerable.Count()</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Extensions\Default\FunctionalAgents\SwitchWindowsAgent\SwitchWindowsScanner.cs</FilePath>
+            <Location Line="816" Character="18" />
+          </Diagnostic>
+        </Diagnostics>
+      </Project>
+      <Project Name="FileBrowserAgent" FilePath="C:\Users\vlohse\source\repos\acat\src\Extensions\Default\FunctionalAgents\FileBrowserAgent\FileBrowserAgent.csproj">
+        <Diagnostics>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'activateWindow' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Extensions\Default\FunctionalAgents\FileBrowserAgent\FileBrowserAgent.cs</FilePath>
+            <Location Line="385" Character="22" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'closeScanner' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Extensions\Default\FunctionalAgents\FileBrowserAgent\FileBrowserAgent.cs</FilePath>
+            <Location Line="429" Character="22" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'parseAction' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Extensions\Default\FunctionalAgents\FileBrowserAgent\FileBrowserAgent.cs</FilePath>
+            <Location Line="482" Character="50" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'sanitizeFileExtensions' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Extensions\Default\FunctionalAgents\FileBrowserAgent\FileBrowserScanner.cs</FilePath>
+            <Location Line="536" Character="21" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'getAllFiles' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Extensions\Default\FunctionalAgents\FileBrowserAgent\FileBrowserScanner.cs</FilePath>
+            <Location Line="852" Character="32" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'getFileOperationFromUser' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Extensions\Default\FunctionalAgents\FileBrowserAgent\FileBrowserScanner.cs</FilePath>
+            <Location Line="893" Character="31" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'includeFile' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Extensions\Default\FunctionalAgents\FileBrowserAgent\FileBrowserScanner.cs</FilePath>
+            <Location Line="1085" Character="22" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'setFormStyles' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Extensions\Default\FunctionalAgents\FileBrowserAgent\FileBrowserScanner.cs</FilePath>
+            <Location Line="1266" Character="30" />
+          </Diagnostic>
+          <Diagnostic Id="CA1829">
+            <Severity>Info</Severity>
+            <Message>Use the "Count" property instead of Enumerable.Count()</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Extensions\Default\FunctionalAgents\FileBrowserAgent\FileBrowserScanner.cs</FilePath>
+            <Location Line="1194" Character="25" />
+          </Diagnostic>
+          <Diagnostic Id="CA1829">
+            <Severity>Info</Severity>
+            <Message>Use the "Count" property instead of Enumerable.Count()</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Extensions\Default\FunctionalAgents\FileBrowserAgent\FileBrowserScanner.cs</FilePath>
+            <Location Line="1196" Character="18" />
+          </Diagnostic>
+          <Diagnostic Id="CA2211">
+            <Severity>Info</Severity>
+            <Message>Non-constant fields should not be visible</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Extensions\Default\FunctionalAgents\FileBrowserAgent\FileBrowserSettings.cs</FilePath>
+            <Location Line="40" Character="30" />
+          </Diagnostic>
+        </Diagnostics>
+      </Project>
+      <Project Name="LaunchAppAgent" FilePath="C:\Users\vlohse\source\repos\acat\src\Extensions\Default\FunctionalAgents\LaunchAppAgent\LaunchAppAgent.csproj">
+        <Diagnostics>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'activateWindow' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Extensions\Default\FunctionalAgents\LaunchAppAgent\LaunchAppAgent.cs</FilePath>
+            <Location Line="255" Character="22" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'closeScanner' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Extensions\Default\FunctionalAgents\LaunchAppAgent\LaunchAppAgent.cs</FilePath>
+            <Location Line="268" Character="22" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'confirm' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Extensions\Default\FunctionalAgents\LaunchAppAgent\LaunchAppAgent.cs</FilePath>
+            <Location Line="283" Character="22" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'normalizeCommandLine' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Extensions\Default\FunctionalAgents\LaunchAppAgent\LaunchAppAgent.cs</FilePath>
+            <Location Line="348" Character="24" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'filterApps' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Extensions\Default\FunctionalAgents\LaunchAppAgent\LaunchAppScanner.cs</FilePath>
+            <Location Line="600" Character="31" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'setFormStyles' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Extensions\Default\FunctionalAgents\LaunchAppAgent\LaunchAppScanner.cs</FilePath>
+            <Location Line="954" Character="30" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'sortFiles' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Extensions\Default\FunctionalAgents\LaunchAppAgent\LaunchAppScanner.cs</FilePath>
+            <Location Line="966" Character="31" />
+          </Diagnostic>
+          <Diagnostic Id="CA1829">
+            <Severity>Info</Severity>
+            <Message>Use the "Count" property instead of Enumerable.Count()</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Extensions\Default\FunctionalAgents\LaunchAppAgent\LaunchAppScanner.cs</FilePath>
+            <Location Line="883" Character="25" />
+          </Diagnostic>
+          <Diagnostic Id="CA1829">
+            <Severity>Info</Severity>
+            <Message>Use the "Count" property instead of Enumerable.Count()</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Extensions\Default\FunctionalAgents\LaunchAppAgent\LaunchAppScanner.cs</FilePath>
+            <Location Line="885" Character="18" />
+          </Diagnostic>
+          <Diagnostic Id="CA2211">
+            <Severity>Info</Severity>
+            <Message>Non-constant fields should not be visible</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Extensions\Default\FunctionalAgents\LaunchAppAgent\LaunchAppSettings.cs</FilePath>
+            <Location Line="39" Character="30" />
+          </Diagnostic>
+        </Diagnostics>
+      </Project>
+      <Project Name="PhraseSpeakAgent" FilePath="C:\Users\vlohse\source\repos\acat\src\Extensions\Default\FunctionalAgents\PhraseSpeakAgent\PhraseSpeakAgent.csproj">
+        <Diagnostics>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'ExtendedKeyDown' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Extensions\Default\FunctionalAgents\PhraseSpeakAgent\PhraseListEditForm.cs</FilePath>
+            <Location Line="94" Character="21" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'ExtendedKeyUp' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Extensions\Default\FunctionalAgents\PhraseSpeakAgent\PhraseListEditForm.cs</FilePath>
+            <Location Line="99" Character="21" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'formatText' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Extensions\Default\FunctionalAgents\PhraseSpeakAgent\PhraseListEditForm.cs</FilePath>
+            <Location Line="283" Character="24" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'isFavorite' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Extensions\Default\FunctionalAgents\PhraseSpeakAgent\PhraseListEditForm.cs</FilePath>
+            <Location Line="438" Character="22" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'unformatText' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Extensions\Default\FunctionalAgents\PhraseSpeakAgent\PhraseListEditForm.cs</FilePath>
+            <Location Line="509" Character="24" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'includePhrase' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Extensions\Default\FunctionalAgents\PhraseSpeakAgent\PhraseSpeakScanner.cs</FilePath>
+            <Location Line="768" Character="22" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'setFormStyles' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Extensions\Default\FunctionalAgents\PhraseSpeakAgent\PhraseSpeakScanner.cs</FilePath>
+            <Location Line="1008" Character="30" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'sort' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Extensions\Default\FunctionalAgents\PhraseSpeakAgent\PhraseSpeakScanner.cs</FilePath>
+            <Location Line="1039" Character="30" />
+          </Diagnostic>
+          <Diagnostic Id="CA1829">
+            <Severity>Info</Severity>
+            <Message>Use the "Count" property instead of Enumerable.Count()</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Extensions\Default\FunctionalAgents\PhraseSpeakAgent\PhraseSpeakScanner.cs</FilePath>
+            <Location Line="937" Character="18" />
+          </Diagnostic>
+        </Diagnostics>
+      </Project>
+      <Project Name="ApplicationFrameHostAgent" FilePath="C:\Users\vlohse\source\repos\acat\src\Extensions\Default\AppAgents\ApplicationFrameHostAgent\ApplicationFrameHostAgent.csproj">
+        <Diagnostics>
+          <Diagnostic Id="CA2211">
+            <Severity>Info</Severity>
+            <Message>Non-constant fields should not be visible</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Extensions\Default\AppAgents\ApplicationFrameHostAgent\ApplicationFrameHostAgentSettings.cs</FilePath>
+            <Location Line="38" Character="30" />
+          </Diagnostic>
+        </Diagnostics>
+      </Project>
+      <Project Name="NotepadAgent" FilePath="C:\Users\vlohse\source\repos\acat\src\Extensions\Default\AppAgents\NotepadAgent\NotepadAgent.csproj">
+        <Diagnostics>
+          <Diagnostic Id="CA2211">
+            <Severity>Info</Severity>
+            <Message>Non-constant fields should not be visible</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Extensions\Default\AppAgents\NotepadAgent\NotepadAgentSettings.cs</FilePath>
+            <Location Line="74" Character="30" />
+          </Diagnostic>
+        </Diagnostics>
+      </Project>
+      <Project Name="Scanners" FilePath="C:\Users\vlohse\source\repos\acat\src\Extensions\Default\UI\en\Scanners\Scanners.csproj">
+        <Diagnostics>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'handlePhraseSpeak' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Extensions\Default\UI\en\Scanners\TalkApplicationScannerAbc.cs</FilePath>
+            <Location Line="603" Character="28" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'setFormStyles' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Extensions\Default\UI\en\Scanners\TalkApplicationScannerAbc.cs</FilePath>
+            <Location Line="657" Character="30" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'textToSpeech' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Extensions\Default\UI\en\Scanners\TalkApplicationScannerAbc.cs</FilePath>
+            <Location Line="775" Character="22" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'handlePhraseSpeak' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Extensions\Default\UI\en\Scanners\TalkApplicationScannerAlternate.cs</FilePath>
+            <Location Line="606" Character="28" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'setFormStyles' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Extensions\Default\UI\en\Scanners\TalkApplicationScannerAlternate.cs</FilePath>
+            <Location Line="666" Character="30" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'textToSpeech' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Extensions\Default\UI\en\Scanners\TalkApplicationScannerAlternate.cs</FilePath>
+            <Location Line="784" Character="22" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'handlePhraseSpeak' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Extensions\Default\UI\en\Scanners\TalkApplicationScannerQwerty.cs</FilePath>
+            <Location Line="558" Character="28" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'textToSpeech' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Extensions\Default\UI\en\Scanners\TalkApplicationScannerQwerty.cs</FilePath>
+            <Location Line="692" Character="22" />
           </Diagnostic>
         </Diagnostics>
       </Project>
