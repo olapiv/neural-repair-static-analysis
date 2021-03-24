@@ -22,19 +22,25 @@ while read GH_REPO_URL do
                 if [ "$ASSEMBLY_DLL" != "$ASSEMBLY_DLL_CSV" ]; then
                     continue
                 fi
-                
-                # TODO: Check exact Roslynator flags again; Specifically:
-                #   --ignore-compiler-errors
 
                 FILENAME = $SOLUTION_FILE + "__" + $LAST_COMMIT + "__" + $DIAGNOSTIC_ID
                 ANALYSIS_FILEPATH = "/analysis_files/" + $FILENAME + ".xml"
                 DIFF_FILEPATH = "/diffs/" + $FILENAME + ".diff"
 
-                # TODO: Check what the xml files look like.
-                roslynator analyze SOLUTION_FILE -v quiet --output $ANALYSIS_FILEPATH --ignore-analyzer-references --analyzer-assemblies ASSEMBLY_DLL --supported-diagnostics $DIAGNOSTIC_ID
+                roslynator analyze SOLUTION_FILE \
+                    -v quiet \
+                    --output $ANALYSIS_FILEPATH \
+                    --report-not-configurable \  # Mostly compiler diagnostics (CSxxxx)
+                    --ignore-analyzer-references \  # Only use our own analyzer assemblies 
+                    --analyzer-assemblies ASSEMBLY_DLL \
+                    --supported-diagnostics $DIAGNOSTIC_ID
 
                 # This basically produces a diff
-                roslynator fix SOLUTION_FILE --ignore-analyzer-references --analyzer-assemblies ASSEMBLY_DLL --supported-diagnostics $DIAGNOSTIC_ID
+                roslynator fix SOLUTION_FILE 
+                    --ignore-analyzer-references \
+                    --analyzer-assemblies ASSEMBLY_DLL \
+                    --supported-diagnostics $DIAGNOSTIC_ID
+
                 git diff > $DIFF_FILENAME
                 git reset --hard
 
