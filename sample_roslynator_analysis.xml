@@ -1,0 +1,1662 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Roslynator>
+  <CodeAnalysis>
+    <Summary>
+      <Diagnostic Id="CA1018" Title="Mark attributes with AttributeUsageAttribute" Count="6" />
+      <Diagnostic Id="CA1401" Title="P/Invokes should not be visible" Count="89" />
+      <Diagnostic Id="CA1507" Title="Use nameof to express symbol names" Count="1" />
+      <Diagnostic Id="CA1806" Title="Do not ignore method results" Count="23" />
+      <Diagnostic Id="CA1816" Title="Dispose methods should call SuppressFinalize" Count="2" />
+      <Diagnostic Id="CA1822" Title="Mark members as static" Count="106" />
+      <Diagnostic Id="CA1824" Title="Mark assemblies with NeutralResourcesLanguageAttribute" Count="1" />
+      <Diagnostic Id="CA1829" Title="Use Length/Count property instead of Count() when available" Count="3" />
+      <Diagnostic Id="CA1834" Title="Consider using 'StringBuilder.Append(char)' when applicable" Count="1" />
+      <Diagnostic Id="CA2101" Title="Specify marshaling for P/Invoke string arguments" Count="10" />
+      <Diagnostic Id="CA2211" Title="Non-constant fields should not be visible" Count="29" />
+      <Diagnostic Id="CS0012" Title="" Count="71" />
+      <Diagnostic Id="CS0028" Title="Method has the wrong signature to be an entry point" Count="4" />
+      <Diagnostic Id="CS0029" Title="" Count="1" />
+      <Diagnostic Id="CS0103" Title="" Count="353" />
+      <Diagnostic Id="CS0115" Title="" Count="11" />
+      <Diagnostic Id="CS0117" Title="" Count="3" />
+      <Diagnostic Id="CS0234" Title="" Count="47" />
+      <Diagnostic Id="CS0246" Title="" Count="511" />
+      <Diagnostic Id="CS0308" Title="" Count="3" />
+      <Diagnostic Id="CS0518" Title="" Count="1625" />
+      <Diagnostic Id="CS1061" Title="" Count="17" />
+      <Diagnostic Id="CS1503" Title="" Count="14" />
+      <Diagnostic Id="CS1729" Title="" Count="1" />
+      <Diagnostic Id="CS5001" Title="" Count="4" />
+    </Summary>
+    <Projects>
+      <Project Name="Core" FilePath="C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\Core.csproj">
+        <Diagnostics>
+          <Diagnostic Id="CA1824">
+            <Severity>Info</Severity>
+            <Message>Mark assemblies with NeutralResourcesLanguageAttribute</Message>
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'GetAbbreviationsFilePath' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\AbbreviationsManagement\Abbreviations.cs</FilePath>
+            <Location Line="131" Character="23" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'closeAbbreviationFile' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\AbbreviationsManagement\Abbreviations.cs</FilePath>
+            <Location Line="326" Character="22" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'createAbbreviationsFile' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\AbbreviationsManagement\Abbreviations.cs</FilePath>
+            <Location Line="345" Character="31" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'getSwitchAction' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\ActuatorManagement\ActuatorBase.cs</FilePath>
+            <Location Line="343" Character="32" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'parseLong' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\ActuatorManagement\ActuatorBase.cs</FilePath>
+            <Location Line="558" Character="22" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'OnCalibrationPeriodExpired' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\ActuatorManagement\ActuatorManager.cs</FilePath>
+            <Location Line="302" Character="21" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'OnCalibrationAction' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\ActuatorManagement\ActuatorManager.cs</FilePath>
+            <Location Line="524" Character="23" />
+          </Diagnostic>
+          <Diagnostic Id="CA2211">
+            <Severity>Info</Severity>
+            <Message>Non-constant fields should not be visible</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\ActuatorManagement\ActuatorManager.cs</FilePath>
+            <Location Line="51" Character="30" />
+          </Diagnostic>
+          <Diagnostic Id="CA1806">
+            <Severity>Info</Severity>
+            <Message>notifyEvent calls GetKeyboardState but does not use the HRESULT or error code that the method returns. This could lead to unexpected behavior in error conditions or low-resource situations. Use the result in a conditional statement, assign the result to a variable, or pass it as an argument to another method.</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\ActuatorManagement\KeyboardActuator\KeyboardHook.cs</FilePath>
+            <Location Line="176" Character="25" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'unInit' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\ActuatorManagement\KeyboardActuator\KeyboardSwitch.cs</FilePath>
+            <Location Line="113" Character="22" />
+          </Diagnostic>
+          <Diagnostic Id="CA2211">
+            <Severity>Info</Severity>
+            <Message>Non-constant fields should not be visible</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\ActuatorManagement\Settings\ActuatorConfig.cs</FilePath>
+            <Location Line="42" Character="30" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'formatCommandForDisplay' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\ActuatorManagement\UI\ConfigureKeyboardActuatorForm.cs</FilePath>
+            <Location Line="338" Character="24" />
+          </Diagnostic>
+          <Diagnostic Id="CA1829">
+            <Severity>Info</Severity>
+            <Message>Use the "Count" property instead of Enumerable.Count()</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\ActuatorManagement\UI\ConfigureKeyboardActuatorForm.cs</FilePath>
+            <Location Line="691" Character="49" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'formatCommandForDisplay' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\ActuatorManagement\UI\ConfigureSwitchesForm.cs</FilePath>
+            <Location Line="291" Character="24" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'addKey' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\ActuatorManagement\UI\EditKeyboardActuatorSwitchForm.cs</FilePath>
+            <Location Line="171" Character="24" />
+          </Diagnostic>
+          <Diagnostic Id="CA1401">
+            <Severity>Info</Severity>
+            <Message>P/Invoke method 'CancelSynchronousIo' should not be visible</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\ActuatorManagement\USBHidInterface\DllImports.cs</FilePath>
+            <Location Line="45" Character="35" />
+          </Diagnostic>
+          <Diagnostic Id="CA1401">
+            <Severity>Info</Severity>
+            <Message>P/Invoke method 'CloseHandle' should not be visible</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\ActuatorManagement\USBHidInterface\DllImports.cs</FilePath>
+            <Location Line="48" Character="34" />
+          </Diagnostic>
+          <Diagnostic Id="CA1401">
+            <Severity>Info</Severity>
+            <Message>P/Invoke method 'CreateFile' should not be visible</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\ActuatorManagement\USBHidInterface\DllImports.cs</FilePath>
+            <Location Line="51" Character="34" />
+          </Diagnostic>
+          <Diagnostic Id="CA1401">
+            <Severity>Info</Severity>
+            <Message>P/Invoke method 'DuplicateHandle' should not be visible</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\ActuatorManagement\USBHidInterface\DllImports.cs</FilePath>
+            <Location Line="62" Character="35" />
+          </Diagnostic>
+          <Diagnostic Id="CA1401">
+            <Severity>Info</Severity>
+            <Message>P/Invoke method 'GetCurrentProcess' should not be visible</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\ActuatorManagement\USBHidInterface\DllImports.cs</FilePath>
+            <Location Line="72" Character="37" />
+          </Diagnostic>
+          <Diagnostic Id="CA1401">
+            <Severity>Info</Severity>
+            <Message>P/Invoke method 'GetCurrentThread' should not be visible</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\ActuatorManagement\USBHidInterface\DllImports.cs</FilePath>
+            <Location Line="75" Character="37" />
+          </Diagnostic>
+          <Diagnostic Id="CA1401">
+            <Severity>Info</Severity>
+            <Message>P/Invoke method 'HidD_FreePreparsedData' should not be visible</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\ActuatorManagement\USBHidInterface\DllImports.cs</FilePath>
+            <Location Line="78" Character="34" />
+          </Diagnostic>
+          <Diagnostic Id="CA1401">
+            <Severity>Info</Severity>
+            <Message>P/Invoke method 'HidD_GetHidGuid' should not be visible</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\ActuatorManagement\USBHidInterface\DllImports.cs</FilePath>
+            <Location Line="83" Character="35" />
+          </Diagnostic>
+          <Diagnostic Id="CA1401">
+            <Severity>Info</Severity>
+            <Message>P/Invoke method 'HidD_GetPreparsedData' should not be visible</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\ActuatorManagement\USBHidInterface\DllImports.cs</FilePath>
+            <Location Line="87" Character="34" />
+          </Diagnostic>
+          <Diagnostic Id="CA1401">
+            <Severity>Info</Severity>
+            <Message>P/Invoke method 'HidP_GetCaps' should not be visible</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\ActuatorManagement\USBHidInterface\DllImports.cs</FilePath>
+            <Location Line="92" Character="34" />
+          </Diagnostic>
+          <Diagnostic Id="CA1401">
+            <Severity>Info</Severity>
+            <Message>P/Invoke method 'ReadFile' should not be visible</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\ActuatorManagement\USBHidInterface\DllImports.cs</FilePath>
+            <Location Line="97" Character="35" />
+          </Diagnostic>
+          <Diagnostic Id="CA1401">
+            <Severity>Info</Severity>
+            <Message>P/Invoke method 'SetupDiDestroyDeviceInfoList' should not be visible</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\ActuatorManagement\USBHidInterface\DllImports.cs</FilePath>
+            <Location Line="106" Character="34" />
+          </Diagnostic>
+          <Diagnostic Id="CA1401">
+            <Severity>Info</Severity>
+            <Message>P/Invoke method 'SetupDiEnumDeviceInterfaces' should not be visible</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\ActuatorManagement\USBHidInterface\DllImports.cs</FilePath>
+            <Location Line="111" Character="34" />
+          </Diagnostic>
+          <Diagnostic Id="CA1401">
+            <Severity>Info</Severity>
+            <Message>P/Invoke method 'SetupDiGetClassDevs' should not be visible</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\ActuatorManagement\USBHidInterface\DllImports.cs</FilePath>
+            <Location Line="119" Character="34" />
+          </Diagnostic>
+          <Diagnostic Id="CA1401">
+            <Severity>Info</Severity>
+            <Message>P/Invoke method 'SetupDiGetDeviceInterfaceDetail' should not be visible</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\ActuatorManagement\USBHidInterface\DllImports.cs</FilePath>
+            <Location Line="126" Character="34" />
+          </Diagnostic>
+          <Diagnostic Id="CA1401">
+            <Severity>Info</Severity>
+            <Message>P/Invoke method 'SetupDiGetDeviceInterfaceDetail' should not be visible</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\ActuatorManagement\USBHidInterface\DllImports.cs</FilePath>
+            <Location Line="135" Character="34" />
+          </Diagnostic>
+          <Diagnostic Id="CA1401">
+            <Severity>Info</Severity>
+            <Message>P/Invoke method 'WriteFile' should not be visible</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\ActuatorManagement\USBHidInterface\DllImports.cs</FilePath>
+            <Location Line="144" Character="34" />
+          </Diagnostic>
+          <Diagnostic Id="CA2101">
+            <Severity>Info</Severity>
+            <Message>Specify marshaling for P/Invoke string arguments</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\ActuatorManagement\USBHidInterface\DllImports.cs</FilePath>
+            <Location Line="50" Character="10" />
+          </Diagnostic>
+          <Diagnostic Id="CA1806">
+            <Severity>Info</Severity>
+            <Message>CloseFile calls CloseHandle but does not use the HRESULT or error code that the method returns. This could lead to unexpected behavior in error conditions or low-resource situations. Use the result in a conditional statement, assign the result to a variable, or pass it as an argument to another method.</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\ActuatorManagement\USBHidInterface\USBInterop.cs</FilePath>
+            <Location Line="75" Character="17" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'CancelSynchronousIo' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\ActuatorManagement\USBHidInterface\USBInterop.cs</FilePath>
+            <Location Line="63" Character="21" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'DuplicateHandle' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\ActuatorManagement\USBHidInterface\USBInterop.cs</FilePath>
+            <Location Line="98" Character="23" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'GetPreparsedData' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\ActuatorManagement\USBHidInterface\USBInterop.cs</FilePath>
+            <Location Line="140" Character="20" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'InteropFreePreparsedData' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\ActuatorManagement\USBHidInterface\USBInterop.cs</FilePath>
+            <Location Line="148" Character="20" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'checkCommandEnabled' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\AgentManagement\AgentBase.cs</FilePath>
+            <Location Line="377" Character="24" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'isDialog' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\AgentManagement\AgentManager.cs</FilePath>
+            <Location Line="1288" Character="22" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'isMenu' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\AgentManagement\AgentManager.cs</FilePath>
+            <Location Line="1326" Character="22" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'release' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\AgentManagement\AgentManager.cs</FilePath>
+            <Location Line="1531" Character="22" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'tryLock' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\AgentManagement\AgentManager.cs</FilePath>
+            <Location Line="1620" Character="22" />
+          </Diagnostic>
+          <Diagnostic Id="CA2211">
+            <Severity>Info</Severity>
+            <Message>Non-constant fields should not be visible</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\AgentManagement\AgentManager.cs</FilePath>
+            <Location Line="121" Character="30" />
+          </Diagnostic>
+          <Diagnostic Id="CA2211">
+            <Severity>Info</Severity>
+            <Message>Non-constant fields should not be visible</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\AgentManagement\AgentManager.cs</FilePath>
+            <Location Line="126" Character="30" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'sendChar' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\AgentManagement\Keyboard.cs</FilePath>
+            <Location Line="348" Character="22" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'trySendExtendedASCII' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\AgentManagement\Keyboard.cs</FilePath>
+            <Location Line="395" Character="22" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'isValid' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\AgentManagement\TextControlAgents\KeyLogTextControlAgent.cs</FilePath>
+            <Location Line="373" Character="22" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'checkCommandEnabled' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\AgentManagement\TextControlAgents\TextControlAgentBase.cs</FilePath>
+            <Location Line="866" Character="24" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'ClearText' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\AgentManagement\TextControlAgents\TextControlAgentBase.cs</FilePath>
+            <Location Line="879" Character="24" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'GetCaretPos' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\AgentManagement\TextControlAgents\TextControlAgentBase.cs</FilePath>
+            <Location Line="892" Character="23" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'getNormalizedStringForSendWait' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\AgentManagement\TextControlAgents\TextControlAgentBase.cs</FilePath>
+            <Location Line="920" Character="26" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'GetText' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\AgentManagement\TextControlAgents\TextControlAgentBase.cs</FilePath>
+            <Location Line="981" Character="26" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'SetCaretPos' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\AgentManagement\TextControlAgents\TextControlAgentBase.cs</FilePath>
+            <Location Line="1055" Character="24" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'SetFocus' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\AgentManagement\TextControlAgents\TextControlAgentBase.cs</FilePath>
+            <Location Line="1078" Character="24" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'UnselectText' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\AgentManagement\TextControlAgents\TextControlAgentBase.cs</FilePath>
+            <Location Line="1132" Character="24" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'ignoreApp' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\AgentManagement\UnsupportedAppAgent.cs</FilePath>
+            <Location Line="124" Character="22" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'getContainerWidget' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\AnimationManagement\Animation.cs</FilePath>
+            <Location Line="345" Character="24" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'resolveName' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\AnimationManagement\Animation.cs</FilePath>
+            <Location Line="416" Character="24" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'ResolveBool' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\AnimationManagement\AnimationManager.cs</FilePath>
+            <Location Line="282" Character="21" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'release' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\AnimationManagement\AnimationPlayer.cs</FilePath>
+            <Location Line="567" Character="22" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'tryEnter' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\AnimationManagement\AnimationPlayer.cs</FilePath>
+            <Location Line="839" Character="22" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'createAndLoadAnimationEntry' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\AnimationManagement\Animations.cs</FilePath>
+            <Location Line="162" Character="27" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'formatArg' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\Audit\AuditEventBase.cs</FilePath>
+            <Location Line="107" Character="24" />
+          </Diagnostic>
+          <Diagnostic Id="CA2211">
+            <Severity>Info</Severity>
+            <Message>Non-constant fields should not be visible</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\CommandManagement\CmdDescriptorTable.cs</FilePath>
+            <Location Line="39" Character="30" />
+          </Diagnostic>
+          <Diagnostic Id="CA2211">
+            <Severity>Info</Severity>
+            <Message>Non-constant fields should not be visible</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\CommandManagement\CmdScopeTable.cs</FilePath>
+            <Location Line="39" Character="30" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'Init' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\CommandManagement\CommandManager.cs</FilePath>
+            <Location Line="48" Character="21" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'notifyRunCommandHookSubscribers' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\Interpreter\Interpret.cs</FilePath>
+            <Location Line="352" Character="22" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'isValidToken' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\Interpreter\Parser.cs</FilePath>
+            <Location Line="215" Character="22" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'splitArguments' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\Interpreter\Parser.cs</FilePath>
+            <Location Line="274" Character="22" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'actuateTextBox' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\PanelManagement\Common\DialogCommon.cs</FilePath>
+            <Location Line="395" Character="22" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'createStartupArgForScanner' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\PanelManagement\Common\DialogCommon.cs</FilePath>
+            <Location Line="437" Character="28" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'runCommandAgent' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\PanelManagement\Common\ScannerCommon.cs</FilePath>
+            <Location Line="1424" Character="22" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'textToSpeech' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\PanelManagement\Common\ScannerCommon.cs</FilePath>
+            <Location Line="1582" Character="22" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'setText' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\PanelManagement\Common\StatusBarController.cs</FilePath>
+            <Location Line="143" Character="22" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'HandleAlphaNumericChar' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\PanelManagement\Common\TextController.cs</FilePath>
+            <Location Line="378" Character="21" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'HandleAlphaNumericChar' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\PanelManagement\Common\TextController.cs</FilePath>
+            <Location Line="391" Character="21" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'HandlePunctuation' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\PanelManagement\Common\TextController.cs</FilePath>
+            <Location Line="406" Character="21" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'MapVirtualKey' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\PanelManagement\Common\TextController.cs</FilePath>
+            <Location Line="516" Character="21" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'OnTextCleared' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\PanelManagement\Common\TextController.cs</FilePath>
+            <Location Line="552" Character="21" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'capitalizeWord' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\PanelManagement\Common\TextController.cs</FilePath>
+            <Location Line="713" Character="24" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'postAutoCompleteWord' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\PanelManagement\Common\TextController.cs</FilePath>
+            <Location Line="761" Character="22" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'replaceMisspeltWord' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\PanelManagement\Common\TextController.cs</FilePath>
+            <Location Line="804" Character="22" />
+          </Diagnostic>
+          <Diagnostic Id="CA2211">
+            <Severity>Info</Severity>
+            <Message>Non-constant fields should not be visible</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\PanelManagement\PanelConfigMap\PanelConfigMap.cs</FilePath>
+            <Location Line="48" Character="30" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'AddFormToCache' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\PanelManagement\PanelManager.cs</FilePath>
+            <Location Line="184" Character="21" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'IsCurrentPanelClass' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\PanelManagement\PanelManager.cs</FilePath>
+            <Location Line="397" Character="21" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'PausePanelChangeRequests' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\PanelManagement\PanelManager.cs</FilePath>
+            <Location Line="423" Character="21" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'ResumePanelChangeRequests' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\PanelManagement\PanelManager.cs</FilePath>
+            <Location Line="433" Character="21" />
+          </Diagnostic>
+          <Diagnostic Id="CA2211">
+            <Severity>Info</Severity>
+            <Message>Non-constant fields should not be visible</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\PanelManagement\PanelManager.cs</FilePath>
+            <Location Line="69" Character="30" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'auditLogScannerEvent' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\PanelManagement\PanelStack.cs</FilePath>
+            <Location Line="556" Character="22" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'createPanel' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\PanelManagement\PanelStack.cs</FilePath>
+            <Location Line="616" Character="22" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'initializePanel' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\PanelManagement\PanelStack.cs</FilePath>
+            <Location Line="690" Character="22" />
+          </Diagnostic>
+          <Diagnostic Id="CA1829">
+            <Severity>Info</Severity>
+            <Message>Use the "Count" property instead of Enumerable.Count()</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\PanelManagement\UI\HorizontalStripScannerBase.cs</FilePath>
+            <Location Line="319" Character="25" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'removeRow' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\PanelManagement\UI\MenuPanelBase.cs</FilePath>
+            <Location Line="372" Character="22" />
+          </Diagnostic>
+          <Diagnostic Id="CA1829">
+            <Severity>Info</Severity>
+            <Message>Use the "Count" property instead of Enumerable.Count()</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\PanelManagement\UI\MenuPanelBase.cs</FilePath>
+            <Location Line="405" Character="25" />
+          </Diagnostic>
+          <Diagnostic Id="CA1816">
+            <Severity>Info</Severity>
+            <Message>Change Fonts.Dispose() to call GC.SuppressFinalize(object). This will prevent derived types that introduce a finalizer from needing to re-implement 'IDisposable' to call it.</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\PanelManagement\Utils\Fonts.cs</FilePath>
+            <Location Line="106" Character="21" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'initForm' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\PanelManagement\Utils\OutlineWindow.cs</FilePath>
+            <Location Line="166" Character="22" />
+          </Diagnostic>
+          <Diagnostic Id="CA1816">
+            <Severity>Info</Severity>
+            <Message>Change WindowOverlapWatchdog.Dispose() to call GC.SuppressFinalize(object). This will prevent derived types that introduce a finalizer from needing to re-implement 'IDisposable' to call it.</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\PanelManagement\Utils\WindowOverlapWatchdog.cs</FilePath>
+            <Location Line="83" Character="21" />
+          </Diagnostic>
+          <Diagnostic Id="CA1018">
+            <Severity>Info</Severity>
+            <Message>Specify AttributeUsage on BoolDescriptorAttribute</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\PreferencesManagement\BoolDescriptorAttribute.cs</FilePath>
+            <Location Line="28" Character="18" />
+          </Diagnostic>
+          <Diagnostic Id="CA1018">
+            <Severity>Info</Severity>
+            <Message>Specify AttributeUsage on FloatDescriptorAttribute</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\PreferencesManagement\FloatDescriptorAttribute.cs</FilePath>
+            <Location Line="28" Character="18" />
+          </Diagnostic>
+          <Diagnostic Id="CA1018">
+            <Severity>Info</Severity>
+            <Message>Specify AttributeUsage on IntDescriptorAttribute</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\PreferencesManagement\IntDescriptorAttribute.cs</FilePath>
+            <Location Line="28" Character="18" />
+          </Diagnostic>
+          <Diagnostic Id="CA1018">
+            <Severity>Info</Severity>
+            <Message>Specify AttributeUsage on LongDescriptorAttribute</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\PreferencesManagement\LongDescriptorAttribute.cs</FilePath>
+            <Location Line="28" Character="18" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'getBoolAttribute' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\PreferencesManagement\PreferencesEditForm.cs</FilePath>
+            <Location Line="502" Character="41" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'getBoolAttribute' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\PreferencesManagement\PreferencesEditForm.cs</FilePath>
+            <Location Line="521" Character="41" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'getField' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\PreferencesManagement\PreferencesEditForm.cs</FilePath>
+            <Location Line="578" Character="27" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'getFloatAttribute' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\PreferencesManagement\PreferencesEditForm.cs</FilePath>
+            <Location Line="588" Character="42" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'getFloatAttribute' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\PreferencesManagement\PreferencesEditForm.cs</FilePath>
+            <Location Line="607" Character="42" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'getIntAttribute' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\PreferencesManagement\PreferencesEditForm.cs</FilePath>
+            <Location Line="627" Character="40" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'getIntAttribute' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\PreferencesManagement\PreferencesEditForm.cs</FilePath>
+            <Location Line="646" Character="40" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'getProperty' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\PreferencesManagement\PreferencesEditForm.cs</FilePath>
+            <Location Line="667" Character="30" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'getStringAttribute' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\PreferencesManagement\PreferencesEditForm.cs</FilePath>
+            <Location Line="677" Character="43" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'getStringAttribute' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\PreferencesManagement\PreferencesEditForm.cs</FilePath>
+            <Location Line="696" Character="43" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'isBool' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\PreferencesManagement\PreferencesEditForm.cs</FilePath>
+            <Location Line="741" Character="22" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'isBool' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\PreferencesManagement\PreferencesEditForm.cs</FilePath>
+            <Location Line="752" Character="22" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'isFloat' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\PreferencesManagement\PreferencesEditForm.cs</FilePath>
+            <Location Line="763" Character="22" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'isFloat' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\PreferencesManagement\PreferencesEditForm.cs</FilePath>
+            <Location Line="773" Character="22" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'isInt' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\PreferencesManagement\PreferencesEditForm.cs</FilePath>
+            <Location Line="783" Character="22" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'isInt' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\PreferencesManagement\PreferencesEditForm.cs</FilePath>
+            <Location Line="794" Character="22" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'isString' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\PreferencesManagement\PreferencesEditForm.cs</FilePath>
+            <Location Line="805" Character="22" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'isString' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\PreferencesManagement\PreferencesEditForm.cs</FilePath>
+            <Location Line="816" Character="22" />
+          </Diagnostic>
+          <Diagnostic Id="CA1018">
+            <Severity>Info</Severity>
+            <Message>Specify AttributeUsage on StringDescriptorAttribute</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\PreferencesManagement\StringDescriptorAttribute.cs</FilePath>
+            <Location Line="64" Character="18" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'Init' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\SpellCheckManagement\NullSpellChecker.cs</FilePath>
+            <Location Line="85" Character="21" />
+          </Diagnostic>
+          <Diagnostic Id="CA2211">
+            <Severity>Info</Severity>
+            <Message>Non-constant fields should not be visible</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\SpellCheckManagement\PreferredSpellCheckers.cs</FilePath>
+            <Location Line="43" Character="30" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'Init' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\SpellCheckManagement\SpellCheckManager.cs</FilePath>
+            <Location Line="121" Character="21" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'loadDefaultSettings' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\SpellCheckManagement\SpellCheckManager.cs</FilePath>
+            <Location Line="415" Character="22" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'saveSettings' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\SpellCheckManagement\SpellCheckManager.cs</FilePath>
+            <Location Line="424" Character="22" />
+          </Diagnostic>
+          <Diagnostic Id="CA2211">
+            <Severity>Info</Severity>
+            <Message>Non-constant fields should not be visible</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\SpellCheckManagement\SpellCheckManager.cs</FilePath>
+            <Location Line="48" Character="30" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'showGlass' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\TalkWindowManagement\TalkWindowManager.cs</FilePath>
+            <Location Line="858" Character="22" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'hideGlass' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\TalkWindowManagement\TalkWindowManager.cs</FilePath>
+            <Location Line="870" Character="22" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'fromString' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\ThemeManagement\ColorScheme.cs</FilePath>
+            <Location Line="539" Character="22" />
+          </Diagnostic>
+          <Diagnostic Id="CA2211">
+            <Severity>Info</Severity>
+            <Message>Non-constant fields should not be visible</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\ThemeManagement\ColorSchemes.cs</FilePath>
+            <Location Line="39" Character="30" />
+          </Diagnostic>
+          <Diagnostic Id="CA2211">
+            <Severity>Info</Severity>
+            <Message>Non-constant fields should not be visible</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\ThemeManagement\ColorSchemes.cs</FilePath>
+            <Location Line="44" Character="30" />
+          </Diagnostic>
+          <Diagnostic Id="CA2211">
+            <Severity>Info</Severity>
+            <Message>Non-constant fields should not be visible</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\ThemeManagement\ColorSchemes.cs</FilePath>
+            <Location Line="49" Character="30" />
+          </Diagnostic>
+          <Diagnostic Id="CA2211">
+            <Severity>Info</Severity>
+            <Message>Non-constant fields should not be visible</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\ThemeManagement\ColorSchemes.cs</FilePath>
+            <Location Line="54" Character="30" />
+          </Diagnostic>
+          <Diagnostic Id="CA2211">
+            <Severity>Info</Severity>
+            <Message>Non-constant fields should not be visible</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\ThemeManagement\ColorSchemes.cs</FilePath>
+            <Location Line="60" Character="35" />
+          </Diagnostic>
+          <Diagnostic Id="CA2211">
+            <Severity>Info</Severity>
+            <Message>Non-constant fields should not be visible</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\ThemeManagement\ColorSchemes.cs</FilePath>
+            <Location Line="65" Character="30" />
+          </Diagnostic>
+          <Diagnostic Id="CA2211">
+            <Severity>Info</Severity>
+            <Message>Non-constant fields should not be visible</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\ThemeManagement\ColorSchemes.cs</FilePath>
+            <Location Line="70" Character="30" />
+          </Diagnostic>
+          <Diagnostic Id="CA2211">
+            <Severity>Info</Severity>
+            <Message>Non-constant fields should not be visible</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\ThemeManagement\ColorSchemes.cs</FilePath>
+            <Location Line="75" Character="30" />
+          </Diagnostic>
+          <Diagnostic Id="CA2211">
+            <Severity>Info</Severity>
+            <Message>Non-constant fields should not be visible</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\ThemeManagement\ColorSchemes.cs</FilePath>
+            <Location Line="80" Character="30" />
+          </Diagnostic>
+          <Diagnostic Id="CA2211">
+            <Severity>Info</Severity>
+            <Message>Non-constant fields should not be visible</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\ThemeManagement\ColorSchemes.cs</FilePath>
+            <Location Line="85" Character="30" />
+          </Diagnostic>
+          <Diagnostic Id="CA2211">
+            <Severity>Info</Severity>
+            <Message>Non-constant fields should not be visible</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\ThemeManagement\ColorSchemes.cs</FilePath>
+            <Location Line="90" Character="30" />
+          </Diagnostic>
+          <Diagnostic Id="CA2211">
+            <Severity>Info</Severity>
+            <Message>Non-constant fields should not be visible</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\ThemeManagement\ColorSchemes.cs</FilePath>
+            <Location Line="95" Character="30" />
+          </Diagnostic>
+          <Diagnostic Id="CA2211">
+            <Severity>Info</Severity>
+            <Message>Non-constant fields should not be visible</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\TTSManagement\PreferredTTSEngines.cs</FilePath>
+            <Location Line="43" Character="30" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'getPronunciationsFilePath' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\TTSManagement\Pronunciations.cs</FilePath>
+            <Location Line="399" Character="24" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'Init' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\TTSManagement\TTSManager.cs</FilePath>
+            <Location Line="164" Character="21" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'saveSettings' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\TTSManagement\TTSManager.cs</FilePath>
+            <Location Line="460" Character="22" />
+          </Diagnostic>
+          <Diagnostic Id="CA2211">
+            <Severity>Info</Severity>
+            <Message>Non-constant fields should not be visible</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\TTSManagement\TTSManager.cs</FilePath>
+            <Location Line="52" Character="30" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'Init' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\Utility\AutomationEventManager.cs</FilePath>
+            <Location Line="337" Character="21" />
+          </Diagnostic>
+          <Diagnostic Id="CA1507">
+            <Severity>Info</Severity>
+            <Message>Use nameof in place of string literal 'data'</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\Utility\BlockingQueue.cs</FilePath>
+            <Location Line="91" Character="63" />
+          </Diagnostic>
+          <Diagnostic Id="CA1018">
+            <Severity>Info</Severity>
+            <Message>Specify AttributeUsage on DescriptorAttribute</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\Utility\DescriptorAttribute.cs</FilePath>
+            <Location Line="32" Character="18" />
+          </Diagnostic>
+          <Diagnostic Id="CA1806">
+            <Severity>Info</Severity>
+            <Message>MaximizeWindowInOtherMonitor calls ShowWindow but does not use the HRESULT or error code that the method returns. This could lead to unexpected behavior in error conditions or low-resource situations. Use the result in a conditional statement, assign the result to a variable, or pass it as an argument to another method.</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\Utility\DualMonitor.cs</FilePath>
+            <Location Line="114" Character="13" />
+          </Diagnostic>
+          <Diagnostic Id="CA1806">
+            <Severity>Info</Severity>
+            <Message>enumWindowsCallback calls GetWindowThreadProcessId but does not use the HRESULT or error code that the method returns. This could lead to unexpected behavior in error conditions or low-resource situations. Use the result in a conditional statement, assign the result to a variable, or pass it as an argument to another method.</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\Utility\EnumWindows.cs</FilePath>
+            <Location Line="232" Character="17" />
+          </Diagnostic>
+          <Diagnostic Id="CA1806">
+            <Severity>Info</Severity>
+            <Message>enumWindowsCallback calls GetWindowText but does not use the HRESULT or error code that the method returns. This could lead to unexpected behavior in error conditions or low-resource situations. Use the result in a conditional statement, assign the result to a variable, or pass it as an argument to another method.</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\Utility\EnumWindows.cs</FilePath>
+            <Location Line="256" Character="13" />
+          </Diagnostic>
+          <Diagnostic Id="CA2101">
+            <Severity>Info</Severity>
+            <Message>Specify marshaling for P/Invoke string arguments</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\Utility\FileUtils.cs</FilePath>
+            <Location Line="727" Character="10" />
+          </Diagnostic>
+          <Diagnostic Id="CA2211">
+            <Severity>Info</Severity>
+            <Message>Non-constant fields should not be visible</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\Utility\GlobalPreferences.cs</FilePath>
+            <Location Line="35" Character="30" />
+          </Diagnostic>
+          <Diagnostic Id="CA2211">
+            <Severity>Info</Severity>
+            <Message>Non-constant fields should not be visible</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\Utility\GlobalPreferences.cs</FilePath>
+            <Location Line="38" Character="30" />
+          </Diagnostic>
+          <Diagnostic Id="CA1401">
+            <Severity>Info</Severity>
+            <Message>P/Invoke method 'EnumResourceNames' should not be visible</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\Utility\Kernel32Interop.cs</FilePath>
+            <Location Line="46" Character="35" />
+          </Diagnostic>
+          <Diagnostic Id="CA1401">
+            <Severity>Info</Severity>
+            <Message>P/Invoke method 'FindResource' should not be visible</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\Utility\Kernel32Interop.cs</FilePath>
+            <Location Line="50" Character="37" />
+          </Diagnostic>
+          <Diagnostic Id="CA1401">
+            <Severity>Info</Severity>
+            <Message>P/Invoke method 'FreeLibrary' should not be visible</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\Utility\Kernel32Interop.cs</FilePath>
+            <Location Line="54" Character="35" />
+          </Diagnostic>
+          <Diagnostic Id="CA1401">
+            <Severity>Info</Severity>
+            <Message>P/Invoke method 'GetCurrentProcess' should not be visible</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\Utility\Kernel32Interop.cs</FilePath>
+            <Location Line="58" Character="37" />
+          </Diagnostic>
+          <Diagnostic Id="CA1401">
+            <Severity>Info</Severity>
+            <Message>P/Invoke method 'GetCurrentThreadId' should not be visible</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\Utility\Kernel32Interop.cs</FilePath>
+            <Location Line="61" Character="35" />
+          </Diagnostic>
+          <Diagnostic Id="CA1401">
+            <Severity>Info</Severity>
+            <Message>P/Invoke method 'GetMappedFileName' should not be visible</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\Utility\Kernel32Interop.cs</FilePath>
+            <Location Line="65" Character="34" />
+          </Diagnostic>
+          <Diagnostic Id="CA1401">
+            <Severity>Info</Severity>
+            <Message>P/Invoke method 'LoadLibraryEx' should not be visible</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\Utility\Kernel32Interop.cs</FilePath>
+            <Location Line="69" Character="37" />
+          </Diagnostic>
+          <Diagnostic Id="CA1401">
+            <Severity>Info</Severity>
+            <Message>P/Invoke method 'LoadResource' should not be visible</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\Utility\Kernel32Interop.cs</FilePath>
+            <Location Line="73" Character="37" />
+          </Diagnostic>
+          <Diagnostic Id="CA1401">
+            <Severity>Info</Severity>
+            <Message>P/Invoke method 'LockResource' should not be visible</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\Utility\Kernel32Interop.cs</FilePath>
+            <Location Line="77" Character="37" />
+          </Diagnostic>
+          <Diagnostic Id="CA1401">
+            <Severity>Info</Severity>
+            <Message>P/Invoke method 'QueryDosDevice' should not be visible</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\Utility\Kernel32Interop.cs</FilePath>
+            <Location Line="81" Character="34" />
+          </Diagnostic>
+          <Diagnostic Id="CA1401">
+            <Severity>Info</Severity>
+            <Message>P/Invoke method 'SizeofResource' should not be visible</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\Utility\Kernel32Interop.cs</FilePath>
+            <Location Line="85" Character="35" />
+          </Diagnostic>
+          <Diagnostic Id="CA1401">
+            <Severity>Info</Severity>
+            <Message>P/Invoke method 'CloseHandle' should not be visible</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\Utility\Kernel32Interop.cs</FilePath>
+            <Location Line="89" Character="35" />
+          </Diagnostic>
+          <Diagnostic Id="CA1401">
+            <Severity>Info</Severity>
+            <Message>P/Invoke method 'CreateTimerQueueTimer' should not be visible</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\Utility\Kernel32Interop.cs</FilePath>
+            <Location Line="92" Character="35" />
+          </Diagnostic>
+          <Diagnostic Id="CA1401">
+            <Severity>Info</Severity>
+            <Message>P/Invoke method 'DeleteTimerQueueTimer' should not be visible</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\Utility\Kernel32Interop.cs</FilePath>
+            <Location Line="102" Character="35" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'addToCanvas' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\Utility\Mouse\MouseGridScanWindow.xaml.cs</FilePath>
+            <Location Line="353" Character="22" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'convertToWPFImage' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\Utility\Mouse\MouseGridScanWindow.xaml.cs</FilePath>
+            <Location Line="541" Character="23" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'getCursorPos' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\Utility\Mouse\MouseGridScanWindow.xaml.cs</FilePath>
+            <Location Line="597" Character="23" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'removeFromCanvas' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\Utility\Mouse\MouseGridScanWindow.xaml.cs</FilePath>
+            <Location Line="820" Character="22" />
+          </Diagnostic>
+          <Diagnostic Id="CA1806">
+            <Severity>Info</Severity>
+            <Message>ClickLeftMouseButton calls SendInput but does not use the HRESULT or error code that the method returns. This could lead to unexpected behavior in error conditions or low-resource situations. Use the result in a conditional statement, assign the result to a variable, or pass it as an argument to another method.</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\Utility\Mouse\MouseUtils.cs</FilePath>
+            <Location Line="71" Character="13" />
+          </Diagnostic>
+          <Diagnostic Id="CA1806">
+            <Severity>Info</Severity>
+            <Message>ClickLeftMouseButton calls SendInput but does not use the HRESULT or error code that the method returns. This could lead to unexpected behavior in error conditions or low-resource situations. Use the result in a conditional statement, assign the result to a variable, or pass it as an argument to another method.</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\Utility\Mouse\MouseUtils.cs</FilePath>
+            <Location Line="78" Character="13" />
+          </Diagnostic>
+          <Diagnostic Id="CA1806">
+            <Severity>Info</Severity>
+            <Message>ClickLeftMouseButton calls SendInput but does not use the HRESULT or error code that the method returns. This could lead to unexpected behavior in error conditions or low-resource situations. Use the result in a conditional statement, assign the result to a variable, or pass it as an argument to another method.</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\Utility\Mouse\MouseUtils.cs</FilePath>
+            <Location Line="81" Character="13" />
+          </Diagnostic>
+          <Diagnostic Id="CA2211">
+            <Severity>Info</Severity>
+            <Message>Non-constant fields should not be visible</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\Utility\Preferences.cs</FilePath>
+            <Location Line="39" Character="32" />
+          </Diagnostic>
+          <Diagnostic Id="CA1401">
+            <Severity>Info</Severity>
+            <Message>P/Invoke method 'GetWindow' should not be visible</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\Utility\User32Interop.cs</FilePath>
+            <Location Line="87" Character="37" />
+          </Diagnostic>
+          <Diagnostic Id="CA1401">
+            <Severity>Info</Severity>
+            <Message>P/Invoke method 'GetWindowRect' should not be visible</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\Utility\User32Interop.cs</FilePath>
+            <Location Line="91" Character="35" />
+          </Diagnostic>
+          <Diagnostic Id="CA1401">
+            <Severity>Info</Severity>
+            <Message>P/Invoke method 'IntersectRect' should not be visible</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\Utility\User32Interop.cs</FilePath>
+            <Location Line="95" Character="35" />
+          </Diagnostic>
+          <Diagnostic Id="CA1401">
+            <Severity>Info</Severity>
+            <Message>P/Invoke method 'IsWindowVisible' should not be visible</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\Utility\User32Interop.cs</FilePath>
+            <Location Line="99" Character="35" />
+          </Diagnostic>
+          <Diagnostic Id="CA1401">
+            <Severity>Info</Severity>
+            <Message>P/Invoke method 'GetDesktopWindow' should not be visible</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\Utility\User32Interop.cs</FilePath>
+            <Location Line="102" Character="37" />
+          </Diagnostic>
+          <Diagnostic Id="CA1401">
+            <Severity>Info</Severity>
+            <Message>P/Invoke method 'BringWindowToTop' should not be visible</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\Utility\User32Interop.cs</FilePath>
+            <Location Line="105" Character="35" />
+          </Diagnostic>
+          <Diagnostic Id="CA1401">
+            <Severity>Info</Severity>
+            <Message>P/Invoke method 'IsWindow' should not be visible</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\Utility\User32Interop.cs</FilePath>
+            <Location Line="109" Character="35" />
+          </Diagnostic>
+          <Diagnostic Id="CA1401">
+            <Severity>Info</Severity>
+            <Message>P/Invoke method 'FindWindow' should not be visible</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\Utility\User32Interop.cs</FilePath>
+            <Location Line="112" Character="37" />
+          </Diagnostic>
+          <Diagnostic Id="CA1401">
+            <Severity>Info</Severity>
+            <Message>P/Invoke method 'ShowWindow' should not be visible</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\Utility\User32Interop.cs</FilePath>
+            <Location Line="115" Character="34" />
+          </Diagnostic>
+          <Diagnostic Id="CA1401">
+            <Severity>Info</Severity>
+            <Message>P/Invoke method 'SendMessageStringBuilder' should not be visible</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\Utility\User32Interop.cs</FilePath>
+            <Location Line="118" Character="35" />
+          </Diagnostic>
+          <Diagnostic Id="CA1401">
+            <Severity>Info</Severity>
+            <Message>P/Invoke method 'SendMessageText' should not be visible</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\Utility\User32Interop.cs</FilePath>
+            <Location Line="121" Character="37" />
+          </Diagnostic>
+          <Diagnostic Id="CA1401">
+            <Severity>Info</Severity>
+            <Message>P/Invoke method 'SendMessageIntInt' should not be visible</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\Utility\User32Interop.cs</FilePath>
+            <Location Line="124" Character="37" />
+          </Diagnostic>
+          <Diagnostic Id="CA1401">
+            <Severity>Info</Severity>
+            <Message>P/Invoke method 'SendMessageRefRef' should not be visible</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\Utility\User32Interop.cs</FilePath>
+            <Location Line="127" Character="37" />
+          </Diagnostic>
+          <Diagnostic Id="CA1401">
+            <Severity>Info</Severity>
+            <Message>P/Invoke method 'PostMessage' should not be visible</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\Utility\User32Interop.cs</FilePath>
+            <Location Line="130" Character="35" />
+          </Diagnostic>
+          <Diagnostic Id="CA1401">
+            <Severity>Info</Severity>
+            <Message>P/Invoke method 'SetForegroundWindow' should not be visible</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\Utility\User32Interop.cs</FilePath>
+            <Location Line="134" Character="35" />
+          </Diagnostic>
+          <Diagnostic Id="CA1401">
+            <Severity>Info</Severity>
+            <Message>P/Invoke method 'SetActiveWindow' should not be visible</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\Utility\User32Interop.cs</FilePath>
+            <Location Line="137" Character="37" />
+          </Diagnostic>
+          <Diagnostic Id="CA1401">
+            <Severity>Info</Severity>
+            <Message>P/Invoke method 'ShowWindowAsync' should not be visible</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\Utility\User32Interop.cs</FilePath>
+            <Location Line="140" Character="35" />
+          </Diagnostic>
+          <Diagnostic Id="CA1401">
+            <Severity>Info</Severity>
+            <Message>P/Invoke method 'GetForegroundWindow' should not be visible</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\Utility\User32Interop.cs</FilePath>
+            <Location Line="143" Character="37" />
+          </Diagnostic>
+          <Diagnostic Id="CA1401">
+            <Severity>Info</Severity>
+            <Message>P/Invoke method 'GetWindowLong' should not be visible</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\Utility\User32Interop.cs</FilePath>
+            <Location Line="146" Character="34" />
+          </Diagnostic>
+          <Diagnostic Id="CA1401">
+            <Severity>Info</Severity>
+            <Message>P/Invoke method 'GetWindowText' should not be visible</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\Utility\User32Interop.cs</FilePath>
+            <Location Line="149" Character="34" />
+          </Diagnostic>
+          <Diagnostic Id="CA1401">
+            <Severity>Info</Severity>
+            <Message>P/Invoke method 'RegisterWindowMessage' should not be visible</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\Utility\User32Interop.cs</FilePath>
+            <Location Line="152" Character="34" />
+          </Diagnostic>
+          <Diagnostic Id="CA1401">
+            <Severity>Info</Severity>
+            <Message>P/Invoke method 'DeregisterShellHookWindow' should not be visible</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\Utility\User32Interop.cs</FilePath>
+            <Location Line="155" Character="34" />
+          </Diagnostic>
+          <Diagnostic Id="CA1401">
+            <Severity>Info</Severity>
+            <Message>P/Invoke method 'RegisterShellHookWindow' should not be visible</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\Utility\User32Interop.cs</FilePath>
+            <Location Line="158" Character="34" />
+          </Diagnostic>
+          <Diagnostic Id="CA1401">
+            <Severity>Info</Severity>
+            <Message>P/Invoke method 'MoveWindow' should not be visible</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\Utility\User32Interop.cs</FilePath>
+            <Location Line="161" Character="35" />
+          </Diagnostic>
+          <Diagnostic Id="CA1401">
+            <Severity>Info</Severity>
+            <Message>P/Invoke method 'SetFocus' should not be visible</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\Utility\User32Interop.cs</FilePath>
+            <Location Line="164" Character="37" />
+          </Diagnostic>
+          <Diagnostic Id="CA1401">
+            <Severity>Info</Severity>
+            <Message>P/Invoke method 'GetClassLongPtr32' should not be visible</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\Utility\User32Interop.cs</FilePath>
+            <Location Line="167" Character="35" />
+          </Diagnostic>
+          <Diagnostic Id="CA1401">
+            <Severity>Info</Severity>
+            <Message>P/Invoke method 'GetClassLongPtr64' should not be visible</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\Utility\User32Interop.cs</FilePath>
+            <Location Line="170" Character="37" />
+          </Diagnostic>
+          <Diagnostic Id="CA1401">
+            <Severity>Info</Severity>
+            <Message>P/Invoke method 'SendMessage' should not be visible</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\Utility\User32Interop.cs</FilePath>
+            <Location Line="173" Character="37" />
+          </Diagnostic>
+          <Diagnostic Id="CA1401">
+            <Severity>Info</Severity>
+            <Message>P/Invoke method 'GetWindowThreadProcessId' should not be visible</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\Utility\User32Interop.cs</FilePath>
+            <Location Line="176" Character="35" />
+          </Diagnostic>
+          <Diagnostic Id="CA1401">
+            <Severity>Info</Severity>
+            <Message>P/Invoke method 'GetWindowThreadProcessId' should not be visible</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\Utility\User32Interop.cs</FilePath>
+            <Location Line="179" Character="34" />
+          </Diagnostic>
+          <Diagnostic Id="CA1401">
+            <Severity>Info</Severity>
+            <Message>P/Invoke method 'EnumDesktopWindows' should not be visible</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\Utility\User32Interop.cs</FilePath>
+            <Location Line="182" Character="35" />
+          </Diagnostic>
+          <Diagnostic Id="CA1401">
+            <Severity>Info</Severity>
+            <Message>P/Invoke method 'SetWindowPos' should not be visible</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\Utility\User32Interop.cs</FilePath>
+            <Location Line="185" Character="35" />
+          </Diagnostic>
+          <Diagnostic Id="CA1401">
+            <Severity>Info</Severity>
+            <Message>P/Invoke method 'mouse_event' should not be visible</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\Utility\User32Interop.cs</FilePath>
+            <Location Line="188" Character="35" />
+          </Diagnostic>
+          <Diagnostic Id="CA1401">
+            <Severity>Info</Severity>
+            <Message>P/Invoke method 'GetWindowPlacement' should not be visible</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\Utility\User32Interop.cs</FilePath>
+            <Location Line="192" Character="35" />
+          </Diagnostic>
+          <Diagnostic Id="CA1401">
+            <Severity>Info</Severity>
+            <Message>P/Invoke method 'WindowFromPoint' should not be visible</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\Utility\User32Interop.cs</FilePath>
+            <Location Line="195" Character="37" />
+          </Diagnostic>
+          <Diagnostic Id="CA1401">
+            <Severity>Info</Severity>
+            <Message>P/Invoke method 'WindowFromPoint' should not be visible</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\Utility\User32Interop.cs</FilePath>
+            <Location Line="198" Character="37" />
+          </Diagnostic>
+          <Diagnostic Id="CA1401">
+            <Severity>Info</Severity>
+            <Message>P/Invoke method 'SendInput' should not be visible</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\Utility\User32Interop.cs</FilePath>
+            <Location Line="201" Character="35" />
+          </Diagnostic>
+          <Diagnostic Id="CA1401">
+            <Severity>Info</Severity>
+            <Message>P/Invoke method 'SetWindowsHookEx' should not be visible</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\Utility\User32Interop.cs</FilePath>
+            <Location Line="204" Character="37" />
+          </Diagnostic>
+          <Diagnostic Id="CA1401">
+            <Severity>Info</Severity>
+            <Message>P/Invoke method 'UnhookWindowsHookEx' should not be visible</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\Utility\User32Interop.cs</FilePath>
+            <Location Line="207" Character="35" />
+          </Diagnostic>
+          <Diagnostic Id="CA1401">
+            <Severity>Info</Severity>
+            <Message>P/Invoke method 'CallNextHookEx' should not be visible</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\Utility\User32Interop.cs</FilePath>
+            <Location Line="210" Character="34" />
+          </Diagnostic>
+          <Diagnostic Id="CA1401">
+            <Severity>Info</Severity>
+            <Message>P/Invoke method 'GetKeyState' should not be visible</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\Utility\User32Interop.cs</FilePath>
+            <Location Line="213" Character="36" />
+          </Diagnostic>
+          <Diagnostic Id="CA1401">
+            <Severity>Info</Severity>
+            <Message>P/Invoke method 'GetKeyboardState' should not be visible</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\Utility\User32Interop.cs</FilePath>
+            <Location Line="216" Character="34" />
+          </Diagnostic>
+          <Diagnostic Id="CA1401">
+            <Severity>Info</Severity>
+            <Message>P/Invoke method 'ToAscii' should not be visible</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\Utility\User32Interop.cs</FilePath>
+            <Location Line="219" Character="34" />
+          </Diagnostic>
+          <Diagnostic Id="CA1401">
+            <Severity>Info</Severity>
+            <Message>P/Invoke method 'GetAsyncKeyState' should not be visible</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\Utility\User32Interop.cs</FilePath>
+            <Location Line="222" Character="37" />
+          </Diagnostic>
+          <Diagnostic Id="CA1401">
+            <Severity>Info</Severity>
+            <Message>P/Invoke method 'MapVirtualKey' should not be visible</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\Utility\User32Interop.cs</FilePath>
+            <Location Line="225" Character="34" />
+          </Diagnostic>
+          <Diagnostic Id="CA1401">
+            <Severity>Info</Severity>
+            <Message>P/Invoke method 'keybd_event' should not be visible</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\Utility\User32Interop.cs</FilePath>
+            <Location Line="228" Character="35" />
+          </Diagnostic>
+          <Diagnostic Id="CA1401">
+            <Severity>Info</Severity>
+            <Message>P/Invoke method 'VkKeyScan' should not be visible</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\Utility\User32Interop.cs</FilePath>
+            <Location Line="231" Character="36" />
+          </Diagnostic>
+          <Diagnostic Id="CA1401">
+            <Severity>Info</Severity>
+            <Message>P/Invoke method 'VkKeyScanEx' should not be visible</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\Utility\User32Interop.cs</FilePath>
+            <Location Line="234" Character="36" />
+          </Diagnostic>
+          <Diagnostic Id="CA1401">
+            <Severity>Info</Severity>
+            <Message>P/Invoke method 'GetKeyboardLayout' should not be visible</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\Utility\User32Interop.cs</FilePath>
+            <Location Line="237" Character="37" />
+          </Diagnostic>
+          <Diagnostic Id="CA1401">
+            <Severity>Info</Severity>
+            <Message>P/Invoke method 'AppendMenu' should not be visible</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\Utility\User32Interop.cs</FilePath>
+            <Location Line="240" Character="35" />
+          </Diagnostic>
+          <Diagnostic Id="CA1401">
+            <Severity>Info</Severity>
+            <Message>P/Invoke method 'GetSystemMenu' should not be visible</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\Utility\User32Interop.cs</FilePath>
+            <Location Line="243" Character="37" />
+          </Diagnostic>
+          <Diagnostic Id="CA1401">
+            <Severity>Info</Severity>
+            <Message>P/Invoke method 'InsertMenu' should not be visible</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\Utility\User32Interop.cs</FilePath>
+            <Location Line="246" Character="35" />
+          </Diagnostic>
+          <Diagnostic Id="CA1401">
+            <Severity>Info</Severity>
+            <Message>P/Invoke method 'GetShellWindow' should not be visible</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\Utility\User32Interop.cs</FilePath>
+            <Location Line="249" Character="37" />
+          </Diagnostic>
+          <Diagnostic Id="CA1401">
+            <Severity>Info</Severity>
+            <Message>P/Invoke method 'GetClassName' should not be visible</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\Utility\User32Interop.cs</FilePath>
+            <Location Line="253" Character="34" />
+          </Diagnostic>
+          <Diagnostic Id="CA1401">
+            <Severity>Info</Severity>
+            <Message>P/Invoke method 'GetAncestor' should not be visible</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\Utility\User32Interop.cs</FilePath>
+            <Location Line="256" Character="37" />
+          </Diagnostic>
+          <Diagnostic Id="CA1401">
+            <Severity>Info</Severity>
+            <Message>P/Invoke method 'GetLastActivePopup' should not be visible</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\Utility\User32Interop.cs</FilePath>
+            <Location Line="259" Character="37" />
+          </Diagnostic>
+          <Diagnostic Id="CA1401">
+            <Severity>Info</Severity>
+            <Message>P/Invoke method 'GetParent' should not be visible</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\Utility\User32Interop.cs</FilePath>
+            <Location Line="262" Character="37" />
+          </Diagnostic>
+          <Diagnostic Id="CA2101">
+            <Severity>Info</Severity>
+            <Message>Specify marshaling for P/Invoke string arguments</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\Utility\User32Interop.cs</FilePath>
+            <Location Line="111" Character="10" />
+          </Diagnostic>
+          <Diagnostic Id="CA2101">
+            <Severity>Info</Severity>
+            <Message>Specify marshaling for P/Invoke string arguments</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\Utility\User32Interop.cs</FilePath>
+            <Location Line="117" Character="10" />
+          </Diagnostic>
+          <Diagnostic Id="CA2101">
+            <Severity>Info</Severity>
+            <Message>Specify marshaling for P/Invoke string arguments</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\Utility\User32Interop.cs</FilePath>
+            <Location Line="120" Character="10" />
+          </Diagnostic>
+          <Diagnostic Id="CA2101">
+            <Severity>Info</Severity>
+            <Message>Specify marshaling for P/Invoke string arguments</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\Utility\User32Interop.cs</FilePath>
+            <Location Line="148" Character="10" />
+          </Diagnostic>
+          <Diagnostic Id="CA2101">
+            <Severity>Info</Severity>
+            <Message>Specify marshaling for P/Invoke string arguments</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\Utility\User32Interop.cs</FilePath>
+            <Location Line="151" Character="10" />
+          </Diagnostic>
+          <Diagnostic Id="CA2101">
+            <Severity>Info</Severity>
+            <Message>Specify marshaling for P/Invoke string arguments</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\Utility\User32Interop.cs</FilePath>
+            <Location Line="239" Character="10" />
+          </Diagnostic>
+          <Diagnostic Id="CA2101">
+            <Severity>Info</Severity>
+            <Message>Specify marshaling for P/Invoke string arguments</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\Utility\User32Interop.cs</FilePath>
+            <Location Line="245" Character="10" />
+          </Diagnostic>
+          <Diagnostic Id="CA2101">
+            <Severity>Info</Severity>
+            <Message>Specify marshaling for P/Invoke string arguments</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\Utility\User32Interop.cs</FilePath>
+            <Location Line="252" Character="10" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'normalizeQuery' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\Utility\WebSearch.cs</FilePath>
+            <Location Line="168" Character="24" />
+          </Diagnostic>
+          <Diagnostic Id="CA1834">
+            <Severity>Info</Severity>
+            <Message>Use 'StringBuilder.Append(char)' instead of 'StringBuilder.Append(string)' when the input is a constant unit string</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\Utility\WebSearch.cs</FilePath>
+            <Location Line="180" Character="35" />
+          </Diagnostic>
+          <Diagnostic Id="CA1806">
+            <Severity>Info</Severity>
+            <Message>GetProcessForWindow calls GetWindowThreadProcessId but does not use the HRESULT or error code that the method returns. This could lead to unexpected behavior in error conditions or low-resource situations. Use the result in a conditional statement, assign the result to a variable, or pass it as an argument to another method.</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\Utility\WindowActivityMonitor.cs</FilePath>
+            <Location Line="226" Character="13" />
+          </Diagnostic>
+          <Diagnostic Id="CA1401">
+            <Severity>Info</Severity>
+            <Message>P/Invoke method 'DeleteObject' should not be visible</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\Utility\Windows.cs</FilePath>
+            <Location Line="309" Character="35" />
+          </Diagnostic>
+          <Diagnostic Id="CA1806">
+            <Severity>Info</Severity>
+            <Message>ActivateWindow calls ShowWindow but does not use the HRESULT or error code that the method returns. This could lead to unexpected behavior in error conditions or low-resource situations. Use the result in a conditional statement, assign the result to a variable, or pass it as an argument to another method.</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\Utility\Windows.cs</FilePath>
+            <Location Line="241" Character="17" />
+          </Diagnostic>
+          <Diagnostic Id="CA1806">
+            <Severity>Info</Severity>
+            <Message>ActivateWindow calls ShowWindow but does not use the HRESULT or error code that the method returns. This could lead to unexpected behavior in error conditions or low-resource situations. Use the result in a conditional statement, assign the result to a variable, or pass it as an argument to another method.</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\Utility\Windows.cs</FilePath>
+            <Location Line="248" Character="17" />
+          </Diagnostic>
+          <Diagnostic Id="CA1806">
+            <Severity>Info</Severity>
+            <Message>ActivateWindow calls ShowWindow but does not use the HRESULT or error code that the method returns. This could lead to unexpected behavior in error conditions or low-resource situations. Use the result in a conditional statement, assign the result to a variable, or pass it as an argument to another method.</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\Utility\Windows.cs</FilePath>
+            <Location Line="255" Character="17" />
+          </Diagnostic>
+          <Diagnostic Id="CA1806">
+            <Severity>Info</Severity>
+            <Message>GetWindowTitle calls GetWindowText but does not use the HRESULT or error code that the method returns. This could lead to unexpected behavior in error conditions or low-resource situations. Use the result in a conditional statement, assign the result to a variable, or pass it as an argument to another method.</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\Utility\Windows.cs</FilePath>
+            <Location Line="896" Character="17" />
+          </Diagnostic>
+          <Diagnostic Id="CA1806">
+            <Severity>Info</Severity>
+            <Message>HideTaskbar calls ShowWindow but does not use the HRESULT or error code that the method returns. This could lead to unexpected behavior in error conditions or low-resource situations. Use the result in a conditional statement, assign the result to a variable, or pass it as an argument to another method.</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\Utility\Windows.cs</FilePath>
+            <Location Line="910" Character="17" />
+          </Diagnostic>
+          <Diagnostic Id="CA1806">
+            <Severity>Info</Severity>
+            <Message>IsCloakedWindow calls DwmGetWindowAttribute but does not use the HRESULT or error code that the method returns. This could lead to unexpected behavior in error conditions or low-resource situations. Use the result in a conditional statement, assign the result to a variable, or pass it as an argument to another method.</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\Utility\Windows.cs</FilePath>
+            <Location Line="945" Character="13" />
+          </Diagnostic>
+          <Diagnostic Id="CA1806">
+            <Severity>Info</Severity>
+            <Message>MaximizeWindow calls ShowWindow but does not use the HRESULT or error code that the method returns. This could lead to unexpected behavior in error conditions or low-resource situations. Use the result in a conditional statement, assign the result to a variable, or pass it as an argument to another method.</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\Utility\Windows.cs</FilePath>
+            <Location Line="1087" Character="17" />
+          </Diagnostic>
+          <Diagnostic Id="CA1806">
+            <Severity>Info</Severity>
+            <Message>MinimizeWindow calls ShowWindow but does not use the HRESULT or error code that the method returns. This could lead to unexpected behavior in error conditions or low-resource situations. Use the result in a conditional statement, assign the result to a variable, or pass it as an argument to another method.</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\Utility\Windows.cs</FilePath>
+            <Location Line="1099" Character="17" />
+          </Diagnostic>
+          <Diagnostic Id="CA1806">
+            <Severity>Info</Severity>
+            <Message>RestoreWindow calls ShowWindow but does not use the HRESULT or error code that the method returns. This could lead to unexpected behavior in error conditions or low-resource situations. Use the result in a conditional statement, assign the result to a variable, or pass it as an argument to another method.</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\Utility\Windows.cs</FilePath>
+            <Location Line="1119" Character="17" />
+          </Diagnostic>
+          <Diagnostic Id="CA1806">
+            <Severity>Info</Severity>
+            <Message>ShowInactiveTopmost calls ShowWindow but does not use the HRESULT or error code that the method returns. This could lead to unexpected behavior in error conditions or low-resource situations. Use the result in a conditional statement, assign the result to a variable, or pass it as an argument to another method.</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\Utility\Windows.cs</FilePath>
+            <Location Line="1714" Character="17" />
+          </Diagnostic>
+          <Diagnostic Id="CA1806">
+            <Severity>Info</Severity>
+            <Message>ShowTaskbar calls ShowWindow but does not use the HRESULT or error code that the method returns. This could lead to unexpected behavior in error conditions or low-resource situations. Use the result in a conditional statement, assign the result to a variable, or pass it as an argument to another method.</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\Utility\Windows.cs</FilePath>
+            <Location Line="1746" Character="17" />
+          </Diagnostic>
+          <Diagnostic Id="CA1806">
+            <Severity>Info</Severity>
+            <Message>ShowWindowWithoutActivation calls ShowWindow but does not use the HRESULT or error code that the method returns. This could lead to unexpected behavior in error conditions or low-resource situations. Use the result in a conditional statement, assign the result to a variable, or pass it as an argument to another method.</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\Utility\Windows.cs</FilePath>
+            <Location Line="1783" Character="17" />
+          </Diagnostic>
+          <Diagnostic Id="CA1806">
+            <Severity>Info</Severity>
+            <Message>TurnOffDPIAwareness calls SetProcessDpiAwareness but does not use the HRESULT or error code that the method returns. This could lead to unexpected behavior in error conditions or low-resource situations. Use the result in a conditional statement, assign the result to a variable, or pass it as an argument to another method.</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\Utility\Windows.cs</FilePath>
+            <Location Line="1885" Character="21" />
+          </Diagnostic>
+          <Diagnostic Id="CA1806">
+            <Severity>Info</Severity>
+            <Message>IsApplicationFrameHostProcessWindow calls GetWindowThreadProcessId but does not use the HRESULT or error code that the method returns. This could lead to unexpected behavior in error conditions or low-resource situations. Use the result in a conditional statement, assign the result to a variable, or pass it as an argument to another method.</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\Utility\Windows.cs</FilePath>
+            <Location Line="1975" Character="17" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'parseEnabledValue' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\WidgetManagement\Widget.cs</FilePath>
+            <Location Line="1302" Character="31" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'unInit' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\Widgets\ImageWidgetBase.cs</FilePath>
+            <Location Line="230" Character="22" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'stringToDecimal' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\Widgets\SliderWidget.cs</FilePath>
+            <Location Line="442" Character="22" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'measureDisplayStringSize' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\Widgets\TabStopScannerButton.cs</FilePath>
+            <Location Line="197" Character="22" />
+          </Diagnostic>
+          <Diagnostic Id="CA2211">
+            <Severity>Info</Severity>
+            <Message>Non-constant fields should not be visible</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\WordPredictorManagement\PreferredWordPredictors.cs</FilePath>
+            <Location Line="43" Character="30" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'Init' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\WordPredictorManagement\WordPredictionManager.cs</FilePath>
+            <Location Line="154" Character="21" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'loadDefaultSettings' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\WordPredictorManagement\WordPredictionManager.cs</FilePath>
+            <Location Line="457" Character="22" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>Member 'saveSettings' does not access instance data and can be marked as static</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\WordPredictorManagement\WordPredictionManager.cs</FilePath>
+            <Location Line="466" Character="22" />
+          </Diagnostic>
+          <Diagnostic Id="CA2211">
+            <Severity>Info</Severity>
+            <Message>Non-constant fields should not be visible</Message>
+            <FilePath>C:\Users\vlohse\source\repos\acat\src\Libraries\ACATCore\WordPredictorManagement\WordPredictionManager.cs</FilePath>
+            <Location Line="47" Character="30" />
+          </Diagnostic>
+        </Diagnostics>
+      </Project>
+    </Projects>
+  </CodeAnalysis>
+</Roslynator>
