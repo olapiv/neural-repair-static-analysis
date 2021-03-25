@@ -17,32 +17,40 @@ while read GH_REPO_URL do
 
             # Breaking down resulting diff into single diagnostics; 
             # Checking pre-filled csv-file to filter out possible DIAGNOSTIC_IDs
-            while IFS=, read -r col1 col2 ANALYZER_PACKAGE_CSV DIAGNOSTIC_ID do
+            while IFS=, read -r col1 col2 ANALYZER_PACKAGE_CSV ANALYZER_ASSEMBLY TYPE DIAGNOSTIC_ID do
 
                 if [ "$ANALYZER_PACKAGE" != "$ANALYZER_PACKAGE_CSV" ]; then
                     continue
                 fi
 
                 FILENAME = $SOLUTION_FILE + "__" + $LAST_COMMIT + "__" + $DIAGNOSTIC_ID
-                ANALYSIS_FILEPATH = "/analysis_files/" + $FILENAME + ".xml"
-                DIFF_FILEPATH = "/diffs/" + $FILENAME + ".diff"
 
-                roslynator analyze SOLUTION_FILE \
-                    -v quiet \
-                    --output $ANALYSIS_FILEPATH \
-                    --report-not-configurable \  # Mostly compiler diagnostics (CSxxxx)
-                    --ignore-analyzer-references \  # Only use our own analyzer assemblies 
-                    --analyzer-assemblies $ANALYZER_PACKAGE \
-                    --supported-diagnostics $DIAGNOSTIC_ID
+                if [ "$TYPE" == "DIAGNOSTIC_ANALYZER" ]; then
 
-                # This basically produces a diff
-                roslynator fix SOLUTION_FILE 
-                    --ignore-analyzer-references \
-                    --analyzer-assemblies $ANALYZER_PACKAGE \
-                    --supported-diagnostics $DIAGNOSTIC_ID
+                    ANALYSIS_FILEPATH = "/analysis_files/" + $FILENAME + ".xml"
 
-                git diff > $DIFF_FILENAME
-                git reset --hard
+                    roslynator analyze SOLUTION_FILE \
+                        -v quiet \
+                        --output $ANALYSIS_FILEPATH \
+                        --report-not-configurable \  # Mostly compiler diagnostics (CSxxxx)
+                        --ignore-analyzer-references \  # Only use our own analyzer assemblies 
+                        --analyzer-assemblies $ANALYZER_PACKAGE \
+                        --supported-diagnostics $DIAGNOSTIC_ID
+                    
+                else  # $TYPE == "CODEFIX_PROVIDER"
+
+                    DIFF_FILEPATH = "/diffs/" + $FILENAME + ".diff"
+
+                    # This basically produces a diff
+                    roslynator fix SOLUTION_FILE 
+                        --ignore-analyzer-references \
+                        --analyzer-assemblies $ANALYZER_PACKAGE \
+                        --supported-diagnostics $DIAGNOSTIC_ID
+
+                    git diff > $DIFF_FILENAME
+                    git reset --hard
+
+                fi
 
             # TODO: Write code to prepare this file
             done < analyzer_package_details.csv

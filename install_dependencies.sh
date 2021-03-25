@@ -14,3 +14,13 @@ while read line do
 done < nuget_packages.txt
 
 # TODO: Extract all diagnostic ids from dlls and write into csv-file analyzer_package_details.csv
+
+# Most of required code is in "Applying Analyzers" project (Target: .Net Framework 4.7)
+# --> No remote Desktop needed.
+
+# Columns: ANALYZER_PACKAGE,ANALYZER_ASSEMBLY,TYPE,DIAGNOSTIC_ID
+# Example:
+# Microsoft.CodeAnalysis.NetAnalyzers.5.0.3,Microsoft.CodeAnalysis.CSharp.NetAnalyzers.dll,DIAGNOSTIC_ANALYZER,CA1827
+# Microsoft.CodeAnalysis.NetAnalyzers.5.0.3,Microsoft.CodeAnalysis.CSharp.NetAnalyzers.dll,CODEFIX_PROVIDER,CA1827
+# Microsoft.CodeAnalysis.NetAnalyzers.5.0.3,Microsoft.CodeAnalysis.CSharp.NetAnalyzers.dll,DIAGNOSTIC_ANALYZER,CA1401
+# Microsoft.CodeAnalysis.NetAnalyzers.5.0.3,Microsoft.CodeAnalysis.CSharp.NetAnalyzers.dll,DIAGNOSTIC_ANALYZER,CA1806
