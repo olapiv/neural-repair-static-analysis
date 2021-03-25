@@ -7,6 +7,7 @@ using Microsoft.CodeAnalysis.CodeFixes;
 using Microsoft.CodeAnalysis.Diagnostics;
 using System.Reflection;
 using CsvHelper;
+using CsvHelper.Configuration;
 using System.IO;
 using System.Globalization;
 
@@ -144,13 +145,30 @@ namespace InfoExtractor
             };
         }
 
-        public void WriteToCSV(String pathToCSV)
+        public void WriteToCSV(String pathToCSV, Boolean newFile)
         {
-            // Write to a file.
-            using (var writer = new StreamWriter(pathToCSV))
-            using (var csv = new CsvWriter(writer, CultureInfo.InvariantCulture))
+            if (newFile)
             {
-                csv.WriteRecords(this.diagnosticsCSV);
+                using (var writer = new StreamWriter(pathToCSV))
+                using (var csv = new CsvWriter(writer, CultureInfo.InvariantCulture))
+                {
+                    csv.WriteRecords(this.diagnosticsCSV);
+                }
+            }
+            {
+                // Append to file
+                var config = new CsvConfiguration(CultureInfo.InvariantCulture)
+                {
+                    // Don't write the header again.
+                    HasHeaderRecord = false,
+                };
+                using (var stream = File.Open(pathToCSV, FileMode.Append))
+                using (var writer = new StreamWriter(stream))
+                using (var csv = new CsvWriter(writer, config))
+                {
+                    csv.WriteRecords(this.diagnosticsCSV);
+                }
+
             }
         }
     }
