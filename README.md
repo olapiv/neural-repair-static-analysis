@@ -16,7 +16,6 @@
 
 ## TODO
 
-* Write C# code to generate analyzer_package_details.csv
 * Check which diagnostics don't have CodeFixProviders
 
 ## Links

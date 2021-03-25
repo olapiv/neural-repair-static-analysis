@@ -52,7 +52,6 @@ while read GH_REPO_URL do
 
                 fi
 
-            # TODO: Write code to prepare this file
             done < analyzer_package_details.csv
 
         done
