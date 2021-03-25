@@ -6,21 +6,29 @@ namespace InfoExtractor
     public class DiagnosticInfoAsCSV
     {
         public DiagnosticInfoAsCSV(
+            String packageName,
             Assembly assembly,
             String type,
             String diagnosticID
         )
         {
-            // TODO: Get package here
-            this.assembly = assembly.GetName().Name;
-            this.type = type;
-            this.diagnosticID = diagnosticID;
+            this.HostingPackageName = packageName;
+            this.AssemblyName = assembly.GetName().Name;
+            this.Type = type;
+            this.DiagnosticID = diagnosticID;
         }
 
-        public String package;
-        public String assembly;
-        public String type;  // TODO: Use Enum
-        public String diagnosticID;
+        //public static class DiagnosticType
+        //{
+        //    public const string
+        //        DiagnosticAnalyzer = "DIAGNOSTIC_ANALYZER",
+        //        CodefixProvider = "CODEFIX_PROVIDER";
+        //}
+
+        public String HostingPackageName { get; set; }
+        public String AssemblyName { get; set; }
+        public String Type { get; set; }
+        public String DiagnosticID { get; set; }
 
         // ANALYZER_PACKAGE,ANALYZER_ASSEMBLY,TYPE,DIAGNOSTIC_ID
     }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 
 namespace InfoExtractor
 {
@@ -8,12 +9,18 @@ namespace InfoExtractor
         {
             Console.WriteLine("Starting!");
 
-            String pathToAssembly = args[0];
+            String pathToAnalyzerPackage = args[0];
             String pathToCSV = args[1];
-            AssemblyParser assemblyParser = new AssemblyParser(pathToAssembly);
-            assemblyParser.GenerateCSVRepresentations();
-            assemblyParser.WriteToCSV(pathToCSV);
-
+            String packageName = new DirectoryInfo(pathToAnalyzerPackage).Name;
+            Console.WriteLine("packageName: {0}", packageName);
+            foreach (String assemblyPath in Directory.EnumerateFiles(pathToAnalyzerPackage, "*.dll", SearchOption.AllDirectories))
+            {
+                Console.WriteLine("assemblyPath: {0}", assemblyPath);
+                AssemblyParser assemblyParser = new AssemblyParser(assemblyPath);
+                assemblyParser.GenerateCSVRepresentations(packageName);
+                assemblyParser.WriteToCSV(pathToCSV);
+                break;
+            }
             Console.WriteLine("Finished!");
         }
     }

@@ -17,9 +17,9 @@ namespace InfoExtractor
     {
         public AssemblyParser(String pathToAssembly)
         {
-            assembly = Assembly.LoadFrom(pathToAssembly);
-            analyzers = LoadDiagnosticAnalyzers();
-            codeFixers = LoadCodeFixProviders();
+            this.assembly = Assembly.LoadFrom(pathToAssembly);
+            this.analyzers = LoadDiagnosticAnalyzers();
+            this.codeFixers = LoadCodeFixProviders();
         }
 
         public Assembly assembly;
@@ -68,7 +68,7 @@ namespace InfoExtractor
         public List<DiagnosticAnalyzer> LoadDiagnosticAnalyzers()
         {
             Console.WriteLine("Loading diagnostics!");
-            List<DiagnosticAnalyzer> analyzers = new List<DiagnosticAnalyzer>(); ;
+            List<DiagnosticAnalyzer> analyzers = new List<DiagnosticAnalyzer>();
 
             foreach (System.Reflection.TypeInfo typeInfo in assembly.DefinedTypes)
             {
@@ -119,14 +119,16 @@ namespace InfoExtractor
             return default;
         }
 
-        public void GenerateCSVRepresentations()
+        public void GenerateCSVRepresentations(String packageName)
         {
+            this.diagnosticsCSV = new List<DiagnosticInfoAsCSV>();
+
             foreach (DiagnosticAnalyzer analyzer in analyzers)
             {
                 foreach (DiagnosticDescriptor descriptor in analyzer.SupportedDiagnostics)
                 {
-                    diagnosticsCSV.Add(
-                        new DiagnosticInfoAsCSV(assembly, "DiagnosticAnalyzer", descriptor.Id.ToString())
+                    this.diagnosticsCSV.Add(
+                        new DiagnosticInfoAsCSV(packageName, assembly, "DIAGNOSTIC_ANALYZER", descriptor.Id.ToString())
                     );
                 };
             };
@@ -135,8 +137,8 @@ namespace InfoExtractor
             {
                 foreach (String fixableDiagnosticID in codeFixer.FixableDiagnosticIds)
                 {
-                    diagnosticsCSV.Add(
-                        new DiagnosticInfoAsCSV(assembly, "CodeFixProvider", fixableDiagnosticID)
+                    this.diagnosticsCSV.Add(
+                        new DiagnosticInfoAsCSV(packageName, assembly, "CODEFIX_PROVIDER", fixableDiagnosticID)
                     );
                 }
             };
@@ -148,7 +150,7 @@ namespace InfoExtractor
             using (var writer = new StreamWriter(pathToCSV))
             using (var csv = new CsvWriter(writer, CultureInfo.InvariantCulture))
             {
-                csv.WriteRecords(diagnosticsCSV);
+                csv.WriteRecords(this.diagnosticsCSV);
             }
         }
     }
