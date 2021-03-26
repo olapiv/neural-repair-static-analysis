@@ -7,22 +7,21 @@ namespace InfoExtractor
     {
         public static void Main(string[] args)
         {
-            Console.WriteLine("Starting!");
-
             String pathToAnalyzerPackage = args[0];
             String pathToCSV = args[1];
+            String newCSV = args[2];
+            Boolean newCSVBool = newCSV.Equals("True");
             String packageName = new DirectoryInfo(pathToAnalyzerPackage).Name;
-            Console.WriteLine("packageName: {0}", packageName);
-            Boolean newFile = true;
+            Console.WriteLine($"packageName: {packageName}");
             foreach (String assemblyPath in Directory.EnumerateFiles(pathToAnalyzerPackage, "*.dll", SearchOption.AllDirectories))
             {
-                Console.WriteLine("assemblyPath: {0}", assemblyPath);
+                String assemblyFilename = Path.GetFileName(assemblyPath);
+                Console.WriteLine("assemblyFilename: {0}", assemblyFilename);
                 AssemblyParser assemblyParser = new AssemblyParser(assemblyPath);
                 assemblyParser.GenerateCSVRepresentations(packageName);
-                assemblyParser.WriteToCSV(pathToCSV, newFile);
-                newFile = false;
+                assemblyParser.WriteToCSV(pathToCSV, newCSVBool);
+                newCSVBool = false;
             }
-            Console.WriteLine("Finished!");
         }
     }
 }

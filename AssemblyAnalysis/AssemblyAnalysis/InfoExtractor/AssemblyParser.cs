@@ -30,7 +30,6 @@ namespace InfoExtractor
 
         public List<CodeFixProvider> LoadCodeFixProviders()
         {
-            Console.WriteLine("Loading code fixes!");
             List<CodeFixProvider> codeFixers = new List<CodeFixProvider>();
 
             foreach (System.Reflection.TypeInfo typeInfo in assembly.DefinedTypes)
@@ -63,12 +62,12 @@ namespace InfoExtractor
 
                 codeFixers.Add(codeFixer);
             }
+            Console.WriteLine($"Number of CodeFixProviders: {codeFixers.Count}");
             return codeFixers;
         }
 
         public List<DiagnosticAnalyzer> LoadDiagnosticAnalyzers()
         {
-            Console.WriteLine("Loading diagnostics!");
             List<DiagnosticAnalyzer> analyzers = new List<DiagnosticAnalyzer>();
 
             foreach (System.Reflection.TypeInfo typeInfo in assembly.DefinedTypes)
@@ -101,6 +100,7 @@ namespace InfoExtractor
 
                 analyzers.Add(analyzer);
             }
+            Console.WriteLine($"Number of DiagnosticAnalyzers: {analyzers.Count}");
             return analyzers;
         }
 
