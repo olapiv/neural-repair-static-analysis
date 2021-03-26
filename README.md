@@ -5,6 +5,12 @@
 1. Run `install_dependencies.sh`
 2. Run `create_dataset.sh`
 
+## Required Dependencies
+
+* C# / Mono
+* Nuget CLI
+* Roslynator.Commandline
+
 ## Problem statement for Data Collection
 
 * Diagnostics warnings/info/errors must be matched with the diffs
@@ -17,6 +23,8 @@
 ## TODO
 
 * Check which diagnostics don't have CodeFixProviders
+* Understand why some assemblies have duplicate DIAGNOSTIC_ANALYZERs, E.g.:
+  `Microsoft.CodeQuality.Analyzers.3.3.2,Microsoft.CodeQuality.Analyzers,DIAGNOSTIC_ANALYZER,CA2225`
 
 ## Links
 
