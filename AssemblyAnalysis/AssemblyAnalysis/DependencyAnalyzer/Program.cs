@@ -3,6 +3,7 @@ using System.IO;
 using NuGet;
 using System.Collections.Generic;
 using System.Linq;
+using Newtonsoft.Json;
 using NuGet.Packaging;
 
 
@@ -13,6 +14,8 @@ namespace DependencyAnalyzer
     {
         public static void Main(string[] args)
         {
+            Dictionary<string, dynamic> outputObject = new Dictionary<string, dynamic> { };
+
             var analyzerPackagesPath = "/Users/vincent/Desktop/EA Thesis/Code/nuget_packages.txt";
             var analyzerPackages = File.ReadAllLines(analyzerPackagesPath);
             var repo = new LocalPackageRepository("/Users/vincent/Desktop/EA Thesis/Code/nuget_analyzer_packages");
@@ -27,11 +30,16 @@ namespace DependencyAnalyzer
                 }
             }
             Console.WriteLine($"Number of analyzer packages: {installedAnalyzerPackages.Count()}");
-            OutputGraph(repo, analyzerPackages, installedAnalyzerPackages, 0);
+            OutputGraph(repo, analyzerPackages, installedAnalyzerPackages, 0, outputObject);
+            
+            String outputObjectJson = JsonConvert.SerializeObject(outputObject);
+            File.WriteAllText("/Users/vincent/Desktop/EA Thesis/Code/nuget_deps.json", outputObjectJson);
         }
 
 
-        static void OutputGraph(LocalPackageRepository repository, string [] analyzerPackages, IEnumerable<IPackage> packages, int depth)
+        static void OutputGraph(LocalPackageRepository repository, string [] analyzerPackages, IEnumerable<IPackage> packages, int depth,
+            dynamic outputObject
+            )
         {
 
             foreach (IPackage package in packages)
@@ -43,6 +51,8 @@ namespace DependencyAnalyzer
                 }
 
                 Console.WriteLine($"{new string(' ', depth)}{package.Id} v{package.Version}");
+                String packageIDandVersion = package.Id + "__" + package.Version;
+                outputObject[packageIDandVersion] = new Dictionary<string, dynamic> { };
 
                 IList<IPackage> dependentPackages = new List<IPackage>();
                 foreach (var dependencySet in package.DependencySets)
@@ -79,7 +89,7 @@ namespace DependencyAnalyzer
                 // Can be repetitive; Seems like same dependency in different DependencySets?
                 dependentPackages = dependentPackages.Distinct().ToList();
 
-                OutputGraph(repository, analyzerPackages, dependentPackages, depth + 3);
+                OutputGraph(repository, analyzerPackages, dependentPackages, depth + 3, outputObject[packageIDandVersion]);
             }
         }
     }
