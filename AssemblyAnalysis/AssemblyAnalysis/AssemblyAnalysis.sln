@@ -5,6 +5,8 @@ VisualStudioVersion = 16.0.808.9
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InfoExtractor", "InfoExtractor\InfoExtractor.csproj", "{33D433CE-8692-47B4-9A81-0F1B62341772}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DependencyAnalyzer", "DependencyAnalyzer\DependencyAnalyzer.csproj", "{E6E7C568-AD4C-46FD-AC7F-36258F6D4446}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|anycpu = Debug|anycpu
@@ -15,6 +17,10 @@ Global
 		{33D433CE-8692-47B4-9A81-0F1B62341772}.Debug|anycpu.Build.0 = Debug|anycpu
 		{33D433CE-8692-47B4-9A81-0F1B62341772}.Release|anycpu.ActiveCfg = Release|anycpu
 		{33D433CE-8692-47B4-9A81-0F1B62341772}.Release|anycpu.Build.0 = Release|anycpu
+		{E6E7C568-AD4C-46FD-AC7F-36258F6D4446}.Debug|anycpu.ActiveCfg = Debug|anycpu
+		{E6E7C568-AD4C-46FD-AC7F-36258F6D4446}.Debug|anycpu.Build.0 = Debug|anycpu
+		{E6E7C568-AD4C-46FD-AC7F-36258F6D4446}.Release|anycpu.ActiveCfg = Release|anycpu
+		{E6E7C568-AD4C-46FD-AC7F-36258F6D4446}.Release|anycpu.Build.0 = Release|anycpu
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
