@@ -61,8 +61,11 @@ def duplicate_diagnostic_ids(df):
         4. SonarAnalyzer.CSharp.8.6.0.16497
         5. SonarAnalyzer.CSharp.8.7.0.17535
 
-    TODO: Find out why this happens. Dependencies?
-    TODO: Find out whether it's possible to save dependencies in a separate folder.
+    This is because a number of analyzer packages use other analyzer packages
+    as dependencies. Sometimes they simply bundle different analyzer packages
+    without creating any DiagnosticAnalyzers / CodeFixProviders themselves.
+    The downside of this, is that they often reference outdated versions. This
+    is why we can see so many different versions of the same packages.
     """
     print("Duplicate diagnostic ids")
     diagnostic_analyzers = df[df['Type'].str.match('DIAGNOSTIC_ANALYZER')]
