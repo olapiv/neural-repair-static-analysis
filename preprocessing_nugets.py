@@ -1,22 +1,4 @@
-import json
 import pandas as pd
-
-
-def generate_nuget_txt_list():
-    """
-    Extract relevant information from nuget_api_response.json,
-    which is the REST API response from nuget.org.
-    """
-    with open('nuget_api_response.json') as f:
-        responseDict = json.load(f)
-
-    nugetPackages = []
-    for nugetPackage in responseDict["data"]:
-        nugetPackages += [nugetPackage["id"]]
-
-    with open('nuget_packages.txt', 'w') as f:
-        for nugetPackage in nugetPackages:
-            f.write(nugetPackage + "\n")
 
 
 def total_das_cps(df):
