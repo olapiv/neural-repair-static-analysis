@@ -84,6 +84,20 @@ def missed_packages(df, original_packages='nuget_packages.txt'):
     All packages that were not in the original list of NuGet analyzer packages, but
     have DiagnosticAnalyzers/CodeFixProviders and packages of the original list use
     them as dependencies.
+
+    This means we are using their diagnostics for the dataset, but they are potentially
+    outdated versions.
+
+    Queried for nuget.org for "analyzers"
+    Problem:
+    --> Did not query for "analyzer" e.g. 
+          Microsoft.AnalyzerPowerPack
+          SmartAnalyzers.ExceptionAnalyzer
+          TODO: Redo search with "analyzer"
+    --> Also missed "Microsoft.CodeAnalysis.CSharp"
+    --> System packages may not be on NuGet.org e.g.
+          System.Runtime.Analyzers
+          System.Runtime.InteropServices.Analyzers
     """
     print("Missed packages")
 
