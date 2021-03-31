@@ -27,11 +27,11 @@ while read GH_REPO_URL do
 
                 if [ "$TYPE" == "DIAGNOSTIC_ANALYZER" ]; then
 
-                    ANALYSIS_FILEPATH = "/analysis_files/" + $FILENAME + ".xml"
+                    ANALYSIS_FILENAME = "/analysis_files/" + $FILENAME + ".xml"
 
                     roslynator analyze SOLUTION_FILE \
                         -v quiet \
-                        --output $ANALYSIS_FILEPATH \
+                        --output $ANALYSIS_FILENAME \
                         --report-not-configurable \  # Mostly compiler diagnostics (CSxxxx)
                         --ignore-analyzer-references \  # Only use our own analyzer assemblies 
                         --analyzer-assemblies $ANALYZER_PACKAGE \
@@ -39,7 +39,7 @@ while read GH_REPO_URL do
                     
                 else  # $TYPE == "CODEFIX_PROVIDER"
 
-                    DIFF_FILEPATH = "/diffs/" + $FILENAME + ".diff"
+                    DIFF_FILENAME = "/diffs/" + $FILENAME + ".diff"
 
                     # This basically produces a diff
                     roslynator fix SOLUTION_FILE 
