@@ -83,6 +83,43 @@ def duplicate_diagnostic_ids(df):
         print(cp_duplicates)
 
 
+def unique_source_packages(df, original_packages='nuget_packages.txt'):
+    "All packages that have their own diagnostic ids, disregarding versioning"
+
+    # Not optimal - any dots followed by numbers are removed
+    df = df['HostingPackageName'].str.replace(r'\.\d+', '')
+    df.drop_duplicates(inplace=True)
+    with pd.option_context(
+        'display.min_rows', 70,
+        'display.max_rows', 70,
+        'display.max_colwidth', 300
+    ):
+        print(df)
+
+
+def missed_packages(df, original_packages='nuget_packages.txt'):
+    """
+    All packages that were not in the original list of NuGet analyzer packages, but
+    have DiagnosticAnalyzers/CodeFixProviders and packages of the original list use
+    them as dependencies.
+    """
+    print("Missed packages")
+
+    # Not optimal - any dots followed by numbers are removed
+    df = df['HostingPackageName'].str.replace(r'\.\d+', '')
+    df.drop_duplicates(inplace=True)
+
+    original_packages_list = [line.strip() for line in open(original_packages)]
+    df_missed_packages = df[~df.isin(original_packages_list)]
+
+    with pd.option_context(
+        'display.min_rows', 100,
+        'display.max_rows', 100,
+        'display.max_colwidth', 300
+    ):
+        print(df_missed_packages)
+
+
 def calculate_analyzer_statistics(csv_file="analyzer_package_details.csv"):
 
     df = pd.read_csv(csv_file)
@@ -92,6 +129,9 @@ def calculate_analyzer_statistics(csv_file="analyzer_package_details.csv"):
     unique_diagnostic_ids(df)
 
     duplicate_diagnostic_ids(df)
+
+    unique_source_packages(df)
+    missed_packages(df)
 
     # TODO: Find
     # 1. Percentage of diagnostic_analyzers that have a codefix_provider
