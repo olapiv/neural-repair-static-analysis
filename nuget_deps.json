@@ -1,5 +1,6 @@
 {
     "UnityEngineAnalyzer__1.0.0.0": {},
+    "NullableClass__0.4.0": {},
     "ValueObjectAnalyzer__1.0.0.3": {},
     "Microsoft.CodeAnalysis.FxCopAnalyzers__2.6.3": {
         "Microsoft.CodeQuality.Analyzers__2.6.3": {},
@@ -8,19 +9,30 @@
         "Text.Analyzers__2.6.3": {}
     },
     "Roslynator.Analyzers__2.3.0": {},
+    "ActionResponseTypeAnalyzer__1.0.3": {},
     "AkkaRoslynAnalyzer__1.0.0": {},
+    "Microsoft.NetFramework.Analyzers__2.6.1": {},
     "Auditorius.PBPlatform.Analyzers__1.0.5956.23940": {},
+    "AzureTackleAnalyzer__0.3.7": {
+        "FSharp.Analyzers.SDK__0.6.0": {}
+    },
     "NFluent.Analyzer__0.1.0": {},
     "Namespacer__0.2.0": {},
     "AnalisadorLogCatch__1.0.0": {},
+    "HarabaSourceGenerators.Generators__1.0.4": {
+        "HarabaSourceGenerators.Common__1.0.4": {}
+    },
     "CodeAnalyzer2__1.0.0.0": {
         "Microsoft.CodeAnalysis.Analyzers__1.1.0": {}
     },
+    "FileAnalyzerCore__1.0.0": {},
     "DisposableFixer__3.3.0": {},
+    "ActionResponseTypeAnalyzer.Annotations__1.0.3": {},
     "SonarAnalyzer.CSharp__1.21.0": {},
     "VBNullableToNonNullableAnalyzer__1.0.0": {},
     "FluentArithmetic__0.1.0": {},
     "MoqAnalyzer__1.0.5922.38414": {},
+    "Mocklis.MockGenerator__1.2.0": {},
     "ValueChangedGenerator__1.0.0": {},
     "StyleCop.Analyzers.Unstable__1.1.0.47": {},
     "Microsoft.NetCore.Analyzers__2.6.3": {},
@@ -32,14 +44,26 @@
     "Jabberwocky.Glass.CodeAnalysis__2.0.0": {},
     "DotNetDoodle.Analyzers__0.0.2": {},
     "StyleChecker__1.0.27": {},
+    "codecracker.CSharp__1.0.3": {},
     "AIT.CodeQualityProfile__0.2.0": {
         "SonarAnalyzer.CSharp__1.23.0.1857": {},
         "StyleCop.Analyzers__1.0.0": {}
     },
     "Ellumination.Collections.Enumerations.Generators__1.1.3.7611": {},
+    "SimpleNlp__0.4.1": {},
+    "Sitecore.Azure.Diagnostics__8.1.0": {},
+    "Lexical.Analyser__2.45.3": {},
+    "PanGu.Lucene.Analyzer__0.0.2": {},
     "RuntimeContracts.Analyzer__0.3.0": {},
+    "SonarAnalyzer.CSharpX__6.6.0.3969": {
+        "SonarAnalyzer__6.6.0.3969": {}
+    },
     "CodeAnalyzer__1.0.0.0": {
         "Microsoft.CodeAnalysis.Analyzers__1.1.0": {}
+    },
+    "ApiAnalysis.SimpleJsonAnalyzer__2.0.0": {},
+    "Dax.ViewModel__1.0.34": {
+        "Dax.Metadata__1.0.34": {}
     },
     "Google.Cloud.Diagnostics.AspNetCore.Analyzers__2.0.0": {},
     "Microsoft.CodeAnalysis.VersionCheckAnalyzer__2.9.4": {},
@@ -52,17 +76,20 @@
     "MindTouch.RoslynAnalyzers__1.0.5917.3542": {},
     "Microsoft.NetCore.Analyzers__2.9.10": {},
     "NullableClass.Analyzer__0.4.0": {},
+    "SurfaceAnalyzer__1.4.0": {},
     "OhioBox.Time.Analyzer__1.1.4": {},
     "Text.Analyzers__2.6.4": {},
     "FlubuCore.Analyzers__1.0.4": {},
     "Microsoft.CodeAnalysis.VersionCheckAnalyzer__3.3.2": {},
     "StyleCop.Analyzers__1.0.2": {},
     "BraceAnalyzer__1.0.0": {},
+    "Cake.CodeAnalysisReporting__0.3.1": {},
     "OsuSharp.Analyzer__5.4.4": {},
     "xunit__2.4.1": {
         "xunit.analyzers__0.10.0": {}
     },
     "AsyncSuffixAnalyzer__1.0.6285.32977": {},
+    "PdfFileAnalyzer__2.1.0": {},
     "Kingdom.CodeAnalysis.Verifiers.Diagnostics__1.0.1.2560": {},
     "Kingdom.Collections.Enumerations.Analyzers__1.0.3.8081": {},
     "LaDeak.NXunitConverterAnalyzer__0.1.22": {},
@@ -70,9 +97,16 @@
     "NamedParametersAnalyzer__0.3.1": {},
     "Microsoft.ServiceHub.Analyzers__2.7.345": {},
     "YAnalyzers__1.1.0": {},
+    "Microsoft.CodeAnalysis.FxCopAnalyzers__3.0.0": {
+        "Microsoft.CodeQuality.Analyzers__3.0.0": {},
+        "Microsoft.NetCore.Analyzers__3.0.0": {},
+        "Microsoft.NetFramework.Analyzers__3.0.0": {},
+        "Microsoft.CodeAnalysis.VersionCheckAnalyzer__3.0.0": {}
+    },
     "OpenMod.Analyzers__3.0.22": {},
     "Roslynator.Formatting.Analyzers__1.0.0": {},
     "NullableValueAnalyzer__1.0.4": {},
+    "Thor.Analyzer__1.0.4": {},
     "Microsoft.CodeAnalysis.Analyzers__2.6.1": {},
     "SonarAnalyzer.CSharp__8.7.0.17535": {},
     "ReflectionIT.Analyzer__3.5.0": {},
@@ -86,20 +120,42 @@
         "Microsoft.NetFramework.Analyzers__2.9.10": {},
         "Microsoft.CodeAnalysis.VersionCheckAnalyzer__2.9.10": {}
     },
+    "IKoshelev.Roslyn.Mapper__0.6.6584.41136": {},
+    "PdfAnalyzer_dependencies__1.0.0": {},
     "Scifa.CheckedExceptions__1.0.14": {},
     "UniRxAnalyzer__1.0.4.1": {},
     "Microsoft.Azure.Functions.Worker.Sdk.Analyzers__1.0.0": {},
     "Microsoft.CodeAnalysis.FxCopAnalyzers__1.0.1": {},
+    "Microsoft.NetCore.Analyzers__3.0.0": {},
+    "IKNetAnzlyzer__1.0.1": {},
+    "DeepMorphy__2.0.3": {},
     "Kros.Utils.Analyzers__1.0.0": {},
+    "Dhgms.GripeWithRoslyn.Analyzer__1.8.0": {},
     "Microsoft.DotNet.FrameworkCompatibilityDiagnostics__0.5.0": {},
     "ZpqrtBnk.CommentsBuildAnalyzer__1.0.9": {},
+    "Dhgms.QualityAssurancePack__2.0.1": {
+        "ClrHeapAllocationAnalyzer__3.0.0": {},
+        "Dhgms.GripeWithRoslyn.Analyzer__1.8.0": {},
+        "InclusivenessAnalyzer__1.2.0": {},
+        "Microsoft.CodeAnalysis.Analyzers__3.3.2": {},
+        "Microsoft.CodeAnalysis.NetAnalyzers__5.0.1": {},
+        "Microsoft.VisualStudio.Threading.Analyzers__16.8.55": {},
+        "RefactoringEssentials__5.6.0": {},
+        "SecurityCodeScan__3.5.3.0": {},
+        "StyleCop.Analyzers__1.1.118": {},
+        "codecracker.CSharp__1.1.0": {}
+    },
     "Microsoft.AspNetCore.Mvc.Api.Analyzers__2.2.6": {},
+    "ConcurrencyLab.ParallelChecker__1.8.0": {},
     "Softlr.Suppress__1.6.1": {},
     "AssignAll__1.5.0": {},
+    "NsDepCop__1.10.1": {},
     "StyleCop.Analyzers__1.1.118": {},
     "Audis.Analyzer.Common__5.2.1": {
         "Audis.Analyzer.Contract__1.0.1": {}
     },
+    "Trestel.SqlQueryAnalyzer__0.1.0": {},
+    "pdfAnalyzer__1.1.3": {},
     "CheekyRegexAnalyzer__1.0.0": {
         "Microsoft.CodeAnalysis.Analyzers__1.1.0": {}
     },
@@ -107,8 +163,12 @@
     "CodeHeroes.CodeAnalysis.Style__0.0.6": {},
     "CSharpAnalyzer_Test__1.0.0": {},
     "CancellationTokenAnalyzers__1.0.1": {},
+    "NReco.VideoInfo.LT__1.1.0": {},
     "przemyslaw.morski.FirstAnalyzerCS__1.0.0": {},
     "ErrorProne.NET.CoreAnalyzers__0.1.2": {},
+    "Cometary.Analyzer__0.2.0": {
+        "Cometary.Core__0.2.0": {}
+    },
     "FSharp.Analyzers.SDK__0.7.0": {},
     "TypePack.Core__0.6.4.2": {},
     "WpfDiagnostics__1.0.5743.33196": {},
@@ -126,8 +186,18 @@
     "more.xunit__2.3.1": {
         "xunit.analyzers__0.7.0": {}
     },
+    "dhmhgre.EDUFLEX.RunTime__1.0.1": {},
     "ATAnalyzer__1.0.5": {},
     "Microsoft.Unity.Analyzers__1.10.0": {},
+    "Dax.Vpax.NetCore__1.0.34": {
+        "Dax.Metadata__1.0.34": {},
+        "Dax.Model.Extractor.NetCore__1.0.34": {
+            "Dax.Metadata__1.0.34": {}
+        },
+        "Dax.ViewVpaExport__1.0.34": {
+            "Dax.Metadata__1.0.34": {}
+        }
+    },
     "RefactoringEssentials__5.6.0": {},
     "Amazon.JSII.Analyzers__1.26.0": {},
     "Microsoft.CodeQuality.Analyzers__2.9.8": {},
@@ -135,6 +205,11 @@
     "Roslyn.System.IO.Abstractions.Analyzers__12.2.19": {},
     "ExhaustiveSwitchOnEnums__1.0.1": {},
     "VisualTreeAnalyzers__0.1.3": {},
+    "Lucene.JIEba.NetCore__1.1.4": {
+        "Lucene.JIEba.Analyzer.NetCore__1.0.1": {
+            "Lucene.JIEba.Segment.NetCore__1.0.0": {}
+        }
+    },
     "Microsoft.CodeQuality.Analyzers__2.9.6": {},
     "globalloop.analyzers__1.1.1": {
         "StyleCop.Analyzers__1.1.118": {},
@@ -148,7 +223,10 @@
     "DotNetAnalyzers.PublicApiAnalyzer.Unstable__1.0.0.12": {},
     "Comments_analyser__1.0.6626.21356": {},
     "ExplicitDefaultAccessModifiersAnalyzer__1.1.0": {},
+    "Boos.RemoteControlledProcess__0.0.79": {},
     "Analyzer1__1.0.0": {},
+    "CSharpGuidelinesAnalyzer__3.6.0": {},
+    "Afk.Expression__1.3.5": {},
     "SqlAnalyzer.Net__1.2.1": {},
     "SmartAnalyzers.RoslynTestKit__3.0.61": {},
     "IteratorTasks__1.0.0.0": {},
@@ -157,28 +235,49 @@
     "Flyntax.All__1.1.2.41": {},
     "Catel.Analyzers__1.1.0": {},
     "StrawberryShake.CodeGeneration.CSharp.Analyzers__0.0.30": {},
+    "MapEnforcerAnalyzer.Annotations__1.0.3": {},
     "Gu.Roslyn.CodeFixExtensions__0.15.7": {
         "Gu.Roslyn.AnalyzerExtensions__0.15.7": {}
     },
+    "Tocsoft.DateTimeAbstractions__0.1.4": {},
     "KanColleViewer.PluginAnalyzer__1.1.1.0": {},
     "IDisposableAnalyzers__3.4.13": {},
+    "PhotonWire__1.0.4": {
+        "PhotonWire.Analyzer__1.0.2": {}
+    },
     "WTG.Analyzers.Utils__2.10.4": {},
     "AOTMapper.Core__1.0.1": {},
+    "RefactoringEssentials__5.2.0": {},
     "Analyzer12__1.0.0": {},
+    "Microsoft.CST.DevSkim__0.4.221": {
+        "Microsoft.CST.OAT__1.0.76": {}
+    },
+    "Analyzer.Infrastucture.Web__1.0.0": {},
     "OBeautifulCode.Build.Analyzers__1.1.136": {
         "StyleCop.Analyzers__1.1.118": {}
     },
+    "CustomAnalyzer3__1.0.0": {},
     "MR.Analyzers.Whitespace__1.0.1": {},
     "CSharpAnalyzer_Ashok__1.0.0": {},
     "EntityFrameworkPerformanceAnalyzer__1.0.6319.40789": {},
+    "wk.NullLockAnalyzer__0.1.0": {},
+    "Dax.ViewVpaExport__1.0.34": {
+        "Dax.Metadata__1.0.34": {}
+    },
     "Meziantou.Analyzer__1.0.649": {},
+    "ExceptionAnalyzer__1.0.5": {},
     "CodeStyleAnalyzer__0.1.3": {},
+    "Microsoft.Toolkit.Uwp.PlatformSpecificAnalyzer__6.1.1": {},
     "WarnAboutTODOs__1.6.0": {},
     "SecurityCodeScan__3.5.4.0": {},
+    "ComplianceAnalyser.sln__1.2.0": {},
     "Appccelerate.Development.Analyzers__2.2.0": {
         "StyleCop.Analyzers__1.0.2": {}
     },
     "SecurityCodeScan.VS2017__3.5.4": {},
+    "Microsoft.EntityFrameworkCore.Analyzers__3.1.1": {},
+    "RequireNamedArgs__0.0.3": {},
+    "protobuf-net.BuildTools__3.0.101": {},
     "Microsoft.NetFramework.Analyzers__2.9.4": {},
     "Microsoft.DotNet.UpgradeAssistant.Extensions.Default.Analyzers__0.2.217201": {},
     "Microsoft.CodeAnalysis.FxCopAnalyzers__2.9.6": {
@@ -188,11 +287,15 @@
         "Microsoft.CodeAnalysis.VersionCheckAnalyzer__2.9.6": {}
     },
     "SIGGuidelines.Analyzers__0.1.5907.29403": {},
-    "MADE.Analyzers__1.0.6491.39580": {},
+    "Cake.Prca__0.5.0": {},
     "Microsoft.CodeAnalysis.BannedApiAnalyzers__3.0.0": {},
     "Wintellect.Analyzers__1.0.6.0": {},
+    "Cake.Scripting.Abstractions__0.6.2": {},
     "ResourceBridge__2021.1.0": {},
     "MMScout__1.0.0": {},
+    "Akka.Analyzer__0.1.0": {
+        "Microsoft.CodeAnalysis.Analyzers__1.1.0": {}
+    },
     "NUnit.Migrator__1.1.2": {},
     "Microsoft.CodeAnalysis.FxCopAnalyzers__2.9.8": {
         "Microsoft.CodeQuality.Analyzers__2.9.8": {},
@@ -200,6 +303,8 @@
         "Microsoft.NetFramework.Analyzers__2.9.8": {},
         "Microsoft.CodeAnalysis.VersionCheckAnalyzer__2.9.8": {}
     },
+    "Roslynator.CSharp__2.0.0": {},
+    "ClrHeapAllocationAnalyzer__3.0.0": {},
     "CompilerAttributes__1.1.2": {},
     "Microsoft.CodeAnalysis.PublicApiAnalyzers__2.9.8": {},
     "Microsoft.Net.RoslynDiagnostics__2.6.3": {
@@ -211,11 +316,14 @@
     "Philips.CodeAnalysis.MaintainabilityAnalyzers__1.2.6.1": {},
     "Microsoft.CodeAnalysis.Analyzers__3.3.2": {},
     "Microsoft.EntityFrameworkCore.Analyzers__5.0.4": {},
+    "Rolosoft.Practices.EnterpriseLibrary.SemanticLogging.EventSourceAnalyzer__3.0.0.3": {},
     "codecracker.CSharp__1.1.0": {},
+    "Privatest__1.0.2": {},
     "Hagar.Analyzers__0.6.1": {},
     "Arch.EntityFrameworkCore.Analyzers__2.1.15": {},
     "ComplianceAnalyser__1.2.0.0": {},
     "MethodLength__1.1.0": {},
+    "FSharpCompiler.Analyzing__1.0.3": {},
     "SerilogAnalyzer__0.15.0.0": {},
     "NamespaceAnalyzer__1.0.0": {
         "Microsoft.CodeAnalysis.Analyzers__2.9.8": {}
@@ -223,13 +331,17 @@
     "Moq.Analyzers__0.0.8": {},
     "CodeAnalysis.ParameterWrapper__1.0.0": {},
     "Microsoft.NetCore.Analyzers__2.9.6": {},
+    "OneLISAAnalyzerVB__1.1.6558.29363": {},
+    "QFoxFramework.BlazorAnalyzers__1.0.0": {},
     "Tsarev.Analyzer.Web__1.1.56.0": {},
     "Microsoft.CodeAnalysis.Analyzers__1.1.0": {},
     "Roslyn.Diagnostics.Analyzers__2.6.3": {},
     "Roslynator.CodeAnalysis.Analyzers__1.0.0": {},
     "Microsoft.NetCore.Analyzers__2.9.8": {},
+    "SourceExpander.Embedder.Analyzer__2.6.0": {},
     "Dolittle.CodeAnalysis__3.0.0": {},
     "Deptorygen__1.0.4": {},
+    "Microsoft.CodeAnalysis.Analyzers__2.9.2": {},
     "DateTimeProvider.Analyser__1.0.106": {},
     "SonarAnalyzer.CSharp__8.6.0.16497": {},
     "IntelliTect.Analyzers__0.1.8": {
@@ -240,7 +352,9 @@
             "Microsoft.CodeAnalysis.VersionCheckAnalyzer__2.9.6": {}
         }
     },
+    "CodingGuidelines__1.0.5707.25511": {},
     "NonCopyableAnalyzer__0.6.0": {},
+    "Google.Apis.CommentAnalyzer.v1alpha1__1.45.0.1921": {},
     "Cireson.Platform.CodeAnalyzers__1.0.59": {},
     "xunit.analyzers__0.10.0": {},
     "NSubstitute.Analyzers.VisualBasic__1.0.14": {},
@@ -248,8 +362,12 @@
     "SimpleObjectMapper__1.2.2.0": {},
     "Dhgms.Nucleotide.Analyzers__3.0.10": {},
     "Kingdom.Collections.Enumerations.Attributes__1.0.3.8081": {},
+    "Kingdom.Collections.Enumerations.BuildTime__1.2.1.11325": {},
+    "SonarAnalyzer__6.6.0.3969": {},
+    "WPFSVL__1.0.0": {},
     "ZWA.Infrastructure.CodeAnalysis__1.0.0": {},
     "ArgNullAnalyzer__0.0.2": {},
+    "EasyNow.PdfFileAnalyzer__1.0.1": {},
     "Microsoft.CodeAnalysis.VisualBasic.CodeStyle__3.9.0": {},
     "Lesk__0.3": {},
     "CodeAnalyzer1__1.0.0.0": {},
@@ -260,10 +378,30 @@
     "DotNetAnalyzers.DocumentationAnalyzers.Unstable__1.0.0.59": {},
     "Microsoft.CodeAnalysis.Analyzers__2.9.4": {},
     "RoslynSort__1.0.0": {},
+    "MapEnforcerAnalyzer__1.0.2": {},
+    "RapidXaml.CustomAnalysis__0.9.7": {},
+    "Cmc__0.0.1": {},
     "Microsoft.CodeAnalysis.Analyzers__2.9.3": {},
     "Documentation.Analyser__1.1.1": {},
+    "Puma.Security.Rules__2.4.7": {},
+    "Hunter.EntityFramework.SyntaxAnalyzer.Abstractions__1.0.1.720": {},
+    "NpgsqlFSharpAnalyzer__3.23.0": {
+        "FSharp.Analyzers.SDK__0.5.0": {}
+    },
     "CleanCodeDeveloper.Analyzers__0.0.6": {},
+    "SimpleProvider__1.0.3.7": {},
+    "ReferenceAnalyzer__1.0": {},
     "Microsoft.NetFramework.Analyzers__3.3.2": {},
+    "Amazon.CDK.AWS.AccessAnalyzer__1.95.1": {},
+    "mstest-analyzer__0.6.1": {
+        "Microsoft.CodeAnalysis.FxCopAnalyzers__2.6.1": {
+            "Microsoft.CodeQuality.Analyzers__2.6.1": {},
+            "Microsoft.NetCore.Analyzers__2.6.1": {},
+            "Microsoft.NetFramework.Analyzers__2.6.1": {}
+        },
+        "StyleCop.Analyzers__1.0.2": {}
+    },
+    "SemanticRelease.CommitAnalyzer__2.2.0": {},
     "KS.Fiks.QA__1.0.0": {
         "Microsoft.CodeAnalysis.FxCopAnalyzers__2.6.3": {
             "Microsoft.CodeQuality.Analyzers__2.6.3": {},
@@ -275,26 +413,44 @@
     },
     "InclusivenessAnalyzer__1.2.0": {},
     "Itslearning.Analyzers__1.0.0": {},
+    "Springboard365.StyleCop__1.0.4": {
+        "StyleCop.Analyzers__1.1.118": {}
+    },
     "Microsoft.CodeAnalysis.PerformanceSensitiveAnalyzers__3.3.1": {},
     "Portia.Roslyn.CheckedException__1.4.7443.28334": {},
+    "AzureCosmosDB.MongoDB.RequestUnitAnalyzer__1.0.3": {},
     "Ewell.AnalyzerConfig__0.0.5": {
         "StyleCop.Analyzers__1.0.2": {}
     },
+    "Carubbi.DiffAnalyzer__2.0.0.0": {},
     "Particular.CodeRules__0.8.0": {},
     "com.etsoo.SourceGenerators__1.0.20": {},
+    "Microsoft.CST.OAT__1.0.76": {},
     "Eshopworld.Tests.Core.Analyzers__1.0.11": {},
     "Sorry.Analyzers__1.0.0": {},
     "ProgressOnderwijsUtils.Analyzers__2.0.0": {},
+    "GenericsAnalyzer__1.2.0": {},
     "ElmahEFLogger__1.0.2.0": {},
     "Microsoft.CodeQuality.Analyzers__2.9.10": {},
+    "PreserveFormattableStringForObjParamsAnalyzer__1.0.6439.929": {},
+    "Augurk.CSharpAnalyzer.Annotations__0.2.1": {},
     "TypePack.Analyzer__0.6.4.2": {
         "TypePack.Core__0.6.4.2": {}
     },
+    "OmicronLab.MaterialAnalyzer__1.82.603": {},
+    "Antext__0.0.2.6": {},
     "PreventEqualsMisusage__1.6.0": {},
+    "Hunter.EntityFramework.SyntaxAnalyzer.Relational__1.0.1.720": {
+        "Hunter.EntityFramework.SyntaxAnalyzer.Abstractions__1.0.1.720": {}
+    },
+    "D1VCSNParse__1.0.0.6": {},
     "RapidXaml.CustomAnalysis__0.11.1": {},
+    "SecurityCodeScan__3.5.3.0": {},
+    "SecurityCodeScan.VS2019__5.1.0": {},
     "NpgsqlAnalyzers__0.0.2": {
         "Microsoft.CodeAnalysis.Analyzers__2.9.8": {}
     },
+    "Ellumination.Collections.Enumerations.BuildTime__1.2.2.7630": {},
     "Jacobi.VisualStudio.Analyzers__1.0.0": {},
     "RoslynAsciiAnalyzer__1.1.1": {},
     "StyleChecker.Annotations__1.0.1": {},
@@ -303,34 +459,60 @@
     "BinaryDefense.FSharp.Analyzers.Hashing__0.2.1": {
         "FSharp.Analyzers.SDK__0.7.0": {}
     },
+    "SwitchAnalyzer__0.6.9": {
+        "CleanCode.NET.Common__1.0.0": {}
+    },
     "AnalyzerSample__1.0.1": {},
     "UselessIfAnalyzer__0.0.6099.19184": {},
     "Lindhart.Analyser.MissingAwaitWarning__2.0.0": {},
     "Onbox.Analyzers__9.0.0": {},
     "PL.DynamicsCrm.DevKit.Analyzers__1.3.0": {},
+    "Microsoft.CST.OAT__1.0.83": {},
+    "FakeItEasy.Analyzer.VisualBasic__6.1.0": {},
     "DNTProfiler.NHibernate.Core__1.8.1129.0": {},
+    "Cake.Issues.Reporting__0.9.0": {},
     "RoslynnAnalyzer__5.0.1": {},
+    "SmartTests.Analyzer__1.12.0": {
+        "SmartTests__1.12.0": {}
+    },
     "AggregateRootIDisposableAnalyzer__1.0.0": {},
     "MvvmCross.CodeAnalysis__7.1.2": {},
+    "ActiveQueryBuilder.View__3.7.18.1193": {
+        "ActiveQueryBuilder.Core__3.7.18.1193": {}
+    },
     "FileHelpers.Analyzer__1.1.0.0": {},
+    "ActiveQueryBuilder.Core__3.7.18.1193": {},
+    "Coderr.Server.ReportAnalyzer.Abstractions__2.3.3": {},
     "Acuminator.Analyzers__2.3.1": {},
     "Capgemini.CodeAnalysis.CoreAnalysers__1.1.0": {},
+    "PerformanceTools__1.0.1": {},
     "Microsoft.CodeAnalysis.AnalyzerUtilities__3.3.2": {},
     "Throws.Net__0.1.2": {},
+    "Text.Analyzer__4.0.3": {},
+    "Toscana__1.0.0.11": {},
     "Introspect__1.0.6484.26608": {},
     "Json.Net.Proprety.ToPascalCase__1.0.0.0": {},
+    "NDProperty.Analyzer__0.13.18": {},
     "AsyncAnalyzers__1.1.7.0": {},
+    "FSharp.Analyzers.SDK__0.4.1": {},
     "WebEssentials.AspNetCore.Analyzers__1.0.7": {},
     "Mews.Analyzers__1.3.9": {},
+    "AtCoderAnalyzer__1.4.4": {},
     "BasicAnalyzer__1.0.6637.31033": {},
+    "WinGuestAnalyzerLibDependency__1.0.3": {},
     "SRSCustomCodeAnalyzerLibrary__1.0.6239.32744": {},
+    "Microsoft.CodeQuality.Analyzers__3.0.0": {},
     "Microsoft.AspNetCore.Mvc.Analyzers__2.2.0": {},
     "Analyzer2__1.0.0": {},
     "Asyncify__0.9.5707.38527": {},
     "MethodCommentsAnalyzer__1.0.6637.40145": {},
     "DelSole.VSIX__1.0.6161.35451": {},
+    "AWSSDK.AccessAnalyzer__3.7.0.3": {},
+    "SwitchAnalyzer__0.6.10": {},
     "Microsoft.VisualStudio.Threading.Analyzers__16.9.60": {},
+    "HellBrick.Diagnostics.ConfigureAwait__1.0.1.0": {},
     "Microsoft.CodeAnalysis.NetAnalyzers__5.0.3": {},
+    "FSharpCompiler.Lex__1.0.6": {},
     "Bet.CodeAnalyzers__1.0.10": {
         "Microsoft.CodeAnalysis.Analyzers__3.0.0": {},
         "Microsoft.CodeAnalysis.RulesetToEditorconfigConverter__3.0.0": {},
@@ -360,7 +542,13 @@
     "PSFiddle.Analyzers__2.0.23": {},
     "RegrasSonar__3.0.0": {},
     "VSDiagnostics__1.10.0": {},
+    "DtmfDetection.NAudio__1.2.2": {
+        "DtmfDetection__1.2.2": {}
+    },
     "ValueObjectSyntaxAnalyzer__1.0.0.4": {},
+    "NBWTA__3.1.0": {},
+    "FUR10N.NullContracts__1.3.4": {},
+    "AnyConstraint.Analyzer__1.1.0": {},
     "Microsoft.NetFramework.Analyzers__2.9.10": {},
     "RuntimeContracts__0.3.1": {
         "RuntimeContracts.Analyzer__0.3.0": {}
@@ -369,12 +557,15 @@
     "Roslynator.Analyzers.Unity__2.1.0": {},
     "codecracker.CSharp__1.0.0": {},
     "SimpleReflection.Core__1.0.2": {},
+    "GenericsAnalyzer.Core__1.2.0": {},
+    "IDAnalyzer__1.1.0": {},
     "Philips.CodeAnalysis.MsTestAnalyzers__1.1.3": {},
     "Mindbox.I18n.Analyzers__1.2.9": {},
     "Roslynator.Analyzers__3.1.0": {},
     "LocalizedCode.Analyzers__0.1.0": {},
     "Crest.Analyzers__0.2.2": {},
     "Flyntax.AvoidVar__1.1.2.41": {},
+    "N2e.MarkDown__0.0.2": {},
     "NewMind.CSSProcessor__3.15.1": {},
     "DecentCodingAnalyzer__1.0.12": {},
     "AnalyzeThis__1.0.13.135": {},
@@ -384,6 +575,8 @@
     "Dena.CodeAnalysis.Testing__1.0.0": {},
     "DisableDateTimeNow__1.0.5883.39470": {},
     "Menees.Analyzers.2017__2.0.3": {},
+    "FlagAnalyzerDependencies__1.0.0": {},
+    "SS.PanGu.Lucene.Analyzer__1.0.0": {},
     "Marten.Analyzers__1.5.0": {},
     "Strato.Analyzers__1.0.18": {
         "StyleCop.Analyzers__1.1.118": {}
@@ -399,6 +592,11 @@
     "LINQAnalyzer__1.0.0.1": {},
     "ChainAnalyzer__1.0.0.3": {},
     "Excubo.Analyzers.DependencyInjectionValidation__1.0.17": {},
+    "AzureTackleAnalyzer.Core__0.1.3": {},
+    "MixinGenerator__0.2.0": {},
+    "Dax.Model.Extractor__1.0.34": {},
+    "Microsoft.NetFramework.Analyzers__3.0.0": {},
+    "PanGu.Lucene.Analyzer.Core__1.0.0": {},
     "Infeeny.Dotnet.Analyzers__2.0.0": {
         "codecracker.CSharp__1.1.0": {},
         "SonarAnalyzer.CSharp__8.7.0.17535": {},
@@ -409,15 +607,24 @@
     "Microsoft.CodeAnalysis.Analyzers__1.0.0": {},
     "ConfigureAwaitChecker.Lib__5.0.0": {},
     "Uno.MonoAnalyzers__1.0.0": {},
+    "PlatformSpecific.Analyzer__2.0.3": {},
     "WpfAnalyzers__3.5.4": {},
     "Rocket.Surgery.Conventions.Analyzers__10.2.0": {},
     "StyleCop.Analyzers__1.0.0": {},
     "Roslynator.Analyzers__2.1.0": {},
     "SystemTimeAnalyzerAndFix__1.0.0.0": {},
     "ZeroFormatter.Analyzer__1.1.1": {},
+    "DependencyInjection.Analyzer__3.0.0.3": {},
+    "Cake.Issues.PullRequests__0.9.1": {},
+    "OmicronLab.MaterialAnalyzer.AutomationInterface__1.60.627": {
+        "OmicronLab.MaterialAnalyzer__1.82.603": {}
+    },
     "DotNetVault__0.2.5.8": {},
     "RuntimeContracts.Analyzer__0.3.2": {},
     "Piranha.Analyzers__8.4.0.18": {},
+    "mmlajPublicFieldAnalyzer__1.0.0": {},
+    "FlexLucene__6.3.0.0": {},
+    "CodeFix__1.2.1.0": {},
     "Mutator.Analyzers.Shorten__1.0.0": {},
     "ClassNameUpperCaseAnalyzer__1.0.1": {},
     "Tridion.ConnectorFramework.Connector.Analyzer__9.5.0": {},
@@ -425,14 +632,27 @@
     "Microsoft.CodeAnalysis.VersionCheckAnalyzer__2.9.6": {},
     "DelSole.CrossAnalyzers.CSharp__1.0.6094.37613": {},
     "AsyncVoidAnalyzer__0.2.0.0": {},
+    "qhy.codeanalyzers__1.1.18": {
+        "StyleCop.Analyzers__1.1.118": {},
+        "Microsoft.CodeAnalysis.FxCopAnalyzers__3.0.0": {
+            "Microsoft.CodeQuality.Analyzers__3.0.0": {},
+            "Microsoft.NetCore.Analyzers__3.0.0": {},
+            "Microsoft.NetFramework.Analyzers__3.0.0": {},
+            "Microsoft.CodeAnalysis.VersionCheckAnalyzer__3.0.0": {}
+        }
+    },
     "AutoSetup__1.1.1": {},
+    "Xemio-RavenDB-NGramAnalyzer__1.0.2": {},
     "Microsoft.CodeAnalysis.Analyzers__2.6.2": {},
+    "AnalyzerApi__1.1.4.21": {},
     "Ophlan.Analyzers__1.0.5702.39502": {},
     "Microsoft.CodeAnalysis.Analyzers__3.0.0": {},
     "Apex.Analyzers.Immutable__1.2.5": {
         "Apex.Analyzers.Immutable.Attributes__1.0.0": {}
     },
     "Microsoft.CodeAnalysis.VersionCheckAnalyzer__2.9.8": {},
+    "NonCopyableAnalyzer__0.3.0": {},
+    "Microsoft.NetCore.Analyzers__2.6.1": {},
     "Microsoft.CodeAnalysis.BannedApiAnalyzers__3.3.2": {},
     "RecordConstructorGenerator__3.3.0": {},
     "Wintellect.Analyzers.dk__1.0.6": {
@@ -441,6 +661,7 @@
     },
     "ToStringWithoutOverrideAnalyzer__0.6.0.0": {},
     "ConfigureAwaitChecker.Analyzer__3.0.0": {},
+    "DebuggingUsingsInsertor__1.0.5904.40201": {},
     "codecracker.CSharp__1.0.1": {},
     "Tsarev.Analyzer.Hardcode.Url__1.1.57": {},
     "TheRoks.Sitecore.Analyzers__0.1.6": {},
@@ -450,7 +671,17 @@
     },
     "DSharpAnalyzer__1.1.0": {},
     "PL.DynamicsCrm.DevKit.Cli__1.3.0": {},
+    "StrawberryShake.CodeGeneration__11.1.0": {},
+    "ConventionCodeFixVerifier__3.1.0.0": {},
     "RoslynSecurityGuard__2.3.0.0": {},
+    "SonarAnalyzer.CSharpY__1.0.0": {
+        "SonarAnalyzerY__1.0.0": {}
+    },
+    "Hunter.EntityFramework.SyntaxAnalyzer.SqlServer__1.0.1.720": {
+        "Hunter.EntityFramework.SyntaxAnalyzer.Relational__1.0.1.720": {
+            "Hunter.EntityFramework.SyntaxAnalyzer.Abstractions__1.0.1.720": {}
+        }
+    },
     "Qarnot.CodeAnalysis__0.0.3": {
         "StyleCop.Analyzers__1.1.118": {},
         "Microsoft.CodeAnalysis.FxCopAnalyzers__2.9.8": {
@@ -460,8 +691,11 @@
             "Microsoft.CodeAnalysis.VersionCheckAnalyzer__2.9.8": {}
         }
     },
+    "Cometary.Core__0.2.0": {},
+    "FluffySpoon.Roslyn.AutoMapper__1.48.0": {},
     "BND.Convention.Analyzer__1.0.0": {},
     "MicroDocum.Analyzers__1.3.0": {},
+    "AsyncMethodNameFixer__2.0.2": {},
     "tModLoader.CodeAssist__0.1.1": {},
     "PrismAnalyzer__1.0.0.2": {},
     "Afevt__1.0.6408.41697": {},
@@ -471,24 +705,49 @@
     "Microsoft.NetFramework.Analyzers__2.6.3": {},
     "Analyzers.VerifyTestCategoryAnalyzer__1.0.0": {},
     "Roslyn.Analyzers__1.0.3.4": {},
+    "Microsoft.CodeAnalysis.FxCopAnalyzers__2.6.1": {
+        "Microsoft.CodeQuality.Analyzers__2.6.1": {},
+        "Microsoft.NetCore.Analyzers__2.6.1": {},
+        "Microsoft.NetFramework.Analyzers__2.6.1": {}
+    },
     "Phimath.CodeStyle__1.0.2": {
         "Microsoft.CodeAnalysis.NetAnalyzers__5.0.1": {},
         "StyleCop.Analyzers__1.1.118": {}
     },
+    "MustUseRetVal__0.0.1": {},
+    "AnalyzeRe.Client.Test__1.43.7478.20908": {
+        "AnalyzeRe.Client__1.43.7478.20907": {}
+    },
+    "PrismAnalyzer__1.0.0.5": {},
     "MassTransit.Analyzers__7.1.7": {},
     "SharpSource__0.3.0": {},
     "UnityContrib.CodeAnalysis__2015.9.19.1917": {},
+    "ppg.PanGu.Lucene.Analyzer__2.4.1.8": {},
     "CodeQuality.Analyzers__1.0.0": {},
     "IgnoreGeneratedFilesBuildTask__1.5.0": {},
     "Bet.EditorConfig__1.0.10": {},
+    "LexicalAnalyzer__1.0.1": {},
     "Tiger.Hal.Analyzers__1.1.1": {},
+    "Helsi.PatientAnalyzer.Client__0.0.12": {},
+    "Analyzer.Infrastructure.Data__1.0.0": {},
+    "Dax.Vpax__1.0.34": {},
     "OniAnalyzers__1.0.0": {},
     "RavenDB.Database.Analyzers__1.0.960": {},
     "XmlSrcGenerator__1.0.8": {},
+    "SpecAn__0.3.0.0": {},
+    "HarabaSourceGenerators.Common__1.0.4": {},
+    "CYINT.XLabsSkiaPixelAnalyzer__1.0.6221.21667": {},
+    "FileAnalyzer__1.0.0": {},
     "SemDiff__1.1": {},
     "Menees.Analyzers__2.0.6": {},
     "DelSole.CrossAnalyzers.VisualBasic__1.0.6092.23801": {},
     "RCWAnalyzer__1.0.6928.19860": {},
+    "HSR.ParallelChecker__1.7.0": {},
+    "Lucene.JIEba.Segment__1.0.1": {},
+    "FindFlat.StyleCop__1.0.0": {
+        "Microsoft.VisualStudio.Threading.Analyzers__16.6.13": {},
+        "StyleCop.Analyzers__1.1.118": {}
+    },
     "CSharpRecordsAnalyzer__1.1.1": {},
     "NoPrivateUnderscore__1.0.0": {
         "Microsoft.CodeAnalysis.Analyzers__1.1.0": {}
@@ -496,45 +755,80 @@
     "Lindemann.Analyzers__0.2.31": {},
     "FunFair.CodeAnalysis__5.1.0.658": {},
     "BimLab.PikTools.Analyzers__2.0.0": {},
+    "SonarAnalyzerY__1.0.0": {},
+    "OrbintSoft.Yauaa.NetStandard__5.13.1": {},
     "InjectionAnalyzer__1.0.6265.34345": {},
+    "FSharp.Analyzers.SDK__0.5.0": {},
     "Tsarev.Analyzer.Hardcode.Guid__1.1.56.0": {},
     "Excubo.Analyzers.Annotations__1.0.1": {},
     "RefactoringEssentials__4.4.0": {},
+    "Allvis.Kaylee.Analyzer__0.0.10": {},
     "Microsoft.CodeQuality.Analyzers__3.3.2": {},
     "Deptorygen.Annotations__1.0.4": {},
     "Philips.CodeAnalysis.MoqAnalyzers__1.1.0": {},
+    "MessagePackAnalyzer__2.2.85": {},
+    "AspNetCore.RouteAnalyzer__0.5.3": {},
     "LaDeak.TestMockUpdater__0.1.22": {},
     "Naos.Build.Analyzers__1.55.54": {
         "StyleCop.Analyzers__1.1.118": {}
     },
+    "ResharperCodeContractNullability__2.0.2": {},
     "Deptorygen.GenericHost__1.0.4": {},
+    "Lucene.JIEba.Segment.NetCore__1.0.0": {},
     "TBit.Analyzers__1.4.4": {},
     "StyleCop__6.2.0": {},
     "Microsoft.VisualStudio.Threading.Analyzers__16.3.52": {},
+    "NetStitch.Analyzer__0.1.1": {},
     "DateTimeAnalyzer_CS__1.0.6619.17972": {},
     "DuckInterface__0.1.3": {},
     "SonarAnalyzer.VisualBasic__8.20.0.28934": {},
+    "MyAnalyzer__1.0.1": {
+        "Microsoft.CodeAnalysis.Analyzers__2.9.2": {}
+    },
+    "RapidXamlDemo.MyUserControlAnalyzer__1.1.0": {
+        "RapidXaml.CustomAnalysis__0.9.7": {}
+    },
     "NUnit.Analyzers__3.0.0": {},
     "ProductiveRage.Immutable__4.2.0": {},
     "CodeTiger.CodeAnalysis__1.1.2": {},
     "TanglAnalyzer__1.2.1": {},
     "Microsoft.CodeQuality.Analyzers__2.9.4": {},
+    "Lucene.JIEba.Segment__1.0.0": {},
+    "Bogus.Tools.Analyzer__33.0.2": {},
+    "ParallelHelper__3.1.0": {},
     "NullCheckAnalyzer__1.0.0.3": {},
     "Philips.CodeAnalysis.DuplicateCodeAnalyzer__1.1.2": {},
     "Wintellect.Analyzers.WXF__1.0.7.8": {},
     "Ellumination.CodeAnalysis.Verifiers.Diagnostics__1.0.2.7611": {},
+    "protobuf-net.BuildTools.Legacy__3.0.101": {},
+    "Cake.Scripting.Transport__0.6.2": {
+        "Cake.Scripting.Abstractions__0.6.2": {}
+    },
     "ConfigureAwaitChecker.Analyzer__5.0.0": {},
+    "IBM.WatsonDeveloperCloud.ToneAnalyzer.v3__2.17.0": {},
     "NUnit.Analyzers.RequiredRetry__0.1.0": {},
+    "Dos.PanGu.Lucene.Analyzer__2.4.2.0": {},
     "DiagnosticsAnalyzer__1.0.1": {},
     "Microsoft.CodeAnalysis.FlowAnalysis.Utilities__2.9.6": {},
+    "Common.Logging.Analyzer__0.2.2": {},
     "TodoCommentReporter__1.0.1": {},
     "LazyMixin__2.6.1": {},
     "MalikP.Analyzers.AsyncMethodAnalyzer__0.3.18": {},
+    "JoeyNovak.NotOwned.Saleae.SocketApi__1.1.0": {},
     "Microsoft.Orleans.Analyzers__3.4.1": {},
     "RoslynnAnalyzers__5.0.3": {},
+    "Analyzer.Infrastucture.Utilities__1.0.0": {},
+    "CoreSharp.Analyzer.NHibernate__0.6.0": {
+        "Microsoft.CodeAnalysis.Analyzers__2.9.4": {}
+    },
     "VarAnalyzer__1.0.6042.27567": {},
+    "ApiAnalysis.SimpleJsonAnalyzer.vsixuse__1.8.0": {},
+    "HellBrick.NoCapture__1.0.4": {},
+    "BufferedLoggerAnalyzer__0.0.1.4": {},
     "StylisticAnalyzer__1.0.0": {},
+    "SentimentAnalyzer__1.1.1": {},
     "Doers.Tools.Analyzers__0.0.0": {},
+    "YaccLexTools__0.2.2": {},
     "Slalom.Stacks.Analyzers__1.9.3.0": {},
     "AnalyzerDotNet__1.0.3": {
         "StyleCop.Analyzers__1.1.118": {},
@@ -551,9 +845,14 @@
     },
     "Microsoft.CodeAnalysis.CSharp.CodeStyle__3.9.0": {},
     "Ardalis.ApiEndpoints.CodeAnalyzers__1.1.1": {},
-    "Schema.Migrations__1.3.3": {},
+    "IndexesStartAtOne__0.1.0": {},
+    "Schema.Migrations__1.3.3": {
+        "Schema.Migrations.Analyzer__1.3.3": {}
+    },
     "DurableFunctionsAnalyzer__0.1.26": {},
     "WebAnchor.Analyzers__0.5.0": {},
+    "Malware.MDK-SE__1.4.7": {},
+    "Augurk.CSharpAnalyzer__0.1.0": {},
     "ExceptionsAnalyzer__0.1.5": {
         "CleanCode.NET.Common__1.0.0": {}
     },
@@ -561,6 +860,8 @@
     "NewAnalyzer__1.0.0": {},
     "Discord.Net.Analyzers__2.3.1": {},
     "Microsoft.CodeAnalysis.Analyzers__2.9.8": {},
+    "StrawberryShake.CodeGeneration.CSharp.Analyzers__11.1.0": {},
+    "z.PanGu.Lucene.Analyzer__2.4.1.8": {},
     "Wintellect.Analyzers.myhx1114__1.0.6": {
         "Microsoft.CodeAnalysis.Analyzers__1.1.0": {},
         "Wintellect.Analyzers__1.0.6.0": {}
@@ -574,6 +875,8 @@
         "Microsoft.NetFramework.Analyzers__3.3.2": {},
         "Microsoft.CodeAnalysis.VersionCheckAnalyzer__3.3.2": {}
     },
+    "mmlajOnlabPublicFieldAnalyzer__1.0.0": {},
+    "Alaanor.CryptoAnalyzer__0.1.2": {},
     "Izzy.DemystifierAnalyzers__1.1.0": {},
     "Microsoft.CodeAnalysis.PublicApiAnalyzers__3.3.2": {},
     "Cake.Addin.Analyzer__0.1.3": {},
@@ -585,12 +888,17 @@
     "LowerChar__1.0.0": {},
     "WTG.Analyzers__2.10.4": {},
     "FileVision_Analyzer__1.0.6": {},
+    "Microsoft.CodeAnalysis.VersionCheckAnalyzer__3.0.0": {},
     "Gu.Localization.Analyzers__6.5.0": {},
     "LazyMixinAnalyzer__2.3.0.0": {},
     "AnalyzerSampleTwo__1.0.0": {},
+    "Microsoft.VisualStudio.Threading.Analyzers__16.8.55": {},
     "Dwaas.Param.Documentation.Analyzer__1.0.6258.29691": {},
+    "JieBa.Lucene.Analyzer__1.0.1": {},
     "Jubjubnest.Style.DotNet__0.1.54.0": {},
     "DebuggerStepThroughRemover__1.0.5823.28645": {},
+    "AnalyzerRunner.DummyPackage__1.0.0": {},
+    "libvoikko__1.0.2": {},
     "SimpleAnalyzer.CSharp__1.0.10": {},
     "DynamicsCrm.DevKit.Analyzers__2.10.31": {},
     "Gu.Roslyn.AnalyzerExtensions__0.15.7": {},
@@ -598,13 +906,21 @@
     "Tangl__1.1.0": {},
     "xunit.analyzers__0.7.0": {},
     "SmartAnalyzers.CSharpExtensions.Annotations__3.9.0": {},
+    "DotnetDependencyAnalyzer__1.2.3": {},
     "SwitchEnumAnalyzer__1.0.0.4": {},
+    "ResharperCodeContractNullabilityFxCop__1.0.3": {},
     "Microsoft.NetCore.Analyzers__3.3.2": {},
     "Microsoft.VisualStudio.Composition.Analyzers__16.9.20": {},
     "CSharpAnalyzer__1.0.0": {},
+    "Philips.CodeAnalysis.MaintainabilityAnalyzers__1.2.6.2": {},
+    "Meziantou.Analyzer__1.0.650": {},
+    "Bloodhound__4.2.17": {},
     "D2L.CodeStyle.TestAnalyzers__0.25.0": {},
     "Argument__1.4.0": {},
     "Ellumination.Collections.Enumerations.Analyzers__1.0.4.7610": {},
+    "EnterpriseLibrary.SemanticLogging.EventSourceAnalyzer__2.0.1406.1": {},
+    "FakeItEasy.Analyzer.CSharp__6.1.0": {},
+    "Dax.Metadata__1.0.34": {},
     "CoreFxAnalyzers__1.0.1": {},
     "Microsoft.CodeAnalysis.RulesetToEditorconfigConverter__3.0.0": {},
     "Gu.Reactive.Analyzers__5.0.0": {},
@@ -615,7 +931,10 @@
     "GDPRConsentTools__1.4.0": {},
     "EdaAnalyzer__1.0.4": {},
     "Gu.Roslyn.Asserts.Analyzers__3.3.1": {},
+    "QueryAnalyzer__1.0.52.2412": {},
     "FloatEquality__1.0.33.1": {},
+    "RequireNamedArguments__0.0.2.1": {},
+    "Text.Analyzer.Package.Test__1.0.0": {},
     "Actor.Analyzer__1.0.1": {},
     "RoslynAnalyzersDotNet__1.0.6281.37723": {},
     "Apex.Analyzers.Immutable.Attributes__1.0.0": {},
@@ -626,6 +945,7 @@
     },
     "WTG.Analyzers.TestFramework__2.10.4": {},
     "Microsoft.Diagnostics.Tracing.TraceEvent.AutomatedAnalysis.Analyzers__0.1.0": {},
+    "Hagar.Analyzers__0.6.3": {},
     "StyleCop.Analyzers.Error__1.0.2": {
         "StyleCop.Analyzers__1.0.0": {}
     },
@@ -641,13 +961,19 @@
     "IospAnalyzer.Attributes__1.0.0": {},
     "ValueObjectSemanticAnalyzer__1.0.0.2": {},
     "LambdaSql.Analyzers__1.3.0": {},
+    "SmartTests__1.12.0": {},
     "DD373Analyzer__6.6.0.3969": {},
     "PhotonWire.Analyzer__1.0.2": {},
+    "ManualMappingGuard__1.1.1": {},
     "Faithlife.RunAnalyzers.Tool__0.1.1": {},
     "Walterlv.CodeAnalysis.Analyzers__5.13.0": {},
     "Microsoft.NetFramework.Analyzers__2.9.8": {},
     "AwCodeAnalyzer__1.0.0": {},
     "RG.CodeAnalyzer__1.0.27": {},
+    "Cake.Issues__0.9.1": {},
+    "Roslynator.CSharp.Workspaces__2.0.0": {
+        "Roslynator.CSharp__2.0.0": {}
+    },
     "Microsoft.CodeAnalysis.FxCopAnalyzers__2.9.4": {
         "Microsoft.CodeQuality.Analyzers__2.9.4": {},
         "Microsoft.NetCore.Analyzers__2.9.4": {},
@@ -656,9 +982,16 @@
     },
     "StructuredLogging.Analyzers__0.2.0": {},
     "Microsoft.NetFramework.Analyzers__2.9.6": {},
+    "Identifier.SpellChecker__0.0.48": {},
+    "CodeCompany.UserAnalyzer__1.0.1": {},
+    "LightningLocationSystemDataAnalyzer-LLDSA__1.2.2": {},
+    "SemVerAnalyzer.Abstractions__1.1.1": {},
     "MongoAnalyzers__1.6.0": {},
     "CleanCodeNet__0.3.6": {
         "NamedParametersAnalyzer__0.3.1": {},
+        "SwitchAnalyzer__0.6.9": {
+            "CleanCode.NET.Common__1.0.0": {}
+        },
         "ConstructorNullAnalyzer__0.4.1": {},
         "ExceptionsAnalyzer__0.1.5": {
             "CleanCode.NET.Common__1.0.0": {}
@@ -669,39 +1002,56 @@
     "Roslynator.Formatting.Analyzers__1.1.0": {},
     "Nevermore.Analyzers__13.1.0": {},
     "Agoda.Analyzers__1.0.517": {},
+    "z.Jieba.Lucene.Analyzer__0.37.2": {},
     "Tsarev.Analyzer.Hardcode.Email__1.1.56.0": {},
+    "FSharp.Analyzers.SDK__0.6.0": {},
     "TechDebt.Compat.SonarQube__2.3.3": {},
     "Microsoft.CodeAnalysis.NetAnalyzers__5.0.1": {},
+    "Loadit.Analyzer__1.0.5": {},
+    "DtmfDetection__1.2.2": {},
     "Jabberwocky.Core.CodeAnalysis__2.0.0": {},
     "SonarAnalyzer.CSharp__1.23.0.1857": {},
     "D2L.CodeStyle.Analyzers__0.161.0": {},
     "Ellumination.Collections.Enumerations.Attributes__1.0.4.7610": {},
     "RapidXaml.CustomAnalysis__0.11.5": {},
     "SonarAnalyzer.CSharp__8.20.0.28934": {},
+    "Namics.Opensource.SitecoreImageAnalyzer__1.0.3": {},
     "Noria.Common.Roslyn__0.3.5": {},
     "StronglyTypedId__0.2.1": {},
+    "UseNamedArgs__0.0.1": {},
     "ReviewHelp.Analyzers__1.3.0": {},
     "RoslynTester__1.6.3": {},
     "OceanCodeScan__1.0.0.3": {},
+    "TalkProcessor.LexicalAnalyzer__0.0.7": {},
+    "LogFileAnalyzer__1.0.0": {},
     "RoslynAnalyzers.SA1413__1.0.6607.40893": {},
+    "FlagAnalyzer__1.0.0": {},
+    "Lucene.JIEba.Analyzer.NetCore__1.0.1": {
+        "Lucene.JIEba.Segment.NetCore__1.0.0": {}
+    },
     "Spinit.StyleCop.Analyzers__1.0.0": {
         "StyleCop.Analyzers__1.1.118": {}
     },
     "RG.Annotations__1.0.27": {},
     "Arnolyzer__1.1.0.0": {},
+    "NR6Pack__0.4.0.0": {},
+    "Lucene.Net.Analysis.MMSeg__1.0.3": {},
     "WhitespaceAnalyzers__1.0.5716.21417": {},
     "ErrorProne.NET.Structs__0.1.2": {},
     "StyleCop.CSharp__6.2.0": {
         "StyleCop__6.2.0": {}
     },
     "VBStyleAnalyzer__0.1.14": {},
+    "Sitecore.Diagnostics.LogAnalyzer__2.1.1.183": {},
     "ConfigureAwaitEnforcer__1.2.0": {},
     "StackExchange.Redis.Analyzer__0.0.2": {},
+    "UWPAudioVisualizer__1.0.38": {},
     "eWolfCodeAnalyser__1.0.1": {},
     "ForEachAsyncAnalyzer__1.0.4": {},
     "Kuno.CodeAnalysis__0.0.8": {},
     "OzCode.VisualStudioExtensionAnalyzers__1.6.6344.22888": {},
     "SwifterSharp__0.1.0": {},
+    "Bit.Tooling.CodeAnalyzer__7.2.0": {},
     "DNTProfiler.EntityFramework.Core__1.8.1129.0": {},
     "APIDocCodeAnalyzer__1.0.6253.30470": {},
     "Sync1MVCAnalyser__0.5.0": {},
@@ -715,7 +1065,12 @@
     },
     "AnalyzerFinal2__1.0.0": {},
     "BindingsAnalyzers__0.0.0.2": {},
+    "Weingartner.Json.Migration.Analyzer__310.0.0": {},
+    "OptionAnalyzer__0.4.1": {
+        "FSharp.Analyzers.SDK__0.4.1": {}
+    },
     "NINNES.RoslynAnalyzers__0.1.3": {},
+    "BitCodeAnalyzer__4.1.0": {},
     "ExampleAnalyzer2__1.0.0": {},
     "Apex.Analyzers.Immutable.Semantics__1.0.1": {
         "Apex.Analyzers.Immutable.Attributes__1.0.0": {}
@@ -726,6 +1081,8 @@
     "Palow.Template.Dotnet__1.0.0": {
         "StyleCop.Analyzers__1.1.118": {}
     },
+    "Bet.AspNetCore.Logging__3.1.11": {},
+    "PeNet.Analyzer__1.0.3": {},
     "RoslynNUnitLight__1.0.0": {},
     "RainbowDataAnalyzer__1.5.1.25811": {},
     "ODS.UnusedCodeAnalyser__1.0.0": {},
@@ -737,8 +1094,16 @@
     "ReflectionIT.Analyzer.Structs__0.1.0": {},
     "Vstack.Analyzers__0.1.1.0": {},
     "Rocket.Surgery.DependencyInjection.Analyzers__11.1.0": {},
+    "Nopen.NET__1.0.1": {},
     "Audis.Analyzer.Contract__1.0.1": {},
+    "Thor.Analyzer.Legacy__1.0.4": {},
+    "Cake.Issues.Recipe__0.4.4": {},
     "Microsoft.DependencyValidation.Analyzers__0.11.0": {},
+    "MixinGenerator.Mixins__0.2.0": {
+        "MixinGenerator__0.2.0": {},
+        "NonCopyableAnalyzer__0.3.0": {}
+    },
+    "Microsoft.VisualStudio.Threading.Analyzers__16.6.13": {},
     "NI.CSharp.Analyzers__1.2.8": {
         "Microsoft.CodeAnalysis.FxCopAnalyzers__2.9.10": {
             "Microsoft.CodeQuality.Analyzers__2.9.10": {},
@@ -753,27 +1118,55 @@
         "Roslynator.Analyzers__2.1.0": {},
         "StyleCop.Analyzers__1.1.118": {}
     },
+    "EnterpriseLibrary.SemanticLogging.EventSourceAnalyzer.NetCore__2.0.1406.4": {},
     "Core.Extensions.Analyzers__0.6.0": {},
     "FluentMigratorMigrationNumberAnalyzer__1.0.2": {},
+    "Microsoft.CodeQuality.Analyzers__2.6.1": {},
+    "Schema.Migrations.Analyzer__1.3.3": {},
     "Gu.Roslyn.Extensions.Source__0.15.9": {},
     "RandomAnalyzers.RequiredMember.Analyzer__1.0.0": {},
+    "NamespaceResolver__1.0.2": {},
     "Brand.EFCore.Analyzers__1.0.0": {},
+    "Lucene.JIEba.Analyzer__1.0.0": {
+        "Lucene.JIEba.Segment__1.0.0": {}
+    },
+    "Allvis.Kaylee.Generator.SqlKata__0.0.23": {},
     "UniqueEnumAnalyzer__1.0.6375.24027": {},
     "Csense.Csharp.Analyzers__0.0.0.1": {},
     "Microsoft.CodeAnalysis.VersionCheckAnalyzer__2.9.10": {},
+    "AspNetCore.DependencyInjection.Analyzer__2.2.0": {},
+    "NR6Pack__0.10.0": {},
+    "AnalyzeRe.Client__1.43.7478.20907": {},
     "Enums.NET.Analyzer__3.0.1": {},
     "CatenaLogic.Analyzers__1.0.0": {},
     "Test_Analyzer__1.0.6625.21599": {},
     "FSharp.Analyzers.SDK__0.8.0": {},
     "EF6.Contrib.SqlServerPerformanceAnalyzers__1.0.5": {},
+    "VPKSoft.AudioVisualization__1.0.7": {},
     "EqualsMethodAnalyzer__0.1.0": {},
     "ECheckStyle__0.9.0.0": {},
+    "IBM.Watson.ToneAnalyzer.v3__5.1.0": {},
+    "FindStatics__1.1.1": {},
+    "QowaivAnalyzer__0.0.1": {},
     "AsyncFixer__1.5.1": {},
     "StyleCop.Analyzers.Unstable__1.2.0.333": {},
+    "SparqlAnalyzer__2.6.4": {},
     "PointelCodeAnalyzer__1.0.0": {},
+    "FakeItEasy.Analyzer__5.0.0": {},
     "RuleTemplate__1.0.0": {},
     "CleanCode.NET.Common__1.0.0": {},
     "DebtRatchet__1.0.5": {},
     "xAnalyzers__1.0.1": {},
-    "Kingdom.Collections.Enumerations.Generators__1.1.2.8081": {}
+    "CESCodeAnalyzerTest__1.0.0": {},
+    "IPI.Analyzer.Ruleset__1.0.10": {
+        "codecracker.CSharp__1.0.3": {},
+        "RefactoringEssentials__5.2.0": {},
+        "StyleCop.Analyzers__1.0.0": {}
+    },
+    "Kingdom.Collections.Enumerations.Generators__1.1.2.8081": {},
+    "SonarAnalyzerX__1.0.0": {},
+    "Dax.Model.Extractor.NetCore__1.0.34": {
+        "Dax.Metadata__1.0.34": {}
+    },
+    "Cake.Bakery__0.6.2": {}
 }
