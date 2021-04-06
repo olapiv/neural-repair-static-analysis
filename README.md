@@ -31,16 +31,12 @@
 
 ## TODO
 
-* How many analyzers rely solely on other packages (== "HostPackages")?
-* How many and which packages are neither "HostPackages" nor have own diagnostics?
-    --> Are entirely useless? Subtract these from all consequent calculations.
-* How many unique packages exist?
+* Filter analyzer_package_details.csv to latest version
+* Percentage of diagnostic_analyzers that have a codefix_provider
+* Check which diagnostics don't have CodeFixProviders
+* How many diagnostic analyzers & codefixers does every package have on average?
 * Only use unique packages for generating analyzer_package_details.csv
     --> Also run statistics with `analyzing_analyzers.py` again
-* How many diagnostic analyzers & codefixers does every package have on average?
-* How many unique packages exist excluding "HostPackages"?
-* Which are the most commonly referenced packages?
-* Check which diagnostics don't have CodeFixProviders
 * Understand why some assemblies have duplicate DIAGNOSTIC_ANALYZERs, E.g.:
   `Microsoft.CodeQuality.Analyzers.3.3.2,Microsoft.CodeQuality.Analyzers,DIAGNOSTIC_ANALYZER,CA2225`
 
