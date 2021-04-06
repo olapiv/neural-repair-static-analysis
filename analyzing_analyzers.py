@@ -181,7 +181,7 @@ def pure_host_packages(df, original_packages='nuget_packages.txt', dependency_js
     return host_packages
 
 
-def useless_packages(df, original_packages='nuget_packages.txt', dependency_json='nuget_deps.json', print_bool=True):
+def useless_packages(df, original_packages='nuget_packages.txt', print_bool=True):
     """
     Packages that neither host other analyzers nor provide own analyzers;
     Practically irrelevant packages.
@@ -205,6 +205,61 @@ def useless_packages(df, original_packages='nuget_packages.txt', dependency_json
     return useless_packages
 
 
+def is_referencing(package_name, dependency_dict, source_package, depth=1):
+    package_name_id = package_name.split("__")[0]
+    # print(f"{' '*depth}package_name_id: {package_name_id}")
+    if package_name_id == source_package:
+        # print(f"{' '*depth}>>>>>>REFERENCING!<<<<<<")
+        return True
+
+    # print(f"{' '*depth}Not referencing")
+
+    filtered_dep = dependency_dict[package_name]
+    # print(f"{' '*depth}filtered_dep: {filtered_dep}")
+
+    for package, _ in filtered_dep.items():
+
+        # Go deeper
+        if is_referencing(package, filtered_dep, source_package, depth + 3):
+            return True
+
+    # print(f"{' '*depth}Not referencing package")
+    return False
+
+
+def most_referenced_source_packages(df, dependency_json='nuget_deps.json', print_bool=True):
+    """
+    Counting the number of times each analyzer package has been referenced in other
+    NuGet packages.
+    """
+    print("Calculating most referenced source packages")
+    
+    source_packages = unique_source_packages(df, print_bool=False).to_list()
+    with open(dependency_json) as json_file:
+        dependency_structure = json.load(json_file)
+
+    all_versioned_packages = dependency_structure.keys()
+    source_packages_ref_counts = {}
+
+    for source_package in source_packages:
+        source_packages_ref_counts[source_package] = 0
+        for versioned_package in all_versioned_packages:
+            versioned_package_id = versioned_package.split("__")[0]
+            if source_package == versioned_package_id:
+                continue
+            if is_referencing(versioned_package, dependency_structure, source_package):
+                source_packages_ref_counts[source_package] += 1
+
+    relevant_packages = {k: v for k,
+                         v in source_packages_ref_counts.items() if v > 0}
+
+    if print_bool:
+        print(json.dumps(relevant_packages, indent=2))
+        print("Number referenced_packages: ", len(relevant_packages.keys()))
+
+    return relevant_packages
+
+
 def calculate_analyzer_statistics(csv_file="analyzer_package_details.csv"):
 
     df = pd.read_csv(csv_file)
@@ -218,10 +273,8 @@ def calculate_analyzer_statistics(csv_file="analyzer_package_details.csv"):
     # unique_source_packages(df)
     # missed_packages(df)
     # pure_host_packages(df)
-    useless_packages(df)
-
-    # TODO: Find
-    # 1. Percentage of diagnostic_analyzers that have a codefix_provider
+    # useless_packages(df)
+    most_referenced_source_packages(df)
 
 
 if __name__ == "__main__":
