@@ -16,9 +16,9 @@ namespace DependencyAnalyzer
         {
             Dictionary<string, dynamic> outputObject = new Dictionary<string, dynamic> { };
 
-            var analyzerPackagesPath = "/Users/vincent/Desktop/EA Thesis/Code/nuget_packages.txt";
+            var analyzerPackagesPath = "/Users/vincent/Desktop/EA Thesis/acr-static-analysis-code/nuget_packages.txt";
             var analyzerPackages = File.ReadAllLines(analyzerPackagesPath);
-            var repo = new LocalPackageRepository("/Users/vincent/Desktop/EA Thesis/Code/nuget_analyzer_packages");
+            var repo = new LocalPackageRepository("/Users/vincent/Desktop/EA Thesis/acr-static-analysis-code/nuget_analyzer_packages");
             IQueryable<IPackage> installedPackages = repo.GetPackages();
             List<IPackage> installedAnalyzerPackages = new List<IPackage>();
             foreach (IPackage package in installedPackages)
@@ -33,7 +33,7 @@ namespace DependencyAnalyzer
             OutputGraph(repo, analyzerPackages, installedAnalyzerPackages, 0, outputObject);
             
             String outputObjectJson = JsonConvert.SerializeObject(outputObject);
-            File.WriteAllText("/Users/vincent/Desktop/EA Thesis/Code/nuget_deps.json", outputObjectJson);
+            File.WriteAllText("/Users/vincent/Desktop/EA Thesis/acr-static-analysis-code/nuget_deps.json", outputObjectJson);
         }
 
 
