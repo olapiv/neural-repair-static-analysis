@@ -66,7 +66,8 @@ def duplicate_diagnostic_ids(df):
 
 
 def unique_source_packages(df, original_packages='nuget_packages.txt'):
-    "All packages that have their own diagnostic ids, disregarding versioning"
+    """All packages that have their own diagnostic ids, whereby packages
+    with multiple versions are only counted once."""
 
     # Not optimal - any dots followed by numbers are removed
     df = df['HostingPackageName'].str.replace(r'\.\d+', '')
@@ -120,14 +121,14 @@ def calculate_analyzer_statistics(csv_file="analyzer_package_details.csv"):
 
     df = pd.read_csv(csv_file)
     # TODO: Find out why duplicates exist
-    df.drop_duplicates(inplace=True)
-    total_das_cps(df)
-    unique_diagnostic_ids(df)
+    # df.drop_duplicates(inplace=True)
+    # total_das_cps(df)
+    # unique_diagnostic_ids(df)
 
-    duplicate_diagnostic_ids(df)
+    # duplicate_diagnostic_ids(df)
 
     unique_source_packages(df)
-    missed_packages(df)
+    # missed_packages(df)
 
     # TODO: Find
     # 1. Percentage of diagnostic_analyzers that have a codefix_provider
