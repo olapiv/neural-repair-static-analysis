@@ -26,7 +26,7 @@
 2. Created C# project `AssemblyAnalysis/InfoExractor` to retrieve all diagnosticIDs from DiagnosticAnalyzers and CodeFixProviders in a given C# assembly.
 3. Using `install_dependencies.sh`, installed all analyzer packages into a given directory. This also installed all dependencies into the same directory. Consequently using `AssemblyAnalysis/InfoExractor`, extracted all metadata from installed packages to `analyzer_package_details.csv`.
 4. Due to large amounts of diagnostic ID duplications in `analyzer_package_details.csv`, analyzed dependency structure of installed packages using C# project `AssemblyAnalysis/DependencyAnalyzer`. Saved results in `nuget_deps.json`. Turns out, a number of analyzer packages bundle other analyzer packages and may not necessarily contribute with own DiagnosticAnalyzers / CodeFixProviders.
-5. Using `preprocessing_nugets.py`, created further statistics to the installed analyzer packages.
+5. Using `analyzing_analyzers.ipynb`, created further statistics to the installed analyzer packages.
 6. Using `create_raw_dataset.sh`, generated `roslynator analyze` vs `roslynator fix` outputs on repositories saved in `github_repos.txt`. Sample `roslynator analyze` output can be viewed in `sample_roslynator_analysis.xml`.
 
 ## TODO
@@ -36,13 +36,19 @@
     --> Are entirely useless? Subtract these from all consequent calculations.
 * How many unique packages exist?
 * Only use unique packages for generating analyzer_package_details.csv
-    --> Also run statistics with `preprocessing_nugets.py` again
+    --> Also run statistics with `analyzing_analyzers.ipynb` again
 * How many diagnostic analyzers & codefixers does every package have on average?
 * How many unique packages exist excluding "HostPackages"?
 * Which are the most commonly referenced packages?
 * Check which diagnostics don't have CodeFixProviders
 * Understand why some assemblies have duplicate DIAGNOSTIC_ANALYZERs, E.g.:
   `Microsoft.CodeQuality.Analyzers.3.3.2,Microsoft.CodeQuality.Analyzers,DIAGNOSTIC_ANALYZER,CA2225`
+
+Later:
+
+* How many diff at the end?
+* No. of diffs produced per analyzer?
+* Distribution of the size of the diffs?
 
 ## Links
 

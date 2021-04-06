@@ -5,7 +5,7 @@ import requests
 def query_nuget_org():
     # Taking an unreasonable amount such as 5000, simply returns 20...
     params = {
-        'q': 'analyzer',
+        'q': 'analyzer',  # TODO: Consider also using "analysis"?
         'take': 800,
         'prerelease': 'false',
         # 'skip': 0,
