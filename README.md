@@ -31,8 +31,6 @@
 
 ## TODO
 
-* Average number of diagnostic analyzers per Diagnostic_ID?
-* Average number of Codefix Provider per Diagnostic_ID?
 * How many diagnostic analyzers & codefixers does every package have on average?
 * Understand why some assemblies have duplicate DIAGNOSTIC_ANALYZERs, E.g.:
   `Microsoft.CodeQuality.Analyzers.3.3.2,Microsoft.CodeQuality.Analyzers,DIAGNOSTIC_ANALYZER,CA2225`

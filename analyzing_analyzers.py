@@ -301,6 +301,33 @@ def das_cps_intersections(df, print_bool=True):
 
     return union, intersection, cp_missing, da_missing
 
+def das_cps_averages(df, print_bool=True):
+    """
+    Calculate in how many different packages diagnostic IDs occur on average,
+    as a DiagnosticAnalyzer or CodeFixProvider respectively.
+
+    Example from using duplicate_diagnostic_ids():
+
+              Wintellect.Analyzers.1.0.6.0        Wintellect.Analyzers      CODEFIX_PROVIDER       Wintellect001
+          Wintellect.Analyzers.WXF.1.0.7.8        Wintellect.Analyzers      CODEFIX_PROVIDER       Wintellect001
+             Wintellect.Analyzers.dk.1.0.6        Wintellect.Analyzers      CODEFIX_PROVIDER       Wintellect001
+       Wintellect.Analyzers.myhx1114.1.0.6        Wintellect.Analyzers      CODEFIX_PROVIDER       Wintellect001
+
+    """
+    print("Calculating average diagnostic occurence")
+    diagnostic_analyzers, codefix_providers = total_das_cps(df, False)
+
+    da = diagnostic_analyzers.groupby(['DiagnosticID']).count()
+    cp = codefix_providers.groupby(['DiagnosticID']).count()
+
+    average_occurence_da_diagnostic = da["HostingPackageName"].mean()
+    average_occurence_cp_diagnostic = cp["HostingPackageName"].mean()
+
+    if print_bool:
+        print("average_occurence_da_diagnostic: ", average_occurence_da_diagnostic)
+        print("average_occurence_cp_diagnostic: ", average_occurence_cp_diagnostic)
+
+
 def calculate_analyzer_statistics(csv_file="analyzer_package_details.csv"):
 
     df = pd.read_csv(csv_file)
@@ -326,7 +353,8 @@ def calculate_analyzer_statistics(csv_file="analyzer_package_details.csv"):
 
     ###### Requires *filtered* dataframe ######
 
-    das_cps_intersections(df)
+    # das_cps_intersections(df)
+    das_cps_averages(df)
 
     ###########################################
 
