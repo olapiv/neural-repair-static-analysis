@@ -284,7 +284,8 @@ def filter_df_latest_analyzer_versions(df, csv_file="analyzer_package_details_fi
 def das_cps_intersections(df, print_bool=True):
     diagnostic_analyzers, codefix_providers = total_das_cps(df, False)
 
-    da_keys = list(diagnostic_analyzers.groupby(['DiagnosticID']).groups.keys())
+    da_keys = list(diagnostic_analyzers.groupby(
+        ['DiagnosticID']).groups.keys())
     cp_keys = list(codefix_providers.groupby(['DiagnosticID']).groups.keys())
 
     union = sorted(set(da_keys + cp_keys))
@@ -300,6 +301,7 @@ def das_cps_intersections(df, print_bool=True):
         print("da_missing: ", da_missing)
 
     return union, intersection, cp_missing, da_missing
+
 
 def das_cps_averages(df, print_bool=True):
     """
@@ -324,8 +326,31 @@ def das_cps_averages(df, print_bool=True):
     average_occurence_cp_diagnostic = cp["HostingPackageName"].mean()
 
     if print_bool:
-        print("average_occurence_da_diagnostic: ", average_occurence_da_diagnostic)
-        print("average_occurence_cp_diagnostic: ", average_occurence_cp_diagnostic)
+        print("average_occurence_da_diagnostic: ",
+              average_occurence_da_diagnostic)
+        print("average_occurence_cp_diagnostic: ",
+              average_occurence_cp_diagnostic)
+
+
+def average_diagnostic_ids_per_package(df, print_bool=True):
+    """
+    Calculating how many diagnostic ID each source analyzer package has
+    on average.
+    """
+    diagnostic_analyzers, codefix_providers = total_das_cps(df, False)
+
+    all = df.groupby('HostingPackageName').count()
+    da = diagnostic_analyzers.groupby(['HostingPackageName']).count()
+    cp = codefix_providers.groupby(['HostingPackageName']).count()
+
+    average_num_all_diagnostics = all["DiagnosticID"].mean()
+    average_num_da_diagnostics = da["DiagnosticID"].mean()
+    average_num_cp_diagnostics = cp["DiagnosticID"].mean()
+
+    if print_bool:
+        print("average_num_all_diagnostics: ", average_num_all_diagnostics)
+        print("average_num_da_diagnostics: ", average_num_da_diagnostics)
+        print("average_num_cp_diagnostics: ", average_num_cp_diagnostics)
 
 
 def calculate_analyzer_statistics(csv_file="analyzer_package_details.csv"):
@@ -354,7 +379,8 @@ def calculate_analyzer_statistics(csv_file="analyzer_package_details.csv"):
     ###### Requires *filtered* dataframe ######
 
     # das_cps_intersections(df)
-    das_cps_averages(df)
+    # das_cps_averages(df)
+    average_diagnostic_ids_per_package(df)
 
     ###########################################
 
