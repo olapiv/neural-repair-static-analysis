@@ -31,12 +31,9 @@
 
 ## TODO
 
-* Filter analyzer_package_details.csv to latest version
-* Percentage of diagnostic_analyzers that have a codefix_provider
-* Check which diagnostics don't have CodeFixProviders
+* Average number of diagnostic analyzers per Diagnostic_ID?
+* Average number of Codefix Provider per Diagnostic_ID?
 * How many diagnostic analyzers & codefixers does every package have on average?
-* Only use unique packages for generating analyzer_package_details.csv
-    --> Also run statistics with `analyzing_analyzers.py` again
 * Understand why some assemblies have duplicate DIAGNOSTIC_ANALYZERs, E.g.:
   `Microsoft.CodeQuality.Analyzers.3.3.2,Microsoft.CodeQuality.Analyzers,DIAGNOSTIC_ANALYZER,CA2225`
 

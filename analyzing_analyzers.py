@@ -4,7 +4,7 @@ import json
 from packaging import version
 
 
-def total_das_cps(df):
+def total_das_cps(df, print_bool=True):
     """
     Total diagnostic_analyzers & codefix_providers
     """
@@ -13,14 +13,15 @@ def total_das_cps(df):
     codefix_providers = df[df['Type'].str.match('CODEFIX_PROVIDER')]
     num_da = len(diagnostic_analyzers.index)
     num_cp = len(codefix_providers.index)
-    print("da: ", num_da)
-    print("cp: ", num_cp)
+    if print_bool:
+        print("Number of das: ", num_da)
+        print("Number of cps: ", num_cp)
+    return diagnostic_analyzers, codefix_providers
 
 
 def unique_diagnostic_ids(df):
-    print("Unique diagnostic ids")
-    diagnostic_analyzers = df[df['Type'].str.match('DIAGNOSTIC_ANALYZER')]
-    codefix_providers = df[df['Type'].str.match('CODEFIX_PROVIDER')]
+    print("Calculating unique diagnostic ids")
+    diagnostic_analyzers, codefix_providers = total_das_cps(df, False)
     num_da = diagnostic_analyzers['DiagnosticID'].nunique()
     num_cp = codefix_providers['DiagnosticID'].nunique()
     print("da: ", num_da)
@@ -52,17 +53,16 @@ def duplicate_diagnostic_ids(df):
     The downside of this, is that they often reference outdated versions. This
     is why we can see so many different versions of the same packages.
     """
-    print("Duplicate diagnostic ids")
-    diagnostic_analyzers = df[df['Type'].str.match('DIAGNOSTIC_ANALYZER')]
-    codefix_providers = df[df['Type'].str.match('CODEFIX_PROVIDER')]
+    print("Calculating duplicate diagnostic ids")
+    diagnostic_analyzers, codefix_providers = total_das_cps(df, False)
     da_duplicates = pd.concat(
         g for _, g in diagnostic_analyzers.groupby("DiagnosticID") if len(g) > 1)
     cp_duplicates = pd.concat(
         g for _, g in codefix_providers.groupby("DiagnosticID") if len(g) > 1)
 
     with pd.option_context(
-        'display.min_rows', 50,
-        'display.max_rows', 50
+        'display.min_rows', 100,
+        'display.max_rows', 100
     ):
         print(da_duplicates)
         print(cp_duplicates)
@@ -94,18 +94,14 @@ def missed_packages(df, original_packages='nuget_packages.txt'):
     This means we are using their diagnostics for the dataset, but they are potentially
     outdated versions.
 
-    Queried for nuget.org for "analyzers"
+    Queried for nuget.org for "analyzer"
     Problem:
-    --> Did not query for "analyzer" e.g. 
-          Microsoft.AnalyzerPowerPack
-          SmartAnalyzers.ExceptionAnalyzer
-          TODO: Redo search with "analyzer"
     --> Also missed "Microsoft.CodeAnalysis.CSharp"
     --> System packages may not be on NuGet.org e.g.
           System.Runtime.Analyzers
           System.Runtime.InteropServices.Analyzers
     """
-    print("Missed packages")
+    print("Calculating missed packages")
 
     # Not optimal - any dots followed by numbers are removed
     df = df['HostingPackageName'].str.replace(r'\.\d+', '')
@@ -266,7 +262,7 @@ def highest_version(series):
     return reduce(lambda x, y: x if version.parse(x) >= version.parse(y) else y, series)
 
 
-def filter_df_latest_analyzer_versions(df, csv_file="analyzer_package_details_filtered.csv"):
+def filter_df_latest_analyzer_versions(df, csv_file="analyzer_package_details_filtered.csv", saveCSVBool=False):
     df['PackageID'] = df['HostingPackageName'].str.replace(r'\.\d+', '')
     df['PackageVersion'] = df.apply(
         lambda x: x['HostingPackageName'].replace(str(x['PackageID']) + ".", ""), axis=1)
@@ -280,8 +276,30 @@ def filter_df_latest_analyzer_versions(df, csv_file="analyzer_package_details_fi
                 df_highest_package.loc[group.PackageID.iloc[0]])
     df.drop(['PackageID', 'PackageVersion'], axis=1, inplace=True)
 
-    df.to_csv(csv_file, index=False)
+    if saveCSVBool:
+        df.to_csv(csv_file, index=False)
+    return df
 
+
+def das_cps_intersections(df, print_bool=True):
+    diagnostic_analyzers, codefix_providers = total_das_cps(df, False)
+
+    da_keys = list(diagnostic_analyzers.groupby(['DiagnosticID']).groups.keys())
+    cp_keys = list(codefix_providers.groupby(['DiagnosticID']).groups.keys())
+
+    union = sorted(set(da_keys + cp_keys))
+    intersection = sorted(list(set(da_keys) & set(cp_keys)))
+    cp_missing = sorted(list(set(da_keys) - set(cp_keys)))
+    da_missing = sorted(list(set(cp_keys) - set(da_keys)))
+
+    if print_bool:
+        print("Number union: ", len(union))
+        print("Number intersection: ", len(intersection))
+        print("Number cp_missing: ", len(cp_missing))
+        print("Number da_missing: ", len(da_missing))
+        print("da_missing: ", da_missing)
+
+    return union, intersection, cp_missing, da_missing
 
 def calculate_analyzer_statistics(csv_file="analyzer_package_details.csv"):
 
@@ -294,12 +312,23 @@ def calculate_analyzer_statistics(csv_file="analyzer_package_details.csv"):
 
     # duplicate_diagnostic_ids(df)
 
+    ###### Requires *unfiltered* dataframe ######
+
     # unique_source_packages(df)
     # missed_packages(df)
     # pure_host_packages(df)
     # useless_packages(df)
     # most_referenced_source_packages(df)
-    filter_df_latest_analyzer_versions(df)
+
+    df = filter_df_latest_analyzer_versions(df)
+
+    # duplicate_diagnostic_ids(df)
+
+    ###### Requires *filtered* dataframe ######
+
+    das_cps_intersections(df)
+
+    ###########################################
 
 
 if __name__ == "__main__":
