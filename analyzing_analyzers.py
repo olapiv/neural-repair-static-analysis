@@ -267,76 +267,20 @@ def highest_version(series):
 
 
 def filter_df_latest_analyzer_versions(df, csv_file="analyzer_package_details_filtered.csv"):
-    source_packages = unique_source_packages(df, print_bool=False).to_list()
     df['PackageID'] = df['HostingPackageName'].str.replace(r'\.\d+', '')
     df['PackageVersion'] = df.apply(
         lambda x: x['HostingPackageName'].replace(str(x['PackageID']) + ".", ""), axis=1)
 
-    # for group in df.groupby(['PackageID', 'PackageVersion']):
-    # for group in df.groupby(['PackageID']):
-    #     print(group)
-
-    print(df)
     df_highest_package = df.groupby('PackageID').agg(
         {'PackageVersion': [highest_version]})
-    print(df_highest_package)
-    print(df_highest_package.loc['APIDocCodeAnalyzer'])
 
-    # df = df[df['PackageID'] == df_highest_package]
-
-    # print(df)
-
-    # df = df.groupby('PackageID').filter(lambda group: print(group))
-    # df = df.groupby('PackageID').filter(lambda group: group["PackageVersion"] == df_highest_package[group])
-    # print(df)
-
-    # df_highest_package.columns = df_highest_package.columns.droplevel(0)
-    # print(df_highest_package)
-    # print(df_highest_package['APIDocCodeAnalyzer'])
-
-    # In the original dataframe, I want to keep letters if the groupby sum of column 'x' > 200, and drop the other rows.
-
-    # df =  df[df.apply(lambda x: x['PackageID'] > x['c'], axis=1)]
-
-    # df1 = df[df.x.groupby(df.letter).transform('sum') > 200]
-
-    # df1 = df[df.PackageVersion.groupby(df.PackageVersion).transform(highest_version) > 200]
-
-    # df2 = df.groupby('letter').filter(lambda g: g.x.sum() > 200)
-
-    # df_highest_package.loc['APIDocCodeAnalyzer']
-    # print(df_highest_package.loc['xunit.analyzers'])
-
-    df = df.groupby(['PackageID', 'PackageVersion']).filter(lambda group:
-                                                            group.PackageVersion.iloc[0] == df_highest_package.loc[
-                                                                group.PackageID.iloc[0]]
-                                                            )
+    df = df.groupby(['PackageID', 'PackageVersion'])\
+        .filter(lambda group:
+                group.PackageVersion.iloc[0] ==
+                df_highest_package.loc[group.PackageID.iloc[0]])
     df.drop(['PackageID', 'PackageVersion'], axis=1, inplace=True)
 
-    # with pd.option_context(
-    #     'display.min_rows', 100,
-    #     'display.max_rows', 100,
-    #     'display.max_colwidth', 300
-    # ):
-    #     print(df)
-
     df.to_csv(csv_file, index=False)
-
-    # df2 = df.groupby(['PackageID', 'PackageVersion']).filter(lambda group: group.PackageVersion.iloc[0] == df_highest_package.loc[group.PackageID])
-    # df2 = df.groupby('PackageID').filter(lambda group: group.PackageVersion.sum() > 200)
-
-    # print(df)
-
-    # version.parse("2.3.1")
-
-    # with pd.option_context(
-    #     'display.min_rows', 100,
-    #     'display.max_rows', 100,
-    #     'display.max_colwidth', 300
-    # ):
-    #     print(df)
-
-    # print(df.groupby(['PackageID']).sum())
 
 
 def calculate_analyzer_statistics(csv_file="analyzer_package_details.csv"):
