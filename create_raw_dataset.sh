@@ -13,11 +13,17 @@ while read GH_REPO_URL do
     # Might as well apply to entire solution.
     for SOLUTION_FILE in "${SOLUTION_FILES[@]}" do
 
-        for ANALYZER_PACKAGE in /nuget_analyzer_packages/; do
+        for ANALYZER_PACKAGE in /nuget_analyzer_packages/*/; do
+
+            PREFIX="nuget_analyzer_packages/"
+            SUFIIX="/"
+            ANALYZER_PACKAGE=${ANALYZER_PACKAGE#"$PREFIX"}
+            ANALYZER_PACKAGE=${ANALYZER_PACKAGE%"$SUFIIX"}
+            echo "Using NuGet package: $ANALYZER_PACKAGE"
 
             # Breaking down resulting diff into single diagnostics; 
             # Checking pre-filled csv-file to filter out possible DIAGNOSTIC_IDs
-            while IFS=, read -r col1 col2 ANALYZER_PACKAGE_CSV ANALYZER_ASSEMBLY TYPE DIAGNOSTIC_ID do
+            while IFS=, read -r ANALYZER_PACKAGE_CSV ANALYZER_ASSEMBLY TYPE DIAGNOSTIC_ID do
 
                 if [ "$ANALYZER_PACKAGE" != "$ANALYZER_PACKAGE_CSV" ]; then
                     continue
@@ -48,7 +54,9 @@ while read GH_REPO_URL do
                         --supported-diagnostics $DIAGNOSTIC_ID
 
                     git diff > $DIFF_FILENAME
-                    git reset --hard
+                    
+                    # TODO: Make sure this not happening in our repo....:
+                    # git reset --hard
 
                 fi
 
