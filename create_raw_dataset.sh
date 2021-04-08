@@ -22,6 +22,7 @@ while IFS=, read -r REPO_NAME REPO_URL; do
     for SOLUTION_FILEPATH in "${SOLUTION_FILEPATHS[@]}"; do
 
         SOLUTION_FILE=${SOLUTION_FILEPATH##*/}
+
         echo "Working with SOLUTION_FILE: $SOLUTION_FILE"
 
         for ANALYZER_PACKAGE in nuget_analyzer_packages/*/; do
@@ -40,14 +41,16 @@ while IFS=, read -r REPO_NAME REPO_URL; do
                     continue
                 fi
 
-                echo "Using DIAGNOSTIC_ID: $DIAGNOSTIC_ID"
+                echo "Using DIAGNOSTIC_ID: $DIAGNOSTIC_ID with TYPE: $TYPE"
 
                 FILENAME="${REPO_NAME}__${SOLUTION_FILE}__${LAST_COMMIT}__${DIAGNOSTIC_ID}"
+
                 echo "Creating FILENAME: $FILENAME"
 
                 if [ "$TYPE" == "DIAGNOSTIC_ANALYZER" ]; then
 
-                    ANALYSIS_FILENAME="/analysis_files/${FILENAME}.xml"
+                    ANALYSIS_FILENAME="./analysis_files/${FILENAME}.xml"
+
                     echo "Creating ANALYSIS_FILENAME: $ANALYSIS_FILENAME"
 
                     echo -e "\n
@@ -61,7 +64,8 @@ roslynator analyze $SOLUTION_FILEPATH \
 
                 else # $TYPE == "CODEFIX_PROVIDER"
 
-                    DIFF_FILENAME="/diffs/${FILENAME}.diff"
+                    DIFF_FILENAME="./diffs/${FILENAME}.diff"
+
                     echo "Creating DIFF_FILENAME: $DIFF_FILENAME"
 
                     # This basically produces a diff
@@ -71,6 +75,8 @@ roslynator fix $SOLUTION_FILEPATH \
 --analyzer-assemblies $ANALYZER_PACKAGE \
 --supported-diagnostics $DIAGNOSTIC_ID \n"
 
+                    touch $DIFF_FILENAME
+
                     git diff >$DIFF_FILENAME
 
                     # TODO: Make sure this not happening in our repo....:
@@ -78,7 +84,7 @@ roslynator fix $SOLUTION_FILEPATH \
 
                 fi
 
-            done <analyzer_package_details.csv
+            done <analyzer_package_details_filtered.csv
 
         done
     done
