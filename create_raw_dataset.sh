@@ -24,7 +24,7 @@ while IFS=, read -r REPO_NAME REPO_URL; do
     SOLUTION_FILEPATHS=()
     while IFS= read -r -d $'\0'; do
         SOLUTION_FILEPATHS+=("$REPLY")
-    done < <(find $REPO_TO_FIX_DIR -name "*.sln" -print0)
+    done < <(find $REPO_TO_ANALYZE -name "*.sln" -print0)
     echo "Available solution files: $SOLUTION_FILEPATHS"
 
     # Cannot apply roslynator by file; only by project/solution;
@@ -87,10 +87,9 @@ roslynator fix $SOLUTION_FILEPATH \
 
                     touch $DIFF_FILENAME
 
-                    git diff -p ${REPO_TO_ANALYZE} >$DIFF_FILENAME
-
                     cd $REPO_TO_ANALYZE
-                    # git reset --hard
+                    git diff >$DIFF_FILENAME
+                    git reset --hard
                     cd "$CURRENT_DIR"
 
                 fi
