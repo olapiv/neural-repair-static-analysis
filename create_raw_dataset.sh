@@ -15,13 +15,15 @@ while IFS=, read -r REPO_NAME REPO_URL; do
     while IFS= read -r -d $'\0'; do
         SOLUTION_FILES+=("$REPLY")
     done < <(find $REPO_TO_FIX_DIR -name "*.sln" -print0)
-    echo "Available solution files:\n$SOLUTION_FILES"
+    echo "Available solution files: $SOLUTION_FILES"
 
     # Cannot apply roslynator by file; only by project/solution;
     # Might as well apply to entire solution.
     for SOLUTION_FILE in "${SOLUTION_FILES[@]}"; do
 
-        for ANALYZER_PACKAGE in /nuget_analyzer_packages/*/; do
+        echo "Working with SOLUTION_FILE: $SOLUTION_FILE"
+
+        for ANALYZER_PACKAGE in nuget_analyzer_packages/*/; do
 
             PREFIX="nuget_analyzer_packages/"
             SUFIIX="/"
@@ -37,12 +39,12 @@ while IFS=, read -r REPO_NAME REPO_URL; do
                     continue
                 fi
 
-                FILENAME = $SOLUTION_FILE + "__" + $LAST_COMMIT + "__" + $DIAGNOSTIC_ID
+                FILENAME="${SOLUTION_FILE}__${LAST_COMMIT}__${DIAGNOSTIC_ID}"
                 echo "Creating FILENAME: $FILENAME"
 
                 if [ "$TYPE" == "DIAGNOSTIC_ANALYZER" ]; then
 
-                    ANALYSIS_FILENAME = "/analysis_files/" + $FILENAME + ".xml"
+                    ANALYSIS_FILENAME="/analysis_files/${FILENAME}.xml"
                     echo "Creating ANALYSIS_FILENAME: $ANALYSIS_FILENAME"
 
                     echo "roslynator analyze SOLUTION_FILE \
@@ -55,7 +57,7 @@ while IFS=, read -r REPO_NAME REPO_URL; do
 
                 else # $TYPE == "CODEFIX_PROVIDER"
 
-                    DIFF_FILENAME = "/diffs/" + $FILENAME + ".diff"
+                    DIFF_FILENAME="/diffs/${FILENAME}.diff"
                     echo "Creating DIFF_FILENAME: $DIFF_FILENAME"
 
                     # This basically produces a diff
