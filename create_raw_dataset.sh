@@ -11,16 +11,17 @@ while IFS=, read -r REPO_NAME REPO_URL; do
     LAST_COMMIT=$(git log -n 1 --pretty=format:"%H")
     echo "Last commit: $LAST_COMMIT"
 
-    SOLUTION_FILES=()
+    SOLUTION_FILEPATHS=()
     while IFS= read -r -d $'\0'; do
-        SOLUTION_FILES+=("$REPLY")
+        SOLUTION_FILEPATHS+=("$REPLY")
     done < <(find $REPO_TO_FIX_DIR -name "*.sln" -print0)
-    echo "Available solution files: $SOLUTION_FILES"
+    echo "Available solution files: $SOLUTION_FILEPATHS"
 
     # Cannot apply roslynator by file; only by project/solution;
     # Might as well apply to entire solution.
-    for SOLUTION_FILE in "${SOLUTION_FILES[@]}"; do
+    for SOLUTION_FILEPATH in "${SOLUTION_FILEPATHS[@]}"; do
 
+        SOLUTION_FILE=${SOLUTION_FILEPATH##*/}
         echo "Working with SOLUTION_FILE: $SOLUTION_FILE"
 
         for ANALYZER_PACKAGE in nuget_analyzer_packages/*/; do
@@ -39,7 +40,9 @@ while IFS=, read -r REPO_NAME REPO_URL; do
                     continue
                 fi
 
-                FILENAME="${SOLUTION_FILE}__${LAST_COMMIT}__${DIAGNOSTIC_ID}"
+                echo "Using DIAGNOSTIC_ID: $DIAGNOSTIC_ID"
+
+                FILENAME="${REPO_NAME}__${SOLUTION_FILE}__${LAST_COMMIT}__${DIAGNOSTIC_ID}"
                 echo "Creating FILENAME: $FILENAME"
 
                 if [ "$TYPE" == "DIAGNOSTIC_ANALYZER" ]; then
@@ -47,13 +50,14 @@ while IFS=, read -r REPO_NAME REPO_URL; do
                     ANALYSIS_FILENAME="/analysis_files/${FILENAME}.xml"
                     echo "Creating ANALYSIS_FILENAME: $ANALYSIS_FILENAME"
 
-                    echo "roslynator analyze SOLUTION_FILE \
-                        -v quiet \
-                        --output $ANALYSIS_FILENAME \
-                        --report-not-configurable \  # Mostly compiler diagnostics (CSxxxx)
-                    --ignore-analyzer-references \   # Only use our own analyzer assemblies
-                    --analyzer-assemblies $ANALYZER_PACKAGE \
-                        --supported-diagnostics $DIAGNOSTIC_ID"
+                    echo -e "\n
+roslynator analyze $SOLUTION_FILEPATH \
+-v quiet \
+--output $ANALYSIS_FILENAME \
+--report-not-configurable \  # Mostly compiler diagnostics (CSxxxx)
+--ignore-analyzer-references \   # Only use our own analyzer assemblies
+--analyzer-assemblies $ANALYZER_PACKAGE \
+--supported-diagnostics $DIAGNOSTIC_ID \n"
 
                 else # $TYPE == "CODEFIX_PROVIDER"
 
@@ -61,10 +65,11 @@ while IFS=, read -r REPO_NAME REPO_URL; do
                     echo "Creating DIFF_FILENAME: $DIFF_FILENAME"
 
                     # This basically produces a diff
-                    echo "roslynator fix SOLUTION_FILE \
-                        --ignore-analyzer-references \
-                        --analyzer-assemblies $ANALYZER_PACKAGE \
-                        --supported-diagnostics $DIAGNOSTIC_ID"
+                    echo -e "\n
+roslynator fix $SOLUTION_FILEPATH \
+--ignore-analyzer-references \
+--analyzer-assemblies $ANALYZER_PACKAGE \
+--supported-diagnostics $DIAGNOSTIC_ID \n"
 
                     git diff >$DIFF_FILENAME
 
