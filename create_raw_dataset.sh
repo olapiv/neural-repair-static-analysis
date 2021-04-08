@@ -1,15 +1,25 @@
 #!/bin/bash
 
-REPO_TO_FIX_DIR="github_repo_to_fix"
+CLONED_REPOS_DIR="./cloned_repos_to_analyze"
+CURRENT_DIR=$PWD
+LINE="HEADER"
 
 while IFS=, read -r REPO_NAME REPO_URL; do
 
-    echo "Cloning $REPO_NAME"
-    git clone $REPO_URL $REPO_TO_FIX_DIR
+    if [ "$LINE" == "HEADER" ]; then
+        LINE="BODY"
+        continue
+    fi
 
-    # TODO: Make sure this not happening in our repo....:
+    REPO_TO_ANALYZE="${CLONED_REPOS_DIR}/${REPO_NAME}"
+
+    echo "Cloning $REPO_NAME"
+    git clone $REPO_URL $REPO_TO_ANALYZE
+
+    cd $REPO_TO_ANALYZE
     LAST_COMMIT=$(git log -n 1 --pretty=format:"%H")
     echo "Last commit: $LAST_COMMIT"
+    cd "$CURRENT_DIR"
 
     SOLUTION_FILEPATHS=()
     while IFS= read -r -d $'\0'; do
@@ -77,10 +87,11 @@ roslynator fix $SOLUTION_FILEPATH \
 
                     touch $DIFF_FILENAME
 
-                    git diff >$DIFF_FILENAME
+                    git diff -p ${REPO_TO_ANALYZE} >$DIFF_FILENAME
 
-                    # TODO: Make sure this not happening in our repo....:
+                    cd $REPO_TO_ANALYZE
                     # git reset --hard
+                    cd "$CURRENT_DIR"
 
                 fi
 
