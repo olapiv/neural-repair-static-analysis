@@ -87,8 +87,9 @@ roslynator fix $SOLUTION_FILEPATH \
 
                     touch $DIFF_FILENAME
 
+                    git diff -p ${REPO_TO_ANALYZE} >$DIFF_FILENAME
+
                     cd $REPO_TO_ANALYZE
-                    git diff >$DIFF_FILENAME
                     git reset --hard
                     cd "$CURRENT_DIR"
 
