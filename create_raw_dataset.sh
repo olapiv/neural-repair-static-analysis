@@ -1,5 +1,8 @@
 #!/bin/bash
 
+mkdir -p ./raw_dataset/analysis_files
+mkdir -p ./raw_dataset/diffs
+
 CLONED_REPOS_DIR="./cloned_repos_to_analyze"
 CURRENT_DIR=$PWD
 LINE="HEADER"
@@ -59,7 +62,7 @@ while IFS=, read -r REPO_NAME REPO_URL; do
 
                 if [ "$TYPE" == "DIAGNOSTIC_ANALYZER" ]; then
 
-                    ANALYSIS_FILENAME="./analysis_files/${FILENAME}.xml"
+                    ANALYSIS_FILENAME="./raw_dataset/analysis_files/${FILENAME}.xml"
 
                     echo "Creating ANALYSIS_FILENAME: $ANALYSIS_FILENAME"
 
@@ -74,7 +77,7 @@ roslynator analyze $SOLUTION_FILEPATH \
 
                 else # $TYPE == "CODEFIX_PROVIDER"
 
-                    DIFF_FILENAME="./diffs/${FILENAME}.diff"
+                    DIFF_FILENAME="./raw_dataset/diffs/${FILENAME}.diff"
 
                     echo "Creating DIFF_FILENAME: $DIFF_FILENAME"
 
@@ -85,13 +88,17 @@ roslynator fix $SOLUTION_FILEPATH \
 --analyzer-assemblies $ANALYZER_PACKAGE \
 --supported-diagnostics $DIAGNOSTIC_ID \n"
 
-                    touch $DIFF_FILENAME
+                    DIFF_CONTENT=$(git diff -p ${REPO_TO_ANALYZE})
 
-                    git diff -p ${REPO_TO_ANALYZE} >$DIFF_FILENAME
-
-                    cd $REPO_TO_ANALYZE
-                    git reset --hard
-                    cd "$CURRENT_DIR"
+                    if [ "$DIFF_CONTENT" == "" ]; then
+                        echo "Empty diff!"
+                    else
+                        touch $DIFF_FILENAME
+                        echo "$DIFF_CONTENT" >$DIFF_FILENAME
+                        cd $REPO_TO_ANALYZE
+                        git reset --hard
+                        cd "$CURRENT_DIR"
+                    fi
 
                 fi
 
