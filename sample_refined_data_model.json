@@ -1,0 +1,73 @@
+{
+    "Repo": "acat",
+    "ProjectFile": "acat/src/Applications/AppCommon/AppCommon.csproj",
+    "File": "acat/src/Applications/AppCommon/AppCommon.cs",
+    "Commit": "981d4626b763a8b3e9e226b56940e293c5282039",
+    "DiagnosticID": "CA1827",
+    "Message": "Count() is used where Any() could be used instead to improve performance",
+    "Severity": "Info",
+    "Locations": [
+        {
+            "Line": 3,
+            "Character": 17
+        },
+        {
+            "Line": 8,
+            "Character": 12
+        }
+    ],
+    "FileContent": [
+        "namespace CodeHub.Core.Messages",
+        "{",
+        "   public class GistAddMessage",
+        "   {",
+        "       public Octokit.Gist Gist { get; }",
+        "",
+        "       public GistAddMessage(Octokit.Gist gist)",
+        "       {",
+        "           Gist = gist;",
+        "       }",
+        "   }",
+        "}"
+    ],
+    "DiffHunks": [
+        [
+            "@@ -30,6 +30,7 @@",
+            "LINE_TYPE_DELETE = '-'",
+            "LINE_TYPE_CONTEXT = ' '",
+            "",
+            "+",
+            "class Hunk(object):",
+            "\"\"\"Each of the modified blocks of a file.\"\"\"",
+            ""
+        ],
+        [
+            "@@ -98,7 +99,7 @@ def add_to_modified_counter(self, mods):",
+            "",
+            "",
+            "class PatchedFile(list):",
+            "-    \"\"\"Data from a patched file.\"\"\"",
+            "+    \"\"\"Data of a patched file, each element is a Hunk.\"\"\"",
+            "",
+            "      def __init__(self, source='', target=''):",
+            "          super(PatchedFile, self).__init__()"
+        ]
+    ],
+    "ParsedDiffHunks": {
+        "RemovedLines": [
+            102
+        ],
+        // TargetLocations have to be applied iteratively, since hunk.source_start also takes
+        // into account previous hunks:
+        "AddedLines": [
+            {
+                "TargetLocation": 34,
+                "Line": ""
+            },
+            {
+                "TargetLocation": 103,
+                "Line": "    \"\"\"Data of a patched file, each element is a Hunk.\"\"\""
+            }
+        ]
+    }
+}
