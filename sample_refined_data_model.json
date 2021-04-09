@@ -57,7 +57,7 @@
         "RemovedLines": [
             102
         ],
-        // TargetLocations have to be applied iteratively, since hunk.source_start also takes
+        // TargetLocations have to be applied iteratively, since hunk.target_start also takes
         // into account previous hunks:
         "AddedLines": [
             {
