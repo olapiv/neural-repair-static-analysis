@@ -31,6 +31,7 @@
 
 ## TODO
 
+* Run `create_raw_dataset.sh` on Windows machine
 * Understand why some assemblies have duplicate DIAGNOSTIC_ANALYZERs, E.g.:
   `Microsoft.CodeQuality.Analyzers.3.3.2,Microsoft.CodeQuality.Analyzers,DIAGNOSTIC_ANALYZER,CA2225`
 

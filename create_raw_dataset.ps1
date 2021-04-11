@@ -1,12 +1,25 @@
-#!/bin/bash
 
-mkdir -p ./raw_dataset/analysis_files
-mkdir -p ./raw_dataset/diffs
+
+# Create folders if not exist:
+$null = [System.IO.Directory]::CreateDirectory('./raw_dataset/analysis_files')
+$null = [System.IO.Directory]::CreateDirectory('./raw_dataset/diffs')
 
 $CLONED_REPOS_DIR="./cloned_repos_to_analyze"
 $CURRENT_DIR=$PWD
+Write-Output "CURRENT_DIR: $CURRENT_DIR"
 
-$GH_REPOS = Import-Csv -Path "github_repos.csv"       
+$ANALYZER_PACKAGES = Get-Childitem –Path nuget_analyzer_packages/* |
+    Foreach-Object {
+        $FILENAME = $_.Name
+        $DIRECTORY = $_.Directory
+        @{ NugetFullname = $FILENAME; NugetPath = "$DIRECTORY/$FILENAME"}
+    }
+Write-Output "Loaded ANALYZER_PACKAGES"
+
+$ANALYZER_PACKAGE_DETAILS = Import-Csv -Path "analyzer_package_details_filtered.csv"
+Write-Output "Loaded ANALYZER_PACKAGE_DETAILS"
+
+$GH_REPOS = Import-Csv -Path "github_repos.csv"
 foreach ($GH_REPO_LINE in $GH_REPOS)
 {
     $REPO_NAME = $GH_REPO_LINE.RepoName
@@ -19,92 +32,103 @@ foreach ($GH_REPO_LINE in $GH_REPOS)
 
     cd $REPO_TO_ANALYZE
     $LAST_COMMIT=$(git log -n 1 --pretty=format:"%H")
-    echo "Last commit: $LAST_COMMIT"
+    Write-Output "Last commit: $LAST_COMMIT"
     cd "$CURRENT_DIR"
 
-    # ----
+    Write-Output "REPO_TO_ANALYZE: $REPO_TO_ANALYZE"
 
-    SOLUTION_FILEPATHS=()
-    while IFS= read -r -d $'\0'; do
-        SOLUTION_FILEPATHS+=("$REPLY")
-    done < <(find $REPO_TO_ANALYZE -name "*.sln" -print0)
-    echo "Available solution files: $SOLUTION_FILEPATHS"
+    # TODO: Ask Niklas: use -Exclude */libraries/* ?
+    # $SOLUTION_FILES = Get-Childitem -File –force -Recurse -Include *.sln –Path $REPO_TO_ANALYZE |
+    $SOLUTION_FILES = Get-Childitem -File –force -Recurse -Include *.sln –Path "/Users/vincent/not_in_cloud/Codes/KTH/acr-static-analysis-code/cloned_repos_to_analyze/runtime/src/libraries/Microsoft.Extensions.Caching.Memory" |
+        Foreach-Object {
+            $FILENAME = $_.Name
+            $DIRECTORY = $_.Directory
+            @{ Filename = $FILENAME; Filepath = "$DIRECTORY/$FILENAME"}
+        }
+
+    $NUMBER_SOLUTIONS = $SOLUTION_FILES.Count
+    Write-Output "NUMBER_SOLUTIONS: $NUMBER_SOLUTIONS"
 
     # Cannot apply roslynator by file; only by project/solution;
     # Might as well apply to entire solution.
-    for SOLUTION_FILEPATH in "${SOLUTION_FILEPATHS[@]}"; do
+    foreach ($SOLUTION_FILE in $SOLUTION_FILES){
 
-        SOLUTION_FILE=${SOLUTION_FILEPATH##*/}
+        $SOLUTION_FILENAME = $SOLUTION_FILE.Filename
+        Write-Output "Working with SOLUTION_FILENAME: $SOLUTION_FILENAME"
 
-        echo "Working with SOLUTION_FILE: $SOLUTION_FILE"
+        foreach ($ANALYZER_PACKAGE in $ANALYZER_PACKAGES){
 
-        for ANALYZER_PACKAGE in nuget_analyzer_packages/*/; do
-
-            PREFIX="nuget_analyzer_packages/"
-            SUFIIX="/"
-            ANALYZER_PACKAGE=${ANALYZER_PACKAGE#"$PREFIX"}
-            ANALYZER_PACKAGE=${ANALYZER_PACKAGE%"$SUFIIX"}
-            echo "Using NuGet package: $ANALYZER_PACKAGE"
+            $NUGET_FULL_NAME = $ANALYZER_PACKAGE.NugetFullname
+            $NUGET_PATH = $ANALYZER_PACKAGE.NugetPath
+            Write-Output "Using NuGet package: $NUGET_FULL_NAME"
 
             # Breaking down resulting diff into single diagnostics;
             # Checking pre-filled csv-file to filter out possible DIAGNOSTIC_IDs
-            while IFS=, read -r ANALYZER_PACKAGE_CSV ANALYZER_ASSEMBLY TYPE DIAGNOSTIC_ID; do
+            foreach ($ANALYZER_PACKAGE_DETAILS_ROW in $ANALYZER_PACKAGE_DETAILS){
+            
+                $ANALYZER_PACKAGE_NAME = $ANALYZER_PACKAGE_DETAILS_ROW.HostingPackageName
+                $ANALYZER_ASSEMBLY = $ANALYZER_PACKAGE_DETAILS_ROW.AssemblyName
+                $TYPE = $ANALYZER_PACKAGE_DETAILS_ROW.Type
+                $DIAGNOSTIC_ID = $ANALYZER_PACKAGE_DETAILS_ROW.DiagnosticID
 
-                if [ "$ANALYZER_PACKAGE" != "$ANALYZER_PACKAGE_CSV" ]; then
+                if ($NUGET_FULL_NAME -ne $ANALYZER_PACKAGE_NAME ) {
                     continue
-                fi
+                }
 
-                echo "Using DIAGNOSTIC_ID: $DIAGNOSTIC_ID with TYPE: $TYPE"
+                Write-Output "Using DIAGNOSTIC_ID: $DIAGNOSTIC_ID with TYPE: $TYPE"
 
-                FILENAME="${REPO_NAME}__${SOLUTION_FILE}__${LAST_COMMIT}__${DIAGNOSTIC_ID}"
+                $OUTPUT_FILENAME="${REPO_NAME}__${SOLUTION_FILENAME}__${LAST_COMMIT}__${NUGET_FULL_NAME}__${DIAGNOSTIC_ID}"
+                Write-Output "Creating OUTPUT_FILENAME: $OUTPUT_FILENAME"
 
-                echo "Creating FILENAME: $FILENAME"
+                if ($TYPE -eq "DIAGNOSTIC_ANALYZER") {
 
-                if [ "$TYPE" == "DIAGNOSTIC_ANALYZER" ]; then
+                    $ANALYSIS_FILEPATH="./raw_dataset/analysis_files/${OUTPUT_FILENAME}.xml"
+                    Write-Output "Creating ANALYSIS_FILEPATH: $ANALYSIS_FILEPATH"
 
-                    ANALYSIS_FILENAME="./raw_dataset/analysis_files/${FILENAME}.xml"
-
-                    echo "Creating ANALYSIS_FILENAME: $ANALYSIS_FILENAME"
-
-                    echo -e "\n
+                    Write-Output "
 roslynator analyze $SOLUTION_FILEPATH \
 -v quiet \
---output $ANALYSIS_FILENAME \
+--output $ANALYSIS_FILEPATH \
 --report-not-configurable \  # Mostly compiler diagnostics (CSxxxx)
 --ignore-analyzer-references \   # Only use our own analyzer assemblies
---analyzer-assemblies $ANALYZER_PACKAGE \
---supported-diagnostics $DIAGNOSTIC_ID \n"
+--analyzer-assemblies $NUGET_PATH \
+--supported-diagnostics $DIAGNOSTIC_ID `n"
 
-                else # $TYPE == "CODEFIX_PROVIDER"
+                } else { # $TYPE -eq "CODEFIX_PROVIDER"
 
-                    DIFF_FILENAME="./raw_dataset/diffs/${FILENAME}.diff"
+                    $DIFF_FILENAME="${OUTPUT_FILENAME}.diff"
 
-                    echo "Creating DIFF_FILENAME: $DIFF_FILENAME"
+                    Write-Output "Creating DIFF_FILENAME: $DIFF_FILENAME"
 
                     # This basically produces a diff
-                    echo -e "\n
+                    Write-Output "
 roslynator fix $SOLUTION_FILEPATH \
 --ignore-analyzer-references \
---analyzer-assemblies $ANALYZER_PACKAGE \
---supported-diagnostics $DIAGNOSTIC_ID \n"
+--analyzer-assemblies $NUGET_PATH \
+--supported-diagnostics $DIAGNOSTIC_ID `n"
 
-                    DIFF_CONTENT=$(git diff -p ${REPO_TO_ANALYZE})
+                    cd $REPO_TO_ANALYZE
+                    $DIFF_CONTENT=$(git diff)
 
-                    if [ "$DIFF_CONTENT" == "" ]; then
-                        echo "Empty diff!"
-                    else
-                        touch $DIFF_FILENAME
-                        echo "$DIFF_CONTENT" >$DIFF_FILENAME
-                        cd $REPO_TO_ANALYZE
-                        git reset --hard
-                        cd "$CURRENT_DIR"
-                    fi
+                    if ( "$DIFF_CONTENT" -eq "" ) {
+                        Write-Output "Empty diff!"
+                    } else {
+                        $DIFF_FILEPATH = "$CURRENT_DIR/raw_dataset/diffs/$DIFF_FILENAME"
+                        if (!(Test-Path $DIFF_FILEPATH)) {
+                            [void](New-Item -ItemType "file" -Path $DIFF_FILEPATH)
+                        }
+                        $DIFF_CONTENT > $DIFF_FILEPATH
+                        # git reset --hard
+                    }
 
-                fi
-
-            done <analyzer_package_details_filtered.csv
-
-        done
-    done
-
+                    cd $CURRENT_DIR
+                    
+                }
+                break
+            }
+            break
+        }
+        break
+    }
+    break
 }
