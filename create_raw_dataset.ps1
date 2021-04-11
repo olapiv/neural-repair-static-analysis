@@ -4,6 +4,9 @@
 $null = [System.IO.Directory]::CreateDirectory('./raw_dataset/analysis_files')
 $null = [System.IO.Directory]::CreateDirectory('./raw_dataset/diffs')
 
+$ROSLYNATOR="C:\Users\vlohse\.nuget\packages\roslynator.commandline\0.1.1\tools\net48\Roslynator.exe"
+$MS_BUILD_PATH='C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin'
+
 $CLONED_REPOS_DIR="./cloned_repos_to_analyze"
 $CURRENT_DIR=$PWD
 Write-Output "CURRENT_DIR: $CURRENT_DIR"
@@ -38,8 +41,8 @@ foreach ($GH_REPO_LINE in $GH_REPOS)
     Write-Output "REPO_TO_ANALYZE: $REPO_TO_ANALYZE"
 
     # TODO: Ask Niklas: use -Exclude */libraries/* ?
-    # $SOLUTION_FILES = Get-Childitem -File –force -Recurse -Include *.sln –Path $REPO_TO_ANALYZE |
-    $SOLUTION_FILES = Get-Childitem -File –force -Recurse -Include *.sln –Path "/Users/vincent/not_in_cloud/Codes/KTH/acr-static-analysis-code/cloned_repos_to_analyze/runtime/src/libraries/Microsoft.Extensions.Caching.Memory" |
+    # $SOLUTION_FILES = Get-Childitem -File –force -Recurse -Include *.sln –Path "/Users/vincent/not_in_cloud/Codes/KTH/acr-static-analysis-code/cloned_repos_to_analyze/runtime/src/libraries/Microsoft.Extensions.Caching.Memory" |
+    $SOLUTION_FILES = Get-Childitem -File –force -Recurse -Include *.sln –Path $REPO_TO_ANALYZE |
         Foreach-Object {
             $FILENAME = $_.Name
             $DIRECTORY = $_.Directory
@@ -94,6 +97,18 @@ roslynator analyze $SOLUTION_FILEPATH \
 --analyzer-assemblies $NUGET_PATH \
 --supported-diagnostics $DIAGNOSTIC_ID `n"
 
+                $ROSLYNATOR analyze `
+                    --msbuild-path $MS_BUILD_PATH `
+                    $SOLUTION_FILEPATH `
+                    -v quiet `
+                    --output $ANALYSIS_FILEPATH `
+                    --report-not-configurable `
+                    --ignore-analyzer-references `
+                    --analyzer-assemblies $NUGET_PATH `
+                    --supported-diagnostics $DIAGNOSTIC_ID
+                    # report-not-configurable: Mostly compiler diagnostics (CSxxxx)
+                    # ignore-analyzer-references: Only use our own analyzer assemblies
+
                 } else { # $TYPE -eq "CODEFIX_PROVIDER"
 
                     $DIFF_FILENAME="${OUTPUT_FILENAME}.diff"
@@ -107,6 +122,12 @@ roslynator fix $SOLUTION_FILEPATH \
 --analyzer-assemblies $NUGET_PATH \
 --supported-diagnostics $DIAGNOSTIC_ID `n"
 
+                    $ROSLYNATOR fix --msbuild-path `
+                        $MS_BUILD_PATH $SOLUTION_FILEPATH `
+                        --ignore-analyzer-references `
+                        --analyzer-assemblies $NUGET_PATH `
+                        --supported-diagnostics $DIAGNOSTIC_ID
+
                     cd $REPO_TO_ANALYZE
                     $DIFF_CONTENT=$(git diff)
 
@@ -118,7 +139,7 @@ roslynator fix $SOLUTION_FILEPATH \
                             [void](New-Item -ItemType "file" -Path $DIFF_FILEPATH)
                         }
                         $DIFF_CONTENT > $DIFF_FILEPATH
-                        # git reset --hard
+                        git reset --hard
                     }
 
                     cd $CURRENT_DIR
