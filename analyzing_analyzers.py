@@ -352,6 +352,19 @@ def average_diagnostic_ids_per_package(df, print_bool=True):
         print("average_num_da_diagnostics: ", average_num_da_diagnostics)
         print("average_num_cp_diagnostics: ", average_num_cp_diagnostics)
 
+def create_relevant_source_package_list(df):
+    """
+    Creates a text file with all versioned NuGet packages that 
+    - have own analyzers in their source code
+    - are the newest Nuget version
+    """
+
+    source_packages = list(df.groupby(['HostingPackageName']).groups.keys())
+    with open('c', 'w') as f:
+        for package in source_packages:
+            f.write("%s\n" % package)
+
+
 
 def calculate_analyzer_statistics(csv_file="analyzer_package_details.csv"):
 
@@ -375,12 +388,13 @@ def calculate_analyzer_statistics(csv_file="analyzer_package_details.csv"):
     df = filter_df_latest_analyzer_versions(df)
 
     # duplicate_diagnostic_ids(df)
+    create_relevant_source_package_list(df)
 
     ###### Requires *filtered* dataframe ######
 
     # das_cps_intersections(df)
     # das_cps_averages(df)
-    average_diagnostic_ids_per_package(df)
+    # average_diagnostic_ids_per_package(df)
 
     ###########################################
 
