@@ -7,7 +7,7 @@ $ROSLYNATOR = "C:\Users\vlohse\.nuget\packages\roslynator.commandline\0.1.1\tool
 $MS_BUILD_PATH = 'C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin'
 
 $NUGET_FULL_NAME = "AgodaAnalyzers.1.0.517"
-$NUGET_PATH = "nuget_analyzer_packages/AgodaAnalyzers.1.0.517"
+$NUGET_PATH = "C:\Users\vlohse\Desktop\neural-repair-static-analysis\nuget_analyzer_packages\Agoda.Analyzers.1.0.517"
 
 $CLONED_REPOS_DIR = "./cloned_repos_to_analyze"
 $REPO_NAME = "runtime"
@@ -16,7 +16,6 @@ $REPO_TO_ANALYZE = "$CLONED_REPOS_DIR/$REPO_NAME"
 
 function ExecuteRoslynatorOnProjOrSol {
     param (
-        $REPO_NAME,
         $SOLUTION_FILENAME,
         $SOLUTION_FILEPATH
     )
@@ -37,16 +36,16 @@ function ExecuteRoslynatorOnProjOrSol {
         --ignore-analyzer-references
         --analyzer-assemblies $NUGET_PATH `n"
 
-    # C:\Users\vlohse\.nuget\packages\roslynator.commandline\0.1.1\tools\net48\Roslynator.exe analyze `
-    #     --msbuild-path $MS_BUILD_PATH `
-    #     $SOLUTION_FILEPATH `
-    #     --output $ANALYSIS_FILEPATH `
-    #     --report-not-configurable `
-    #     --ignore-analyzer-references `
-    #     --analyzer-assemblies $NUGET_PATH
-    #     # -v quiet `
-    #     # report-not-configurable: Mostly compiler diagnostics (CSxxxx)
-    #     # ignore-analyzer-references: Only use our own analyzer assemblies
+    C:\Users\vlohse\.nuget\packages\roslynator.commandline\0.1.1\tools\net48\Roslynator.exe analyze `
+        --msbuild-path $MS_BUILD_PATH `
+        $SOLUTION_FILEPATH `
+        --output $ANALYSIS_FILEPATH `
+        --report-not-configurable `
+        --ignore-analyzer-references `
+        --analyzer-assemblies $NUGET_PATH
+        # -v quiet `
+        # report-not-configurable: Mostly compiler diagnostics (CSxxxx)
+        # ignore-analyzer-references: Only use our own analyzer assemblies
 
 }
 
@@ -104,7 +103,6 @@ foreach ($PROJECT_FILE in $PROJECT_FILES) {
     $PROJECT_FILENAME = $PROJECT_FILE.Filename
     $PROJECT_FILEPATH = $PROJECT_FILE.Filepath
     ExecuteRoslynatorOnProjOrSol -SOLUTION_FILENAME $PROJECT_FILENAME -SOLUTION_FILEPATH $PROJECT_FILEPATH
-    break
 }
 
 $sw.Stop()
