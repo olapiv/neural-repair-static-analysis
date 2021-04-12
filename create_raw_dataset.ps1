@@ -13,9 +13,7 @@ Write-Output "CURRENT_DIR: $CURRENT_DIR"
 
 $ANALYZER_PACKAGES = Get-Childitem -Path nuget_analyzer_packages/* |
 Foreach-Object {
-    $FILENAME = $_.Name
-    $DIRECTORY = $_.Directory
-    @{ NugetFullname = $FILENAME; NugetPath = "$DIRECTORY/$FILENAME" }
+    @{ NugetFullname = $_.Name; NugetPath = $_.FullName }
 }
 Write-Output "Loaded ANALYZER_PACKAGES"
 
@@ -102,12 +100,12 @@ foreach ($GH_REPO_LINE in $GH_REPOS) {
                     C:\Users\vlohse\.nuget\packages\roslynator.commandline\0.1.1\tools\net48\Roslynator.exe analyze `
                         --msbuild-path $MS_BUILD_PATH `
                         $SOLUTION_FILEPATH `
-                        -v quiet `
                         --output $ANALYSIS_FILEPATH `
                         --report-not-configurable `
                         --ignore-analyzer-references `
                         --analyzer-assemblies $NUGET_PATH `
                         --supported-diagnostics $DIAGNOSTIC_ID
+                        # -v quiet `
                     # report-not-configurable: Mostly compiler diagnostics (CSxxxx)
                     # ignore-analyzer-references: Only use our own analyzer assemblies
 
@@ -153,11 +151,11 @@ foreach ($GH_REPO_LINE in $GH_REPOS) {
                     cd $CURRENT_DIR
                     
                 }
-                break
+                # break
             }
-            break
+            # break
         }
-        break
+        # break
     }
-    break
+    # break
 }
