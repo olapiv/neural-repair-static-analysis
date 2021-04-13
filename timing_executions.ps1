@@ -19,22 +19,22 @@ function ExecuteRoslynatorOnProjOrSol {
         $SOLUTION_FILENAME,
         $SOLUTION_FILEPATH
     )
+    $swStep = [Diagnostics.Stopwatch]::StartNew()
 
     Write-Output "Working with SOLUTION_FILENAME: $SOLUTION_FILENAME"
 
     $OUTPUT_FILENAME = "${REPO_NAME}__${SOLUTION_FILENAME}__${NUGET_FULL_NAME}"
     $ANALYSIS_FILEPATH = "./raw_dataset/timing_analysis/${OUTPUT_FILENAME}.xml"
-    Write-Output "Creating ANALYSIS_FILEPATH: $ANALYSIS_FILEPATH"
 
-    Write-Output "
-    roslynator analyze
-        --msbuild-path $MS_BUILD_PATH
-        $SOLUTION_FILEPATH
-        -v quiet
-        --output $ANALYSIS_FILEPATH
-        --report-not-configurable
-        --ignore-analyzer-references
-        --analyzer-assemblies $NUGET_PATH `n"
+    # Write-Output "
+    # roslynator analyze
+    #     --msbuild-path $MS_BUILD_PATH
+    #     $SOLUTION_FILEPATH
+    #     -v quiet
+    #     --output $ANALYSIS_FILEPATH
+    #     --report-not-configurable
+    #     --ignore-analyzer-references
+    #     --analyzer-assemblies $NUGET_PATH `n"
 
     C:\Users\vlohse\.nuget\packages\roslynator.commandline\0.1.1\tools\net48\Roslynator.exe analyze `
         --msbuild-path $MS_BUILD_PATH `
@@ -42,11 +42,17 @@ function ExecuteRoslynatorOnProjOrSol {
         --output $ANALYSIS_FILEPATH `
         --report-not-configurable `
         --ignore-analyzer-references `
-        --analyzer-assemblies $NUGET_PATH
-        # -v quiet `
+        --analyzer-assemblies $NUGET_PATH `
+        -v quiet
         # report-not-configurable: Mostly compiler diagnostics (CSxxxx)
         # ignore-analyzer-references: Only use our own analyzer assemblies
 
+    $swStep.Stop()
+    $ELAPSED_MINUTES = $swStep.Elapsed.TotalMinutes
+
+    $RESULT = "ELAPSED_MINUTES: $ELAPSED_MINUTES"
+    $TIMER_RESULTS_PATH = "./raw_dataset/timing_analysis/${OUTPUT_FILENAME}__TIMING.txt"
+    $RESULT > $TIMER_RESULTS_PATH
 }
 
 Write-Output "Cloning: $REPO_NAME"
@@ -65,29 +71,26 @@ Foreach-Object {
 $NUMBER_SOLUTIONS = $SOLUTION_FILES.Count
 Write-Output "NUMBER_SOLUTIONS: $NUMBER_SOLUTIONS"
 
-$sw = [Diagnostics.Stopwatch]::StartNew()
+$swTotal = [Diagnostics.Stopwatch]::StartNew()
 
 foreach ($SOLUTION_FILE in $SOLUTION_FILES) {
     $SOLUTION_FILENAME = $SOLUTION_FILE.Filename
     $SOLUTION_FILEPATH = $SOLUTION_FILE.Filepath
     ExecuteRoslynatorOnProjOrSol -SOLUTION_FILENAME $SOLUTION_FILENAME -SOLUTION_FILEPATH $SOLUTION_FILEPATH
-    break
 }
 
-$sw.Stop()
-$ELAPSED_MINUTES = $sw.Elapsed.TotalMinutes
+$swTotal.Stop()
+$ELAPSED_MINUTES = $swTotal.Elapsed.TotalMinutes
 Write-Output "ELAPSED_MINUTES: $ELAPSED_MINUTES"
 
-$RESULT = "NUMBER_SOLUTIONS: $NUMBER_SOLUTIONS; ELAPSED_MINUTES: $ELAPSED_MINUTES;"
-$TIMER_RESULTS_PATH = "./TIMED__PER_SOLUTION__${REPO_NAME}__${NUGET_FULL_NAME}.txt"
-if (!(Test-Path $TIMER_RESULTS_PATH)) {
-    [void](New-Item -ItemType "file" -Path $TIMER_RESULTS_PATH)
-}
+$RESULT = "NUMBER_SOLUTIONS: $NUMBER_SOLUTIONS; ELAPSED_MINUTES: $ELAPSED_MINUTES"
+$TIMER_RESULTS_PATH = "./raw_dataset/timing_analysis/TIMED__PER_SOLUTION__${REPO_NAME}__${NUGET_FULL_NAME}.txt"
+[void](New-Item -ItemType "file" -Path $TIMER_RESULTS_PATH)
 $RESULT > $TIMER_RESULTS_PATH
 
-$sw = [Diagnostics.Stopwatch]::StartNew()
-
 ### ---------------------------------------------
+
+$swTotal = [Diagnostics.Stopwatch]::StartNew()
 
 $PROJECT_FILES = Get-Childitem -File -force -Recurse -Include *.csproj -Path $REPO_TO_ANALYZE |
 Foreach-Object {
@@ -105,13 +108,11 @@ foreach ($PROJECT_FILE in $PROJECT_FILES) {
     ExecuteRoslynatorOnProjOrSol -SOLUTION_FILENAME $PROJECT_FILENAME -SOLUTION_FILEPATH $PROJECT_FILEPATH
 }
 
-$sw.Stop()
-$ELAPSED_MINUTES = $sw.Elapsed.TotalMinutes
+$swTotal.Stop()
+$ELAPSED_MINUTES = $swTotal.Elapsed.TotalMinutes
 Write-Output "ELAPSED_MINUTES: $ELAPSED_MINUTES"
 
 $RESULT = "NUMBER_PROJECTS: $NUMBER_PROJECTS; ELAPSED_MINUTES: $ELAPSED_MINUTES;"
-$TIMER_RESULTS_PATH = "./TIMED__PER_PROJECT__${REPO_NAME}__${NUGET_FULL_NAME}.txt"
-if (!(Test-Path $TIMER_RESULTS_PATH)) {
-    [void](New-Item -ItemType "file" -Path $TIMER_RESULTS_PATH)
-}
+$TIMER_RESULTS_PATH = "./raw_dataset/timing_analysis/TIMED__PER_PROJECT__${REPO_NAME}__${NUGET_FULL_NAME}.txt"
+[void](New-Item -ItemType "file" -Path $TIMER_RESULTS_PATH)
 $RESULT > $TIMER_RESULTS_PATH
