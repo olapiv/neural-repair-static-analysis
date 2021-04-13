@@ -2,7 +2,6 @@ RepoName,RepoURL
 runtime,https://github.com/dotnet/runtime.git
 shadowsocks-windows,https://github.com/shadowsocks/shadowsocks-windows.git
 CodeHub,https://github.com/CodeHubApp/CodeHub.git
-coreclr,https://github.com/dotnet/coreclr.git
 roslyn,https://github.com/dotnet/roslyn.git
 PowerShell,https://github.com/PowerShell/PowerShell.git
 WaveFunctionCollapse,https://github.com/mxgmn/WaveFunctionCollapse
