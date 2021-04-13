@@ -1,12 +1,13 @@
 {
     "Repo": "acat",
+    "RepoURL": "https://github.com/intel/acat",
     "ProjectFile": "acat/src/Applications/AppCommon/AppCommon.csproj",
     "File": "acat/src/Applications/AppCommon/AppCommon.cs",
     "Commit": "981d4626b763a8b3e9e226b56940e293c5282039",
     "DiagnosticID": "CA1827",
-    "Message": "Count() is used where Any() could be used instead to improve performance",
+    "DiagnosticMessage": "Count() is used where Any() could be used instead to improve performance",
     "Severity": "Info",
-    "Locations": [
+    "DiagnosticLocations": [
         {
             "Line": 3,
             "Character": 17
@@ -53,6 +54,7 @@
             "          super(PatchedFile, self).__init__()"
         ]
     ],
+    // Zimin: Consider using "Replace" as well for even further conciseness
     "ParsedDiffHunks": {
         "RemovedLines": [
             102
@@ -65,6 +67,7 @@
                 "Line": ""
             },
             {
+                // Zimin: Consider disregarding comments
                 "TargetLocation": 103,
                 "Line": "    \"\"\"Data of a patched file, each element is a Hunk.\"\"\""
             }
