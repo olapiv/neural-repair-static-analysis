@@ -69,15 +69,20 @@ foreach ($GH_REPO_LINE in $GH_REPOS) {
                 --SOLUTION_OR_PROJECT_FILEPATH $SOLUTION_FILEPATH `
                 --NUGET_PATH $NUGET_PATH
 
-            # TODO: Check if ANALYSIS_FILEPATH was generated; If not, no need for fixes
+            if (!(Test-Path $ANALYSIS_FILEPATH)) {
+                Write-Output "No analysis generated for $ANALYSIS_FILEPATH. Skipping fixes"
+                continue
+            }
 
-            # TODO: Extract diagnostic IDs from OUTPUT_FILENAME xml; 
-            #   --> iterate over these instead and pass to RunAndSaveFix
-            #   --> Pass all of $ANALYZER_PACKAGE_DETAILS to RunAndSaveFix
-
-            # Breaking down resulting diff into single diagnostics;
-            # Checking pre-filled csv-file to filter out possible DIAGNOSTIC_IDs
-            foreach ($ANALYZER_PACKAGE_DETAILS_ROW in $ANALYZER_PACKAGE_DETAILS) {
+            # Get all diagnostic ids which generated a diagnostic on the solution
+            [XML]$ANALYSIS_XML = Get-Content $ANALYSIS_FILEPATH
+            $DIAGNOSTIC_IDS = $ANALYSIS_XML.Roslynator.CodeAnalysis.Summary.Diagnostic |
+                Foreach-Object {
+                    $_.Id
+                }
+        
+            # Breaking down diffs into single diagnostics;
+            foreach($DIAGNOSTIC_ID in $DIAGNOSTIC_IDS){
 
                 RunAndSaveFix `
                     --SOLUTION_FILEPATH $SOLUTION_FILEPATH `
@@ -85,8 +90,9 @@ foreach ($GH_REPO_LINE in $GH_REPOS) {
                     --NUGET_PATH $NUGET_PATH `
                     --OUTPUT_FILENAME $OUTPUT_FILENAME `
                     --OUTPUT_DIR $OUTPUT_DIR_FIX `
-                    --ANALYZER_PACKAGE_DETAILS_ROW $ANALYZER_PACKAGE_DETAILS_ROW
-                
+                    --ANALYZER_PACKAGE_DETAILS $ANALYZER_PACKAGE_DETAILS `
+                    --DIAGNOSTIC_ID $DIAGNOSTIC_ID
+
                 # break
             }
             # break

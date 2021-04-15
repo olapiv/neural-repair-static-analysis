@@ -1,4 +1,3 @@
-
 $ROSLYNATOR = "C:\Users\vlohse\.nuget\packages\roslynator.commandline\0.1.1\tools\net48\Roslynator.exe"
 $MS_BUILD_PATH = 'C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin'
 
@@ -23,7 +22,10 @@ function ApplyRoslynatorAnalysis {
         $NUGET_PATH
     )
     
-    Write-Output "Creating ANALYSIS_FILEPATH: $ANALYSIS_FILEPATH"
+    if (Test-Path $ANALYSIS_FILEPATH) {
+        Write-Output "ANALYSIS_FILEPATH already exists! Skipping it: $ANALYSIS_FILEPATH"
+        return
+    }
 
     Write-Output "
         roslynator analyze
@@ -37,15 +39,15 @@ function ApplyRoslynatorAnalysis {
         "
 
     C:\Users\vlohse\.nuget\packages\roslynator.commandline\0.1.1\tools\net48\Roslynator.exe analyze `
-    --msbuild-path $MS_BUILD_PATH `
-    $SOLUTION_FILEPATH `
-    --output $ANALYSIS_FILEPATH `
-    --report-not-configurable `
-    --ignore-analyzer-references `
-    --analyzer-assemblies $NUGET_PATH
-    # -v quiet `
-    # report-not-configurable: Mostly compiler diagnostics (CSxxxx)
-    # ignore-analyzer-references: Only use our own analyzer assemblies
+        --msbuild-path $MS_BUILD_PATH `
+        $SOLUTION_FILEPATH `
+        --output $ANALYSIS_FILEPATH `
+        --report-not-configurable `
+        --ignore-analyzer-references `
+        --analyzer-assemblies $NUGET_PATH
+        # -v quiet `
+        # report-not-configurable: Mostly compiler diagnostics (CSxxxx)
+        # ignore-analyzer-references: Only use our own analyzer assemblies
 
 }
 
@@ -101,6 +103,7 @@ function SaveRoslynatorFixDiff {
     cd $CURRENT_DIR
 }
 
+
 function RunAndSaveFix {
     param (
         $SOLUTION_FILEPATH,
@@ -108,17 +111,36 @@ function RunAndSaveFix {
         $NUGET_PATH,
         $OUTPUT_FILENAME,
         $OUTPUT_DIR,
-        $ANALYZER_PACKAGE_DETAILS_ROW  # from analyzer_package_details.csv
+        $ANALYZER_PACKAGE_DETAILS,  # analyzer_package_details.csv in memory
+        $DIAGNOSTIC_ID
     )
 
-    # TODO: Iterate over ANALYZER_PACKAGE_DETAILS here and check whether there is CODEFIX_PROVIDER available
-
-    if ($NUGET_FULL_NAME -ne $ANALYZER_PACKAGE_DETAILS_ROW.HostingPackageName ) {
-        continue
+    $DIFF_FILENAME = "${OUTPUT_FILENAME}__${DIAGNOSTIC_ID}.diff"
+    $DIFF_FILEPATH = "$OUTPUT_DIR/$DIFF_FILENAME"
+    if (Test-Path $DIFF_FILEPATH) {
+        Write-Output "DIFF_FILEPATH already exists! Skipping it: $DIFF_FILEPATH"
+        return
     }
 
-    if ($ANALYZER_PACKAGE_DETAILS_ROW.Type -ne "CODEFIX_PROVIDER") {
-        continue
+    # Checking ANALYZER_PACKAGE_DETAILS whether there is a CODEFIX_PROVIDER for this diagnostic
+    $USEFUL_DIAGNOSTIC_ID = "False"
+    foreach ($ANALYZER_PACKAGE_DETAILS_ROW in $ANALYZER_PACKAGE_DETAILS) {
+        if (
+            ($ANALYZER_PACKAGE_DETAILS_ROW.HostingPackageName -ne $NUGET_FULL_NAME)
+            -OR
+            ($ANALYZER_PACKAGE_DETAILS_ROW.Type -ne "CODEFIX_PROVIDER")
+            -OR
+            ($ANALYZER_PACKAGE_DETAILS_ROW.DiagnosticID -ne $DIAGNOSTIC_ID)
+        ) {
+            continue
+        }
+
+        $USEFUL_DIAGNOSTIC_ID="True"
+        break
+    }
+    if ($USEFUL_DIAGNOSTIC_ID -eq "False" {
+        Write-Output "No CodeFixProvider available for DIAGNOSTIC_ID: $DIAGNOSTIC_ID"
+        return
     }
 
     $DIAGNOSTIC_ID = $ANALYZER_PACKAGE_DETAILS_ROW.DiagnosticID
@@ -128,9 +150,6 @@ function RunAndSaveFix {
         --SOLUTION_OR_PROJECT_FILEPATH $SOLUTION_FILEPATH
         --NUGET_PATH $NUGET_PATH
         --DIAGNOSTIC_ID $DIAGNOSTIC_ID
-
-    $DIFF_FILENAME = "${OUTPUT_FILENAME}__${DIAGNOSTIC_ID}.diff"
-    $DIFF_FILEPATH = "$OUTPUT_DIR/$DIFF_FILENAME"
 
     SaveRoslynatorFixDiff
         --FIXED_REPO_PATH $REPO_PATH
