@@ -38,7 +38,7 @@ foreach ($GH_REPO_LINE in $GH_REPOS) {
 
     Write-Output "REPO_PATH: $REPO_PATH"
 
-    $SOLUTION_FILES = GetAllRepoSolutions --REPO_PATH $REPO_PATH
+    $SOLUTION_FILES = GetAllRepoSolutions $REPO_PATH
 
     $NUMBER_SOLUTIONS = $SOLUTION_FILES.Count
     Write-Output "NUMBER_SOLUTIONS: $NUMBER_SOLUTIONS"
@@ -65,9 +65,9 @@ foreach ($GH_REPO_LINE in $GH_REPOS) {
 
             $ANALYSIS_FILEPATH = "$OUTPUT_DIR/${OUTPUT_FILENAME}.xml"
             ApplyRoslynatorAnalysis `
-                --ANALYSIS_FILEPATH $ANALYSIS_FILEPATH `
-                --SOLUTION_OR_PROJECT_FILEPATH $SOLUTION_FILEPATH `
-                --NUGET_PATH $NUGET_PATH
+                $ANALYSIS_FILEPATH `
+                $SOLUTION_FILEPATH `
+                $NUGET_PATH
 
             if (!(Test-Path $ANALYSIS_FILEPATH)) {
                 Write-Output "No analysis generated for $ANALYSIS_FILEPATH. Skipping fixes"
@@ -85,13 +85,13 @@ foreach ($GH_REPO_LINE in $GH_REPOS) {
             foreach($DIAGNOSTIC_ID in $DIAGNOSTIC_IDS){
 
                 RunAndSaveFix `
-                    --SOLUTION_FILEPATH $SOLUTION_FILEPATH `
-                    --NUGET_FULL_NAME $NUGET_FULL_NAME `
-                    --NUGET_PATH $NUGET_PATH `
-                    --OUTPUT_FILENAME $OUTPUT_FILENAME `
-                    --OUTPUT_DIR $OUTPUT_DIR_FIX `
-                    --ANALYZER_PACKAGE_DETAILS $ANALYZER_PACKAGE_DETAILS `
-                    --DIAGNOSTIC_ID $DIAGNOSTIC_ID
+                    $SOLUTION_FILEPATH `
+                    $NUGET_FULL_NAME `
+                    $NUGET_PATH `
+                    $OUTPUT_FILENAME `
+                    $OUTPUT_DIR_FIX `
+                    $ANALYZER_PACKAGE_DETAILS `
+                    $DIAGNOSTIC_ID
 
                 # break
             }

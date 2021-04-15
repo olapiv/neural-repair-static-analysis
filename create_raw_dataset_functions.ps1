@@ -11,6 +11,7 @@ function GetAllRepoSolutions{
             $FILENAME = $_.Name
             $DIRECTORY = $_.Directory
             @{ Filename = $FILENAME; Filepath = "$DIRECTORY/$FILENAME" }
+        }
     return $SOLUTION_FILES
 }
 
@@ -80,7 +81,7 @@ function ApplyRoslynatorFix {
 
 function SaveRoslynatorFixDiff {
     param (
-        $FIXED_REPO_PATH
+        $FIXED_REPO_PATH,
         $DIFF_FILEPATH
     )
     $CURRENT_DIR = $PWD
@@ -126,9 +127,9 @@ function RunAndSaveFix {
     $USEFUL_DIAGNOSTIC_ID = "False"
     foreach ($ANALYZER_PACKAGE_DETAILS_ROW in $ANALYZER_PACKAGE_DETAILS) {
         if (
-            ($ANALYZER_PACKAGE_DETAILS_ROW.HostingPackageName -ne $NUGET_FULL_NAME)
+            ($ANALYZER_PACKAGE_DETAILS_ROW.HostingPackageName -ne $NUGET_FULL_NAME) `
             -OR
-            ($ANALYZER_PACKAGE_DETAILS_ROW.Type -ne "CODEFIX_PROVIDER")
+            ($ANALYZER_PACKAGE_DETAILS_ROW.Type -ne "CODEFIX_PROVIDER") `
             -OR
             ($ANALYZER_PACKAGE_DETAILS_ROW.DiagnosticID -ne $DIAGNOSTIC_ID)
         ) {
@@ -138,7 +139,7 @@ function RunAndSaveFix {
         $USEFUL_DIAGNOSTIC_ID="True"
         break
     }
-    if ($USEFUL_DIAGNOSTIC_ID -eq "False" {
+    if ($USEFUL_DIAGNOSTIC_ID -eq "False") {
         Write-Output "No CodeFixProvider available for DIAGNOSTIC_ID: $DIAGNOSTIC_ID"
         return
     }
@@ -146,13 +147,13 @@ function RunAndSaveFix {
     $DIAGNOSTIC_ID = $ANALYZER_PACKAGE_DETAILS_ROW.DiagnosticID
     Write-Output "Applying fix with DIAGNOSTIC_ID: $DIAGNOSTIC_ID"
     
-    ApplyRoslynatorFix
-        --SOLUTION_OR_PROJECT_FILEPATH $SOLUTION_FILEPATH
-        --NUGET_PATH $NUGET_PATH
-        --DIAGNOSTIC_ID $DIAGNOSTIC_ID
+    ApplyRoslynatorFix `
+        $SOLUTION_FILEPATH `
+        $NUGET_PATH `
+        $DIAGNOSTIC_ID
 
-    SaveRoslynatorFixDiff
-        --FIXED_REPO_PATH $REPO_PATH
-        --DIFF_FILEPATH $DIFF_FILEPATH
+    SaveRoslynatorFixDiff `
+        $REPO_PATH `
+        $DIFF_FILEPATH
     
 }
