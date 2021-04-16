@@ -45,32 +45,39 @@ foreach ($GH_REPO_LINE in $GH_REPOS) {
 
     # Cannot apply roslynator by file; only by project/solution;
     # Might as well apply to entire solution.
-    foreach ($SOLUTION_FILE in $SOLUTION_FILES) {
+    $SOLUTION_FILES | ForEach-Object -ThrottleLimit 6 -Parallel {
 
-        $SOLUTION_FILENAME = $SOLUTION_FILE.Filename
-        $SOLUTION_FILEPATH = $SOLUTION_FILE.Filepath
+        # Doing this again because the functions cannot be read in parallel otherwise (?)
+        . ./create_raw_dataset_functions.ps1
+
+        $SOLUTION_FILENAME = $_.Filename
+        $SOLUTION_FILEPATH = $_.Filepath
+
         Write-Output "Working with SOLUTION_FILENAME: $SOLUTION_FILENAME"
 
-        foreach ($ANALYZER_PACKAGE in $ANALYZER_PACKAGES) {
+        # Necessary because otherwise .Contains() cannot be run
+        $RELEVANT_ANALYZER_PACKAGES_COPY = $Using:RELEVANT_ANALYZER_PACKAGES
+
+        foreach ($ANALYZER_PACKAGE in $Using:ANALYZER_PACKAGES) {
 
             $NUGET_FULL_NAME = $ANALYZER_PACKAGE.NugetFullname
             $NUGET_PATH = $ANALYZER_PACKAGE.NugetPath
 
-            if (-Not ($RELEVANT_ANALYZER_PACKAGES.Contains($NUGET_FULL_NAME))) {
+            if (-Not ($RELEVANT_ANALYZER_PACKAGES_COPY.Contains($NUGET_FULL_NAME))) {
                 continue
             }
-            Write-Output "Using NuGet package: $NUGET_FULL_NAME"
+            Write-Output "<<<$SOLUTION_FILENAME>>> Using NuGet package: $NUGET_FULL_NAME"
 
-            $OUTPUT_FILENAME = "${REPO_NAME}__${SOLUTION_FILENAME}__${LAST_COMMIT}__${NUGET_FULL_NAME}"
+            $OUTPUT_FILENAME = "${Using:REPO_NAME}__${SOLUTION_FILENAME}__${Using:LAST_COMMIT}__${NUGET_FULL_NAME}"
 
-            $ANALYSIS_FILEPATH = "$OUTPUT_DIR/${OUTPUT_FILENAME}.xml"
+            $ANALYSIS_FILEPATH = "$Using:OUTPUT_DIR_ANALYSIS/${OUTPUT_FILENAME}.xml"
             ApplyRoslynatorAnalysis `
                 $ANALYSIS_FILEPATH `
                 $SOLUTION_FILEPATH `
                 $NUGET_PATH
 
             if (!(Test-Path $ANALYSIS_FILEPATH)) {
-                Write-Output "No analysis generated for $ANALYSIS_FILEPATH. Skipping fixes"
+                Write-Output "<<<$SOLUTION_FILENAME>>> No analysis generated for $ANALYSIS_FILEPATH. Skipping fixes"
                 continue
             }
 
@@ -89,8 +96,8 @@ foreach ($GH_REPO_LINE in $GH_REPOS) {
                     $NUGET_FULL_NAME `
                     $NUGET_PATH `
                     $OUTPUT_FILENAME `
-                    $OUTPUT_DIR_FIX `
-                    $ANALYZER_PACKAGE_DETAILS `
+                    $Using:OUTPUT_DIR_FIX `
+                    $Using:ANALYZER_PACKAGE_DETAILS `
                     $DIAGNOSTIC_ID
 
                 # break
@@ -98,6 +105,8 @@ foreach ($GH_REPO_LINE in $GH_REPOS) {
             # break
         }
         # break
+
     }
+
     # break
 }
