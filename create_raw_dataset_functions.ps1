@@ -98,7 +98,8 @@ function SaveRoslynatorFixDiff {
             [void](New-Item -ItemType "file" -Path $DIFF_FILEPATH)
         }
         $DIFF_CONTENT > $DIFF_FILEPATH
-        git reset --hard
+        # Discard all untracked changes
+        git restore .
     }
 
     cd $CURRENT_DIR
