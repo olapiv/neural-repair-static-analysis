@@ -28,16 +28,16 @@ function ApplyRoslynatorAnalysis {
         return
     }
 
-    Write-Output "
-        roslynator analyze
-            --msbuild-path $MS_BUILD_PATH
-            $SOLUTION_FILEPATH
-            -v quiet
-            --output $ANALYSIS_FILEPATH
-            --report-not-configurable
-            --ignore-analyzer-references
-            --analyzer-assemblies $NUGET_PATH
-        "
+    # Write-Output "
+    #     roslynator analyze
+    #         --msbuild-path $MS_BUILD_PATH
+    #         $SOLUTION_FILEPATH
+    #         -v quiet
+    #         --output $ANALYSIS_FILEPATH
+    #         --report-not-configurable
+    #         --ignore-analyzer-references
+    #         --analyzer-assemblies $NUGET_PATH
+    #     "
 
     C:\Users\vlohse\.nuget\packages\roslynator.commandline\0.1.1\tools\net48\Roslynator.exe analyze `
         --msbuild-path $MS_BUILD_PATH `
@@ -45,8 +45,8 @@ function ApplyRoslynatorAnalysis {
         --output $ANALYSIS_FILEPATH `
         --report-not-configurable `
         --ignore-analyzer-references `
-        --analyzer-assemblies $NUGET_PATH
-        # -v quiet `
+        --analyzer-assemblies $NUGET_PATH `
+        -v quiet
         # report-not-configurable: Mostly compiler diagnostics (CSxxxx)
         # ignore-analyzer-references: Only use our own analyzer assemblies
 
@@ -60,14 +60,14 @@ function ApplyRoslynatorFix {
         $DIAGNOSTIC_ID
     )
 
-    Write-Output "
-        roslynator fix
-            --msbuild-path $MS_BUILD_PATH
-            $SOLUTION_OR_PROJECT_FILEPATH
-            --ignore-analyzer-references
-            --analyzer-assemblies $NUGET_PATH
-            --supported-diagnostics $DIAGNOSTIC_ID
-        "
+    # Write-Output "
+    #     roslynator fix
+    #         --msbuild-path $MS_BUILD_PATH
+    #         $SOLUTION_OR_PROJECT_FILEPATH
+    #         --ignore-analyzer-references
+    #         --analyzer-assemblies $NUGET_PATH
+    #         --supported-diagnostics $DIAGNOSTIC_ID
+    #     "
 
     # This basically produces a diff
     C:\Users\vlohse\.nuget\packages\roslynator.commandline\0.1.1\tools\net48\Roslynator.exe fix `
@@ -75,7 +75,8 @@ function ApplyRoslynatorFix {
         $SOLUTION_OR_PROJECT_FILEPATH `
         --ignore-analyzer-references `
         --analyzer-assemblies $NUGET_PATH `
-        --supported-diagnostics $DIAGNOSTIC_ID
+        --supported-diagnostics $DIAGNOSTIC_ID `
+        -v quiet
 
 }
 

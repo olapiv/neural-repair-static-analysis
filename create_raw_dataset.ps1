@@ -3,10 +3,12 @@ $CURRENT_DIR = $PWD
 $OUTPUT_DIR_FIX = "$CURRENT_DIR/raw_dataset/diffs"
 $OUTPUT_DIR_ANALYSIS = "$CURRENT_DIR/raw_dataset/analysis_files"
 $SUBMODULE_REPOS_DIR = "./submodule_repos_to_analyze"
+$OUTPUT_DIR_TIMINGS = "$CURRENT_DIR/raw_dataset/timings"
 
 # Create folders if not exist:
 $null = [System.IO.Directory]::CreateDirectory($OUTPUT_DIR_ANALYSIS)
 $null = [System.IO.Directory]::CreateDirectory($OUTPUT_DIR_FIX)
+$null = [System.IO.Directory]::CreateDirectory($OUTPUT_DIR_TIMINGS)
 
 . ./create_raw_dataset_functions.ps1
 
@@ -14,6 +16,7 @@ $ANALYZER_PACKAGES = Get-Childitem -Path nuget_analyzer_packages/* |
 Foreach-Object {
     @{ NugetFullname = $_.Name; NugetPath = $_.FullName }
 }
+# $ANALYZER_PACKAGES = @(@{ NugetFullname = "Agoda.Analyzers.1.0.517"; NugetPath = "C:\Users\vlohse\Desktop\neural-repair-static-analysis\nuget_analyzer_packages\Agoda.Analyzers.1.0.517" })
 Write-Output "Loaded ANALYZER_PACKAGES"
 
 $ANALYZER_PACKAGE_DETAILS = Import-Csv -Path "analyzer_package_details_filtered.csv"
@@ -43,9 +46,11 @@ foreach ($GH_REPO_LINE in $GH_REPOS) {
     $NUMBER_SOLUTIONS = $SOLUTION_FILES.Count
     Write-Output "NUMBER_SOLUTIONS: $NUMBER_SOLUTIONS"
 
+    $swTotal = [Diagnostics.Stopwatch]::StartNew()
+
     # Cannot apply roslynator by file; only by project/solution;
     # Might as well apply to entire solution.
-    $SOLUTION_FILES | ForEach-Object -ThrottleLimit 6 -Parallel {
+    $SOLUTION_FILES | ForEach-Object -ThrottleLimit 10 -Parallel {
 
         # Doing this again because the functions cannot be read in parallel otherwise (?)
         . ./create_raw_dataset_functions.ps1
@@ -107,6 +112,16 @@ foreach ($GH_REPO_LINE in $GH_REPOS) {
         # break
 
     }
+
+    $swTotal.Stop()
+    $ELAPSED_MINUTES = $swTotal.Elapsed.TotalMinutes
+    $NUMBER_SOLUTIONS = $SOLUTION_FILES.Count
+    $RESULT = "ELAPSED_MINUTES: $ELAPSED_MINUTES, NUMBER_SOLUTIONS: $NUMBER_SOLUTIONS"
+    $TIMER_RESULTS_PATH = "$OUTPUT_DIR_TIMINGS/ALL_SOLUTIONS__${REPO_NAME}.txt"
+    if (!(Test-Path $TIMER_RESULTS_PATH)) {
+        [void](New-Item -ItemType "file" -Path $TIMER_RESULTS_PATH)
+    }
+    $RESULT > $TIMER_RESULTS_PATH
 
     # break
 }
