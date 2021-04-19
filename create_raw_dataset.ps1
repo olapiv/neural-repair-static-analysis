@@ -97,6 +97,7 @@ foreach ($GH_REPO_LINE in $GH_REPOS) {
             foreach($DIAGNOSTIC_ID in $DIAGNOSTIC_IDS){
 
                 RunAndSaveFix `
+                    $Using:REPO_PATH `
                     $SOLUTION_FILEPATH `
                     $NUGET_FULL_NAME `
                     $NUGET_PATH `

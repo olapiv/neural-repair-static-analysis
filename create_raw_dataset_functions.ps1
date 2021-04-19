@@ -109,6 +109,7 @@ function SaveRoslynatorFixDiff {
 
 function RunAndSaveFix {
     param (
+        $REPO_PATH,
         $SOLUTION_FILEPATH,
         $NUGET_FULL_NAME,
         $NUGET_PATH,
