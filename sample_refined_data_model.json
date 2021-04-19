@@ -1,18 +1,19 @@
 {
     "Repo": "acat",
     "RepoURL": "https://github.com/intel/acat",
-    "ProjectFile": "acat/src/Applications/AppCommon/AppCommon.csproj",
+    "SolutionFile": "acat/src/Applications/AppCommon/AppCommon.csproj",
     "File": "acat/src/Applications/AppCommon/AppCommon.cs",
     "Commit": "981d4626b763a8b3e9e226b56940e293c5282039",
     "DiagnosticID": "CA1827",
-    "DiagnosticMessage": "Count() is used where Any() could be used instead to improve performance",
     "Severity": "Info",
-    "DiagnosticLocations": [
+    "DiagnosticOccurances": [
         {
+            "Message": "'retVal' variable should not be defined with var.",
             "Line": 3,
             "Character": 17
         },
         {
+            "Message": "'leftoverBytes' variable should not be defined with var.",
             "Line": 8,
             "Character": 12
         }
