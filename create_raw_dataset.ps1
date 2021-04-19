@@ -2,7 +2,7 @@
 $CURRENT_DIR = $PWD
 $OUTPUT_DIR_FIX = "$CURRENT_DIR/raw_dataset/diffs"
 $OUTPUT_DIR_ANALYSIS = "$CURRENT_DIR/raw_dataset/analysis_files"
-$CLONED_REPOS_DIR = "./cloned_repos_to_analyze"
+$SUBMODULE_REPOS_DIR = "./submodule_repos_to_analyze"
 
 # Create folders if not exist:
 $null = [System.IO.Directory]::CreateDirectory($OUTPUT_DIR_ANALYSIS)
@@ -26,10 +26,10 @@ foreach ($GH_REPO_LINE in $GH_REPOS) {
     $REPO_NAME = $GH_REPO_LINE.RepoName
     $REPO_URL = $GH_REPO_LINE.RepoURL
 
-    $REPO_PATH = "$CLONED_REPOS_DIR/$REPO_NAME"
+    $REPO_PATH = "$SUBMODULE_REPOS_DIR/$REPO_NAME"
 
-    Write-Output "Cloning: $REPO_NAME"
-    git clone $REPO_URL $REPO_PATH
+    Write-Output "Adding submodule: $REPO_NAME"
+    git submodule add $REPO_URL $REPO_PATH
 
     cd $REPO_PATH
     $LAST_COMMIT = $(git log -n 1 --pretty=format:"%H")
