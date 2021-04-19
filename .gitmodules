@@ -1,3 +1,6 @@
 [submodule "submodule_repos_to_analyze/CodeHub"]
 	path = submodule_repos_to_analyze/CodeHub
 	url = https://github.com/CodeHubApp/CodeHub.git
+[submodule "submodule_repos_to_analyze/shadowsocks-windows"]
+	path = submodule_repos_to_analyze/shadowsocks-windows
+	url = https://github.com/shadowsocks/shadowsocks-windows.git
