@@ -15,9 +15,24 @@ for patch in patches:
     print("patch.is_added_file: ", patch.is_added_file)
     print("patch.is_removed_file: ", patch.is_removed_file)
     print("patch.is_modified_file: ", patch.is_modified_file)
+
+    # Lines next to "@@ -98,7 +99,7 @@" are not counted
+    ad_line_no = [line.target_line_no 
+            for hunk in patch for line in hunk 
+            if line.is_added]
+    del_line_no = [line.source_line_no for hunk in patch 
+        for line in hunk if line.is_removed]
+    print("ad_line_no:", ad_line_no)
+    print("del_line_no:", del_line_no)
+
+    added_lines = [{"TargetLocation": line.target_line_no, "Line": line.value}
+            for hunk in patch for line in hunk 
+            if line.is_added]
+    print("added_lines:", added_lines)
+
     print("########")
     for hunk in patch:
-        print("hunk: ", hunk)
+        print("hunk: \n", hunk)
 
         print("hunk.source_start:", hunk.source_start)
         print("hunk.source_length:", hunk.source_length)
