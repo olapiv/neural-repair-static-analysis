@@ -1,5 +1,4 @@
 venv
 nuget_analyzer_packages
-cloned_repos_to_analyze
-diffs
-analysis_files
+raw_dataset
+refined_dataset
