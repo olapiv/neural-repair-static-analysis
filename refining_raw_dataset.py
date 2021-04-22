@@ -49,8 +49,8 @@ refined_data_sample = {
         "RemovedLines": [],
         "AddedLines": [
             # {
-            #     "TargetLocation": 34,
-            #     "Line": ""
+            #     "TargetStartLocation": 34,
+            #     "TargetLines": ["static int i = 0;"]
             # }
         ]
     },
