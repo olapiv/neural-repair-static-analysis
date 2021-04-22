@@ -1,48 +1,124 @@
 import urllib.request
 from unidiff import PatchSet, PatchedFile
+import json
 
 
-diff = urllib.request.urlopen(
-    'https://github.com/matiasb/python-unidiff/pull/3.diff')
-encoding = diff.headers.get_charsets()[0]
-patches = PatchSet(diff, encoding=encoding)
+def parse_hunk(hunk):
 
-# Each file has one patch
-for patch in patches:
-    print("patch.path: ", patch.path)
-    print("patch.added: ", patch.added)
-    print("patch.removed: ", patch.removed)
-    print("patch.is_added_file: ", patch.is_added_file)
-    print("patch.is_removed_file: ", patch.is_removed_file)
-    print("patch.is_modified_file: ", patch.is_modified_file)
+    all_replaced_lines = []
+    all_added_lines = []
+    all_removed_lines = []
 
-    # Lines next to "@@ -98,7 +99,7 @@" are not counted
-    ad_line_no = [line.target_line_no 
-            for hunk in patch for line in hunk 
-            if line.is_added]
-    del_line_no = [line.source_line_no for hunk in patch 
-        for line in hunk if line.is_removed]
-    print("ad_line_no:", ad_line_no)
-    print("del_line_no:", del_line_no)
+    replaced_line_pair = {
+        "SourceLocations": [],
+        "TargetLines": []
+    }
+    added_line = {
+        "TargetLocation": None,
+        "Line": ""
+    }
 
-    added_lines = [{"TargetLocation": line.target_line_no, "Line": line.value}
-            for hunk in patch for line in hunk 
-            if line.is_added]
-    print("added_lines:", added_lines)
+    for line in hunk:
+        if line.is_context:
 
-    print("########")
-    for hunk in patch:
-        print("hunk: \n", hunk)
+            if added_line["TargetLocation"]:
+                all_added_lines.append(added_line)
+                added_line = {
+                    "TargetLocation": None,
+                    "Line": ""
+                }
+            elif replaced_line_pair["SourceLocations"] != []:
 
-        print("hunk.source_start:", hunk.source_start)
-        print("hunk.source_length:", hunk.source_length)
-        print("hunk.target_start:", hunk.target_start)
-        print("hunk.target_length:", hunk.target_length)
-        print("hunk.section_header:", hunk.section_header)
+                # Looked liked replacing, but just ended up deleting:
+                if replaced_line_pair["TargetLines"] == []:
+                    all_removed_lines += replaced_line_pair["SourceLocations"]
+                    replaced_line_pair = {
+                        "SourceLocations": [],
+                        "TargetLines": []
+                    }
+                else:
+                    all_replaced_lines.append(replaced_line_pair)
+                    replaced_line_pair = {
+                        "SourceLocations": [],
+                        "TargetLines": []
+                    }
 
-        # print("hunk.added:", hunk.added)
-        # print("hunk.removed:", hunk.removed)
-        # print("hunk.source:", hunk.source)
-        # print("hunk.target:", hunk.target)
-        print("----")
-    print("--------")
+        elif line.is_added:
+            # Nothing deleted previously:
+            if replaced_line_pair["SourceLocations"] == []:
+                all_added_lines.append({
+                    "TargetLocation": line.target_line_no,
+                    "Line": line.value
+                })
+            # Add is related to previous deletion:
+            else:
+                replaced_line_pair["TargetLines"].append(line.value)
+
+        elif line.is_removed:
+            replaced_line_pair["SourceLocations"].append(line.source_line_no)
+
+    if replaced_line_pair["SourceLocations"] != []:
+        # Deleted lines without adding
+        if replaced_line_pair["TargetLines"] == []:
+            all_removed_lines += replaced_line_pair["SourceLocations"]
+        else:
+            all_replaced_lines.append(replaced_line_pair)
+
+    return all_replaced_lines, all_added_lines, all_removed_lines
+
+
+def run_through_patches(patches):
+    # Each file has one patch
+    for patch in patches:
+        # print("patch.path: ", patch.path)
+        # print("patch.added: ", patch.added)
+        # print("patch.removed: ", patch.removed)
+        # print("patch.is_added_file: ", patch.is_added_file)
+        # print("patch.is_removed_file: ", patch.is_removed_file)
+        # print("patch.is_modified_file: ", patch.is_modified_file)
+
+        # Lines next to "@@ -98,7 +99,7 @@" are not counted
+        # ad_line_no = [line.target_line_no
+        #               for hunk in patch for line in hunk
+        #               if line.is_added]
+        # del_line_no = [line.source_line_no for hunk in patch
+        #                for line in hunk if line.is_removed]
+        # # print("ad_line_no:", ad_line_no)
+        # # print("del_line_no:", del_line_no)
+
+        # added_lines = [{"TargetLocation": line.target_line_no, "Line": line.value}
+        #                for hunk in patch for line in hunk
+        #                if line.is_added]
+        # print("added_lines:", added_lines)
+
+        print("########")
+        for hunk in patch:
+            replaced_lines = []
+            print("hunk: \n", hunk)
+
+            all_replaced_lines, all_added_lines, all_removed_lines = parse_hunk(
+                hunk)
+            print("all_replaced_lines: ", all_replaced_lines)
+
+            # print("hunk.source_start:", hunk.source_start)
+            # print("hunk.source_length:", hunk.source_length)
+            # print("hunk.target_start:", hunk.target_start)
+            # print("hunk.target_length:", hunk.target_length)
+            # print("hunk.section_header:", hunk.section_header)
+
+            # print("hunk.added:", hunk.added)
+            # print("hunk.removed:", hunk.removed)
+            # print("hunk.source:", hunk.source)
+            # print("hunk.target:", hunk.target)
+
+            # print ("replaced_lines", json.dumps(replaced_lines, indent=2))
+            print("----")
+        print("--------")
+
+
+if __name__ == "__main__":
+    diff = urllib.request.urlopen(
+        'https://github.com/matiasb/python-unidiff/pull/3.diff')
+    encoding = diff.headers.get_charsets()[0]
+    patches = PatchSet(diff, encoding=encoding)
+    run_through_patches(patches)

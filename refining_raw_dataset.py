@@ -6,6 +6,7 @@ from unidiff import PatchSet, PatchedFile
 import pandas as pd
 import hashlib
 import copy
+from parsing_diffs import parse_hunk
 
 
 diff_dir = "raw_dataset/diffs"
@@ -39,6 +40,12 @@ refined_data_sample = {
         # },
     ],
     "ParsedDiff": {
+        "ReplacedLines": [
+            # {
+            #     "SourceLocations": [4, 5],
+            #     "TargetLines": ["static int i = 0;"]
+            # }
+        ],
         "RemovedLines": [],
         "AddedLines": [
             # {
@@ -152,15 +159,18 @@ for diff_file in diff_files:
             refined_data["NumberFileLines"] = len(
                 list(refined_data["FileContent"]))
 
-        removed_line_indices = [line.source_line_no for hunk in patched_file
-                                for line in hunk if line.is_removed]
+        all_replaced_lines = []
+        all_added_lines = []
+        all_removed_lines = []
+        for hunk in patched_file:
+            replaced_lines, added_lines, removed_lines = parse_hunk(hunk)
+            all_replaced_lines += replaced_lines
+            all_added_lines += added_lines
+            all_removed_lines += removed_lines
 
-        added_lines = [{"TargetLocation": line.target_line_no, "Line": line.value}
-                       for hunk in patched_file for line in hunk
-                       if line.is_added]
-
-        refined_data["ParsedDiff"]["RemovedLines"] = removed_line_indices
-        refined_data["ParsedDiff"]["AddedLines"] = added_lines
+        refined_data["ParsedDiff"]["ReplacedLines"] = all_replaced_lines
+        refined_data["ParsedDiff"]["AddedLines"] = all_added_lines
+        refined_data["ParsedDiff"]["RemovedLines"] = all_removed_lines
 
         count = 0
         project_filepaths = []
@@ -199,8 +209,8 @@ for diff_file in diff_files:
 
                 new_occurance_dict = {
                     "Message": xml_diagnostic.find('Message').text,
-                    "Line": xml_diagnostic.find('Location').get('Line'),
-                    "Character": xml_diagnostic.find('Location').get('Character')
+                    "Line": int(xml_diagnostic.find('Location').get('Line')),
+                    "Character": int(xml_diagnostic.find('Location').get('Character'))
                 }
 
                 # Even though already checking for .csproj duplicates earlier, one file may be referenced 
