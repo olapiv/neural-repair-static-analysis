@@ -1,4 +1,7 @@
 venv
+.DS_STORE
 nuget_analyzer_packages
 raw_dataset
 refined_dataset
+
+*.pyc
