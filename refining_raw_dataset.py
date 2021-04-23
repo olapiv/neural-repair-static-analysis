@@ -18,7 +18,7 @@ repositories_dir = "submodule_repos_to_analyze"
 df_repos = pd.read_csv("github_repos.csv")
 analysis_files = [f.name for f in os.scandir(
     analysis_dir) if f.is_file() and not f.name == ".DS_Store"]
-refined_data_files = [f.name for f in os.scandir(
+refined_data_files = [f.name.split("-")[0] for f in os.scandir(
     refined_dataset_dir) if f.is_file()]
 
 # Instantiate this multiple times later:
@@ -26,9 +26,10 @@ refined_data_sample = {
     "Repo": "",
     "RepoURL": "",
     "SolutionFile": "",
-    "File": "",
+    "FilePath": "",
     "NumberFileLines": "",
     "Commit": "",
+    "FileURL": "",
     "DiagnosticID": "",
     "AnalyzerNuGet": "",
     "Severity": "",
@@ -60,7 +61,7 @@ refined_data_sample = {
 
 def hash_filename(filename):
     """Using hash function to avoid OS Errors, too  long filename"""
-    return f"{str(int(hashlib.sha256(filename.encode('utf-8')).hexdigest(), 16) % 10**8)}.json"
+    return f"{str(int(hashlib.sha256(filename.encode('utf-8')).hexdigest(), 16) % 10**8)}"
 
 
 def filter_analysis_files(repo_name, solution_filename, nuget_full_name):
@@ -148,18 +149,22 @@ for diff_file in diff_files:
         refined_data_file["Repo"] = REPO_NAME
         refined_data_file["RepoURL"] = repo_row["RepoURL"]
         refined_data_file["SolutionFile"] = SOLUTION_FILENAME
-        refined_data_file["File"] = patched_file.path
+        refined_data_file["FilePath"] = patched_file.path
         refined_data_file["Commit"] = LAST_COMMIT
         refined_data_file["DiagnosticID"] = DIAGNOSTIC_ID
         refined_data_file["AnalyzerNuGet"] = NUGET_FULL_NAME
 
-        # TODO: Add link to file on GitHub
+        repo_url = repo_row["RepoURL"]
+        if "https://github.com" in repo_url:
+            repo_url = repo_url[:-len('.git')] if repo_url.endswith('.git') else repo_url
+            refined_data_file["FileURL"] = f"{repo_url}/blob/{LAST_COMMIT}/{patched_file.path}"
+
         # TODO: Do this later and truncate file
-        with open(f"{repo_dir}/{patched_file.path}") as f:
-            # my_list = [x.rstrip() for x in f] # remove line breaks
-            refined_data_file["FileContent"] = list(f)
-            refined_data_file["NumberFileLines"] = len(
-                list(refined_data_file["FileContent"]))
+        # with open(f"{repo_dir}/{patched_file.path}") as f:
+        #     # my_list = [x.rstrip() for x in f] # remove line breaks
+        #     refined_data_file["FileContent"] = list(f)
+        #     refined_data_file["NumberFileLines"] = len(
+        #         list(refined_data_file["FileContent"]))
 
         all_replaced_lines = []
         all_added_lines = []
@@ -266,6 +271,7 @@ for diff_file in diff_files:
             diff_batch_to_diagnostic_occurances_dict[diff_key].append(
                 diagnostic_occurance)
 
+        num_diff_datapoint = 0
         # Creating one datapoint per diff action (add/delete/replace)
         for key, value in diff_batch_to_diagnostic_occurances_dict.items():
 
@@ -282,9 +288,10 @@ for diff_file in diff_files:
             elif diff_action == "REMOVE":
                 refined_data["ParsedDiff"]["action"] = all_removed_lines[int(action_num)]
 
-            with open(f"{refined_dataset_dir}/{refined_data_filename_hash}", 'w', encoding='utf-8') as f:
+            with open(f"{refined_dataset_dir}/{refined_data_filename_hash}-{num_diff_datapoint}.json", 'w', encoding='utf-8') as f:
                 json.dump(refined_data, f, ensure_ascii=False, indent=2)
             print("Created refined_data_filename: ", refined_data_filename)
             refined_data_files.append(refined_data_filename_hash)
+            num_diff_datapoint += 1
 
             # TODO: Concatenate file and adjust indices
