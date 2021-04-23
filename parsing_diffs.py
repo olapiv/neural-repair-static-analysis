@@ -14,15 +14,22 @@ def parse_hunk(hunk):
         "TargetLines": []
     }
     added_line_set = {
+        "PreviousSourceLocation": None,
         "TargetStartLocation": None,
         "TargetLines": []
     }
+    removed_line_set = {
+        "SourceLocationStart": None,
+        "SourceLocationEnd": None,
+    }
 
+    prev_line = None
     for line in hunk:
         if line.is_context:
             if added_line_set["TargetStartLocation"]:
                 all_added_lines.append(added_line_set)
                 added_line_set = {
+                    "PreviousSourceLocation": None,
                     "TargetStartLocation": None,
                     "TargetLines": []
                 }
@@ -30,7 +37,10 @@ def parse_hunk(hunk):
 
                 # Looked liked replacing, but just ended up deleting:
                 if replaced_line_pair["TargetLines"] == []:
-                    all_removed_lines += replaced_line_pair["SourceLocations"]
+                    all_removed_lines.append({
+                        "SourceLocationStart": replaced_line_pair["SourceLocations"][0],
+                        "SourceLocationEnd": replaced_line_pair["SourceLocations"][-1],
+                    })
                 else:
                     all_replaced_lines.append(replaced_line_pair)
 
@@ -45,6 +55,7 @@ def parse_hunk(hunk):
 
                 # Nothing added previously:
                 if not added_line_set["TargetStartLocation"]:
+                    added_line_set["PreviousSourceLocation"] = prev_line.source_line_no if prev_line else hunk.source_start
                     added_line_set["TargetStartLocation"] = line.target_line_no
                 added_line_set["TargetLines"].append(line.value)
 
@@ -55,10 +66,15 @@ def parse_hunk(hunk):
         elif line.is_removed:
             replaced_line_pair["SourceLocations"].append(line.source_line_no)
 
+        prev_line = line
+
     if replaced_line_pair["SourceLocations"] != []:
         # Deleted lines without adding
         if replaced_line_pair["TargetLines"] == []:
-            all_removed_lines += replaced_line_pair["SourceLocations"]
+            all_removed_lines.append({
+                "SourceLocationStart": replaced_line_pair["SourceLocations"][0],
+                "SourceLocationEnd": replaced_line_pair["SourceLocations"][-1],
+            })
         else:
             all_replaced_lines.append(replaced_line_pair)
     elif added_line_set["TargetStartLocation"]:
@@ -98,7 +114,9 @@ def run_through_patches(patches):
 
             all_replaced_lines, all_added_lines, all_removed_lines = parse_hunk(
                 hunk)
+            print("all_replaced_lines: ", all_replaced_lines)
             print("all_added_lines: ", all_added_lines)
+            print("all_removed_lines: ", all_removed_lines)
 
             # print("hunk.source_start:", hunk.source_start)
             # print("hunk.source_length:", hunk.source_length)
@@ -112,7 +130,7 @@ def run_through_patches(patches):
             # print("hunk.target:", hunk.target)
 
             # print ("replaced_lines", json.dumps(replaced_lines, indent=2))
-            print("----")
+            # print("----")
         print("--------")
 
 

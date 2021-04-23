@@ -141,23 +141,25 @@ for diff_file in diff_files:
             # Appending refined_data_filename_hash to refined_data_files later on
             continue
 
-        refined_data = copy.deepcopy(refined_data_sample)
+        refined_data_file = copy.deepcopy(refined_data_sample)
 
         repo_row = df_repos.loc[df_repos['RepoName'] == REPO_NAME].iloc[0]
 
-        refined_data["Repo"] = REPO_NAME
-        refined_data["RepoURL"] = repo_row["RepoURL"]
-        refined_data["SolutionFile"] = SOLUTION_FILENAME
-        refined_data["File"] = patched_file.path
-        refined_data["Commit"] = LAST_COMMIT
-        refined_data["DiagnosticID"] = DIAGNOSTIC_ID
-        refined_data["AnalyzerNuGet"] = NUGET_FULL_NAME
+        refined_data_file["Repo"] = REPO_NAME
+        refined_data_file["RepoURL"] = repo_row["RepoURL"]
+        refined_data_file["SolutionFile"] = SOLUTION_FILENAME
+        refined_data_file["File"] = patched_file.path
+        refined_data_file["Commit"] = LAST_COMMIT
+        refined_data_file["DiagnosticID"] = DIAGNOSTIC_ID
+        refined_data_file["AnalyzerNuGet"] = NUGET_FULL_NAME
 
+        # TODO: Add link to file on GitHub
+        # TODO: Do this later and truncate file
         with open(f"{repo_dir}/{patched_file.path}") as f:
             # my_list = [x.rstrip() for x in f] # remove line breaks
-            refined_data["FileContent"] = list(f)
-            refined_data["NumberFileLines"] = len(
-                list(refined_data["FileContent"]))
+            refined_data_file["FileContent"] = list(f)
+            refined_data_file["NumberFileLines"] = len(
+                list(refined_data_file["FileContent"]))
 
         all_replaced_lines = []
         all_added_lines = []
@@ -168,12 +170,9 @@ for diff_file in diff_files:
             all_added_lines += added_lines
             all_removed_lines += removed_lines
 
-        refined_data["ParsedDiff"]["ReplacedLines"] = all_replaced_lines
-        refined_data["ParsedDiff"]["AddedLines"] = all_added_lines
-        refined_data["ParsedDiff"]["RemovedLines"] = all_removed_lines
-
         count = 0
         project_filepaths = []
+        unique_diagnostic_occurances = []
         for xml_project in projects_analysed:
 
             # TODO: Check whether some analysis is based on target framework
@@ -203,7 +202,7 @@ for diff_file in diff_files:
 
                 # Just do this once
                 if count == 0:
-                    refined_data["Severity"] = xml_diagnostic.find(
+                    refined_data_file["Severity"] = xml_diagnostic.find(
                         'Severity').text
                     count += 1
 
@@ -213,29 +212,79 @@ for diff_file in diff_files:
                     "Character": int(xml_diagnostic.find('Location').get('Character'))
                 }
 
-                # Even though already checking for .csproj duplicates earlier, one file may be referenced 
+                # Even though already checking for .csproj duplicates earlier, one file may be referenced
                 # in multiple different projects as well.
                 # Example: SA1642 for <Location Line="55" Character="16" /> in analysis file
                 # Druntime__Microsoft.Bcl.AsyncInterfaces.sln__e98d043d7d293c88a346b632d8fc12564a8ef0ce__Documentation.Analyser.1.1.1.xml
                 occurance_duplicates = filter(filter_diagnostic_occurance(
-                    new_occurance_dict), refined_data["DiagnosticOccurances"])
+                    new_occurance_dict), unique_diagnostic_occurances)
                 if len(list(occurance_duplicates)) != 0:
                     print(
                         f"Duplicate DiagnosticOccurance! new_occurance_dict: {new_occurance_dict}")
                     # input("Press Enter to continue...")
                     continue
 
-                refined_data["DiagnosticOccurances"].append(new_occurance_dict)
+                unique_diagnostic_occurances.append(new_occurance_dict)
 
-        if refined_data["Severity"] == "":
-            print("No Severity level!")
-            # input("Press Enter to continue...")
-        if len(refined_data["DiagnosticOccurances"]) == 0:
-            print("No DiagnosticOccurances!")
-            # input("Press Enter to continue...")
-            continue
+        """
+        To which diff-batch does each diagnostic correspond to?
+        In some cases, multiple diagnostic occurances may have generated
+        one "diff batch". An example would be two occurances in the same line,
+        but at different characters. If the line was deleted in the diff, we would
+        not know which diagnostic occurance caused this to happen. Therefore,
+        these occurances are bundled. 
+        One diagnostic occurance can however only have generated a single 
+        diff batch. The assumption is that this diff batch will be at the same
+        line as the diagnostic occurance.
+        """
+        diff_batch_to_diagnostic_occurances_dict = {}
+        for diagnostic_occurance in unique_diagnostic_occurances:
 
-        with open(f"{refined_dataset_dir}/{refined_data_filename_hash}", 'w', encoding='utf-8') as f:
-            json.dump(refined_data, f, ensure_ascii=False, indent=2)
-        print("Created refined_data_filename: ", refined_data_filename)
-        refined_data_files.append(refined_data_filename_hash)
+            diff_key = None
+            for count, value in enumerate(all_replaced_lines):
+                if diagnostic_occurance["Line"] in value["SourceLocations"]:
+                    diff_key = f"REPLACE-{count}"
+                    break
+
+            for count, value in enumerate(all_added_lines):
+                if diagnostic_occurance["Line"] == value["PreviousSourceLocation"]:
+                    diff_key = f"ADD-{count}"
+                    break
+
+            for count, value in enumerate(all_removed_lines):
+                if (diagnostic_occurance["Line"] >= value["SourceLocationStart"] and
+                        diagnostic_occurance["Line"] <= value["SourceLocationEnd"]):
+                    diff_key = f"REMOVE-{count}"
+                    break
+            
+            # Diagnostic occurance leads to no obvious diff batch
+            if not diff_key:
+                continue
+
+            if diff_key not in diff_batch_to_diagnostic_occurances_dict:
+                diff_batch_to_diagnostic_occurances_dict[diff_key] = []
+            diff_batch_to_diagnostic_occurances_dict[diff_key].append(
+                diagnostic_occurance)
+
+        # Creating one datapoint per diff action (add/delete/replace)
+        for key, value in diff_batch_to_diagnostic_occurances_dict.items():
+
+            refined_data = copy.deepcopy(refined_data_file)
+            refined_data["DiagnosticOccurances"] = value
+
+            diff_action, action_num = key.split("-")
+            refined_data["ParsedDiff"] = {}
+            refined_data["ParsedDiff"]["action_type"] = diff_action
+            if diff_action == "REPLACE":
+                refined_data["ParsedDiff"]["action"] = all_replaced_lines[int(action_num)]
+            elif diff_action == "ADD":
+                refined_data["ParsedDiff"]["action"] = all_added_lines[int(action_num)]
+            elif diff_action == "REMOVE":
+                refined_data["ParsedDiff"]["action"] = all_removed_lines[int(action_num)]
+
+            with open(f"{refined_dataset_dir}/{refined_data_filename_hash}", 'w', encoding='utf-8') as f:
+                json.dump(refined_data, f, ensure_ascii=False, indent=2)
+            print("Created refined_data_filename: ", refined_data_filename)
+            refined_data_files.append(refined_data_filename_hash)
+
+            # TODO: Concatenate file and adjust indices
