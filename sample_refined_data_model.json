@@ -1,77 +1,93 @@
 {
-    "Repo": "acat",
-    "RepoURL": "https://github.com/intel/acat",
-    "SolutionFile": "acat/src/Applications/AppCommon/AppCommon.csproj",
-    "File": "acat/src/Applications/AppCommon/AppCommon.cs",
-    "Commit": "981d4626b763a8b3e9e226b56940e293c5282039",
-    "DiagnosticID": "CA1827",
-    "Severity": "Info",
-    "DiagnosticOccurances": [
-        {
-            "Message": "'retVal' variable should not be defined with var.",
-            "Line": 3,
-            "Character": 17
-        },
-        {
-            "Message": "'leftoverBytes' variable should not be defined with var.",
-            "Line": 8,
-            "Character": 12
-        }
-    ],
-    "FileContent": [
-        "namespace CodeHub.Core.Messages",
-        "{",
-        "   public class GistAddMessage",
-        "   {",
-        "       public Octokit.Gist Gist { get; }",
-        "",
-        "       public GistAddMessage(Octokit.Gist gist)",
-        "       {",
-        "           Gist = gist;",
-        "       }",
-        "   }",
-        "}"
-    ],
-    "DiffHunks": [
-        [
-            "@@ -30,6 +30,7 @@",
-            "LINE_TYPE_DELETE = '-'",
-            "LINE_TYPE_CONTEXT = ' '",
-            "",
-            "+",
-            "class Hunk(object):",
-            "\"\"\"Each of the modified blocks of a file.\"\"\"",
-            ""
-        ],
-        [
-            "@@ -98,7 +99,7 @@ def add_to_modified_counter(self, mods):",
-            "",
-            "",
-            "class PatchedFile(list):",
-            "-    \"\"\"Data from a patched file.\"\"\"",
-            "+    \"\"\"Data of a patched file, each element is a Hunk.\"\"\"",
-            "",
-            "      def __init__(self, source='', target=''):",
-            "          super(PatchedFile, self).__init__()"
-        ]
-    ],
-    // Zimin: Consider using "Replace" as well for even further conciseness
-    "ParsedDiffHunks": {
-        "RemovedLines": [
-            102
-        ],
-        // TargetLocations have to be applied iteratively, since hunk.target_start also takes
-        // into account previous hunks:
-        "AddedLines": [
+    "REMOVE-example": {
+        "Repo": "runtime",
+        "RepoURL": "https://github.com/dotnet/runtime.git",
+        "SolutionFile": "Microsoft.Diagnostics.Tracing.EventSource.Redist.sln",
+        "FilePath": "src/libraries/System.Runtime/ref/System.Runtime.cs",
+        "NumberFileLines": "",
+        "Commit": "e98d043d7d293c88a346b632d8fc12564a8ef0ce",
+        "FileURL": "https://github.com/dotnet/runtime/blob/e98d043d7d293c88a346b632d8fc12564a8ef0ce/src/libraries/System.Runtime/ref/System.Runtime.cs",
+        "DiagnosticID": "CC0025",
+        "AnalyzerNuGet": "codecracker.CSharp.1.1.0",
+        "Severity": "Error",
+        "DiagnosticOccurances": [
             {
-                "TargetLocation": 34,
-                "Line": ""
-            },
-            {
-                // Zimin: Consider disregarding comments
-                "TargetLocation": 103,
-                "Line": "    \"\"\"Data of a patched file, each element is a Hunk.\"\"\""
+                "Message": "Remove Empty Finalizers",
+                "Line": 9991,
+                "Character": 9
             }
-        ]
+        ],
+        "ParsedDiff": {
+            "ActionType": "REMOVE",
+            "Action": {
+                "SourceLocationStart": 9991,
+                "SourceLocationEnd": 9991
+            }
+        },
+        "FileContent": []
+    },
+    "REPLACE-example": {
+        "Repo": "runtime",
+        "RepoURL": "https://github.com/dotnet/runtime.git",
+        "SolutionFile": "Microsoft.Diagnostics.Tracing.EventSource.Redist.sln",
+        "FilePath": "src/libraries/System.Runtime/ref/System.Runtime.cs",
+        "NumberFileLines": "",
+        "Commit": "e98d043d7d293c88a346b632d8fc12564a8ef0ce",
+        "FileURL": "https://github.com/dotnet/runtime/blob/e98d043d7d293c88a346b632d8fc12564a8ef0ce/src/libraries/System.Runtime/ref/System.Runtime.cs",
+        "DiagnosticID": "ASYNC0002",
+        "AnalyzerNuGet": "Roslyn.Analyzers.1.0.3.4",
+        "Severity": "Error",
+        "DiagnosticOccurances": [
+            {
+                "Message": "Remove Async suffix from method name",
+                "Line": 7523,
+                "Character": 57
+            }
+        ],
+        "ParsedDiff": {
+            "ActionType": "REPLACE",
+            "Action": {
+                "SourceLocations": [
+                    7523
+                ],
+                "TargetLines": [
+                    "        public virtual System.Threading.Tasks.ValueTask Write(System.ReadOnlyMemory<byte> buffer, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) { throw null; }\n"
+                ]
+            }
+        },
+        "FileContent": []
+    },
+    "ADD-example": {
+        "Repo": "runtime",
+        "RepoURL": "https://github.com/dotnet/runtime.git",
+        "SolutionFile": "Common.Tests.sln",
+        "FilePath": "src/libraries/System.Runtime.InteropServices/ref/System.Runtime.InteropServices.cs",
+        "NumberFileLines": "",
+        "Commit": "e98d043d7d293c88a346b632d8fc12564a8ef0ce",
+        "FileURL": "https://github.com/dotnet/runtime/blob/e98d043d7d293c88a346b632d8fc12564a8ef0ce/src/libraries/System.Runtime.InteropServices/ref/System.Runtime.InteropServices.cs",
+        "DiagnosticID": "DA3007",
+        "AnalyzerNuGet": "APIDocCodeAnalyzer.1.0.6253.30470",
+        "Severity": "Error",
+        "DiagnosticOccurances": [
+            {
+                "Message": "Property name 'MaximumThreshold' doesn't have /// comment",
+                "Line": 409,
+                "Character": 20
+            }
+        ],
+        "ParsedDiff": {
+            "ActionType": "ADD",
+            "Action": {
+                "PreviousSourceLocation": 409,
+                "TargetStartLocation": 570,
+                "TargetLines": [
+                    "\n",
+                    "        /// <summary> \n",
+                    "        /// \n",
+                    "        /// </summary>\n"
+                ]
+            }
+        },
+        "FileContent": []
     }
 }
