@@ -280,13 +280,13 @@ for diff_file in diff_files:
 
             diff_action, action_num = key.split("-")
             refined_data["ParsedDiff"] = {}
-            refined_data["ParsedDiff"]["action_type"] = diff_action
+            refined_data["ParsedDiff"]["ActionType"] = diff_action
             if diff_action == "REPLACE":
-                refined_data["ParsedDiff"]["action"] = all_replaced_lines[int(action_num)]
+                refined_data["ParsedDiff"]["Action"] = all_replaced_lines[int(action_num)]
             elif diff_action == "ADD":
-                refined_data["ParsedDiff"]["action"] = all_added_lines[int(action_num)]
+                refined_data["ParsedDiff"]["Action"] = all_added_lines[int(action_num)]
             elif diff_action == "REMOVE":
-                refined_data["ParsedDiff"]["action"] = all_removed_lines[int(action_num)]
+                refined_data["ParsedDiff"]["Action"] = all_removed_lines[int(action_num)]
 
             with open(f"{refined_dataset_dir}/{refined_data_filename_hash}-{num_diff_datapoint}.json", 'w', encoding='utf-8') as f:
                 json.dump(refined_data, f, ensure_ascii=False, indent=2)
