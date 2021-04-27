@@ -28,18 +28,18 @@
 4. Due to large amounts of diagnostic ID duplications in `analyzer_package_details.csv`, analyzed dependency structure of installed packages using C# project `AssemblyAnalysis/DependencyAnalyzer`. Saved results in `nuget_deps.json`. Turns out, a number of analyzer packages bundle other analyzer packages and may not necessarily contribute with own DiagnosticAnalyzers / CodeFixProviders.
 5. Using `analyzing_analyzers.py`, created further statistics to the installed analyzer packages.
 6. Using `create_raw_dataset.sh`, generated `roslynator analyze` vs `roslynator fix` outputs on repositories saved in `github_repos.csv`. Sample `roslynator analyze` output can be viewed in `sample_roslynator_analysis.xml`.
+7. Using `parsing_diffs.py` and `refining_raw_dataset.py`, created dataset, which can fed into NN. Different data samples can be viewed in `sample_refined_data_model.json`.
 
 ## TODO
 
-* Run `create_raw_dataset.sh` on Windows machine
-* Understand why some assemblies have duplicate DIAGNOSTIC_ANALYZERs, E.g.:
-  `Microsoft.CodeQuality.Analyzers.3.3.2,Microsoft.CodeQuality.Analyzers,DIAGNOSTIC_ANALYZER,CA2225`
-
-Later:
-
-* How many diff at the end?
-* No. of diffs produced per analyzer?
-* Distribution of the size of the diffs?
+* Create seq-2-seq model
+* Re-run `create_raw_dataset.sh` on one machine, parallelized across repositories to avoid faulty data
+* Profile self-built Roslynator to see how much time compilation takes vs applying static analysis. If compilation takes a large proportion, consider doing src-code adjustments (e.g. built-in socket), to avoid unnecessary compilations.
+* HARD: Re-run `create_raw_dataset.sh` either distributed across multiple nodes (e.g. using RabbitMQ) or Roslynator src-code adjustments
+* Gather metadata around dataset:
+    1. No. diffs
+    1. No. of diffs per analyzer
+    1. Distribution of diff size
 
 ## Links
 
