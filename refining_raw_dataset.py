@@ -55,7 +55,8 @@ refined_data_sample = {
             # }
         ]
     },
-    "FileContent": [],
+    "FileContextStart": None,
+    "FileContext": [],
 }
 
 
@@ -159,12 +160,8 @@ for diff_file in diff_files:
             repo_url = repo_url[:-len('.git')] if repo_url.endswith('.git') else repo_url
             refined_data_file["FileURL"] = f"{repo_url}/blob/{LAST_COMMIT}/{patched_file.path}"
 
-        # TODO: Do this later and truncate file
-        # with open(f"{repo_dir}/{patched_file.path}") as f:
-        #     # my_list = [x.rstrip() for x in f] # remove line breaks
-        #     refined_data_file["FileContent"] = list(f)
-        #     refined_data_file["NumberFileLines"] = len(
-        #         list(refined_data_file["FileContent"]))
+        with open(f"{repo_dir}/{patched_file.path}") as f:
+            refined_data_file["NumberFileLines"] = len(list(f))
 
         all_replaced_lines = []
         all_added_lines = []
@@ -288,10 +285,69 @@ for diff_file in diff_files:
             elif diff_action == "REMOVE":
                 refined_data["ParsedDiff"]["Action"] = all_removed_lines[int(action_num)]
 
+            # Find range of lines that are required to be inside FileContext
+
+            diag_occurance_lines = [diag_occurance["Line"] for diag_occurance in value]
+            first_diag_line = min(diag_occurance_lines) # Roslynator & diff hunks start at index 1
+            last_diag_line = max(diag_occurance_lines) # Roslynator & diff hunks start at index 1
+
+            # Take into account that all deleted lines have to be in FileContext as well
+            first_diff_line = None
+            last_diff_line = None
+            actionType = refined_data["ParsedDiff"]["ActionType"]
+            if actionType == "REPLACE":
+                first_diff_line = refined_data["ParsedDiff"]["Action"]["SourceLocations"][0]
+                last_diff_line = refined_data["ParsedDiff"]["Action"]["SourceLocations"][-1]
+            elif actionType == "ADD":
+                first_diff_line = refined_data["ParsedDiff"]["Action"]["PreviousSourceLocation"]
+            else:  # actionType == REMOVE
+                first_diff_line = refined_data["ParsedDiff"]["Action"]["SourceLocationStart"]
+                last_diff_line = refined_data["ParsedDiff"]["Action"]["SourceLocationEnd"]
+
+            first_required_line = min(first_diag_line, first_diff_line)
+            last_required_line = max(last_diag_line, last_diff_line) if last_diff_line else last_diag_line
+            
+            # Add context around required lines
+            # TODO: Consider working with character-delta instead (can be many newlines, which do not have any info)
+
+            LINE_DELTA = 3
+
+            if first_diag_line > LINE_DELTA:
+                starting_line = first_required_line - LINE_DELTA
+            else:
+                starting_line = 1
+            
+            if last_required_line < refined_data_file["NumberFileLines"] - LINE_DELTA:
+                ending_line = last_required_line + LINE_DELTA
+            else:
+                ending_line = refined_data_file["NumberFileLines"]
+
+            with open(f"{repo_dir}/{patched_file.path}") as f:
+                file_list = list(f)
+                refined_data["FileContext"] = file_list[starting_line - 1:ending_line]  # Also want to include ending_line
+            
+            refined_data["FileContextStart"] = starting_line
+
+            # # Adding indices relative to FileContext:
+
+            # for diag_occurance in refined_data["DiagnosticOccurances"]:
+            #     diag_occurance["LineInFileContext"] = diag_occurance["Line"] - starting_line
+
+            # actionType = refined_data["ParsedDiff"]["ActionType"]
+            # if actionType == "REPLACE":
+            #     refined_data["ParsedDiff"]["Action"]["SourceLocationsInFileContext"] = []
+            #     for source_location in refined_data["ParsedDiff"]["Action"]["SourceLocations"]:
+            #         refined_data["ParsedDiff"]["Action"]["SourceLocationsInFileContext"].append(source_location - starting_line)
+            # elif actionType == "ADD":
+            #     refined_data["ParsedDiff"]["Action"]["PreviousSourceLocationInFileContext"] = refined_data["ParsedDiff"]["Action"]["PreviousSourceLocation"] - starting_line
+            # else:  # actionType == DELETE
+            #     start = refined_data["ParsedDiff"]["Action"]["SourceLocationStart"]
+            #     end = refined_data["ParsedDiff"]["Action"]["SourceLocationEnd"]
+            #     refined_data["ParsedDiff"]["Action"]["SourceLocationStartInFileContext"] = start - starting_line
+            #     refined_data["ParsedDiff"]["Action"]["SourceLocationEndInFileContext"] = end - starting_line
+
             with open(f"{refined_dataset_dir}/{refined_data_filename_hash}-{num_diff_datapoint}.json", 'w', encoding='utf-8') as f:
                 json.dump(refined_data, f, ensure_ascii=False, indent=2)
             print("Created refined_data_filename: ", refined_data_filename)
             refined_data_files.append(refined_data_filename_hash)
             num_diff_datapoint += 1
-
-            # TODO: Concatenate file and adjust indices
