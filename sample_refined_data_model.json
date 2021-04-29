@@ -1,76 +1,117 @@
 {
-    "Repo": "acat",
-    "RepoURL": "https://github.com/intel/acat",
-    "ProjectFile": "acat/src/Applications/AppCommon/AppCommon.csproj",
-    "File": "acat/src/Applications/AppCommon/AppCommon.cs",
-    "Commit": "981d4626b763a8b3e9e226b56940e293c5282039",
-    "DiagnosticID": "CA1827",
-    "DiagnosticMessage": "Count() is used where Any() could be used instead to improve performance",
-    "Severity": "Info",
-    "DiagnosticLocations": [
-        {
-            "Line": 3,
-            "Character": 17
-        },
-        {
-            "Line": 8,
-            "Character": 12
-        }
-    ],
-    "FileContent": [
-        "namespace CodeHub.Core.Messages",
-        "{",
-        "   public class GistAddMessage",
-        "   {",
-        "       public Octokit.Gist Gist { get; }",
-        "",
-        "       public GistAddMessage(Octokit.Gist gist)",
-        "       {",
-        "           Gist = gist;",
-        "       }",
-        "   }",
-        "}"
-    ],
-    "DiffHunks": [
-        [
-            "@@ -30,6 +30,7 @@",
-            "LINE_TYPE_DELETE = '-'",
-            "LINE_TYPE_CONTEXT = ' '",
-            "",
-            "+",
-            "class Hunk(object):",
-            "\"\"\"Each of the modified blocks of a file.\"\"\"",
-            ""
-        ],
-        [
-            "@@ -98,7 +99,7 @@ def add_to_modified_counter(self, mods):",
-            "",
-            "",
-            "class PatchedFile(list):",
-            "-    \"\"\"Data from a patched file.\"\"\"",
-            "+    \"\"\"Data of a patched file, each element is a Hunk.\"\"\"",
-            "",
-            "      def __init__(self, source='', target=''):",
-            "          super(PatchedFile, self).__init__()"
-        ]
-    ],
-    // Zimin: Consider using "Replace" as well for even further conciseness
-    "ParsedDiffHunks": {
-        "RemovedLines": [
-            102
-        ],
-        // TargetLocations have to be applied iteratively, since hunk.target_start also takes
-        // into account previous hunks:
-        "AddedLines": [
+    "REMOVE-example": {
+        "Repo": "runtime",
+        "RepoURL": "https://github.com/dotnet/runtime.git",
+        "SolutionFile": "Microsoft.Extensions.Configuration.Binder.sln",
+        "FilePath": "src/libraries/System.Runtime/ref/System.Runtime.cs",
+        "NumberFileLines": 11796,
+        "Commit": "e98d043d7d293c88a346b632d8fc12564a8ef0ce",
+        "FileURL": "https://github.com/dotnet/runtime/blob/e98d043d7d293c88a346b632d8fc12564a8ef0ce/src/libraries/System.Runtime/ref/System.Runtime.cs",
+        "DiagnosticID": "CC0025",
+        "AnalyzerNuGet": "codecracker.CSharp.1.1.0",
+        "Severity": "Error",
+        "DiagnosticOccurances": [
             {
-                "TargetLocation": 34,
-                "Line": ""
-            },
-            {
-                // Zimin: Consider disregarding comments
-                "TargetLocation": 103,
-                "Line": "    \"\"\"Data of a patched file, each element is a Hunk.\"\"\""
+                "Message": "Remove Empty Finalizers",
+                "Line": 3128,
+                "Character": 9
             }
+        ],
+        "ParsedDiff": {
+            "ActionType": "REMOVE",
+            "Action": {
+                "SourceLocationStart": 3128,
+                "SourceLocationEnd": 3128
+            }
+        },
+        "FileContextStart": 3125,
+        "FileContext": [
+            "        public Object() { }\n",
+            "        public virtual bool Equals(System.Object? obj) { throw null; }\n",
+            "        public static bool Equals(System.Object? objA, System.Object? objB) { throw null; }\n",
+            "        ~Object() { }\n",
+            "        public virtual int GetHashCode() { throw null; }\n",
+            "        public System.Type GetType() { throw null; }\n",
+            "        protected System.Object MemberwiseClone() { throw null; }\n"
+        ]
+    },
+    "REPLACE-example": {
+        "Repo": "runtime",
+        "RepoURL": "https://github.com/dotnet/runtime.git",
+        "SolutionFile": "Microsoft.Diagnostics.Tracing.EventSource.Redist.sln",
+        "FilePath": "src/libraries/System.Runtime/ref/System.Runtime.cs",
+        "NumberFileLines": 11796,
+        "Commit": "e98d043d7d293c88a346b632d8fc12564a8ef0ce",
+        "FileURL": "https://github.com/dotnet/runtime/blob/e98d043d7d293c88a346b632d8fc12564a8ef0ce/src/libraries/System.Runtime/ref/System.Runtime.cs",
+        "DiagnosticID": "DateTimeOffsetInsteadOfDateTimeAnalyzer",
+        "AnalyzerNuGet": "Bit.Tooling.CodeAnalyzer.7.2.0",
+        "Severity": "Error",
+        "DiagnosticOccurances": [
+            {
+                "Message": "Replace DateTime usage with DateTimeOffset",
+                "Line": 706,
+                "Character": 16
+            }
+        ],
+        "ParsedDiff": {
+            "ActionType": "REPLACE",
+            "Action": {
+                "SourceLocations": [
+                    706
+                ],
+                "TargetLines": [
+                    "        System.DateTimeOffset System.IConvertible.ToDateTime(System.IFormatProvider? provider) { throw null; }\n"
+                ]
+            }
+        },
+        "FileContextStart": 703,
+        "FileContext": [
+            "        bool System.IConvertible.ToBoolean(System.IFormatProvider? provider) { throw null; }\n",
+            "        System.Byte System.IConvertible.ToByte(System.IFormatProvider? provider) { throw null; }\n",
+            "        char System.IConvertible.ToChar(System.IFormatProvider? provider) { throw null; }\n",
+            "        System.DateTime System.IConvertible.ToDateTime(System.IFormatProvider? provider) { throw null; }\n",
+            "        decimal System.IConvertible.ToDecimal(System.IFormatProvider? provider) { throw null; }\n",
+            "        double System.IConvertible.ToDouble(System.IFormatProvider? provider) { throw null; }\n",
+            "        short System.IConvertible.ToInt16(System.IFormatProvider? provider) { throw null; }\n"
+        ]
+    },
+    "ADD-example": {
+        "Repo": "runtime",
+        "RepoURL": "https://github.com/dotnet/runtime.git",
+        "SolutionFile": "parse-hb-log.sln",
+        "FilePath": "src/coreclr/tools/GCLogParser/parse-hb-log.cs",
+        "NumberFileLines": 1099,
+        "Commit": "e98d043d7d293c88a346b632d8fc12564a8ef0ce",
+        "FileURL": "https://github.com/dotnet/runtime/blob/e98d043d7d293c88a346b632d8fc12564a8ef0ce/src/coreclr/tools/GCLogParser/parse-hb-log.cs",
+        "DiagnosticID": "RCS1057",
+        "AnalyzerNuGet": "Roslynator.Analyzers.Unity.2.1.0",
+        "Severity": "Info",
+        "DiagnosticOccurances": [
+            {
+                "Message": "Add empty line between declarations.",
+                "Line": 78,
+                "Character": 7
+            }
+        ],
+        "ParsedDiff": {
+            "ActionType": "ADD",
+            "Action": {
+                "PreviousSourceLocation": 78,
+                "TargetStartLocation": 80,
+                "TargetLines": [
+                    "\n"
+                ]
+            }
+        },
+        "FileContextStart": 75,
+        "FileContext": [
+            "        Thread = 0,\n",
+            "        AllocHeap = 1,\n",
+            "        MaxType = 2\n",
+            "    };\n",
+            "    class Program\n",
+            "    {\n",
+            "        static bool fLogging = false;\n"
         ]
     }
 }
