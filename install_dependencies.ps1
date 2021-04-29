@@ -30,6 +30,6 @@ foreach($line in Get-Content .\nuget_packages.txt) {
 # foreach ($ANALYZER_PACKAGE in $files) {
 #     Write-Output "ANALYZER_PACKAGE: $ANALYZER_PACKAGE"
 #     # Command for Mac:
-#     mono AssemblyAnalysis/AssemblyAnalysis/InfoExtractor/bin/Debug/InfoExtractor.exe $ANALYZER_PACKAGE "analyzer_package_details.csv" $NEW_CSV
+#     mono AssemblyAnalysis/InfoExtractor/bin/Debug/InfoExtractor.exe $ANALYZER_PACKAGE "analyzer_package_details.csv" $NEW_CSV
 #     $NEW_CSV = "False"
 # }

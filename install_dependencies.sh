@@ -25,6 +25,6 @@ NEW_CSV="True"
 for ANALYZER_PACKAGE in nuget_analyzer_packages/*/; do
     echo "ANALYZER_PACKAGE: $ANALYZER_PACKAGE"
     # Command for Mac:
-    mono AssemblyAnalysis/AssemblyAnalysis/InfoExtractor/bin/Debug/InfoExtractor.exe $ANALYZER_PACKAGE "analyzer_package_details.csv" $NEW_CSV
+    mono AssemblyAnalysis/InfoExtractor/bin/Debug/InfoExtractor.exe $ANALYZER_PACKAGE "analyzer_package_details.csv" $NEW_CSV
     NEW_CSV="False"
 done
