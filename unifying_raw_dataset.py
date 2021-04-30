@@ -1,3 +1,8 @@
+"""
+This file unifies the fixes and the analysis made by Roslynator into single datapoints.
+
+"""
+
 import xml.etree.ElementTree as ET
 import json
 import os
@@ -11,18 +16,18 @@ from parsing_diffs import parse_hunk
 
 diff_dir = "raw_dataset/diffs"
 analysis_dir = "raw_dataset/analysis_files"
-refined_dataset_dir = "refined_dataset"
+unified_dataset_dir = "unified_dataset"
 repositories_dir = "submodule_repos_to_analyze"
 
 
 df_repos = pd.read_csv("github_repos.csv")
 analysis_files = [f.name for f in os.scandir(
     analysis_dir) if f.is_file() and not f.name == ".DS_Store"]
-refined_data_files = [f.name.split("-")[0] for f in os.scandir(
-    refined_dataset_dir) if f.is_file()]
+unified_data_files = [f.name.split("-")[0] for f in os.scandir(
+    unified_dataset_dir) if f.is_file()]
 
 # Instantiate this multiple times later:
-refined_data_sample = {
+unified_data_sample = {
     "Repo": "",
     "RepoURL": "",
     "SolutionFile": "",
@@ -135,33 +140,34 @@ for diff_file in diff_files:
 
         parsed_file_path = patched_file.path.replace(
             "/", "--").replace("\\", "--")
-        refined_data_filename = f"{diff_file[:-len('.diff')]}__{parsed_file_path}"
-        refined_data_filename_hash = f"{hash_filename(refined_data_filename)}"
-        if refined_data_filename_hash in refined_data_files:
+        unified_data_filename = f"{diff_file[:-len('.diff')]}__{parsed_file_path}"
+        unified_data_filename_hash = f"{hash_filename(unified_data_filename)}"
+        if unified_data_filename_hash in unified_data_files:
             print(
-                f"refined_data_filename_hash already exists! file: {refined_data_filename}")
-            # Appending refined_data_filename_hash to refined_data_files later on
+                f"unified_data_filename_hash already exists! file: {unified_data_filename}")
+            # Appending unified_data_filename_hash to unified_data_files later on
             continue
 
-        refined_data_file = copy.deepcopy(refined_data_sample)
+        unified_data_file = copy.deepcopy(unified_data_sample)
 
         repo_row = df_repos.loc[df_repos['RepoName'] == REPO_NAME].iloc[0]
 
-        refined_data_file["Repo"] = REPO_NAME
-        refined_data_file["RepoURL"] = repo_row["RepoURL"]
-        refined_data_file["SolutionFile"] = SOLUTION_FILENAME
-        refined_data_file["FilePath"] = patched_file.path
-        refined_data_file["Commit"] = LAST_COMMIT
-        refined_data_file["DiagnosticID"] = DIAGNOSTIC_ID
-        refined_data_file["AnalyzerNuGet"] = NUGET_FULL_NAME
+        unified_data_file["Repo"] = REPO_NAME
+        unified_data_file["RepoURL"] = repo_row["RepoURL"]
+        unified_data_file["SolutionFile"] = SOLUTION_FILENAME
+        unified_data_file["FilePath"] = patched_file.path
+        unified_data_file["Commit"] = LAST_COMMIT
+        unified_data_file["DiagnosticID"] = DIAGNOSTIC_ID
+        unified_data_file["AnalyzerNuGet"] = NUGET_FULL_NAME
 
         repo_url = repo_row["RepoURL"]
         if "https://github.com" in repo_url:
-            repo_url = repo_url[:-len('.git')] if repo_url.endswith('.git') else repo_url
-            refined_data_file["FileURL"] = f"{repo_url}/blob/{LAST_COMMIT}/{patched_file.path}"
+            repo_url = repo_url[:-len('.git')
+                                ] if repo_url.endswith('.git') else repo_url
+            unified_data_file["FileURL"] = f"{repo_url}/blob/{LAST_COMMIT}/{patched_file.path}"
 
         with open(f"{repo_dir}/{patched_file.path}") as f:
-            refined_data_file["NumberFileLines"] = len(list(f))
+            unified_data_file["NumberFileLines"] = len(list(f))
 
         all_replaced_lines = []
         all_added_lines = []
@@ -204,7 +210,7 @@ for diff_file in diff_files:
 
                 # Just do this once
                 if count == 0:
-                    refined_data_file["Severity"] = xml_diagnostic.find(
+                    unified_data_file["Severity"] = xml_diagnostic.find(
                         'Severity').text
                     count += 1
 
@@ -258,7 +264,7 @@ for diff_file in diff_files:
                         diagnostic_occurance["Line"] <= value["SourceLocationEnd"]):
                     diff_key = f"REMOVE-{count}"
                     break
-            
+
             # Diagnostic occurance leads to no obvious diff batch
             if not diff_key:
                 continue
@@ -272,41 +278,52 @@ for diff_file in diff_files:
         # Creating one datapoint per diff action (add/delete/replace)
         for key, value in diff_batch_to_diagnostic_occurances_dict.items():
 
-            refined_data = copy.deepcopy(refined_data_file)
-            refined_data["DiagnosticOccurances"] = value
+            # For a more heterogenuous dataset
+            # if num_diff_datapoint > 3:
+            #     continue
+
+            unified_data = copy.deepcopy(unified_data_file)
+            unified_data["DiagnosticOccurances"] = value
 
             diff_action, action_num = key.split("-")
-            refined_data["ParsedDiff"] = {}
-            refined_data["ParsedDiff"]["ActionType"] = diff_action
+            unified_data["ParsedDiff"] = {}
+            unified_data["ParsedDiff"]["ActionType"] = diff_action
             if diff_action == "REPLACE":
-                refined_data["ParsedDiff"]["Action"] = all_replaced_lines[int(action_num)]
+                unified_data["ParsedDiff"]["Action"] = all_replaced_lines[int(
+                    action_num)]
             elif diff_action == "ADD":
-                refined_data["ParsedDiff"]["Action"] = all_added_lines[int(action_num)]
+                unified_data["ParsedDiff"]["Action"] = all_added_lines[int(
+                    action_num)]
             elif diff_action == "REMOVE":
-                refined_data["ParsedDiff"]["Action"] = all_removed_lines[int(action_num)]
+                unified_data["ParsedDiff"]["Action"] = all_removed_lines[int(
+                    action_num)]
 
             # Find range of lines that are required to be inside FileContext
 
-            diag_occurance_lines = [diag_occurance["Line"] for diag_occurance in value]
-            first_diag_line = min(diag_occurance_lines) # Roslynator & diff hunks start at index 1
-            last_diag_line = max(diag_occurance_lines) # Roslynator & diff hunks start at index 1
+            diag_occurance_lines = [diag_occurance["Line"]
+                                    for diag_occurance in value]
+            # Roslynator & diff hunks start at index 1
+            first_diag_line = min(diag_occurance_lines)
+            # Roslynator & diff hunks start at index 1
+            last_diag_line = max(diag_occurance_lines)
 
             # Take into account that all deleted lines have to be in FileContext as well
             first_diff_line = None
             last_diff_line = None
-            actionType = refined_data["ParsedDiff"]["ActionType"]
+            actionType = unified_data["ParsedDiff"]["ActionType"]
             if actionType == "REPLACE":
-                first_diff_line = refined_data["ParsedDiff"]["Action"]["SourceLocations"][0]
-                last_diff_line = refined_data["ParsedDiff"]["Action"]["SourceLocations"][-1]
+                first_diff_line = unified_data["ParsedDiff"]["Action"]["SourceLocations"][0]
+                last_diff_line = unified_data["ParsedDiff"]["Action"]["SourceLocations"][-1]
             elif actionType == "ADD":
-                first_diff_line = refined_data["ParsedDiff"]["Action"]["PreviousSourceLocation"]
+                first_diff_line = unified_data["ParsedDiff"]["Action"]["PreviousSourceLocation"]
             else:  # actionType == REMOVE
-                first_diff_line = refined_data["ParsedDiff"]["Action"]["SourceLocationStart"]
-                last_diff_line = refined_data["ParsedDiff"]["Action"]["SourceLocationEnd"]
+                first_diff_line = unified_data["ParsedDiff"]["Action"]["SourceLocationStart"]
+                last_diff_line = unified_data["ParsedDiff"]["Action"]["SourceLocationEnd"]
 
             first_required_line = min(first_diag_line, first_diff_line)
-            last_required_line = max(last_diag_line, last_diff_line) if last_diff_line else last_diag_line
-            
+            last_required_line = max(
+                last_diag_line, last_diff_line) if last_diff_line else last_diag_line
+
             # Add context around required lines
             # TODO: Consider working with character-delta instead (can be many newlines, which do not have any info)
 
@@ -316,38 +333,39 @@ for diff_file in diff_files:
                 starting_line = first_required_line - LINE_DELTA
             else:
                 starting_line = 1
-            
-            if last_required_line < refined_data_file["NumberFileLines"] - LINE_DELTA:
+
+            if last_required_line < unified_data_file["NumberFileLines"] - LINE_DELTA:
                 ending_line = last_required_line + LINE_DELTA
             else:
-                ending_line = refined_data_file["NumberFileLines"]
+                ending_line = unified_data_file["NumberFileLines"]
 
             with open(f"{repo_dir}/{patched_file.path}") as f:
                 file_list = list(f)
-                refined_data["FileContext"] = file_list[starting_line - 1:ending_line]  # Also want to include ending_line
-            
-            refined_data["FileContextStart"] = starting_line
+                # Also want to include ending_line
+                unified_data["FileContext"] = file_list[starting_line - 1:ending_line]
+
+            unified_data["FileContextStart"] = starting_line
 
             # # Adding indices relative to FileContext:
 
-            # for diag_occurance in refined_data["DiagnosticOccurances"]:
+            # for diag_occurance in unified_data["DiagnosticOccurances"]:
             #     diag_occurance["LineInFileContext"] = diag_occurance["Line"] - starting_line
 
-            # actionType = refined_data["ParsedDiff"]["ActionType"]
+            # actionType = unified_data["ParsedDiff"]["ActionType"]
             # if actionType == "REPLACE":
-            #     refined_data["ParsedDiff"]["Action"]["SourceLocationsInFileContext"] = []
-            #     for source_location in refined_data["ParsedDiff"]["Action"]["SourceLocations"]:
-            #         refined_data["ParsedDiff"]["Action"]["SourceLocationsInFileContext"].append(source_location - starting_line)
+            #     unified_data["ParsedDiff"]["Action"]["SourceLocationsInFileContext"] = []
+            #     for source_location in unified_data["ParsedDiff"]["Action"]["SourceLocations"]:
+            #         unified_data["ParsedDiff"]["Action"]["SourceLocationsInFileContext"].append(source_location - starting_line)
             # elif actionType == "ADD":
-            #     refined_data["ParsedDiff"]["Action"]["PreviousSourceLocationInFileContext"] = refined_data["ParsedDiff"]["Action"]["PreviousSourceLocation"] - starting_line
+            #     unified_data["ParsedDiff"]["Action"]["PreviousSourceLocationInFileContext"] = unified_data["ParsedDiff"]["Action"]["PreviousSourceLocation"] - starting_line
             # else:  # actionType == DELETE
-            #     start = refined_data["ParsedDiff"]["Action"]["SourceLocationStart"]
-            #     end = refined_data["ParsedDiff"]["Action"]["SourceLocationEnd"]
-            #     refined_data["ParsedDiff"]["Action"]["SourceLocationStartInFileContext"] = start - starting_line
-            #     refined_data["ParsedDiff"]["Action"]["SourceLocationEndInFileContext"] = end - starting_line
+            #     start = unified_data["ParsedDiff"]["Action"]["SourceLocationStart"]
+            #     end = unified_data["ParsedDiff"]["Action"]["SourceLocationEnd"]
+            #     unified_data["ParsedDiff"]["Action"]["SourceLocationStartInFileContext"] = start - starting_line
+            #     unified_data["ParsedDiff"]["Action"]["SourceLocationEndInFileContext"] = end - starting_line
 
-            with open(f"{refined_dataset_dir}/{refined_data_filename_hash}-{num_diff_datapoint}.json", 'w', encoding='utf-8') as f:
-                json.dump(refined_data, f, ensure_ascii=False, indent=2)
-            print("Created refined_data_filename: ", refined_data_filename)
-            refined_data_files.append(refined_data_filename_hash)
+            with open(f"{unified_dataset_dir}/{unified_data_filename_hash}-{num_diff_datapoint}.json", 'w', encoding='utf-8') as f:
+                json.dump(unified_data, f, ensure_ascii=False, indent=2)
+            print("Created unified_data_filename: ", unified_data_filename)
+            unified_data_files.append(unified_data_filename_hash)
             num_diff_datapoint += 1

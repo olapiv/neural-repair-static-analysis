@@ -4,7 +4,7 @@
 
 1. Run [install_dependencies.ps1](install_dependencies.ps1)
 2. Run [create_raw_dataset.ps1](create_raw_dataset.ps1)
-3. Run [refining_raw_dataset.py](refining_raw_dataset.py)
+3. Run [unifying_raw_dataset.py](unifying_raw_dataset.py)
 
 ## Required Dependencies
 
@@ -29,7 +29,7 @@
 4. Due to large amounts of diagnostic ID duplications in [analyzer_package_details.csv](analyzer_package_details.csv), analyzed dependency structure of installed packages using C# project [DependencyAnalyzer](AssemblyAnalysis/DependencyAnalyzer). Saved results in [nuget_deps.json](nuget_deps.json). Turns out, a number of analyzer packages bundle other analyzer packages and may not necessarily contribute with own DiagnosticAnalyzers / CodeFixProviders.
 5. Using [analyzing_analyzers.py](analyzing_analyzers.py), created further statistics to the installed analyzer packages.
 6. Using [create_raw_dataset.ps1](create_raw_dataset.ps1), generated `roslynator analyze` vs `roslynator fix` outputs on repositories listed in [github_repos.csv](github_repos.csv). Sample `roslynator analyze` output can be viewed in [sample_roslynator_analysis.xml](sample_roslynator_analysis.xml).
-7. Using [parsing_diffs.py](parsing_diffs.py) and [refining_raw_dataset.py](refining_raw_dataset.py), created dataset, which can fed into NN. Different data samples can be viewed in [sample_refined_data_model.json](sample_refined_data_model.json).
+7. Using [parsing_diffs.py](parsing_diffs.py) and [unifying_raw_dataset.py](unifying_raw_dataset.py), created dataset, which can fed into NN. Different data samples can be viewed in [sample_unified_data_model.json](sample_unified_data_model.json).
 
 ## TODO
 

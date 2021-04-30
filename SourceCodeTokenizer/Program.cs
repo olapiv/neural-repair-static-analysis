@@ -28,7 +28,7 @@ namespace SourceCodeTokenizer
             - How to parse diagnostic message? e.g. 'Replace DateTime usage with DateTimeOffset'
             - Also need to tokenize all ParsedDiff.Action.TargetLines
 
-        TODO Change in refining_dataset.py:
+        TODO Change in unifying_raw_dataset.py:
             - Add 'requiredLinesStart' and 'requiredLinesEnd'
             - Keep 'FileContext' for now for basic comparison
             - 
@@ -45,11 +45,11 @@ namespace SourceCodeTokenizer
         {
 
             string solutionPath = Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.Parent.Parent.FullName;
-            string refined_dataset_path = Path.Combine(solutionPath, "refined_dataset");
-            Console.WriteLine($"refined_dataset_path: {refined_dataset_path}");
+            string unified_dataset_path = Path.Combine(solutionPath, "unified_dataset");
+            Console.WriteLine($"unified_dataset_path: {unified_dataset_path}");
 
             Pipeline.DumpRevisionDataForNeuralTraining(
-                refined_dataset_path,
+                unified_dataset_path,
                 "path-to-grammar_file"
             );
             
