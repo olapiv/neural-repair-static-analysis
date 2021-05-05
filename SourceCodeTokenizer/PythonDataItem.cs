@@ -26,9 +26,9 @@ namespace SourceCodeTokenizer
         public int requiredLinesStart;
         public int requiredLinesEnd;
 
-        //public string TokenizedFileContext;
+        public List<string> TokenizedFileContext;  // TODO: Fill this
 
-        //public PythonDataItem(){}
+        // public PythonDataItem(){}
     }
 
     public class DiagnosticOccurance
@@ -36,7 +36,7 @@ namespace SourceCodeTokenizer
         public string Message;
         public int Line;
         public int Character;
-        //public string TokenizedMessage;
+        public string TokenizedMessage;  // TODO: Fill this
     }
 
     public class ParsedDiff
@@ -45,8 +45,30 @@ namespace SourceCodeTokenizer
         public dynamic Action;
     }
 
+    public class AddAction
+    {
+        public int PreviousSourceLocation;
+        public int TargetStartLocation;
+        public string[] TargetLines;
+        public string[] TokenizedTargetLines;  // TODO: Fill this
+    }
+
+    public class ReplaceAction
+    {
+        public int[] SourceLocations;
+        public string[] TargetLines;
+        public string[] TokenizedTargetLines;  // TODO: Fill this
+    }
+
+    public class RemoveAction
+    {
+        public int SourceLocationStart;
+        public int SourceLocationEnd;
+    }
+
     //public class TokenizedDataItem : PythonDataItem
     //{
     //    public string TokenizedFileContext;
     //}
+
 }
