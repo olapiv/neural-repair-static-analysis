@@ -176,6 +176,8 @@ namespace SourceCodeTokenizer
             }
             var missingTokens = NUM_INPUT_TOKENS - numTokens;
 
+            // TODO: Add Error tokens
+
             // All tokens in diff of previous file without context
             var prevCodeChunkBlockStmtTokensList = GetTokens(
                 canonicalPrevFileAst,
@@ -226,7 +228,6 @@ namespace SourceCodeTokenizer
 
             // -------
 
-            // TODO: Use these to parse DiagnosticMessage
             var prevFileTokens = canonicalPrevFileAst.DescendantTokens().ToList();
             var updatedFileTokens = canonicalUpdatedFileAst.DescendantTokens().ToList();
             
@@ -336,10 +337,7 @@ namespace SourceCodeTokenizer
             if (pythonDataItem.ParsedDiff.ActionType == "REPLACE")
             {
                 ReplaceAction typedParsedDiff = pythonDataItem.ParsedDiff.Action;
-
-                // TODO:
-                // Use updatedCodeChunkBlockStmtTextTokens
-                // typedParsedDiff.TokenizedTargetLines = 
+                typedParsedDiff.TokenizedTargetLines = updatedCodeChunkBlockStmtTextTokens;
             }
             else if (pythonDataItem.ParsedDiff.ActionType == "REMOVE")
             {
@@ -348,29 +346,15 @@ namespace SourceCodeTokenizer
             else if (pythonDataItem.ParsedDiff.ActionType == "ADD")
             {
                 AddAction typedParsedDiff = pythonDataItem.ParsedDiff.Action;
-
-                // TODO:
-                // Use updatedCodeChunkBlockStmtTextTokens
-                // typedParsedDiff.TokenizedTargetLines = 
+                typedParsedDiff.TokenizedTargetLines = updatedCodeChunkBlockStmtTextTokens;
             }
 
+            // TODO: Check that all formatting is tokenized as well
             pythonDataItem.TokenizedFileContext = prevCodeChunkBlockStmtTextTokens.ToList();
-            //  --> all formatting tokenized as well
-            //  --> error token(s) inside
-
-            // TODO:
-            // pythonDataItem.DiagnosticOccurances.TokenizedMessage =
-            // pythonDataItem.ParsedDiff.Action.TargetLines =
-
-            // TODO: Consider using prevCodeTextChunk to overwrite
-            // pythonDataItem.FileContext
 
             return;
 
-
-
             // -------
-
 
             // Previously:
 
