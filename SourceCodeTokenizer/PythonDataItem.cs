@@ -36,7 +36,7 @@ namespace SourceCodeTokenizer
         public string Message;
         public int Line;
         public int Character;
-        public string TokenizedMessage;  // TODO: Fill this
+        public List<string> TokenizedMessage;  // TODO: Fill this
     }
 
     public class ParsedDiff

@@ -134,7 +134,7 @@ namespace SourceCodeTokenizer
             return codeChunkBlockStmtTokens;
         }
 
-        public static void ProcessSingleRevision(PythonDataItem pythonDataItem, JsonSyntaxTreeHelper jsonSyntaxTreeHelper)
+        public static void ProcessSingleRevision(PythonDataItem pythonDataItem)
         {
 
             const int NUM_INPUT_TOKENS = 50;
@@ -157,7 +157,7 @@ namespace SourceCodeTokenizer
 
             // -------
 
-            // Merge context and change in same list of tokens;
+            // Merge source side of diff with context in same list of tokens;
 
             var positions = GetTokenRangeByLineSpan(
                 canonicalPrevFileAst,
@@ -172,7 +172,7 @@ namespace SourceCodeTokenizer
             if (numTokens > NUM_INPUT_TOKENS)
             {
                 // Diff is too large
-                yield return null;
+                return;
             }
             var missingTokens = NUM_INPUT_TOKENS - numTokens;
 
@@ -229,8 +229,10 @@ namespace SourceCodeTokenizer
             // TODO: Use these to parse DiagnosticMessage
             var prevFileTokens = canonicalPrevFileAst.DescendantTokens().ToList();
             var updatedFileTokens = canonicalUpdatedFileAst.DescendantTokens().ToList();
+            
+            // -------
 
-            // Can be used to check for useless files
+            // TODO: Use this to check for useless files (like in original file)
             var prevTokenIndex = new TokenIndex(prevFileTokens);
             var updatedTokenIndex = new TokenIndex(updatedFileTokens);
 
@@ -269,7 +271,7 @@ namespace SourceCodeTokenizer
                     targetLineEnd
                 );
                 if (updatedCodeChunkNodes.Any(node => !allowedSytaxKinds.Contains(node.Kind())))
-                    yield return null;
+                    return;
 
 
                 var updatedCodeChunkBlockStmt = SyntaxFactory.Block(updatedCodeChunkNodes.Select(node => (StatementSyntax)node));
@@ -300,6 +302,33 @@ namespace SourceCodeTokenizer
                 prevCodeChunkBlockStmtTokens.Select(token => token.ValueText).ToArray();
             var updatedCodeChunkBlockStmtTextTokens =
                 updatedCodeChunkBlockStmtTokens.Select(token => token.ValueText).ToArray();
+
+            // -------
+            // Tokenize DiagnosticMessage
+
+            var prevFileTextTokens = prevFileTokens.Select(token => token.ValueText).ToArray();
+            foreach (var diag in pythonDataItem.DiagnosticOccurances)
+            {
+                foreach (var wordToken in diag.Message.Split(" "))
+                {
+                    // DiagnosticMessage contains variable name
+                    if (wordToken.StartsWith("'") && wordToken.EndsWith("'"))
+                    {
+                        wordToken.Remove(0).Remove(wordToken.Length - 1);
+                        // Could also be that variable name is outside of scope - not worth
+                        // indexing those, otherwise we have VAR-1000, etc.
+                        if (zeroIndexedVariableNameMap.ContainsKey(wordToken))
+                        {
+                            var wordTokenIndexed = zeroIndexedVariableNameMap[wordToken];
+                            diag.TokenizedMessage.Append(wordToken);
+                        }
+                    }
+                    else
+                    {
+                        diag.TokenizedMessage.Append(wordToken);
+                    }
+                }
+            }
 
             // -------
             // Write all calculated data to JSONObject
@@ -336,7 +365,7 @@ namespace SourceCodeTokenizer
             // TODO: Consider using prevCodeTextChunk to overwrite
             // pythonDataItem.FileContext
 
-            yield return pythonDataItem;
+            return;
 
 
 
@@ -600,7 +629,7 @@ namespace SourceCodeTokenizer
         public static void DumpRevisionDataForNeuralTraining(string pythonDataDir, string grammarPath)
         {
 
-            var syntaxHelper = new JsonSyntaxTreeHelper(grammarPath);
+            // var syntaxHelper = new JsonSyntaxTreeHelper(grammarPath);
 
             string[] refinedJSONpaths = Directory.GetFiles(pythonDataDir, "*.json",
                                          SearchOption.TopDirectoryOnly);
@@ -624,7 +653,7 @@ namespace SourceCodeTokenizer
                             continue;
                         }
 
-                        ProcessSingleRevision(pythonDataItem, syntaxHelper);
+                        ProcessSingleRevision(pythonDataItem);
 
                         // TODO: Write pythonDataItem to file again
 
@@ -638,29 +667,6 @@ namespace SourceCodeTokenizer
                 }
             }
 
-            //using (var fs = File.Open(outputFilePath, FileMode.Create))
-            //using(var sw = new StreamWriter(fs, Encoding.UTF8))
-            //{
-            //    Stopwatch stopwatch = new Stopwatch();
-            //    stopwatch.Start();
-            //    foreach (var changeStrs in ReadRevisionData(revisionDataFilePath).AsParallel().Select(x =>
-            //        ProcessSingleRevision(x, syntaxHelper).Select(t => changeEntryDatumToJsonString(t)).ToArray()))
-            //    {
-            //        foreach (var changeStr in changeStrs)
-            //        {
-            //            try
-            //            {
-            //                sw.WriteLine(changeStr);
-            //            }
-            //            catch (Exception e) { }
-            //        }
-
-            //    }
-
-            //    stopwatch.Stop();
-            //    Console.WriteLine();
-            //    Console.WriteLine("Time elapsed: {0}", stopwatch.Elapsed);
-            //}
         }
 
         public static IEnumerable<string> ReadRevisionData(string revisionDataFilePath)
