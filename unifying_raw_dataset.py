@@ -38,6 +38,8 @@ unified_data_sample = {
     "DiagnosticID": "",
     "AnalyzerNuGet": "",
     "Severity": "",
+    "RequiredLinesStart": None,
+    "RequiredLinesEnd": None,
     "DiagnosticOccurances": [
         # {
         #     "Message": "",
@@ -324,8 +326,10 @@ for diff_file in diff_files:
             last_required_line = max(
                 last_diag_line, last_diff_line) if last_diff_line else last_diag_line
 
+            unified_data["RequiredLinesStart"] = first_required_line
+            unified_data["RequiredLinesEnd"] = last_required_line
+
             # Add context around required lines
-            # TODO: Consider working with character-delta instead (can be many newlines, which do not have any info)
 
             LINE_DELTA = 3
 
