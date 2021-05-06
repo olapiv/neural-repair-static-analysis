@@ -6,6 +6,7 @@ using System.IO;
 using System.Text;
 using System.Linq;
 using System.Runtime.InteropServices;
+using System.Text.RegularExpressions;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
@@ -19,59 +20,56 @@ namespace SourceCodeTokenizer
     class Pipeline
     {
 
-        public static IEnumerable<SyntaxNode> GetNodesByLineSpan(SyntaxNode astNode, SourceText sourceText, int startLine, int endLine)
+        public static IEnumerable<SyntaxToken> GetTokensByLineSpan(SyntaxNode astNode, SourceText sourceText, int startLine, int endLine)
         {
 
-            for (var lineId = startLine;
-                lineId <= endLine;
-                lineId++)
-            {
-                var lineSource = sourceText.Lines[lineId];
+            startLine--;
+            endLine--;
 
-                // Keep formatting
-                //if (string.IsNullOrWhiteSpace(lineSource.ToString()))
-                //    continue;
+            var tokensInLineSpan = astNode.DescendantTokens().Where(token =>
+                token.GetLocation().GetLineSpan().EndLinePosition.Line == startLine
+                ||
+                token.GetLocation().GetLineSpan().StartLinePosition.Line == endLine
+            );
 
-                var lineSpan = lineSource.Span;
-
-                // Keep formatting
-                //if (lineSpan.IsEmpty)
-                //    continue;
-
-                var node = astNode.FindNode(lineSpan);
-
-                yield return node;
-            }
+            return tokensInLineSpan;
         }
 
-        public static Tuple<int, int> GetTokenRangeByLineSpan(SyntaxNode astNode, SourceText sourceText, int startLine, int endLine)
+        public static (int, int) GetTokenRangeByLineSpan(SyntaxNode astNode, SourceText sourceText, int startLine, int endLine)
         {
 
-            var descendentTokens = astNode.DescendantTokens().ToList();
+            startLine--;
+            endLine--;
+            Console.WriteLine($"startLine: {startLine}");
+            Console.WriteLine($"endLine: {endLine}");
 
-            var lineSourceStart = sourceText.Lines[startLine];
-            var lineSpanStart = lineSourceStart.Span;
-            var nodeStart = astNode.FindNode(lineSpanStart);
-            var firstDescendentToken = nodeStart.DescendantTokens().ToList().First();
+            var firstDescendentToken = astNode.DescendantTokens().Where(token =>
+                token.GetLocation().GetLineSpan().EndLinePosition.Line == startLine
+            ).First();
+            Console.WriteLine($"firstDescendentToken.ValueText: {firstDescendentToken.ValueText}");
 
-            var lineSourceEnd = sourceText.Lines[endLine];
-            var lineSpanEnd = lineSourceStart.Span;
-            var nodeEnd = astNode.FindNode(lineSpanStart);
-            var lastDescendentTokens = nodeStart.DescendantTokens().ToList().Last();
+            var lastDescendentToken = astNode.DescendantTokens().Where(token =>
+                token.GetLocation().GetLineSpan().StartLinePosition.Line == endLine
+            ).Last();
+            Console.WriteLine($"lastDescendentTokens.ValueText: {lastDescendentToken.ValueText}");
+
+            var allDescendentTokens = astNode.DescendantTokens().ToList();
 
             var startPosition = -1;
             var endPosition = -1;
-            foreach (var token in descendentTokens.Select((value, i) => new { i, value }))
+            foreach (var token in allDescendentTokens.Select((value, i) => new { i, value }))
             {
                 if (token.value == firstDescendentToken)
                 {
+                    Console.WriteLine($"Found firstDescendentToken! token.value: {token.value}");
                     startPosition = token.i;
-                } else if (token.value == lastDescendentTokens)
+                } else if (token.value == lastDescendentToken)
                 {
+                    Console.WriteLine($"Found lastDescendentTokens! token.value: {token.value}");
                     endPosition = token.i;
                 }
             }
-            return Tuple.Create(startPosition, endPosition);
+            return (startPosition, endPosition);
         }
 
         public static IEnumerable<ChangeSample> GetChangesBetweenAsts(SyntaxTree previousFileAst, SyntaxTree updatedFileAst)
@@ -82,10 +80,12 @@ namespace SourceCodeTokenizer
 
         public static string ApplyParsedDiff(ParsedDiff parsedDiff, String previousFile)
         {
-            List <string> previousFileList = previousFile.Split("\n").ToList();
+            List<string> previousFileList = Regex.Split(previousFile, @"(?<=[\\r\\n])").ToList();
+            Console.WriteLine($"previousFileList.First(): {previousFileList.First()}");
+
             if (parsedDiff.ActionType == "REPLACE")
             {
-                ReplaceAction typedParsedDiff = parsedDiff.Action;
+                ReplaceAction typedParsedDiff = ((JObject)parsedDiff.Action).ToObject<ReplaceAction>();
                 foreach (var locationIndex in typedParsedDiff.SourceLocations)
                 {
                     previousFileList.RemoveAt(locationIndex);
@@ -99,39 +99,18 @@ namespace SourceCodeTokenizer
             }
             else if (parsedDiff.ActionType == "REMOVE")
             {
-                RemoveAction typedParsedDiff = parsedDiff.Action;
+                RemoveAction typedParsedDiff = ((JObject)parsedDiff.Action).ToObject<RemoveAction>();
                 previousFileList.RemoveRange(typedParsedDiff.SourceLocationStart, typedParsedDiff.SourceLocationEnd - typedParsedDiff.SourceLocationStart + 1);
             } else if (parsedDiff.ActionType == "ADD")
             {
-                AddAction typedParsedDiff = parsedDiff.Action;
-
+                AddAction typedParsedDiff = ((JObject)parsedDiff.Action).ToObject<AddAction>();
                 foreach (var item in typedParsedDiff.TargetLines.Select((value, i) => new { i, value }))
                 {
                     previousFileList.Insert(typedParsedDiff.PreviousSourceLocation + item.i, item.value);
                 }
             }
+            Console.WriteLine($"previousFileList: {previousFileList.Count()}");
             return string.Join("", previousFileList);
-        }
-
-        public static SyntaxToken[] GetTokens(SyntaxNode fileAST, SourceText codeFile, int startLine, int endLine)
-        {
-            // Only consider SyntaxKind in allowedSytaxKinds
-            var codeChunkNodes = GetNodesByLineSpan(
-                fileAST,
-                codeFile,
-                startLine,
-                endLine
-            );
-            if (codeChunkNodes.Any(node => !allowedSytaxKinds.Contains(node.Kind())))
-                return null;
-
-            // Create SyntaxBlock out of list of SyntaxNode (probably starts/ends with "{","}")
-            // Does "StatementSyntax" remove spaces, etc.? 
-            var codeChunkBlockStmt = SyntaxFactory.Block(codeChunkNodes.Select(node => (StatementSyntax)node));
-
-            // .Skip(1).SkipLast(1) probably to remove "{","}"
-            var codeChunkBlockStmtTokens = codeChunkBlockStmt.DescendantTokens().Skip(1).SkipLast(1).ToArray();
-            return codeChunkBlockStmtTokens;
         }
 
         public static void ProcessSingleRevision(PythonDataItem pythonDataItem)
@@ -139,8 +118,10 @@ namespace SourceCodeTokenizer
 
             const int NUM_INPUT_TOKENS = 50;
 
-            // TODO: Get previous file from repo
-            var pathToFile = @"{pythonDataItem.Repo}/{pythonDataItem.FilePath}";
+            string solutionPath = Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.Parent.Parent.FullName;
+            // string pathToFile = @"{solutionPath}/{pythonDataItem.Repo}/{pythonDataItem.FilePath}";
+            string pathToFile = string.Format("{0}/submodule_repos_to_analyze/{1}/{2}", solutionPath, pythonDataItem.Repo, pythonDataItem.FilePath);
+            Console.WriteLine($"pathToFile: {pathToFile}");
             string previousFile;
 
             using (StreamReader sr = new StreamReader(pathToFile))
@@ -149,46 +130,47 @@ namespace SourceCodeTokenizer
             }
 
             var previousFileAst = CSharpSyntaxTree.ParseText(previousFile);
-
-            // Probably take this out
-            (SyntaxNode canonicalPrevFileAst, Dictionary<string, string> prevFileVariableNameMap) = Canonicalization.CanonicalizeSyntaxNode(previousFileAst.GetRoot(), extractAllVariablesFirst:true);
-
-            var prevCodeFile = canonicalPrevFileAst.GetText();
+            var prevCodeFile = previousFileAst.GetText();
 
             // -------
 
             // Merge source side of diff with context in same list of tokens;
 
-            var positions = GetTokenRangeByLineSpan(
-                canonicalPrevFileAst,
+            var (startPosition, endPosition) = GetTokenRangeByLineSpan(
+                previousFileAst.GetRoot(),
                 prevCodeFile,
-                pythonDataItem.requiredLinesStart,
-                pythonDataItem.requiredLinesEnd
+                pythonDataItem.RequiredLinesStart,
+                pythonDataItem.RequiredLinesEnd
             );
-            var startPosition = positions.Item1;
-            var endPosition = positions.Item2;
+            Console.WriteLine($"startPosition: {startPosition}");
+            Console.WriteLine($"endPosition: {endPosition}");
 
             var numTokens = endPosition - startPosition;
             if (numTokens > NUM_INPUT_TOKENS)
             {
                 // Diff is too large
+                Console.WriteLine($"Diff is too large; numTokens: {numTokens}");
                 return;
             }
             var missingTokens = NUM_INPUT_TOKENS - numTokens;
+            Console.WriteLine($"missingTokens: {missingTokens}");
 
             // TODO: Add Error tokens
 
+            // TODO: Avoid getting entire parent node here
+
             // All tokens in diff of previous file without context
-            var prevCodeChunkBlockStmtTokensList = GetTokens(
-                canonicalPrevFileAst,
+            var prevCodeChunkBlockStmtTokensList = GetTokensByLineSpan(
+                previousFileAst.GetRoot(),
                 prevCodeFile,
-                pythonDataItem.requiredLinesStart,
-                pythonDataItem.requiredLinesEnd
-            ).ToList();
+                pythonDataItem.RequiredLinesStart,
+                pythonDataItem.RequiredLinesEnd
+            );
+            Console.WriteLine($"prevCodeChunkBlockStmtTokensList.Count(): {prevCodeChunkBlockStmtTokensList.Count()}");
 
             // Add context tokens until NUM_INPUT_TOKENS is reached
             SyntaxToken beforeToken, afterToken;
-            var allDescendentTokens = canonicalPrevFileAst.DescendantTokens().ToList();
+            var allDescendentTokens = previousFileAst.GetRoot().DescendantTokens().ToList();
             while (missingTokens > 0)
             {
                 if (startPosition == 0 && endPosition == allDescendentTokens.Count())
@@ -216,20 +198,21 @@ namespace SourceCodeTokenizer
                 missingTokens--;
             }
 
+            Console.WriteLine($"allDescendentTokens.Count(): {allDescendentTokens.Count()}");
+
             // -------
             // Get updated file data
 
             var updatedFile = ApplyParsedDiff(pythonDataItem.ParsedDiff, previousFile);
             var updatedFileAst = CSharpSyntaxTree.ParseText(updatedFile);
+            var updatedCodeFile = updatedFileAst.GetText();
 
-            // TODO: Think about removing this
-            (SyntaxNode canonicalUpdatedFileAst, Dictionary<string, string> updatedFileVariableNameMap) = Canonicalization.CanonicalizeSyntaxNode(updatedFileAst.GetRoot(), prevFileVariableNameMap);
-            var updatedCodeFile = canonicalUpdatedFileAst.GetText();
+            Console.WriteLine($"updatedCodeFile.Count(): {updatedCodeFile.Lines.Count()}");
 
             // -------
 
-            var prevFileTokens = canonicalPrevFileAst.DescendantTokens().ToList();
-            var updatedFileTokens = canonicalUpdatedFileAst.DescendantTokens().ToList();
+            var prevFileTokens = previousFileAst.GetRoot().DescendantTokens().ToList();
+            var updatedFileTokens = updatedFileAst.GetRoot().DescendantTokens().ToList();
             
             // -------
 
@@ -244,9 +227,9 @@ namespace SourceCodeTokenizer
             int targetLineEnd = -1;
             if (pythonDataItem.ParsedDiff.ActionType == "REPLACE")
             {
-                ReplaceAction typedParsedDiff = pythonDataItem.ParsedDiff.Action;
+                ReplaceAction typedParsedDiff = ((JObject)pythonDataItem.ParsedDiff.Action).ToObject<ReplaceAction>();
                 targetLineStart = typedParsedDiff.SourceLocations.First();
-                targetLineEnd = targetLineStart + typedParsedDiff.TargetLines.Count();
+                targetLineEnd = targetLineStart + typedParsedDiff.TargetLines.Count() - 1;
             }
             else if (pythonDataItem.ParsedDiff.ActionType == "REMOVE")
             {
@@ -254,30 +237,27 @@ namespace SourceCodeTokenizer
             }
             else if (pythonDataItem.ParsedDiff.ActionType == "ADD")
             {
-                AddAction typedParsedDiff = pythonDataItem.ParsedDiff.Action;
+                AddAction typedParsedDiff = ((JObject)pythonDataItem.ParsedDiff.Action).ToObject<AddAction>();
                 targetLineStart = typedParsedDiff.PreviousSourceLocation + 1;
                 targetLineEnd = targetLineStart + typedParsedDiff.TargetLines.Count();
             }
 
-            SyntaxToken[] updatedCodeChunkBlockStmtTokens = new SyntaxToken[] {};
+            IEnumerable<SyntaxToken> updatedCodeChunkBlockStmtTokensIEnum = Enumerable.Empty<SyntaxToken>();
+            Console.WriteLine($"targetLineStart: {targetLineStart}");
+            Console.WriteLine($"targetLineEnd: {targetLineEnd}");
             if (targetLineStart != -1)  // Otherwise no need to tokenize output at all
             {
                 var updatedTreeText = updatedFileAst.GetText();
                 // var changeSpan = new TextSpan(targetLineStart, targetLineEnd - targetLineStart);
 
-                var updatedCodeChunkNodes = GetNodesByLineSpan(
-                    canonicalUpdatedFileAst,
+                updatedCodeChunkBlockStmtTokensIEnum = GetTokensByLineSpan(
+                    updatedFileAst.GetRoot(),
                     updatedCodeFile,
                     targetLineStart,
                     targetLineEnd
                 );
-                if (updatedCodeChunkNodes.Any(node => !allowedSytaxKinds.Contains(node.Kind())))
-                    return;
-
-
-                var updatedCodeChunkBlockStmt = SyntaxFactory.Block(updatedCodeChunkNodes.Select(node => (StatementSyntax)node));
-                updatedCodeChunkBlockStmtTokens = updatedCodeChunkBlockStmt.DescendantTokens().Skip(1).SkipLast(1).ToArray();
             }
+            var updatedCodeChunkBlockStmtTokens = updatedCodeChunkBlockStmtTokensIEnum.ToArray();
 
             // -------
             // Zero-index all variable names
@@ -310,6 +290,7 @@ namespace SourceCodeTokenizer
             var prevFileTextTokens = prevFileTokens.Select(token => token.ValueText).ToArray();
             foreach (var diag in pythonDataItem.DiagnosticOccurances)
             {
+                diag.TokenizedMessage = new List<string>();
                 foreach (var wordToken in diag.Message.Split(" "))
                 {
                     // DiagnosticMessage contains variable name
@@ -336,7 +317,7 @@ namespace SourceCodeTokenizer
 
             if (pythonDataItem.ParsedDiff.ActionType == "REPLACE")
             {
-                ReplaceAction typedParsedDiff = pythonDataItem.ParsedDiff.Action;
+                ReplaceAction typedParsedDiff = ((JObject)pythonDataItem.ParsedDiff.Action).ToObject<ReplaceAction>();
                 typedParsedDiff.TokenizedTargetLines = updatedCodeChunkBlockStmtTextTokens;
             }
             else if (pythonDataItem.ParsedDiff.ActionType == "REMOVE")
@@ -345,7 +326,7 @@ namespace SourceCodeTokenizer
             }
             else if (pythonDataItem.ParsedDiff.ActionType == "ADD")
             {
-                AddAction typedParsedDiff = pythonDataItem.ParsedDiff.Action;
+                AddAction typedParsedDiff = ((JObject)pythonDataItem.ParsedDiff.Action).ToObject<AddAction>();
                 typedParsedDiff.TokenizedTargetLines = updatedCodeChunkBlockStmtTextTokens;
             }
 
@@ -637,9 +618,18 @@ namespace SourceCodeTokenizer
                             continue;
                         }
 
-                        ProcessSingleRevision(pythonDataItem);
+                        try
+                        {
+                            ProcessSingleRevision(pythonDataItem);
+                        }
+                        catch (Exception e)
+                        {
+                            Console.WriteLine($"e: {e}");
+                        }
 
                         // TODO: Write pythonDataItem to file again
+                        var newDataItem = JsonConvert.SerializeObject(pythonDataItem, Formatting.Indented);
+                        Console.WriteLine($"newDataItem: {newDataItem}");
 
                         System.Environment.Exit(1);
                         break;
@@ -666,7 +656,8 @@ namespace SourceCodeTokenizer
             }
         }
 
-        static readonly HashSet<SyntaxKind> allowedSytaxKinds = new HashSet<SyntaxKind>()
+        // Not using this as it for instance also skips EnumDeclaration
+        static readonly HashSet<SyntaxKind> allowedSyntaxKinds = new HashSet<SyntaxKind>()
         {
             SyntaxKind.LocalDeclarationStatement,
             SyntaxKind.ExpressionStatement
