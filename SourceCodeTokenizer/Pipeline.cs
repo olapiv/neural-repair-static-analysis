@@ -303,11 +303,18 @@ namespace SourceCodeTokenizer
                         {
                             var wordTokenIndexed = zeroIndexedVariableNameMap[wordToken];
                             diag.TokenizedMessage.Append(wordToken);
+                        } else
+                        {
+                            Console.WriteLine($"Weird token! : {wordToken}");
                         }
                     }
                     else
                     {
-                        diag.TokenizedMessage.Append(wordToken);
+                        foreach ( var splitWordToken in Regex.Split(wordToken, @"(?=[.!?\\-])|(?<=[.!?\\-])").ToList())
+                        {
+                            if (splitWordToken != "")
+                                diag.TokenizedMessage.Add(splitWordToken.ToLower());
+                        }
                     }
                 }
             }
