@@ -40,18 +40,14 @@ namespace SourceCodeTokenizer
 
             startLine--;
             endLine--;
-            Console.WriteLine($"startLine: {startLine}");
-            Console.WriteLine($"endLine: {endLine}");
 
             var firstDescendentToken = astNode.DescendantTokens().Where(token =>
                 token.GetLocation().GetLineSpan().EndLinePosition.Line == startLine
             ).First();
-            Console.WriteLine($"firstDescendentToken.ValueText: {firstDescendentToken.ValueText}");
 
             var lastDescendentToken = astNode.DescendantTokens().Where(token =>
                 token.GetLocation().GetLineSpan().StartLinePosition.Line == endLine
             ).Last();
-            Console.WriteLine($"lastDescendentTokens.ValueText: {lastDescendentToken.ValueText}");
 
             var allDescendentTokens = astNode.DescendantTokens().ToList();
 
@@ -61,11 +57,9 @@ namespace SourceCodeTokenizer
             {
                 if (token.value == firstDescendentToken)
                 {
-                    Console.WriteLine($"Found firstDescendentToken! token.value: {token.value}");
                     startPosition = token.i;
                 } else if (token.value == lastDescendentToken)
                 {
-                    Console.WriteLine($"Found lastDescendentTokens! token.value: {token.value}");
                     endPosition = token.i;
                 }
             }
@@ -121,7 +115,6 @@ namespace SourceCodeTokenizer
             const int NUM_INPUT_TOKENS = 50;
 
             string solutionPath = Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.Parent.Parent.FullName;
-            // string pathToFile = @"{solutionPath}/{pythonDataItem.Repo}/{pythonDataItem.FilePath}";
             string pathToFile = string.Format("{0}/submodule_repos_to_analyze/{1}/{2}", solutionPath, pythonDataItem.Repo, pythonDataItem.FilePath);
             Console.WriteLine($"pathToFile: {pathToFile}");
             string previousFile;
@@ -144,8 +137,6 @@ namespace SourceCodeTokenizer
                 pythonDataItem.RequiredLinesStart,
                 pythonDataItem.RequiredLinesEnd
             );
-            Console.WriteLine($"startPosition: {startPosition}");
-            Console.WriteLine($"endPosition: {endPosition}");
 
             var numTokens = (endPosition - startPosition) + 1;
             if (numTokens > NUM_INPUT_TOKENS)
@@ -166,7 +157,6 @@ namespace SourceCodeTokenizer
                 pythonDataItem.RequiredLinesStart,
                 pythonDataItem.RequiredLinesEnd
             ).ToList();
-            Console.WriteLine($"prevCodeChunkBlockStmtTokensList.Count(): {prevCodeChunkBlockStmtTokensList.Count()}");
 
             // Add context tokens until NUM_INPUT_TOKENS is reached
             SyntaxToken beforeToken, afterToken;
@@ -198,16 +188,12 @@ namespace SourceCodeTokenizer
                 missingTokens--;
             }
 
-            Console.WriteLine($"allDescendentTokens.Count(): {allDescendentTokens.Count()}");
-
             // -------
             // Get updated file data
 
             var updatedFile = ApplyParsedDiff(pythonDataItem.ParsedDiff, prevCodeFile);
             var updatedFileAst = CSharpSyntaxTree.ParseText(updatedFile);
             var updatedCodeFile = updatedFileAst.GetText();
-
-            Console.WriteLine($"updatedCodeFile.Count(): {updatedCodeFile.Lines.Count()}");
 
             // -------
 
@@ -243,8 +229,6 @@ namespace SourceCodeTokenizer
             }
 
             IEnumerable<SyntaxToken> updatedCodeChunkBlockStmtTokensIEnum = Enumerable.Empty<SyntaxToken>();
-            Console.WriteLine($"targetLineStart: {targetLineStart}");
-            Console.WriteLine($"targetLineEnd: {targetLineEnd}");
             if (targetLineStart != -1)  // Otherwise no need to tokenize output at all
             {
                 var updatedTreeText = updatedFileAst.GetText();
