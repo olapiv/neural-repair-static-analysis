@@ -78,39 +78,41 @@ namespace SourceCodeTokenizer
             return changesWithContext;
         }
 
-        public static string ApplyParsedDiff(ParsedDiff parsedDiff, String previousFile)
+        public static string ApplyParsedDiff(ParsedDiff parsedDiff, SourceText previousFile)
         {
-            List<string> previousFileList = Regex.Split(previousFile, @"(?<=[\\r\\n])").ToList();
-            Console.WriteLine($"previousFileList.First(): {previousFileList.First()}");
 
+            var previousFileList = previousFile.Lines.Select(x => x.ToString()).ToList();
             if (parsedDiff.ActionType == "REPLACE")
             {
                 ReplaceAction typedParsedDiff = ((JObject)parsedDiff.Action).ToObject<ReplaceAction>();
                 foreach (var locationIndex in typedParsedDiff.SourceLocations)
                 {
-                    previousFileList.RemoveAt(locationIndex);
+                    previousFileList.RemoveAt(locationIndex - 1);
                 }
 
+                var startingIndex = typedParsedDiff.SourceLocations.First() - 1;
                 foreach (var item in typedParsedDiff.TargetLines.Select((value, i) => new { i, value }))
                 {
-                    previousFileList.Insert(typedParsedDiff.SourceLocations.First() + item.i, item.value);
+                    previousFileList.Insert(startingIndex + item.i, item.value);
                 }
 
             }
             else if (parsedDiff.ActionType == "REMOVE")
             {
                 RemoveAction typedParsedDiff = ((JObject)parsedDiff.Action).ToObject<RemoveAction>();
-                previousFileList.RemoveRange(typedParsedDiff.SourceLocationStart, typedParsedDiff.SourceLocationEnd - typedParsedDiff.SourceLocationStart + 1);
+                var indexStart = typedParsedDiff.SourceLocationStart - 1;
+                var indexEnd = typedParsedDiff.SourceLocationEnd - 1;
+                previousFileList.RemoveRange(indexStart, indexEnd - indexStart + 1);
             } else if (parsedDiff.ActionType == "ADD")
             {
                 AddAction typedParsedDiff = ((JObject)parsedDiff.Action).ToObject<AddAction>();
+                var indexStart = typedParsedDiff.PreviousSourceLocation; // No -1 since *previous* sourceLocation
                 foreach (var item in typedParsedDiff.TargetLines.Select((value, i) => new { i, value }))
                 {
-                    previousFileList.Insert(typedParsedDiff.PreviousSourceLocation + item.i, item.value);
+                    previousFileList.Insert(indexStart + item.i, item.value);
                 }
             }
-            Console.WriteLine($"previousFileList: {previousFileList.Count()}");
-            return string.Join("", previousFileList);
+            return string.Join("\n", previousFileList);
         }
 
         public static void ProcessSingleRevision(PythonDataItem pythonDataItem)
@@ -145,7 +147,7 @@ namespace SourceCodeTokenizer
             Console.WriteLine($"startPosition: {startPosition}");
             Console.WriteLine($"endPosition: {endPosition}");
 
-            var numTokens = endPosition - startPosition;
+            var numTokens = (endPosition - startPosition) + 1;
             if (numTokens > NUM_INPUT_TOKENS)
             {
                 // Diff is too large
@@ -156,8 +158,6 @@ namespace SourceCodeTokenizer
             Console.WriteLine($"missingTokens: {missingTokens}");
 
             // TODO: Add Error tokens
-
-            // TODO: Avoid getting entire parent node here
 
             // All tokens in diff of previous file without context
             var prevCodeChunkBlockStmtTokensList = GetTokensByLineSpan(
@@ -203,7 +203,7 @@ namespace SourceCodeTokenizer
             // -------
             // Get updated file data
 
-            var updatedFile = ApplyParsedDiff(pythonDataItem.ParsedDiff, previousFile);
+            var updatedFile = ApplyParsedDiff(pythonDataItem.ParsedDiff, prevCodeFile);
             var updatedFileAst = CSharpSyntaxTree.ParseText(updatedFile);
             var updatedCodeFile = updatedFileAst.GetText();
 
