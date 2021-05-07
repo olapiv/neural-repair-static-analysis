@@ -165,7 +165,7 @@ namespace SourceCodeTokenizer
                 prevCodeFile,
                 pythonDataItem.RequiredLinesStart,
                 pythonDataItem.RequiredLinesEnd
-            );
+            ).ToList();
             Console.WriteLine($"prevCodeChunkBlockStmtTokensList.Count(): {prevCodeChunkBlockStmtTokensList.Count()}");
 
             // Add context tokens until NUM_INPUT_TOKENS is reached
@@ -185,14 +185,14 @@ namespace SourceCodeTokenizer
                 ){
                     endPosition++;
                     afterToken = allDescendentTokens[endPosition];
-                    prevCodeChunkBlockStmtTokensList.Append(afterToken);
+                    prevCodeChunkBlockStmtTokensList.Add(afterToken);
                 } else if (
                     endPosition == allDescendentTokens.Count() ||
                     missingTokens % 2 == 0
                 ){
                     startPosition--;
                     beforeToken = allDescendentTokens[startPosition];
-                    prevCodeChunkBlockStmtTokensList.Prepend(beforeToken);
+                    prevCodeChunkBlockStmtTokensList.Insert(0, beforeToken);
                 }
 
                 missingTokens--;
@@ -302,7 +302,7 @@ namespace SourceCodeTokenizer
                         if (zeroIndexedVariableNameMap.ContainsKey(wordToken))
                         {
                             var wordTokenIndexed = zeroIndexedVariableNameMap[wordToken];
-                            diag.TokenizedMessage.Append(wordToken);
+                            diag.TokenizedMessage.Add(wordToken);
                         } else
                         {
                             Console.WriteLine($"Weird token! : {wordToken}");
@@ -326,6 +326,7 @@ namespace SourceCodeTokenizer
             {
                 ReplaceAction typedParsedDiff = ((JObject)pythonDataItem.ParsedDiff.Action).ToObject<ReplaceAction>();
                 typedParsedDiff.TokenizedTargetLines = updatedCodeChunkBlockStmtTextTokens;
+                pythonDataItem.ParsedDiff.Action = typedParsedDiff;
             }
             else if (pythonDataItem.ParsedDiff.ActionType == "REMOVE")
             {
@@ -335,6 +336,7 @@ namespace SourceCodeTokenizer
             {
                 AddAction typedParsedDiff = ((JObject)pythonDataItem.ParsedDiff.Action).ToObject<AddAction>();
                 typedParsedDiff.TokenizedTargetLines = updatedCodeChunkBlockStmtTextTokens;
+                pythonDataItem.ParsedDiff.Action = typedParsedDiff;
             }
 
             // TODO: Check that all formatting is tokenized as well

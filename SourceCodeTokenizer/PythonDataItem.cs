@@ -22,11 +22,10 @@ namespace SourceCodeTokenizer
         public string FileContextStart;
         public List<string> FileContext;
 
-        // TODO: Add this in Python
-        public int requiredLinesStart;
-        public int requiredLinesEnd;
+        public int RequiredLinesStart;
+        public int RequiredLinesEnd;
 
-        public List<string> TokenizedFileContext;  // TODO: Fill this
+        public List<string> TokenizedFileContext;  // Fill out in Pipeline
 
         // public PythonDataItem(){}
     }
@@ -36,7 +35,7 @@ namespace SourceCodeTokenizer
         public string Message;
         public int Line;
         public int Character;
-        public List<string> TokenizedMessage;  // TODO: Fill this
+        public List<string> TokenizedMessage;  // Fill out in Pipeline
     }
 
     public class ParsedDiff
@@ -50,14 +49,14 @@ namespace SourceCodeTokenizer
         public int PreviousSourceLocation;
         public int TargetStartLocation;
         public string[] TargetLines;
-        public string[] TokenizedTargetLines;  // TODO: Fill this
+        public string[] TokenizedTargetLines;  // Fill out in Pipeline
     }
 
     public class ReplaceAction
     {
         public int[] SourceLocations;
         public string[] TargetLines;
-        public string[] TokenizedTargetLines;  // TODO: Fill this
+        public string[] TokenizedTargetLines;  // Fill out in Pipeline
     }
 
     public class RemoveAction
