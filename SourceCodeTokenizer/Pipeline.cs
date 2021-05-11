@@ -20,16 +20,18 @@ namespace SourceCodeTokenizer
     class Pipeline
     {
 
-        public static IEnumerable<SyntaxToken> GetTokensByLineSpan(SyntaxNode astNode, SourceText sourceText, int startLine, int endLine)
+        public static IEnumerable<SyntaxToken> GetTokensByLineSpan(SyntaxNode astNode, int startLine, int endLine)
         {
 
             startLine--;
             endLine--;
 
             var tokensInLineSpan = astNode.DescendantTokens().Where(token =>
-                token.GetLocation().GetLineSpan().EndLinePosition.Line == startLine
-                ||
-                token.GetLocation().GetLineSpan().StartLinePosition.Line == endLine
+                (
+                    token.GetLocation().GetLineSpan().EndLinePosition.Line >= startLine
+                    &&
+                    token.GetLocation().GetLineSpan().StartLinePosition.Line <= endLine
+                )
             );
 
             return tokensInLineSpan;
@@ -109,6 +111,29 @@ namespace SourceCodeTokenizer
             return string.Join("\n", previousFileList);
         }
 
+        public static List<String> AddTriviaToTokens(SyntaxToken[] syntaxTokens)
+        {
+            List<String> tokensAndTriviaInLineSpan = new List<String>();
+            foreach (var token in syntaxTokens)
+            {
+                foreach (var leadingTrivia in token.LeadingTrivia)
+                {
+                    tokensAndTriviaInLineSpan.Add(leadingTrivia.Kind().ToString());
+                }
+
+                tokensAndTriviaInLineSpan.Add(token.ToString());
+
+                // Trivia can only be leading or trailing; it is not both leading for
+                // one token and trailing for another
+                foreach (var trailingTrivia in token.TrailingTrivia)
+                {
+                    tokensAndTriviaInLineSpan.Add(trailingTrivia.Kind().ToString());
+                }
+            }
+
+            return tokensAndTriviaInLineSpan;
+        }
+
         public static void ProcessSingleRevision(PythonDataItem pythonDataItem)
         {
 
@@ -150,10 +175,27 @@ namespace SourceCodeTokenizer
 
             // TODO: Add Error tokens
 
+            //Console.WriteLine($"Before GetTokensByLineSpan");
+            //var ii = 0;
+            //foreach (var token in previousFileAst.GetRoot().DescendantTokens())
+            //{
+            //    foreach (var leadingTrivia in token.LeadingTrivia)
+            //    {
+            //        Console.WriteLine($"leadingTrivia: {leadingTrivia.Kind()}");
+            //    }
+            //    Console.WriteLine($"token: {token}");
+            //    foreach (var trailingTrivia in token.TrailingTrivia)
+            //    {
+            //        Console.WriteLine($"trailingTrivia: {trailingTrivia.Kind()}");
+            //    }
+
+            //    ii++;
+            //    if (ii == 30) break;
+            //}
+
             // All tokens in diff of previous file without context
             var prevCodeChunkBlockStmtTokensList = GetTokensByLineSpan(
                 previousFileAst.GetRoot(),
-                prevCodeFile,
                 pythonDataItem.RequiredLinesStart,
                 pythonDataItem.RequiredLinesEnd
             ).ToList();
@@ -193,16 +235,12 @@ namespace SourceCodeTokenizer
 
             var updatedFile = ApplyParsedDiff(pythonDataItem.ParsedDiff, prevCodeFile);
             var updatedFileAst = CSharpSyntaxTree.ParseText(updatedFile);
-            var updatedCodeFile = updatedFileAst.GetText();
 
-            // -------
-
-            var prevFileTokens = previousFileAst.GetRoot().DescendantTokens().ToList();
-            var updatedFileTokens = updatedFileAst.GetRoot().DescendantTokens().ToList();
-            
             // -------
 
             // TODO: Use this to check for useless files (like in original file)
+            var prevFileTokens = previousFileAst.GetRoot().DescendantTokens().ToList();
+            var updatedFileTokens = updatedFileAst.GetRoot().DescendantTokens().ToList();
             var prevTokenIndex = new TokenIndex(prevFileTokens);
             var updatedTokenIndex = new TokenIndex(updatedFileTokens);
 
@@ -231,12 +269,10 @@ namespace SourceCodeTokenizer
             IEnumerable<SyntaxToken> updatedCodeChunkBlockStmtTokensIEnum = Enumerable.Empty<SyntaxToken>();
             if (targetLineStart != -1)  // Otherwise no need to tokenize output at all
             {
-                var updatedTreeText = updatedFileAst.GetText();
                 // var changeSpan = new TextSpan(targetLineStart, targetLineEnd - targetLineStart);
 
                 updatedCodeChunkBlockStmtTokensIEnum = GetTokensByLineSpan(
                     updatedFileAst.GetRoot(),
-                    updatedCodeFile,
                     targetLineStart,
                     targetLineEnd
                 );
@@ -261,17 +297,14 @@ namespace SourceCodeTokenizer
             prevCodeChunkBlockStmtTokens = zeroIndexVariableNames(prevCodeChunkBlockStmtTokens, zeroIndexedVariableNameMap);
 
             // -------
-            // Generate finished list of tokens in the change (without formatting)
+            // Generate finished list of tokens in the change including formatting
 
-            var prevCodeChunkBlockStmtTextTokens =
-                prevCodeChunkBlockStmtTokens.Select(token => token.ValueText).ToArray();
-            var updatedCodeChunkBlockStmtTextTokens =
-                updatedCodeChunkBlockStmtTokens.Select(token => token.ValueText).ToArray();
+            var prevCodeChunkBlockStmtTextTokens = AddTriviaToTokens(prevCodeChunkBlockStmtTokens).ToArray();
+            var updatedCodeChunkBlockStmtTextTokens = AddTriviaToTokens(updatedCodeChunkBlockStmtTokens).ToArray();
 
             // -------
             // Tokenize DiagnosticMessage
 
-            var prevFileTextTokens = prevFileTokens.Select(token => token.ValueText).ToArray();
             foreach (var diag in pythonDataItem.DiagnosticOccurances)
             {
                 diag.TokenizedMessage = new List<string>();
