@@ -3,5 +3,6 @@ venv
 nuget_analyzer_packages
 raw_dataset
 unified_dataset
+tokenized_dataset
 nn
 *.pyc

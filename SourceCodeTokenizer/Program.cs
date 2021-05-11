@@ -34,11 +34,14 @@ namespace SourceCodeTokenizer
 
             string solutionPath = Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.Parent.Parent.FullName;
             string unified_dataset_path = Path.Combine(solutionPath, "unified_dataset");
+            string tokenized_dataset_path = Path.Combine(solutionPath, "tokenized_dataset");
+            Directory.CreateDirectory(tokenized_dataset_path);  // Creates if not exists
+
             Console.WriteLine($"unified_dataset_path: {unified_dataset_path}");
 
             Pipeline.DumpRevisionDataForNeuralTraining(
                 unified_dataset_path,
-                "path-to-grammar_file"
+                tokenized_dataset_path
             );
             
         }

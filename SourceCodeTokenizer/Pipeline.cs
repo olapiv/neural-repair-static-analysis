@@ -175,24 +175,6 @@ namespace SourceCodeTokenizer
 
             // TODO: Add Error tokens
 
-            //Console.WriteLine($"Before GetTokensByLineSpan");
-            //var ii = 0;
-            //foreach (var token in previousFileAst.GetRoot().DescendantTokens())
-            //{
-            //    foreach (var leadingTrivia in token.LeadingTrivia)
-            //    {
-            //        Console.WriteLine($"leadingTrivia: {leadingTrivia.Kind()}");
-            //    }
-            //    Console.WriteLine($"token: {token}");
-            //    foreach (var trailingTrivia in token.TrailingTrivia)
-            //    {
-            //        Console.WriteLine($"trailingTrivia: {trailingTrivia.Kind()}");
-            //    }
-
-            //    ii++;
-            //    if (ii == 30) break;
-            //}
-
             // All tokens in diff of previous file without context
             var prevCodeChunkBlockStmtTokensList = GetTokensByLineSpan(
                 previousFileAst.GetRoot(),
@@ -486,10 +468,8 @@ namespace SourceCodeTokenizer
             return (newSyntaxTokenArray, varNameMap);
         }
 
-        public static void DumpRevisionDataForNeuralTraining(string pythonDataDir, string grammarPath)
+        public static void DumpRevisionDataForNeuralTraining(string pythonDataDir, string newDataDir)
         {
-
-            // var syntaxHelper = new JsonSyntaxTreeHelper(grammarPath);
 
             string[] refinedJSONpaths = Directory.GetFiles(pythonDataDir, "*.json",
                                          SearchOption.TopDirectoryOnly);
@@ -520,14 +500,22 @@ namespace SourceCodeTokenizer
                         catch (Exception e)
                         {
                             Console.WriteLine($"e: {e}");
+                            System.Environment.Exit(1);
                         }
 
-                        // TODO: Write pythonDataItem to file again
-                        var newDataItem = JsonConvert.SerializeObject(pythonDataItem, Formatting.Indented);
-                        Console.WriteLine($"newDataItem: {newDataItem}");
+                        pythonDataItem.RemoveOldData();
+                        var newDataItem = JsonConvert.SerializeObject(
+                            pythonDataItem,
+                            Formatting.Indented,
+                            new JsonSerializerSettings
+                            {
+                                NullValueHandling = NullValueHandling.Ignore
+                            }
+                        );
 
-                        System.Environment.Exit(1);
-                        break;
+                        var newFilename = Path.GetFileName(JSONpath);
+                        var newFilepath = Path.Combine(newDataDir, newFilename);
+                        System.IO.File.WriteAllText(newFilepath, newDataItem);
 
                     }
                 }

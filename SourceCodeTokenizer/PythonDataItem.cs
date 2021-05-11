@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Newtonsoft.Json;
+using Microsoft.CSharp.RuntimeBinder;
 
 
 namespace SourceCodeTokenizer
@@ -28,6 +29,33 @@ namespace SourceCodeTokenizer
         public List<string> TokenizedFileContext;  // Fill out in Pipeline
 
         // public PythonDataItem(){}
+
+        public void RemoveOldData()
+        {
+            foreach (var diagOccurance in this.DiagnosticOccurances)
+            {
+                diagOccurance.Message = null;
+            }
+            try
+            {
+                this.ParsedDiff.Action.TargetLines = null;
+            }
+            catch (RuntimeBinderException)
+            {
+                //  TargetLines not in this.ParsedDiff.Action
+            }
+
+            this.Repo = null;
+            this.RepoURL = null;
+            this.SolutionFile = null;
+            this.FilePath = null;
+            this.Commit = null;
+            this.AnalyzerNuGet = null;
+            this.FileContextStart = null;
+            this.FileContext = null;
+
+            return;
+        }
     }
 
     public class DiagnosticOccurance
