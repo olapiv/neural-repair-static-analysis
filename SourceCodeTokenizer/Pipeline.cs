@@ -68,12 +68,6 @@ namespace SourceCodeTokenizer
             return (startPosition, endPosition);
         }
 
-        public static IEnumerable<ChangeSample> GetChangesBetweenAsts(SyntaxTree previousFileAst, SyntaxTree updatedFileAst)
-        {
-            var changesWithContext = DiffInfo.GetChangesWithContext(previousFileAst, updatedFileAst);
-            return changesWithContext;
-        }
-
         public static string ApplyParsedDiff(ParsedDiff parsedDiff, SourceText previousFile)
         {
 
@@ -342,30 +336,6 @@ namespace SourceCodeTokenizer
             return;
         }
 
-        private static string changeEntryDatumToJsonString(dynamic entry, bool withCommitMessage=false)
-        {
-            var jsonObj = new JObject();
-            jsonObj["Id"] = entry.Id;
-            jsonObj["PrevCodeChunk"] = entry.PrevCodeChunk;
-            jsonObj["UpdatedCodeChunk"] = entry.UpdatedCodeChunk;
-
-            jsonObj["PrevCodeChunkTokens"] = new JArray(entry.PrevCodeChunkTokens);
-            jsonObj["UpdatedCodeChunkTokens"] = new JArray(entry.UpdatedCodeChunkTokens);
-
-            jsonObj["PrevCodeAST"] = entry.PrevCodeAST;
-            jsonObj["UpdatedCodeAST"] = entry.UpdatedCodeAST;
-
-            jsonObj["PrecedingContext"] = new JArray(entry.PrecedingContext);
-            jsonObj["SucceedingContext"] = new JArray(entry.SucceedingContext);
-
-            if (withCommitMessage)
-                jsonObj["CommitMessage"] = entry.CommitMessage;
-
-            var json = JsonConvert.SerializeObject(jsonObj, Formatting.None);
-
-            return json;
-        }
-
         private static (Dictionary<string, string>, SyntaxToken[]) ApplyAndUpdateIndexVariableNames(Dictionary<string, string> varNameMap, IEnumerable<SyntaxToken> syntaxTokenArray)
         {
 
@@ -464,26 +434,6 @@ namespace SourceCodeTokenizer
             }
 
         }
-
-        public static IEnumerable<string> ReadRevisionData(string revisionDataFilePath)
-        {
-            using (var sr = new StreamReader(revisionDataFilePath))
-            {
-                while (!sr.EndOfStream)
-                {
-                    var line = sr.ReadLine();
-
-                    yield return line;
-                }
-            }
-        }
-
-        // Not using this as it for instance also skips EnumDeclaration
-        static readonly HashSet<SyntaxKind> allowedSyntaxKinds = new HashSet<SyntaxKind>()
-        {
-            SyntaxKind.LocalDeclarationStatement,
-            SyntaxKind.ExpressionStatement
-        };
 
         private static readonly HashSet<string> keywords =
             new HashSet<string>() {"VAR0", "int", "long", "string", "float", "LITERAL", "var"};
