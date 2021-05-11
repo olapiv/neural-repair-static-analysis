@@ -171,7 +171,6 @@ namespace SourceCodeTokenizer
                 return;
             }
             var missingTokens = NUM_INPUT_TOKENS - numTokens;
-            Console.WriteLine($"missingTokens: {missingTokens}");
 
             // TODO: Add Error tokens
 
@@ -269,14 +268,10 @@ namespace SourceCodeTokenizer
             updatedCodeChunkBlockStmtTokens.CopyTo(allTokens, 0);
             prevCodeChunkBlockStmtTokens.CopyTo(allTokens, updatedCodeChunkBlockStmtTokens.Length);
 
-            // Creating map of {VAR0: someVarName}
-            IDictionary<string, string> zeroIndexedVariableNameMap;
-            IEnumerable<SyntaxToken> allZeroIndexedTokens = Enumerable.Empty<SyntaxToken>();
-            (allZeroIndexedTokens, zeroIndexedVariableNameMap) =
-                zeroIndexVariableNames(allTokens);
-
-            prevCodeChunkBlockStmtTokens = zeroIndexVariableNames(prevCodeChunkBlockStmtTokens, zeroIndexedVariableNameMap);
-            prevCodeChunkBlockStmtTokens = zeroIndexVariableNames(prevCodeChunkBlockStmtTokens, zeroIndexedVariableNameMap);
+            // Creating map of {someVarName: VAR0}
+            var zeroIndexedVariableNameMap = new Dictionary<string, string>();
+            (zeroIndexedVariableNameMap, allTokens) = ApplyAndUpdateIndexVariableNames(zeroIndexedVariableNameMap, allTokens);
+            (zeroIndexedVariableNameMap, prevCodeChunkBlockStmtTokens) = ApplyAndUpdateIndexVariableNames(zeroIndexedVariableNameMap, prevCodeChunkBlockStmtTokens);
 
             // -------
             // Generate finished list of tokens in the change including formatting
@@ -295,16 +290,20 @@ namespace SourceCodeTokenizer
                     // DiagnosticMessage contains variable name
                     if (wordToken.StartsWith("'") && wordToken.EndsWith("'"))
                     {
-                        wordToken.Remove(0).Remove(wordToken.Length - 1);
+                        var wordTokenCore = wordToken.Remove(0,1);
+                        wordTokenCore = wordTokenCore.Remove(wordTokenCore.Length - 1,1);
+
                         // Could also be that variable name is outside of scope - not worth
                         // indexing those, otherwise we have VAR-1000, etc.
-                        if (zeroIndexedVariableNameMap.ContainsKey(wordToken))
+                        if (zeroIndexedVariableNameMap.ContainsKey(wordTokenCore))
                         {
-                            var wordTokenIndexed = zeroIndexedVariableNameMap[wordToken];
-                            diag.TokenizedMessage.Add(wordToken);
+                            var wordTokenIndexed = zeroIndexedVariableNameMap[wordTokenCore];
+                            diag.TokenizedMessage.Add(wordTokenIndexed);
                         } else
                         {
-                            Console.WriteLine($"Weird token! : {wordToken}");
+                            // Can be difficult to find in map (e.g. 'this[]')
+                            Console.WriteLine($"Weird token! : {wordTokenCore}");
+                            diag.TokenizedMessage.Add($"UNKNOWN: {wordTokenCore}");
                         }
                     }
                     else
@@ -368,104 +367,45 @@ namespace SourceCodeTokenizer
             return json;
         }
 
-        private static SyntaxToken[] zeroIndexVariableNames(
-            IEnumerable<SyntaxToken> tokens, IDictionary<string, string> varNameMap)
+        private static (Dictionary<string, string>, SyntaxToken[]) ApplyAndUpdateIndexVariableNames(Dictionary<string, string> varNameMap, IEnumerable<SyntaxToken> syntaxTokenArray)
         {
-            SyntaxToken generateNewTokenName(SyntaxToken token)
-            {
-                if (token.IsKind(SyntaxKind.IdentifierToken))
-                {
-                    var tokenName = token.ValueText;
-                    if (tokenName.StartsWith("VAR"))
-                    {
-                        string newTokenName;
-                        if (varNameMap.ContainsKey(tokenName))
-                            newTokenName = varNameMap[tokenName];
-                        else
-                        {
-                            newTokenName = "VAR" + varNameMap.Count;
-                            varNameMap[tokenName] = newTokenName;
-                        }
-
-                        return SyntaxFactory.Identifier(newTokenName);
-                    }
-                }
-
-                return token;
-            }
-
-            var renamedTokens = tokens.Select(generateNewTokenName).ToArray();
-
-            return renamedTokens;
-        }
-
-        private static (BlockSyntax, BlockSyntax, IDictionary<string, string>) zeroIndexVariableNames(SyntaxNode prevCodeNode, SyntaxNode updatedCodeNode)
-        {
-            var varNameMap = new Dictionary<string, string>();
-
-            SyntaxToken generateNewTokenName(SyntaxToken token)
-            {
-                if (token.IsKind(SyntaxKind.IdentifierToken))
-                {
-                    var tokenName = token.ValueText;
-                    if (tokenName.StartsWith("VAR"))
-                    {
-                        string newTokenName;
-                        if (varNameMap.ContainsKey(tokenName))
-                            newTokenName = varNameMap[tokenName];
-                        else
-                        {
-                            newTokenName = "VAR" + varNameMap.Count;
-                            varNameMap[tokenName] = newTokenName;
-                        }
-
-                        return SyntaxFactory.Identifier(newTokenName);
-                    }
-                }
-                
-                return token;
-            }
-
-            var newPrevCodeNode = prevCodeNode.ReplaceTokens(prevCodeNode.DescendantTokens(), (token, _) => generateNewTokenName(token));
-            var newUpdatedCodeNode = updatedCodeNode.ReplaceTokens(updatedCodeNode.DescendantTokens(), (token, _) => generateNewTokenName(token));
-
-            return ((BlockSyntax)newPrevCodeNode, (BlockSyntax)newUpdatedCodeNode, varNameMap);
-        }
-
-        private static (IEnumerable<SyntaxToken>, IDictionary<string, string>) zeroIndexVariableNames(IEnumerable<SyntaxToken> syntaxTokenArray)
-        {
-            var varNameMap = new Dictionary<string, string>();
-
-            SyntaxToken generateNewTokenName(SyntaxToken token)
-            {
-                if (token.IsKind(SyntaxKind.IdentifierToken))
-                {
-                    var tokenName = token.ValueText;
-                    if (tokenName.StartsWith("VAR"))
-                    {
-                        string newTokenName;
-                        if (varNameMap.ContainsKey(tokenName))
-                            newTokenName = varNameMap[tokenName];
-                        else
-                        {
-                            newTokenName = "VAR" + varNameMap.Count;
-                            varNameMap[tokenName] = newTokenName;
-                        }
-
-                        return SyntaxFactory.Identifier(newTokenName);
-                    }
-                }
-
-                return token;
-            }
 
             IEnumerable<SyntaxToken> newSyntaxTokenArray = Enumerable.Empty<SyntaxToken>();
-            foreach (var syntaxToken in syntaxTokenArray)
+            foreach (var originalSyntaxToken in syntaxTokenArray)
             {
-                newSyntaxTokenArray.Append(generateNewTokenName(syntaxToken));
+
+                if (!originalSyntaxToken.IsKind(SyntaxKind.IdentifierToken))
+                {
+                    newSyntaxTokenArray.Append(originalSyntaxToken);
+                    continue;
+                }
+
+                var tokenName = originalSyntaxToken.ValueText;
+
+                if (tokenName.StartsWith("VAR"))
+                {
+                    // Already have indexed this token (should not happen)
+                    newSyntaxTokenArray.Append(originalSyntaxToken);
+                    continue;
+                }
+
+                string newTokenName;
+                if (varNameMap.ContainsKey(tokenName))
+                {
+                    // Already have this saved in dict
+                    newTokenName = varNameMap[tokenName];
+                }
+                else
+                {
+                    newTokenName = "VAR" + varNameMap.Count;
+                    varNameMap[tokenName] = newTokenName;
+                }
+
+                newSyntaxTokenArray.Append(SyntaxFactory.Identifier(newTokenName));           
+                
             }
 
-            return (newSyntaxTokenArray, varNameMap);
+            return (varNameMap, newSyntaxTokenArray.ToArray());
         }
 
         public static void DumpRevisionDataForNeuralTraining(string pythonDataDir, string newDataDir)

@@ -28,8 +28,6 @@ namespace SourceCodeTokenizer
 
         public List<string> TokenizedFileContext;  // Fill out in Pipeline
 
-        // public PythonDataItem(){}
-
         public void RemoveOldData()
         {
             foreach (var diagOccurance in this.DiagnosticOccurances)
