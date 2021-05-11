@@ -337,7 +337,6 @@ namespace SourceCodeTokenizer
                 pythonDataItem.ParsedDiff.Action = typedParsedDiff;
             }
 
-            // TODO: Check that all formatting is tokenized as well
             pythonDataItem.TokenizedFileContext = prevCodeChunkBlockStmtTextTokens.ToList();
 
             return;
@@ -370,13 +369,13 @@ namespace SourceCodeTokenizer
         private static (Dictionary<string, string>, SyntaxToken[]) ApplyAndUpdateIndexVariableNames(Dictionary<string, string> varNameMap, IEnumerable<SyntaxToken> syntaxTokenArray)
         {
 
-            IEnumerable<SyntaxToken> newSyntaxTokenArray = Enumerable.Empty<SyntaxToken>();
+            List<SyntaxToken> newSyntaxTokenArray = new List<SyntaxToken>();
             foreach (var originalSyntaxToken in syntaxTokenArray)
             {
 
                 if (!originalSyntaxToken.IsKind(SyntaxKind.IdentifierToken))
                 {
-                    newSyntaxTokenArray.Append(originalSyntaxToken);
+                    newSyntaxTokenArray.Add(originalSyntaxToken);
                     continue;
                 }
 
@@ -385,7 +384,7 @@ namespace SourceCodeTokenizer
                 if (tokenName.StartsWith("VAR"))
                 {
                     // Already have indexed this token (should not happen)
-                    newSyntaxTokenArray.Append(originalSyntaxToken);
+                    newSyntaxTokenArray.Add(originalSyntaxToken);
                     continue;
                 }
 
@@ -401,7 +400,7 @@ namespace SourceCodeTokenizer
                     varNameMap[tokenName] = newTokenName;
                 }
 
-                newSyntaxTokenArray.Append(SyntaxFactory.Identifier(newTokenName));           
+                newSyntaxTokenArray.Add(SyntaxFactory.Identifier(newTokenName));           
                 
             }
 
