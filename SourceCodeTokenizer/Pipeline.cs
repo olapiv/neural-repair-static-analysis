@@ -37,34 +37,82 @@ namespace SourceCodeTokenizer
             return tokensInLineSpan;
         }
 
-        public static (int, int) GetTokenRangeByLineSpan(SyntaxNode astNode, SourceText sourceText, int startLine, int endLine)
+        public static IEnumerable<String> GetTriviaByLineSpan(SyntaxNode astNode, int startLine, int endLine)
         {
+            startLine--;
+            endLine--;
+
+            var triviaInLineSpan = astNode.DescendantTrivia().Where(trivia =>
+                (
+                    trivia.GetLocation().GetLineSpan().EndLinePosition.Line >= startLine
+                    &&
+                    trivia.GetLocation().GetLineSpan().StartLinePosition.Line <= endLine
+                )
+            ).Select(trivia => trivia.Kind().ToString());
+            return triviaInLineSpan;
+        }
+
+
+        public static (int, int) GetTokenRangeByLineSpan(SyntaxNode astNode, int startLine, int endLine)
+            {
 
             startLine--;
             endLine--;
 
-            var firstDescendentToken = astNode.DescendantTokens().Where(token =>
-                token.GetLocation().GetLineSpan().EndLinePosition.Line == startLine
-            ).First();
-
-            var lastDescendentToken = astNode.DescendantTokens().Where(token =>
-                token.GetLocation().GetLineSpan().StartLinePosition.Line == endLine
-            ).Last();
-
             var allDescendentTokens = astNode.DescendantTokens().ToList();
 
             var startPosition = -1;
-            var endPosition = -1;
-            foreach (var token in allDescendentTokens.Select((value, i) => new { i, value }))
+            while (startPosition == -1)
             {
-                if (token.value == firstDescendentToken)
+
+                var startLineTokenList = astNode.DescendantTokens().Where(token =>
+                    token.GetLocation().GetLineSpan().EndLinePosition.Line == startLine
+                );
+
+                if (startLineTokenList.Count() == 0)
                 {
-                    startPosition = token.i;
-                } else if (token.value == lastDescendentToken)
+                    startLine--;
+                    continue;
+                }
+
+                var firstDescendentToken = startLineTokenList.First();
+
+                foreach (var token in allDescendentTokens.Select((value, i) => new { i, value }))
                 {
-                    endPosition = token.i;
+                    if (token.value == firstDescendentToken)
+                    {
+                        startPosition = token.i;
+                        break;
+                    }
                 }
             }
+
+            var endPosition = -1;
+            while (endPosition == -1)
+            {
+
+                var endLineTokenList = astNode.DescendantTokens().Where(token =>
+                    token.GetLocation().GetLineSpan().StartLinePosition.Line == endLine
+                );
+
+                if (endLineTokenList.Count() == 0)
+                {
+                    endLine++;
+                    continue;
+                }
+
+                var lastDescendentToken = endLineTokenList.Last();
+
+                foreach (var token in allDescendentTokens.Select((value, i) => new { i, value }))
+                {
+                    if (token.value == lastDescendentToken)
+                    {
+                        endPosition = token.i;
+                        break;
+                    }
+                }
+            }
+
             return (startPosition, endPosition);
         }
 
@@ -152,7 +200,6 @@ namespace SourceCodeTokenizer
 
             var (startPosition, endPosition) = GetTokenRangeByLineSpan(
                 previousFileAst.GetRoot(),
-                prevCodeFile,
                 pythonDataItem.RequiredLinesStart,
                 pythonDataItem.RequiredLinesEnd
             );
@@ -242,16 +289,27 @@ namespace SourceCodeTokenizer
             }
 
             IEnumerable<SyntaxToken> updatedCodeChunkBlockStmtTokensIEnum = Enumerable.Empty<SyntaxToken>();
-            if (targetLineStart != -1)  // Otherwise no need to tokenize output at all
-            {
-                // var changeSpan = new TextSpan(targetLineStart, targetLineEnd - targetLineStart);
 
+            // No output with "REMOVE"
+            if ((pythonDataItem.ParsedDiff.ActionType == "REPLACE") || (pythonDataItem.ParsedDiff.ActionType == "ADD"))
+            {
+
+                if ((targetLineStart == -1) || (targetLineEnd == -1))
+                {
+                    Console.WriteLine($"Error parsing target");
+                    Console.WriteLine($"targetLineStart: {targetLineStart}");
+                    Console.WriteLine($"targetLineEnd: { targetLineEnd}");
+                    System.Environment.Exit(1);
+                }
+
+                // var changeSpan = new TextSpan(targetLineStart, targetLineEnd - targetLineStart);
                 updatedCodeChunkBlockStmtTokensIEnum = GetTokensByLineSpan(
                     updatedFileAst.GetRoot(),
                     targetLineStart,
                     targetLineEnd
                 );
             }
+
             var updatedCodeChunkBlockStmtTokens = updatedCodeChunkBlockStmtTokensIEnum.ToArray();
 
             // -------
@@ -266,12 +324,27 @@ namespace SourceCodeTokenizer
             var zeroIndexedVariableNameMap = new Dictionary<string, string>();
             (zeroIndexedVariableNameMap, allTokens) = ApplyAndUpdateIndexVariableNames(zeroIndexedVariableNameMap, allTokens);
             (zeroIndexedVariableNameMap, prevCodeChunkBlockStmtTokens) = ApplyAndUpdateIndexVariableNames(zeroIndexedVariableNameMap, prevCodeChunkBlockStmtTokens);
+            (zeroIndexedVariableNameMap, updatedCodeChunkBlockStmtTokens) = ApplyAndUpdateIndexVariableNames(zeroIndexedVariableNameMap, updatedCodeChunkBlockStmtTokens);
 
             // -------
             // Generate finished list of tokens in the change including formatting
+            // Does not work though if only trivia in span (no tokens); See next section for fix.
 
             var prevCodeChunkBlockStmtTextTokens = AddTriviaToTokens(prevCodeChunkBlockStmtTokens).ToArray();
             var updatedCodeChunkBlockStmtTextTokens = AddTriviaToTokens(updatedCodeChunkBlockStmtTokens).ToArray();
+
+            // -------
+            // In case that all added lines for ADD/REPLACE are trivia; In this case,
+            // there is no token to get Leading/Trailing Trivia from
+
+            if (updatedCodeChunkBlockStmtTextTokens.Count() == 0)
+            {
+                updatedCodeChunkBlockStmtTextTokens = GetTriviaByLineSpan(
+                    updatedFileAst.GetRoot(),
+                    targetLineStart,
+                    targetLineEnd
+                ).ToArray();
+            }
 
             // -------
             // Tokenize DiagnosticMessage
