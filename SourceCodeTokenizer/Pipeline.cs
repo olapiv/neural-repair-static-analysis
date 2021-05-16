@@ -441,9 +441,19 @@ namespace SourceCodeTokenizer
                 {
                     newTokenName = "VAR" + varNameMap.Count;
                     varNameMap[tokenName] = newTokenName;
-                }
 
-                newSyntaxTokenArray.Add(SyntaxFactory.Identifier(newTokenName));           
+                    //Console.WriteLine($"" +
+                    //    $"New zero-index var; " +
+                    //    $"tokenName: {tokenName}; " +
+                    //    $"Kind: {originalSyntaxToken.Kind()}"
+                    //);
+
+                }
+                var newIdentifier = SyntaxFactory.Identifier(newTokenName);
+                newIdentifier = newIdentifier.WithLeadingTrivia(originalSyntaxToken.LeadingTrivia);
+                newIdentifier = newIdentifier.WithTrailingTrivia(originalSyntaxToken.TrailingTrivia);
+
+                newSyntaxTokenArray.Add(newIdentifier);           
                 
             }
 
