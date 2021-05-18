@@ -37,19 +37,64 @@ namespace SourceCodeTokenizer
             return tokensInLineSpan;
         }
 
+        public static List<SyntaxTrivia> FlattenDescendentTrivia(List<SyntaxTrivia> triviaList, SyntaxTrivia trivia)
+        {
+            if (trivia.HasStructure)
+            {
+                var descTrivia = trivia.GetStructure().DescendantTrivia();
+                if (descTrivia.Count() == 0)
+                {
+                    triviaList.Add(trivia);
+                }
+                else
+                {
+                    foreach (var triviaInStruct in descTrivia)
+                    {
+                        triviaList = FlattenDescendentTrivia(triviaList, triviaInStruct);
+                    }
+                }
+            } else
+            {
+                triviaList.Add(trivia);
+            }
+            return triviaList;
+        }
+
         public static IEnumerable<String> GetTriviaByLineSpan(SyntaxNode astNode, int startLine, int endLine)
         {
             startLine--;
             endLine--;
 
-            var triviaInLineSpan = astNode.DescendantTrivia().Where(trivia =>
-                (
-                    trivia.GetLocation().GetLineSpan().EndLinePosition.Line >= startLine
-                    &&
-                    trivia.GetLocation().GetLineSpan().StartLinePosition.Line <= endLine
-                )
-            ).Select(trivia => trivia.Kind().ToString());
-            return triviaInLineSpan;
+            Console.WriteLine($"astNode.DescendantTrivia().Count(): {astNode.DescendantTrivia().Count()}");
+            var allDescendentTrivia = new List<SyntaxTrivia>();
+            foreach (var descTrivia in astNode.DescendantTrivia())
+            {
+
+                // Example structInStruct: SingleLineCommentTrivia
+                // Also:
+                //  BadDirectiveTrivia -> WhitespaceTrivia, SkippedTokensTrivia
+                //      SkippedTokensTrivia -> WhitespaceTrivia, SingleLineCommentTrivia, EndOfLineTrivia
+
+                FlattenDescendentTrivia(allDescendentTrivia, descTrivia);
+            }
+            Console.WriteLine($"allDescendentTrivia.Count(): {allDescendentTrivia.Count()}");
+            
+
+            var triviaInLineSpan = allDescendentTrivia.Where(trivia =>
+                {
+                    var lineSpan = trivia.GetLocation().GetLineSpan();
+                    return (
+                        lineSpan.StartLinePosition.Line >= startLine
+                            &&
+                        lineSpan.StartLinePosition.Line <= endLine
+                    );
+                }
+            );
+
+            // TODO: Get trivia.Content if SingleLineDocumentationCommentTrivia
+
+            return triviaInLineSpan.Select(trivia => trivia.Kind().ToString());
+
         }
 
 
@@ -120,6 +165,7 @@ namespace SourceCodeTokenizer
         {
 
             var previousFileList = previousFile.Lines.Select(x => x.ToString()).ToList();
+
             if (parsedDiff.ActionType == "REPLACE")
             {
                 ReplaceAction typedParsedDiff = ((JObject)parsedDiff.Action).ToObject<ReplaceAction>();
@@ -131,7 +177,8 @@ namespace SourceCodeTokenizer
                 var startingIndex = typedParsedDiff.SourceLocations.First() - 1;
                 foreach (var item in typedParsedDiff.TargetLines.Select((value, i) => new { i, value }))
                 {
-                    previousFileList.Insert(startingIndex + item.i, item.value);
+                    var inputText = item.value.Substring(0, item.value.LastIndexOf("\n"));
+                    previousFileList.Insert(startingIndex + item.i, inputText);
                 }
 
             }
@@ -147,7 +194,8 @@ namespace SourceCodeTokenizer
                 var indexStart = typedParsedDiff.PreviousSourceLocation; // No -1 since *previous* sourceLocation
                 foreach (var item in typedParsedDiff.TargetLines.Select((value, i) => new { i, value }))
                 {
-                    previousFileList.Insert(indexStart + item.i, item.value);
+                    var inputText = item.value.Substring(0, item.value.LastIndexOf("\n"));
+                    previousFileList.Insert(indexStart + item.i, inputText);
                 }
             }
             return string.Join("\n", previousFileList);
@@ -285,7 +333,7 @@ namespace SourceCodeTokenizer
             {
                 AddAction typedParsedDiff = ((JObject)pythonDataItem.ParsedDiff.Action).ToObject<AddAction>();
                 targetLineStart = typedParsedDiff.PreviousSourceLocation + 1;
-                targetLineEnd = targetLineStart + typedParsedDiff.TargetLines.Count();
+                targetLineEnd = targetLineStart + typedParsedDiff.TargetLines.Count() - 1;
             }
 
             IEnumerable<SyntaxToken> updatedCodeChunkBlockStmtTokensIEnum = Enumerable.Empty<SyntaxToken>();
@@ -308,6 +356,7 @@ namespace SourceCodeTokenizer
                     targetLineStart,
                     targetLineEnd
                 );
+
             }
 
             var updatedCodeChunkBlockStmtTokens = updatedCodeChunkBlockStmtTokensIEnum.ToArray();
@@ -337,13 +386,16 @@ namespace SourceCodeTokenizer
             // In case that all added lines for ADD/REPLACE are trivia; In this case,
             // there is no token to get Leading/Trailing Trivia from
 
-            if (updatedCodeChunkBlockStmtTextTokens.Count() == 0)
+            if ((pythonDataItem.ParsedDiff.ActionType == "REPLACE") || (pythonDataItem.ParsedDiff.ActionType == "ADD"))
             {
-                updatedCodeChunkBlockStmtTextTokens = GetTriviaByLineSpan(
-                    updatedFileAst.GetRoot(),
-                    targetLineStart,
-                    targetLineEnd
-                ).ToArray();
+                if (updatedCodeChunkBlockStmtTextTokens.Count() == 0)
+                {
+                    updatedCodeChunkBlockStmtTextTokens = GetTriviaByLineSpan(
+                        updatedFileAst.GetRoot(),
+                        targetLineStart,
+                        targetLineEnd
+                    ).ToArray();
+                }
             }
 
             // -------
@@ -476,6 +528,9 @@ namespace SourceCodeTokenizer
 
                     using (StreamReader sr = new StreamReader(JSONpath))
                     {
+
+                        Console.WriteLine($"JSONpath: {JSONpath}");
+
                         string json = sr.ReadToEnd();
                         PythonDataItem pythonDataItem = JsonConvert.DeserializeObject<PythonDataItem>(json);
 
