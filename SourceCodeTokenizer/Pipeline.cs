@@ -39,6 +39,14 @@ namespace SourceCodeTokenizer
 
         public static List<SyntaxTrivia> FlattenDescendentTrivia(List<SyntaxTrivia> triviaList, SyntaxTrivia trivia)
         {
+
+            // Example structInStruct: SingleLineCommentTrivia
+            // Example 2:
+            //  BadDirectiveTrivia -> WhitespaceTrivia, SkippedTokensTrivia
+            //      SkippedTokensTrivia -> WhitespaceTrivia, SingleLineCommentTrivia, EndOfLineTrivia
+            // Example 3:
+            // SingleLineDocumentationCommentTrivia --> 3x DocumentationCommentExteriorTrivia
+
             if (trivia.HasStructure)
             {
                 var descTrivia = trivia.GetStructure().DescendantTrivia();
@@ -65,21 +73,12 @@ namespace SourceCodeTokenizer
             startLine--;
             endLine--;
 
-            Console.WriteLine($"astNode.DescendantTrivia().Count(): {astNode.DescendantTrivia().Count()}");
             var allDescendentTrivia = new List<SyntaxTrivia>();
             foreach (var descTrivia in astNode.DescendantTrivia())
             {
-
-                // Example structInStruct: SingleLineCommentTrivia
-                // Also:
-                //  BadDirectiveTrivia -> WhitespaceTrivia, SkippedTokensTrivia
-                //      SkippedTokensTrivia -> WhitespaceTrivia, SingleLineCommentTrivia, EndOfLineTrivia
-
                 FlattenDescendentTrivia(allDescendentTrivia, descTrivia);
             }
-            Console.WriteLine($"allDescendentTrivia.Count(): {allDescendentTrivia.Count()}");
             
-
             var triviaInLineSpan = allDescendentTrivia.Where(trivia =>
                 {
                     var lineSpan = trivia.GetLocation().GetLineSpan();
@@ -91,10 +90,62 @@ namespace SourceCodeTokenizer
                 }
             );
 
+            // ---------            
+
+            // For debugging purposes:
+            var numLines = triviaInLineSpan.Where(trivia =>
+                trivia.Kind().ToString() == "EndOfLineTrivia"
+            ).Count();
+
+            if (numLines != (endLine - startLine + 1))
+            {
+
+                Console.WriteLine($"numLines not equal to line difference!");
+
+                foreach (var trivia in triviaInLineSpan)
+                {
+                    Console.WriteLine($"-----");
+                    Console.WriteLine($"trivia.Kind(): {trivia.Kind()}");
+                    Console.WriteLine($"trivia.StartLinePosition.Line: {trivia.GetLocation().GetLineSpan().StartLinePosition.Line}");
+                    Console.WriteLine($"trivia.EndLinePosition.Line: {trivia.GetLocation().GetLineSpan().EndLinePosition.Line}");
+
+                    if (trivia.Kind().ToString() == "SingleLineDocumentationCommentTrivia")
+                    {
+                        Console.WriteLine($"trivia.GetHashCode(): {trivia.GetHashCode()}");
+                        Console.WriteLine($"trivia.ToFullString(): {trivia.ToFullString()}");
+                        Console.WriteLine($"trivia.GetType(): {trivia.GetType()}");
+                        Console.WriteLine($"trivia.RawKind: {trivia.RawKind}");
+                    }
+                }
+
+            }
+            Console.WriteLine($"----------");
+
+            // ---------
+
             // TODO: Get trivia.Content if SingleLineDocumentationCommentTrivia
+            // Problem here - have to manually deal with line breaks, etc again
+
+            //var expandedTrivia = new List<String>();
+            //foreach(var trivia in triviaInLineSpan)
+            //{
+            //    if (trivia.Kind().ToString() == "SingleLineDocumentationCommentTrivia")
+            //    {
+                    
+            //        foreach (var splitWordToken in trivia.ToFullString().Split(" "))
+            //        {
+            //            if (splitWordToken != "")
+            //                expandedTrivia.Add(splitWordToken.ToLower());
+            //        }
+
+            //    } else
+            //    {
+            //        expandedTrivia.Add(trivia.Kind().ToString());
+            //    }
+            //}
+            //return expandedTrivia;
 
             return triviaInLineSpan.Select(trivia => trivia.Kind().ToString());
-
         }
 
 
@@ -181,6 +232,14 @@ namespace SourceCodeTokenizer
                     previousFileList.Insert(startingIndex + item.i, inputText);
                 }
 
+                // TODO: Delete this; for debugging
+                foreach (var item in typedParsedDiff.TargetLines.Select((value, i) => new { i, value }))
+                {
+                    Console.WriteLine($"previousFileList[{startingIndex + item.i}]: {previousFileList[startingIndex + item.i]}");
+                }
+                var nextLineIndex = startingIndex + typedParsedDiff.TargetLines.Count();
+                Console.WriteLine($"previousFileList[{nextLineIndex}]: {previousFileList[nextLineIndex]}");
+
             }
             else if (parsedDiff.ActionType == "REMOVE")
             {
@@ -197,6 +256,15 @@ namespace SourceCodeTokenizer
                     var inputText = item.value.Substring(0, item.value.LastIndexOf("\n"));
                     previousFileList.Insert(indexStart + item.i, inputText);
                 }
+
+                // TODO: Delete this; for debugging
+                foreach (var item in typedParsedDiff.TargetLines.Select((value, i) => new { i, value }))
+                {
+                    Console.WriteLine($"previousFileList[{indexStart + item.i}]: {previousFileList[indexStart + item.i]}");
+                }
+                var nextLineIndex = indexStart + typedParsedDiff.TargetLines.Count();
+                Console.WriteLine($"previousFileList[{nextLineIndex}]: {previousFileList[nextLineIndex]}");
+
             }
             return string.Join("\n", previousFileList);
         }
@@ -390,6 +458,8 @@ namespace SourceCodeTokenizer
             {
                 if (updatedCodeChunkBlockStmtTextTokens.Count() == 0)
                 {
+                    Console.WriteLine($"Empty updatedCodeChunkBlockStmtTextTokens! Adding trivia without tokens then.");
+
                     updatedCodeChunkBlockStmtTextTokens = GetTriviaByLineSpan(
                         updatedFileAst.GetRoot(),
                         targetLineStart,
