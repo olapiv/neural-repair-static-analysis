@@ -24,11 +24,13 @@ namespace SourceCodeTokenizer
         public string outputPath;
         public PythonDataItem pythonDataItem;
         public string diffActionType;
+        public SyntaxTree prevFileAst;
 
         // Creating map of {someVarName: VAR0}
         public Dictionary<string, string> zeroIndexedVariableNameMap = new Dictionary<string, string>();
         public int targetLineStart = -1;
         public int targetLineEnd = -1;
+        public const int NUM_INPUT_TOKENS = 50;
 
         public Pipeline(string inputPath, string outputPath)
         {
@@ -43,6 +45,13 @@ namespace SourceCodeTokenizer
 
             // For convenience
             this.diffActionType = this.pythonDataItem.ParsedDiff.ActionType;
+
+            string solutionPath = Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.Parent.Parent.FullName;
+            string pathToFile = string.Format("{0}/submodule_repos_to_analyze/{1}/{2}", solutionPath, this.pythonDataItem.Repo, this.pythonDataItem.FilePath);
+            using (StreamReader sr = new StreamReader(pathToFile))
+            {
+                this.prevFileAst = CSharpSyntaxTree.ParseText(sr.ReadToEnd());
+            }
 
             this.CalculateTargetLineRange();
         }
@@ -70,6 +79,7 @@ namespace SourceCodeTokenizer
             }
         }
 
+        // TODO: Refactor this (too many functionalities)
         public static (String[], int) AddTriviaToTokens(SyntaxToken[] syntaxTokens)
         {
             var firstLine = 1000000000;
@@ -194,67 +204,50 @@ namespace SourceCodeTokenizer
         private void ProcessDiff()
         {
 
-            const int NUM_INPUT_TOKENS = 50;
+            // Tokenize source side of diff with file context
 
-            string solutionPath = Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.Parent.Parent.FullName;
-            string pathToFile = string.Format("{0}/submodule_repos_to_analyze/{1}/{2}", solutionPath, this.pythonDataItem.Repo, this.pythonDataItem.FilePath);
-            Console.WriteLine($"pathToFile: {pathToFile}");
-            string previousFile;
-
-            using (StreamReader sr = new StreamReader(pathToFile))
-            {
-                previousFile = sr.ReadToEnd();
-            }
-
-            var previousFileAst = CSharpSyntaxTree.ParseText(previousFile);
-            var prevCodeFile = previousFileAst.GetText();
-
-            // -------
-
-            // Merge source side of diff with context in same list of tokens;
-
-            var (startPosition, endPosition) = Utils.GetTokenRangeByLineSpan(
-                previousFileAst.GetRoot(),
+            var (startTokenIndex, endTokenIndex) = Utils.GetTokenRangeByLineSpan(
+                this.prevFileAst.GetRoot(),
                 (int)this.pythonDataItem.RequiredLinesStart,
                 (int)this.pythonDataItem.RequiredLinesEnd
             );
 
-            var numTokens = (endPosition - startPosition) + 1;
-            if (numTokens > NUM_INPUT_TOKENS)
+            var numTokens = (endTokenIndex - startTokenIndex) + 1;
+            if (numTokens > Pipeline.NUM_INPUT_TOKENS)
             {
                 throw new Exception($"Diff is too large; numTokens: {numTokens}");
             }
-            var missingTokens = NUM_INPUT_TOKENS - numTokens;
+            var missingTokens = Pipeline.NUM_INPUT_TOKENS - numTokens;
 
             // TODO: Add Error tokens
 
             // All tokens in diff of previous file without context
             var prevCodeChunkBlockStmtTokensList = Utils.GetTokensByLineSpan(
-                previousFileAst.GetRoot(),
+                this.prevFileAst.GetRoot(),
                 (int)this.pythonDataItem.RequiredLinesStart,
                 (int)this.pythonDataItem.RequiredLinesEnd
             ).ToList();
 
-            var allDescendentTokens = previousFileAst.GetRoot().DescendantTokens().ToList();
+            var allDescendentTokens = this.prevFileAst.GetRoot().DescendantTokens().ToList();
 
             prevCodeChunkBlockStmtTokensList = Utils.AddContextTokensToListOfTokens(
                 prevCodeChunkBlockStmtTokensList,
                 allDescendentTokens,
-                startPosition,
-                endPosition,
+                startTokenIndex,
+                endTokenIndex,
                 missingTokens
             );
 
             // -------
             // Get updated file data
 
-            var updatedFile = Utils.ApplyParsedDiff(this.pythonDataItem.ParsedDiff, prevCodeFile);
+            var updatedFile = Utils.ApplyParsedDiff(this.pythonDataItem.ParsedDiff, this.prevFileAst.GetText());
             var updatedFileAst = CSharpSyntaxTree.ParseText(updatedFile);
 
             // -------
 
             // TODO: Use this to check for useless files (like in original file)
-            var prevFileTokens = previousFileAst.GetRoot().DescendantTokens().ToList();
+            var prevFileTokens = this.prevFileAst.GetRoot().DescendantTokens().ToList();
             var updatedFileTokens = updatedFileAst.GetRoot().DescendantTokens().ToList();
             var prevTokenIndex = new TokenIndex(prevFileTokens);
             var updatedTokenIndex = new TokenIndex(updatedFileTokens);
