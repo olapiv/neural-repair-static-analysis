@@ -389,8 +389,8 @@ namespace SourceCodeTokenizer
 
             var (startPosition, endPosition) = GetTokenRangeByLineSpan(
                 previousFileAst.GetRoot(),
-                this.pythonDataItem.RequiredLinesStart,
-                this.pythonDataItem.RequiredLinesEnd
+                (int)this.pythonDataItem.RequiredLinesStart,
+                (int)this.pythonDataItem.RequiredLinesEnd
             );
 
             var numTokens = (endPosition - startPosition) + 1;
@@ -407,8 +407,8 @@ namespace SourceCodeTokenizer
             // All tokens in diff of previous file without context
             var prevCodeChunkBlockStmtTokensList = GetTokensByLineSpan(
                 previousFileAst.GetRoot(),
-                this.pythonDataItem.RequiredLinesStart,
-                this.pythonDataItem.RequiredLinesEnd
+                (int)this.pythonDataItem.RequiredLinesStart,
+                (int)this.pythonDataItem.RequiredLinesEnd
             ).ToList();
 
             // Add context tokens until NUM_INPUT_TOKENS is reached
