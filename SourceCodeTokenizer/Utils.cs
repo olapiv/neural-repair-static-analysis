@@ -285,7 +285,7 @@ namespace SourceCodeTokenizer
                 missingTokens--;
             }
 
-            return missingTokens;
+            return coreTokenList;
         }
 
 
