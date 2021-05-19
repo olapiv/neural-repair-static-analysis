@@ -166,6 +166,7 @@ namespace SourceCodeTokenizer
         public static IEnumerable<SyntaxToken> GetTokensByLineSpan(SyntaxNode astNode, int startLine, int endLine)
         {
 
+            // Diff starts at index 1
             startLine--;
             endLine--;
 
@@ -183,6 +184,7 @@ namespace SourceCodeTokenizer
         public static (int, int) GetTokenRangeByLineSpan(SyntaxNode astNode, int startLine, int endLine)
         {
 
+            // Diff starts at index 1
             startLine--;
             endLine--;
 
