@@ -20,7 +20,7 @@ namespace SourceCodeTokenizer
         public string Severity;
         public List<DiagnosticOccurance> DiagnosticOccurances;
         public ParsedDiff ParsedDiff;
-        public string FileContextStart;
+        public int FileContextStart;
         public List<string> FileContext;
 
         public int RequiredLinesStart;
@@ -32,15 +32,11 @@ namespace SourceCodeTokenizer
         {
             foreach (var diagOccurance in this.DiagnosticOccurances)
             {
-                diagOccurance.Message = null;
+                // diagOccurance.Message = null;
             }
-            try
+            if (this.ParsedDiff.ActionType != "REMOVE")
             {
-                this.ParsedDiff.Action.TargetLines = null;
-            }
-            catch (RuntimeBinderException)
-            {
-                //  TargetLines not in this.ParsedDiff.Action
+                // this.ParsedDiff.Action.TargetLines = null;
             }
 
             this.Repo = null;
@@ -49,8 +45,8 @@ namespace SourceCodeTokenizer
             this.FilePath = null;
             this.Commit = null;
             this.AnalyzerNuGet = null;
-            this.FileContextStart = null;
-            this.FileContext = null;
+            this.FileContextStart = -1;
+            // this.FileContext = null;
 
             return;
         }
@@ -59,7 +55,7 @@ namespace SourceCodeTokenizer
     public class DiagnosticOccurance
     {
         public string Message;
-        public int Line;
+        public int Line;  // Subtract offset in Pipeline (?)
         public int Character;
         public List<string> TokenizedMessage;  // Fill out in Pipeline
     }
@@ -72,7 +68,7 @@ namespace SourceCodeTokenizer
 
     public class AddAction
     {
-        public int PreviousSourceLocation;
+        public int PreviousSourceLocation;  // Subtract offset in Pipeline
         public int TargetStartLocation;
         public string[] TargetLines;
         public string[] TokenizedTargetLines;  // Fill out in Pipeline
@@ -80,15 +76,15 @@ namespace SourceCodeTokenizer
 
     public class ReplaceAction
     {
-        public int[] SourceLocations;
+        public int[] SourceLocations;  // Subtract offset in Pipeline
         public string[] TargetLines;
         public string[] TokenizedTargetLines;  // Fill out in Pipeline
     }
 
     public class RemoveAction
     {
-        public int SourceLocationStart;
-        public int SourceLocationEnd;
+        public int SourceLocationStart;  // Subtract offset in Pipeline
+        public int SourceLocationEnd;  // Subtract offset in Pipeline
     }
 
     //public class TokenizedDataItem : PythonDataItem

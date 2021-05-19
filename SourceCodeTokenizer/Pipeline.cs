@@ -269,17 +269,23 @@ namespace SourceCodeTokenizer
             return string.Join("\n", previousFileList);
         }
 
-        public static List<String> AddTriviaToTokens(SyntaxToken[] syntaxTokens)
+        public static (String[], int) AddTriviaToTokens(SyntaxToken[] syntaxTokens)
         {
+            var firstLine = 1000000000;
+            int triviaOrTokenLine;
             List<String> tokensAndTriviaInLineSpan = new List<String>();
             foreach (var token in syntaxTokens)
             {
                 foreach (var leadingTrivia in token.LeadingTrivia)
-                {
                     tokensAndTriviaInLineSpan.Add(leadingTrivia.Kind().ToString());
-                }
 
                 tokensAndTriviaInLineSpan.Add(token.ToString());
+
+                // This is a problem if variable has been zero-indexed (position is 0)
+                triviaOrTokenLine = token.GetLocation().GetLineSpan().StartLinePosition.Line;
+                if ((triviaOrTokenLine != 0) && (triviaOrTokenLine < firstLine))
+                    firstLine = triviaOrTokenLine;
+                
 
                 // Trivia can only be leading or trailing; it is not both leading for
                 // one token and trailing for another
@@ -289,7 +295,7 @@ namespace SourceCodeTokenizer
                 }
             }
 
-            return tokensAndTriviaInLineSpan;
+            return (tokensAndTriviaInLineSpan.ToArray(), firstLine);
         }
 
         public static void ProcessSingleRevision(PythonDataItem pythonDataItem)
@@ -387,35 +393,22 @@ namespace SourceCodeTokenizer
             
             int targetLineStart = -1;
             int targetLineEnd = -1;
-            if (pythonDataItem.ParsedDiff.ActionType == "REPLACE")
-            {
-                ReplaceAction typedParsedDiff = ((JObject)pythonDataItem.ParsedDiff.Action).ToObject<ReplaceAction>();
-                targetLineStart = typedParsedDiff.SourceLocations.First();
-                targetLineEnd = targetLineStart + typedParsedDiff.TargetLines.Count() - 1;
-            }
-            else if (pythonDataItem.ParsedDiff.ActionType == "REMOVE")
-            {
-                // No lines in target required
-            }
-            else if (pythonDataItem.ParsedDiff.ActionType == "ADD")
-            {
-                AddAction typedParsedDiff = ((JObject)pythonDataItem.ParsedDiff.Action).ToObject<AddAction>();
-                targetLineStart = typedParsedDiff.PreviousSourceLocation + 1;
-                targetLineEnd = targetLineStart + typedParsedDiff.TargetLines.Count() - 1;
-            }
-
             IEnumerable<SyntaxToken> updatedCodeChunkBlockStmtTokensIEnum = Enumerable.Empty<SyntaxToken>();
 
             // No output with "REMOVE"
-            if ((pythonDataItem.ParsedDiff.ActionType == "REPLACE") || (pythonDataItem.ParsedDiff.ActionType == "ADD"))
+            if (pythonDataItem.ParsedDiff.ActionType != "REMOVE")
             {
-
-                if ((targetLineStart == -1) || (targetLineEnd == -1))
+                if (pythonDataItem.ParsedDiff.ActionType == "REPLACE")
                 {
-                    Console.WriteLine($"Error parsing target");
-                    Console.WriteLine($"targetLineStart: {targetLineStart}");
-                    Console.WriteLine($"targetLineEnd: { targetLineEnd}");
-                    System.Environment.Exit(1);
+                    ReplaceAction typedParsedDiff = ((JObject)pythonDataItem.ParsedDiff.Action).ToObject<ReplaceAction>();
+                    targetLineStart = typedParsedDiff.SourceLocations.First();
+                    targetLineEnd = targetLineStart + typedParsedDiff.TargetLines.Count() - 1;
+                } 
+                else if (pythonDataItem.ParsedDiff.ActionType == "ADD")
+                {
+                    AddAction typedParsedDiff = ((JObject)pythonDataItem.ParsedDiff.Action).ToObject<AddAction>();
+                    targetLineStart = typedParsedDiff.PreviousSourceLocation + 1;
+                    targetLineEnd = targetLineStart + typedParsedDiff.TargetLines.Count() - 1;
                 }
 
                 // var changeSpan = new TextSpan(targetLineStart, targetLineEnd - targetLineStart);
@@ -424,7 +417,6 @@ namespace SourceCodeTokenizer
                     targetLineStart,
                     targetLineEnd
                 );
-
             }
 
             var updatedCodeChunkBlockStmtTokens = updatedCodeChunkBlockStmtTokensIEnum.ToArray();
@@ -447,8 +439,14 @@ namespace SourceCodeTokenizer
             // Generate finished list of tokens in the change including formatting
             // Does not work though if only trivia in span (no tokens); See next section for fix.
 
-            var prevCodeChunkBlockStmtTextTokens = AddTriviaToTokens(prevCodeChunkBlockStmtTokens).ToArray();
-            var updatedCodeChunkBlockStmtTextTokens = AddTriviaToTokens(updatedCodeChunkBlockStmtTokens).ToArray();
+            // TODO: Get firstLinePrev & firstLineNew here already
+
+            // firstLinePrev/firstLineNew are offsets for other indices
+            var (prevCodeChunkBlockStmtTextTokens, firstLinePrev) = AddTriviaToTokens(prevCodeChunkBlockStmtTokens);
+            var (updatedCodeChunkBlockStmtTextTokens, firstLineNew) = AddTriviaToTokens(updatedCodeChunkBlockStmtTokens);
+
+            Console.WriteLine($"firstLinePrev : {firstLinePrev}");
+            Console.WriteLine($"firstLineNew : {firstLineNew}");
 
             // -------
             // In case that all added lines for ADD/REPLACE are trivia; In this case,
@@ -513,20 +511,30 @@ namespace SourceCodeTokenizer
             {
                 ReplaceAction typedParsedDiff = ((JObject)pythonDataItem.ParsedDiff.Action).ToObject<ReplaceAction>();
                 typedParsedDiff.TokenizedTargetLines = updatedCodeChunkBlockStmtTextTokens;
+                typedParsedDiff.SourceLocations = typedParsedDiff.SourceLocations.Select(x => x - firstLinePrev).ToList().ToArray();
                 pythonDataItem.ParsedDiff.Action = typedParsedDiff;
             }
             else if (pythonDataItem.ParsedDiff.ActionType == "REMOVE")
             {
-                // Nothing to tokenize
+                // Nothing to tokenize, only change offsets
+                RemoveAction typedParsedDiff = ((JObject)pythonDataItem.ParsedDiff.Action).ToObject<RemoveAction>();
+                typedParsedDiff.SourceLocationStart = typedParsedDiff.SourceLocationStart - firstLinePrev;
+                typedParsedDiff.SourceLocationEnd = typedParsedDiff.SourceLocationStart - firstLinePrev;
+                pythonDataItem.ParsedDiff.Action = typedParsedDiff;
             }
             else if (pythonDataItem.ParsedDiff.ActionType == "ADD")
             {
                 AddAction typedParsedDiff = ((JObject)pythonDataItem.ParsedDiff.Action).ToObject<AddAction>();
                 typedParsedDiff.TokenizedTargetLines = updatedCodeChunkBlockStmtTextTokens;
+                Console.WriteLine($"firstLinePrev: {firstLinePrev}");
+                Console.WriteLine($"typedParsedDiff.PreviousSourceLocation Before: {typedParsedDiff.PreviousSourceLocation}");
+                typedParsedDiff.PreviousSourceLocation -= firstLinePrev;
+                Console.WriteLine($"typedParsedDiff.PreviousSourceLocation After: {typedParsedDiff.PreviousSourceLocation}");
                 pythonDataItem.ParsedDiff.Action = typedParsedDiff;
             }
 
             pythonDataItem.TokenizedFileContext = prevCodeChunkBlockStmtTextTokens.ToList();
+            pythonDataItem.DiagnosticOccurances.Select(x => x.Line - firstLinePrev);
 
             return;
         }
@@ -654,61 +662,4 @@ namespace SourceCodeTokenizer
         }
     }
 
-    public class TokenIndex
-    {
-        private IList<SyntaxToken> tokens;
-        public Dictionary<TextSpan, (SyntaxToken SyntaxToken, int Position)> SpanToTokenIndex;
-
-        public TokenIndex(IEnumerable<SyntaxToken> tokens)
-        {
-            this.tokens = new List<SyntaxToken>(tokens);
-        }
-
-        public IEnumerable<SyntaxToken> GetTokensInSpan(TextSpan querySpan)
-        {
-            var querySpanStart = querySpan.Start;
-            var querySpanEnd = querySpan.End;
-
-            return GetTokensInSpan(querySpanStart, querySpanEnd);
-        }
-
-        public TokenIndex WithVariableNameMap(IDictionary<string, string> variableNameMap)
-        {
-            var retainedTokens = tokens.Where(token => variableNameMap.ContainsKey(token.ValueText))
-                .Select(token => SyntaxFactory.Token(token.LeadingTrivia, token.Kind(), token.Text, variableNameMap[token.ValueText], token.TrailingTrivia));
-
-            return new TokenIndex(retainedTokens);
-        }
-
-        public TokenIndex InitInvertedIndex()
-        {
-            this.SpanToTokenIndex = new Dictionary<TextSpan, (SyntaxToken SyntaxToken, int Position)>();
-
-            for (int i = 0; i < this.tokens.Count; i++)
-            {
-                var curToken = this.tokens[i];
-                var key = curToken.Span;
-                SpanToTokenIndex[key] = (curToken, i);
-            }
-
-            return this;
-        }
-
-        public IEnumerable<SyntaxToken> GetTokensInSpan(int start, int end)
-        {
-            var queryTokens = tokens.Where(token => token.SpanStart >= start).TakeWhile(token => token.Span.End <= end);
-
-            return queryTokens;
-        }
-
-        public (SyntaxToken? SyntaxToken, int Position) GetTokenAndPositionBySpan(TextSpan span)
-        {
-            if (this.SpanToTokenIndex.ContainsKey(span))
-            {
-                return this.SpanToTokenIndex[span];
-            }
-
-            return (null, -1);
-        }
-    }
 }
