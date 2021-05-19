@@ -23,6 +23,7 @@ namespace SourceCodeTokenizer
         public string inputPath;
         public string outputPath;
         public PythonDataItem pythonDataItem;
+        public Dictionary<string, string> zeroIndexedVariableNameMap;
 
         public Pipeline(string inputPath, string outputPath)
         {
@@ -34,6 +35,9 @@ namespace SourceCodeTokenizer
                 string json = sr.ReadToEnd();
                 this.pythonDataItem = JsonConvert.DeserializeObject<PythonDataItem>(json);
             }
+
+            // Creating map of {someVarName: VAR0}
+            this.zeroIndexedVariableNameMap = new Dictionary<string, string>();
         }
 
         public static IEnumerable<SyntaxToken> GetTokensByLineSpan(SyntaxNode astNode, int startLine, int endLine)
@@ -314,7 +318,7 @@ namespace SourceCodeTokenizer
             return (tokensAndTriviaInLineSpan.ToArray(), firstLine);
         }
 
-        private static (Dictionary<string, string>, SyntaxToken[]) ApplyAndUpdateIndexVariableNames(Dictionary<string, string> varNameMap, IEnumerable<SyntaxToken> syntaxTokenArray)
+        private SyntaxToken[] ApplyAndUpdateIndexVariableNames(IEnumerable<SyntaxToken> syntaxTokenArray)
         {
 
             List<SyntaxToken> newSyntaxTokenArray = new List<SyntaxToken>();
@@ -337,15 +341,15 @@ namespace SourceCodeTokenizer
                 }
 
                 string newTokenName;
-                if (varNameMap.ContainsKey(tokenName))
+                if (this.zeroIndexedVariableNameMap.ContainsKey(tokenName))
                 {
                     // Already have this saved in dict
-                    newTokenName = varNameMap[tokenName];
+                    newTokenName = this.zeroIndexedVariableNameMap[tokenName];
                 }
                 else
                 {
-                    newTokenName = "VAR" + varNameMap.Count;
-                    varNameMap[tokenName] = newTokenName;
+                    newTokenName = "VAR" + this.zeroIndexedVariableNameMap.Count;
+                    this.zeroIndexedVariableNameMap[tokenName] = newTokenName;
 
                     //Console.WriteLine($"" +
                     //    $"New zero-index var; " +
@@ -362,7 +366,48 @@ namespace SourceCodeTokenizer
 
             }
 
-            return (varNameMap, newSyntaxTokenArray.ToArray());
+            return newSyntaxTokenArray.ToArray();
+        }
+
+        private void TokenizeDiagnosticMessage()
+        {
+            // Tokenize DiagnosticMessage
+
+            foreach (var diag in this.pythonDataItem.DiagnosticOccurances)
+            {
+                diag.TokenizedMessage = new List<string>();
+                foreach (var wordToken in diag.Message.Split(" "))
+                {
+                    // DiagnosticMessage contains variable name
+                    if (wordToken.StartsWith("'") && wordToken.EndsWith("'"))
+                    {
+                        var wordTokenCore = wordToken.Remove(0, 1);
+                        wordTokenCore = wordTokenCore.Remove(wordTokenCore.Length - 1, 1);
+
+                        // Could also be that variable name is outside of scope - not worth
+                        // indexing those, otherwise we have VAR-1000, etc.
+                        if (this.zeroIndexedVariableNameMap.ContainsKey(wordTokenCore))
+                        {
+                            var wordTokenIndexed = this.zeroIndexedVariableNameMap[wordTokenCore];
+                            diag.TokenizedMessage.Add(wordTokenIndexed);
+                        }
+                        else
+                        {
+                            // Can be difficult to find in map (e.g. 'this[]')
+                            Console.WriteLine($"Weird token! : {wordTokenCore}");
+                            diag.TokenizedMessage.Add($"UNKNOWN: {wordTokenCore}");
+                        }
+                    }
+                    else
+                    {
+                        foreach (var splitWordToken in Regex.Split(wordToken, @"(?=[.!?\\-])|(?<=[.!?\\-])").ToList())
+                        {
+                            if (splitWordToken != "")
+                                diag.TokenizedMessage.Add(splitWordToken.ToLower());
+                        }
+                    }
+                }
+            }
         }
 
         private void ProcessDiff()
@@ -496,11 +541,9 @@ namespace SourceCodeTokenizer
             updatedCodeChunkBlockStmtTokens.CopyTo(allTokens, 0);
             prevCodeChunkBlockStmtTokens.CopyTo(allTokens, updatedCodeChunkBlockStmtTokens.Length);
 
-            // Creating map of {someVarName: VAR0}
-            var zeroIndexedVariableNameMap = new Dictionary<string, string>();
-            (zeroIndexedVariableNameMap, allTokens) = ApplyAndUpdateIndexVariableNames(zeroIndexedVariableNameMap, allTokens);
-            (zeroIndexedVariableNameMap, prevCodeChunkBlockStmtTokens) = ApplyAndUpdateIndexVariableNames(zeroIndexedVariableNameMap, prevCodeChunkBlockStmtTokens);
-            (zeroIndexedVariableNameMap, updatedCodeChunkBlockStmtTokens) = ApplyAndUpdateIndexVariableNames(zeroIndexedVariableNameMap, updatedCodeChunkBlockStmtTokens);
+            allTokens = ApplyAndUpdateIndexVariableNames(allTokens);
+            prevCodeChunkBlockStmtTokens = ApplyAndUpdateIndexVariableNames(prevCodeChunkBlockStmtTokens);
+            updatedCodeChunkBlockStmtTokens = ApplyAndUpdateIndexVariableNames(updatedCodeChunkBlockStmtTokens);
 
             // -------
             // Generate finished list of tokens in the change including formatting
@@ -533,43 +576,7 @@ namespace SourceCodeTokenizer
                 }
             }
 
-            // -------
-            // Tokenize DiagnosticMessage
-
-            foreach (var diag in this.pythonDataItem.DiagnosticOccurances)
-            {
-                diag.TokenizedMessage = new List<string>();
-                foreach (var wordToken in diag.Message.Split(" "))
-                {
-                    // DiagnosticMessage contains variable name
-                    if (wordToken.StartsWith("'") && wordToken.EndsWith("'"))
-                    {
-                        var wordTokenCore = wordToken.Remove(0,1);
-                        wordTokenCore = wordTokenCore.Remove(wordTokenCore.Length - 1,1);
-
-                        // Could also be that variable name is outside of scope - not worth
-                        // indexing those, otherwise we have VAR-1000, etc.
-                        if (zeroIndexedVariableNameMap.ContainsKey(wordTokenCore))
-                        {
-                            var wordTokenIndexed = zeroIndexedVariableNameMap[wordTokenCore];
-                            diag.TokenizedMessage.Add(wordTokenIndexed);
-                        } else
-                        {
-                            // Can be difficult to find in map (e.g. 'this[]')
-                            Console.WriteLine($"Weird token! : {wordTokenCore}");
-                            diag.TokenizedMessage.Add($"UNKNOWN: {wordTokenCore}");
-                        }
-                    }
-                    else
-                    {
-                        foreach ( var splitWordToken in Regex.Split(wordToken, @"(?=[.!?\\-])|(?<=[.!?\\-])").ToList())
-                        {
-                            if (splitWordToken != "")
-                                diag.TokenizedMessage.Add(splitWordToken.ToLower());
-                        }
-                    }
-                }
-            }
+            this.TokenizeDiagnosticMessage();
 
             // -------
             // Write all calculated data to JSONObject
