@@ -18,14 +18,12 @@ namespace SourceCodeTokenizer
         public string DiagnosticID;
         public string AnalyzerNuGet;
         public string Severity;
-        public List<DiagnosticOccurance> DiagnosticOccurances;
-        public ParsedDiff ParsedDiff;
-        public int FileContextStart;
+        public List<DiagnosticOccurance> DiagnosticOccurances;  // Adjust out in Pipeline
+        public ParsedDiff ParsedDiff;  // Adjust out in Pipeline
+        public Nullable<int> FileContextStart;
         public List<string> FileContext;
-
-        public int RequiredLinesStart;
-        public int RequiredLinesEnd;
-
+        public Nullable<int> RequiredLinesStart;
+        public Nullable<int> RequiredLinesEnd;
         public List<string> TokenizedFileContext;  // Fill out in Pipeline
 
         public void RemoveOldData()
@@ -37,6 +35,11 @@ namespace SourceCodeTokenizer
             if (this.ParsedDiff.ActionType != "REMOVE")
             {
                 // this.ParsedDiff.Action.TargetLines = null;
+
+                if (this.ParsedDiff.ActionType == "ADD")
+                {
+                    this.ParsedDiff.Action.TargetStartLocation = null;
+                }
             }
 
             this.Repo = null;
@@ -45,7 +48,9 @@ namespace SourceCodeTokenizer
             this.FilePath = null;
             this.Commit = null;
             this.AnalyzerNuGet = null;
-            this.FileContextStart = -1;
+            this.FileContextStart = null;
+            this.RequiredLinesStart = null;
+            this.RequiredLinesEnd = null;
             // this.FileContext = null;
 
             return;
@@ -69,7 +74,7 @@ namespace SourceCodeTokenizer
     public class AddAction
     {
         public int PreviousSourceLocation;  // Subtract offset in Pipeline
-        public int TargetStartLocation;
+        public Nullable<int> TargetStartLocation;
         public string[] TargetLines;
         public string[] TokenizedTargetLines;  // Fill out in Pipeline
     }
@@ -86,10 +91,5 @@ namespace SourceCodeTokenizer
         public int SourceLocationStart;  // Subtract offset in Pipeline
         public int SourceLocationEnd;  // Subtract offset in Pipeline
     }
-
-    //public class TokenizedDataItem : PythonDataItem
-    //{
-    //    public string TokenizedFileContext;
-    //}
 
 }
