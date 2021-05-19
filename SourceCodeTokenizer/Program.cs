@@ -39,10 +39,23 @@ namespace SourceCodeTokenizer
 
             Console.WriteLine($"unified_dataset_path: {unified_dataset_path}");
 
-            Pipeline.DumpRevisionDataForNeuralTraining(
-                unified_dataset_path,
-                tokenized_dataset_path
-            );
+            string[] refinedJSONpaths = Directory.GetFiles(unified_dataset_path, "*.json",
+                             SearchOption.TopDirectoryOnly);
+
+            Console.WriteLine($"refinedJSONpaths.Count(): {refinedJSONpaths.Count()}");
+            Console.WriteLine($"refinedJSONpaths.First(): {refinedJSONpaths.First()}");
+            
+            foreach (var JSONpath in refinedJSONpaths)
+            {
+                Console.WriteLine($"JSONpath: {JSONpath}");
+
+                var datapoint = new Pipeline(
+                    JSONpath,
+                    tokenized_dataset_path
+                );
+
+                datapoint.Run();
+            }
             
         }
     }

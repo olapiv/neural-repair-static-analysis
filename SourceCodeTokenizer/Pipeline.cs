@@ -20,6 +20,22 @@ namespace SourceCodeTokenizer
     class Pipeline
     {
 
+        public string inputPath;
+        public string outputPath;
+        public PythonDataItem pythonDataItem;
+
+        public Pipeline(string inputPath, string outputPath)
+        {
+            this.inputPath = inputPath;
+            this.outputPath = outputPath;
+
+            using (StreamReader sr = new StreamReader(this.inputPath))
+            {
+                string json = sr.ReadToEnd();
+                this.pythonDataItem = JsonConvert.DeserializeObject<PythonDataItem>(json);
+            }
+        }
+
         public static IEnumerable<SyntaxToken> GetTokensByLineSpan(SyntaxNode astNode, int startLine, int endLine)
         {
 
@@ -298,13 +314,64 @@ namespace SourceCodeTokenizer
             return (tokensAndTriviaInLineSpan.ToArray(), firstLine);
         }
 
-        public static void ProcessSingleRevision(PythonDataItem pythonDataItem)
+        private static (Dictionary<string, string>, SyntaxToken[]) ApplyAndUpdateIndexVariableNames(Dictionary<string, string> varNameMap, IEnumerable<SyntaxToken> syntaxTokenArray)
+        {
+
+            List<SyntaxToken> newSyntaxTokenArray = new List<SyntaxToken>();
+            foreach (var originalSyntaxToken in syntaxTokenArray)
+            {
+
+                if (!originalSyntaxToken.IsKind(SyntaxKind.IdentifierToken))
+                {
+                    newSyntaxTokenArray.Add(originalSyntaxToken);
+                    continue;
+                }
+
+                var tokenName = originalSyntaxToken.ValueText;
+
+                if (tokenName.StartsWith("VAR"))
+                {
+                    // Already have indexed this token (should not happen)
+                    newSyntaxTokenArray.Add(originalSyntaxToken);
+                    continue;
+                }
+
+                string newTokenName;
+                if (varNameMap.ContainsKey(tokenName))
+                {
+                    // Already have this saved in dict
+                    newTokenName = varNameMap[tokenName];
+                }
+                else
+                {
+                    newTokenName = "VAR" + varNameMap.Count;
+                    varNameMap[tokenName] = newTokenName;
+
+                    //Console.WriteLine($"" +
+                    //    $"New zero-index var; " +
+                    //    $"tokenName: {tokenName}; " +
+                    //    $"Kind: {originalSyntaxToken.Kind()}"
+                    //);
+
+                }
+                var newIdentifier = SyntaxFactory.Identifier(newTokenName);
+                newIdentifier = newIdentifier.WithLeadingTrivia(originalSyntaxToken.LeadingTrivia);
+                newIdentifier = newIdentifier.WithTrailingTrivia(originalSyntaxToken.TrailingTrivia);
+
+                newSyntaxTokenArray.Add(newIdentifier);
+
+            }
+
+            return (varNameMap, newSyntaxTokenArray.ToArray());
+        }
+
+        private void ProcessDiff()
         {
 
             const int NUM_INPUT_TOKENS = 50;
 
             string solutionPath = Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.Parent.Parent.FullName;
-            string pathToFile = string.Format("{0}/submodule_repos_to_analyze/{1}/{2}", solutionPath, pythonDataItem.Repo, pythonDataItem.FilePath);
+            string pathToFile = string.Format("{0}/submodule_repos_to_analyze/{1}/{2}", solutionPath, this.pythonDataItem.Repo, this.pythonDataItem.FilePath);
             Console.WriteLine($"pathToFile: {pathToFile}");
             string previousFile;
 
@@ -322,8 +389,8 @@ namespace SourceCodeTokenizer
 
             var (startPosition, endPosition) = GetTokenRangeByLineSpan(
                 previousFileAst.GetRoot(),
-                pythonDataItem.RequiredLinesStart,
-                pythonDataItem.RequiredLinesEnd
+                this.pythonDataItem.RequiredLinesStart,
+                this.pythonDataItem.RequiredLinesEnd
             );
 
             var numTokens = (endPosition - startPosition) + 1;
@@ -340,8 +407,8 @@ namespace SourceCodeTokenizer
             // All tokens in diff of previous file without context
             var prevCodeChunkBlockStmtTokensList = GetTokensByLineSpan(
                 previousFileAst.GetRoot(),
-                pythonDataItem.RequiredLinesStart,
-                pythonDataItem.RequiredLinesEnd
+                this.pythonDataItem.RequiredLinesStart,
+                this.pythonDataItem.RequiredLinesEnd
             ).ToList();
 
             // Add context tokens until NUM_INPUT_TOKENS is reached
@@ -377,7 +444,7 @@ namespace SourceCodeTokenizer
             // -------
             // Get updated file data
 
-            var updatedFile = ApplyParsedDiff(pythonDataItem.ParsedDiff, prevCodeFile);
+            var updatedFile = ApplyParsedDiff(this.pythonDataItem.ParsedDiff, prevCodeFile);
             var updatedFileAst = CSharpSyntaxTree.ParseText(updatedFile);
 
             // -------
@@ -396,17 +463,17 @@ namespace SourceCodeTokenizer
             IEnumerable<SyntaxToken> updatedCodeChunkBlockStmtTokensIEnum = Enumerable.Empty<SyntaxToken>();
 
             // No output with "REMOVE"
-            if (pythonDataItem.ParsedDiff.ActionType != "REMOVE")
+            if (this.pythonDataItem.ParsedDiff.ActionType != "REMOVE")
             {
-                if (pythonDataItem.ParsedDiff.ActionType == "REPLACE")
+                if (this.pythonDataItem.ParsedDiff.ActionType == "REPLACE")
                 {
-                    ReplaceAction typedParsedDiff = ((JObject)pythonDataItem.ParsedDiff.Action).ToObject<ReplaceAction>();
+                    ReplaceAction typedParsedDiff = ((JObject)this.pythonDataItem.ParsedDiff.Action).ToObject<ReplaceAction>();
                     targetLineStart = typedParsedDiff.SourceLocations.First();
                     targetLineEnd = targetLineStart + typedParsedDiff.TargetLines.Count() - 1;
                 } 
-                else if (pythonDataItem.ParsedDiff.ActionType == "ADD")
+                else if (this.pythonDataItem.ParsedDiff.ActionType == "ADD")
                 {
-                    AddAction typedParsedDiff = ((JObject)pythonDataItem.ParsedDiff.Action).ToObject<AddAction>();
+                    AddAction typedParsedDiff = ((JObject)this.pythonDataItem.ParsedDiff.Action).ToObject<AddAction>();
                     targetLineStart = typedParsedDiff.PreviousSourceLocation + 1;
                     targetLineEnd = targetLineStart + typedParsedDiff.TargetLines.Count() - 1;
                 }
@@ -452,7 +519,7 @@ namespace SourceCodeTokenizer
             // In case that all added lines for ADD/REPLACE are trivia; In this case,
             // there is no token to get Leading/Trailing Trivia from
 
-            if ((pythonDataItem.ParsedDiff.ActionType == "REPLACE") || (pythonDataItem.ParsedDiff.ActionType == "ADD"))
+            if ((this.pythonDataItem.ParsedDiff.ActionType == "REPLACE") || (this.pythonDataItem.ParsedDiff.ActionType == "ADD"))
             {
                 if (updatedCodeChunkBlockStmtTextTokens.Count() == 0)
                 {
@@ -469,7 +536,7 @@ namespace SourceCodeTokenizer
             // -------
             // Tokenize DiagnosticMessage
 
-            foreach (var diag in pythonDataItem.DiagnosticOccurances)
+            foreach (var diag in this.pythonDataItem.DiagnosticOccurances)
             {
                 diag.TokenizedMessage = new List<string>();
                 foreach (var wordToken in diag.Message.Split(" "))
@@ -507,148 +574,67 @@ namespace SourceCodeTokenizer
             // -------
             // Write all calculated data to JSONObject
 
-            if (pythonDataItem.ParsedDiff.ActionType == "REPLACE")
+            if (this.pythonDataItem.ParsedDiff.ActionType == "REPLACE")
             {
-                ReplaceAction typedParsedDiff = ((JObject)pythonDataItem.ParsedDiff.Action).ToObject<ReplaceAction>();
+                ReplaceAction typedParsedDiff = ((JObject)this.pythonDataItem.ParsedDiff.Action).ToObject<ReplaceAction>();
                 typedParsedDiff.TokenizedTargetLines = updatedCodeChunkBlockStmtTextTokens;
                 typedParsedDiff.SourceLocations = typedParsedDiff.SourceLocations.Select(x => x - firstLinePrev).ToList().ToArray();
-                pythonDataItem.ParsedDiff.Action = typedParsedDiff;
+                this.pythonDataItem.ParsedDiff.Action = typedParsedDiff;
             }
-            else if (pythonDataItem.ParsedDiff.ActionType == "REMOVE")
+            else if (this.pythonDataItem.ParsedDiff.ActionType == "REMOVE")
             {
                 // Nothing to tokenize, only change offsets
-                RemoveAction typedParsedDiff = ((JObject)pythonDataItem.ParsedDiff.Action).ToObject<RemoveAction>();
+                RemoveAction typedParsedDiff = ((JObject)this.pythonDataItem.ParsedDiff.Action).ToObject<RemoveAction>();
                 typedParsedDiff.SourceLocationStart = typedParsedDiff.SourceLocationStart - firstLinePrev;
                 typedParsedDiff.SourceLocationEnd = typedParsedDiff.SourceLocationStart - firstLinePrev;
-                pythonDataItem.ParsedDiff.Action = typedParsedDiff;
+                this.pythonDataItem.ParsedDiff.Action = typedParsedDiff;
             }
-            else if (pythonDataItem.ParsedDiff.ActionType == "ADD")
+            else if (this.pythonDataItem.ParsedDiff.ActionType == "ADD")
             {
-                AddAction typedParsedDiff = ((JObject)pythonDataItem.ParsedDiff.Action).ToObject<AddAction>();
+                AddAction typedParsedDiff = ((JObject)this.pythonDataItem.ParsedDiff.Action).ToObject<AddAction>();
                 typedParsedDiff.TokenizedTargetLines = updatedCodeChunkBlockStmtTextTokens;
                 Console.WriteLine($"firstLinePrev: {firstLinePrev}");
                 Console.WriteLine($"typedParsedDiff.PreviousSourceLocation Before: {typedParsedDiff.PreviousSourceLocation}");
                 typedParsedDiff.PreviousSourceLocation -= firstLinePrev;
                 Console.WriteLine($"typedParsedDiff.PreviousSourceLocation After: {typedParsedDiff.PreviousSourceLocation}");
-                pythonDataItem.ParsedDiff.Action = typedParsedDiff;
+                this.pythonDataItem.ParsedDiff.Action = typedParsedDiff;
             }
 
-            pythonDataItem.TokenizedFileContext = prevCodeChunkBlockStmtTextTokens.ToList();
-            pythonDataItem.DiagnosticOccurances.Select(x => x.Line - firstLinePrev);
+            this.pythonDataItem.TokenizedFileContext = prevCodeChunkBlockStmtTextTokens.ToList();
+            this.pythonDataItem.DiagnosticOccurances.Select(x => x.Line - firstLinePrev);
 
             return;
         }
 
-        private static (Dictionary<string, string>, SyntaxToken[]) ApplyAndUpdateIndexVariableNames(Dictionary<string, string> varNameMap, IEnumerable<SyntaxToken> syntaxTokenArray)
+        private void SaveResults()
         {
-
-            List<SyntaxToken> newSyntaxTokenArray = new List<SyntaxToken>();
-            foreach (var originalSyntaxToken in syntaxTokenArray)
-            {
-
-                if (!originalSyntaxToken.IsKind(SyntaxKind.IdentifierToken))
+            this.pythonDataItem.RemoveOldData();
+            var newDataItem = JsonConvert.SerializeObject(
+                this.pythonDataItem,
+                Formatting.Indented,
+                new JsonSerializerSettings
                 {
-                    newSyntaxTokenArray.Add(originalSyntaxToken);
-                    continue;
+                    NullValueHandling = NullValueHandling.Ignore
                 }
+            );
 
-                var tokenName = originalSyntaxToken.ValueText;
-
-                if (tokenName.StartsWith("VAR"))
-                {
-                    // Already have indexed this token (should not happen)
-                    newSyntaxTokenArray.Add(originalSyntaxToken);
-                    continue;
-                }
-
-                string newTokenName;
-                if (varNameMap.ContainsKey(tokenName))
-                {
-                    // Already have this saved in dict
-                    newTokenName = varNameMap[tokenName];
-                }
-                else
-                {
-                    newTokenName = "VAR" + varNameMap.Count;
-                    varNameMap[tokenName] = newTokenName;
-
-                    //Console.WriteLine($"" +
-                    //    $"New zero-index var; " +
-                    //    $"tokenName: {tokenName}; " +
-                    //    $"Kind: {originalSyntaxToken.Kind()}"
-                    //);
-
-                }
-                var newIdentifier = SyntaxFactory.Identifier(newTokenName);
-                newIdentifier = newIdentifier.WithLeadingTrivia(originalSyntaxToken.LeadingTrivia);
-                newIdentifier = newIdentifier.WithTrailingTrivia(originalSyntaxToken.TrailingTrivia);
-
-                newSyntaxTokenArray.Add(newIdentifier);           
-                
-            }
-
-            return (varNameMap, newSyntaxTokenArray.ToArray());
+            var newFilename = Path.GetFileName(this.inputPath);
+            var newFilepath = Path.Combine(this.outputPath, newFilename);
+            System.IO.File.WriteAllText(newFilepath, newDataItem);
         }
 
-        public static void DumpRevisionDataForNeuralTraining(string pythonDataDir, string newDataDir)
+        public void Run()
         {
-
-            string[] refinedJSONpaths = Directory.GetFiles(pythonDataDir, "*.json",
-                                         SearchOption.TopDirectoryOnly);
-
-            Console.WriteLine($"refinedJSONpaths.Count(): {refinedJSONpaths.Count()}");
-            Console.WriteLine($"refinedJSONpaths.First(): {refinedJSONpaths.First()}");
-
-            foreach (var JSONpath in refinedJSONpaths)
+            try
             {
-                try
-                {
-
-                    using (StreamReader sr = new StreamReader(JSONpath))
-                    {
-
-                        Console.WriteLine($"JSONpath: {JSONpath}");
-
-                        string json = sr.ReadToEnd();
-                        PythonDataItem pythonDataItem = JsonConvert.DeserializeObject<PythonDataItem>(json);
-
-                        if (pythonDataItem.TokenizedFileContext != null)
-                        {
-                            // File has already been tokenized
-                            continue;
-                        }
-
-                        try
-                        {
-                            ProcessSingleRevision(pythonDataItem);
-                        }
-                        catch (Exception e)
-                        {
-                            Console.WriteLine($"e: {e}");
-                            System.Environment.Exit(1);
-                        }
-
-                        pythonDataItem.RemoveOldData();
-                        var newDataItem = JsonConvert.SerializeObject(
-                            pythonDataItem,
-                            Formatting.Indented,
-                            new JsonSerializerSettings
-                            {
-                                NullValueHandling = NullValueHandling.Ignore
-                            }
-                        );
-
-                        var newFilename = Path.GetFileName(JSONpath);
-                        var newFilepath = Path.Combine(newDataDir, newFilename);
-                        System.IO.File.WriteAllText(newFilepath, newDataItem);
-
-                    }
-                }
-                catch (Exception e) {
-                    Console.WriteLine($"e: {e}");
-                }
+                this.ProcessDiff();
             }
-
+            catch (Exception e)
+            {
+                Console.WriteLine($"e: {e}");
+                System.Environment.Exit(1);
+            }
+            this.SaveResults();
         }
 
         private static readonly HashSet<string> keywords =
