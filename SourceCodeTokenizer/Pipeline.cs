@@ -80,10 +80,8 @@ namespace SourceCodeTokenizer
         }
 
         // TODO: Refactor this (too many functionalities)
-        public static (String[], int) AddTriviaToTokens(SyntaxToken[] syntaxTokens)
+        public static String[] AddTriviaToTokens(SyntaxToken[] syntaxTokens)
         {
-            var firstLine = 1000000000;
-            int triviaOrTokenLine;
             List<String> tokensAndTriviaInLineSpan = new List<String>();
             foreach (var token in syntaxTokens)
             {
@@ -91,12 +89,6 @@ namespace SourceCodeTokenizer
                     tokensAndTriviaInLineSpan.Add(leadingTrivia.Kind().ToString());
 
                 tokensAndTriviaInLineSpan.Add(token.ToString());
-
-                // This is a problem if variable has been zero-indexed (position is 0)
-                triviaOrTokenLine = token.GetLocation().GetLineSpan().StartLinePosition.Line;
-                if ((triviaOrTokenLine != 0) && (triviaOrTokenLine < firstLine))
-                    firstLine = triviaOrTokenLine;
-                
 
                 // Trivia can only be leading or trailing; it is not both leading for
                 // one token and trailing for another
@@ -106,7 +98,7 @@ namespace SourceCodeTokenizer
                 }
             }
 
-            return (tokensAndTriviaInLineSpan.ToArray(), firstLine);
+            return tokensAndTriviaInLineSpan.ToArray();
         }
 
         private SyntaxToken[] ApplyAndUpdateIndexVariableNames(IEnumerable<SyntaxToken> syntaxTokenArray)
@@ -282,17 +274,26 @@ namespace SourceCodeTokenizer
             updatedCodeChunkBlockStmtTokens = ApplyAndUpdateIndexVariableNames(updatedCodeChunkBlockStmtTokens);
 
             // -------
+            // firstLinePrev/firstLineNew are offsets for other indices
+
+            // Problem if first variable has been zero-indexed (position is then 0)
+            // TODO: Use ReplaceNodes() for zero-indexing vars, so that position is kept (they have position 0)
+
+            var firstLinePrev = 0;
+            var firstLineNew = 0;
+
+            if (prevCodeChunkBlockStmtTokens.Count() != 0)
+                firstLinePrev = prevCodeChunkBlockStmtTokens.First().GetLocation().GetLineSpan().StartLinePosition.Line;
+
+            if (updatedCodeChunkBlockStmtTokens.Count() != 0)
+                firstLineNew = updatedCodeChunkBlockStmtTokens.First().GetLocation().GetLineSpan().StartLinePosition.Line;
+
+            // -------
             // Generate finished list of tokens in the change including formatting
             // Does not work though if only trivia in span (no tokens); See next section for fix.
 
-            // TODO: Get firstLinePrev & firstLineNew here already
-
-            // firstLinePrev/firstLineNew are offsets for other indices
-            var (prevCodeChunkBlockStmtTextTokens, firstLinePrev) = AddTriviaToTokens(prevCodeChunkBlockStmtTokens);
-            var (updatedCodeChunkBlockStmtTextTokens, firstLineNew) = AddTriviaToTokens(updatedCodeChunkBlockStmtTokens);
-
-            Console.WriteLine($"firstLinePrev : {firstLinePrev}");
-            Console.WriteLine($"firstLineNew : {firstLineNew}");
+            var prevCodeChunkBlockStmtTextTokens = AddTriviaToTokens(prevCodeChunkBlockStmtTokens);
+            var updatedCodeChunkBlockStmtTextTokens = AddTriviaToTokens(updatedCodeChunkBlockStmtTokens);
 
             // -------
             // In case that all added lines for ADD/REPLACE are trivia; In this case,
@@ -304,13 +305,21 @@ namespace SourceCodeTokenizer
                 {
                     Console.WriteLine($"Empty updatedCodeChunkBlockStmtTextTokens! Adding trivia without tokens then.");
 
-                    updatedCodeChunkBlockStmtTextTokens = Utils.GetTriviaByLineSpan(
+                    var updatedCodeChunkBlockTrivia = Utils.GetTriviaByLineSpan(
                         updatedFileAst.GetRoot(),
                         this.targetLineStart,
                         this.targetLineEnd
-                    ).ToArray();
+                    );
+                    firstLineNew = updatedCodeChunkBlockTrivia.First().GetLocation().GetLineSpan().StartLinePosition.Line;
+
+                    updatedCodeChunkBlockStmtTextTokens = updatedCodeChunkBlockTrivia.Select(trivia => trivia.Kind().ToString()).ToArray();
                 }
             }
+
+            Console.WriteLine($"firstLinePrev : {firstLinePrev}");
+            Console.WriteLine($"firstLineNew : {firstLineNew}");
+
+            // -------
 
             this.TokenizeDiagnosticMessage();
 
@@ -321,30 +330,30 @@ namespace SourceCodeTokenizer
             {
                 ReplaceAction typedParsedDiff = ((JObject)this.pythonDataItem.ParsedDiff.Action).ToObject<ReplaceAction>();
                 typedParsedDiff.TokenizedTargetLines = updatedCodeChunkBlockStmtTextTokens;
-                typedParsedDiff.SourceLocations = typedParsedDiff.SourceLocations.Select(x => x - firstLinePrev).ToList().ToArray();
+
+                // typedParsedDiff.SourceLocations = typedParsedDiff.SourceLocations.Select(x => x - firstLinePrev).ToList().ToArray();
+
+                typedParsedDiff.SourceLocations.ToList().ForEach(d => d -= firstLinePrev);
                 this.pythonDataItem.ParsedDiff.Action = typedParsedDiff;
             }
             else if (this.diffActionType == "REMOVE")
             {
                 // Nothing to tokenize, only change offsets
                 RemoveAction typedParsedDiff = ((JObject)this.pythonDataItem.ParsedDiff.Action).ToObject<RemoveAction>();
-                typedParsedDiff.SourceLocationStart = typedParsedDiff.SourceLocationStart - firstLinePrev;
-                typedParsedDiff.SourceLocationEnd = typedParsedDiff.SourceLocationStart - firstLinePrev;
+                typedParsedDiff.SourceLocationStart -= firstLinePrev;
+                typedParsedDiff.SourceLocationEnd -= firstLinePrev;
                 this.pythonDataItem.ParsedDiff.Action = typedParsedDiff;
             }
             else if (this.diffActionType == "ADD")
             {
                 AddAction typedParsedDiff = ((JObject)this.pythonDataItem.ParsedDiff.Action).ToObject<AddAction>();
                 typedParsedDiff.TokenizedTargetLines = updatedCodeChunkBlockStmtTextTokens;
-                Console.WriteLine($"firstLinePrev: {firstLinePrev}");
-                Console.WriteLine($"typedParsedDiff.PreviousSourceLocation Before: {typedParsedDiff.PreviousSourceLocation}");
                 typedParsedDiff.PreviousSourceLocation -= firstLinePrev;
-                Console.WriteLine($"typedParsedDiff.PreviousSourceLocation After: {typedParsedDiff.PreviousSourceLocation}");
                 this.pythonDataItem.ParsedDiff.Action = typedParsedDiff;
             }
 
             this.pythonDataItem.TokenizedFileContext = prevCodeChunkBlockStmtTextTokens.ToList();
-            this.pythonDataItem.DiagnosticOccurances.Select(x => x.Line - firstLinePrev);
+            this.pythonDataItem.DiagnosticOccurances.ForEach(d => d.Line -= firstLinePrev);
 
             return;
         }

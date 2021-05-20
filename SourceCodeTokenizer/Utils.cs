@@ -82,7 +82,7 @@ namespace SourceCodeTokenizer
             return string.Join("\n", previousFileList);
         }
 
-        public static IEnumerable<String> GetTriviaByLineSpan(SyntaxNode astNode, int startLine, int endLine)
+        public static IEnumerable<SyntaxTrivia> GetTriviaByLineSpan(SyntaxNode astNode, int startLine, int endLine)
         {
             startLine--;
             endLine--;
@@ -159,7 +159,7 @@ namespace SourceCodeTokenizer
             //}
             //return expandedTrivia;
 
-            return triviaInLineSpan.Select(trivia => trivia.Kind().ToString());
+            return triviaInLineSpan;
         }
 
 
