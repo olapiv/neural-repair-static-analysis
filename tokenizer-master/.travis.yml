@@ -1,0 +1,15 @@
+sudo: required
+
+language: cpp
+
+install:
+  - sudo apt-get install libcppunit-dev
+
+script: cd src && make test
+
+os:
+  - linux
+
+compiler:
+  - gcc
+  - clang
