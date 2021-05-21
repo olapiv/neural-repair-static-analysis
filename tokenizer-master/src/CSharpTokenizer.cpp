@@ -30,6 +30,7 @@ CSharpTokenizer::get_token_real()
 	char c0, c1, c2;
 	Keyword::IdentifierType key;
 
+    // Token.h is parsed from this file using mktoken.pl
 	for (;;) {
 		if (!src.get(c0))
 			return 0;
@@ -40,8 +41,12 @@ CSharpTokenizer::get_token_real()
 		 */
 		case '\n':
 			bol.saw_newline();
-			break;
-		case ' ': case '\t': case '\v': case '\f': case '\r':
+            return Token::NEWLINE;  // \n
+        case '\t':
+            return Token::TAB;  // \t
+        case ' ':
+            return Token::WHITESPACE;  //  
+        case '\v': case '\f': case '\r':
 			break;
 		case '{':
 			bol.saw_non_space();

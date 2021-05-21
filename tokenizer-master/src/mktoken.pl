@@ -10,6 +10,7 @@ use List::Util qw(shuffle);
 
 my %token_symbol;
 
+# Checks all "return Token::xyz; // <token>" statements in *Tokenizer.cpp
 for my $in_fname (@ARGV) {
 	open(my $in, '<', $in_fname) || die "Unable to open $in_fname: $!\n";
 	while (<$in>) {
