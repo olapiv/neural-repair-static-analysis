@@ -27,7 +27,6 @@
 #include "CTokenizer.h"
 #include "CppTokenizer.h"
 #include "CSharpTokenizer.h"
-#include "JavaTokenizer.h"
 #include "PythonTokenizer.h"
 
 // Process and print the metrics of stdin
@@ -38,9 +37,7 @@ process_file(const std::string lang, const std::vector<std::string> opt,
 	CharSource cs;
 	TokenizerBase *t;
 
-	if (lang == "" || lang == "Java")
-		t = new JavaTokenizer(cs, filename, opt);
-	else if (lang == "C")
+	if (lang == "C")
 		t = new CTokenizer(cs, filename, opt);
 	else if (lang == "CSharp" || lang == "C#")
 		t = new CSharpTokenizer(cs, filename, opt);
@@ -54,7 +51,6 @@ process_file(const std::string lang, const std::vector<std::string> opt,
 		std::cerr << "\tC" << std::endl;
 		std::cerr << "\tCSharp (or C#)" << std::endl;
 		std::cerr << "\tC++" << std::endl;
-		std::cerr << "\tJava" << std::endl;
 		std::cerr << "\tPython" << std::endl;
 		exit(1);
 	}

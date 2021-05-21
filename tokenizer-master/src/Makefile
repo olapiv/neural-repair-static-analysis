@@ -21,7 +21,7 @@ TEST_FILES=$(wildcard *Test.h)
 all: $(GENERATED_HEADERS) tokenizer
 
 
-OBJS=CTokenizer.o CppTokenizer.o JavaTokenizer.o CSharpTokenizer.o \
+OBJS=CTokenizer.o CppTokenizer.o CSharpTokenizer.o \
      PythonTokenizer.o TokenizerBase.o SymbolTable.o TokenId.o \
      NestedClassState.o
 
