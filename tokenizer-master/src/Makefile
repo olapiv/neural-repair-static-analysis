@@ -22,7 +22,7 @@ all: $(GENERATED_HEADERS) tokenizer
 
 
 OBJS=CTokenizer.o CppTokenizer.o CSharpTokenizer.o \
-     PythonTokenizer.o TokenizerBase.o SymbolTable.o TokenId.o \
+     TokenizerBase.o SymbolTable.o TokenId.o \
      NestedClassState.o
 
 UnitTests: UnitTests.o $(OBJS) Token.h

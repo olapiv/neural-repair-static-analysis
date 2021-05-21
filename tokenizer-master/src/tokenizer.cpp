@@ -27,7 +27,6 @@
 #include "CTokenizer.h"
 #include "CppTokenizer.h"
 #include "CSharpTokenizer.h"
-#include "PythonTokenizer.h"
 
 // Process and print the metrics of stdin
 static void
@@ -43,15 +42,12 @@ process_file(const std::string lang, const std::vector<std::string> opt,
 		t = new CSharpTokenizer(cs, filename, opt);
 	else if (lang == "C++")
 		t = new CppTokenizer(cs, filename, opt);
-	else if (lang == "Python")
-		t = new PythonTokenizer(cs, filename, opt);
 	else {
 		std::cerr << "Unknown language specified." << std::endl;
 		std::cerr << "The following languages are supported:" << std::endl;
 		std::cerr << "\tC" << std::endl;
 		std::cerr << "\tCSharp (or C#)" << std::endl;
 		std::cerr << "\tC++" << std::endl;
-		std::cerr << "\tPython" << std::endl;
 		exit(1);
 	}
 	switch (processing_type) {
