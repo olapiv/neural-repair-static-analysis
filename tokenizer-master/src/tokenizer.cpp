@@ -28,7 +28,6 @@
 #include "CppTokenizer.h"
 #include "CSharpTokenizer.h"
 #include "JavaTokenizer.h"
-#include "PHPTokenizer.h"
 #include "PythonTokenizer.h"
 
 // Process and print the metrics of stdin
@@ -47,8 +46,6 @@ process_file(const std::string lang, const std::vector<std::string> opt,
 		t = new CSharpTokenizer(cs, filename, opt);
 	else if (lang == "C++")
 		t = new CppTokenizer(cs, filename, opt);
-	else if (lang == "PHP")
-		t = new PHPTokenizer(cs, filename, opt);
 	else if (lang == "Python")
 		t = new PythonTokenizer(cs, filename, opt);
 	else {
@@ -58,7 +55,6 @@ process_file(const std::string lang, const std::vector<std::string> opt,
 		std::cerr << "\tCSharp (or C#)" << std::endl;
 		std::cerr << "\tC++" << std::endl;
 		std::cerr << "\tJava" << std::endl;
-		std::cerr << "\tPHP" << std::endl;
 		std::cerr << "\tPython" << std::endl;
 		exit(1);
 	}

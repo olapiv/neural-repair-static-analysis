@@ -1,7 +1,3 @@
-[![Build Status](https://travis-ci.org/dspinellis/tokenizer.svg?branch=master)](https://travis-ci.org/dspinellis/tokenizer)
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.2558419.svg)](https://doi.org/10.5281/zenodo.2558419)
-
-
 # tokenizer
 
 Tokenize source code into integer vectors, symbols, or discrete tokens.
@@ -65,7 +61,8 @@ $ curl -s https://raw.githubusercontent.com/leachim6/hello-world/master/c/csharp
 ```
 $ curl -s https://raw.githubusercontent.com/leachim6/hello-world/master/c/csharp.cs | tokenizer -l "C#" -t s
 class ID:2000 { static void ID:2001 ( ) { ID:2002 . ID:2003 . ID:2004
-( STRING_LITERAL ) ; } }
+( STRING_LITERAL ) ; } }
+
 ```
 
 ### C# method-only into integers
@@ -81,7 +78,8 @@ $ curl -s https://raw.githubusercontent.com/leachim6/hello-world/master/c/csharp
 $ curl -s https://raw.githubusercontent.com/leachim6/hello-world/master/c/c%2B%2B.cpp | tokenizer -l C++ -t s
 # include < ID:2000 > LINE_COMMENT using namespace ID:2001 ; int ID:2002
 ( ) LINE_COMMENT { ID:2003 LSHIFT STRING_LITERAL LSHIFT ID:2004 ;
-LINE_COMMENT return 0 ; LINE_COMMENT }
+LINE_COMMENT return 0 ; LINE_COMMENT }
+
 ```
 
 ### Java into symbols
