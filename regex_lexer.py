@@ -65,22 +65,17 @@ class LanguageLexer(UnprocessedTokensMixin, RegexLexer):
 
 
 class CSharpAndCommentsLexer(UnprocessedTokensMixin, CSharpLexer):
-
-    levels = {
-        'none': r'@?[_a-zA-Z]\w*',
-        'basic': ('@?[_' + uni.combine('Lu', 'Ll', 'Lt', 'Lm', 'Nl') + ']' +
-                  '[' + uni.combine('Lu', 'Ll', 'Lt', 'Lm', 'Nl', 'Nd', 'Pc',
-                                    'Cf', 'Mn', 'Mc') + ']*'),
-        'full': ('@?(?:_|[^' +
-                 uni.allexcept('Lu', 'Ll', 'Lt', 'Lm', 'Lo', 'Nl') + '])'
-                 + '[^' + uni.allexcept('Lu', 'Ll', 'Lt', 'Lm', 'Lo', 'Nl',
-                                        'Nd', 'Pc', 'Cf', 'Mn', 'Mc') + ']*'),
-    }
+    """
+    Since it's difficult to inherit "tokens" from CSharpLexer the way
+    it's shown in the documentation (https://pygments.org/docs/lexerdevelopment/#modifying-token-streams),
+    this is simply a copy of all the logic in CSharpLexer. Changed are marked
+    as OLD/NEW.
+    """
 
     tokens = {}
     token_variants = True
 
-    for levelname, cs_ident in levels.items():
+    for levelname, cs_ident in CSharpLexer.levels.items():
         tokens[levelname] = {
             'root': [
                 # method names
