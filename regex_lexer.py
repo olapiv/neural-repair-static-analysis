@@ -81,7 +81,7 @@ class LanguageLexer(RegexLexer):
 from pygments.lexers.javascript import JavascriptLexer
 
 
-
+# CSharpAndCommentsLexer
 class CSharpCustomLexer(CSharpLexer):
 
     levels = {
@@ -109,7 +109,10 @@ class CSharpCustomLexer(CSharpLexer):
                 (r'^\s*\[.*?\]', Name.Attribute),
                 (r'[^\S\n]+', Text),
                 (r'\\\n', Text),  # line continuation
-                (r'//.*?\n', Comment.Single),
+
+
+                # (r'//.*?\n', Comment.Single),
+                (r'//', Comment.Single, ('line-comments')),
 
                 # (r'/[*].*?[*]/', Comment.Multiline),
                 # (r'(?<=[/\*]).*?(?=[\*/])', Comment.Multiline),
@@ -155,9 +158,15 @@ class CSharpCustomLexer(CSharpLexer):
                 (r'(?=\()', Text, '#pop'),  # using (resource)
                 ('(' + cs_ident + r'|\.)+', Name.Namespace, '#pop'),
             ],
+
+            # NEW:
             'block-comments': [
-                # (r'\*/', using(LanguageLexer), '#pop'),
+                # First group parsed by LanguageLexer, second group parsed by root again
                 (r'(.+?)(\*/)', bygroups(using(LanguageLexer), Comment.Multiline), '#pop'),
+            ],
+            'line-comments': [
+                # First group parsed by LanguageLexer, second group parsed by root again
+                (r'(.+?)(\n)', bygroups(using(LanguageLexer), Text), '#pop'),
             ]
         }
 
@@ -179,12 +188,6 @@ class CSharpCustomLexer(CSharpLexer):
             else:
                 yield index, token, value
 
-
-class CSharpAndCommentsLexer(DelegatingLexer):
-    def __init__(self, **options):
-        # super().__init__(HtmlLexer, PhpLexer, **options)  # PhpLexer has "Other"
-        super().__init__(LanguageLexer, CSharpCustomLexer, Comment.Multiline, **options)
-        # super().__init__(CSharpCustomLexer, LanguageLexer, Comment.Multiline, **options)
 
 
 
