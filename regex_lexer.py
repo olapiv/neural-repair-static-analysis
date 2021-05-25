@@ -10,11 +10,6 @@ from pygments import unistring as uni
 from pygments.lexers.web import HtmlLexer, PhpLexer
 
 
-c_sharp_filepath = "/Users/vincent/Desktop/test-state-machine.cs"
-with open(c_sharp_filepath, 'r') as file:
-    original_file = file.read()
-
-
 class UnprocessedTokensMixin(object):
 
     def get_tokens_unprocessed(self, text):
@@ -32,6 +27,12 @@ class UnprocessedTokensMixin(object):
             elif token is Name:
                 # TODO: Implement indexing dictionary
                 yield index, token, value
+            elif token is String:
+                yield index, String, value.encode("unicode_escape").decode("utf-8")
+            #     if token == "\"":
+            #         yield index, Text, "QUOTATION"
+            #     else:
+            #         yield index, token, value
             else:
                 yield index, token, value
 
@@ -49,19 +50,11 @@ class LanguageLexer(UnprocessedTokensMixin, RegexLexer):
 
             # Formatting
             (r'[\n\s\t\r\v]', Text),
-            (r'[~!%^&*()+=|\'\]\[:;,.<>/?-]+', Punctuation),  # Consider not binding punctuation here
+            # Consider not binding punctuation here
+            (r'[~!%^&*()+=|\'\]\[:;,.<>/?-]+', Punctuation),
 
         ]
     }
-
-
-# textlex = LanguageLexer()
-# result = textlex.get_tokens(original_file)
-# for (token_type, value) in result:
-#     # type, value
-#     print(f"token_type: {token_type}, value: {value}")
-
-# exit(0)
 
 
 class CSharpAndCommentsLexer(UnprocessedTokensMixin, CSharpLexer):
@@ -106,9 +99,18 @@ class CSharpAndCommentsLexer(UnprocessedTokensMixin, CSharpLexer):
                 (r'\n', Text),
                 (r'[~!%^&*()+=|\[\]:;,.<>/?-]', Punctuation),
                 (r'[{}]', Punctuation),
-                (r'@"(""|[^"])*"', String),
+
+                ####### OLD: #######
+                # (r'@"(""|[^"])*"', String),
+                # (r'"(\\\\|\\[^\\]|[^"\\\n])*["\n]', String),
+                ####### NEW: #######
+                (r'@"', String, ('strings')),
                 (r'"(\\\\|\\[^\\]|[^"\\\n])*["\n]', String),
+                ####################
+
+                # No need to change, only one character anyways:
                 (r"'\\.'|'[^\\]'", String.Char),
+
                 (r"[0-9](\.[0-9]*)?([eE][+-][0-9]+)?"
                  r"[flFLdD]?|0[xX][0-9a-fA-F]+[Ll]?", Number),
                 (r'#[ \t]*(if|endif|else|elif|define|undef|'
@@ -152,51 +154,77 @@ class CSharpAndCommentsLexer(UnprocessedTokensMixin, CSharpLexer):
             'line-comments': [
                 # First group parsed by LanguageLexer, second group parsed by root again
                 (r'(.+?)(\n)', bygroups(using(LanguageLexer), Text), '#pop'),
+            ],
+            'strings': [
+                # First group parsed by LanguageLexer, second group parsed by root again
+                # Problem: String always takes one before last
+                (r'((""|[^"])*)(")',
+                 bygroups(using(LanguageLexer), String), '#pop'),
+
+                # (r'(""|[^"])*', using(LanguageLexer)),
+                # (r'"', String, '#pop'),
             ]
             ####################
         }
 
 
+def run_only_language_lexer(original_file_string):
+    textlex = LanguageLexer()
+    result = textlex.get_tokens(original_file_string)
+    for (token_type, value) in result:
+        print(f"token_type: {token_type}, value: {value}")
+
 # Consider:
 # Binding punctuation ">", "=" --> ">=" (?)
 
-my_lexer = CSharpAndCommentsLexer()
 
-result = my_lexer.get_tokens(original_file)
-for (token_type, value) in result:
-    print(f"token_type: {token_type}, value: {value}")
-    # print("token_type: ", token_type)
-    # if token_type == Comment.Multiline:
-    #     print("value: ", value)
+def run_pygments_lexer(original_file_string):
+    my_lexer = CSharpAndCommentsLexer()
+    result = my_lexer.get_tokens(original_file_string)
+    for (token_type, value) in result:
+        print(f"token_type: {token_type}, value: {value}")
 
-exit(0)
+
 # ---------------------
 # Experimenting with own Regex here
 # ---------------------
 
-c_sharp_keywords_filepath = "./csharp_keywords.txt"
-with open(c_sharp_keywords_filepath, 'r') as file:
-    c_sharp_kw = [x.rstrip() for x in file]
+def run_basic_regex(original_file_string):
+    c_sharp_keywords_filepath = "./csharp_keywords.txt"
+    with open(c_sharp_keywords_filepath, 'r') as file:
+        c_sharp_kw = [x.rstrip() for x in file]
 
-str_diff_separator = "<<<<<< DIFF STARTING HERE >>>>>>"
+    str_diff_separator = "<<<<<< DIFF STARTING HERE >>>>>>"
 
-str_block_comments = r'/\*.*?\*/'
-re_block_comments = re.compile(str_block_comments, re.DOTALL)
-result = re.findall(re_block_comments, original_file)
-print("re_block_comments result: ", result)
+    str_block_comments = r'/\*.*?\*/'
+    re_block_comments = re.compile(str_block_comments, re.DOTALL)
+    result = re.findall(re_block_comments, original_file_string)
+    print("re_block_comments result: ", result)
 
-str_newlines = '\n'
-re_newlines = re.compile(str_newlines)
-result = re.findall(re_newlines, original_file)
-print("re_newlines result: ", result)
+    str_newlines = '\n'
+    re_newlines = re.compile(str_newlines)
+    result = re.findall(re_newlines, original_file_string)
+    print("re_newlines result: ", result)
 
-c_sharp_kw[0] = r'\b' + c_sharp_kw[0]
-c_sharp_kw[len(c_sharp_kw) - 1] = c_sharp_kw[len(c_sharp_kw) - 1] + r'\b'
-str_keywords = r'\b|\b'.join(c_sharp_kw)
+    c_sharp_kw[0] = r'\b' + c_sharp_kw[0]
+    c_sharp_kw[len(c_sharp_kw) - 1] = c_sharp_kw[len(c_sharp_kw) - 1] + r'\b'
+    str_keywords = r'\b|\b'.join(c_sharp_kw)
 
-regexes = [str_diff_separator, str_block_comments, str_newlines, str_keywords]
-pattern_combined = re.compile('|'.join(regexes), re.DOTALL)
-result = re.findall(pattern_combined, original_file)
+    regexes = [str_diff_separator, str_block_comments,
+               str_newlines, str_keywords]
+    pattern_combined = re.compile('|'.join(regexes), re.DOTALL)
+    result = re.findall(pattern_combined, original_file_string)
 
-print("result: ", result)
-print("len(result): ", len(result))
+    print("result: ", result)
+    print("len(result): ", len(result))
+
+
+if __name__ == "__main__":
+
+    c_sharp_filepath = "./sample_csharp_to_tokenize.cs"
+    with open(c_sharp_filepath, 'r') as file:
+        original_file = file.read()
+
+    # run_basic_regex(original_file_string)
+    # run_only_language_lexer(original_file)
+    run_pygments_lexer(original_file)
