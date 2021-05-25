@@ -1,13 +1,11 @@
 import re
 from pygments.lexers.dotnet import CSharpLexer
-from pygments.lexers import TextLexer
 from pygments.token import Name, Comment, Text, Punctuation
 from pygments.lexer import RegexLexer, DelegatingLexer, inherit, bygroups, using, this, default, words
 from pygments.token import Punctuation, \
     Text, Comment, Operator, Keyword, Name, String, Number, Literal, Other
 from pygments.util import get_choice_opt
 from pygments import unistring as uni
-from pygments.lexers.web import HtmlLexer, PhpLexer
 
 
 class UnprocessedTokensMixin(object):
@@ -63,6 +61,8 @@ class CSharpAndCommentsLexer(UnprocessedTokensMixin, CSharpLexer):
     it's shown in the documentation (https://pygments.org/docs/lexerdevelopment/#modifying-token-streams),
     this is simply a copy of all the logic in CSharpLexer. Changed are marked
     as OLD/NEW.
+
+    TODO: Consider binding punctuation ">", "=" --> ">=" (?)
     """
 
     tokens = {}
@@ -174,9 +174,6 @@ def run_only_language_lexer(original_file_string):
     for (token_type, value) in result:
         print(f"token_type: {token_type}, value: {value}")
 
-# Consider:
-# Binding punctuation ">", "=" --> ">=" (?)
-
 
 def run_pygments_lexer(original_file_string):
     my_lexer = CSharpAndCommentsLexer()
@@ -189,35 +186,6 @@ def run_pygments_lexer(original_file_string):
 # Experimenting with own Regex here
 # ---------------------
 
-def run_basic_regex(original_file_string):
-    c_sharp_keywords_filepath = "./csharp_keywords.txt"
-    with open(c_sharp_keywords_filepath, 'r') as file:
-        c_sharp_kw = [x.rstrip() for x in file]
-
-    str_diff_separator = "<<<<<< DIFF STARTING HERE >>>>>>"
-
-    str_block_comments = r'/\*.*?\*/'
-    re_block_comments = re.compile(str_block_comments, re.DOTALL)
-    result = re.findall(re_block_comments, original_file_string)
-    print("re_block_comments result: ", result)
-
-    str_newlines = '\n'
-    re_newlines = re.compile(str_newlines)
-    result = re.findall(re_newlines, original_file_string)
-    print("re_newlines result: ", result)
-
-    c_sharp_kw[0] = r'\b' + c_sharp_kw[0]
-    c_sharp_kw[len(c_sharp_kw) - 1] = c_sharp_kw[len(c_sharp_kw) - 1] + r'\b'
-    str_keywords = r'\b|\b'.join(c_sharp_kw)
-
-    regexes = [str_diff_separator, str_block_comments,
-               str_newlines, str_keywords]
-    pattern_combined = re.compile('|'.join(regexes), re.DOTALL)
-    result = re.findall(pattern_combined, original_file_string)
-
-    print("result: ", result)
-    print("len(result): ", len(result))
-
 
 if __name__ == "__main__":
 
@@ -225,6 +193,5 @@ if __name__ == "__main__":
     with open(c_sharp_filepath, 'r') as file:
         original_file = file.read()
 
-    # run_basic_regex(original_file_string)
     # run_only_language_lexer(original_file)
     run_pygments_lexer(original_file)

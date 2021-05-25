@@ -24,10 +24,10 @@ var RedirectMethod.x = 3
 // The problem with this is that..
 var y.x = 4
 // Why ? Because of this and that
-// /* Weird... */ Why?
+if (x=5){ // /* Weird... */ Why?
 // And that and this!
 var yw.xee = 4
-nkj /* njnk */ njs
+if (nkj && /* njnk */ njs){
 /*
     Laaaadia diaiai dj
     It's hard!
@@ -36,4 +36,5 @@ nkj /* njnk */ njs
     Change 'y'; No good.
     Êmanuel!
 */
+}
 var     z = 3;
