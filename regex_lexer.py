@@ -48,8 +48,8 @@ class LanguageLexer(UnprocessedTokensMixin, RegexLexer):
             (r'\w+(\'\w+)?', Text),
 
             # Formatting
-            (r'[\n\s\t\r]', Text),
-            (r'[~!%^&*()+=|\[\]:;,.<>/?-]+', Punctuation),
+            (r'[\n\s\t\r\v]', Text),
+            (r'[~!%^&*()+=|\'\]\[:;,.<>/?-]+', Punctuation),  # Consider not binding punctuation here
 
         ]
     }
@@ -60,7 +60,7 @@ class LanguageLexer(UnprocessedTokensMixin, RegexLexer):
 # for (token_type, value) in result:
 #     # type, value
 #     print(f"token_type: {token_type}, value: {value}")
-    
+
 # exit(0)
 
 
@@ -84,14 +84,20 @@ class CSharpAndCommentsLexer(UnprocessedTokensMixin, CSharpLexer):
                  r'(\s*)(\()',                               # signature start
                  bygroups(using(this), Name.Function, Text, Punctuation)),
                 (r'^\s*\[.*?\]', Name.Attribute),
-                (r'[^\S\n]+', Text),
+
+                # Stop binding formatting:
+                ####### OLD: #######
+                # (r'[^\S\n]+', Text),
+                ####### NEW: #######
+                # (r'[^\S\n]', Text),  # Inside [], ^ is a negation
+                (r'[\s\t\r\v]', Text),  # Being explicit in what to match
+                ####################
+
                 (r'\\\n', Text),  # line continuation
 
                 ####### OLD: #######
                 # (r'//.*?\n', Comment.Single),
                 # (r'/[*].*?[*]/', Comment.Multiline),
-                ####################
-
                 ####### NEW: #######
                 (r'//', Comment.Single, ('line-comments')),
                 (r'/\*', Comment.Multiline, ('block-comments')),
@@ -194,5 +200,3 @@ result = re.findall(pattern_combined, original_file)
 
 print("result: ", result)
 print("len(result): ", len(result))
-
-
