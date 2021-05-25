@@ -6,3 +6,4 @@ unified_dataset
 tokenized_dataset
 nn
 *.pyc
+.vscode
