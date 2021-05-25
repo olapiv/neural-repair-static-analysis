@@ -21,33 +21,16 @@ class LanguageLexer(RegexLexer):
         'root': [
 
             # Variable names in string:
-            # (r'(\s*)?\'[^\']*\'(\s*)?', Name),  # Works, but includes whitespace
-            # (r'\'[^\']*\'', Name),  # Works, but "it's" screws it up
-            # (r'(?<=[\s\'])[^\']+(?=[\'\s])?', Name), # Works, but discards the "'"
-            (r'(?<=[\s\n])\'[^\']+\'(?=[\s\. ,;?\'])', Name),  # Includes the "'"
+            (r'(?<=[\s\n])\'[^\']+\'(?=[\W])', Name),  # Includes the "'"
 
-            # Words with apostrophes:
-            (r'\w+[\']?\w+', Text),
-            
-            # Any normal words
-            (r'\w+', Text),
+            # Words, including ones with apostrophes:
+            (r'\w+(\'\w+)?', Text),
 
             # Formatting
             (r'[\n\s\t\r]', Text),
-            (r'(?<=[/\*])?[~!%^&*()+=|\[\]:;,.<>/?-]+(?=[\*/])?', Punctuation),
-            
+            (r'[~!%^&*()+=|\[\]:;,.<>/?-]+', Punctuation),
 
-            # (r'/\*', Comment.Multiline),
-            # (r'\*/', Comment.Multiline),
-
-
-
-            # (r'(.*?)(\s*)(=)(\s*)(.*?)$', Name)
-
-            # r'/\s+id=\"[^\"]*\"/'
-            # r'(\s*)(\')[^\']*\'/'
-        ],
-        # (?=[.!?\\-])|(?<=[.!?\\-])
+        ]
     }
 
     def get_tokens_unprocessed(self, text):
@@ -81,8 +64,7 @@ class LanguageLexer(RegexLexer):
 from pygments.lexers.javascript import JavascriptLexer
 
 
-# CSharpAndCommentsLexer
-class CSharpCustomLexer(CSharpLexer):
+class CSharpAndCommentsLexer(CSharpLexer):
 
     levels = {
         'none': r'@?[_a-zA-Z]\w*',
@@ -191,25 +173,17 @@ class CSharpCustomLexer(CSharpLexer):
 
 
 
-# Rules to adjust:
-# Split documentation
-# Bind punctuation ">", "=" --> ">=" (?)
-my_lexer = CSharpCustomLexer()
-# print("my_lexer.tokens: ", my_lexer.tokens)
-# exit(0)
+# Consider:
+# Binding punctuation ">", "=" --> ">=" (?)
+
+my_lexer = CSharpAndCommentsLexer()
+
 result = my_lexer.get_tokens(original_file)
 for (token_type, value) in result:
-    # type, value
     print(f"token_type: {token_type}, value: {value}")
     # print("token_type: ", token_type)
     # if token_type == Comment.Multiline:
     #     print("value: ", value)
-
-# - custom separator between original and diff code
-# - block comments & line comments
-# - newlines
-# - whitespaces
-# - keywords
 
 exit(0)
 # ---------------------
