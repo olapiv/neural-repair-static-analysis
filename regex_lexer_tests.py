@@ -41,7 +41,7 @@ True tokens:
 Calculated tokens:
 {calculated_token_list}""")
 
-    def test_nqjk(self):
+    def test_if_block(self):
         test_string = """if (x ==5){
     y=7;
 }"""
@@ -49,36 +49,48 @@ Calculated tokens:
                            ["WHITESPACE"]*4, "y", "=", "7", ";", "NEWLINE", "}", "NEWLINE"]
         self.run_single_test(test_string, true_token_list)
 
-    def test_fnjk(self):
-        test_string = """x = @"xyz
-klll mmklll
-";  // Some comment"""
-        true_token_list = ["x", "WHITESPACE", "=", "WHITESPACE", '@"', "xyz", "NEWLINE", "klll", "WHITESPACE", "mmklll", "NEWLINE",
-                           "\n", ";", "WHITESPACE", "WHITESPACE", "//", "WHITESPACE", "String", "NEWLINE"]
-        self.run_single_test(test_string, true_token_list)
-
-    def test_snw2jk(self):
+    def test_class_definition(self):
         test_string = "public static Image img;"
         true_token_list = ["public", "WHITESPACE", "static",
                            "WHITESPACE", "Image", "WHITESPACE", "img", ";", "NEWLINE"]
         self.run_single_test(test_string, true_token_list)
 
-    def test_1mw2k1l(self):
+    def test_char_string(self):
+        test_string = """var z = 'x'  // Char"""
+        true_token_list = ["var", "WHITESPACE", "z", "WHITESPACE", "=", "WHITESPACE", "'x'", [
+            "WHITESPACE"]*2, "//", "WHITESPACE", "Char", "NEWLINE"]
+        self.run_single_test(test_string, true_token_list)
+
+    def test_basic_string(self):
         test_string = """x = "xyz";  // String"""
         true_token_list = ["x", "WHITESPACE", "=", "WHITESPACE", '"xyz"', ";", [
             "WHITESPACE"]*2, "//", "WHITESPACE", "String", "NEWLINE"]
         self.run_single_test(test_string, true_token_list)
 
+    def test_multiline_string(self):
+        test_string = """x = @"xyz
+klll mmklll
+";  // Some comment"""
+        true_token_list = ["x", "WHITESPACE", "=", "WHITESPACE", '@"', "xyz", "NEWLINE", "klll", "WHITESPACE", "mmklll", "NEWLINE",
+                           "\n", ";", "WHITESPACE", "WHITESPACE", "//", "WHITESPACE", "Some", "WHITESPACE", "comment", "NEWLINE"]
+        self.run_single_test(test_string, true_token_list)
 
+    def test_block_in_line_comment(self):
+        test_string = """if (x=5){ // /* Weird... */ Why?"""
+        true_token_list = ["if", "WHITESPACE", "(", "x", "=", "5", ")",
+                           "{", "WHITESPACE", "//", "WHITESPACE", "/*",
+                           "WHITESPACE", "Weird", "...", "WHITESPACE",
+                           "*/", "WHITESPACE", "Why", "?", "NEWLINE"]
+        self.run_single_test(test_string, true_token_list)
+
+    def test_inline_block_comment(self):
+        test_string = """if (nkj && /* njnk */ njs){"""
+        true_token_list = ["if", "WHITESPACE", "(", "nkj", "WHITESPACE", "&", "&", "WHITESPACE",
+                           "/*", "WHITESPACE", "njnk", "WHITESPACE", "*/", "WHITESPACE", "njs", ")", "{", "NEWLINE"]
+        self.run_single_test(test_string, true_token_list)
 
 
 """
-/ x = "x";  // String
-x = @"xyz
-klll mmklll
-";  // Some comment
-x = @"abc";
-z = 'x'  // Char
 try{
     z = 'xyz'  // Error ('), Name (xyz), Error (')
 }
