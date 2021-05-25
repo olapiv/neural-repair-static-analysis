@@ -15,23 +15,7 @@ with open(c_sharp_filepath, 'r') as file:
     original_file = file.read()
 
 
-class LanguageLexer(RegexLexer):
-
-    tokens = {
-        'root': [
-
-            # Variable names in string:
-            (r'(?<=[\s\n])\'[^\']+\'(?=[\W])', Name),  # Includes the "'"
-
-            # Words, including ones with apostrophes:
-            (r'\w+(\'\w+)?', Text),
-
-            # Formatting
-            (r'[\n\s\t\r]', Text),
-            (r'[~!%^&*()+=|\[\]:;,.<>/?-]+', Punctuation),
-
-        ]
-    }
+class UnprocessedTokensMixin(object):
 
     def get_tokens_unprocessed(self, text):
         for index, token, value in CSharpLexer.get_tokens_unprocessed(self, text):
@@ -52,6 +36,25 @@ class LanguageLexer(RegexLexer):
                 yield index, token, value
 
 
+class LanguageLexer(UnprocessedTokensMixin, RegexLexer):
+
+    tokens = {
+        'root': [
+
+            # Variable names in string:
+            (r'(?<=[\s\n])\'[^\']+\'(?=[\W])', Name),  # Includes the "'"
+
+            # Words, including ones with apostrophes:
+            (r'\w+(\'\w+)?', Text),
+
+            # Formatting
+            (r'[\n\s\t\r]', Text),
+            (r'[~!%^&*()+=|\[\]:;,.<>/?-]+', Punctuation),
+
+        ]
+    }
+
+
 # textlex = LanguageLexer()
 # result = textlex.get_tokens(original_file)
 # for (token_type, value) in result:
@@ -61,10 +64,7 @@ class LanguageLexer(RegexLexer):
 # exit(0)
 
 
-from pygments.lexers.javascript import JavascriptLexer
-
-
-class CSharpAndCommentsLexer(CSharpLexer):
+class CSharpAndCommentsLexer(UnprocessedTokensMixin, CSharpLexer):
 
     levels = {
         'none': r'@?[_a-zA-Z]\w*',
@@ -92,13 +92,15 @@ class CSharpAndCommentsLexer(CSharpLexer):
                 (r'[^\S\n]+', Text),
                 (r'\\\n', Text),  # line continuation
 
-
+                ####### OLD: #######
                 # (r'//.*?\n', Comment.Single),
-                (r'//', Comment.Single, ('line-comments')),
-
                 # (r'/[*].*?[*]/', Comment.Multiline),
-                # (r'(?<=[/\*]).*?(?=[\*/])', Comment.Multiline),
+                ####################
+
+                ####### NEW: #######
+                (r'//', Comment.Single, ('line-comments')),
                 (r'/\*', Comment.Multiline, ('block-comments')),
+                ####################
 
                 (r'\n', Text),
                 (r'[~!%^&*()+=|\[\]:;,.<>/?-]', Punctuation),
@@ -141,7 +143,7 @@ class CSharpAndCommentsLexer(CSharpLexer):
                 ('(' + cs_ident + r'|\.)+', Name.Namespace, '#pop'),
             ],
 
-            # NEW:
+            ####### NEW: #######
             'block-comments': [
                 # First group parsed by LanguageLexer, second group parsed by root again
                 (r'(.+?)(\*/)', bygroups(using(LanguageLexer), Comment.Multiline), '#pop'),
@@ -150,27 +152,8 @@ class CSharpAndCommentsLexer(CSharpLexer):
                 # First group parsed by LanguageLexer, second group parsed by root again
                 (r'(.+?)(\n)', bygroups(using(LanguageLexer), Text), '#pop'),
             ]
+            ####################
         }
-
-    def get_tokens_unprocessed(self, text):
-        for index, token, value in CSharpLexer.get_tokens_unprocessed(self, text):
-
-            if token is Text:
-                if value == " ":
-                    yield index, Text, "WHITESPACE"
-                elif value == "\n":
-                    yield index, Text, "NEWLINE"
-                elif value == "\t":
-                    yield index, Text, "TAB"
-                else:
-                    yield index, token, value
-            elif token is Name:
-                # TODO: Implement indexing dictionary
-                yield index, token, value
-            else:
-                yield index, token, value
-
-
 
 
 # Consider:
