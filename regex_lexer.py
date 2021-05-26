@@ -104,8 +104,8 @@ class CSharpAndCommentsLexer(UnprocessedTokensMixin, CSharpLexer):
                 # (r'@"(""|[^"])*"', String),
                 # (r'"(\\\\|\\[^\\]|[^"\\\n])*["\n]', String),
                 ####### NEW: #######
-                (r'@"', String, ('strings')),
-                (r'"(\\\\|\\[^\\]|[^"\\\n])*["\n]', String),
+                (r'@"', String, ('verbatim-strings')),
+                (r'"', String, ('other-strings')),
                 ####################
 
                 # No need to change, only one character anyways:
@@ -155,14 +155,20 @@ class CSharpAndCommentsLexer(UnprocessedTokensMixin, CSharpLexer):
                 # First group parsed by LanguageLexer, second group parsed by root again
                 (r'(.+?)(\n)', bygroups(using(LanguageLexer), Text), '#pop'),
             ],
-            'strings': [
-                # First group parsed by LanguageLexer, second group parsed by root again
-                # Problem: String always takes one before last
-                (r'((""|[^"])*)(")',
-                 bygroups(using(LanguageLexer), String), '#pop'),
+            'verbatim-strings': [
+                # This represents 3 groups; the last char before \" will be matched a second time,
+                # so we use None to ignore it.
+                # TODO: Figure out why it is matched a second time
+                (r'((""|[^"])*)(")', bygroups(using(LanguageLexer), None, String), '#pop'),
 
                 # (r'(""|[^"])*', using(LanguageLexer)),
                 # (r'"', String, '#pop'),
+            ],
+            'other-strings': [
+                # This represents 3 groups; the last char before \" will be matched a second time,
+                # so we use None to ignore it.
+                # TODO: Figure out why it is matched a second time
+                (r'((\\\\|\\[^\\]|[^"\\\n])*)(["\n])', bygroups(using(LanguageLexer), None, String), '#pop'), 
             ]
             ####################
         }
@@ -180,11 +186,6 @@ def run_pygments_lexer(original_file_string):
     result = my_lexer.get_tokens(original_file_string)
     for (token_type, value) in result:
         print(f"token_type: {token_type}, value: {value}")
-
-
-# ---------------------
-# Experimenting with own Regex here
-# ---------------------
 
 
 if __name__ == "__main__":
