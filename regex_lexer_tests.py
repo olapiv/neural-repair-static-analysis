@@ -63,7 +63,13 @@ Calculated tokens:
 
     def test_basic_string(self):
         test_string = """x = "xyz";  // String"""
-        true_token_list = ["x", "WHITESPACE", "=", "WHITESPACE", '"xyz"', ";", [
+        true_token_list = ["x", "WHITESPACE", "=", "WHITESPACE", '"', "xyz", '"', ";", [
+            "WHITESPACE"]*2, "//", "WHITESPACE", "String", "NEWLINE"]
+        self.run_single_test(test_string, true_token_list)
+
+    def test_basic_verbatim_string(self):
+        test_string = """x = @"xyz";  // String"""
+        true_token_list = ["x", "WHITESPACE", "=", "WHITESPACE", '@"', "xyz", '"', ";", [
             "WHITESPACE"]*2, "//", "WHITESPACE", "String", "NEWLINE"]
         self.run_single_test(test_string, true_token_list)
 
@@ -72,7 +78,7 @@ Calculated tokens:
 klll mmklll
 ";  // Some comment"""
         true_token_list = ["x", "WHITESPACE", "=", "WHITESPACE", '@"', "xyz", "NEWLINE", "klll", "WHITESPACE", "mmklll", "NEWLINE",
-                           "\n", ";", "WHITESPACE", "WHITESPACE", "//", "WHITESPACE", "Some", "WHITESPACE", "comment", "NEWLINE"]
+                           "\"", ";", "WHITESPACE", "WHITESPACE", "//", "WHITESPACE", "Some", "WHITESPACE", "comment", "NEWLINE"]
         self.run_single_test(test_string, true_token_list)
 
     def test_block_in_line_comment(self):
@@ -89,14 +95,35 @@ klll mmklll
                            "/*", "WHITESPACE", "njnk", "WHITESPACE", "*/", "WHITESPACE", "njs", ")", "{", "NEWLINE"]
         self.run_single_test(test_string, true_token_list)
 
+    def test_multiline_block_comment(self):
+        test_string = """{
+/*
+    Change 'Unused' to xyz.
+    It's hard!
+    What is 'this'?
+*/
+}"""
+        true_token_list = ["{", "NEWLINE", "/*", "NEWLINE", ["WHITESPACE"]*4, "Change", "WHITESPACE", "'Unused'",
+                           "WHITESPACE", "to", "WHITESPACE", "xyz", ".", "NEWLINE", ["WHITESPACE"]*4, "It's", "WHITESPACE", "hard", "!", "NEWLINE",
+                           ["WHITESPACE"]*4, "What", "WHITESPACE", "is", "WHITESPACE", "'this'", "?", "NEWLINE", "*/", "NEWLINE", "}", "NEWLINE"
+                           ]
+        self.run_single_test(test_string, true_token_list)
 
-"""
-try{
-    z = 'xyz'  // Error ('), Name (xyz), Error (')
-}
-Found = 302,
+    def test_code_whitespace(self):
+        test_string = """try{
+    z = 5  // Comment
+}"""
+        true_token_list = ["try", "{", "NEWLINE", ["WHITESPACE"]*4, "z", "WHITESPACE", "=", "WHITESPACE", "5",
+                           ["WHITESPACE"]*2, "//", "WHITESPACE", "Comment", "NEWLINE", "}", "NEWLINE"]
+        self.run_single_test(test_string, true_token_list)
 
-"""
+    def test_enums(self):
+        test_string = """Found = 302,
+Redirect = 302,"""
+        true_token_list = ["Found", "WHITESPACE", "=", "WHITESPACE", "3", "0", "2", ",", "NEWLINE",
+                           "Redirect", "WHITESPACE", "=", "WHITESPACE", "3", "0", "2", ",", "NEWLINE"]
+        self.run_single_test(test_string, true_token_list)
+
 
 if __name__ == '__main__':
     unittest.main()
