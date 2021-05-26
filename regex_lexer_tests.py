@@ -28,11 +28,19 @@ def flatten(foo):
 
 class TestRegexLexer(unittest.TestCase):
 
-    def run_single_test(self, test_string, true_token_list):
+    def run_single_test(self, test_string, true_token_list, index_vars=False):
         true_token_list = flatten(true_token_list)
         true_token_list = [token for token in true_token_list]
         calculated_token_list = the_lexer.get_tokens(test_string)
-        calculated_token_list = [token[1] for token in calculated_token_list]
+        if index_vars:
+            index_dict = {}
+            index_func = CSharpAndCommentsLexer.index_identifier_token
+            calculated_token_list = [index_func(token[0], token[1], index_dict)[
+                1] for token in calculated_token_list]
+        else:
+            calculated_token_list = [token[1]
+                                     for token in calculated_token_list]
+
         self.assertTrue(compare(true_token_list,
                                 calculated_token_list), f"""Tokenization failed!
 True tokens:
@@ -104,7 +112,8 @@ klll mmklll
 */
 }"""
         true_token_list = ["{", "NEWLINE", "/*", "NEWLINE", ["WHITESPACE"]*4, "Change", "WHITESPACE", "'Unused'",
-                           "WHITESPACE", "to", "WHITESPACE", "xyz", ".", "NEWLINE", ["WHITESPACE"]*4, "It's", "WHITESPACE", "hard", "!", "NEWLINE",
+                           "WHITESPACE", "to", "WHITESPACE", "xyz", ".", "NEWLINE", [
+                               "WHITESPACE"]*4, "It's", "WHITESPACE", "hard", "!", "NEWLINE",
                            ["WHITESPACE"]*4, "What", "WHITESPACE", "is", "WHITESPACE", "'this'", "?", "NEWLINE", "*/", "NEWLINE", "}", "NEWLINE"
                            ]
         self.run_single_test(test_string, true_token_list)
@@ -123,6 +132,13 @@ Redirect = 302,"""
         true_token_list = ["Found", "WHITESPACE", "=", "WHITESPACE", "3", "0", "2", ",", "NEWLINE",
                            "Redirect", "WHITESPACE", "=", "WHITESPACE", "3", "0", "2", ",", "NEWLINE"]
         self.run_single_test(test_string, true_token_list)
+
+    def test_enums_indexed(self):
+        test_string = """Found = 302,
+Redirect = 302,"""
+        true_token_list = ["VAR-0", "WHITESPACE", "=", "WHITESPACE", "3", "0", "2", ",", "NEWLINE",
+                           "VAR-1", "WHITESPACE", "=", "WHITESPACE", "3", "0", "2", ",", "NEWLINE"]
+        self.run_single_test(test_string, true_token_list, True)
 
 
 if __name__ == '__main__':

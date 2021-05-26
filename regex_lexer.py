@@ -41,7 +41,8 @@ class LanguageLexer(UnprocessedTokensMixin, RegexLexer):
         'root': [
 
             # Variable names in string:
-            (r'(?<=[\s\n])\'[^\']+\'(?=[\W])', Name),  # Includes the "'"
+            (r'(?<=[\s\n]\')[^\']+(?=\'[\W])', Name),  # Separates the "'"
+            # (r'(?<=[\s\n])\'[^\']+\'(?=[\W])', Name),  # Includes the "'"
 
             # Words, including ones with apostrophes:
             (r'\w+(\'\w+)?', Text),
@@ -49,7 +50,7 @@ class LanguageLexer(UnprocessedTokensMixin, RegexLexer):
             # Formatting
             (r'[\n\s\t\r\v]', Text),
             # Consider not binding punctuation here
-            (r'[~!%^&*()+=|\'\]\[:;,.<>/?-]+', Punctuation),
+            (r'[~!%^&*()+=|\'\]\[:;,.<>/?-]', Punctuation),
 
         ]
     }
@@ -179,6 +180,18 @@ class CSharpAndCommentsLexer(UnprocessedTokensMixin, CSharpLexer):
             ]
             ####################
         }
+    
+    @staticmethod
+    def index_identifier_token(token_type, value, index_dict):
+        if token_type != Name:
+            return token_type, value
+        
+        if value in index_dict:
+            return token_type, index_dict[value]
+        
+        new_index_name = f"VAR-{len(index_dict.keys())}"
+        index_dict[value] = new_index_name
+        return token_type, new_index_name
 
 
 def run_only_language_lexer(original_file_string):
@@ -194,6 +207,15 @@ def run_pygments_lexer(original_file_string):
     for (token_type, value) in result:
         print(f"token_type: {token_type}, value: {value}")
 
+def run_pygments_lexer_indexed_identifiers(original_file_string):
+    index_dict = {}
+    my_lexer = CSharpAndCommentsLexer()
+    result = my_lexer.get_tokens(original_file_string)
+    for (token_type, value) in result:
+        (token_type, value) = CSharpAndCommentsLexer.index_identifier_token(token_type, value, index_dict)
+        print(f"token_type: {token_type}, value: {value}")
+
+
 
 if __name__ == "__main__":
 
@@ -202,4 +224,5 @@ if __name__ == "__main__":
         original_file = file.read()
 
     # run_only_language_lexer(original_file)
-    run_pygments_lexer(original_file)
+    # run_pygments_lexer(original_file)
+    run_pygments_lexer_indexed_identifiers(original_file)
