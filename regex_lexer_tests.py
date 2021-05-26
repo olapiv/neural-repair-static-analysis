@@ -92,9 +92,9 @@ klll mmklll
     def test_block_in_line_comment(self):
         test_string = """if (x=5){ // /* Weird... */ Why?"""
         true_token_list = ["if", "WHITESPACE", "(", "x", "=", "5", ")",
-                           "{", "WHITESPACE", "//", "WHITESPACE", "/*",
-                           "WHITESPACE", "Weird", "...", "WHITESPACE",
-                           "*/", "WHITESPACE", "Why", "?", "NEWLINE"]
+                           "{", "WHITESPACE", "//", "WHITESPACE", "/", "*",
+                           "WHITESPACE", "Weird", ".", ".", ".", "WHITESPACE",
+                           "*", "/", "WHITESPACE", "Why", "?", "NEWLINE"]
         self.run_single_test(test_string, true_token_list)
 
     def test_inline_block_comment(self):
@@ -111,10 +111,10 @@ klll mmklll
     What is 'this'?
 */
 }"""
-        true_token_list = ["{", "NEWLINE", "/*", "NEWLINE", ["WHITESPACE"]*4, "Change", "WHITESPACE", "'Unused'",
+        true_token_list = ["{", "NEWLINE", "/*", "NEWLINE", ["WHITESPACE"]*4, "Change", "WHITESPACE", "'", "Unused", "'",
                            "WHITESPACE", "to", "WHITESPACE", "xyz", ".", "NEWLINE", [
                                "WHITESPACE"]*4, "It's", "WHITESPACE", "hard", "!", "NEWLINE",
-                           ["WHITESPACE"]*4, "What", "WHITESPACE", "is", "WHITESPACE", "'this'", "?", "NEWLINE", "*/", "NEWLINE", "}", "NEWLINE"
+                           ["WHITESPACE"]*4, "What", "WHITESPACE", "is", "WHITESPACE", "'", "this", "'", "?", "NEWLINE", "*/", "NEWLINE", "}", "NEWLINE"
                            ]
         self.run_single_test(test_string, true_token_list)
 
