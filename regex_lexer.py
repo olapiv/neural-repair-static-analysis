@@ -87,6 +87,7 @@ class CSharpAndCommentsLexer(UnprocessedTokensMixin, CSharpLexer):
 
                 (r'\\\n', Text),  # line continuation
 
+                # Parse comments as natural language (with other lexer)
                 ####### OLD: #######
                 # (r'//.*?\n', Comment.Single),
                 # (r'/[*].*?[*]/', Comment.Multiline),
@@ -108,6 +109,7 @@ class CSharpAndCommentsLexer(UnprocessedTokensMixin, CSharpLexer):
 
                 (r'[{}]', Punctuation),
 
+                # Parse string as natural language (with other lexer)
                 ####### OLD: #######
                 # (r'@"(""|[^"])*"', String),
                 # (r'"(\\\\|\\[^\\]|[^"\\\n])*["\n]', String),

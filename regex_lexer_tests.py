@@ -15,6 +15,7 @@ def compare(s, t):
     return not t
 
 
+# Used, so that formatting can be compressed (e.g. ["WHITESPACE"]*4)
 def flatten(foo):
     for x in foo:
         if hasattr(x, '__iter__') and not isinstance(x, str):
