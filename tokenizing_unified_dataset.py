@@ -43,7 +43,18 @@ def split_tokens_by_line(orig_file_tokens):
             idx += 1
 
     return orig_file_line_tokens
+        
+def get_required_tokens(all_tokens, start_line, end_line):
+    line_tokens = split_tokens_by_line(all_tokens)
+    required_line_tokens = line_tokens[start_line:end_line + 1]
 
+    # Flatten tokens again:
+    required_tokens = []
+    for line_tokens in required_line_tokens:
+        for token in line_tokens:
+            required_tokens.append(token)
+    
+    return required_tokens
 
 def count_tokens_in_lines(all_tokens, start_line, num_lines):
     line_tokens = split_tokens_by_line(all_tokens)[start_line:start_line+num_lines]
@@ -98,28 +109,23 @@ def main():
         # Because lexer always adds NEWLINE at very end
         del orig_file_tokens[-1]
 
-        ### Get required original tokens ###
+        # Sanity check
+        line_tokens = split_tokens_by_line(orig_file_tokens)
+        assert num_lines == len(line_tokens), "num_lines not equal to len(line_tokens)"
 
-        orig_file_line_tokens = split_tokens_by_line(orig_file_tokens)
-        assert num_lines == len(
-            orig_file_line_tokens), "num_lines not equal to len(orig_file_line_tokens)"
+        ### Get required original tokens ###
 
         # Diff indices start at 1
         start_required_index = unified_data_dict["RequiredLinesStart"] - 1
-        # Diff indices start at 1
         end_required_index = unified_data_dict["RequiredLinesEnd"] - 1
-        orig_required_line_tokens = orig_file_line_tokens[start_required_index:end_required_index + 1]
 
-        # Flatten tokens again:
-        orig_required_tokens = []
-        for line_tokens in orig_required_line_tokens:
-            for token in line_tokens:
-                orig_required_tokens.append(token)
+        orig_required_tokens = get_required_tokens(orig_file_tokens, start_required_index, end_required_index)
 
         if len(orig_required_tokens) > TOKENS_PER_DATAPOINT:
             print("Too many required tokens: ", len(orig_required_tokens))
+            continue
 
-        ### Get extra context (original) tokens ###
+        ### Add context to original tokens ###
 
         token_index_required_start = count_tokens_in_lines(orig_file_tokens, 0, start_required_index)
         orig_padded_tokens = add_context_to_tokens(orig_file_tokens, orig_required_tokens, token_index_required_start)
