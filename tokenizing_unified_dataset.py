@@ -86,7 +86,34 @@ def add_context_to_tokens(all_tokens, core_token_list, core_idx_start, num_total
 
         num_tokens_to_add -= 1
     
-    return context_token_list
+    return context_token_list, core_idx_start
+
+def get_line_number_by_token_idx(all_tokens, token_idx):
+    line_number = 0
+    for idx, token in enumerate(all_tokens):
+        if idx == token_idx:
+            # token is still part of old line
+            break
+        if token[1] == "NEWLINE":
+            line_number += 1
+
+    return line_number
+
+def subtract_line_offset(unified_data_dict, line_offset):
+    
+    for diag_occurance in unified_data_dict["DiagnosticOccurances"]:
+        diag_occurance["Line"] -= line_offset
+
+    diff_action_type = unified_data_dict["ParsedDiff"]["ActionType"]
+    diff_action = unified_data_dict["ParsedDiff"]["Action"]
+
+    if diff_action_type == "ADD":
+        diff_action["PreviousSourceLocation"] -= line_offset
+    elif diff_action_type == "REPLACE":
+        diff_action["SourceLocations"] = [loc - line_offset for loc in diff_action["SourceLocations"]]
+    else:  # "REMOVE"
+        diff_action["SourceLocationStart"] -= line_offset
+        diff_action["SourceLocationEnd"] -= line_offset
 
 
 def main():
@@ -116,10 +143,10 @@ def main():
         ### Get required original tokens ###
 
         # Diff indices start at 1
-        start_required_index = unified_data_dict["RequiredLinesStart"] - 1
-        end_required_index = unified_data_dict["RequiredLinesEnd"] - 1
+        start_required_idx = unified_data_dict["RequiredLinesStart"] - 1
+        end_required_idx = unified_data_dict["RequiredLinesEnd"] - 1
 
-        orig_required_tokens = get_required_tokens(orig_file_tokens, start_required_index, end_required_index)
+        orig_required_tokens = get_required_tokens(orig_file_tokens, start_required_idx, end_required_idx)
 
         if len(orig_required_tokens) > TOKENS_PER_DATAPOINT:
             print("Too many required tokens: ", len(orig_required_tokens))
@@ -127,14 +154,17 @@ def main():
 
         ### Add context to original tokens ###
 
-        token_index_required_start = count_tokens_in_lines(orig_file_tokens, 0, start_required_index)
-        orig_padded_tokens = add_context_to_tokens(orig_file_tokens, orig_required_tokens, token_index_required_start)
+        start_required_token_idx = count_tokens_in_lines(orig_file_tokens, 0, start_required_idx)
+        orig_padded_tokens, start_padded_token_idx = add_context_to_tokens(orig_file_tokens, orig_required_tokens, start_required_token_idx)
         assert len(orig_padded_tokens) <= TOKENS_PER_DATAPOINT, f"Too many context tokens: {len(orig_padded_tokens)}"
         assert len(orig_padded_tokens) >= len(orig_required_tokens), f"Too few context tokens: {len(orig_padded_tokens)}"
+        unified_data_dict["TokenizedFileContext"] = orig_padded_tokens
 
-
+        ### Subtract line number of file context (offset) from diff src code locations
+        start_padded_line_number = get_line_number_by_token_idx(orig_file_tokens, start_padded_token_idx)
+        subtract_line_offset(unified_data_dict, start_padded_line_number)
+        
         # TODO:
-        # 1. Subtract line number of file context (offset) from diff src code locations
         # 1. Optional: Index vars
         # ------
         # 1. Apply diff to original file and tokenize all
@@ -147,6 +177,8 @@ def main():
         # 1. Add Error token...?
 
         remove_redundant_fields(unified_data_dict)
+
+        print(json.dumps(unified_data_dict, indent=2))
 
         break
 
