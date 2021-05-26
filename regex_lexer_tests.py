@@ -45,7 +45,7 @@ Calculated tokens:
         test_string = """if (x ==5){
     y=7;
 }"""
-        true_token_list = ["if", "WHITESPACE", "(", "x", "WHITESPACE", "=", "=", "5", ")", "{", "NEWLINE",
+        true_token_list = ["if", "WHITESPACE", "(", "x", "WHITESPACE", "==", "5", ")", "{", "NEWLINE",
                            ["WHITESPACE"]*4, "y", "=", "7", ";", "NEWLINE", "}", "NEWLINE"]
         self.run_single_test(test_string, true_token_list)
 
@@ -91,7 +91,7 @@ klll mmklll
 
     def test_inline_block_comment(self):
         test_string = """if (nkj && /* njnk */ njs){"""
-        true_token_list = ["if", "WHITESPACE", "(", "nkj", "WHITESPACE", "&", "&", "WHITESPACE",
+        true_token_list = ["if", "WHITESPACE", "(", "nkj", "WHITESPACE", "&&", "WHITESPACE",
                            "/*", "WHITESPACE", "njnk", "WHITESPACE", "*/", "WHITESPACE", "njs", ")", "{", "NEWLINE"]
         self.run_single_test(test_string, true_token_list)
 

@@ -61,8 +61,6 @@ class CSharpAndCommentsLexer(UnprocessedTokensMixin, CSharpLexer):
     it's shown in the documentation (https://pygments.org/docs/lexerdevelopment/#modifying-token-streams),
     this is simply a copy of all the logic in CSharpLexer. Changed are marked
     as OLD/NEW.
-
-    TODO: Consider binding punctuation ">", "=" --> ">=" (?)
     """
 
     tokens = {}
@@ -82,8 +80,8 @@ class CSharpAndCommentsLexer(UnprocessedTokensMixin, CSharpLexer):
                 ####### OLD: #######
                 # (r'[^\S\n]+', Text),
                 ####### NEW: #######
-                # (r'[^\S\n]', Text),  # Inside [], ^ is a negation
-                (r'[\s\t\r\v]', Text),  # Being explicit in what to match
+                (r'[^\S\n]', Text),  # Inside [], ^ is a negation
+                # (r'[\s\t\r\v]', Text),  # Being explicit in what to match
                 ####################
 
                 (r'\\\n', Text),  # line continuation
@@ -97,7 +95,15 @@ class CSharpAndCommentsLexer(UnprocessedTokensMixin, CSharpLexer):
                 ####################
 
                 (r'\n', Text),
-                (r'[~!%^&*()+=|\[\]:;,.<>/?-]', Punctuation),
+
+                # Binding punctuation
+                ####### OLD: #######
+                # (r'[~!%^&*()+=|\[\]:;,.<>/?-]', Punctuation),
+                ####### NEW: #######
+                (r'(\+\+|\+=|--|-=|->\*|->|&&|&=|\|\||\|=|!=|%=|\*=|==|::|\^=|>>=|>=|>>|<=|<<=|<<|/=|\.\.\.|&&|&=|\^=)', Operator),
+                (r'[~!%^&*()+=|\[\]:;,.<>/?-]', Operator),
+                ####################
+
                 (r'[{}]', Punctuation),
 
                 ####### OLD: #######
