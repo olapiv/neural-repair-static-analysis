@@ -22,15 +22,6 @@ class UnprocessedTokensMixin(object):
                     yield index, Text, "TAB"
                 else:
                     yield index, token, value
-            elif token is Name:
-                # TODO: Implement indexing dictionary
-                yield index, token, value
-            elif token is String:
-                yield index, String, value.encode("unicode_escape").decode("utf-8")
-            #     if token == "\"":
-            #         yield index, Text, "QUOTATION"
-            #     else:
-            #         yield index, token, value
             else:
                 yield index, token, value
 
