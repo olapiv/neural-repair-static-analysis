@@ -105,6 +105,67 @@ def get_line_number_by_token_idx(all_tokens, token_idx):
     return line_number
 
 
+def apply_diff_to_file(unified_data_dict, orig_file):
+
+    diffed_file_list = orig_file.split("\n")
+    diff_action_type = unified_data_dict["ParsedDiff"]["ActionType"]
+    diff_action = unified_data_dict["ParsedDiff"]["Action"]
+
+    if diff_action_type == "ADD":
+
+        # Diff starts at line 1
+        prev_idx = diff_action["PreviousSourceLocation"] - 1
+        diffed_file_list[prev_idx + 1:prev_idx +
+                         1] = diff_action["TargetLines"]
+
+    elif diff_action_type == "REMOVE":
+
+        start_idx = diff_action["SourceLocationStart"] - 1
+        end_idx = diff_action["SourceLocationEnd"] - 1
+        idx_to_del = list(range(start_idx, end_idx + 1))
+        diffed_file_list = [i for j, i in enumerate(
+            diffed_file_list) if j not in idx_to_del]
+
+    else:  # "REPLACE"
+
+        # Remove
+        # Diff starts at line 1
+        idx_to_del = [i-1 for i in diff_action["SourceLocations"]]
+        diffed_file_list = [i for j, i in enumerate(
+            diffed_file_list) if j not in idx_to_del]
+
+        # Add
+        first_idx = idx_to_del[0]
+        diffed_file_list[first_idx:first_idx] = diff_action["TargetLines"]
+
+    return "\n".join(diffed_file_list)
+
+
+def get_required_target_indices(unified_data_dict):
+
+    target_start_idx = -1
+    target_end_idx = -1
+    diff_action_type = unified_data_dict["ParsedDiff"]["ActionType"]
+    diff_action = unified_data_dict["ParsedDiff"]["Action"]
+    if diff_action_type == "ADD":
+
+        # Diff line start at 1; target starts 1 after PreviousSourceLocation
+        target_start_idx = diff_action["PreviousSourceLocation"] - 1 + 1
+        target_end_idx = target_start_idx + len(diff_action["TargetLines"])
+
+    elif diff_action_type == "REPLACE":
+
+        # Diff line start at 1;
+        target_start_idx = diff_action["SourceLocations"][0] - 1
+        target_end_idx = target_start_idx + len(diff_action["TargetLines"])
+
+    else:  # "REMOVE"
+        # No target information
+        pass
+
+    return target_start_idx, target_end_idx
+
+
 def subtract_line_offset(unified_data_dict, line_offset):
 
     for diag_occurance in unified_data_dict["DiagnosticOccurances"]:
@@ -171,15 +232,35 @@ def main():
             orig_padded_tokens) <= TOKENS_PER_DATAPOINT, f"Too many context tokens: {len(orig_padded_tokens)}"
         assert len(orig_padded_tokens) >= len(
             orig_required_tokens), f"Too few context tokens: {len(orig_padded_tokens)}"
-        unified_data_dict["TokenizedFileContext"] = [token[1] for token in orig_padded_tokens]
+        unified_data_dict["TokenizedFileContext"] = [token[1]
+                                                     for token in orig_padded_tokens]
 
         # TODO: Optional: Index vars
 
+        ### Apply diff to original file and tokenize all ###
+
+        if unified_data_dict["ParsedDiff"]["ActionType"] != "REMOVE":
+
+            diffed_file_str = apply_diff_to_file(
+                unified_data_dict, orig_file_string)
+
+            diffed_file_tokens = [
+                result for result in the_lexer.get_tokens(diffed_file_str)]
+
+            # Because lexer always adds NEWLINE at very end
+            del diffed_file_tokens[-1]
+
+            start_target_idx, end_target_idx = get_required_target_indices(
+                unified_data_dict)
+            diffed_required_tokens = get_required_tokens(
+                diffed_file_tokens, start_target_idx, end_target_idx)
+            unified_data_dict["ParsedDiff"]["Action"]["TokenizedTargetLines"] = [
+                token[1] for token in diffed_required_tokens]
+
+            # TODO: Optional: Index vars
+
+
         # TODO:
-        # 1. Apply diff to original file and tokenize all
-        # 1. Extract tokens from diff
-        # 1. Optional: Index vars
-        # ------
         # 1. Tokenize diagnostic message with LanguageLexer
         # 1. Optional: Index vars
         # ------
@@ -188,7 +269,7 @@ def main():
         ### Subtract line number of file context (offset) from diff src code locations ###
         start_padded_line_number = get_line_number_by_token_idx(
             orig_file_tokens, start_padded_token_idx)
-        start_padded_line_number += 1 # In diffs, start counting at line 1
+        start_padded_line_number += 1  # In diffs, start counting at line 1
         subtract_line_offset(unified_data_dict, start_padded_line_number)
         unified_data_dict["TokenizedFileContextStart"] = start_padded_line_number
 
