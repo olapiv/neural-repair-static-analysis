@@ -25,7 +25,7 @@ def remove_redundant_fields(data_dict):
     data_dict.pop("FilePath", None)
     data_dict.pop("Commit", None)
     data_dict.pop("AnalyzerNuGet", None)
-    data_dict.pop("FileContextStart", None)
+    # data_dict.pop("FileContextStart", None)
     data_dict.pop("RequiredLinesStart", None)
     data_dict.pop("RequiredLinesEnd", None)
     # data_dict.pop("FileContext", None)
@@ -173,14 +173,9 @@ def main():
             orig_required_tokens), f"Too few context tokens: {len(orig_padded_tokens)}"
         unified_data_dict["TokenizedFileContext"] = [token[1] for token in orig_padded_tokens]
 
-        ### Subtract line number of file context (offset) from diff src code locations ###
-        start_padded_line_number = get_line_number_by_token_idx(
-            orig_file_tokens, start_padded_token_idx)
-        subtract_line_offset(unified_data_dict, start_padded_line_number)
+        # TODO: Optional: Index vars
 
         # TODO:
-        # 1. Optional: Index vars
-        # ------
         # 1. Apply diff to original file and tokenize all
         # 1. Extract tokens from diff
         # 1. Optional: Index vars
@@ -189,6 +184,13 @@ def main():
         # 1. Optional: Index vars
         # ------
         # 1. Add Error token...?
+
+        ### Subtract line number of file context (offset) from diff src code locations ###
+        start_padded_line_number = get_line_number_by_token_idx(
+            orig_file_tokens, start_padded_token_idx)
+        start_padded_line_number += 1 # In diffs, start counting at line 1
+        subtract_line_offset(unified_data_dict, start_padded_line_number)
+        unified_data_dict["TokenizedFileContextStart"] = start_padded_line_number
 
         remove_redundant_fields(unified_data_dict)
 
