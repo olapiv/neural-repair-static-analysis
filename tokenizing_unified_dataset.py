@@ -1,6 +1,6 @@
 import os
 import json
-from regex_lexer import CSharpAndCommentsLexer
+from regex_lexer import CSharpAndCommentsLexer, LanguageLexer
 
 
 TOKENS_PER_DATAPOINT = 100
@@ -244,6 +244,7 @@ def main():
                                                      for token in orig_padded_tokens]
 
         # TODO: Optional: Index vars
+        # TODO: Add Error tokens (?)
 
         ### Apply diff to original file and tokenize all ###
 
@@ -267,11 +268,20 @@ def main():
 
             # TODO: Optional: Index vars
 
-        # TODO:
-        # 1. Tokenize diagnostic message with LanguageLexer
-        # 1. Optional: Index vars
-        # ------
-        # 1. Add Error token...?
+        ### Tokenize diagnostic message ###
+
+        diag_message_lexer = LanguageLexer()
+        for diag in unified_data_dict["DiagnosticOccurances"]:
+
+            diag_message_tokens = [result for result in diag_message_lexer.get_tokens(diag["Message"])]
+
+            # Because lexer always adds NEWLINE at very end
+            del diag_message_tokens[-1]
+
+            diag["TokenizedMessage"] = [
+                result[1] for result in diag_message_tokens]
+
+        # TODO: Optional: Index vars
 
         ### Subtract line number of file context (offset) from diff src code locations ###
         start_padded_line_number = get_line_number_by_token_idx(
