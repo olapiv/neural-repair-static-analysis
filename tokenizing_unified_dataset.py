@@ -46,6 +46,7 @@ def split_tokens_by_line(orig_file_tokens):
 
 
 def get_required_tokens(all_tokens, start_line, end_line):
+
     line_tokens = split_tokens_by_line(all_tokens)
     required_line_tokens = line_tokens[start_line:end_line + 1]
 
@@ -113,10 +114,12 @@ def apply_diff_to_file(unified_data_dict, orig_file):
 
     if diff_action_type == "ADD":
 
+        target_lines = [line.rstrip('\n') for line in diff_action["TargetLines"]]
+
         # Diff starts at line 1
         prev_idx = diff_action["PreviousSourceLocation"] - 1
         diffed_file_list[prev_idx + 1:prev_idx +
-                         1] = diff_action["TargetLines"]
+                         1] = target_lines
 
     elif diff_action_type == "REMOVE":
 
@@ -136,7 +139,8 @@ def apply_diff_to_file(unified_data_dict, orig_file):
 
         # Add
         first_idx = idx_to_del[0]
-        diffed_file_list[first_idx:first_idx] = diff_action["TargetLines"]
+        target_lines = [line.rstrip('\n') for line in diff_action["TargetLines"]]
+        diffed_file_list[first_idx:first_idx] = target_lines
 
     return "\n".join(diffed_file_list)
 
@@ -151,13 +155,13 @@ def get_required_target_indices(unified_data_dict):
 
         # Diff line start at 1; target starts 1 after PreviousSourceLocation
         target_start_idx = diff_action["PreviousSourceLocation"] - 1 + 1
-        target_end_idx = target_start_idx + len(diff_action["TargetLines"])
+        target_end_idx = target_start_idx + len(diff_action["TargetLines"]) - 1
 
     elif diff_action_type == "REPLACE":
 
         # Diff line start at 1;
         target_start_idx = diff_action["SourceLocations"][0] - 1
-        target_end_idx = target_start_idx + len(diff_action["TargetLines"])
+        target_end_idx = target_start_idx + len(diff_action["TargetLines"]) - 1
 
     else:  # "REMOVE"
         # No target information
@@ -189,7 +193,11 @@ def main():
 
     unified_files = [f for f in os.scandir(
         unified_dataset_dir) if f.is_file()]
+    # idx = 0
     for unified_file in unified_files:
+        # idx += 1
+        # if idx !=3:
+        #     continue
 
         with open(unified_file) as json_file:
             unified_data_dict = json.load(json_file)
@@ -258,7 +266,6 @@ def main():
                 token[1] for token in diffed_required_tokens]
 
             # TODO: Optional: Index vars
-
 
         # TODO:
         # 1. Tokenize diagnostic message with LanguageLexer
