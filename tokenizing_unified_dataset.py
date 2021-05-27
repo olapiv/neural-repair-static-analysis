@@ -10,8 +10,8 @@ tokenized_dataset_dir = "tokenized_dataset"
 
 def remove_redundant_fields(data_dict):
 
-    for diagOccurance in data_dict["DiagnosticOccurances"]:
-        diagOccurance.pop("Message", None)
+    # for diagOccurance in data_dict["DiagnosticOccurances"]:
+    #     diagOccurance.pop("Message", None)
 
     if data_dict["ParsedDiff"]["ActionType"] != "REMOVE":
         data_dict["ParsedDiff"]["Action"].pop("TargetLines", None)
@@ -114,7 +114,8 @@ def apply_diff_to_file(unified_data_dict, orig_file):
 
     if diff_action_type == "ADD":
 
-        target_lines = [line.rstrip('\n') for line in diff_action["TargetLines"]]
+        target_lines = [line.rstrip('\n')
+                        for line in diff_action["TargetLines"]]
 
         # Diff starts at line 1
         prev_idx = diff_action["PreviousSourceLocation"] - 1
@@ -139,7 +140,8 @@ def apply_diff_to_file(unified_data_dict, orig_file):
 
         # Add
         first_idx = idx_to_del[0]
-        target_lines = [line.rstrip('\n') for line in diff_action["TargetLines"]]
+        target_lines = [line.rstrip('\n')
+                        for line in diff_action["TargetLines"]]
         diffed_file_list[first_idx:first_idx] = target_lines
 
     return "\n".join(diffed_file_list)
@@ -188,7 +190,7 @@ def subtract_line_offset(unified_data_dict, line_offset):
         diff_action["SourceLocationEnd"] -= line_offset
 
 
-def main():
+def main(zero_index_vars=False):
     the_lexer = CSharpAndCommentsLexer()
 
     unified_files = [f for f in os.scandir(
@@ -196,7 +198,7 @@ def main():
     # idx = 0
     for unified_file in unified_files:
         # idx += 1
-        # if idx !=3:
+        # if idx != 3:
         #     continue
 
         with open(unified_file) as json_file:
@@ -240,10 +242,17 @@ def main():
             orig_padded_tokens) <= TOKENS_PER_DATAPOINT, f"Too many context tokens: {len(orig_padded_tokens)}"
         assert len(orig_padded_tokens) >= len(
             orig_required_tokens), f"Too few context tokens: {len(orig_padded_tokens)}"
+
+        # Optionally zero-index identifiers
+        var_index_dict = {}
+        if zero_index_vars:
+            index_func = CSharpAndCommentsLexer.index_identifier_token
+            orig_padded_tokens = [index_func(
+                token[0], token[1], var_index_dict) for token in orig_padded_tokens]
+
         unified_data_dict["TokenizedFileContext"] = [token[1]
                                                      for token in orig_padded_tokens]
 
-        # TODO: Optional: Index vars
         # TODO: Add Error tokens (?)
 
         ### Apply diff to original file and tokenize all ###
@@ -263,25 +272,35 @@ def main():
                 unified_data_dict)
             diffed_required_tokens = get_required_tokens(
                 diffed_file_tokens, start_target_idx, end_target_idx)
+
+            # Optionally zero-index identifiers
+            if zero_index_vars:
+                index_func = CSharpAndCommentsLexer.index_identifier_token
+                diffed_required_tokens = [index_func(
+                    token[0], token[1], var_index_dict) for token in diffed_required_tokens]
+
             unified_data_dict["ParsedDiff"]["Action"]["TokenizedTargetLines"] = [
                 token[1] for token in diffed_required_tokens]
-
-            # TODO: Optional: Index vars
 
         ### Tokenize diagnostic message ###
 
         diag_message_lexer = LanguageLexer()
         for diag in unified_data_dict["DiagnosticOccurances"]:
 
-            diag_message_tokens = [result for result in diag_message_lexer.get_tokens(diag["Message"])]
+            diag_message_tokens = [
+                result for result in diag_message_lexer.get_tokens(diag["Message"])]
 
             # Because lexer always adds NEWLINE at very end
             del diag_message_tokens[-1]
 
+            # Optionally zero-index identifiers
+            if zero_index_vars:
+                index_func = CSharpAndCommentsLexer.index_identifier_token
+                diag_message_tokens = [index_func(
+                    token[0], token[1], var_index_dict) for token in diag_message_tokens]
+
             diag["TokenizedMessage"] = [
                 result[1] for result in diag_message_tokens]
-
-        # TODO: Optional: Index vars
 
         ### Subtract line number of file context (offset) from diff src code locations ###
         start_padded_line_number = get_line_number_by_token_idx(
@@ -302,4 +321,5 @@ def main():
 
 
 if __name__ == '__main__':
-    main()
+    zero_index_vars = True
+    main(zero_index_vars)
