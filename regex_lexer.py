@@ -16,6 +16,8 @@ class UnprocessedTokensMixin(object):
             if token is Text:
                 if value == " ":
                     yield index, Text, "WHITESPACE"
+                # if " " in value:
+                #     yield index, Text, f"WHITESPACE-{value.count(' ')}"
                 elif value == "\n":
                     yield index, Text, "NEWLINE"
                 elif value == "\t":
@@ -93,9 +95,12 @@ class CSharpAndCommentsLexer(UnprocessedTokensMixin, CSharpLexer):
                 ####### OLD: #######
                 # (r'[~!%^&*()+=|\[\]:;,.<>/?-]', Punctuation),
                 ####### NEW: #######
-                (r'(->\*|>>=|<<=|\.\.\.)', Operator),  # 3 symbols
-                (r'(\+\+|\+=|--|-=|->|&&|&=|\|\||\|=|!=|%=|\*=|==|::|\^=|>=|>>|<=|<<|/=|&&|&=|\^=)', Operator),  # 2 symbols
-                (r'[~!%^&*()+=|\[\]:;,.<>/?-]', Operator),  # 1 symbol
+                # 3 symbols
+                (r'(->\*|>>=|<<=|\.\.\.)', Operator),
+                # 2 symbols
+                (r'(\+\+|\+=|--|-=|->|&&|&=|\|\||\|=|!=|%=|\*=|==|::|\^=|>=|>>|<=|<<|/=|&&|&=|\^=)', Operator),
+                # 1 symbol
+                (r'[~!%^&*()+=|\[\]:;,.<>/?-]', Operator),
                 ####################
 
                 (r'[{}]', Punctuation),
@@ -114,9 +119,17 @@ class CSharpAndCommentsLexer(UnprocessedTokensMixin, CSharpLexer):
 
                 (r"[0-9](\.[0-9]*)?([eE][+-][0-9]+)?"
                  r"[flFLdD]?|0[xX][0-9a-fA-F]+[Ll]?", Number),
+
+                # Too risky with numbers in pragma or line comments after pragma; simplified
+                ####### OLD: #######
+                # (r'#[ \t]*(if|endif|else|elif|define|undef|'
+                #  r'line|error|warning|region|endregion|pragma)\b.*?\n',
+                #  Comment.Preproc),
+                ####### NEW: #######
                 (r'#[ \t]*(if|endif|else|elif|define|undef|'
-                 r'line|error|warning|region|endregion|pragma)\b.*?\n',
-                 Comment.Preproc),
+                 r'line|error|warning|region|endregion|pragma)',Comment.Preproc),
+                ####################
+
                 (r'\b(extern)(\s+)(alias)\b', bygroups(Keyword, Text,
                  Keyword)),
                 (r'(abstract|as|async|await|base|break|by|case|catch|'
@@ -160,7 +173,8 @@ class CSharpAndCommentsLexer(UnprocessedTokensMixin, CSharpLexer):
                 # This represents 3 groups; the last char before \" will be matched a second time,
                 # so we use None to ignore it.
                 # TODO: Figure out why it is matched a second time
-                (r'((""|[^"])*)(")', bygroups(using(LanguageLexer), None, String), '#pop'),
+                (r'((""|[^"])*)(")',
+                 bygroups(using(LanguageLexer), None, String), '#pop'),
 
                 # (r'(""|[^"])*', using(LanguageLexer)),
                 # (r'"', String, '#pop'),
@@ -169,19 +183,20 @@ class CSharpAndCommentsLexer(UnprocessedTokensMixin, CSharpLexer):
                 # This represents 3 groups; the last char before \" will be matched a second time,
                 # so we use None to ignore it.
                 # TODO: Figure out why it is matched a second time
-                (r'((\\\\|\\[^\\]|[^"\\\n])*)(["\n])', bygroups(using(LanguageLexer), None, String), '#pop'), 
+                (r'((\\\\|\\[^\\]|[^"\\\n])*)(["\n])',
+                 bygroups(using(LanguageLexer), None, String), '#pop'),
             ]
             ####################
         }
-    
+
     @staticmethod
     def index_identifier_token(token_type, value, index_dict):
         if token_type != Name:
             return token_type, value
-        
+
         if value in index_dict:
             return token_type, index_dict[value]
-        
+
         new_index_name = f"VAR-{len(index_dict.keys())}"
         index_dict[value] = new_index_name
         return token_type, new_index_name
@@ -200,14 +215,15 @@ def run_pygments_lexer(original_file_string):
     for (token_type, value) in result:
         print(f"token_type: {token_type}, value: {value}")
 
+
 def run_pygments_lexer_indexed_identifiers(original_file_string):
     index_dict = {}
     my_lexer = CSharpAndCommentsLexer()
     result = my_lexer.get_tokens(original_file_string)
     for (token_type, value) in result:
-        (token_type, value) = CSharpAndCommentsLexer.index_identifier_token(token_type, value, index_dict)
+        (token_type, value) = CSharpAndCommentsLexer.index_identifier_token(
+            token_type, value, index_dict)
         print(f"token_type: {token_type}, value: {value}")
-
 
 
 if __name__ == "__main__":

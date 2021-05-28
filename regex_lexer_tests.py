@@ -141,6 +141,13 @@ Redirect = 302,"""
                            "VAR-1", "WHITESPACE", "=", "WHITESPACE", "3", "0", "2", ",", "NEWLINE"]
         self.run_single_test(test_string, true_token_list, True)
 
+    def test_pragma(self):
+
+        test_string = """#pragma warning disable 436 // SuppressUnmanagedCodeSecurityAttribute defined in source and mscorlib"""
+        true_token_list = ["#pragma", "WHITESPACE", "warning", "WHITESPACE", "disable", "WHITESPACE", "4", "3", "6", "WHITESPACE", "//", "WHITESPACE", "SuppressUnmanagedCodeSecurityAttribute", "WHITESPACE", 
+                            "defined", "WHITESPACE", "in", "WHITESPACE", "source", "WHITESPACE", "and", "WHITESPACE", "mscorlib", "NEWLINE"]
+        self.run_single_test(test_string, true_token_list)
+
 
 if __name__ == '__main__':
     unittest.main()
