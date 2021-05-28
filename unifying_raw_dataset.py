@@ -244,8 +244,11 @@ for diff_file in diff_files:
         not know which diagnostic occurance caused this to happen. Therefore,
         these occurances are bundled. 
         One diagnostic occurance can however only have generated a single 
-        diff batch. The assumption is that this diff batch will be at the same
-        line as the diagnostic occurance.
+        diff batch. The assumption is that this diff batch will be "at the same
+        line" as the diagnostic occurance. This however also has shortcomings
+        for multi-line diffs (they will be split up).
+
+        TODO: Consider how to match multi-line diffs
         """
         diff_batch_to_diagnostic_occurances_dict = {}
         for diagnostic_occurance in unique_diagnostic_occurances:
@@ -256,16 +259,31 @@ for diff_file in diff_files:
                     diff_key = f"REPLACE-{count}"
                     break
 
-            for count, value in enumerate(all_added_lines):
-                if diagnostic_occurance["Line"] == value["PreviousSourceLocation"]:
-                    diff_key = f"ADD-{count}"
-                    break
+            if not diff_key:
+                for count, value in enumerate(all_removed_lines):
+                    if (diagnostic_occurance["Line"] >= value["SourceLocationStart"] and
+                            diagnostic_occurance["Line"] <= value["SourceLocationEnd"]):
+                        diff_key = f"REMOVE-{count}"
+                        break
 
-            for count, value in enumerate(all_removed_lines):
-                if (diagnostic_occurance["Line"] >= value["SourceLocationStart"] and
-                        diagnostic_occurance["Line"] <= value["SourceLocationEnd"]):
-                    diff_key = f"REMOVE-{count}"
-                    break
+            # Do added_lines last, since intuitively, finding deleted lines is easier; diagnostic
+            # will probably be inside one of the deleted/replaced lines?
+            # Adding lines on the other hand could happen is evenly likely to happen before
+            # or after the diagnostic
+
+            if not diff_key:
+                for count, value in enumerate(all_added_lines):
+                    # If added lines are above diagnostic
+                    if (diagnostic_occurance["Line"] - 1) == value["PreviousSourceLocation"]:
+                        diff_key = f"ADD-{count}"
+                        break
+
+            if not diff_key:
+                for count, value in enumerate(all_added_lines):
+                    # If added lines are beneath diagnostic
+                    if diagnostic_occurance["Line"] == value["PreviousSourceLocation"]:
+                        diff_key = f"ADD-{count}"
+                        break
 
             # Diagnostic occurance leads to no obvious diff batch
             if not diff_key:
@@ -280,9 +298,10 @@ for diff_file in diff_files:
         # Creating one datapoint per diff action (add/delete/replace)
         for key, value in diff_batch_to_diagnostic_occurances_dict.items():
 
+            # TODO: Comment this out for full dataset
             # For a more heterogenuous dataset
-            # if num_diff_datapoint > 3:
-            #     continue
+            if num_diff_datapoint > 3:
+                continue
 
             unified_data = copy.deepcopy(unified_data_file)
             unified_data["DiagnosticOccurances"] = value
