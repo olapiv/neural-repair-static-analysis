@@ -68,7 +68,13 @@ class CSharpAndCommentsLexer(UnprocessedTokensMixin, CSharpLexer):
                  r'(' + cs_ident + ')'                            # method name
                  r'(\s*)(\()',                               # signature start
                  bygroups(using(this), Name.Function, Text, Punctuation)),
-                (r'^\s*\[.*?\]', Name.Attribute),
+                
+                # Avoid bundling too much..
+                ####### OLD: #######
+                # (r'^\s*\[.*?\]', Name.Attribute),
+                ####### NEW: #######
+                (r'(?<=\[)\w(?=\])', Name.Attribute),
+                ####################
 
                 # Stop binding formatting:
                 ####### OLD: #######

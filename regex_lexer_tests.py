@@ -148,6 +148,28 @@ Redirect = 302,"""
                             "defined", "WHITESPACE", "in", "WHITESPACE", "source", "WHITESPACE", "and", "WHITESPACE", "mscorlib", "NEWLINE"]
         self.run_single_test(test_string, true_token_list)
 
+    def test_attribute_simple(self):
+
+        test_string = """}
+
+    [Flags]
+    internal"""
+        true_token_list = ["}", "NEWLINE", "NEWLINE", ["WHITESPACE"]*4, "[", "Flags", "]", "NEWLINE", ["WHITESPACE"]*4, "internal", "NEWLINE"]
+        self.run_single_test(test_string, true_token_list)
+
+    def test_attribute_complex(self):
+
+        # Actually, it's Guid("D682FD12-43dE-411C-811B-BE8404CEA126")
+        test_string = """{
+    [ComImport, InterfaceType(ComInterfaceType.InterfaceIsIUnknown), Guid("bla"), SuppressUnmanagedCodeSecurity]
+    internal interface ISymNGenWriter"""
+        true_token_list = ["{", "NEWLINE", ["WHITESPACE"]*4, "[", "ComImport", ",", "WHITESPACE", "InterfaceType", "(", 
+        "ComInterfaceType", ".", "InterfaceIsIUnknown", ")", ",", "WHITESPACE",
+        "Guid", "(", "\"", "bla", "\"", ")", ",", "WHITESPACE", "SuppressUnmanagedCodeSecurity", "]",
+        "NEWLINE", ["WHITESPACE"]*4, "internal", "WHITESPACE", "interface", "WHITESPACE", "ISymNGenWriter", "NEWLINE"]
+        self.run_single_test(test_string, true_token_list)
+
+    # TODO: UUID ?
 
 if __name__ == '__main__':
     unittest.main()
