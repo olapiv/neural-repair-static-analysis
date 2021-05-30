@@ -13,11 +13,11 @@ def remove_redundant_fields(data_dict):
     # for diagOccurance in data_dict["DiagnosticOccurances"]:
     #     diagOccurance.pop("Message", None)
 
-    if data_dict["ParsedDiff"]["ActionType"] != "REMOVE":
-        data_dict["ParsedDiff"]["Action"].pop("TargetLines", None)
+    # if data_dict["ParsedDiff"]["ActionType"] != "REMOVE":
+    #     data_dict["ParsedDiff"]["Action"].pop("TargetLines", None)
 
-        if data_dict["ParsedDiff"]["ActionType"] != "ADD":
-            data_dict["ParsedDiff"]["Action"].pop("TargetStartLocation", None)
+    #     if data_dict["ParsedDiff"]["ActionType"] != "ADD":
+    #         data_dict["ParsedDiff"]["Action"].pop("TargetStartLocation", None)
 
     data_dict.pop("Repo", None)
     data_dict.pop("RepoURL", None)
@@ -26,8 +26,8 @@ def remove_redundant_fields(data_dict):
     data_dict.pop("Commit", None)
     data_dict.pop("AnalyzerNuGet", None)
     # data_dict.pop("FileContextStart", None)
-    data_dict.pop("RequiredLinesStart", None)
-    data_dict.pop("RequiredLinesEnd", None)
+    # data_dict.pop("RequiredLinesStart", None)
+    # data_dict.pop("RequiredLinesEnd", None)
     # data_dict.pop("FileContext", None)
 
     return
@@ -195,18 +195,19 @@ def main(zero_index_vars=False):
 
     unified_files = [f for f in os.scandir(
         unified_dataset_dir) if f.is_file()]
-    # idx = 0
+    # num_datapoints = 0
     for unified_file in unified_files:
-        # idx += 1
-        # if idx != 3:
-        #     continue
+        # if num_datapoints == 5:
+        #     break
+        # num_datapoints += 1
+        # print("num_datapoints: ", num_datapoints)
 
         with open(unified_file) as json_file:
             unified_data_dict = json.load(json_file)
 
         path_to_file = f"""./submodule_repos_to_analyze/{unified_data_dict["Repo"]}/{unified_data_dict["FilePath"]}"""
         with open(path_to_file, 'r') as file:
-            orig_file_string = file.read()
+            orig_file_string = file.read()  # Adds newline at very end
         num_lines = orig_file_string.count('\n')
         orig_file_tokens = [
             result for result in the_lexer.get_tokens(orig_file_string)]
@@ -217,7 +218,8 @@ def main(zero_index_vars=False):
         # Sanity check
         line_tokens = split_tokens_by_line(orig_file_tokens)
         assert num_lines == len(
-            line_tokens), "num_lines not equal to len(line_tokens)"
+            line_tokens), f"""num_lines not equal to len(line_tokens); num_lines: {num_lines}; len(
+            line_tokens): {len(line_tokens)}; file: {unified_data_dict["FileURL"]}"""
 
         ### Get required original tokens ###
 
@@ -286,9 +288,9 @@ def main(zero_index_vars=False):
 
         diag_message_lexer = LanguageLexer()
         for diag in unified_data_dict["DiagnosticOccurances"]:
-
+            message_lower = [word.lower() if not word.startswith("'") else word for word in diag["Message"].split(" ")]
             diag_message_tokens = [
-                result for result in diag_message_lexer.get_tokens(diag["Message"])]
+                result for result in diag_message_lexer.get_tokens(' '.join(message_lower))]
 
             # Because lexer always adds NEWLINE at very end
             del diag_message_tokens[-1]
@@ -311,9 +313,7 @@ def main(zero_index_vars=False):
 
         remove_redundant_fields(unified_data_dict)
 
-        print(json.dumps(unified_data_dict, indent=2))
-
-        break
+        # print(json.dumps(unified_data_dict, indent=2))
 
         new_filepath = f"{tokenized_dataset_dir}/{unified_file.name}"
         with open(new_filepath, 'w', encoding='utf-8') as f:
@@ -321,5 +321,5 @@ def main(zero_index_vars=False):
 
 
 if __name__ == '__main__':
-    zero_index_vars = True
+    zero_index_vars = False
     main(zero_index_vars)
