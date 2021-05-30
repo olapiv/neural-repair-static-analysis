@@ -73,7 +73,7 @@ class CSharpAndCommentsLexer(UnprocessedTokensMixin, CSharpLexer):
                 ####### OLD: #######
                 # (r'^\s*\[.*?\]', Name.Attribute),
                 ####### NEW: #######
-                (r'(?<=\[)\w(?=\])', Name.Attribute),
+                (r'(?<=\[)\w+(?=\])', Name.Attribute),
                 ####################
 
                 # Stop binding formatting:
@@ -151,12 +151,23 @@ class CSharpAndCommentsLexer(UnprocessedTokensMixin, CSharpLexer):
                  r'descending|from|group|into|orderby|select|thenby|where|'
                  r'join|equals)\b', Keyword),
                 (r'(global)(::)', bygroups(Keyword, Punctuation)),
+
                 (r'(bool|byte|char|decimal|double|dynamic|float|int|long|object|'
                  r'sbyte|short|string|uint|ulong|ushort|var)\b\??', Keyword.Type),
-                (r'(class|struct)(\s+)', bygroups(Keyword, Text), 'class'),
-                (r'(namespace|using)(\s+)', bygroups(Keyword, Text), 'namespace'),
+
+                ####### OLD: #######
+                # (r'(class|struct)(\s+)', bygroups(Keyword, Text), 'class'),  # \s+ is bundled..
+                # (r'(namespace|using)(\s+)', bygroups(Keyword, Text), 'namespace'),
+                ####### NEW: #######
+                (r'\b(class|struct|namespace|using)\b', Keyword),
+                (r'(?:(?<=class\W)|(?<=struct\W))\w+', Name.Class),  # Avoid bundling whitespace
+                (r'(?:(?<=namespace\W)|(?<=using\W))\w+', Name.Class),  # Avoid bundling whitespace
+                ####################
+
                 (cs_ident, Name),
             ],
+
+            # Not used anymore
             'class': [
                 (cs_ident, Name.Class, '#pop'),
                 default('#pop'),
