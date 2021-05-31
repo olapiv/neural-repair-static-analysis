@@ -208,7 +208,7 @@ class CSharpAndCommentsLexer(UnprocessedTokensMixin, CSharpLexer):
 
     @staticmethod
     def index_identifier_token(token_type, value, index_dict):
-        if token_type != Name:
+        if token_type != Name and token_type != Name.Class:
             return token_type, value
 
         if value in index_dict:
@@ -248,6 +248,9 @@ if __name__ == "__main__":
     c_sharp_filepath = "./sample_csharp_to_tokenize.cs"
     with open(c_sharp_filepath, 'r') as file:
         original_file = file.read()
+
+    original_file="""class Xyz { 
+    }"""
 
     # run_only_language_lexer(original_file)
     # run_pygments_lexer(original_file)
