@@ -80,7 +80,7 @@ def add_context_to_tokens(all_tokens, core_token_list, core_idx_start, num_total
         if core_idx_start == 0 and core_idx_end == max_idx:
             break
 
-        if core_idx_start == 0 or num_tokens_to_add % 2 == 1:
+        if not core_idx_end == max_idx and (core_idx_start == 0 or num_tokens_to_add % 2 == 1):
             core_idx_end += 1
             context_token_list.append(all_tokens[core_idx_end])
 
@@ -216,10 +216,10 @@ def main(zero_index_vars=False):
         del orig_file_tokens[-1]
 
         # Sanity check
-        line_tokens = split_tokens_by_line(orig_file_tokens)
-        assert num_lines == len(
-            line_tokens), f"""num_lines not equal to len(line_tokens); num_lines: {num_lines}; len(
-            line_tokens): {len(line_tokens)}; file: {unified_data_dict["FileURL"]}"""
+        # line_tokens = split_tokens_by_line(orig_file_tokens)
+        # assert num_lines == len(
+        #     line_tokens), f"""num_lines not equal to len(line_tokens); num_lines: {num_lines}; len(
+        #     line_tokens): {len(line_tokens)}; file: {unified_data_dict["FileURL"]}"""
 
         ### Get required original tokens ###
 
@@ -238,8 +238,10 @@ def main(zero_index_vars=False):
 
         start_required_token_idx = count_tokens_in_lines(
             orig_file_tokens, 0, start_required_idx)
+
         orig_padded_tokens, start_padded_token_idx = add_context_to_tokens(
             orig_file_tokens, orig_required_tokens, start_required_token_idx)
+
         assert len(
             orig_padded_tokens) <= TOKENS_PER_DATAPOINT, f"Too many context tokens: {len(orig_padded_tokens)}"
         assert len(orig_padded_tokens) >= len(
@@ -288,7 +290,8 @@ def main(zero_index_vars=False):
 
         diag_message_lexer = LanguageLexer()
         for diag in unified_data_dict["DiagnosticOccurances"]:
-            message_lower = [word.lower() if not word.startswith("'") else word for word in diag["Message"].split(" ")]
+            message_lower = [word.lower() if not word.startswith(
+                "'") else word for word in diag["Message"].split(" ")]
             diag_message_tokens = [
                 result for result in diag_message_lexer.get_tokens(' '.join(message_lower))]
 
