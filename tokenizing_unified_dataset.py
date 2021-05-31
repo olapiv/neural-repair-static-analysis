@@ -194,13 +194,21 @@ def main(zero_index_vars=False):
     the_lexer = CSharpAndCommentsLexer()
 
     unified_files = [f for f in os.scandir(
-        unified_dataset_dir) if f.is_file()]
+        unified_dataset_dir) if f.is_file() and f.name.endswith(".json")]
+    tokenized_files = [f.name for f in os.scandir(
+        tokenized_dataset_dir) if f.is_file()]
     # num_datapoints = 0
     for unified_file in unified_files:
         # if num_datapoints == 5:
         #     break
         # num_datapoints += 1
         # print("num_datapoints: ", num_datapoints)
+
+        print(f"File to tokenize: {unified_file.name}")
+
+        if unified_file.name in tokenized_files:
+            print("File already tokenized")
+            continue
 
         with open(unified_file) as json_file:
             unified_data_dict = json.load(json_file)
