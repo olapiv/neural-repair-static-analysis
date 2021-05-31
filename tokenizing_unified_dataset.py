@@ -210,8 +210,12 @@ def main(zero_index_vars=False):
             print("File already tokenized")
             continue
 
-        with open(unified_file) as json_file:
-            unified_data_dict = json.load(json_file)
+        with open(unified_file, 'r') as file:
+            orig_file_string = file.read()
+            if not orig_file_string.isascii():
+                print("File is not ASCII!")
+                continue
+            unified_data_dict = json.loads(orig_file_string)
 
         path_to_file = f"""./submodule_repos_to_analyze/{unified_data_dict["Repo"]}/{unified_data_dict["FilePath"]}"""
         with open(path_to_file, 'r') as file:
@@ -323,8 +327,6 @@ def main(zero_index_vars=False):
         unified_data_dict["TokenizedFileContextStart"] = start_padded_line_number
 
         remove_redundant_fields(unified_data_dict)
-
-        # print(json.dumps(unified_data_dict, indent=2))
 
         new_filepath = f"{tokenized_dataset_dir}/{unified_file.name}"
         with open(new_filepath, 'w', encoding='utf-8') as f:
