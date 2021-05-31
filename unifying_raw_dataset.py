@@ -382,7 +382,8 @@ for diff_file in diff_files:
             unified_data["RequiredLinesStart"] = first_required_line
             unified_data["RequiredLinesEnd"] = last_required_line
 
-            # Add context around required lines
+            # Add context around required lines. This is only for intermediate readability
+            # since context is added later as a fixed amount of tokens.
 
             LINE_DELTA = 3
 
@@ -402,24 +403,6 @@ for diff_file in diff_files:
                 unified_data["FileContext"] = file_list[starting_line - 1:ending_line]
 
             unified_data["FileContextStart"] = starting_line
-
-            # # Adding indices relative to FileContext:
-
-            # for diag_occurance in unified_data["DiagnosticOccurances"]:
-            #     diag_occurance["LineInFileContext"] = diag_occurance["Line"] - starting_line
-
-            # actionType = unified_data["ParsedDiff"]["ActionType"]
-            # if actionType == "REPLACE":
-            #     unified_data["ParsedDiff"]["Action"]["SourceLocationsInFileContext"] = []
-            #     for source_location in unified_data["ParsedDiff"]["Action"]["SourceLocations"]:
-            #         unified_data["ParsedDiff"]["Action"]["SourceLocationsInFileContext"].append(source_location - starting_line)
-            # elif actionType == "ADD":
-            #     unified_data["ParsedDiff"]["Action"]["PreviousSourceLocationInFileContext"] = unified_data["ParsedDiff"]["Action"]["PreviousSourceLocation"] - starting_line
-            # else:  # actionType == DELETE
-            #     start = unified_data["ParsedDiff"]["Action"]["SourceLocationStart"]
-            #     end = unified_data["ParsedDiff"]["Action"]["SourceLocationEnd"]
-            #     unified_data["ParsedDiff"]["Action"]["SourceLocationStartInFileContext"] = start - starting_line
-            #     unified_data["ParsedDiff"]["Action"]["SourceLocationEndInFileContext"] = end - starting_line
 
             with open(f"{unified_dataset_dir}/{unified_data_filename_hash}-{num_diff_datapoint}.json", 'w', encoding='utf-8') as f:
                 json.dump(unified_data, f, ensure_ascii=False, indent=2)
