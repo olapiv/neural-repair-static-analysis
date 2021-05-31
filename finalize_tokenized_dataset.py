@@ -122,6 +122,8 @@ def main(zero_index_vars=False):
     test_datapoints = 0
     val_datapoints = 0
 
+    bad_newline_endings = 0
+
     for tokenized_file in tokenized_files:
 
         print("tokenized_file: ", tokenized_file.name)
@@ -131,6 +133,10 @@ def main(zero_index_vars=False):
 
         src_string = flatten_input_datapoint(tokenized_data_dict)
         target_string = flatten_output_datapoint(tokenized_data_dict)
+
+        if src_string.count("\n") > 1 or target_string.count("\n") > 1:
+            print("Bad newline encoding! tokenized_file: ", tokenized_file.name)
+            bad_newline_endings += 1
 
         if (train_datapoints / num_total_datapoints) < NormalMode.train_perc:
             src_filepath = src_train_filepath
@@ -150,6 +156,8 @@ def main(zero_index_vars=False):
 
         with open(target_filepath, 'a', encoding='utf-8') as target_file:
             target_file.write(target_string)
+    
+    print("bad_newline_endings: ", bad_newline_endings)
 
 
 if __name__ == '__main__':

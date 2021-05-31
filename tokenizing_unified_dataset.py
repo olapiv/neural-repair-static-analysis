@@ -197,12 +197,8 @@ def main(zero_index_vars=False):
         unified_dataset_dir) if f.is_file() and f.name.endswith(".json")]
     tokenized_files = [f.name for f in os.scandir(
         tokenized_dataset_dir) if f.is_file()]
-    # num_datapoints = 0
+
     for unified_file in unified_files:
-        # if num_datapoints == 5:
-        #     break
-        # num_datapoints += 1
-        # print("num_datapoints: ", num_datapoints)
 
         print(f"File to tokenize: {unified_file.name}")
 
@@ -223,6 +219,11 @@ def main(zero_index_vars=False):
         num_lines = orig_file_string.count('\n')
         orig_file_tokens = [
             result for result in the_lexer.get_tokens(orig_file_string)]
+
+        if any([ "\n" in token[1] for token in orig_file_tokens]):
+            print("Newline tokenized incorrectly! unified_file: {unified_file.name}")
+            exit(0)
+            # continue
 
         # Because lexer always adds NEWLINE at very end
         del orig_file_tokens[-1]
@@ -288,6 +289,11 @@ def main(zero_index_vars=False):
                 unified_data_dict)
             diffed_required_tokens = get_required_tokens(
                 diffed_file_tokens, start_target_idx, end_target_idx)
+
+            if any(["\n" in token[1] for token in diffed_required_tokens]):
+                print("Newline tokenized incorrectly! unified_file: {unified_file.name}")
+                exit(0)
+                # continue
 
             # Optionally zero-index identifiers
             if zero_index_vars:
