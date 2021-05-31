@@ -192,6 +192,14 @@ Redirect = 302,"""
                            "WHITESPACE", "T", "WHITESPACE", "value", ";", "NEWLINE"]
         self.run_single_test(test_string, true_token_list)
 
+    def test_methods(self):
+
+        test_string = """public void CopyTo
+        ("""
+        true_token_list = ["public", "WHITESPACE", "void", "WHITESPACE", "CopyTo", "NEWLINE", ["WHITESPACE"]*8, "(", "NEWLINE"]
+        self.run_single_test(test_string, true_token_list)
+
+
     def test_count_newlines(self):
         """
         Testing on large files; simply checking whether all NEWLINEs are counted correctly

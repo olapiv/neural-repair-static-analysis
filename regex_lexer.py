@@ -63,11 +63,18 @@ class CSharpAndCommentsLexer(UnprocessedTokensMixin, CSharpLexer):
     for levelname, cs_ident in CSharpLexer.levels.items():
         tokens[levelname] = {
             'root': [
-                # method names
-                (r'^([ \t]*(?:' + cs_ident + r'(?:\[\])?\s+)+?)'  # return type
-                 r'(' + cs_ident + ')'                            # method name
-                 r'(\s*)(\()',                               # signature start
-                 bygroups(using(this), Name.Function, Text, Punctuation)),
+
+                ####### OLD: #######
+                # (r'^([ \t]*(?:' + cs_ident + r'(?:\[\])?\s+)+?)'  # return type
+                #  r'(' + cs_ident + ')'                            # method name
+                #  r'(\s*)(\()',                                    # signature start
+                #  bygroups(using(this), Name.Function, Text, Punctuation)),
+                ####### NEW: #######
+                (r'^([ \t]*(?:' + cs_ident + r'(?:\[\])?\s+)+?)'    # return type
+                 r'(' + cs_ident + ')'                              # method name
+                 r'(\s*\()',                                        # signature start
+                 bygroups(using(this), Name.Function, using(this))),
+                ####################
                 
                 # Avoid bundling too much..
                 ####### OLD: #######
@@ -248,9 +255,6 @@ if __name__ == "__main__":
     c_sharp_filepath = "./sample_csharp_to_tokenize.cs"
     with open(c_sharp_filepath, 'r') as file:
         original_file = file.read()
-
-    original_file="""class Xyz { 
-    }"""
 
     # run_only_language_lexer(original_file)
     # run_pygments_lexer(original_file)
