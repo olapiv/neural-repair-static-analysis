@@ -4,6 +4,7 @@ nuget_analyzer_packages
 raw_dataset
 unified_dataset
 tokenized_dataset
+final_dataset
 nn
 *.pyc
 .vscode
