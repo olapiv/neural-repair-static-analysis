@@ -1,0 +1,4 @@
+type: OpenNMTTokenizer
+params:
+  mode: space
+  # segment_case: true  # Does not work with mode: none
