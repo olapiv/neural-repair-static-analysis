@@ -72,7 +72,7 @@ def add_context_to_tokens(all_tokens, core_token_list, core_idx_start, num_total
 
     context_token_list = core_token_list.copy()
     max_idx = len(all_tokens) - 1
-    core_idx_end = core_idx_start + len(context_token_list)
+    core_idx_end = core_idx_start + len(context_token_list) - 1
     num_tokens_to_add = num_total_tokens - len(context_token_list)
 
     while num_tokens_to_add > 0:
@@ -190,8 +190,145 @@ def subtract_line_offset(unified_data_dict, line_offset):
         diff_action["SourceLocationEnd"] -= line_offset
 
 
+def run_single_datapoint(the_lexer, diag_message_lexer, unified_file, zero_index_vars):
+
+    with open(unified_file, 'r') as file:
+        orig_file_string = file.read()
+        if not orig_file_string.isascii():
+            print("File is not ASCII!")
+            return
+        unified_data_dict = json.loads(orig_file_string)
+
+    path_to_file = f"""./submodule_repos_to_analyze/{unified_data_dict["Repo"]}/{unified_data_dict["FilePath"]}"""
+    with open(path_to_file, 'r') as file:
+        orig_file_string = file.read()  # Adds newline at very end
+    num_lines = orig_file_string.count('\n')
+    orig_file_tokens = [
+        result for result in the_lexer.get_tokens(orig_file_string)]
+
+    if any(["\n" in token[1] for token in orig_file_tokens]):
+        print(
+            "Newline tokenized incorrectly! unified_file: {unified_file.name}")
+        exit(0)
+        # return
+
+    # Because lexer always adds NEWLINE at very end
+    del orig_file_tokens[-1]
+
+    # Sanity check
+    # line_tokens = split_tokens_by_line(orig_file_tokens)
+    # assert num_lines == len(
+    #     line_tokens), f"""num_lines not equal to len(line_tokens); num_lines: {num_lines}; len(
+    #     line_tokens): {len(line_tokens)}; file: {unified_data_dict["FileURL"]}"""
+
+    ### Get required original tokens ###
+
+    # Diff indices start at 1
+    start_required_idx = unified_data_dict["RequiredLinesStart"] - 1
+    end_required_idx = unified_data_dict["RequiredLinesEnd"] - 1
+
+    orig_required_tokens = get_required_tokens(
+        orig_file_tokens, start_required_idx, end_required_idx)
+
+    if len(orig_required_tokens) > TOKENS_PER_DATAPOINT:
+        print("Too many required tokens: ", len(orig_required_tokens))
+        return
+
+    ### Add context to original tokens ###
+
+    start_required_token_idx = count_tokens_in_lines(
+        orig_file_tokens, 0, start_required_idx)
+
+    orig_padded_tokens, start_padded_token_idx = add_context_to_tokens(
+        orig_file_tokens, orig_required_tokens, start_required_token_idx)
+
+    assert len(
+        orig_padded_tokens) <= TOKENS_PER_DATAPOINT, f"Too many context tokens: {len(orig_padded_tokens)}"
+    assert len(orig_padded_tokens) >= len(
+        orig_required_tokens), f"Too few context tokens: {len(orig_padded_tokens)}"
+
+    # Optionally zero-index identifiers
+    var_index_dict = {}
+    if zero_index_vars:
+        index_func = CSharpAndCommentsLexer.index_identifier_token
+        orig_padded_tokens = [index_func(
+            token[0], token[1], var_index_dict) for token in orig_padded_tokens]
+
+    unified_data_dict["TokenizedFileContext"] = [token[1]
+                                                 for token in orig_padded_tokens]
+
+    # TODO: Add Error tokens (?)
+
+    ### Apply diff to original file and tokenize all ###
+
+    if unified_data_dict["ParsedDiff"]["ActionType"] != "REMOVE":
+
+        diffed_file_str = apply_diff_to_file(
+            unified_data_dict, orig_file_string)
+
+        diffed_file_tokens = [
+            result for result in the_lexer.get_tokens(diffed_file_str)]
+
+        # Because lexer always adds NEWLINE at very end
+        del diffed_file_tokens[-1]
+
+        start_target_idx, end_target_idx = get_required_target_indices(
+            unified_data_dict)
+        diffed_required_tokens = get_required_tokens(
+            diffed_file_tokens, start_target_idx, end_target_idx)
+
+        if any(["\n" in token[1] for token in diffed_required_tokens]):
+            print(
+                "Newline tokenized incorrectly! unified_file: {unified_file.name}")
+            exit(0)
+            # return
+
+        # Optionally zero-index identifiers
+        if zero_index_vars:
+            index_func = CSharpAndCommentsLexer.index_identifier_token
+            diffed_required_tokens = [index_func(
+                token[0], token[1], var_index_dict) for token in diffed_required_tokens]
+
+        unified_data_dict["ParsedDiff"]["Action"]["TokenizedTargetLines"] = [
+            token[1] for token in diffed_required_tokens]
+
+    ### Tokenize diagnostic message ###
+
+    for diag in unified_data_dict["DiagnosticOccurances"]:
+        message_lower = [word.lower() if not word.startswith(
+            "'") else word for word in diag["Message"].split(" ")]
+        diag_message_tokens = [
+            result for result in diag_message_lexer.get_tokens(' '.join(message_lower))]
+
+        # Because lexer always adds NEWLINE at very end
+        del diag_message_tokens[-1]
+
+        # Optionally zero-index identifiers
+        if zero_index_vars:
+            index_func = CSharpAndCommentsLexer.index_identifier_token
+            diag_message_tokens = [index_func(
+                token[0], token[1], var_index_dict) for token in diag_message_tokens]
+
+        diag["TokenizedMessage"] = [
+            result[1] for result in diag_message_tokens]
+
+    ### Subtract line number of file context (offset) from diff src code locations ###
+    start_padded_line_number = get_line_number_by_token_idx(
+        orig_file_tokens, start_padded_token_idx)
+    start_padded_line_number += 1  # In diffs, start counting at line 1
+    subtract_line_offset(unified_data_dict, start_padded_line_number)
+    unified_data_dict["TokenizedFileContextStart"] = start_padded_line_number
+
+    remove_redundant_fields(unified_data_dict)
+
+    new_filepath = f"{tokenized_dataset_dir}/{unified_file.name}"
+    with open(new_filepath, 'w', encoding='utf-8') as f:
+        json.dump(unified_data_dict, f, ensure_ascii=False, indent=2)
+
+
 def main(zero_index_vars=False):
     the_lexer = CSharpAndCommentsLexer()
+    diag_message_lexer = LanguageLexer()
 
     unified_files = [f for f in os.scandir(
         unified_dataset_dir) if f.is_file() and f.name.endswith(".json")]
@@ -206,137 +343,8 @@ def main(zero_index_vars=False):
             print("File already tokenized")
             continue
 
-        with open(unified_file, 'r') as file:
-            orig_file_string = file.read()
-            if not orig_file_string.isascii():
-                print("File is not ASCII!")
-                continue
-            unified_data_dict = json.loads(orig_file_string)
-
-        path_to_file = f"""./submodule_repos_to_analyze/{unified_data_dict["Repo"]}/{unified_data_dict["FilePath"]}"""
-        with open(path_to_file, 'r') as file:
-            orig_file_string = file.read()  # Adds newline at very end
-        num_lines = orig_file_string.count('\n')
-        orig_file_tokens = [
-            result for result in the_lexer.get_tokens(orig_file_string)]
-
-        if any([ "\n" in token[1] for token in orig_file_tokens]):
-            print("Newline tokenized incorrectly! unified_file: {unified_file.name}")
-            exit(0)
-            # continue
-
-        # Because lexer always adds NEWLINE at very end
-        del orig_file_tokens[-1]
-
-        # Sanity check
-        # line_tokens = split_tokens_by_line(orig_file_tokens)
-        # assert num_lines == len(
-        #     line_tokens), f"""num_lines not equal to len(line_tokens); num_lines: {num_lines}; len(
-        #     line_tokens): {len(line_tokens)}; file: {unified_data_dict["FileURL"]}"""
-
-        ### Get required original tokens ###
-
-        # Diff indices start at 1
-        start_required_idx = unified_data_dict["RequiredLinesStart"] - 1
-        end_required_idx = unified_data_dict["RequiredLinesEnd"] - 1
-
-        orig_required_tokens = get_required_tokens(
-            orig_file_tokens, start_required_idx, end_required_idx)
-
-        if len(orig_required_tokens) > TOKENS_PER_DATAPOINT:
-            print("Too many required tokens: ", len(orig_required_tokens))
-            continue
-
-        ### Add context to original tokens ###
-
-        start_required_token_idx = count_tokens_in_lines(
-            orig_file_tokens, 0, start_required_idx)
-
-        orig_padded_tokens, start_padded_token_idx = add_context_to_tokens(
-            orig_file_tokens, orig_required_tokens, start_required_token_idx)
-
-        assert len(
-            orig_padded_tokens) <= TOKENS_PER_DATAPOINT, f"Too many context tokens: {len(orig_padded_tokens)}"
-        assert len(orig_padded_tokens) >= len(
-            orig_required_tokens), f"Too few context tokens: {len(orig_padded_tokens)}"
-
-        # Optionally zero-index identifiers
-        var_index_dict = {}
-        if zero_index_vars:
-            index_func = CSharpAndCommentsLexer.index_identifier_token
-            orig_padded_tokens = [index_func(
-                token[0], token[1], var_index_dict) for token in orig_padded_tokens]
-
-        unified_data_dict["TokenizedFileContext"] = [token[1]
-                                                     for token in orig_padded_tokens]
-
-        # TODO: Add Error tokens (?)
-
-        ### Apply diff to original file and tokenize all ###
-
-        if unified_data_dict["ParsedDiff"]["ActionType"] != "REMOVE":
-
-            diffed_file_str = apply_diff_to_file(
-                unified_data_dict, orig_file_string)
-
-            diffed_file_tokens = [
-                result for result in the_lexer.get_tokens(diffed_file_str)]
-
-            # Because lexer always adds NEWLINE at very end
-            del diffed_file_tokens[-1]
-
-            start_target_idx, end_target_idx = get_required_target_indices(
-                unified_data_dict)
-            diffed_required_tokens = get_required_tokens(
-                diffed_file_tokens, start_target_idx, end_target_idx)
-
-            if any(["\n" in token[1] for token in diffed_required_tokens]):
-                print("Newline tokenized incorrectly! unified_file: {unified_file.name}")
-                exit(0)
-                # continue
-
-            # Optionally zero-index identifiers
-            if zero_index_vars:
-                index_func = CSharpAndCommentsLexer.index_identifier_token
-                diffed_required_tokens = [index_func(
-                    token[0], token[1], var_index_dict) for token in diffed_required_tokens]
-
-            unified_data_dict["ParsedDiff"]["Action"]["TokenizedTargetLines"] = [
-                token[1] for token in diffed_required_tokens]
-
-        ### Tokenize diagnostic message ###
-
-        diag_message_lexer = LanguageLexer()
-        for diag in unified_data_dict["DiagnosticOccurances"]:
-            message_lower = [word.lower() if not word.startswith(
-                "'") else word for word in diag["Message"].split(" ")]
-            diag_message_tokens = [
-                result for result in diag_message_lexer.get_tokens(' '.join(message_lower))]
-
-            # Because lexer always adds NEWLINE at very end
-            del diag_message_tokens[-1]
-
-            # Optionally zero-index identifiers
-            if zero_index_vars:
-                index_func = CSharpAndCommentsLexer.index_identifier_token
-                diag_message_tokens = [index_func(
-                    token[0], token[1], var_index_dict) for token in diag_message_tokens]
-
-            diag["TokenizedMessage"] = [
-                result[1] for result in diag_message_tokens]
-
-        ### Subtract line number of file context (offset) from diff src code locations ###
-        start_padded_line_number = get_line_number_by_token_idx(
-            orig_file_tokens, start_padded_token_idx)
-        start_padded_line_number += 1  # In diffs, start counting at line 1
-        subtract_line_offset(unified_data_dict, start_padded_line_number)
-        unified_data_dict["TokenizedFileContextStart"] = start_padded_line_number
-
-        remove_redundant_fields(unified_data_dict)
-
-        new_filepath = f"{tokenized_dataset_dir}/{unified_file.name}"
-        with open(new_filepath, 'w', encoding='utf-8') as f:
-            json.dump(unified_data_dict, f, ensure_ascii=False, indent=2)
+        run_single_datapoint(the_lexer, diag_message_lexer,
+                             unified_file, zero_index_vars)
 
 
 if __name__ == '__main__':
