@@ -70,12 +70,15 @@ class CSharpAndCommentsLexer(UnprocessedTokensMixin, CSharpLexer):
                 #  r'(\s*)(\()',                                    # signature start
                 #  bygroups(using(this), Name.Function, Text, Punctuation)),
                 ####### NEW: #######
-                (r'^([ \t]*(?:' + cs_ident + r'(?:\[\])?\s+)+?)'    # return type
-                 r'(' + cs_ident + ')'                              # method name
-                 r'(\s*\()',                                        # signature start
+                # return type
+                (r'^([ \t]*(?:' + cs_ident + r'(?:\[\])?\s+)+?)'
+                 # method name
+                 r'(' + cs_ident + ')'
+                 # signature start
+                 r'(\s*\()',
                  bygroups(using(this), Name.Function, using(this))),
                 ####################
-                
+
                 # Avoid bundling too much..
                 ####### OLD: #######
                 # (r'^\s*\[.*?\]', Name.Attribute),
@@ -140,7 +143,7 @@ class CSharpAndCommentsLexer(UnprocessedTokensMixin, CSharpLexer):
                 #  Comment.Preproc),
                 ####### NEW: #######
                 (r'#[ \t]*(if|endif|else|elif|define|undef|'
-                 r'line|error|warning|region|endregion|pragma)',Comment.Preproc),
+                 r'line|error|warning|region|endregion|pragma)', Comment.Preproc),
                 ####################
 
                 (r'\b(extern)(\s+)(alias)\b', bygroups(Keyword, Text,
@@ -167,8 +170,11 @@ class CSharpAndCommentsLexer(UnprocessedTokensMixin, CSharpLexer):
                 # (r'(namespace|using)(\s+)', bygroups(Keyword, Text), 'namespace'),
                 ####### NEW: #######
                 (r'\b(class|struct|namespace|using)\b', Keyword),
-                (r'(?:(?<=class\W)|(?<=struct\W))\w+', Name.Class),  # Avoid bundling whitespace
-                (r'(?:(?<=namespace\W)|(?<=using\W))\w+', Name.Class),  # Avoid bundling whitespace
+                
+                # Avoid bundling whitespace
+                (r'(?:(?<=class\W)|(?<=struct\W))\w+', Name.Class),
+                (r'(?:(?<=namespace\W)|(?<=using\W))\w+',
+                 Name.Class),
                 ####################
 
                 (cs_ident, Name),
@@ -215,7 +221,10 @@ class CSharpAndCommentsLexer(UnprocessedTokensMixin, CSharpLexer):
 
     @staticmethod
     def index_identifier_token(token_type, value, index_dict):
-        if token_type != Name and token_type != Name.Class:
+
+        all_name_types = [Name] + [getattr(Name, attribute) for attribute in dir(
+            Name) if not attribute.startswith("_") and not attribute.islower()]
+        if token_type not in all_name_types:
             return token_type, value
 
         if value in index_dict:
