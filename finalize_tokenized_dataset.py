@@ -1,6 +1,8 @@
 import os
 import json
 import random
+import math
+import statistics
 
 
 tokenized_dataset_dir = "tokenized_dataset"
@@ -14,9 +16,9 @@ class SourceFilenames:
 
 
 class TargetFilenames:
-    train_filename = "target-train.txt"
-    test_filename = "target-test.txt"
-    val_filename = "target-val.txt"
+    train_filename = "tgt-train.txt"
+    test_filename = "tgt-test.txt"
+    val_filename = "tgt-val.txt"
 
 
 src_train_filepath = f"{final_dataset_dir}/{SourceFilenames.train_filename}"
@@ -27,7 +29,8 @@ target_train_filepath = f"{final_dataset_dir}/{TargetFilenames.train_filename}"
 target_test_filepath = f"{final_dataset_dir}/{TargetFilenames.test_filename}"
 target_val_filepath = f"{final_dataset_dir}/{TargetFilenames.val_filename}"
 
-all_filepaths = [src_train_filepath, target_train_filepath, src_test_filepath, target_test_filepath, src_val_filepath, target_val_filepath]
+all_filepaths = [src_train_filepath, target_train_filepath, src_test_filepath,
+                 target_test_filepath, src_val_filepath, target_val_filepath]
 
 
 class NormalMode:
@@ -123,6 +126,8 @@ def main(zero_index_vars=False):
     val_datapoints = 0
 
     bad_newline_endings = 0
+    token_num_src = []
+    token_num_tgt = []
 
     for tokenized_file in tokenized_files:
 
@@ -133,6 +138,9 @@ def main(zero_index_vars=False):
 
         src_string = flatten_input_datapoint(tokenized_data_dict)
         target_string = flatten_output_datapoint(tokenized_data_dict)
+
+        token_num_src.append(len(src_string.split()))
+        token_num_tgt.append(len(target_string.split()))
 
         if src_string.count("\n") > 1 or target_string.count("\n") > 1:
             print("Bad newline encoding! tokenized_file: ", tokenized_file.name)
@@ -156,8 +164,23 @@ def main(zero_index_vars=False):
 
         with open(target_filepath, 'a', encoding='utf-8') as target_file:
             target_file.write(target_string)
-    
+
     print("bad_newline_endings: ", bad_newline_endings)
+
+    max_src_tokens = max(token_num_src)
+    max_tgt_tokens = max(token_num_tgt)
+    avg_src_tokens = statistics.mean(token_num_src)
+    avg_tgt_tokens = statistics.mean(token_num_tgt)
+    std_src_tokens = math.sqrt(statistics.pvariance(token_num_src))
+    std_tgt_tokens = math.sqrt(statistics.pvariance(token_num_tgt))
+
+    print("max_src_tokens: ", max_src_tokens)
+    print("avg_src_tokens: ", avg_src_tokens)
+    print("std_src_tokens: ", std_src_tokens)
+
+    print("max_tgt_tokens: ", max_tgt_tokens)
+    print("avg_tgt_tokens: ", avg_tgt_tokens)
+    print("std_tgt_tokens: ", std_tgt_tokens)
 
 
 if __name__ == '__main__':
