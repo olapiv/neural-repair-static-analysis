@@ -5,21 +5,27 @@
 1. Run [install_dependencies.ps1](install_dependencies.ps1)
 2. Run [create_raw_dataset.ps1](create_raw_dataset.ps1)
 3. Run [unifying_raw_dataset.py](unifying_raw_dataset.py)
+4. Run [tokenizing_unified_dataset.py](tokenizing_unified_dataset.py)
+5. Run [finalize_tokenized_dataset.py](finalize_tokenized_dataset.py)
 
 ## Required Dependencies
 
 * C# / Mono
 * Nuget CLI
 * Roslynator.Commandline
+* Python 3.7 + requirements.txt
 
 ## Problem statement for Data Collection
 
 * Diagnostics warnings/info/errors must be matched with the diffs
-* First goal: One datapoint consists of
-    i. 1 C# file
-    i. >= 1 Diagnostic message & location
-    i. Diff for same C# file
-* Assumption: diagnostic in one file leads to codefix in same file
+* Goal: One datapoint consists of
+  * 1 C# file
+  * 1 or more diagnostic messages with location
+  * Diff to fix this specific diagnostic
+* Assumption: diagnostic in one file leads to codefix
+  * which consists of consecutive line changes ("diff batch")
+  * in same file
+  * in same line / line above / line beneath
 
 ## Work done
 
@@ -29,18 +35,21 @@
 4. Due to large amounts of diagnostic ID duplications in [analyzer_package_details.csv](analyzer_package_details.csv), analyzed dependency structure of installed packages using C# project [DependencyAnalyzer](AssemblyAnalysis/DependencyAnalyzer). Saved results in [nuget_deps.json](nuget_deps.json). Turns out, a number of analyzer packages bundle other analyzer packages and may not necessarily contribute with own DiagnosticAnalyzers / CodeFixProviders.
 5. Using [analyzing_analyzers.py](analyzing_analyzers.py), created further statistics to the installed analyzer packages.
 6. Using [create_raw_dataset.ps1](create_raw_dataset.ps1), generated `roslynator analyze` vs `roslynator fix` outputs on repositories listed in [github_repos.csv](github_repos.csv). Sample `roslynator analyze` output can be viewed in [sample_roslynator_analysis.xml](sample_roslynator_analysis.xml).
-7. Using [parsing_diffs.py](parsing_diffs.py) and [unifying_raw_dataset.py](unifying_raw_dataset.py), created dataset, which can fed into NN. Different data samples can be viewed in [sample_unified_data_model.json](sample_unified_data_model.json).
+7. Using [parsing_diffs.py](parsing_diffs.py) and [unifying_raw_dataset.py](unifying_raw_dataset.py), created dataset, which merges previously created raw analysiis files and diffs. Different data samples can be viewed in [sample_unified_data_model.json](sample_unified_data_model.json).
+8. Since a large proportion of the dataset are refactorings, which includes adding whitespace, line breaks or documentation ("trivia"), created custom [regex_lexer.py](regex_lexer.py), based on Python library "Pygments". It parses CSharp with trivia and switches state when reading line/break comments or string literals. See corresponding test-cases in [regex_lexer_tests.py](regex_lexer_tests.py).
+9. Using the [regex_lexer.py](regex_lexer.py), tokenized file contexts, diagnostic messages and diff batches in [tokenizing_unified_dataset.py](tokenizing_unified_dataset.py) creating a tokenized dataset.
+10. Finalized the dataset for OpenNMT in [finalize_tokenized_dataset.py](finalize_tokenized_dataset.py), including splitting datapoints into training/testing/validation fractions.
+11. Created a basic Transformer OpenNMT NN model in [nn](nn), to see whether a NN can learn from the dataset.
 
-## TODO
+## TODO later
 
-* Create seq-2-seq model
 * Re-run [create_raw_dataset.ps1](create_raw_dataset.ps1) on one machine, parallelized across repositories to avoid faulty data
 * Profile self-built Roslynator to see how much time compilation takes vs applying static analysis. If compilation takes a large proportion, consider doing src-code adjustments (e.g. built-in socket), to avoid unnecessary compilations.
 * HARD: Re-run [create_raw_dataset.ps1](create_raw_dataset.ps1) either distributed across multiple nodes (e.g. using RabbitMQ) or Roslynator src-code adjustments
 * Gather metadata around dataset:
     1. No. diffs
-    1. No. of diffs per analyzer
-    1. Distribution of diff size
+    2. No. of diffs per analyzer
+    3. Distribution of diff size
 
 ## Links
 
