@@ -78,6 +78,39 @@ def recreate_code(tokenized_code):
             initial_code += token
     return initial_code
 
+def recreate_diff(diff_string):
+    # REMOVE SOURCE_LOCATION_START 3 SOURCE_LOCATION_END 4
+    # ADD PREVIOUS_SOURCE_LOCATION 1 TARGET_LINES WHITESPACE
+    # REPLACE SOURCE_LOCATION 4 TARGET_LINES WHITESPACE
+
+    recreated_diff = {}
+    token_list = diff_string.split()
+    diff_type = token_list[0]
+    if diff_type == "ADD":
+        recreated_diff["PreviousSourceLocation"] = token_list[2]
+        recreated_diff["TargetLines"] = recreate_code(" ".join(token_list[4:]))
+    elif diff_type == "REMOVE":
+        recreated_diff["SourceLocationStart"] = token_list[2]
+        recreated_diff["SourceLocationEnd"] = token_list[4]
+    else:
+        recreated_diff["SourceLocation"] = []
+        targetLines = []
+        hit_target_line = False
+        for token in token_list[2:]:
+            if hit_target_line:
+                targetLines.append(token)
+
+            if token == "TARGET_LINES":
+                hit_target_line = True
+                continue
+            else:
+                recreated_diff["SourceLocation"].append(token)
+        recreated_diff["TargetLines"] = recreate_code(" ".join(targetLines))
+
+    return recreated_diff
+    
+
+
 
 def main():
     with open(metadata_test_file) as json_file:
@@ -88,21 +121,26 @@ def main():
 
     with open(src_test_file, 'r') as file:
         src_test_list = file.read().split("\n")
+        if src_test_list[-1] == '':
+            del src_test_list[-1]
 
     with open(tgt_test_file, 'r') as file:
         tgt_test_list = file.read().split("\n")
+        if tgt_test_list[-1] == '':
+            del tgt_test_list[-1]
 
     with open(inference_test_file, 'r') as file:
         inference_test_list = file.read().split("\n")
-
+        if inference_test_list[-1] == "":
+            del inference_test_list[-1]
+    
     evaluation_dict["num_total_datapoints"] = len(inference_test_list)
 
     for index, tgt_test_line in enumerate(tgt_test_list):
         is_correct = tgt_test_line == inference_test_list[index]
 
-        diagnostic_id = metadata_test["datapoints"][index] # ID, DiagnosticID
-
-        included_in_training = diagnostic_id in metadata_train["diagnostics"].keys()
+        diagnostic_id = metadata_test["datapoints"][index]["DiagnosticID"] # ID, DiagnosticID
+        included_in_training = diagnostic_id in metadata_train["diagnostics"]
         if diagnostic_id not in evaluation_dict["result_per_diagnostic"]:
 
             evaluation_dict["result_per_diagnostic"][diagnostic_id] = {
@@ -114,15 +152,16 @@ def main():
 
         else:
             if is_correct:
-                evaluation_dict["result_per_diagnostic"][diagnostic_id]["correct"] =+ 1
+                evaluation_dict["result_per_diagnostic"][diagnostic_id]["correct"] += 1
             else:
-                evaluation_dict["result_per_diagnostic"][diagnostic_id]["wrong"] =+ 1
+                evaluation_dict["result_per_diagnostic"][diagnostic_id]["wrong"] += 1
 
+        # TODO: Do this properly
         if not included_in_training:
             if is_correct:
-                evaluation_dict["correctly_extrapolated_examples"] = "..."
+                evaluation_dict["correctly_extrapolated_examples"] = []
             else:
-                evaluation_dict["incorrectly_extrapolated_examples"] = "..."
+                evaluation_dict["incorrectly_extrapolated_examples"] = []
 
     total_total = 0
     copied_total = 0
