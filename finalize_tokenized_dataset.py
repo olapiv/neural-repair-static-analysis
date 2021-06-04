@@ -5,6 +5,7 @@ import math
 import copy
 import statistics
 from enum import Enum
+from collections import Counter
 
 
 tokenized_dataset_dir = "tokenized_dataset"
@@ -73,14 +74,14 @@ metadata_dict = {
 }
 
 metadata = {}
-total_metadata = f"{final_dataset_dir}/total-metadata.json"
+total_metadata = f"{final_dataset_dir}/metadata-total.json"
 metadata["total"] = {}
 metadata["total"]["file"] = total_metadata
 metadata["total"]["data"] = copy.deepcopy(metadata_dict)
 all_filepaths.append(total_metadata)
 for stage in Stage:
     metadata[stage.value] = {}
-    metadata_filepath = f"{final_dataset_dir}/{stage.value}-metadata.json"
+    metadata_filepath = f"{final_dataset_dir}/metadata-{stage.value}.json"
     metadata[stage.value]["file"] = metadata_filepath
     all_filepaths.append(metadata_filepath)
     metadata[stage.value]["data"] = copy.deepcopy(metadata_dict)
@@ -134,6 +135,56 @@ def flatten_output_datapoint(datapoint_dict):
         output_list.extend(str(action["SourceLocationEnd"]))
 
     return " ".join(output_list) + "\n"
+
+
+def generate_num_token_statistics(metadata):
+    total_src = []
+    total_tgt = []
+    for stage in Stage:
+        metadata[stage.value]["data"]["max-tokens-src"] = max(metadata[stage.value]["data"]["token-num-src"])
+        metadata[stage.value]["data"]["avg-tokens-src"] = statistics.mean(metadata[stage.value]["data"]["token-num-src"])
+        metadata[stage.value]["data"]["std-tokens-src"] = statistics.pstdev(metadata[stage.value]["data"]["token-num-src"])
+        total_src += metadata[stage.value]["data"]["token-num-src"]
+
+        metadata[stage.value]["data"]["max-tokens-tgt"] = max(metadata[stage.value]["data"]["token-num-tgt"])
+        metadata[stage.value]["data"]["avg-tokens-tgt"] = statistics.mean(metadata[stage.value]["data"]["token-num-tgt"])
+        metadata[stage.value]["data"]["std-tokens-tgt"] = statistics.pstdev(metadata[stage.value]["data"]["token-num-tgt"])
+        total_tgt += metadata[stage.value]["data"]["token-num-tgt"]
+
+        metadata[stage.value]["data"].pop("token-num-src", None)
+        metadata[stage.value]["data"].pop("token-num-tgt", None)
+
+    metadata["total"]["data"]["max-tokens-src"] = max(total_src)
+    metadata["total"]["data"]["avg-tokens-src"] = statistics.mean(total_src)
+    metadata["total"]["data"]["std-tokens-src"] = statistics.pstdev(total_src)
+
+    metadata["total"]["data"]["max-tokens-tgt"] = max(total_tgt)
+    metadata["total"]["data"]["avg-tokens-tgt"] = statistics.mean(total_tgt)
+    metadata["total"]["data"]["std-tokens-tgt"] = statistics.pstdev(total_tgt)
+
+    metadata["total"]["data"].pop("token-num-src", None)
+    metadata["total"]["data"].pop("token-num-tgt", None)
+
+
+def generate_diagnostics_statistics(metadata):
+
+    all_diagnostics = Counter({})
+    for stage in Stage:        
+        num_unique_diagnostics = len(metadata[stage.value]["data"]["diagnostics"])
+        metadata[stage.value]["data"]["num-unique-diagnostics"] = num_unique_diagnostics
+
+        data_points_per_diagnostic = metadata[stage.value]["data"]["diagnostics"].values()
+        metadata[stage.value]["data"]["avg-data-points-per-diagnostic"] = statistics.mean(data_points_per_diagnostic)
+        metadata[stage.value]["data"]["std-data-points-per-diagnostic"] = statistics.pstdev(data_points_per_diagnostic)
+
+        all_diagnostics += Counter(metadata[stage.value]["data"]["diagnostics"])
+
+    metadata["total"]["data"]["diagnostics"] = all_diagnostics
+    metadata["total"]["data"]["num-unique-diagnostics"] = len(all_diagnostics)
+    data_points_per_diagnostic = all_diagnostics.values()
+    metadata["total"]["data"]["avg-data-points-per-diagnostic"] = statistics.mean(data_points_per_diagnostic)
+    metadata["total"]["data"]["std-data-points-per-diagnostic"] = statistics.pstdev(data_points_per_diagnostic)
+    metadata["total"]["data"].pop("datapoints", None)
 
 
 def main(zero_index_vars=False):
@@ -200,6 +251,15 @@ def main(zero_index_vars=False):
         target_filepath = data_files["tgt"][current_stage]
         metadata[current_stage]["data"]["token-num-src"].append(num_src_tokens)
         metadata[current_stage]["data"]["token-num-tgt"].append(num_tgt_tokens)
+        diagnostic_id = tokenized_data_dict["DiagnosticID"]
+        metadata[current_stage]["data"]["datapoints"].append({
+            "ID": os.path.splitext(tokenized_file.name)[0],
+            "DiagnosticID": diagnostic_id
+        })
+        if diagnostic_id in metadata[current_stage]["data"]["diagnostics"]:
+            metadata[current_stage]["data"]["diagnostics"][diagnostic_id] += 1
+        else:
+            metadata[current_stage]["data"]["diagnostics"][diagnostic_id] = 1
 
         with open(src_filepath, 'a', encoding='utf-8') as src_file:
             src_file.write(src_string)
@@ -209,36 +269,14 @@ def main(zero_index_vars=False):
 
     print("bad_newline_endings: ", bad_newline_endings)
 
-    total_src = []
-    total_tgt = []
+    generate_num_token_statistics(metadata)
+    generate_diagnostics_statistics(metadata)
+
     for stage in Stage:
-        
-        metadata[stage.value]["data"]["max-tokens-src"] = max(metadata[stage.value]["data"]["token-num-src"])
-        metadata[stage.value]["data"]["avg-tokens-src"] = statistics.mean(metadata[stage.value]["data"]["token-num-src"])
-        metadata[stage.value]["data"]["std-tokens-src"] = statistics.pstdev(metadata[stage.value]["data"]["token-num-src"])
-        total_src += metadata[stage.value]["data"]["token-num-src"]
-
-        metadata[stage.value]["data"]["max-tokens-tgt"] = max(metadata[stage.value]["data"]["token-num-tgt"])
-        metadata[stage.value]["data"]["avg-tokens-tgt"] = statistics.mean(metadata[stage.value]["data"]["token-num-tgt"])
-        metadata[stage.value]["data"]["std-tokens-tgt"] = statistics.pstdev(metadata[stage.value]["data"]["token-num-tgt"])
-        total_tgt += metadata[stage.value]["data"]["token-num-tgt"]
-
-        metadata[stage.value]["data"].pop("token-num-src", None)
-        metadata[stage.value]["data"].pop("token-num-tgt", None)
         with open(metadata[stage.value]["file"], 'w') as fout:
             json_str = json.dumps(metadata[stage.value]["data"], indent=4)
             print(json_str, file=fout)
 
-    metadata["total"]["data"]["max-tokens-src"] = max(total_src)
-    metadata["total"]["data"]["avg-tokens-src"] = statistics.mean(total_src)
-    metadata["total"]["data"]["std-tokens-src"] = statistics.pstdev(total_src)
-
-    metadata["total"]["data"]["max-tokens-tgt"] = max(total_tgt)
-    metadata["total"]["data"]["avg-tokens-tgt"] = statistics.mean(total_tgt)
-    metadata["total"]["data"]["std-tokens-tgt"] = statistics.pstdev(total_tgt)
-
-    metadata["total"]["data"].pop("token-num-src", None)
-    metadata["total"]["data"].pop("token-num-tgt", None)
     with open(metadata["total"]["file"], 'w') as fout:
         json_str = json.dumps(metadata["total"]["data"], indent=4)
         print(json_str, file=fout)
