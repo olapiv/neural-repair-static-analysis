@@ -2,46 +2,88 @@ import os
 import json
 import random
 import math
+import copy
 import statistics
+from enum import Enum
 
 
 tokenized_dataset_dir = "tokenized_dataset"
 final_dataset_dir = "final_dataset"
 
 
-class SourceFilenames:
-    train_filename = "src-train.txt"
-    test_filename = "src-test.txt"
-    val_filename = "src-val.txt"
-
-
-class TargetFilenames:
-    train_filename = "tgt-train.txt"
-    test_filename = "tgt-test.txt"
-    val_filename = "tgt-val.txt"
-
-
-src_train_filepath = f"{final_dataset_dir}/{SourceFilenames.train_filename}"
-src_test_filepath = f"{final_dataset_dir}/{SourceFilenames.test_filename}"
-src_val_filepath = f"{final_dataset_dir}/{SourceFilenames.val_filename}"
-
-target_train_filepath = f"{final_dataset_dir}/{TargetFilenames.train_filename}"
-target_test_filepath = f"{final_dataset_dir}/{TargetFilenames.test_filename}"
-target_val_filepath = f"{final_dataset_dir}/{TargetFilenames.val_filename}"
-
-all_filepaths = [src_train_filepath, target_train_filepath, src_test_filepath,
-                 target_test_filepath, src_val_filepath, target_val_filepath]
-
-
 class NormalMode:
     train_perc = 0.6
-    test_perc = 0.2
     val_perc = 0.2
+    test_perc = 0.2
 
 # train: 10000  --> 63%
 # test: 2737  -->  17%
 # val: 3000  --> 19%
 # 15737
+
+
+class InputOutput(Enum):
+    src = "src"
+    tgt = "tgt"
+
+
+class Stage(Enum):
+    train = "train"
+    val = "val"
+    test = "test"
+
+
+all_filepaths = []
+
+data_files = {}
+for inputOutput in InputOutput:
+    data_files[inputOutput.value] = {}
+    for stage in Stage:
+        data_files[inputOutput.value][stage.value] = {}
+        filepath = f"{final_dataset_dir}/{inputOutput.value}-{stage.value}.txt"
+        data_files[inputOutput.value][stage.value] = filepath
+        all_filepaths.append(filepath)
+
+
+metadata_dict = {
+    "num-unique-diagnostics": 0,
+    "avg-data-points-per-diagnostic": 0,
+    "std-data-points-per-diagnostic": 0,
+
+    "token-num-src": [],
+    "max-tokens-src": 0,
+    "avg-tokens-src": 0,
+    "std-tokens-src": 0,
+
+    "token-num-tgt": [],
+    "max-tokens-tgt": 0,
+    "avg-tokens-tgt": 0,
+    "std-tokens-tgt": 0,
+
+    "diagnostics": {
+        # "DA2001": 4,
+        # "DA2003": 4
+    },
+    "datapoints": [
+        # {
+        #     "ID": "226128-0",
+        #     "Diagnostic": "DA2003"
+        # }
+    ]
+}
+
+metadata = {}
+total_metadata = f"{final_dataset_dir}/total-metadata.json"
+metadata["total"] = {}
+metadata["total"]["file"] = total_metadata
+metadata["total"]["data"] = copy.deepcopy(metadata_dict)
+all_filepaths.append(total_metadata)
+for stage in Stage:
+    metadata[stage.value] = {}
+    metadata_filepath = f"{final_dataset_dir}/{stage.value}-metadata.json"
+    metadata[stage.value]["file"] = metadata_filepath
+    all_filepaths.append(metadata_filepath)
+    metadata[stage.value]["data"] = copy.deepcopy(metadata_dict)
 
 
 def flatten_input_datapoint(datapoint_dict):
@@ -126,8 +168,6 @@ def main(zero_index_vars=False):
     val_datapoints = 0
 
     bad_newline_endings = 0
-    token_num_src = []
-    token_num_tgt = []
 
     for tokenized_file in tokenized_files:
 
@@ -139,25 +179,27 @@ def main(zero_index_vars=False):
         src_string = flatten_input_datapoint(tokenized_data_dict)
         target_string = flatten_output_datapoint(tokenized_data_dict)
 
-        token_num_src.append(len(src_string.split()))
-        token_num_tgt.append(len(target_string.split()))
-
         if src_string.count("\n") > 1 or target_string.count("\n") > 1:
             print("Bad newline encoding! tokenized_file: ", tokenized_file.name)
             bad_newline_endings += 1
 
+        num_src_tokens = len(src_string.split())
+        num_tgt_tokens = len(target_string.split())
+
         if (train_datapoints / num_total_datapoints) < NormalMode.train_perc:
-            src_filepath = src_train_filepath
-            target_filepath = target_train_filepath
             train_datapoints += 1
-        elif (test_datapoints / num_total_datapoints) < NormalMode.test_perc:
-            src_filepath = src_test_filepath
-            target_filepath = target_test_filepath
-            test_datapoints += 1
-        else:
-            src_filepath = src_val_filepath
-            target_filepath = target_val_filepath
+            current_stage = Stage.train.value
+        elif (val_datapoints / num_total_datapoints) < NormalMode.val_perc:
             val_datapoints += 1
+            current_stage = Stage.val.value
+        else:
+            test_datapoints += 1
+            current_stage = Stage.test.value
+
+        src_filepath = data_files["src"][current_stage]
+        target_filepath = data_files["tgt"][current_stage]
+        metadata[current_stage]["data"]["token-num-src"].append(num_src_tokens)
+        metadata[current_stage]["data"]["token-num-tgt"].append(num_tgt_tokens)
 
         with open(src_filepath, 'a', encoding='utf-8') as src_file:
             src_file.write(src_string)
@@ -167,20 +209,39 @@ def main(zero_index_vars=False):
 
     print("bad_newline_endings: ", bad_newline_endings)
 
-    max_src_tokens = max(token_num_src)
-    max_tgt_tokens = max(token_num_tgt)
-    avg_src_tokens = statistics.mean(token_num_src)
-    avg_tgt_tokens = statistics.mean(token_num_tgt)
-    std_src_tokens = math.sqrt(statistics.pvariance(token_num_src))
-    std_tgt_tokens = math.sqrt(statistics.pvariance(token_num_tgt))
+    total_src = []
+    total_tgt = []
+    for stage in Stage:
+        
+        metadata[stage.value]["data"]["max-tokens-src"] = max(metadata[stage.value]["data"]["token-num-src"])
+        metadata[stage.value]["data"]["avg-tokens-src"] = statistics.mean(metadata[stage.value]["data"]["token-num-src"])
+        metadata[stage.value]["data"]["std-tokens-src"] = statistics.pstdev(metadata[stage.value]["data"]["token-num-src"])
+        total_src += metadata[stage.value]["data"]["token-num-src"]
 
-    print("max_src_tokens: ", max_src_tokens)
-    print("avg_src_tokens: ", avg_src_tokens)
-    print("std_src_tokens: ", std_src_tokens)
+        metadata[stage.value]["data"]["max-tokens-tgt"] = max(metadata[stage.value]["data"]["token-num-tgt"])
+        metadata[stage.value]["data"]["avg-tokens-tgt"] = statistics.mean(metadata[stage.value]["data"]["token-num-tgt"])
+        metadata[stage.value]["data"]["std-tokens-tgt"] = statistics.pstdev(metadata[stage.value]["data"]["token-num-tgt"])
+        total_tgt += metadata[stage.value]["data"]["token-num-tgt"]
 
-    print("max_tgt_tokens: ", max_tgt_tokens)
-    print("avg_tgt_tokens: ", avg_tgt_tokens)
-    print("std_tgt_tokens: ", std_tgt_tokens)
+        metadata[stage.value]["data"].pop("token-num-src", None)
+        metadata[stage.value]["data"].pop("token-num-tgt", None)
+        with open(metadata[stage.value]["file"], 'w') as fout:
+            json_str = json.dumps(metadata[stage.value]["data"], indent=4)
+            print(json_str, file=fout)
+
+    metadata["total"]["data"]["max-tokens-src"] = max(total_src)
+    metadata["total"]["data"]["avg-tokens-src"] = statistics.mean(total_src)
+    metadata["total"]["data"]["std-tokens-src"] = statistics.pstdev(total_src)
+
+    metadata["total"]["data"]["max-tokens-tgt"] = max(total_tgt)
+    metadata["total"]["data"]["avg-tokens-tgt"] = statistics.mean(total_tgt)
+    metadata["total"]["data"]["std-tokens-tgt"] = statistics.pstdev(total_tgt)
+
+    metadata["total"]["data"].pop("token-num-src", None)
+    metadata["total"]["data"].pop("token-num-tgt", None)
+    with open(metadata["total"]["file"], 'w') as fout:
+        json_str = json.dumps(metadata["total"]["data"], indent=4)
+        print(json_str, file=fout)
 
 
 if __name__ == '__main__':
