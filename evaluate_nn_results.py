@@ -6,6 +6,7 @@ import copy
 import statistics
 from enum import Enum
 from collections import Counter
+import plotly.graph_objects as go
 
 
 final_dataset_dir = "final_dataset"
@@ -56,7 +57,7 @@ evaluation_dict = {
         #     "perc_correct": 0,
         #     "correct": 0,
         #     "wrong": 0,
-        #     "included_in_training": True
+        #     "num_datapoints_in_train": 0
         # }
     }
 }
@@ -77,6 +78,7 @@ def recreate_code(tokenized_code):
         else:
             initial_code += token
     return initial_code
+
 
 def recreate_diff(diff_string):
     # REMOVE SOURCE_LOCATION_START 3 SOURCE_LOCATION_END 4
@@ -108,8 +110,6 @@ def recreate_diff(diff_string):
         recreated_diff["TargetLines"] = recreate_code(" ".join(targetLines))
 
     return recreated_diff
-    
-
 
 
 def main():
@@ -133,21 +133,26 @@ def main():
         inference_test_list = file.read().split("\n")
         if inference_test_list[-1] == "":
             del inference_test_list[-1]
-    
+
     evaluation_dict["num_total_datapoints"] = len(inference_test_list)
 
     for index, tgt_test_line in enumerate(tgt_test_list):
         is_correct = tgt_test_line == inference_test_list[index]
 
-        diagnostic_id = metadata_test["datapoints"][index]["DiagnosticID"] # ID, DiagnosticID
-        included_in_training = diagnostic_id in metadata_train["diagnostics"]
+        # ID, DiagnosticID
+        diagnostic_id = metadata_test["datapoints"][index]["DiagnosticID"]
+        if diagnostic_id in metadata_train["diagnostics"]:
+            num_datapoints_in_train = metadata_train["diagnostics"][diagnostic_id]
+        else:
+            num_datapoints_in_train = 0
+
         if diagnostic_id not in evaluation_dict["result_per_diagnostic"]:
 
             evaluation_dict["result_per_diagnostic"][diagnostic_id] = {
                 "perc_correct": 0,  # Calculate later
                 "correct": 1 if is_correct else 0,
                 "wrong": 0 if is_correct else 1,
-                "included_in_training": included_in_training
+                "num_datapoints_in_train": num_datapoints_in_train,
             }
 
         else:
@@ -157,7 +162,7 @@ def main():
                 evaluation_dict["result_per_diagnostic"][diagnostic_id]["wrong"] += 1
 
         # TODO: Do this properly
-        if not included_in_training:
+        if num_datapoints_in_train == 0:
             if is_correct:
                 evaluation_dict["correctly_extrapolated_examples"] = []
             else:
@@ -178,17 +183,41 @@ def main():
         total_total += total_datapoints
         total_correct += value["correct"]
 
-        if value["included_in_training"]:
+        if value["num_datapoints_in_train"] > 0:
             copied_correct += value["correct"]
             copied_total += total_datapoints
         else:
             extrapolated_correct += value["correct"]
             extrapolated_total += total_datapoints
-    
-    evaluation_dict["correct_results_total_perc"] = total_correct / total_datapoints
-    evaluation_dict["correct_results_copied_perc"] = copied_correct / copied_total
-    evaluation_dict["correct_results_extrapolated_perc"] = extrapolated_correct / extrapolated_total
 
+    evaluation_dict["num_extrapolated_datapoints"] = extrapolated_total
+
+    evaluation_dict["correct_results_total_perc"] = total_correct / \
+        total_datapoints
+    evaluation_dict["correct_results_copied_perc"] = copied_correct / copied_total
+    evaluation_dict["correct_results_extrapolated_perc"] = extrapolated_correct / \
+        extrapolated_total
+
+    datapoints_graph = []
+    for key, value in evaluation_dict["result_per_diagnostic"].items():
+        datapoints_graph.append({
+            "diagnostic_id": key,
+            "perc_correct": value["perc_correct"],
+            "num_datapoints_in_train": value["num_datapoints_in_train"],
+        })
+
+    x = [datapoint["num_datapoints_in_train"]
+         for datapoint in datapoints_graph]
+    y = [datapoint["perc_correct"] for datapoint in datapoints_graph]
+    text = [datapoint["diagnostic_id"] for datapoint in datapoints_graph]
+    fig = go.Figure(data=go.Scatter(x=x,
+                                    y=y,
+                                    mode='markers',
+                                    text=text))
+    fig.update_layout(title='Training Points Necessary for Good Results')
+    fig.update_xaxes(title_text='num_datapoints_in_train')
+    fig.update_yaxes(title_text='perc_correct_in_test')
+    fig.show()
 
     with open(inference_eval_file, 'w') as fout:
         json_str = json.dumps(evaluation_dict, indent=4)
