@@ -18,11 +18,12 @@ inference_test_file = f"{final_dataset_dir}/inference-test.txt"
 inference_eval_file = f"{final_dataset_dir}/inference-eval.json"
 
 data_example = {
-    "ID": "",
-    "DiagnosticID": "",
-    "FileContext": "",
-    "ParsedDiffCorrect": {},
-    "ParsedDiffInferred": {}
+    "id": "",
+    "diagnostic_id": "",
+    "perc_correct": 0.0,
+    "file_context": "",
+    "parsed_diff_correct": {},
+    "parsed_diff_inferred": {},
 }
 
 evaluation_dict = {
@@ -36,21 +37,13 @@ evaluation_dict = {
 
     # Take different DiagnosticIDs for examples here
 
-    "highest_accuracy_examples": [
-        # data_example
-    ],
-
-    "worst_accuracy_examples": [
-        # data_example
-    ],
-
-    "correctly_extrapolated_examples": [
-        # data_example
-    ],
-
-    "incorrectly_extrapolated_examples": [
-        # data_example
-    ],
+    # Fill with multiple "data_example":
+    "highest_accuracy_copied_examples": [],
+    "highest_accuracy_extrapolated_examples": [],
+    "lowest_accuracy_copied_examples": [],
+    "lowest_accuracy_extrapolated_examples": [],
+    "ambiguous_accuracy_copied_examples": [],
+    "ambiguous_accuracy_extrapolated_examples": [],
 
     "result_per_diagnostic": {
         # "DA2001": {
@@ -88,9 +81,11 @@ def recreate_diff(diff_string):
     recreated_diff = {}
     token_list = diff_string.split()
     diff_type = token_list[0]
+    recreated_diff["diff_type"] = diff_type
     if diff_type == "ADD":
         recreated_diff["PreviousSourceLocation"] = token_list[2]
-        recreated_diff["TargetLines"] = recreate_code(" ".join(token_list[4:]))
+        code_string = recreate_code(" ".join(token_list[4:]))
+        recreated_diff["TargetLines"] = code_string.rstrip('\n').split("\n")
     elif diff_type == "REMOVE":
         recreated_diff["SourceLocationStart"] = token_list[2]
         recreated_diff["SourceLocationEnd"] = token_list[4]
@@ -101,15 +96,177 @@ def recreate_diff(diff_string):
         for token in token_list[2:]:
             if hit_target_line:
                 targetLines.append(token)
-
-            if token == "TARGET_LINES":
+            elif token == "TARGET_LINES":
                 hit_target_line = True
                 continue
             else:
                 recreated_diff["SourceLocation"].append(token)
-        recreated_diff["TargetLines"] = recreate_code(" ".join(targetLines))
+        code_string = recreate_code(" ".join(targetLines))
+        recreated_diff["TargetLines"] = code_string.rstrip('\n').split("\n")
 
     return recreated_diff
+
+
+def save_result_per_diagnostic(evaluation_dict, metadata_train, metadata_test, tgt_test_list, inference_test_list):
+
+    for index, tgt_test_line in enumerate(tgt_test_list):
+        is_correct = tgt_test_line == inference_test_list[index]
+
+        # ID, DiagnosticID
+        diagnostic_id = metadata_test["datapoints"][index]["DiagnosticID"]
+        if diagnostic_id in metadata_train["diagnostics"]:
+            num_datapoints_in_train = metadata_train["diagnostics"][diagnostic_id]
+        else:
+            num_datapoints_in_train = 0
+
+        if diagnostic_id not in evaluation_dict["result_per_diagnostic"]:
+
+            evaluation_dict["result_per_diagnostic"][diagnostic_id] = {
+                "perc_correct": 0,  # Calculate later
+                "correct": [index] if is_correct else [],
+                "wrong": [] if is_correct else [index],
+                "num_datapoints_in_train": num_datapoints_in_train,
+            }
+
+        else:
+            if is_correct:
+                evaluation_dict["result_per_diagnostic"][diagnostic_id]["correct"].append(
+                    index)
+            else:
+                evaluation_dict["result_per_diagnostic"][diagnostic_id]["wrong"].append(
+                    index)
+
+
+def flatten_result_per_diagnostic(result_per_diagnostic_dict):
+    flattened = []
+    for key, value in result_per_diagnostic_dict.items():
+        flattened.append({
+            "diagnostic_id": key,
+            "perc_correct": value["perc_correct"],
+            "correct": value["correct"],
+            "wrong": value["wrong"],
+            "num_datapoints_in_train": value["num_datapoints_in_train"],
+        })
+    return flattened
+
+
+def save_characteristic_examples(
+    evaluation_dict,
+    characteristic_examples_dict,
+    src_test_list,
+    tgt_test_list,
+    inference_test_list,
+    metadata_test
+):
+
+    for key, result_per_diagnostic_list in characteristic_examples_dict.items():
+        num_examples = 0
+        for diagnostic_result in result_per_diagnostic_list:
+            if num_examples == 2:
+                break
+            num_examples += 1
+
+            example_dict = copy.deepcopy(data_example)
+            example_dict["diagnostic_id"] = diagnostic_result["diagnostic_id"]
+
+            # Get a correct datapoint
+            if key in ["highest_accuracy_copied", "highest_accuracy_extrapolated"]:
+                if not diagnostic_result["correct"]:
+                    continue
+
+                # Get first datapoint of given diagnostic
+                line_num = diagnostic_result["correct"][0]
+
+                diff_tgt = tgt_test_list[line_num]
+
+                example_dict["parsed_diff_correct"] = recreate_diff(diff_tgt)
+
+            # Get an incorrect datapoint
+            elif key in ["lowest_accuracy_copied", "lowest_accuracy_extrapolated"]:
+                if not diagnostic_result["wrong"]:
+                    continue
+
+                # Get first datapoint of given diagnostic
+                line_num = diagnostic_result["wrong"][0]
+
+                # Show what went wrong
+                diff_tgt = tgt_test_list[line_num]
+                diff_inferred = inference_test_list[line_num]
+
+                example_dict["parsed_diff_correct"] = recreate_diff(diff_tgt)
+                example_dict["parsed_diff_inferred"] = recreate_diff(
+                    diff_inferred)
+
+            # TODO later: Get a correct & incorrect datapoint
+            else:  # ambiguous_accuracy_copied & ambiguous_accuracy_extrapolated
+                if not diagnostic_result["wrong"]:
+                    continue
+
+                # Get first datapoint of given diagnostic
+                line_num = diagnostic_result["wrong"][0]
+
+                # Show what went wrong
+                diff_tgt = tgt_test_list[line_num]
+                diff_inferred = inference_test_list[line_num]
+
+                example_dict["ParsedDiffCorrect"] = recreate_diff(diff_tgt)
+                example_dict["ParsedDiffInferred"] = recreate_diff(
+                    diff_inferred)
+
+
+            datapoint_id = metadata_test["datapoints"][line_num]["ID"]
+            example_dict["id"] = datapoint_id
+
+            example_dict["perc_correct"] = diagnostic_result["perc_correct"]
+
+            # TODO: Parse file_context
+            src = src_test_list[line_num]
+            # example_dict["file_context"] = parse_src(src)
+
+            key_name = key + "_examples"
+            if key_name not in evaluation_dict:
+                evaluation_dict[key_name] = []
+            evaluation_dict[key_name].append(example_dict)
+
+
+def sort_for_characteristic_examples(evaluation_dict):
+
+    result_per_diagnostic = flatten_result_per_diagnostic(
+        evaluation_dict["result_per_diagnostic"])
+
+    highest_accuracy_copied = [
+        result for result in result_per_diagnostic if result["num_datapoints_in_train"] > 0]
+    highest_accuracy_copied.sort(
+        key=lambda x: x.get('perc_correct'), reverse=True)
+    highest_accuracy_extrapolated = [
+        result for result in result_per_diagnostic if result["num_datapoints_in_train"] == 0]
+    highest_accuracy_extrapolated.sort(
+        key=lambda x: x.get('perc_correct'), reverse=True)
+
+    lowest_accuracy_copied = [
+        result for result in result_per_diagnostic if result["num_datapoints_in_train"] > 0]
+    lowest_accuracy_copied.sort(key=lambda x: x.get('perc_correct'))
+    lowest_accuracy_extrapolated = [
+        result for result in result_per_diagnostic if result["num_datapoints_in_train"] == 0]
+    lowest_accuracy_extrapolated.sort(key=lambda x: x.get('perc_correct'))
+
+    ambiguous_accuracy_copied = [
+        result for result in result_per_diagnostic if result["num_datapoints_in_train"] > 0]
+    ambiguous_accuracy_copied.sort(
+        key=lambda x: abs(x.get('perc_correct') - 0.5))
+    ambiguous_accuracy_extrapolated = [
+        result for result in result_per_diagnostic if result["num_datapoints_in_train"] == 0]
+    ambiguous_accuracy_extrapolated.sort(
+        key=lambda x: abs(x.get('perc_correct') - 0.5))
+
+    return {
+        "highest_accuracy_copied": highest_accuracy_copied,
+        "highest_accuracy_extrapolated": highest_accuracy_extrapolated,
+        "lowest_accuracy_copied": lowest_accuracy_copied,
+        "lowest_accuracy_extrapolated": lowest_accuracy_extrapolated,
+        "ambiguous_accuracy_copied": ambiguous_accuracy_copied,
+        "ambiguous_accuracy_extrapolated": ambiguous_accuracy_extrapolated
+    }
 
 
 def main():
@@ -136,37 +293,14 @@ def main():
 
     evaluation_dict["num_total_datapoints"] = len(inference_test_list)
 
-    for index, tgt_test_line in enumerate(tgt_test_list):
-        is_correct = tgt_test_line == inference_test_list[index]
+    save_result_per_diagnostic(
+        evaluation_dict, metadata_train, metadata_test, tgt_test_list, inference_test_list)
 
-        # ID, DiagnosticID
-        diagnostic_id = metadata_test["datapoints"][index]["DiagnosticID"]
-        if diagnostic_id in metadata_train["diagnostics"]:
-            num_datapoints_in_train = metadata_train["diagnostics"][diagnostic_id]
-        else:
-            num_datapoints_in_train = 0
+    characteristic_examples_dict = sort_for_characteristic_examples(
+        evaluation_dict)
 
-        if diagnostic_id not in evaluation_dict["result_per_diagnostic"]:
-
-            evaluation_dict["result_per_diagnostic"][diagnostic_id] = {
-                "perc_correct": 0,  # Calculate later
-                "correct": 1 if is_correct else 0,
-                "wrong": 0 if is_correct else 1,
-                "num_datapoints_in_train": num_datapoints_in_train,
-            }
-
-        else:
-            if is_correct:
-                evaluation_dict["result_per_diagnostic"][diagnostic_id]["correct"] += 1
-            else:
-                evaluation_dict["result_per_diagnostic"][diagnostic_id]["wrong"] += 1
-
-        # TODO: Do this properly
-        if num_datapoints_in_train == 0:
-            if is_correct:
-                evaluation_dict["correctly_extrapolated_examples"] = []
-            else:
-                evaluation_dict["incorrectly_extrapolated_examples"] = []
+    save_characteristic_examples(evaluation_dict, characteristic_examples_dict,
+                                 src_test_list, tgt_test_list, inference_test_list, metadata_test)
 
     total_total = 0
     copied_total = 0
@@ -177,34 +311,31 @@ def main():
     extrapolated_correct = 0
 
     for value in evaluation_dict["result_per_diagnostic"].values():
-        total_datapoints = value["correct"] + value["wrong"]
-        value["perc_correct"] = value["correct"] / total_datapoints
+        num_correct = len(value["correct"])
+        num_wrong = len(value["wrong"])
+        total_datapoints = num_correct + num_wrong
+        value["perc_correct"] = num_correct / total_datapoints
 
         total_total += total_datapoints
-        total_correct += value["correct"]
+        total_correct += num_correct
 
         if value["num_datapoints_in_train"] > 0:
-            copied_correct += value["correct"]
+            copied_correct += num_correct
             copied_total += total_datapoints
         else:
-            extrapolated_correct += value["correct"]
+            extrapolated_correct += num_correct
             extrapolated_total += total_datapoints
 
     evaluation_dict["num_extrapolated_datapoints"] = extrapolated_total
 
     evaluation_dict["correct_results_total_perc"] = total_correct / \
-        total_datapoints
+        total_total
     evaluation_dict["correct_results_copied_perc"] = copied_correct / copied_total
     evaluation_dict["correct_results_extrapolated_perc"] = extrapolated_correct / \
         extrapolated_total
 
-    datapoints_graph = []
-    for key, value in evaluation_dict["result_per_diagnostic"].items():
-        datapoints_graph.append({
-            "diagnostic_id": key,
-            "perc_correct": value["perc_correct"],
-            "num_datapoints_in_train": value["num_datapoints_in_train"],
-        })
+    datapoints_graph = flatten_result_per_diagnostic(
+        evaluation_dict["result_per_diagnostic"])
 
     x = [datapoint["num_datapoints_in_train"]
          for datapoint in datapoints_graph]
@@ -214,7 +345,8 @@ def main():
                                     y=y,
                                     mode='markers',
                                     text=text))
-    fig.update_layout(title='Training Points Necessary for Good Results')
+    fig.update_layout(
+        title='Training Points Necessary for Good Results in Test')
     fig.update_xaxes(title_text='num_datapoints_in_train')
     fig.update_yaxes(title_text='perc_correct_in_test')
     fig.show()
