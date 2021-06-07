@@ -21,7 +21,15 @@ data_example = {
     "id": "",
     "diagnostic_id": "",
     "perc_correct": 0.0,
-    "file_context": "",
+    "parsed_src": {
+        "diagnostic_occurances": [
+            # {
+            #     "diagnostic_line": "",
+            #     "diagnostic_message": "",
+            # }
+        ],
+        "file_context": "",
+    },
     "parsed_diff_correct": {},
     "parsed_diff_inferred": {},
 }
@@ -105,6 +113,35 @@ def recreate_diff(diff_string):
         recreated_diff["TargetLines"] = code_string.rstrip('\n').split("\n")
 
     return recreated_diff
+
+
+def recreate_src(src_string):
+
+    parsed_src = {
+        "diagnostic_occurances": [
+            # {
+            #     "diagnostic_line": "",
+            #     "diagnostic_message": "",
+            # }
+        ],
+        "file_context": "",
+    }
+
+    (diagnostic_occurances_str, file_context) = src_string.split(" FILE_CONTENT ")
+    parsed_src["file_context"] = recreate_code(
+        file_context).rstrip('\n').split("\n")
+
+    # LINE 2 MESSAGE unused WHITESPACE field WHITESPACE ' _array ' LINE 3 MESSAGE unused WHITESPACE field WHITESPACE ' _dummy '
+    for diag_occ_str in diagnostic_occurances_str.split("LINE"):
+        if diag_occ_str == "":
+            continue
+        diag_occ = {}
+        (diag_line_str, diag_message_str) = diag_occ_str.split("MESSAGE")
+        diag_occ["diagnostic_line"] = diag_line_str.strip()
+        diag_occ["diagnostic_message"] = recreate_code(diag_message_str)
+        parsed_src["diagnostic_occurances"].append(diag_occ)
+
+    return parsed_src
 
 
 def save_result_per_diagnostic(evaluation_dict, metadata_train, metadata_test, tgt_test_list, inference_test_list):
@@ -213,15 +250,13 @@ def save_characteristic_examples(
                 example_dict["ParsedDiffInferred"] = recreate_diff(
                     diff_inferred)
 
-
             datapoint_id = metadata_test["datapoints"][line_num]["ID"]
             example_dict["id"] = datapoint_id
 
             example_dict["perc_correct"] = diagnostic_result["perc_correct"]
 
-            # TODO: Parse file_context
-            src = src_test_list[line_num]
-            # example_dict["file_context"] = parse_src(src)
+            src_str = src_test_list[line_num]
+            example_dict["parsed_src"] = recreate_src(src_str)
 
             key_name = key + "_examples"
             if key_name not in evaluation_dict:
