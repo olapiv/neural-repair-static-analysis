@@ -91,14 +91,14 @@ def recreate_diff(diff_string):
     diff_type = token_list[0]
     recreated_diff["diff_type"] = diff_type
     if diff_type == "ADD":
-        recreated_diff["PreviousSourceLocation"] = token_list[2]
+        recreated_diff["previous_source_location"] = token_list[2]
         code_string = recreate_code(" ".join(token_list[4:]))
-        recreated_diff["TargetLines"] = code_string.rstrip('\n').split("\n")
+        recreated_diff["target_lines"] = code_string.rstrip('\n').split("\n")
     elif diff_type == "REMOVE":
-        recreated_diff["SourceLocationStart"] = token_list[2]
-        recreated_diff["SourceLocationEnd"] = token_list[4]
+        recreated_diff["source_location_start"] = token_list[2]
+        recreated_diff["source_location_end"] = token_list[4]
     else:
-        recreated_diff["SourceLocation"] = []
+        recreated_diff["source_location"] = []
         targetLines = []
         hit_target_line = False
         for token in token_list[2:]:
@@ -108,9 +108,9 @@ def recreate_diff(diff_string):
                 hit_target_line = True
                 continue
             else:
-                recreated_diff["SourceLocation"].append(token)
+                recreated_diff["source_location"].append(token)
         code_string = recreate_code(" ".join(targetLines))
-        recreated_diff["TargetLines"] = code_string.rstrip('\n').split("\n")
+        recreated_diff["target_lines"] = code_string.rstrip('\n').split("\n")
 
     return recreated_diff
 
@@ -246,8 +246,8 @@ def save_characteristic_examples(
                 diff_tgt = tgt_test_list[line_num]
                 diff_inferred = inference_test_list[line_num]
 
-                example_dict["ParsedDiffCorrect"] = recreate_diff(diff_tgt)
-                example_dict["ParsedDiffInferred"] = recreate_diff(
+                example_dict["parsed_diff_correct"] = recreate_diff(diff_tgt)
+                example_dict["parsed_diff_inferred"] = recreate_diff(
                     diff_inferred)
 
             datapoint_id = metadata_test["datapoints"][line_num]["ID"]
