@@ -309,7 +309,6 @@ def remove_redundant_data(evaluation_dict):
     for diagnostic_id, result in evaluation_dict["result_per_diagnostic"].items():
         # result["correct"] = len(result["correct"])
         # result["wrong"] = len(result["wrong"])
-        print(result)
         result["num_datapoints_in_test"] = len(result["correct"]) + len(result["wrong"])
         result.pop('correct', None)
         result.pop('wrong', None)

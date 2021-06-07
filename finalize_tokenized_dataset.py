@@ -68,7 +68,7 @@ metadata_dict = {
     "datapoints": [
         # {
         #     "ID": "226128-0",
-        #     "Diagnostic": "DA2003"
+        #     "DiagnosticID": "DA2003"
         # }
     ]
 }
