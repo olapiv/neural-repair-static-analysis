@@ -7,6 +7,8 @@
 3. Run [unifying_raw_dataset.py](unifying_raw_dataset.py)
 4. Run [tokenizing_unified_dataset.py](tokenizing_unified_dataset.py)
 5. Run [finalize_tokenized_dataset.py](finalize_tokenized_dataset.py)
+6. Run [nn](nn)
+7. Run [evaluate_nn_results.py](evaluate_nn_results.py)
 
 ## Required Dependencies
 
@@ -40,6 +42,12 @@
 9. Using the [regex_lexer.py](regex_lexer.py), tokenized file contexts, diagnostic messages and diff batches in [tokenizing_unified_dataset.py](tokenizing_unified_dataset.py) creating a tokenized dataset.
 10. Finalized the dataset for OpenNMT in [finalize_tokenized_dataset.py](finalize_tokenized_dataset.py), including splitting datapoints into training/testing/validation fractions.
 11. Created a basic Transformer OpenNMT NN model in [nn](nn), to see whether a NN can learn from the dataset.
+12. Using [evaluate_nn_results.py](evaluate_nn_results.py), evaluated:
+    1. how many datapoints are predicted correctly
+    2. which diagnostics perform best/worst
+    3. how diagnostics performed in test that were vs. weren't already in the training set (copied vs extrapolated)
+    4. which diagnostics performed most ambiguously `abs(accuracy - 0.5).sort_ascending()`
+    5. how the number of datapoints for a diagnostic in train relates to it's performance in test
 
 ## TODO later
 
