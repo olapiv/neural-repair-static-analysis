@@ -304,6 +304,16 @@ def sort_for_characteristic_examples(evaluation_dict):
         "ambiguous_accuracy_extrapolated": ambiguous_accuracy_extrapolated
     }
 
+def remove_redundant_data(evaluation_dict):
+
+    for diagnostic_id, result in evaluation_dict["result_per_diagnostic"].items():
+        # result["correct"] = len(result["correct"])
+        # result["wrong"] = len(result["wrong"])
+        print(result)
+        result["num_datapoints_in_test"] = len(result["correct"]) + len(result["wrong"])
+        result.pop('correct', None)
+        result.pop('wrong', None)
+    
 
 def main():
     with open(metadata_test_file) as json_file:
@@ -386,6 +396,8 @@ def main():
     fig.update_xaxes(title_text='num_datapoints_in_train')
     fig.update_yaxes(title_text='perc_correct_in_test')
     fig.show()
+
+    remove_redundant_data(evaluation_dict)
 
     with open(inference_eval_file, 'w') as fout:
         json_str = json.dumps(evaluation_dict, indent=4)
