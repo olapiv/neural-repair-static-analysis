@@ -159,7 +159,7 @@ def save_result_per_diagnostic(evaluation_dict, metadata_train, metadata_test, t
         if diagnostic_id not in evaluation_dict["result_per_diagnostic"]:
 
             evaluation_dict["result_per_diagnostic"][diagnostic_id] = {
-                "perc_correct": 0,  # Calculate later
+                # "perc_correct": 0,  # Calculate later
                 "correct": [index] if is_correct else [],
                 "wrong": [] if is_correct else [index],
                 "num_datapoints_in_train": num_datapoints_in_train,
@@ -217,6 +217,7 @@ def save_characteristic_examples(
                 diff_tgt = tgt_test_list[line_num]
 
                 example_dict["parsed_diff_correct"] = recreate_diff(diff_tgt)
+                example_dict.pop('parsed_diff_inferred', None)
 
             # Get an incorrect datapoint
             elif key in ["lowest_accuracy_copied", "lowest_accuracy_extrapolated"]:
@@ -331,12 +332,6 @@ def main():
     save_result_per_diagnostic(
         evaluation_dict, metadata_train, metadata_test, tgt_test_list, inference_test_list)
 
-    characteristic_examples_dict = sort_for_characteristic_examples(
-        evaluation_dict)
-
-    save_characteristic_examples(evaluation_dict, characteristic_examples_dict,
-                                 src_test_list, tgt_test_list, inference_test_list, metadata_test)
-
     total_total = 0
     copied_total = 0
     extrapolated_total = 0
@@ -368,6 +363,12 @@ def main():
     evaluation_dict["correct_results_copied_perc"] = copied_correct / copied_total
     evaluation_dict["correct_results_extrapolated_perc"] = extrapolated_correct / \
         extrapolated_total
+
+    characteristic_examples_dict = sort_for_characteristic_examples(
+        evaluation_dict)
+
+    save_characteristic_examples(evaluation_dict, characteristic_examples_dict,
+                                 src_test_list, tgt_test_list, inference_test_list, metadata_test)
 
     datapoints_graph = flatten_result_per_diagnostic(
         evaluation_dict["result_per_diagnostic"])
