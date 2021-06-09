@@ -388,12 +388,22 @@ def main():
     text = [datapoint["diagnostic_id"] for datapoint in datapoints_graph]
     fig = go.Figure(data=go.Scatter(x=x,
                                     y=y,
-                                    mode='markers',
+                                    # mode='markers',
+                                    marker=dict(
+                                        size=9,
+                                        color="rgba(5,5,5,0.4)", #set color equal to a variable
+                                        # colorscale='Viridis', # one of plotly colorscales
+                                        # showscale=True
+                                    ),
+                                    textposition='top right',
+                                    # textposition=[f"{random.choice(['top', 'bottom', 'middle'])} {random.choice(['left', 'right', 'center'])}" for datapoint in datapoints_graph],
+                                    textfont_size=10,
+                                    mode='text+markers',
                                     text=text))
     fig.update_layout(
-        title='Training Points Necessary for Good Results in Test')
-    fig.update_xaxes(title_text='num_datapoints_in_train')
-    fig.update_yaxes(title_text='perc_correct_in_test')
+        title="Per Diagnostic: Data Points Needed To Produce Good Results in Test")
+    fig.update_xaxes(title_text='Number datapoints in train')
+    fig.update_yaxes(title_text='Percentage of Correct Predictions in Test')
     fig.show()
 
     remove_redundant_data(evaluation_dict)
