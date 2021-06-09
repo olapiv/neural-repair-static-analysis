@@ -11,4 +11,9 @@ onmt-build-vocab --tokenizer_config config/tokenizer.yml --size 50000 --save_voc
     data/target-train.txt \
     data/target-val.txt
 
+onmt-main --model_type Transformer --config data.yml --auto_config train --with_eval
+
+onmt-main --model_type Transformer --config data.yml --auto_config infer --features_file data/src-test.txt
+
+onmt-main --model_type Transformer --config data.yml --auto_config infer --features_file data/src-test.txt --predictions_file data/inference-test.txt
 ```

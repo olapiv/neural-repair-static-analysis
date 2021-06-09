@@ -7,7 +7,7 @@
 * Train, val & test dataset are randomly chosen from aggregate dataset
 * See metadata files for further information on data
 
-## Results after 7k steps
+## Results after 5k steps
 
 * NN was evaluated on inferring/translating the test dataset
 * Input: [src-test.txt](src-test.txt), correct output: [tgt-test.txt](tgt-test.txt), predicted output: [inference-test.txt](inference-test.txt)
