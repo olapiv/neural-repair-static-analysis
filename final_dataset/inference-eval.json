@@ -1,0 +1,1038 @@
+{
+    "num_total_datapoints": 465,
+    "num_extrapolated_datapoints": 6,
+    "correct_results_total_perc": 0.6129032258064516,
+    "correct_results_copied_perc": 0.6143790849673203,
+    "correct_results_extrapolated_perc": 0.5,
+    "highest_accuracy_copied_examples": [
+        {
+            "id": "56751684-3",
+            "diagnostic_id": "DA3010",
+            "perc_correct": 1.0,
+            "parsed_src": {
+                "diagnostic_occurances": [
+                    {
+                        "diagnostic_line": "4",
+                        "diagnostic_message": "type 'ComMemberType' doesn't have /// comments"
+                    }
+                ],
+                "file_context": [
+                    "     InterfaceIsIUnknown = 1,",
+                    "        InterfaceIsIDispatch = 2,",
+                    "        InterfaceIsIInspectable = 3,",
+                    "    }",
+                    "    public enum ComMemberType",
+                    "    {",
+                    "        Method = 0,",
+                    "        PropGet = 1,",
+                    "      "
+                ]
+            },
+            "parsed_diff_correct": {
+                "diff_type": "ADD",
+                "previous_source_location": "3",
+                "target_lines": [
+                    "",
+                    "    /// <summary> ",
+                    "    /// ",
+                    "    /// </summary>"
+                ]
+            }
+        },
+        {
+            "id": "18816554-0",
+            "diagnostic_id": "SA1120",
+            "perc_correct": 1.0,
+            "parsed_src": {
+                "diagnostic_occurances": [
+                    {
+                        "diagnostic_line": "1",
+                        "diagnostic_message": "comments should contain text"
+                    }
+                ],
+                "file_context": [
+                    "          // count for m/p/i observed during this unit of time.",
+                    "                            //",
+                    "                            strTemp = ParseString(s"
+                ]
+            },
+            "parsed_diff_correct": {
+                "diff_type": "REMOVE",
+                "source_location_start": "1",
+                "source_location_end": "1"
+            }
+        }
+    ],
+    "highest_accuracy_extrapolated_examples": [
+        {
+            "id": "842020-0",
+            "diagnostic_id": "AnalyzerFinal2",
+            "perc_correct": 1.0,
+            "parsed_src": {
+                "diagnostic_occurances": [
+                    {
+                        "diagnostic_line": "4",
+                        "diagnostic_message": "type name 'Unsafe' contains lowercase letters"
+                    }
+                ],
+                "file_context": [
+                    "-------------------------------",
+                    "",
+                    "namespace System.Runtime.CompilerServices",
+                    "{",
+                    "    public static partial class Unsafe",
+                    "    {",
+                    "        public static ref T AddByteOffset<T>(ref T source, System.IntPtr byteOffset) { "
+                ]
+            },
+            "parsed_diff_correct": {
+                "diff_type": "REPLACE",
+                "source_location": [
+                    "4"
+                ],
+                "target_lines": [
+                    "    public static partial class UNSAFE"
+                ]
+            }
+        },
+        {
+            "id": "21205600-0",
+            "diagnostic_id": "CC0060",
+            "perc_correct": 1.0,
+            "parsed_src": {
+                "diagnostic_occurances": [
+                    {
+                        "diagnostic_line": "4",
+                        "diagnostic_message": "constructor should not be public."
+                    }
+                ],
+                "file_context": [
+                    "int GetHashCode() { throw null; }",
+                    "    }",
+                    "    public abstract partial class EncodingProvider",
+                    "    {",
+                    "        public EncodingProvider() { }",
+                    "        public abstract System.Text.Encoding? GetEncoding(int codepage);",
+                    "        public virtual System."
+                ]
+            },
+            "parsed_diff_correct": {
+                "diff_type": "REPLACE",
+                "source_location": [
+                    "4"
+                ],
+                "target_lines": [
+                    "        protected EncodingProvider() { }"
+                ]
+            }
+        }
+    ],
+    "lowest_accuracy_copied_examples": [
+        {
+            "id": "6240286-3",
+            "diagnostic_id": "FS0095",
+            "perc_correct": 0.0,
+            "parsed_src": {
+                "diagnostic_occurances": [
+                    {
+                        "diagnostic_line": "1",
+                        "diagnostic_message": "use string interpolation"
+                    }
+                ],
+                "file_context": [
+                    "                {",
+                    "                                    Console.WriteLine(\"Adding {0} as T#{1}\", strTID, totalAllocThreads);",
+                    "                  "
+                ]
+            },
+            "parsed_diff_correct": {
+                "diff_type": "REPLACE",
+                "source_location": [
+                    "1"
+                ],
+                "target_lines": [
+                    "                                    Console.WriteLine($\"Adding {strTID} as T#{totalAllocThreads}\");"
+                ]
+            },
+            "parsed_diff_inferred": {
+                "diff_type": "REPLACE",
+                "source_location": [
+                    "1"
+                ],
+                "target_lines": [
+                    "                            Console.WriteLine($\"QPF adjusted: {qpfAdjusted}, init QPC: {qpcStart}\");"
+                ]
+            }
+        },
+        {
+            "id": "801845-1",
+            "diagnostic_id": "CC0025",
+            "perc_correct": 0.0,
+            "parsed_src": {
+                "diagnostic_occurances": [
+                    {
+                        "diagnostic_line": "2",
+                        "diagnostic_message": "remove empty finalizers"
+                    }
+                ],
+                "file_context": [
+                    "} set { } }",
+                    "        public virtual bool TrackResurrection { get { throw null; } }",
+                    "        ~WeakReference() { }",
+                    "        public virtual void GetObjectData(System.Runtime.Serialization.SerializationInfo info, System.Runtime.Serialization.StreamingContext context) { }"
+                ]
+            },
+            "parsed_diff_correct": {
+                "diff_type": "REMOVE",
+                "source_location_start": "2",
+                "source_location_end": "2"
+            },
+            "parsed_diff_inferred": {
+                "diff_type": "REPLACE",
+                "source_location": [
+                    "2"
+                ],
+                "target_lines": [
+                    ""
+                ]
+            }
+        }
+    ],
+    "lowest_accuracy_extrapolated_examples": [
+        {
+            "id": "5115632-0",
+            "diagnostic_id": "GU0073",
+            "perc_correct": 0.0,
+            "parsed_src": {
+                "diagnostic_occurances": [
+                    {
+                        "diagnostic_line": "3",
+                        "diagnostic_message": "member tid of non-public type sampleinfo should be internal."
+                    },
+                    {
+                        "diagnostic_line": "4",
+                        "diagnostic_message": "member allocheap of non-public type sampleinfo should be internal."
+                    },
+                    {
+                        "diagnostic_line": "5",
+                        "diagnostic_message": "member countsamples of non-public type sampleinfo should be internal."
+                    }
+                ],
+                "file_context": [
+                    " SampleInfo",
+                    "    {",
+                    "        // -1 means uninit.",
+                    "        public int tid;",
+                    "        public int allocHeap;",
+                    "        public int countSamples;",
+                    "        // This is to present m/p/i - each "
+                ]
+            },
+            "parsed_diff_correct": {
+                "diff_type": "REPLACE",
+                "source_location": [
+                    "3",
+                    "4",
+                    "5"
+                ],
+                "target_lines": [
+                    "        internal int tid;",
+                    "        internal int allocHeap;",
+                    "        internal int countSamples;"
+                ]
+            },
+            "parsed_diff_inferred": {
+                "diff_type": "REPLACE",
+                "source_location": [
+                    "3",
+                    "4"
+                ],
+                "target_lines": [
+                    "        public Int32 flags;",
+                    "        public Int32 idealProcNo;"
+                ]
+            }
+        },
+        {
+            "id": "84405484-0",
+            "diagnostic_id": "DictionaryVariableFix",
+            "perc_correct": 0.0,
+            "parsed_src": {
+                "diagnostic_occurances": [
+                    {
+                        "diagnostic_line": "1",
+                        "diagnostic_message": "dictionary 'Dictionary' should be replaced with concurrentdictionary"
+                    }
+                ],
+                "file_context": [
+                    "static Int32 totalAllocThreads = 0;",
+                    "        static Dictionary<string, int> threadMapping = new Dictionary<string, int>(112);",
+                    "        // We do compress the samples, this stores the aggregated sample counts for all procs.",
+                    "        static int"
+                ]
+            },
+            "parsed_diff_correct": {
+                "diff_type": "REPLACE",
+                "source_location": [
+                    "1",
+                    "2"
+                ],
+                "target_lines": [
+                    "        static System.Collections.Concurrent.ConcurrentDictionary<string, int> threadMapping = new Dictionary<string, int>(112);//Roslyn auto generated code.        // We do compress the samples, this stores the aggregated sample counts for all procs."
+                ]
+            },
+            "parsed_diff_inferred": {
+                "diff_type": "REPLACE",
+                "source_location": [
+                    "1"
+                ],
+                "target_lines": [
+                    "        static readonly Dictionary<string, int> threadMapping = new Dictionary<string, int>(112);"
+                ]
+            }
+        }
+    ],
+    "ambiguous_accuracy_copied_examples": [
+        {
+            "id": "54061614-3",
+            "diagnostic_id": "CC0095",
+            "perc_correct": 0.5,
+            "parsed_src": {
+                "diagnostic_occurances": [
+                    {
+                        "diagnostic_line": "1",
+                        "diagnostic_message": "use string interpolation"
+                    }
+                ],
+                "file_context": [
+                    "                {",
+                    "                                    Console.WriteLine(\"Adding {0} as T#{1}\", strTID, totalAllocThreads);",
+                    "                  "
+                ]
+            },
+            "parsed_diff_correct": {
+                "diff_type": "REPLACE",
+                "source_location": [
+                    "1"
+                ],
+                "target_lines": [
+                    "                                    Console.WriteLine($\"Adding {strTID} as T#{totalAllocThreads}\");"
+                ]
+            },
+            "parsed_diff_inferred": {
+                "diff_type": "REPLACE",
+                "source_location": [
+                    "1"
+                ],
+                "target_lines": [
+                    "                            Console.WriteLine($\"QPF adjusted: {qpfAdjusted}, init QPC: {qpcStart}\");"
+                ]
+            }
+        },
+        {
+            "id": "75014560-0",
+            "diagnostic_id": "RECS0133",
+            "perc_correct": 0.5,
+            "parsed_src": {
+                "diagnostic_occurances": [
+                    {
+                        "diagnostic_line": "1",
+                        "diagnostic_message": "parameter name differs in base declaration"
+                    }
+                ],
+                "file_context": [
+                    "Specialized.BitVector32.Section CreateSection(short maxValue, System.Collections.Specialized.BitVector32.Section previous) { throw null; }",
+                    "        public override bool Equals(object? o) { throw null; }",
+                    "        public override int GetHashCode() { throw null; }",
+                    "        "
+                ]
+            },
+            "parsed_diff_correct": {
+                "diff_type": "REPLACE",
+                "source_location": [
+                    "1"
+                ],
+                "target_lines": [
+                    "        public override bool Equals(object? obj) { throw null; }"
+                ]
+            },
+            "parsed_diff_inferred": {
+                "diff_type": "REPLACE",
+                "source_location": [
+                    "1"
+                ],
+                "target_lines": [
+                    "            public override bool Equals(object? obj) { throw null; }"
+                ]
+            }
+        }
+    ],
+    "ambiguous_accuracy_extrapolated_examples": [
+        {
+            "id": "5115632-0",
+            "diagnostic_id": "GU0073",
+            "perc_correct": 0.0,
+            "parsed_src": {
+                "diagnostic_occurances": [
+                    {
+                        "diagnostic_line": "3",
+                        "diagnostic_message": "member tid of non-public type sampleinfo should be internal."
+                    },
+                    {
+                        "diagnostic_line": "4",
+                        "diagnostic_message": "member allocheap of non-public type sampleinfo should be internal."
+                    },
+                    {
+                        "diagnostic_line": "5",
+                        "diagnostic_message": "member countsamples of non-public type sampleinfo should be internal."
+                    }
+                ],
+                "file_context": [
+                    " SampleInfo",
+                    "    {",
+                    "        // -1 means uninit.",
+                    "        public int tid;",
+                    "        public int allocHeap;",
+                    "        public int countSamples;",
+                    "        // This is to present m/p/i - each "
+                ]
+            },
+            "parsed_diff_correct": {
+                "diff_type": "REPLACE",
+                "source_location": [
+                    "3",
+                    "4",
+                    "5"
+                ],
+                "target_lines": [
+                    "        internal int tid;",
+                    "        internal int allocHeap;",
+                    "        internal int countSamples;"
+                ]
+            },
+            "parsed_diff_inferred": {
+                "diff_type": "REPLACE",
+                "source_location": [
+                    "3",
+                    "4"
+                ],
+                "target_lines": [
+                    "        public Int32 flags;",
+                    "        public Int32 idealProcNo;"
+                ]
+            }
+        }
+    ],
+    "result_per_diagnostic": {
+        "DA3010": {
+            "num_datapoints_in_train": 52,
+            "perc_correct": 1.0,
+            "num_datapoints_in_test": 16
+        },
+        "GU0077": {
+            "num_datapoints_in_train": 10,
+            "perc_correct": 0.2857142857142857,
+            "num_datapoints_in_test": 7
+        },
+        "CA1725": {
+            "num_datapoints_in_train": 70,
+            "perc_correct": 0.34615384615384615,
+            "num_datapoints_in_test": 26
+        },
+        "SA1120": {
+            "num_datapoints_in_train": 1,
+            "perc_correct": 1.0,
+            "num_datapoints_in_test": 1
+        },
+        "RECS0005": {
+            "num_datapoints_in_train": 2,
+            "perc_correct": 1.0,
+            "num_datapoints_in_test": 1
+        },
+        "Nopen": {
+            "num_datapoints_in_train": 17,
+            "perc_correct": 1.0,
+            "num_datapoints_in_test": 6
+        },
+        "CA1823": {
+            "num_datapoints_in_train": 39,
+            "perc_correct": 1.0,
+            "num_datapoints_in_test": 12
+        },
+        "CC0095": {
+            "num_datapoints_in_train": 1,
+            "perc_correct": 0.5,
+            "num_datapoints_in_test": 2
+        },
+        "FS0095": {
+            "num_datapoints_in_train": 2,
+            "perc_correct": 0.0,
+            "num_datapoints_in_test": 1
+        },
+        "AvNextRegularExpressionCodeFix": {
+            "num_datapoints_in_train": 9,
+            "perc_correct": 0.3333333333333333,
+            "num_datapoints_in_test": 3
+        },
+        "SA1600D": {
+            "num_datapoints_in_train": 51,
+            "perc_correct": 0.47368421052631576,
+            "num_datapoints_in_test": 19
+        },
+        "GU0073": {
+            "num_datapoints_in_train": 0,
+            "perc_correct": 0.0,
+            "num_datapoints_in_test": 2
+        },
+        "StoreCtorArg": {
+            "num_datapoints_in_train": 14,
+            "perc_correct": 1.0,
+            "num_datapoints_in_test": 5
+        },
+        "Wintellect004": {
+            "num_datapoints_in_train": 42,
+            "perc_correct": 0.7058823529411765,
+            "num_datapoints_in_test": 17
+        },
+        "CC0025": {
+            "num_datapoints_in_train": 9,
+            "perc_correct": 0.0,
+            "num_datapoints_in_test": 3
+        },
+        "DateTimeOffsetInsteadOfDateTimeAnalyzer": {
+            "num_datapoints_in_train": 15,
+            "perc_correct": 1.0,
+            "num_datapoints_in_test": 8
+        },
+        "mmlajOnalbPublicFieldAnalyzer": {
+            "num_datapoints_in_train": 19,
+            "perc_correct": 0.6666666666666666,
+            "num_datapoints_in_test": 6
+        },
+        "CSharpAnalyzer": {
+            "num_datapoints_in_train": 38,
+            "perc_correct": 0.47619047619047616,
+            "num_datapoints_in_test": 21
+        },
+        "CLASS0001": {
+            "num_datapoints_in_train": 15,
+            "perc_correct": 0.8333333333333334,
+            "num_datapoints_in_test": 6
+        },
+        "EDAM001": {
+            "num_datapoints_in_train": 37,
+            "perc_correct": 0.42857142857142855,
+            "num_datapoints_in_test": 7
+        },
+        "CC0023": {
+            "num_datapoints_in_train": 6,
+            "perc_correct": 0.4,
+            "num_datapoints_in_test": 5
+        },
+        "RECS0133": {
+            "num_datapoints_in_train": 18,
+            "perc_correct": 0.5,
+            "num_datapoints_in_test": 2
+        },
+        "CC0037": {
+            "num_datapoints_in_train": 3,
+            "perc_correct": 1.0,
+            "num_datapoints_in_test": 1
+        },
+        "RCS1057": {
+            "num_datapoints_in_train": 42,
+            "perc_correct": 0.8333333333333334,
+            "num_datapoints_in_test": 18
+        },
+        "USI0001": {
+            "num_datapoints_in_train": 3,
+            "perc_correct": 1.0,
+            "num_datapoints_in_test": 2
+        },
+        "RCS1106": {
+            "num_datapoints_in_train": 13,
+            "perc_correct": 1.0,
+            "num_datapoints_in_test": 8
+        },
+        "ModifierAnalyzer": {
+            "num_datapoints_in_train": 27,
+            "perc_correct": 0.6363636363636364,
+            "num_datapoints_in_test": 11
+        },
+        "AADE001": {
+            "num_datapoints_in_train": 5,
+            "perc_correct": 0.6,
+            "num_datapoints_in_test": 5
+        },
+        "DA3007": {
+            "num_datapoints_in_train": 64,
+            "perc_correct": 0.7142857142857143,
+            "num_datapoints_in_test": 14
+        },
+        "AnalyzerFinal2": {
+            "num_datapoints_in_train": 0,
+            "perc_correct": 1.0,
+            "num_datapoints_in_test": 1
+        },
+        "RCS1164": {
+            "num_datapoints_in_train": 10,
+            "perc_correct": 1.0,
+            "num_datapoints_in_test": 3
+        },
+        "CA1821": {
+            "num_datapoints_in_train": 13,
+            "perc_correct": 1.0,
+            "num_datapoints_in_test": 12
+        },
+        "SA1612D": {
+            "num_datapoints_in_train": 21,
+            "perc_correct": 0.2,
+            "num_datapoints_in_test": 5
+        },
+        "EPS05": {
+            "num_datapoints_in_train": 10,
+            "perc_correct": 1.0,
+            "num_datapoints_in_test": 3
+        },
+        "VSD0029": {
+            "num_datapoints_in_train": 1,
+            "perc_correct": 0.0,
+            "num_datapoints_in_test": 1
+        },
+        "VarAnalyzer": {
+            "num_datapoints_in_train": 3,
+            "perc_correct": 0.5,
+            "num_datapoints_in_test": 2
+        },
+        "SA1400": {
+            "num_datapoints_in_train": 11,
+            "perc_correct": 1.0,
+            "num_datapoints_in_test": 1
+        },
+        "FS0126": {
+            "num_datapoints_in_train": 1,
+            "perc_correct": 1.0,
+            "num_datapoints_in_test": 1
+        },
+        "SA1623D": {
+            "num_datapoints_in_train": 15,
+            "perc_correct": 1.0,
+            "num_datapoints_in_test": 3
+        },
+        "NoPrivateUnderscore": {
+            "num_datapoints_in_train": 15,
+            "perc_correct": 0.3,
+            "num_datapoints_in_test": 10
+        },
+        "INTL0001": {
+            "num_datapoints_in_train": 25,
+            "perc_correct": 0.5714285714285714,
+            "num_datapoints_in_test": 7
+        },
+        "RECS0004": {
+            "num_datapoints_in_train": 2,
+            "perc_correct": 1.0,
+            "num_datapoints_in_test": 1
+        },
+        "CSE006": {
+            "num_datapoints_in_train": 3,
+            "perc_correct": 0.0,
+            "num_datapoints_in_test": 1
+        },
+        "RECS0001": {
+            "num_datapoints_in_train": 42,
+            "perc_correct": 0.35294117647058826,
+            "num_datapoints_in_test": 17
+        },
+        "ParameterWrapperAnalyzer": {
+            "num_datapoints_in_train": 43,
+            "perc_correct": 0.25,
+            "num_datapoints_in_test": 16
+        },
+        "SA1307": {
+            "num_datapoints_in_train": 1,
+            "perc_correct": 0.0,
+            "num_datapoints_in_test": 2
+        },
+        "RCS1159": {
+            "num_datapoints_in_train": 4,
+            "perc_correct": 0.0,
+            "num_datapoints_in_test": 3
+        },
+        "AnalyzerTestProj": {
+            "num_datapoints_in_train": 2,
+            "perc_correct": 1.0,
+            "num_datapoints_in_test": 2
+        },
+        "VSD0023": {
+            "num_datapoints_in_train": 5,
+            "perc_correct": 1.0,
+            "num_datapoints_in_test": 3
+        },
+        "EPS01": {
+            "num_datapoints_in_train": 2,
+            "perc_correct": 0.0,
+            "num_datapoints_in_test": 1
+        },
+        "CA1805": {
+            "num_datapoints_in_train": 3,
+            "perc_correct": 0.0,
+            "num_datapoints_in_test": 1
+        },
+        "RIT0008": {
+            "num_datapoints_in_train": 6,
+            "perc_correct": 0.3333333333333333,
+            "num_datapoints_in_test": 3
+        },
+        "VSD0026": {
+            "num_datapoints_in_train": 1,
+            "perc_correct": 0.0,
+            "num_datapoints_in_test": 1
+        },
+        "FS0048": {
+            "num_datapoints_in_train": 2,
+            "perc_correct": 0.5,
+            "num_datapoints_in_test": 2
+        },
+        "DS02": {
+            "num_datapoints_in_train": 4,
+            "perc_correct": 1.0,
+            "num_datapoints_in_test": 1
+        },
+        "RCS1018": {
+            "num_datapoints_in_train": 6,
+            "perc_correct": 1.0,
+            "num_datapoints_in_test": 4
+        },
+        "AvNextRegexCodeFix": {
+            "num_datapoints_in_train": 13,
+            "perc_correct": 0.0,
+            "num_datapoints_in_test": 3
+        },
+        "RCS1234": {
+            "num_datapoints_in_train": 16,
+            "perc_correct": 0.75,
+            "num_datapoints_in_test": 4
+        },
+        "FS0052": {
+            "num_datapoints_in_train": 2,
+            "perc_correct": 1.0,
+            "num_datapoints_in_test": 2
+        },
+        "SA1516": {
+            "num_datapoints_in_train": 3,
+            "perc_correct": 1.0,
+            "num_datapoints_in_test": 1
+        },
+        "LowerChar": {
+            "num_datapoints_in_train": 5,
+            "perc_correct": 1.0,
+            "num_datapoints_in_test": 2
+        },
+        "SA1606D": {
+            "num_datapoints_in_train": 44,
+            "perc_correct": 0.3,
+            "num_datapoints_in_test": 10
+        },
+        "DA3002": {
+            "num_datapoints_in_train": 6,
+            "perc_correct": 0.0,
+            "num_datapoints_in_test": 3
+        },
+        "_MissingAsync": {
+            "num_datapoints_in_train": 10,
+            "perc_correct": 1.0,
+            "num_datapoints_in_test": 3
+        },
+        "DA4002": {
+            "num_datapoints_in_train": 7,
+            "perc_correct": 0.8571428571428571,
+            "num_datapoints_in_test": 7
+        },
+        "Y0002": {
+            "num_datapoints_in_train": 5,
+            "perc_correct": 0.5,
+            "num_datapoints_in_test": 2
+        },
+        "SA1503": {
+            "num_datapoints_in_train": 5,
+            "perc_correct": 1.0,
+            "num_datapoints_in_test": 1
+        },
+        "RS0038": {
+            "num_datapoints_in_train": 1,
+            "perc_correct": 0.0,
+            "num_datapoints_in_test": 1
+        },
+        "DA4004": {
+            "num_datapoints_in_train": 8,
+            "perc_correct": 1.0,
+            "num_datapoints_in_test": 2
+        },
+        "SA1106": {
+            "num_datapoints_in_train": 4,
+            "perc_correct": 1.0,
+            "num_datapoints_in_test": 2
+        },
+        "mmlajPublicFieldAnalyzer": {
+            "num_datapoints_in_train": 10,
+            "perc_correct": 0.0,
+            "num_datapoints_in_test": 2
+        },
+        "RCS1096": {
+            "num_datapoints_in_train": 1,
+            "perc_correct": 1.0,
+            "num_datapoints_in_test": 1
+        },
+        "EMA0001": {
+            "num_datapoints_in_train": 2,
+            "perc_correct": 0.0,
+            "num_datapoints_in_test": 2
+        },
+        "FS0004": {
+            "num_datapoints_in_train": 1,
+            "perc_correct": 0.0,
+            "num_datapoints_in_test": 1
+        },
+        "CC0034": {
+            "num_datapoints_in_train": 2,
+            "perc_correct": 1.0,
+            "num_datapoints_in_test": 1
+        },
+        "DTA001": {
+            "num_datapoints_in_train": 9,
+            "perc_correct": 1.0,
+            "num_datapoints_in_test": 2
+        },
+        "RIT0003": {
+            "num_datapoints_in_train": 10,
+            "perc_correct": 1.0,
+            "num_datapoints_in_test": 1
+        },
+        "CC0105": {
+            "num_datapoints_in_train": 5,
+            "perc_correct": 0.5,
+            "num_datapoints_in_test": 4
+        },
+        "ASYNC0002": {
+            "num_datapoints_in_train": 13,
+            "perc_correct": 1.0,
+            "num_datapoints_in_test": 3
+        },
+        "Comments_analyser": {
+            "num_datapoints_in_train": 4,
+            "perc_correct": 0.0,
+            "num_datapoints_in_test": 1
+        },
+        "RCS1213": {
+            "num_datapoints_in_train": 3,
+            "perc_correct": 1.0,
+            "num_datapoints_in_test": 1
+        },
+        "SA1206": {
+            "num_datapoints_in_train": 2,
+            "perc_correct": 0.0,
+            "num_datapoints_in_test": 2
+        },
+        "RCS1169": {
+            "num_datapoints_in_train": 7,
+            "perc_correct": 1.0,
+            "num_datapoints_in_test": 2
+        },
+        "CC0029": {
+            "num_datapoints_in_train": 4,
+            "perc_correct": 1.0,
+            "num_datapoints_in_test": 1
+        },
+        "RCS1123": {
+            "num_datapoints_in_train": 2,
+            "perc_correct": 1.0,
+            "num_datapoints_in_test": 2
+        },
+        "DecimalPoints": {
+            "num_datapoints_in_train": 5,
+            "perc_correct": 1.0,
+            "num_datapoints_in_test": 1
+        },
+        "Wintellect003": {
+            "num_datapoints_in_train": 17,
+            "perc_correct": 1.0,
+            "num_datapoints_in_test": 3
+        },
+        "FS0034": {
+            "num_datapoints_in_train": 2,
+            "perc_correct": 1.0,
+            "num_datapoints_in_test": 1
+        },
+        "CC0072": {
+            "num_datapoints_in_train": 14,
+            "perc_correct": 1.0,
+            "num_datapoints_in_test": 2
+        },
+        "RB003": {
+            "num_datapoints_in_train": 1,
+            "perc_correct": 1.0,
+            "num_datapoints_in_test": 1
+        },
+        "FS0037": {
+            "num_datapoints_in_train": 2,
+            "perc_correct": 1.0,
+            "num_datapoints_in_test": 2
+        },
+        "AvNextPropertyCodeFix": {
+            "num_datapoints_in_train": 10,
+            "perc_correct": 1.0,
+            "num_datapoints_in_test": 2
+        },
+        "AADE002": {
+            "num_datapoints_in_train": 3,
+            "perc_correct": 1.0,
+            "num_datapoints_in_test": 1
+        },
+        "SA1513": {
+            "num_datapoints_in_train": 6,
+            "perc_correct": 1.0,
+            "num_datapoints_in_test": 1
+        },
+        "CC0060": {
+            "num_datapoints_in_train": 0,
+            "perc_correct": 1.0,
+            "num_datapoints_in_test": 1
+        },
+        "CC0001": {
+            "num_datapoints_in_train": 22,
+            "perc_correct": 0.3333333333333333,
+            "num_datapoints_in_test": 3
+        },
+        "CA1052": {
+            "num_datapoints_in_train": 7,
+            "perc_correct": 1.0,
+            "num_datapoints_in_test": 1
+        },
+        "SA1313": {
+            "num_datapoints_in_train": 5,
+            "perc_correct": 0.0,
+            "num_datapoints_in_test": 2
+        },
+        "CCN0031": {
+            "num_datapoints_in_train": 2,
+            "perc_correct": 0.0,
+            "num_datapoints_in_test": 1
+        },
+        "RIT0004": {
+            "num_datapoints_in_train": 4,
+            "perc_correct": 0.0,
+            "num_datapoints_in_test": 1
+        },
+        "RCS1191": {
+            "num_datapoints_in_train": 4,
+            "perc_correct": 0.5,
+            "num_datapoints_in_test": 2
+        },
+        "SA1122": {
+            "num_datapoints_in_train": 3,
+            "perc_correct": 1.0,
+            "num_datapoints_in_test": 2
+        },
+        "VSD0025": {
+            "num_datapoints_in_train": 3,
+            "perc_correct": 0.0,
+            "num_datapoints_in_test": 3
+        },
+        "CC0091": {
+            "num_datapoints_in_train": 9,
+            "perc_correct": 0.5,
+            "num_datapoints_in_test": 2
+        },
+        "SA1028": {
+            "num_datapoints_in_train": 1,
+            "perc_correct": 1.0,
+            "num_datapoints_in_test": 1
+        },
+        "ClassDoesNotImplementContractAnalyzer": {
+            "num_datapoints_in_train": 3,
+            "perc_correct": 0.0,
+            "num_datapoints_in_test": 1
+        },
+        "VSD0033": {
+            "num_datapoints_in_train": 2,
+            "perc_correct": 1.0,
+            "num_datapoints_in_test": 1
+        },
+        "PostIncrement": {
+            "num_datapoints_in_train": 9,
+            "perc_correct": 0.25,
+            "num_datapoints_in_test": 4
+        },
+        "DA4001": {
+            "num_datapoints_in_train": 9,
+            "perc_correct": 1.0,
+            "num_datapoints_in_test": 2
+        },
+        "RCS1160": {
+            "num_datapoints_in_train": 3,
+            "perc_correct": 1.0,
+            "num_datapoints_in_test": 1
+        },
+        "RCS1118": {
+            "num_datapoints_in_train": 1,
+            "perc_correct": 1.0,
+            "num_datapoints_in_test": 1
+        },
+        "Wintellect015": {
+            "num_datapoints_in_train": 8,
+            "perc_correct": 1.0,
+            "num_datapoints_in_test": 1
+        },
+        "CC0004": {
+            "num_datapoints_in_train": 1,
+            "perc_correct": 0.0,
+            "num_datapoints_in_test": 1
+        },
+        "SA1407": {
+            "num_datapoints_in_train": 4,
+            "perc_correct": 1.0,
+            "num_datapoints_in_test": 1
+        },
+        "CC0008": {
+            "num_datapoints_in_train": 1,
+            "perc_correct": 0.0,
+            "num_datapoints_in_test": 1
+        },
+        "SA1121": {
+            "num_datapoints_in_train": 4,
+            "perc_correct": 0.0,
+            "num_datapoints_in_test": 1
+        },
+        "DictionaryVariableFix": {
+            "num_datapoints_in_train": 0,
+            "perc_correct": 0.0,
+            "num_datapoints_in_test": 1
+        },
+        "RECS0122": {
+            "num_datapoints_in_train": 2,
+            "perc_correct": 0.0,
+            "num_datapoints_in_test": 1
+        },
+        "CC0048": {
+            "num_datapoints_in_train": 1,
+            "perc_correct": 1.0,
+            "num_datapoints_in_test": 1
+        },
+        "AT001": {
+            "num_datapoints_in_train": 2,
+            "perc_correct": 0.0,
+            "num_datapoints_in_test": 1
+        },
+        "FS0127": {
+            "num_datapoints_in_train": 0,
+            "perc_correct": 1.0,
+            "num_datapoints_in_test": 1
+        },
+        "FS0128": {
+            "num_datapoints_in_train": 3,
+            "perc_correct": 1.0,
+            "num_datapoints_in_test": 1
+        }
+    }
+}
