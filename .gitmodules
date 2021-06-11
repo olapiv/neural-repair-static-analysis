@@ -7,3 +7,30 @@
 [submodule "submodule_repos_to_analyze/runtime"]
 	path = submodule_repos_to_analyze/runtime
 	url = https://github.com/dotnet/runtime.git
+[submodule "submodule_repos_to_analyze/PowerShell"]
+	path = submodule_repos_to_analyze/PowerShell
+	url = https://github.com/PowerShell/PowerShell.git
+[submodule "submodule_repos_to_analyze/roslyn"]
+	path = submodule_repos_to_analyze/roslyn
+	url = https://github.com/dotnet/roslyn.git
+[submodule "submodule_repos_to_analyze/WaveFunctionCollapse"]
+	path = submodule_repos_to_analyze/WaveFunctionCollapse
+	url = https://github.com/mxgmn/WaveFunctionCollapse
+[submodule "submodule_repos_to_analyze/dapper-dot-net"]
+	path = submodule_repos_to_analyze/dapper-dot-net
+	url = https://github.com/StackExchange/Dapper
+[submodule "submodule_repos_to_analyze/Nancy"]
+	path = submodule_repos_to_analyze/Nancy
+	url = https://github.com/NancyFx/Nancy
+[submodule "submodule_repos_to_analyze/SignalR"]
+	path = submodule_repos_to_analyze/SignalR
+	url = https://github.com/SignalR/SignalR
+[submodule "submodule_repos_to_analyze/Wox"]
+	path = submodule_repos_to_analyze/Wox
+	url = https://github.com/Wox-launcher/Wox
+[submodule "submodule_repos_to_analyze/ShareX"]
+	path = submodule_repos_to_analyze/ShareX
+	url = https://github.com/ShareX/ShareX
+[submodule "submodule_repos_to_analyze/mono"]
+	path = submodule_repos_to_analyze/mono
+	url = https://github.com/mono/mono
