@@ -25,11 +25,12 @@ Write-Output "Loaded ANALYZER_PACKAGE_DETAILS"
 [string[]]$RELEVANT_ANALYZER_PACKAGES = Get-Content -Path ./nuget_packages_relevant_sources.txt
 
 $GH_REPOS = Import-Csv -Path "github_repos.csv"
-foreach ($GH_REPO_LINE in $GH_REPOS) {
-    $REPO_NAME = $GH_REPO_LINE.RepoName
-    $REPO_URL = $GH_REPO_LINE.RepoURL
+$GH_REPOS | ForEach-Object -ThrottleLimit 10 -Parallel {
 
-    $REPO_PATH = "$SUBMODULE_REPOS_DIR/$REPO_NAME"
+    $REPO_NAME = $_.RepoName
+    $REPO_URL = $_.RepoURL
+
+    $REPO_PATH = "$Using:SUBMODULE_REPOS_DIR/$REPO_NAME"
 
     Write-Output "Adding submodule: $REPO_NAME"
     git submodule add $REPO_URL $REPO_PATH
@@ -37,9 +38,12 @@ foreach ($GH_REPO_LINE in $GH_REPOS) {
     cd $REPO_PATH
     $LAST_COMMIT = $(git log -n 1 --pretty=format:"%H")
     Write-Output "Last commit: $LAST_COMMIT"
-    cd "$CURRENT_DIR"
+    cd "$Using:CURRENT_DIR"
 
     Write-Output "REPO_PATH: $REPO_PATH"
+
+    # Doing this again because the functions cannot be read in parallel otherwise (?)
+    . ./create_raw_dataset_functions.ps1
 
     $SOLUTION_FILES = GetAllRepoSolutions $REPO_PATH
 
@@ -50,13 +54,11 @@ foreach ($GH_REPO_LINE in $GH_REPOS) {
 
     # Cannot apply roslynator by file; only by project/solution;
     # Might as well apply to entire solution.
-    $SOLUTION_FILES | ForEach-Object -ThrottleLimit 10 -Parallel {
+    # $SOLUTION_FILES | ForEach-Object -ThrottleLimit 10 -Parallel {
+    foreach ($SOLUTION_FILE in $SOLUTION_FILES) {
 
-        # Doing this again because the functions cannot be read in parallel otherwise (?)
-        . ./create_raw_dataset_functions.ps1
-
-        $SOLUTION_FILENAME = $_.Filename
-        $SOLUTION_FILEPATH = $_.Filepath
+        $SOLUTION_FILENAME = $SOLUTION_FILE.Filename
+        $SOLUTION_FILEPATH = $SOLUTION_FILE.Filepath
 
         Write-Output "Working with SOLUTION_FILENAME: $SOLUTION_FILENAME"
 
@@ -73,7 +75,7 @@ foreach ($GH_REPO_LINE in $GH_REPOS) {
             }
             Write-Output "<<<$SOLUTION_FILENAME>>> Using NuGet package: $NUGET_FULL_NAME"
 
-            $OUTPUT_FILENAME = "${Using:REPO_NAME}__${SOLUTION_FILENAME}__${Using:LAST_COMMIT}__${NUGET_FULL_NAME}"
+            $OUTPUT_FILENAME = "${REPO_NAME}__${SOLUTION_FILENAME}__${LAST_COMMIT}__${NUGET_FULL_NAME}"
 
             $ANALYSIS_FILEPATH = "$Using:OUTPUT_DIR_ANALYSIS/${OUTPUT_FILENAME}.xml"
             ApplyRoslynatorAnalysis `
@@ -97,7 +99,7 @@ foreach ($GH_REPO_LINE in $GH_REPOS) {
             foreach($DIAGNOSTIC_ID in $DIAGNOSTIC_IDS){
 
                 RunAndSaveFix `
-                    $Using:REPO_PATH `
+                    $REPO_PATH `
                     $SOLUTION_FILEPATH `
                     $NUGET_FULL_NAME `
                     $NUGET_PATH `
@@ -118,7 +120,7 @@ foreach ($GH_REPO_LINE in $GH_REPOS) {
     $ELAPSED_MINUTES = $swTotal.Elapsed.TotalMinutes
     $NUMBER_SOLUTIONS = $SOLUTION_FILES.Count
     $RESULT = "ELAPSED_MINUTES: $ELAPSED_MINUTES, NUMBER_SOLUTIONS: $NUMBER_SOLUTIONS"
-    $TIMER_RESULTS_PATH = "$OUTPUT_DIR_TIMINGS/ALL_SOLUTIONS__${REPO_NAME}.txt"
+    $TIMER_RESULTS_PATH = "$Using:OUTPUT_DIR_TIMINGS/ALL_SOLUTIONS__${REPO_NAME}.txt"
     if (!(Test-Path $TIMER_RESULTS_PATH)) {
         [void](New-Item -ItemType "file" -Path $TIMER_RESULTS_PATH)
     }
