@@ -43,6 +43,19 @@ evaluation_dict = {
     "correct_results_copied_perc": 0,
     "correct_results_extrapolated_perc": 0,
 
+    "avg_src_len_correct_result": 0,
+    "avg_src_len_incorrect_result": 0,
+
+    "avg_tgt_len_correct_result": 0,
+    "avg_tgt_len_incorrect_result": 0,
+
+    "avg_success_perc_per_src_len": {
+        # 23: 0.7
+    },
+    "avg_success_perc_per_tgt_len": {
+        # 23: 0.7
+    },
+
     # Take different DiagnosticIDs for examples here
 
     # Fill with multiple "data_example":
@@ -172,6 +185,78 @@ def save_result_per_diagnostic(evaluation_dict, metadata_train, metadata_test, t
             else:
                 evaluation_dict["result_per_diagnostic"][diagnostic_id]["wrong"].append(
                     index)
+
+
+def save_num_tokens_vs_success_perc(evaluation_dict, metadata_train, metadata_test, src_test_list, tgt_test_list, inference_test_list):
+
+    total_src_tokens_incorrect = 0
+    total_tgt_tokens_incorrect = 0
+
+    total_src_tokens_correct = 0
+    total_tgt_tokens_correct = 0
+
+    result_per_src_len = {}
+    result_per_tgt_len = {}
+
+    num_correct_datapoints = 0
+    for index, tgt_test_line in enumerate(tgt_test_list):
+        is_correct = tgt_test_line == inference_test_list[index]
+
+        src_test_line = src_test_list[index]
+
+        src_test_line = src_test_line.rstrip('\n').split(" ")
+        tgt_test_line = tgt_test_line.rstrip('\n').split(" ")
+
+        src_len = len(src_test_line)
+        tgt_len = len(tgt_test_line)
+        if is_correct:
+            num_correct_datapoints += 1
+            total_src_tokens_correct += src_len
+            total_tgt_tokens_correct += tgt_len
+        else:
+            total_src_tokens_incorrect += src_len
+            total_tgt_tokens_incorrect += tgt_len
+
+        if src_len not in result_per_src_len:
+            result_per_src_len[src_len] = {}
+            result_per_src_len[src_len]["correct"] = 0
+            result_per_src_len[src_len]["wrong"] = 0
+        if tgt_len not in result_per_tgt_len:
+            result_per_tgt_len[tgt_len] = {}
+            result_per_tgt_len[tgt_len]["correct"] = 0
+            result_per_tgt_len[tgt_len]["wrong"] = 0
+
+        if is_correct:
+            result_per_src_len[src_len]["correct"] += 1
+            result_per_tgt_len[tgt_len]["correct"] += 1
+        else:
+            result_per_src_len[src_len]["wrong"] += 1
+            result_per_tgt_len[tgt_len]["wrong"] += 1
+
+    num_datapoints = len(src_test_list)
+
+    evaluation_dict["avg_src_len_correct_result"] = total_src_tokens_correct / \
+        num_correct_datapoints
+    evaluation_dict["avg_tgt_len_correct_result"] = total_tgt_tokens_correct / \
+        num_correct_datapoints
+
+    evaluation_dict["avg_src_len_incorrect_result"] = total_src_tokens_incorrect / \
+        (num_datapoints - num_correct_datapoints)
+    evaluation_dict["avg_tgt_len_incorrect_result"] = total_tgt_tokens_incorrect / \
+        (num_datapoints - num_correct_datapoints)
+
+    success_perc_per_src_len = {}
+    for src_len, value in result_per_src_len.items():
+        success_perc_per_src_len[src_len] = value["correct"] / \
+            (value["correct"] + value["wrong"])
+
+    success_perc_per_tgt_len = {}
+    for tgt_len, value in result_per_tgt_len.items():
+        success_perc_per_tgt_len[tgt_len] = value["correct"] / \
+            (value["correct"] + value["wrong"])
+
+    evaluation_dict["avg_success_perc_per_src_len"] = success_perc_per_src_len
+    evaluation_dict["avg_success_perc_per_tgt_len"] = success_perc_per_tgt_len
 
 
 def flatten_result_per_diagnostic(result_per_diagnostic_dict):
@@ -304,15 +389,78 @@ def sort_for_characteristic_examples(evaluation_dict):
         "ambiguous_accuracy_extrapolated": ambiguous_accuracy_extrapolated
     }
 
+
+def plot_num_datapoints_vs_success(evaluation_dict):
+    datapoints_graph = flatten_result_per_diagnostic(
+        evaluation_dict["result_per_diagnostic"])
+
+    x = [datapoint["num_datapoints_in_train"]
+         for datapoint in datapoints_graph]
+    y = [datapoint["perc_correct"] for datapoint in datapoints_graph]
+    text = [datapoint["diagnostic_id"] for datapoint in datapoints_graph]
+    fig = go.Figure(data=go.Scatter(x=x,
+                                    y=y,
+                                    # mode='markers',
+                                    marker=dict(
+                                        size=9,
+                                        # set color equal to a variable
+                                        color="rgba(5,5,5,0.4)",
+                                        # colorscale='Viridis', # one of plotly colorscales
+                                        # showscale=True
+                                    ),
+                                    textposition='top right',
+                                    # textposition=[f"{random.choice(['top', 'bottom', 'middle'])} {random.choice(['left', 'right', 'center'])}" for datapoint in datapoints_graph],
+                                    textfont_size=10,
+                                    mode='text+markers',
+                                    text=text))
+    fig.update_layout(
+        title="Per Diagnostic: Data Points Needed To Produce Good Results in Test")
+    fig.update_xaxes(title_text='Number datapoints in train')
+    fig.update_yaxes(title_text='Percentage of Correct Predictions in Test')
+    fig.show()
+
+
+def plot_src_len_vs_success(evaluation_dict):
+    x = list(evaluation_dict["avg_success_perc_per_src_len"].keys())
+    y = [success_perc for success_perc in evaluation_dict["avg_success_perc_per_src_len"].values()]
+    plot_num_tokens_vs_success(x, y, "Source")
+
+
+def plot_tgt_len_vs_success(evaluation_dict):
+    x = list(evaluation_dict["avg_success_perc_per_tgt_len"].keys())
+    y = [success_perc for success_perc in evaluation_dict["avg_success_perc_per_tgt_len"].values()]
+    plot_num_tokens_vs_success(x, y, "Target")
+
+
+def plot_num_tokens_vs_success(x, y, type_tokens):
+    fig = go.Figure(data=go.Scatter(x=x,
+                                    y=y,
+                                    # mode='markers',
+                                    marker=dict(
+                                        size=9,
+                                        # set color equal to a variable
+                                        color="rgba(5,5,5,0.4)",
+                                        # colorscale='Viridis', # one of plotly colorscales
+                                        # showscale=True
+                                    ),
+                                    mode='markers'))
+    fig.update_layout(
+        title=f"How {type_tokens} Length Impacts Success Rate of Predictions")
+    fig.update_xaxes(title_text=f'Number {type_tokens} tokens')
+    fig.update_yaxes(title_text='Percentage of Correct Predictions in Test')
+    fig.show()
+
+
 def remove_redundant_data(evaluation_dict):
 
     for diagnostic_id, result in evaluation_dict["result_per_diagnostic"].items():
         # result["correct"] = len(result["correct"])
         # result["wrong"] = len(result["wrong"])
-        result["num_datapoints_in_test"] = len(result["correct"]) + len(result["wrong"])
+        result["num_datapoints_in_test"] = len(
+            result["correct"]) + len(result["wrong"])
         result.pop('correct', None)
         result.pop('wrong', None)
-    
+
 
 def main():
     with open(metadata_test_file) as json_file:
@@ -337,6 +485,9 @@ def main():
             del inference_test_list[-1]
 
     evaluation_dict["num_total_datapoints"] = len(inference_test_list)
+
+    save_num_tokens_vs_success_perc(evaluation_dict, metadata_train,
+                                    metadata_test, src_test_list, tgt_test_list, inference_test_list)
 
     save_result_per_diagnostic(
         evaluation_dict, metadata_train, metadata_test, tgt_test_list, inference_test_list)
@@ -379,32 +530,9 @@ def main():
     save_characteristic_examples(evaluation_dict, characteristic_examples_dict,
                                  src_test_list, tgt_test_list, inference_test_list, metadata_test)
 
-    datapoints_graph = flatten_result_per_diagnostic(
-        evaluation_dict["result_per_diagnostic"])
-
-    x = [datapoint["num_datapoints_in_train"]
-         for datapoint in datapoints_graph]
-    y = [datapoint["perc_correct"] for datapoint in datapoints_graph]
-    text = [datapoint["diagnostic_id"] for datapoint in datapoints_graph]
-    fig = go.Figure(data=go.Scatter(x=x,
-                                    y=y,
-                                    # mode='markers',
-                                    marker=dict(
-                                        size=9,
-                                        color="rgba(5,5,5,0.4)", #set color equal to a variable
-                                        # colorscale='Viridis', # one of plotly colorscales
-                                        # showscale=True
-                                    ),
-                                    textposition='top right',
-                                    # textposition=[f"{random.choice(['top', 'bottom', 'middle'])} {random.choice(['left', 'right', 'center'])}" for datapoint in datapoints_graph],
-                                    textfont_size=10,
-                                    mode='text+markers',
-                                    text=text))
-    fig.update_layout(
-        title="Per Diagnostic: Data Points Needed To Produce Good Results in Test")
-    fig.update_xaxes(title_text='Number datapoints in train')
-    fig.update_yaxes(title_text='Percentage of Correct Predictions in Test')
-    fig.show()
+    plot_num_datapoints_vs_success(evaluation_dict)
+    plot_src_len_vs_success(evaluation_dict)
+    plot_tgt_len_vs_success(evaluation_dict)
 
     remove_redundant_data(evaluation_dict)
 
