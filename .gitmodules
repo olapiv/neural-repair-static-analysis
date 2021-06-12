@@ -34,3 +34,12 @@
 [submodule "submodule_repos_to_analyze/mono"]
 	path = submodule_repos_to_analyze/mono
 	url = https://github.com/mono/mono
+[submodule "submodule_repos_to_analyze/AutoMapper"]
+	path = submodule_repos_to_analyze/AutoMapper
+	url = https://github.com/AutoMapper/AutoMapper
+[submodule "submodule_repos_to_analyze/RestSharp"]
+	path = submodule_repos_to_analyze/RestSharp
+	url = https://github.com/restsharp/RestSharp
+[submodule "submodule_repos_to_analyze/SparkleShare"]
+	path = submodule_repos_to_analyze/SparkleShare
+	url = https://github.com/hbons/SparkleShare
