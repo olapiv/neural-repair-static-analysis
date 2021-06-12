@@ -1,13 +1,17 @@
 
 $CURRENT_DIR = $PWD
 $OUTPUT_DIR_FIX = "$CURRENT_DIR/raw_dataset/diffs"
+$OUTPUT_DIR_FIX_EMPTY = "$CURRENT_DIR/raw_dataset/diffs_empty"
 $OUTPUT_DIR_ANALYSIS = "$CURRENT_DIR/raw_dataset/analysis_files"
+$OUTPUT_DIR_ANALYSIS_EMPTY = "$CURRENT_DIR/raw_dataset/analysis_files_empty"
 $SUBMODULE_REPOS_DIR = "./submodule_repos_to_analyze"
 $OUTPUT_DIR_TIMINGS = "$CURRENT_DIR/raw_dataset/timings"
 
 # Create folders if not exist:
 $null = [System.IO.Directory]::CreateDirectory($OUTPUT_DIR_ANALYSIS)
+$null = [System.IO.Directory]::CreateDirectory($OUTPUT_DIR_ANALYSIS_EMPTY)
 $null = [System.IO.Directory]::CreateDirectory($OUTPUT_DIR_FIX)
+$null = [System.IO.Directory]::CreateDirectory($OUTPUT_DIR_FIX_EMPTY)
 $null = [System.IO.Directory]::CreateDirectory($OUTPUT_DIR_TIMINGS)
 
 . ./create_raw_dataset_functions.ps1
@@ -78,13 +82,21 @@ $GH_REPOS | ForEach-Object -ThrottleLimit 10 -Parallel {
             $OUTPUT_FILENAME = "${REPO_NAME}__${SOLUTION_FILENAME}__${LAST_COMMIT}__${NUGET_FULL_NAME}"
 
             $ANALYSIS_FILEPATH = "$Using:OUTPUT_DIR_ANALYSIS/${OUTPUT_FILENAME}.xml"
+            $ANALYSIS_FILEPATH_EMPTY = "$Using:OUTPUT_DIR_ANALYSIS_EMPTY/${OUTPUT_FILENAME}.xml"
             ApplyRoslynatorAnalysis `
                 $ANALYSIS_FILEPATH `
+                $ANALYSIS_FILEPATH_EMPTY `
                 $SOLUTION_FILEPATH `
                 $NUGET_PATH
 
+            if (Test-Path $ANALYSIS_FILEPATH_EMPTY) {
+                Write-Output "<<<$SOLUTION_FILENAME>>> No analysis generated for $ANALYSIS_FILEPATH. Skipping fixes"
+                continue
+            }
+
             if (!(Test-Path $ANALYSIS_FILEPATH)) {
                 Write-Output "<<<$SOLUTION_FILENAME>>> No analysis generated for $ANALYSIS_FILEPATH. Skipping fixes"
+                Out-File -FilePath $ANALYSIS_FILEPATH_EMPTY
                 continue
             }
 
@@ -105,6 +117,7 @@ $GH_REPOS | ForEach-Object -ThrottleLimit 10 -Parallel {
                     $NUGET_PATH `
                     $OUTPUT_FILENAME `
                     $Using:OUTPUT_DIR_FIX `
+                    $Using:OUTPUT_DIR_FIX_EMPTY `
                     $Using:ANALYZER_PACKAGE_DETAILS `
                     $DIAGNOSTIC_ID
 

@@ -19,10 +19,18 @@ function GetAllRepoSolutions{
 function ApplyRoslynatorAnalysis {
     param (
         $ANALYSIS_FILEPATH,
+        $ANALYSIS_FILEPATH_EMPTY,
         $SOLUTION_OR_PROJECT_FILEPATH,
         $NUGET_PATH
     )
+
+    $ANALYSIS_FILEPATH_EMPTY
     
+    if (Test-Path $ANALYSIS_FILEPATH_EMPTY) {
+        Write-Output "ANALYSIS_FILEPATH_EMPTY already exists! Skipping it: $ANALYSIS_FILEPATH_EMPTY"
+        return
+    }
+
     if (Test-Path $ANALYSIS_FILEPATH) {
         Write-Output "ANALYSIS_FILEPATH already exists! Skipping it: $ANALYSIS_FILEPATH"
         return
@@ -83,7 +91,8 @@ function ApplyRoslynatorFix {
 function SaveRoslynatorFixDiff {
     param (
         $FIXED_REPO_PATH,
-        $DIFF_FILEPATH
+        $DIFF_FILEPATH,
+        $DIFF_FILEPATH_EMPTY
     )
     $CURRENT_DIR = $PWD
 
@@ -92,6 +101,9 @@ function SaveRoslynatorFixDiff {
 
     if ( "$DIFF_CONTENT" -eq "" ) {
         Write-Output "Empty diff!"
+        if (!(Test-Path $DIFF_FILEPATH_EMPTY)) {
+            [void](New-Item -ItemType "file" -Path $DIFF_FILEPATH_EMPTY)
+        }
     }
     else {
         Write-Output "Creating DIFF_FILEPATH: $DIFF_FILEPATH"
@@ -115,13 +127,15 @@ function RunAndSaveFix {
         $NUGET_PATH,
         $OUTPUT_FILENAME,
         $OUTPUT_DIR,
+        $OUTPUT_DIR_EMPTY,
         $ANALYZER_PACKAGE_DETAILS,  # analyzer_package_details.csv in memory
         $DIAGNOSTIC_ID
     )
 
     $DIFF_FILENAME = "${OUTPUT_FILENAME}__${DIAGNOSTIC_ID}.diff"
     $DIFF_FILEPATH = "$OUTPUT_DIR/$DIFF_FILENAME"
-    if (Test-Path $DIFF_FILEPATH) {
+    $DIFF_FILEPATH_EMPTY = "$OUTPUT_DIR_EMPTY/$DIFF_FILENAME"
+    if ((Test-Path $DIFF_FILEPATH) -Or (Test-Path $DIFF_FILEPATH_EMPTY)) {
         Write-Output "DIFF_FILEPATH already exists! Skipping it: $DIFF_FILEPATH"
         return
     }
@@ -157,6 +171,7 @@ function RunAndSaveFix {
 
     SaveRoslynatorFixDiff `
         $REPO_PATH `
-        $DIFF_FILEPATH
+        $DIFF_FILEPATH `
+        $DIFF_FILEPATH_EMPTY
     
 }
