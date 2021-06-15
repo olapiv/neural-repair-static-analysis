@@ -1,9 +1,9 @@
 venv
 .DS_STORE
 nuget_analyzer_packages
-raw_dataset
-unified_dataset
-tokenized_dataset
+raw_dataset*
+unified_dataset*
+tokenized_dataset*
 toy-ende
 nn/run
 *.pyc
