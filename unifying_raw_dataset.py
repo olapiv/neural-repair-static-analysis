@@ -250,8 +250,12 @@ for diff_file in diff_files:
                                 ] if repo_url.endswith('.git') else repo_url
             unified_data_file["FileURL"] = f"{repo_url}/blob/{LAST_COMMIT}/{patched_file.path}"
 
-        with open(f"{repo_dir}/{patched_file.path}") as f:
-            unified_data_file["NumberFileLines"] = len(list(f))
+        try:
+            with open(f"{repo_dir}/{patched_file.path}") as f:
+                unified_data_file["NumberFileLines"] = len(list(f))
+        except UnicodeDecodeError as e:
+            print(f"Error reading file: {repo_dir}/{patched_file.path}; Error: {e}")
+            continue
 
         all_replaced_lines = []
         all_added_lines = []
