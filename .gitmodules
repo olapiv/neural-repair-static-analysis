@@ -43,3 +43,42 @@
 [submodule "submodule_repos_to_analyze/SparkleShare"]
 	path = submodule_repos_to_analyze/SparkleShare
 	url = https://github.com/hbons/SparkleShare
+[submodule "submodule_repos_to_analyze/BotBuilder"]
+	path = submodule_repos_to_analyze/BotBuilder
+	url = https://github.com/Microsoft/BotBuilder
+[submodule "submodule_repos_to_analyze/OpenRA"]
+	path = submodule_repos_to_analyze/OpenRA
+	url = https://github.com/OpenRA/OpenRA
+[submodule "submodule_repos_to_analyze/Newtonsoft.Json"]
+	path = submodule_repos_to_analyze/Newtonsoft.Json
+	url = https://github.com/JamesNK/Newtonsoft.Json
+[submodule "submodule_repos_to_analyze/ServiceStack"]
+	path = submodule_repos_to_analyze/ServiceStack
+	url = https://github.com/ServiceStack/ServiceStack
+[submodule "submodule_repos_to_analyze/MahApps.Metro"]
+	path = submodule_repos_to_analyze/MahApps.Metro
+	url = https://github.com/MahApps/MahApps.Metro
+[submodule "submodule_repos_to_analyze/MonoGame"]
+	path = submodule_repos_to_analyze/MonoGame
+	url = https://github.com/MonoGame/MonoGame
+[submodule "submodule_repos_to_analyze/ILSpy"]
+	path = submodule_repos_to_analyze/ILSpy
+	url = https://github.com/icsharpcode/ILSpy
+[submodule "submodule_repos_to_analyze/MaterialDesignInXamlToolkit"]
+	path = submodule_repos_to_analyze/MaterialDesignInXamlToolkit
+	url = https://github.com/MaterialDesignInXAML/MaterialDesignInXamlToolkit
+[submodule "submodule_repos_to_analyze/ReactiveUI"]
+	path = submodule_repos_to_analyze/ReactiveUI
+	url = https://github.com/reactiveui/ReactiveUI
+[submodule "submodule_repos_to_analyze/msbuild"]
+	path = submodule_repos_to_analyze/msbuild
+	url = https://github.com/Microsoft/msbuild
+[submodule "submodule_repos_to_analyze/GVFS"]
+	path = submodule_repos_to_analyze/GVFS
+	url = https://github.com/Microsoft/VFSForGit
+[submodule "submodule_repos_to_analyze/choco"]
+	path = submodule_repos_to_analyze/choco
+	url = https://github.com/chocolatey/choco
+[submodule "submodule_repos_to_analyze/aspnetboilerplate"]
+	path = submodule_repos_to_analyze/aspnetboilerplate
+	url = https://github.com/aspnetboilerplate/aspnetboilerplate
