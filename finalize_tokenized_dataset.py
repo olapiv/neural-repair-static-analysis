@@ -230,12 +230,26 @@ def main(zero_index_vars=False):
         src_string = flatten_input_datapoint(tokenized_data_dict)
         target_string = flatten_output_datapoint(tokenized_data_dict)
 
+        # TODO: Debug this for new dataset
         if src_string.count("\n") > 1 or target_string.count("\n") > 1:
             print("Bad newline encoding! tokenized_file: ", tokenized_file.name)
             bad_newline_endings += 1
+            if src_string.count("\n") > 1:
+                print("src_string: ", src_string)
+            if target_string.count("\n") > 1:
+                print("target_string: ", target_string)
+            continue
 
         num_src_tokens = len(src_string.split())
         num_tgt_tokens = len(target_string.split())
+
+        if num_src_tokens > 500:
+            print("Too many tokens; num_src_tokens: ", num_src_tokens)
+            continue
+
+        if num_tgt_tokens > 500:
+            print("Too many tokens; num_tgt_tokens: ", num_tgt_tokens)
+            continue
 
         if (train_datapoints / num_total_datapoints) < NormalMode.train_perc:
             train_datapoints += 1

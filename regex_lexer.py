@@ -29,6 +29,11 @@ class UnprocessedTokensMixin(object):
 
 
 class LanguageLexer(UnprocessedTokensMixin, RegexLexer):
+    """
+    Occasionally (quite rarely), multiple lines are put into quotation marks. Since
+    we only assume that these are used for variable names, this leads to none of the
+    formatting being tokenized. This is therefore an incorrect datapoint.
+    """
 
     tokens = {
         'root': [
