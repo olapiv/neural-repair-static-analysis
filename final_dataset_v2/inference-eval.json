@@ -1,0 +1,1668 @@
+{
+    "num_total_datapoints": 2902,
+    "num_extrapolated_datapoints": 16,
+    "correct_results_total_perc": 0.5527222605099931,
+    "correct_results_copied_perc": 0.5554400554400555,
+    "correct_results_extrapolated_perc": 0.0625,
+    "avg_src_len_correct_result": 121.56296758104739,
+    "avg_src_len_incorrect_result": 123.86748844375963,
+    "avg_tgt_len_correct_result": 21.205112219451372,
+    "avg_tgt_len_incorrect_result": 48.845916795069336,
+    "avg_success_perc_per_src_len": {
+        "110": 0.8514056224899599,
+        "149": 0.0,
+        "121": 0.8459214501510574,
+        "120": 0.75,
+        "113": 0.2222222222222222,
+        "117": 0.5045871559633027,
+        "133": 0.8780487804878049,
+        "118": 0.09016393442622951,
+        "122": 0.26732673267326734,
+        "109": 0.8333333333333334,
+        "123": 0.6923076923076923,
+        "183": 0.6107784431137725,
+        "139": 0.36363636363636365,
+        "124": 0.2077922077922078,
+        "152": 0.0,
+        "119": 0.5842105263157895,
+        "125": 0.1896551724137931,
+        "114": 0.30597014925373134,
+        "142": 0.5,
+        "115": 0.8461538461538461,
+        "147": 0.2,
+        "137": 0.7058823529411765,
+        "111": 0.5652173913043478,
+        "216": 0.0,
+        "159": 0.75,
+        "116": 0.6551724137931034,
+        "132": 0.8,
+        "141": 0.6153846153846154,
+        "112": 0.2222222222222222,
+        "161": 0.0,
+        "127": 0.375,
+        "91": 0.0,
+        "130": 0.6153846153846154,
+        "143": 0.06666666666666667,
+        "193": 0.0,
+        "155": 0.0,
+        "59": 1.0,
+        "131": 0.7083333333333334,
+        "136": 1.0,
+        "138": 0.0,
+        "101": 0.75,
+        "70": 0.6666666666666666,
+        "77": 0.0,
+        "108": 0.0,
+        "102": 0.5,
+        "129": 0.3333333333333333,
+        "191": 0.0,
+        "181": 0.0,
+        "62": 0.0,
+        "87": 0.0,
+        "80": 1.0,
+        "103": 1.0,
+        "158": 0.0,
+        "128": 0.5,
+        "145": 0.0,
+        "71": 1.0,
+        "135": 0.0,
+        "88": 0.0,
+        "213": 0.0,
+        "134": 0.75,
+        "75": 0.0,
+        "69": 0.0,
+        "170": 0.0,
+        "173": 0.0,
+        "106": 1.0,
+        "57": 1.0,
+        "84": 1.0,
+        "100": 1.0,
+        "177": 0.0,
+        "68": 0.0,
+        "79": 0.5,
+        "104": 1.0,
+        "265": 0.0,
+        "107": 1.0,
+        "126": 1.0,
+        "67": 1.0,
+        "94": 0.0,
+        "66": 1.0,
+        "74": 1.0
+    },
+    "avg_success_perc_per_tgt_len": {
+        "6": 0.881104033970276,
+        "51": 0.07142857142857142,
+        "19": 0.7666666666666667,
+        "68": 0.16666666666666666,
+        "35": 0.36363636363636365,
+        "16": 0.5806451612903226,
+        "31": 0.43859649122807015,
+        "49": 0.8414634146341463,
+        "46": 0.5714285714285714,
+        "44": 0.6842105263157895,
+        "5": 0.816793893129771,
+        "105": 0.0,
+        "20": 0.5894736842105263,
+        "27": 0.6428571428571429,
+        "39": 0.45454545454545453,
+        "42": 0.2857142857142857,
+        "108": 0.0,
+        "23": 0.8717948717948718,
+        "60": 0.2413793103448276,
+        "58": 0.17391304347826086,
+        "37": 0.5,
+        "82": 0.3333333333333333,
+        "12": 0.3448275862068966,
+        "54": 0.2711864406779661,
+        "34": 0.4909090909090909,
+        "57": 0.25,
+        "21": 0.4864864864864865,
+        "43": 0.36363636363636365,
+        "85": 0.25,
+        "22": 0.5,
+        "28": 0.5348837209302325,
+        "36": 0.3333333333333333,
+        "56": 0.1111111111111111,
+        "18": 0.6086956521739131,
+        "48": 0.8301886792452831,
+        "126": 0.0,
+        "128": 0.0,
+        "73": 0.09090909090909091,
+        "88": 0.375,
+        "15": 0.8461538461538461,
+        "29": 0.4074074074074074,
+        "38": 0.3888888888888889,
+        "14": 0.7017543859649122,
+        "45": 0.25,
+        "103": 0.0,
+        "33": 0.46153846153846156,
+        "30": 0.34615384615384615,
+        "25": 0.4626865671641791,
+        "9": 0.9,
+        "64": 0.25,
+        "62": 0.0,
+        "41": 0.34146341463414637,
+        "120": 0.0,
+        "13": 0.8181818181818182,
+        "52": 0.125,
+        "53": 0.32142857142857145,
+        "55": 0.21428571428571427,
+        "26": 0.2903225806451613,
+        "78": 0.0,
+        "69": 0.04,
+        "110": 0.0,
+        "107": 0.0,
+        "40": 0.35714285714285715,
+        "7": 1.0,
+        "115": 0.0,
+        "32": 0.3333333333333333,
+        "50": 0.6666666666666666,
+        "8": 1.0,
+        "141": 0.0,
+        "114": 0.0,
+        "71": 0.0,
+        "102": 0.0,
+        "99": 0.25,
+        "11": 0.6923076923076923,
+        "61": 0.5,
+        "92": 0.0,
+        "201": 0.0,
+        "17": 0.5454545454545454,
+        "72": 0.0,
+        "135": 0.0,
+        "101": 0.0,
+        "206": 0.0,
+        "67": 0.2,
+        "84": 0.0,
+        "111": 0.0,
+        "76": 0.2857142857142857,
+        "10": 0.7272727272727273,
+        "83": 0.16666666666666666,
+        "130": 0.0,
+        "98": 0.5,
+        "89": 0.0,
+        "93": 0.2857142857142857,
+        "63": 0.2222222222222222,
+        "47": 0.25,
+        "251": 0.0,
+        "65": 0.625,
+        "66": 0.0,
+        "24": 0.3333333333333333,
+        "74": 0.3333333333333333,
+        "122": 0.0,
+        "87": 0.0,
+        "119": 0.0,
+        "59": 0.2,
+        "70": 0.16666666666666666,
+        "124": 0.0,
+        "109": 0.0,
+        "75": 0.0,
+        "158": 0.0,
+        "197": 0.0,
+        "127": 0.0,
+        "95": 0.0,
+        "86": 0.0,
+        "117": 0.0,
+        "173": 0.0,
+        "118": 0.0,
+        "192": 0.0,
+        "215": 0.0,
+        "91": 0.25,
+        "113": 0.0,
+        "133": 0.0,
+        "104": 0.0,
+        "149": 0.0,
+        "183": 0.0,
+        "136": 0.0,
+        "134": 0.0,
+        "80": 0.5,
+        "155": 0.0,
+        "148": 0.0,
+        "81": 0.0,
+        "79": 0.0,
+        "4": 0.0,
+        "174": 0.0,
+        "97": 0.5,
+        "139": 0.0,
+        "112": 0.0,
+        "138": 0.0,
+        "131": 0.0,
+        "106": 0.0,
+        "185": 0.0,
+        "116": 0.0,
+        "100": 0.0,
+        "132": 0.0,
+        "94": 0.0,
+        "143": 0.0,
+        "154": 0.0,
+        "182": 0.0,
+        "180": 0.0,
+        "77": 0.0,
+        "90": 0.0,
+        "129": 0.0,
+        "147": 0.0,
+        "209": 0.0,
+        "150": 0.0,
+        "144": 0.0,
+        "349": 0.0,
+        "146": 0.0
+    },
+    "highest_accuracy_copied_examples": [
+        {
+            "id": "26542131-0",
+            "diagnostic_id": "Wintellect012",
+            "perc_correct": 1.0,
+            "parsed_src": {
+                "diagnostic_occurances": [
+                    {
+                        "diagnostic_line": "5",
+                        "diagnostic_message": "the class 'Swatch' should be declared sealed if this is a newly written class"
+                    }
+                ],
+                "file_context": [
+                    "MaterialDesignColors",
+                    "{",
+                    "    /// <summary>",
+                    "    /// Defines a single colour swatch.",
+                    "    /// </summary>",
+                    "    public class Swatch",
+                    "    {",
+                    "        public Swatch(string name, IEnumerable<Hue> primaryHues, IEnumerable<Hue> accentHues)",
+                    "      "
+                ]
+            },
+            "parsed_diff_correct": {
+                "diff_type": "REPLACE",
+                "source_location": [
+                    "5"
+                ],
+                "target_lines": [
+                    "    public sealed class Swatch"
+                ]
+            }
+        },
+        {
+            "id": "38123915-2",
+            "diagnostic_id": "SA1516",
+            "perc_correct": 1.0,
+            "parsed_src": {
+                "diagnostic_occurances": [
+                    {
+                        "diagnostic_line": "2",
+                        "diagnostic_message": "elements should be separated by blank line"
+                    }
+                ],
+                "file_context": [
+                    "ColorConverter.ConvertFromString(\"#C8E6C9\");",
+                    "        public static Color Green200 { get; } = (Color)ColorConverter.ConvertFromString(\"#A5D6A7\");",
+                    "        public static Color Green300 { get; } = (Color)ColorConverter.ConvertFromString(\"#81C784\");",
+                    "        public static"
+                ]
+            },
+            "parsed_diff_correct": {
+                "diff_type": "ADD",
+                "previous_source_location": "1",
+                "target_lines": [
+                    ""
+                ]
+            }
+        }
+    ],
+    "highest_accuracy_extrapolated_examples": [
+        {
+            "id": "6251391-0",
+            "diagnostic_id": "AANA001",
+            "perc_correct": 1.0,
+            "parsed_src": {
+                "diagnostic_occurances": [
+                    {
+                        "diagnostic_line": "3",
+                        "diagnostic_message": "method 'ReadRowAsyncImplViaDbReader' missing 'Async' suffix"
+                    }
+                ],
+                "file_context": [
+                    "(ReadRow<T>(type, row));",
+                    "            }",
+                    "",
+                    "            private async Task<T> ReadRowAsyncImplViaDbReader<T>(DbDataReader reader, Type type, Row row)",
+                    "            {",
+                    "                "
+                ]
+            },
+            "parsed_diff_correct": {
+                "diff_type": "REPLACE",
+                "source_location": [
+                    "3"
+                ],
+                "target_lines": [
+                    "            private async Task<T> ReadRowAsyncImplViaDbReaderAsync<T>(DbDataReader reader, Type type, Row row)"
+                ]
+            }
+        }
+    ],
+    "lowest_accuracy_copied_examples": [
+        {
+            "id": "38667271-2",
+            "diagnostic_id": "VSD0033",
+            "perc_correct": 0.0,
+            "parsed_src": {
+                "diagnostic_occurances": [
+                    {
+                        "diagnostic_line": "1",
+                        "diagnostic_message": "use alias ulong instead of concrete type uint64."
+                    }
+                ],
+                "file_context": [
+                    "strTemp = ParseString(s, \"qpf=\", \",\", out strRemaining);",
+                    "                            qpfAdjusted = UInt64.Parse(strTemp) / 1000;",
+                    "                           "
+                ]
+            },
+            "parsed_diff_correct": {
+                "diff_type": "REPLACE",
+                "source_location": [
+                    "1"
+                ],
+                "target_lines": [
+                    "                            qpfAdjusted = ulong.Parse(strTemp) / 1000;"
+                ]
+            },
+            "parsed_diff_inferred": {
+                "diff_type": "REPLACE",
+                "source_location": [
+                    "1"
+                ],
+                "target_lines": [
+                    "                            qpcStart = ulong.Parse(strTemp);"
+                ]
+            }
+        },
+        {
+            "id": "8144876-0",
+            "diagnostic_id": "Wintellect002",
+            "perc_correct": 0.0,
+            "parsed_src": {
+                "diagnostic_occurances": [
+                    {
+                        "diagnostic_line": "4",
+                        "diagnostic_message": "never use the single parameter debug.assert"
+                    }
+                ],
+                "file_context": [
+                    " (e.OldItems != null)",
+                    "\t\t\t{",
+                    "\t\t\t\tforeach (SharpTreeNode node in e.OldItems)",
+                    "\t\t\t\t{",
+                    "\t\t\t\t\tDebug.Assert(node.modelParent == this);",
+                    "\t\t\t\t\tnode.modelParent = null;",
+                    "\t\t\t\t\tDebug.WriteLine(\"Removing {0} from {1}\", node, "
+                ]
+            },
+            "parsed_diff_correct": {
+                "diff_type": "REPLACE",
+                "source_location": [
+                    "4"
+                ],
+                "target_lines": [
+                    "\t\t\t\t\tDebug.Assert(node.modelParent == this, \"node.modelParent == this\");"
+                ]
+            },
+            "parsed_diff_inferred": {
+                "diff_type": "REPLACE",
+                "source_location": [
+                    "4"
+                ],
+                "target_lines": [
+                    "\t\t\t\t\tDebug.Assert(node.modelParent == null, \"node.modelParent == null\");"
+                ]
+            }
+        }
+    ],
+    "lowest_accuracy_extrapolated_examples": [
+        {
+            "id": "27350899-0",
+            "diagnostic_id": "SA1615",
+            "perc_correct": 0.0,
+            "parsed_src": {
+                "diagnostic_occurances": [
+                    {
+                        "diagnostic_line": "3",
+                        "diagnostic_message": "element return value should be documented"
+                    }
+                ],
+                "file_context": [
+                    "/ <summary>",
+                    "\t\t/// Gets the selected items which do not have any of their ancestors selected.",
+                    "\t\t/// </summary>",
+                    "\t\tpublic IEnumerable<SharpTreeNode> GetTopLevelSelection()",
+                    "\t\t{",
+                    "\t\t\tvar selection = this.SelectedItems.OfType<SharpTreeNode>();",
+                    "\t\t\tvar selectionHash = new HashSet<SharpTreeNode"
+                ]
+            },
+            "parsed_diff_correct": {
+                "diff_type": "ADD",
+                "previous_source_location": "2",
+                "target_lines": [
+                    "\t\t/// <returns></returns>"
+                ]
+            },
+            "parsed_diff_inferred": {
+                "diff_type": "REPLACE",
+                "source_location": [
+                    "3"
+                ],
+                "target_lines": [
+                    "\t\t\t\t\t\tif (found is null)"
+                ]
+            }
+        },
+        {
+            "id": "10464925-0",
+            "diagnostic_id": "DateTimeToday",
+            "perc_correct": 0.0,
+            "parsed_src": {
+                "diagnostic_occurances": [
+                    {
+                        "diagnostic_line": "1",
+                        "diagnostic_message": "use datetime.now.touniversaltime()."
+                    }
+                ],
+                "file_context": [
+                    "    var day_diff = (int) time_diff.TotalDays;                ",
+                    "            DateTime yesterday = DateTime.Today.AddDays (-1);",
+                    "",
+                    "            if (timestamp >= yesterday && timestamp < DateTime.Today) {"
+                ]
+            },
+            "parsed_diff_correct": {
+                "diff_type": "REPLACE",
+                "source_location": [
+                    "1"
+                ],
+                "target_lines": [
+                    "            DateTime yesterday = DateTime.Today.ToUniversalTime(-1);"
+                ]
+            },
+            "parsed_diff_inferred": {
+                "diff_type": "REPLACE",
+                "source_location": [
+                    "1"
+                ],
+                "target_lines": [
+                    "            if (timestamp >= 0)"
+                ]
+            }
+        }
+    ],
+    "ambiguous_accuracy_copied_examples": [
+        {
+            "id": "16156455-3",
+            "diagnostic_id": "VarAnalyzer",
+            "perc_correct": 0.5,
+            "parsed_src": {
+                "diagnostic_occurances": [
+                    {
+                        "diagnostic_line": "7",
+                        "diagnostic_message": "var keyword usage is not legit in this context"
+                    }
+                ],
+                "file_context": [
+                    " e);",
+                    "\t\t}",
+                    "",
+                    "\t\tinternal void HandleDragOver(SharpTreeViewItem item, DragEventArgs e)",
+                    "\t\t{",
+                    "\t\t\tHidePreview();",
+                    "",
+                    "\t\t\tvar target = GetDropTarget(item, e);",
+                    "\t\t\tif (target != null)",
+                    "\t\t\t{",
+                    "\t\t\t\te.Handled = true;",
+                    "\t\t\t\tShowPreview(target.Item,"
+                ]
+            },
+            "parsed_diff_correct": {
+                "diff_type": "REPLACE",
+                "source_location": [
+                    "7"
+                ],
+                "target_lines": [
+                    "\t\t\tDropTarget target = GetDropTarget(item, e);"
+                ]
+            },
+            "parsed_diff_inferred": {
+                "diff_type": "REMOVE",
+                "source_location_start": "7",
+                "source_location_end": "7"
+            }
+        },
+        {
+            "id": "8786279-1",
+            "diagnostic_id": "RCS1123",
+            "perc_correct": 0.5,
+            "parsed_src": {
+                "diagnostic_occurances": [
+                    {
+                        "diagnostic_line": "2",
+                        "diagnostic_message": "add parentheses when necessary."
+                    }
+                ],
+                "file_context": [
+                    "r))",
+                    "                {",
+                    "                    h = (g - b) / d + (g < b ? 6 : 0);",
+                    "                }",
+                    "     "
+                ]
+            },
+            "parsed_diff_correct": {
+                "diff_type": "REPLACE",
+                "source_location": [
+                    "2"
+                ],
+                "target_lines": [
+                    "                    h = ((g - b) / d) + (g < b ? 6 : 0);"
+                ]
+            },
+            "parsed_diff_inferred": {
+                "diff_type": "REPLACE",
+                "source_location": [
+                    "2"
+                ],
+                "target_lines": [
+                    "                    h = ((b - r) / d) + 2;"
+                ]
+            }
+        }
+    ],
+    "ambiguous_accuracy_extrapolated_examples": [
+        {
+            "id": "27350899-0",
+            "diagnostic_id": "SA1615",
+            "perc_correct": 0.0,
+            "parsed_src": {
+                "diagnostic_occurances": [
+                    {
+                        "diagnostic_line": "3",
+                        "diagnostic_message": "element return value should be documented"
+                    }
+                ],
+                "file_context": [
+                    "/ <summary>",
+                    "\t\t/// Gets the selected items which do not have any of their ancestors selected.",
+                    "\t\t/// </summary>",
+                    "\t\tpublic IEnumerable<SharpTreeNode> GetTopLevelSelection()",
+                    "\t\t{",
+                    "\t\t\tvar selection = this.SelectedItems.OfType<SharpTreeNode>();",
+                    "\t\t\tvar selectionHash = new HashSet<SharpTreeNode"
+                ]
+            },
+            "parsed_diff_correct": {
+                "diff_type": "ADD",
+                "previous_source_location": "2",
+                "target_lines": [
+                    "\t\t/// <returns></returns>"
+                ]
+            },
+            "parsed_diff_inferred": {
+                "diff_type": "REPLACE",
+                "source_location": [
+                    "3"
+                ],
+                "target_lines": [
+                    "\t\t\t\t\t\tif (found is null)"
+                ]
+            }
+        },
+        {
+            "id": "10464925-0",
+            "diagnostic_id": "DateTimeToday",
+            "perc_correct": 0.0,
+            "parsed_src": {
+                "diagnostic_occurances": [
+                    {
+                        "diagnostic_line": "1",
+                        "diagnostic_message": "use datetime.now.touniversaltime()."
+                    }
+                ],
+                "file_context": [
+                    "    var day_diff = (int) time_diff.TotalDays;                ",
+                    "            DateTime yesterday = DateTime.Today.AddDays (-1);",
+                    "",
+                    "            if (timestamp >= yesterday && timestamp < DateTime.Today) {"
+                ]
+            },
+            "parsed_diff_correct": {
+                "diff_type": "REPLACE",
+                "source_location": [
+                    "1"
+                ],
+                "target_lines": [
+                    "            DateTime yesterday = DateTime.Today.ToUniversalTime(-1);"
+                ]
+            },
+            "parsed_diff_inferred": {
+                "diff_type": "REPLACE",
+                "source_location": [
+                    "1"
+                ],
+                "target_lines": [
+                    "            if (timestamp >= 0)"
+                ]
+            }
+        }
+    ],
+    "result_per_diagnostic": {
+        "WS1000": {
+            "num_datapoints_in_train": 447,
+            "perc_correct": 0.9878048780487805,
+            "num_datapoints_in_test": 164
+        },
+        "INTL0001": {
+            "num_datapoints_in_train": 58,
+            "perc_correct": 0.045454545454545456,
+            "num_datapoints_in_test": 22
+        },
+        "DA4002": {
+            "num_datapoints_in_train": 98,
+            "perc_correct": 0.8571428571428571,
+            "num_datapoints_in_test": 28
+        },
+        "VSD0033": {
+            "num_datapoints_in_train": 2,
+            "perc_correct": 0.0,
+            "num_datapoints_in_test": 1
+        },
+        "SA1623D": {
+            "num_datapoints_in_train": 316,
+            "perc_correct": 0.10112359550561797,
+            "num_datapoints_in_test": 89
+        },
+        "Wintellect002": {
+            "num_datapoints_in_train": 8,
+            "perc_correct": 0.0,
+            "num_datapoints_in_test": 1
+        },
+        "Wintellect012": {
+            "num_datapoints_in_train": 103,
+            "perc_correct": 1.0,
+            "num_datapoints_in_test": 32
+        },
+        "SA1101": {
+            "num_datapoints_in_train": 47,
+            "perc_correct": 0.7692307692307693,
+            "num_datapoints_in_test": 13
+        },
+        "Comments_analyser": {
+            "num_datapoints_in_train": 65,
+            "perc_correct": 0.09090909090909091,
+            "num_datapoints_in_test": 22
+        },
+        "VarUsage": {
+            "num_datapoints_in_train": 106,
+            "perc_correct": 0.3888888888888889,
+            "num_datapoints_in_test": 36
+        },
+        "CC0065": {
+            "num_datapoints_in_train": 560,
+            "perc_correct": 0.8810810810810811,
+            "num_datapoints_in_test": 185
+        },
+        "AvNextRegularExpressionCodeFix": {
+            "num_datapoints_in_train": 93,
+            "perc_correct": 0.6666666666666666,
+            "num_datapoints_in_test": 18
+        },
+        "SA1516": {
+            "num_datapoints_in_train": 135,
+            "perc_correct": 1.0,
+            "num_datapoints_in_test": 45
+        },
+        "ParameterWrapperAnalyzer": {
+            "num_datapoints_in_train": 274,
+            "perc_correct": 0.010526315789473684,
+            "num_datapoints_in_test": 95
+        },
+        "VarAnalyzer": {
+            "num_datapoints_in_train": 19,
+            "perc_correct": 0.5,
+            "num_datapoints_in_test": 6
+        },
+        "GU0077": {
+            "num_datapoints_in_train": 120,
+            "perc_correct": 0.24324324324324326,
+            "num_datapoints_in_test": 37
+        },
+        "AvoidVar": {
+            "num_datapoints_in_train": 224,
+            "perc_correct": 0.5135135135135135,
+            "num_datapoints_in_test": 74
+        },
+        "CH0001": {
+            "num_datapoints_in_train": 544,
+            "perc_correct": 0.6,
+            "num_datapoints_in_test": 170
+        },
+        "Nopen": {
+            "num_datapoints_in_train": 146,
+            "perc_correct": 0.28846153846153844,
+            "num_datapoints_in_test": 52
+        },
+        "CC0021": {
+            "num_datapoints_in_train": 74,
+            "perc_correct": 0.1875,
+            "num_datapoints_in_test": 32
+        },
+        "EDAM001": {
+            "num_datapoints_in_train": 171,
+            "perc_correct": 0.08196721311475409,
+            "num_datapoints_in_test": 61
+        },
+        "CC0105": {
+            "num_datapoints_in_train": 68,
+            "perc_correct": 0.15384615384615385,
+            "num_datapoints_in_test": 26
+        },
+        "USI0001": {
+            "num_datapoints_in_train": 92,
+            "perc_correct": 0.8235294117647058,
+            "num_datapoints_in_test": 34
+        },
+        "WS1001": {
+            "num_datapoints_in_train": 176,
+            "perc_correct": 0.98,
+            "num_datapoints_in_test": 50
+        },
+        "DA3002": {
+            "num_datapoints_in_train": 101,
+            "perc_correct": 0.7307692307692307,
+            "num_datapoints_in_test": 26
+        },
+        "DA3006": {
+            "num_datapoints_in_train": 33,
+            "perc_correct": 0.625,
+            "num_datapoints_in_test": 8
+        },
+        "CCN0031": {
+            "num_datapoints_in_train": 61,
+            "perc_correct": 0.043478260869565216,
+            "num_datapoints_in_test": 23
+        },
+        "RCS1058": {
+            "num_datapoints_in_train": 2,
+            "perc_correct": 0.0,
+            "num_datapoints_in_test": 1
+        },
+        "CC0037": {
+            "num_datapoints_in_train": 42,
+            "perc_correct": 0.6923076923076923,
+            "num_datapoints_in_test": 13
+        },
+        "AvNextRegexCodeFix": {
+            "num_datapoints_in_train": 76,
+            "perc_correct": 0.8235294117647058,
+            "num_datapoints_in_test": 17
+        },
+        "CH0003": {
+            "num_datapoints_in_train": 21,
+            "perc_correct": 0.2222222222222222,
+            "num_datapoints_in_test": 9
+        },
+        "DA4001": {
+            "num_datapoints_in_train": 208,
+            "perc_correct": 0.9452054794520548,
+            "num_datapoints_in_test": 73
+        },
+        "SA1606D": {
+            "num_datapoints_in_train": 156,
+            "perc_correct": 0.14084507042253522,
+            "num_datapoints_in_test": 71
+        },
+        "Y0001": {
+            "num_datapoints_in_train": 14,
+            "perc_correct": 0.0,
+            "num_datapoints_in_test": 5
+        },
+        "CC0023": {
+            "num_datapoints_in_train": 45,
+            "perc_correct": 0.13636363636363635,
+            "num_datapoints_in_test": 22
+        },
+        "CA1801": {
+            "num_datapoints_in_train": 13,
+            "perc_correct": 0.3333333333333333,
+            "num_datapoints_in_test": 3
+        },
+        "JA101": {
+            "num_datapoints_in_train": 157,
+            "perc_correct": 0.04918032786885246,
+            "num_datapoints_in_test": 61
+        },
+        "SA1407": {
+            "num_datapoints_in_train": 24,
+            "perc_correct": 1.0,
+            "num_datapoints_in_test": 5
+        },
+        "RemoveRegions": {
+            "num_datapoints_in_train": 184,
+            "perc_correct": 0.967741935483871,
+            "num_datapoints_in_test": 62
+        },
+        "CC0001": {
+            "num_datapoints_in_train": 106,
+            "perc_correct": 0.125,
+            "num_datapoints_in_test": 32
+        },
+        "DA3007": {
+            "num_datapoints_in_train": 396,
+            "perc_correct": 0.8592592592592593,
+            "num_datapoints_in_test": 135
+        },
+        "NES003": {
+            "num_datapoints_in_train": 10,
+            "perc_correct": 0.0,
+            "num_datapoints_in_test": 4
+        },
+        "GU0073": {
+            "num_datapoints_in_train": 131,
+            "perc_correct": 0.13636363636363635,
+            "num_datapoints_in_test": 44
+        },
+        "DOC101": {
+            "num_datapoints_in_train": 3,
+            "perc_correct": 0.0,
+            "num_datapoints_in_test": 2
+        },
+        "DTA001": {
+            "num_datapoints_in_train": 41,
+            "perc_correct": 0.7333333333333333,
+            "num_datapoints_in_test": 15
+        },
+        "EqualsNull": {
+            "num_datapoints_in_train": 34,
+            "perc_correct": 0.0,
+            "num_datapoints_in_test": 8
+        },
+        "ModifierAnalyzer": {
+            "num_datapoints_in_train": 383,
+            "perc_correct": 0.6097560975609756,
+            "num_datapoints_in_test": 123
+        },
+        "Wintellect003": {
+            "num_datapoints_in_train": 62,
+            "perc_correct": 0.8214285714285714,
+            "num_datapoints_in_test": 28
+        },
+        "MakeConst": {
+            "num_datapoints_in_train": 3,
+            "perc_correct": 0.0,
+            "num_datapoints_in_test": 2
+        },
+        "EPS05": {
+            "num_datapoints_in_train": 5,
+            "perc_correct": 0.0,
+            "num_datapoints_in_test": 7
+        },
+        "FS0128": {
+            "num_datapoints_in_train": 27,
+            "perc_correct": 0.6666666666666666,
+            "num_datapoints_in_test": 9
+        },
+        "AANA003": {
+            "num_datapoints_in_train": 22,
+            "perc_correct": 0.14285714285714285,
+            "num_datapoints_in_test": 7
+        },
+        "DateTimeOffsetInsteadOfDateTimeAnalyzer": {
+            "num_datapoints_in_train": 83,
+            "perc_correct": 0.7916666666666666,
+            "num_datapoints_in_test": 24
+        },
+        "SA1122": {
+            "num_datapoints_in_train": 13,
+            "perc_correct": 1.0,
+            "num_datapoints_in_test": 3
+        },
+        "SA1005": {
+            "num_datapoints_in_train": 17,
+            "perc_correct": 0.42857142857142855,
+            "num_datapoints_in_test": 7
+        },
+        "CH0002": {
+            "num_datapoints_in_train": 85,
+            "perc_correct": 0.7692307692307693,
+            "num_datapoints_in_test": 26
+        },
+        "SA1600D": {
+            "num_datapoints_in_train": 124,
+            "perc_correct": 0.04878048780487805,
+            "num_datapoints_in_test": 41
+        },
+        "CSharpAnalyzer": {
+            "num_datapoints_in_train": 74,
+            "perc_correct": 0.88,
+            "num_datapoints_in_test": 25
+        },
+        "mmlajPublicFieldAnalyzer": {
+            "num_datapoints_in_train": 43,
+            "perc_correct": 0.6666666666666666,
+            "num_datapoints_in_test": 9
+        },
+        "mmlajOnalbPublicFieldAnalyzer": {
+            "num_datapoints_in_train": 75,
+            "perc_correct": 0.8620689655172413,
+            "num_datapoints_in_test": 29
+        },
+        "AADE002": {
+            "num_datapoints_in_train": 15,
+            "perc_correct": 0.0,
+            "num_datapoints_in_test": 3
+        },
+        "Wintellect004": {
+            "num_datapoints_in_train": 179,
+            "perc_correct": 0.6567164179104478,
+            "num_datapoints_in_test": 67
+        },
+        "SA1612D": {
+            "num_datapoints_in_train": 258,
+            "perc_correct": 0.0641025641025641,
+            "num_datapoints_in_test": 78
+        },
+        "MEN013": {
+            "num_datapoints_in_train": 7,
+            "perc_correct": 0.8333333333333334,
+            "num_datapoints_in_test": 6
+        },
+        "CC0048": {
+            "num_datapoints_in_train": 23,
+            "perc_correct": 0.2,
+            "num_datapoints_in_test": 10
+        },
+        "RCS1123": {
+            "num_datapoints_in_train": 14,
+            "perc_correct": 0.5,
+            "num_datapoints_in_test": 2
+        },
+        "SA1121": {
+            "num_datapoints_in_train": 4,
+            "perc_correct": 0.5,
+            "num_datapoints_in_test": 2
+        },
+        "SA1633": {
+            "num_datapoints_in_train": 30,
+            "perc_correct": 0.7777777777777778,
+            "num_datapoints_in_test": 9
+        },
+        "SA1300": {
+            "num_datapoints_in_train": 8,
+            "perc_correct": 0.6,
+            "num_datapoints_in_test": 5
+        },
+        "AT001": {
+            "num_datapoints_in_train": 22,
+            "perc_correct": 0.0,
+            "num_datapoints_in_test": 9
+        },
+        "RECS0001": {
+            "num_datapoints_in_train": 2,
+            "perc_correct": 1.0,
+            "num_datapoints_in_test": 1
+        },
+        "SA1120": {
+            "num_datapoints_in_train": 3,
+            "perc_correct": 1.0,
+            "num_datapoints_in_test": 1
+        },
+        "SA1200": {
+            "num_datapoints_in_train": 38,
+            "perc_correct": 0.7777777777777778,
+            "num_datapoints_in_test": 18
+        },
+        "CA1805": {
+            "num_datapoints_in_train": 3,
+            "perc_correct": 0.3333333333333333,
+            "num_datapoints_in_test": 3
+        },
+        "Wintellect015": {
+            "num_datapoints_in_train": 29,
+            "perc_correct": 0.8181818181818182,
+            "num_datapoints_in_test": 11
+        },
+        "SA1210": {
+            "num_datapoints_in_train": 2,
+            "perc_correct": 1.0,
+            "num_datapoints_in_test": 3
+        },
+        "ASA001": {
+            "num_datapoints_in_train": 1,
+            "perc_correct": 1.0,
+            "num_datapoints_in_test": 2
+        },
+        "SA1642D": {
+            "num_datapoints_in_train": 39,
+            "perc_correct": 0.0,
+            "num_datapoints_in_test": 17
+        },
+        "SA1515": {
+            "num_datapoints_in_train": 4,
+            "perc_correct": 1.0,
+            "num_datapoints_in_test": 4
+        },
+        "DA3010": {
+            "num_datapoints_in_train": 21,
+            "perc_correct": 0.5,
+            "num_datapoints_in_test": 6
+        },
+        "SA1615": {
+            "num_datapoints_in_train": 0,
+            "perc_correct": 0.0,
+            "num_datapoints_in_test": 2
+        },
+        "FV0001": {
+            "num_datapoints_in_train": 2,
+            "perc_correct": 0.0,
+            "num_datapoints_in_test": 1
+        },
+        "LowerChar": {
+            "num_datapoints_in_train": 20,
+            "perc_correct": 1.0,
+            "num_datapoints_in_test": 8
+        },
+        "StoreCtorArg": {
+            "num_datapoints_in_train": 13,
+            "perc_correct": 0.0,
+            "num_datapoints_in_test": 3
+        },
+        "ClassWithoutModifierAnalyzer": {
+            "num_datapoints_in_train": 12,
+            "perc_correct": 0.8333333333333334,
+            "num_datapoints_in_test": 6
+        },
+        "PropertyDiagnosticId": {
+            "num_datapoints_in_train": 7,
+            "perc_correct": 0.6666666666666666,
+            "num_datapoints_in_test": 3
+        },
+        "AvNextPropertyCodeFix": {
+            "num_datapoints_in_train": 76,
+            "perc_correct": 0.7777777777777778,
+            "num_datapoints_in_test": 27
+        },
+        "CC0014": {
+            "num_datapoints_in_train": 4,
+            "perc_correct": 0.0,
+            "num_datapoints_in_test": 1
+        },
+        "RS0100": {
+            "num_datapoints_in_train": 2,
+            "perc_correct": 0.0,
+            "num_datapoints_in_test": 4
+        },
+        "DateTimeToday": {
+            "num_datapoints_in_train": 0,
+            "perc_correct": 0.0,
+            "num_datapoints_in_test": 1
+        },
+        "CC0091": {
+            "num_datapoints_in_train": 30,
+            "perc_correct": 0.625,
+            "num_datapoints_in_test": 8
+        },
+        "SA1106": {
+            "num_datapoints_in_train": 9,
+            "perc_correct": 0.5,
+            "num_datapoints_in_test": 2
+        },
+        "AnalyzerTestProj": {
+            "num_datapoints_in_train": 7,
+            "perc_correct": 1.0,
+            "num_datapoints_in_test": 4
+        },
+        "CC0052": {
+            "num_datapoints_in_train": 18,
+            "perc_correct": 0.2857142857142857,
+            "num_datapoints_in_test": 7
+        },
+        "SA1629": {
+            "num_datapoints_in_train": 3,
+            "perc_correct": 0.3333333333333333,
+            "num_datapoints_in_test": 3
+        },
+        "CA1507": {
+            "num_datapoints_in_train": 6,
+            "perc_correct": 1.0,
+            "num_datapoints_in_test": 3
+        },
+        "MT1001": {
+            "num_datapoints_in_train": 3,
+            "perc_correct": 0.3333333333333333,
+            "num_datapoints_in_test": 3
+        },
+        "DOC104": {
+            "num_datapoints_in_train": 12,
+            "perc_correct": 0.75,
+            "num_datapoints_in_test": 4
+        },
+        "DA4006": {
+            "num_datapoints_in_train": 13,
+            "perc_correct": 1.0,
+            "num_datapoints_in_test": 8
+        },
+        "SA1600": {
+            "num_datapoints_in_train": 3,
+            "perc_correct": 0.75,
+            "num_datapoints_in_test": 4
+        },
+        "DA3001": {
+            "num_datapoints_in_train": 12,
+            "perc_correct": 0.5,
+            "num_datapoints_in_test": 2
+        },
+        "CC0095": {
+            "num_datapoints_in_train": 1,
+            "perc_correct": 0.3333333333333333,
+            "num_datapoints_in_test": 3
+        },
+        "SA1313": {
+            "num_datapoints_in_train": 4,
+            "perc_correct": 0.0,
+            "num_datapoints_in_test": 1
+        },
+        "CS0002": {
+            "num_datapoints_in_train": 10,
+            "perc_correct": 1.0,
+            "num_datapoints_in_test": 2
+        },
+        "CA1822": {
+            "num_datapoints_in_train": 52,
+            "perc_correct": 0.8666666666666667,
+            "num_datapoints_in_test": 15
+        },
+        "TestAnalyzer": {
+            "num_datapoints_in_train": 33,
+            "perc_correct": 0.7272727272727273,
+            "num_datapoints_in_test": 11
+        },
+        "CLASS0001": {
+            "num_datapoints_in_train": 31,
+            "perc_correct": 1.0,
+            "num_datapoints_in_test": 8
+        },
+        "FS0037": {
+            "num_datapoints_in_train": 4,
+            "perc_correct": 1.0,
+            "num_datapoints_in_test": 1
+        },
+        "WTG1004": {
+            "num_datapoints_in_train": 4,
+            "perc_correct": 0.0,
+            "num_datapoints_in_test": 1
+        },
+        "HLQ005": {
+            "num_datapoints_in_train": 9,
+            "perc_correct": 0.0,
+            "num_datapoints_in_test": 3
+        },
+        "MEN009": {
+            "num_datapoints_in_train": 24,
+            "perc_correct": 0.4166666666666667,
+            "num_datapoints_in_test": 12
+        },
+        "RB002": {
+            "num_datapoints_in_train": 5,
+            "perc_correct": 0.0,
+            "num_datapoints_in_test": 4
+        },
+        "SA1503": {
+            "num_datapoints_in_train": 54,
+            "perc_correct": 0.75,
+            "num_datapoints_in_test": 8
+        },
+        "NoPrivateUnderscore": {
+            "num_datapoints_in_train": 24,
+            "perc_correct": 0.0,
+            "num_datapoints_in_test": 5
+        },
+        "RB001": {
+            "num_datapoints_in_train": 24,
+            "perc_correct": 0.5,
+            "num_datapoints_in_test": 4
+        },
+        "ClassDoesNotImplementContractAnalyzer": {
+            "num_datapoints_in_train": 21,
+            "perc_correct": 0.6,
+            "num_datapoints_in_test": 5
+        },
+        "ClassNameUpperCaseAnalyzer": {
+            "num_datapoints_in_train": 37,
+            "perc_correct": 1.0,
+            "num_datapoints_in_test": 12
+        },
+        "DA4004": {
+            "num_datapoints_in_train": 16,
+            "perc_correct": 0.6666666666666666,
+            "num_datapoints_in_test": 3
+        },
+        "AnalyzerFinal2": {
+            "num_datapoints_in_train": 22,
+            "perc_correct": 1.0,
+            "num_datapoints_in_test": 10
+        },
+        "SA1100": {
+            "num_datapoints_in_train": 0,
+            "perc_correct": 0.0,
+            "num_datapoints_in_test": 1
+        },
+        "CC0118": {
+            "num_datapoints_in_train": 2,
+            "perc_correct": 0.0,
+            "num_datapoints_in_test": 3
+        },
+        "CC0004": {
+            "num_datapoints_in_train": 2,
+            "perc_correct": 0.0,
+            "num_datapoints_in_test": 4
+        },
+        "RCS1018": {
+            "num_datapoints_in_train": 3,
+            "perc_correct": 0.3333333333333333,
+            "num_datapoints_in_test": 3
+        },
+        "SA1413": {
+            "num_datapoints_in_train": 10,
+            "perc_correct": 0.0,
+            "num_datapoints_in_test": 3
+        },
+        "CC0030": {
+            "num_datapoints_in_train": 5,
+            "perc_correct": 0.5,
+            "num_datapoints_in_test": 2
+        },
+        "DictionaryVariableFix": {
+            "num_datapoints_in_train": 3,
+            "perc_correct": 0.0,
+            "num_datapoints_in_test": 1
+        },
+        "DA4005": {
+            "num_datapoints_in_train": 15,
+            "perc_correct": 1.0,
+            "num_datapoints_in_test": 5
+        },
+        "ASYNC0001": {
+            "num_datapoints_in_train": 5,
+            "perc_correct": 0.0,
+            "num_datapoints_in_test": 1
+        },
+        "SA1028": {
+            "num_datapoints_in_train": 16,
+            "perc_correct": 1.0,
+            "num_datapoints_in_test": 6
+        },
+        "CC0022": {
+            "num_datapoints_in_train": 1,
+            "perc_correct": 0.0,
+            "num_datapoints_in_test": 2
+        },
+        "CA2101": {
+            "num_datapoints_in_train": 0,
+            "perc_correct": 0.0,
+            "num_datapoints_in_test": 1
+        },
+        "VSD0023": {
+            "num_datapoints_in_train": 14,
+            "perc_correct": 0.25,
+            "num_datapoints_in_test": 4
+        },
+        "VSD0029": {
+            "num_datapoints_in_train": 1,
+            "perc_correct": 0.0,
+            "num_datapoints_in_test": 2
+        },
+        "SA1306": {
+            "num_datapoints_in_train": 2,
+            "perc_correct": 0.0,
+            "num_datapoints_in_test": 3
+        },
+        "DOC102": {
+            "num_datapoints_in_train": 0,
+            "perc_correct": 0.0,
+            "num_datapoints_in_test": 1
+        },
+        "CC0061": {
+            "num_datapoints_in_train": 5,
+            "perc_correct": 0.6666666666666666,
+            "num_datapoints_in_test": 3
+        },
+        "SA1513": {
+            "num_datapoints_in_train": 20,
+            "perc_correct": 1.0,
+            "num_datapoints_in_test": 5
+        },
+        "CC0015": {
+            "num_datapoints_in_train": 4,
+            "perc_correct": 0.5,
+            "num_datapoints_in_test": 2
+        },
+        "FS0065": {
+            "num_datapoints_in_train": 3,
+            "perc_correct": 1.0,
+            "num_datapoints_in_test": 2
+        },
+        "SA1008": {
+            "num_datapoints_in_train": 14,
+            "perc_correct": 1.0,
+            "num_datapoints_in_test": 3
+        },
+        "OhNoPubImplicitCastForeach": {
+            "num_datapoints_in_train": 2,
+            "perc_correct": 0.0,
+            "num_datapoints_in_test": 2
+        },
+        "Y0002": {
+            "num_datapoints_in_train": 13,
+            "perc_correct": 0.5,
+            "num_datapoints_in_test": 4
+        },
+        "SA1400": {
+            "num_datapoints_in_train": 6,
+            "perc_correct": 1.0,
+            "num_datapoints_in_test": 1
+        },
+        "RCS1247": {
+            "num_datapoints_in_train": 0,
+            "perc_correct": 0.0,
+            "num_datapoints_in_test": 1
+        },
+        "FS0126": {
+            "num_datapoints_in_train": 0,
+            "perc_correct": 0.0,
+            "num_datapoints_in_test": 1
+        },
+        "RCS1084": {
+            "num_datapoints_in_train": 1,
+            "perc_correct": 1.0,
+            "num_datapoints_in_test": 1
+        },
+        "RB003": {
+            "num_datapoints_in_train": 17,
+            "perc_correct": 0.5,
+            "num_datapoints_in_test": 4
+        },
+        "RCS1001": {
+            "num_datapoints_in_train": 1,
+            "perc_correct": 1.0,
+            "num_datapoints_in_test": 1
+        },
+        "CC0049": {
+            "num_datapoints_in_train": 3,
+            "perc_correct": 0.5,
+            "num_datapoints_in_test": 2
+        },
+        "RIT0008": {
+            "num_datapoints_in_train": 6,
+            "perc_correct": 0.0,
+            "num_datapoints_in_test": 2
+        },
+        "Method_length_60": {
+            "num_datapoints_in_train": 1,
+            "perc_correct": 1.0,
+            "num_datapoints_in_test": 3
+        },
+        "RCS1102": {
+            "num_datapoints_in_train": 3,
+            "perc_correct": 0.0,
+            "num_datapoints_in_test": 1
+        },
+        "CC0057": {
+            "num_datapoints_in_train": 10,
+            "perc_correct": 0.25,
+            "num_datapoints_in_test": 4
+        },
+        "ASA002": {
+            "num_datapoints_in_train": 9,
+            "perc_correct": 1.0,
+            "num_datapoints_in_test": 2
+        },
+        "SA1027": {
+            "num_datapoints_in_train": 5,
+            "perc_correct": 0.0,
+            "num_datapoints_in_test": 1
+        },
+        "VSTHRD200": {
+            "num_datapoints_in_train": 10,
+            "perc_correct": 1.0,
+            "num_datapoints_in_test": 2
+        },
+        "Analyzer1": {
+            "num_datapoints_in_train": 25,
+            "perc_correct": 1.0,
+            "num_datapoints_in_test": 8
+        },
+        "SA1303": {
+            "num_datapoints_in_train": 0,
+            "perc_correct": 0.0,
+            "num_datapoints_in_test": 1
+        },
+        "CCN0011": {
+            "num_datapoints_in_train": 3,
+            "perc_correct": 0.0,
+            "num_datapoints_in_test": 2
+        },
+        "VSD0048": {
+            "num_datapoints_in_train": 1,
+            "perc_correct": 0.0,
+            "num_datapoints_in_test": 1
+        },
+        "DecimalPoints": {
+            "num_datapoints_in_train": 6,
+            "perc_correct": 0.0,
+            "num_datapoints_in_test": 2
+        },
+        "CC0013": {
+            "num_datapoints_in_train": 3,
+            "perc_correct": 0.5,
+            "num_datapoints_in_test": 2
+        },
+        "SA1311": {
+            "num_datapoints_in_train": 1,
+            "perc_correct": 1.0,
+            "num_datapoints_in_test": 1
+        },
+        "SA1307": {
+            "num_datapoints_in_train": 6,
+            "perc_correct": 0.3333333333333333,
+            "num_datapoints_in_test": 3
+        },
+        "SA1123": {
+            "num_datapoints_in_train": 1,
+            "perc_correct": 0.0,
+            "num_datapoints_in_test": 1
+        },
+        "CC0008": {
+            "num_datapoints_in_train": 2,
+            "perc_correct": 0.0,
+            "num_datapoints_in_test": 3
+        },
+        "ODSUnusedCodeAnalyser": {
+            "num_datapoints_in_train": 10,
+            "perc_correct": 1.0,
+            "num_datapoints_in_test": 2
+        },
+        "DOC100": {
+            "num_datapoints_in_train": 20,
+            "perc_correct": 0.5,
+            "num_datapoints_in_test": 4
+        },
+        "INTL0003": {
+            "num_datapoints_in_train": 4,
+            "perc_correct": 0.5,
+            "num_datapoints_in_test": 2
+        },
+        "RECS0002": {
+            "num_datapoints_in_train": 0,
+            "perc_correct": 0.0,
+            "num_datapoints_in_test": 1
+        },
+        "CSE006": {
+            "num_datapoints_in_train": 2,
+            "perc_correct": 0.0,
+            "num_datapoints_in_test": 1
+        },
+        "SA1119": {
+            "num_datapoints_in_train": 8,
+            "perc_correct": 1.0,
+            "num_datapoints_in_test": 1
+        },
+        "RECS0033": {
+            "num_datapoints_in_train": 1,
+            "perc_correct": 0.0,
+            "num_datapoints_in_test": 1
+        },
+        "DOC202": {
+            "num_datapoints_in_train": 4,
+            "perc_correct": 0.0,
+            "num_datapoints_in_test": 1
+        },
+        "SA1116": {
+            "num_datapoints_in_train": 8,
+            "perc_correct": 0.0,
+            "num_datapoints_in_test": 2
+        },
+        "SA1137": {
+            "num_datapoints_in_train": 5,
+            "perc_correct": 1.0,
+            "num_datapoints_in_test": 1
+        },
+        "CA1028": {
+            "num_datapoints_in_train": 3,
+            "perc_correct": 0.0,
+            "num_datapoints_in_test": 1
+        },
+        "RIT0004": {
+            "num_datapoints_in_train": 2,
+            "perc_correct": 1.0,
+            "num_datapoints_in_test": 1
+        },
+        "DDTN0001": {
+            "num_datapoints_in_train": 9,
+            "perc_correct": 1.0,
+            "num_datapoints_in_test": 1
+        },
+        "RECS0093": {
+            "num_datapoints_in_train": 0,
+            "perc_correct": 0.0,
+            "num_datapoints_in_test": 1
+        },
+        "FS0127": {
+            "num_datapoints_in_train": 2,
+            "perc_correct": 1.0,
+            "num_datapoints_in_test": 1
+        },
+        "Underscore": {
+            "num_datapoints_in_train": 6,
+            "perc_correct": 0.0,
+            "num_datapoints_in_test": 2
+        },
+        "FirstAnalyzerCS": {
+            "num_datapoints_in_train": 21,
+            "perc_correct": 1.0,
+            "num_datapoints_in_test": 3
+        },
+        "DOC203": {
+            "num_datapoints_in_train": 1,
+            "perc_correct": 0.5,
+            "num_datapoints_in_test": 2
+        },
+        "RCS1015": {
+            "num_datapoints_in_train": 4,
+            "perc_correct": 1.0,
+            "num_datapoints_in_test": 2
+        },
+        "RCS1080": {
+            "num_datapoints_in_train": 0,
+            "perc_correct": 0.0,
+            "num_datapoints_in_test": 1
+        },
+        "DA3005": {
+            "num_datapoints_in_train": 3,
+            "perc_correct": 1.0,
+            "num_datapoints_in_test": 1
+        },
+        "OphlanAnalyzersOrganizeMembers": {
+            "num_datapoints_in_train": 1,
+            "perc_correct": 0.0,
+            "num_datapoints_in_test": 1
+        },
+        "SA1009": {
+            "num_datapoints_in_train": 6,
+            "perc_correct": 1.0,
+            "num_datapoints_in_test": 1
+        },
+        "EPC12": {
+            "num_datapoints_in_train": 3,
+            "perc_correct": 1.0,
+            "num_datapoints_in_test": 1
+        },
+        "FS0030": {
+            "num_datapoints_in_train": 1,
+            "perc_correct": 0.0,
+            "num_datapoints_in_test": 1
+        },
+        "_SuperfluousAsync": {
+            "num_datapoints_in_train": 8,
+            "perc_correct": 1.0,
+            "num_datapoints_in_test": 1
+        },
+        "AANA001": {
+            "num_datapoints_in_train": 0,
+            "perc_correct": 1.0,
+            "num_datapoints_in_test": 1
+        },
+        "_MissingConfigureAwait": {
+            "num_datapoints_in_train": 0,
+            "perc_correct": 0.0,
+            "num_datapoints_in_test": 1
+        },
+        "RCS1169": {
+            "num_datapoints_in_train": 7,
+            "perc_correct": 0.5,
+            "num_datapoints_in_test": 2
+        },
+        "CC0060": {
+            "num_datapoints_in_train": 0,
+            "perc_correct": 0.0,
+            "num_datapoints_in_test": 1
+        },
+        "DOC201": {
+            "num_datapoints_in_train": 0,
+            "perc_correct": 0.0,
+            "num_datapoints_in_test": 1
+        },
+        "RCS1032": {
+            "num_datapoints_in_train": 6,
+            "perc_correct": 1.0,
+            "num_datapoints_in_test": 1
+        },
+        "WS002": {
+            "num_datapoints_in_train": 1,
+            "perc_correct": 0.0,
+            "num_datapoints_in_test": 1
+        },
+        "RCS1118": {
+            "num_datapoints_in_train": 1,
+            "perc_correct": 1.0,
+            "num_datapoints_in_test": 1
+        },
+        "SA1003": {
+            "num_datapoints_in_train": 4,
+            "perc_correct": 1.0,
+            "num_datapoints_in_test": 1
+        },
+        "SA1110": {
+            "num_datapoints_in_train": 1,
+            "perc_correct": 1.0,
+            "num_datapoints_in_test": 1
+        }
+    }
+}
