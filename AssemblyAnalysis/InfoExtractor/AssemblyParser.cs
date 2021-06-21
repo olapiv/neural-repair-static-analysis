@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CodeFixes;
 using Microsoft.CodeAnalysis.Diagnostics;
+using Microsoft.CodeAnalysis.CodeRefactorings;
 using System.Reflection;
 using CsvHelper;
 using CsvHelper.Configuration;
@@ -21,11 +22,13 @@ namespace InfoExtractor
             this.assembly = Assembly.LoadFrom(pathToAssembly);
             this.analyzers = LoadDiagnosticAnalyzers();
             this.codeFixers = LoadCodeFixProviders();
+            this.codeRefactorings = LoadCodeRefactoringProviders();
         }
 
         public Assembly assembly;
         public List<DiagnosticAnalyzer> analyzers;
         public List<CodeFixProvider> codeFixers;
+        public List<CodeRefactoringProvider> codeRefactorings;
         public List<DiagnosticInfoAsCSV> diagnosticsCSV;
 
         public List<CodeFixProvider> LoadCodeFixProviders()
@@ -70,7 +73,21 @@ namespace InfoExtractor
         {
             List<DiagnosticAnalyzer> analyzers = new List<DiagnosticAnalyzer>();
 
-            foreach (System.Reflection.TypeInfo typeInfo in assembly.DefinedTypes)
+            IEnumerable<System.Reflection.TypeInfo> assemblyTypes = Enumerable.Empty<System.Reflection.TypeInfo>(); // = new List<DiagnosticAnalyzer>();
+
+            // Can throw ReflectionTypeLoadException for unkown reasons
+            assemblyTypes = assembly.DefinedTypes.ToArray();
+
+            //try {
+            //    assemblyTypes = assembly.DefinedTypes.ToArray();
+            //} catch (ReflectionTypeLoadException ex) {
+            //    foreach(Exception inner in ex.LoaderExceptions) {
+            //        Console.WriteLine($"    inner: {inner}");
+            //    }
+            //    throw ex;
+            //}
+
+            foreach (System.Reflection.TypeInfo typeInfo in assemblyTypes)
             {
                 if (typeInfo.IsAbstract
                     || !typeInfo.IsSubclassOf(typeof(DiagnosticAnalyzer)))
@@ -104,6 +121,45 @@ namespace InfoExtractor
             return analyzers;
         }
 
+        public List<CodeRefactoringProvider> LoadCodeRefactoringProviders()
+        {
+            List<CodeRefactoringProvider> codeRefactorings = new List<CodeRefactoringProvider>();
+
+            foreach (System.Reflection.TypeInfo typeInfo in assembly.DefinedTypes)
+            {
+                if (typeInfo.IsAbstract
+                    || !typeInfo.IsSubclassOf(typeof(CodeRefactoringProvider)))
+                {
+                    continue;
+                }
+
+                ExportCodeRefactoringProviderAttribute attribute = typeInfo.GetCustomAttribute<ExportCodeRefactoringProviderAttribute>();
+                if (attribute == null)
+                {
+                    Console.WriteLine("No attribute!");
+                    continue;
+                }
+
+                if (!attribute.Languages.Contains("C#"))
+                {
+                    Console.WriteLine("Does not contain C#!");
+                    continue;
+                }
+
+                CodeRefactoringProvider codeRefactoring = CreateInstanceAndCatchIfThrows<CodeRefactoringProvider>(typeInfo);
+                if (codeRefactoring == null)
+                {
+                    Console.WriteLine("No coder fixer!");
+                    continue;
+                }
+
+                codeRefactorings.Add(codeRefactoring);
+            }
+            Console.WriteLine($"Number of CodeRefactoringProvider: {codeRefactorings.Count}");
+
+            return codeRefactorings;
+        }
+
 
         private static T CreateInstanceAndCatchIfThrows<T>(System.Reflection.TypeInfo typeInfo)
         {
@@ -126,22 +182,64 @@ namespace InfoExtractor
 
             foreach (DiagnosticAnalyzer analyzer in analyzers)
             {
+
+                // try
+                // {
+
                 foreach (DiagnosticDescriptor descriptor in analyzer.SupportedDiagnostics)
                 {
+
+                    String.Join(", ", descriptor.CustomTags.ToArray());
                     this.diagnosticsCSV.Add(
-                        new DiagnosticInfoAsCSV(packageName, assembly, "DIAGNOSTIC_ANALYZER", descriptor.Id.ToString())
+                        new DiagnosticInfoAsCSV(
+                            packageName,
+                            assembly,
+                            "DIAGNOSTIC_ANALYZER",
+                            descriptor.Id.ToString(),
+                            descriptor.Title.ToString(),
+                            descriptor.Description.ToString(),
+                            descriptor.Category
+                            // String.Join(", ", descriptor.CustomTags.ToArray())
+                        )
                     );
                 };
+
+                // }
+                // catch (Exception ex)
+                // {
+                //     Console.WriteLine($"ex: '{ex}'");
+                // }
             };
 
             foreach (CodeFixProvider codeFixer in codeFixers)
             {
+                
                 foreach (String fixableDiagnosticID in codeFixer.FixableDiagnosticIds)
                 {
                     this.diagnosticsCSV.Add(
                         new DiagnosticInfoAsCSV(packageName, assembly, "CODEFIX_PROVIDER", fixableDiagnosticID)
                     );
                 }
+                var fixAllProvider = codeFixer.GetFixAllProvider();
+                if (fixAllProvider == null)
+                    continue;
+                foreach (String allFixableDiagnosticID in fixAllProvider.GetSupportedFixAllDiagnosticIds(codeFixer))
+                {
+                    this.diagnosticsCSV.Add(
+                        new DiagnosticInfoAsCSV(packageName, assembly, "FIX_ALL_PROVIDER", allFixableDiagnosticID)
+                    );
+                }
+            };
+
+            foreach (CodeRefactoringProvider codeRefactoring in codeRefactorings)
+            {
+                //Console.WriteLine($"codeRefactoring type.Name: '{codeRefactoring.GetType()}'");
+                //Console.WriteLine($"codeRefactoring type.Name: '{codeRefactoring.GetType().Name}'");
+                //Console.WriteLine($"codeRefactoring type.FullName: '{codeRefactoring.GetType().FullName}'");
+
+                this.diagnosticsCSV.Add(
+                    new DiagnosticInfoAsCSV(packageName, assembly, "CODEREFACTORING_PROVIDER", codeRefactoring.GetType().Name)
+                );
             };
         }
 
@@ -150,14 +248,14 @@ namespace InfoExtractor
             if (newFile)
             {
                 using (var writer = new StreamWriter(pathToCSV))
-                using (var csv = new CsvWriter(writer, CultureInfo.InvariantCulture))
+                using (var csv = new CsvWriter(writer, CultureInfo.CurrentCulture))
                 {
                     csv.WriteRecords(this.diagnosticsCSV);
                 }
             }
             {
                 // Append to file
-                var config = new CsvConfiguration(CultureInfo.InvariantCulture)
+                var config = new CsvConfiguration(CultureInfo.CurrentCulture)
                 {
                     // Don't write the header again.
                     HasHeaderRecord = false,
