@@ -202,31 +202,29 @@ namespace InfoExtractor
 
             foreach (CodeFixProvider codeFixer in codeFixers)
             {
-                
-                foreach (String fixableDiagnosticID in codeFixer.FixableDiagnosticIds)
-                {
-                    this.diagnosticsCSV.Add(
-                        new DiagnosticInfoAsCSV(packageName, assembly, "CODEFIX_PROVIDER", fixableDiagnosticID)
-                    );
+
+                var FixAllDiagnosticIDs = Enumerable.Empty<String>();
+                var supportedScopes = "";
+                var fixAllProvider = codeFixer.GetFixAllProvider();
+                if (fixAllProvider != null) {
+                    FixAllDiagnosticIDs = fixAllProvider.GetSupportedFixAllDiagnosticIds(codeFixer);
+                    supportedScopes = String.Join(", ", fixAllProvider.GetSupportedFixAllScopes().ToArray());
                 }
 
-                var fixAllProvider = codeFixer.GetFixAllProvider();
-                if (fixAllProvider == null)
-                    continue;
-
-                var supportedScopes = String.Join(", ", fixAllProvider.GetSupportedFixAllScopes().ToArray());
-
-                foreach (String FixAllDiagnosticID in fixAllProvider.GetSupportedFixAllDiagnosticIds(codeFixer))
+                foreach (String fixableDiagnosticID in codeFixer.FixableDiagnosticIds)
                 {
+                    
                     this.diagnosticsCSV.Add(
                         new DiagnosticInfoAsCSV(
                             packageName,
                             assembly,
-                            "FIX_ALL_PROVIDER",
-                            FixAllDiagnosticID,
+                            "CODEFIX_PROVIDER",
+                            fixableDiagnosticID,
+                            containsFixAllProvider: FixAllDiagnosticIDs.Contains(fixableDiagnosticID).ToString(),
                             fixAllProviderSupportedScopes: supportedScopes
                         )
                     );
+
                 }
             };
 

@@ -16,7 +16,7 @@ namespace InfoExtractor
             String diagnosticDefaultSeverity = null,
             String diagnosticCategory = null,
             String diagnosticCustomTags = null,
-            // Boolean fixAllProviderAvailable = false,
+            String containsFixAllProvider = null,
             String fixAllProviderSupportedScopes = null,
             String refactoringName = null
         )
@@ -30,7 +30,7 @@ namespace InfoExtractor
             this.DiagnosticDefaultSeverity = diagnosticDefaultSeverity;
             this.DiagnosticCategory = diagnosticCategory;
             this.DiagnosticCustomTags = diagnosticCustomTags;
-            // this.FixAllProviderAvailable = fixAllProviderAvailable;
+            this.ContainsFixAllProvider = containsFixAllProvider;
             this.FixAllProviderSupportedScopes = fixAllProviderSupportedScopes;
             this.RefactoringName = refactoringName;
         }
@@ -44,7 +44,7 @@ namespace InfoExtractor
         public String DiagnosticDefaultSeverity { get; set; }
         public String DiagnosticCategory { get; set; }
         public String DiagnosticCustomTags { get; set; }
-        // public Boolean FixAllProviderAvailable { get; set; }
+        public String ContainsFixAllProvider { get; set; }  // Using String instead of Boolean to keep null-initialisiation possible
         public String FixAllProviderSupportedScopes { get; set; }
         public String RefactoringName { get; set; }
 
