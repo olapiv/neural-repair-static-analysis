@@ -13,30 +13,34 @@ namespace InfoExtractor
             String diagnosticID,
             String diagnosticTitle = null,
             String diagnosticDescription = null,
-            String diagnosticCategory = null
-            // String diagnosticCustomTags = null
+            String diagnosticDefaultSeverity = null,
+            String diagnosticCategory = null,
+            String diagnosticCustomTags = null,
+            String refactoringName = null
         )
         {
-            this.HostingPackageName = packageName;
+            this.NuGetAnalyzerPackage = packageName;
             this.AssemblyName = assembly.GetName().Name;
             this.Type = type;
             this.DiagnosticID = diagnosticID;
-
-            this.diagnosticTitle = diagnosticTitle;
-            this.diagnosticDescription = diagnosticDescription;
-            this.diagnosticCategory = diagnosticCategory;
-            // this.diagnosticCustomTags = diagnosticCustomTags;
+            this.DiagnosticTitle = diagnosticTitle;
+            this.DiagnosticDescription = diagnosticDescription;
+            this.DiagnosticDefaultSeverity = diagnosticDefaultSeverity;
+            this.DiagnosticCategory = diagnosticCategory;
+            this.DiagnosticCustomTags = diagnosticCustomTags;
+            this.RefactoringName = refactoringName;
         }
 
-        public String HostingPackageName { get; set; }
+        public String NuGetAnalyzerPackage { get; set; }
         public String AssemblyName { get; set; }
         public String Type { get; set; }
         public String DiagnosticID { get; set; }
-        public String diagnosticTitle { get; set; }
-        public String diagnosticDescription { get; set; }
-        public String diagnosticCategory { get; set; }
-        // public String diagnosticCustomTags { get; set; }
+        public String DiagnosticTitle { get; set; }
+        public String DiagnosticDescription { get; set; }
+        public String DiagnosticDefaultSeverity { get; set; }
+        public String DiagnosticCategory { get; set; }
+        public String DiagnosticCustomTags { get; set; }
+        public String RefactoringName { get; set; }
 
-        // ANALYZER_PACKAGE,ANALYZER_ASSEMBLY,TYPE,DIAGNOSTIC_ID
     }
 }
