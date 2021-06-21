@@ -182,7 +182,7 @@ namespace InfoExtractor
                 {
 
                     descriptor.GetType();
-                    
+
                     this.diagnosticsCSV.Add(
                         new DiagnosticInfoAsCSV(
                             packageName,
@@ -209,9 +209,13 @@ namespace InfoExtractor
                         new DiagnosticInfoAsCSV(packageName, assembly, "CODEFIX_PROVIDER", fixableDiagnosticID)
                     );
                 }
+
                 var fixAllProvider = codeFixer.GetFixAllProvider();
                 if (fixAllProvider == null)
                     continue;
+
+                var supportedScopes = String.Join(", ", fixAllProvider.GetSupportedFixAllScopes().ToArray());
+
                 foreach (String FixAllDiagnosticID in fixAllProvider.GetSupportedFixAllDiagnosticIds(codeFixer))
                 {
                     this.diagnosticsCSV.Add(
@@ -219,7 +223,8 @@ namespace InfoExtractor
                             packageName,
                             assembly,
                             "FIX_ALL_PROVIDER",
-                            FixAllDiagnosticID
+                            FixAllDiagnosticID,
+                            fixAllProviderSupportedScopes: supportedScopes
                         )
                     );
                 }
@@ -238,8 +243,7 @@ namespace InfoExtractor
                         packageName,
                         assembly,
                         "CODEREFACTORING_PROVIDER",
-                        "", "","","","","",
-                        codeRefactoring.GetType().Name
+                        refactoringName: codeRefactoring.GetType().Name
                     )
                 );
             };

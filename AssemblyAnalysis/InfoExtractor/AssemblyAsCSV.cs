@@ -10,12 +10,14 @@ namespace InfoExtractor
             String packageName,
             Assembly assembly,
             String type,
-            String diagnosticID,
+            String diagnosticID = null,
             String diagnosticTitle = null,
             String diagnosticDescription = null,
             String diagnosticDefaultSeverity = null,
             String diagnosticCategory = null,
             String diagnosticCustomTags = null,
+            // Boolean fixAllProviderAvailable = false,
+            String fixAllProviderSupportedScopes = null,
             String refactoringName = null
         )
         {
@@ -28,6 +30,8 @@ namespace InfoExtractor
             this.DiagnosticDefaultSeverity = diagnosticDefaultSeverity;
             this.DiagnosticCategory = diagnosticCategory;
             this.DiagnosticCustomTags = diagnosticCustomTags;
+            // this.FixAllProviderAvailable = fixAllProviderAvailable;
+            this.FixAllProviderSupportedScopes = fixAllProviderSupportedScopes;
             this.RefactoringName = refactoringName;
         }
 
@@ -40,6 +44,8 @@ namespace InfoExtractor
         public String DiagnosticDefaultSeverity { get; set; }
         public String DiagnosticCategory { get; set; }
         public String DiagnosticCustomTags { get; set; }
+        // public Boolean FixAllProviderAvailable { get; set; }
+        public String FixAllProviderSupportedScopes { get; set; }
         public String RefactoringName { get; set; }
 
     }
