@@ -35,7 +35,10 @@ namespace InfoExtractor
         {
             List<CodeFixProvider> codeFixers = new List<CodeFixProvider>();
 
-            foreach (System.Reflection.TypeInfo typeInfo in assembly.DefinedTypes)
+            // Can throw ReflectionTypeLoadException for unkown reasons
+            var assemblyTypes = assembly.DefinedTypes.ToArray();
+
+            foreach (System.Reflection.TypeInfo typeInfo in assemblyTypes)
             {
                 if (typeInfo.IsAbstract
                     || !typeInfo.IsSubclassOf(typeof(CodeFixProvider)))
@@ -73,19 +76,8 @@ namespace InfoExtractor
         {
             List<DiagnosticAnalyzer> analyzers = new List<DiagnosticAnalyzer>();
 
-            IEnumerable<System.Reflection.TypeInfo> assemblyTypes = Enumerable.Empty<System.Reflection.TypeInfo>(); // = new List<DiagnosticAnalyzer>();
-
             // Can throw ReflectionTypeLoadException for unkown reasons
-            assemblyTypes = assembly.DefinedTypes.ToArray();
-
-            //try {
-            //    assemblyTypes = assembly.DefinedTypes.ToArray();
-            //} catch (ReflectionTypeLoadException ex) {
-            //    foreach(Exception inner in ex.LoaderExceptions) {
-            //        Console.WriteLine($"    inner: {inner}");
-            //    }
-            //    throw ex;
-            //}
+            var assemblyTypes = assembly.DefinedTypes.ToArray();
 
             foreach (System.Reflection.TypeInfo typeInfo in assemblyTypes)
             {
@@ -125,7 +117,10 @@ namespace InfoExtractor
         {
             List<CodeRefactoringProvider> codeRefactorings = new List<CodeRefactoringProvider>();
 
-            foreach (System.Reflection.TypeInfo typeInfo in assembly.DefinedTypes)
+            // Can throw ReflectionTypeLoadException for unkown reasons
+            var assemblyTypes = assembly.DefinedTypes.ToArray();
+
+            foreach (System.Reflection.TypeInfo typeInfo in assemblyTypes)
             {
                 if (typeInfo.IsAbstract
                     || !typeInfo.IsSubclassOf(typeof(CodeRefactoringProvider)))
@@ -183,9 +178,6 @@ namespace InfoExtractor
             foreach (DiagnosticAnalyzer analyzer in analyzers)
             {
 
-                // try
-                // {
-
                 foreach (DiagnosticDescriptor descriptor in analyzer.SupportedDiagnostics)
                 {
 
@@ -204,11 +196,6 @@ namespace InfoExtractor
                     );
                 };
 
-                // }
-                // catch (Exception ex)
-                // {
-                //     Console.WriteLine($"ex: '{ex}'");
-                // }
             };
 
             foreach (CodeFixProvider codeFixer in codeFixers)
