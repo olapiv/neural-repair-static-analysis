@@ -17,3 +17,5 @@ True  # Whether to start from scratch
 1. "Debugger operation failed: Culture name sr-Latn-CS is not supported. Parameter: Name" for
     Microsoft.CodeAnalysis.CSharp.CodeStyle.3.9.0, Microsoft.CodeAnalysis.CodeStyle.dll
 1. Mono runtime crash at some point (not sure for which NuGet analyzer)
+    packageName: Microsoft.AspNetCore.Routing.2.2.0
+    assemblyFilename: Microsoft.AspNetCore.Routing.dll
