@@ -19,21 +19,60 @@ namespace InfoExtractor
     {
         public AssemblyParser(String pathToAssembly)
         {
+            this.pathToAssembly = pathToAssembly;
+            AppDomain.CurrentDomain.AssemblyResolve += CurrentDomain_AssemblyResolve;
             this.assembly = Assembly.LoadFrom(pathToAssembly);
-            this.analyzers = LoadDiagnosticAnalyzers();
-            this.codeFixers = LoadCodeFixProviders();
-            this.codeRefactorings = LoadCodeRefactoringProviders();
+
+            this.analyzers = new List<DiagnosticAnalyzer>();
+            this.codeFixers = new List<CodeFixProvider>();
+            this.codeRefactorings = new List<CodeRefactoringProvider>();
         }
 
+        private Assembly CurrentDomain_AssemblyResolve(object sender, ResolveEventArgs args)
+        {
+            var assemblyName = args.Name.Split(',').First();
+            if (assemblyName.EndsWith(".resources", StringComparison.InvariantCultureIgnoreCase))
+                return null;
+
+            var assemblyLookingFor = assemblyName + ".dll";
+
+            var currentAssemblyDir = Path.GetDirectoryName(pathToAssembly);
+            var allFilesCurrent = Directory.GetFiles(currentAssemblyDir, assemblyLookingFor, SearchOption.AllDirectories);
+            if (allFilesCurrent.Any())
+            {
+                return Assembly.LoadFrom(allFilesCurrent.First());
+            }
+
+
+            var relevantDir = Path.Combine(Directory.GetCurrentDirectory(), "nuget_analyzer_packages");
+            var allDirs = Directory.GetDirectories(relevantDir).Where(dir => dir.ToLower().Contains(assemblyName.ToLower()));
+            foreach ( var dir in allDirs)
+            {
+                var allFiles = Directory.GetFiles(relevantDir, assemblyLookingFor, SearchOption.AllDirectories);
+
+                if (allFiles.Any())
+                {
+                    return Assembly.LoadFrom(allFiles.First());
+                }
+            }
+
+            Console.WriteLine($"args.Name: {args.Name}");
+            Console.WriteLine($"args.RequestingAssembly: {args.RequestingAssembly.FullName}");
+            return null;
+
+            // throw new NotImplementedException();
+        }
+
+        public String pathToAssembly;
         public Assembly assembly;
         public List<DiagnosticAnalyzer> analyzers;
         public List<CodeFixProvider> codeFixers;
         public List<CodeRefactoringProvider> codeRefactorings;
         public List<DiagnosticInfoAsCSV> diagnosticsCSV;
 
-        public List<CodeFixProvider> LoadCodeFixProviders()
+        public void LoadCodeFixProviders()
         {
-            List<CodeFixProvider> codeFixers = new List<CodeFixProvider>();
+            this.codeFixers.Clear();
 
             // Can throw ReflectionTypeLoadException for unkown reasons
             var assemblyTypes = assembly.DefinedTypes.ToArray();
@@ -66,15 +105,15 @@ namespace InfoExtractor
                     continue;
                 }
 
-                codeFixers.Add(codeFixer);
+                this.codeFixers.Add(codeFixer);
             }
-            Console.WriteLine($"Number of CodeFixProviders: {codeFixers.Count}");
-            return codeFixers;
+            Console.WriteLine($"Number of CodeFixProviders: {this.codeFixers.Count}");
         }
 
-        public List<DiagnosticAnalyzer> LoadDiagnosticAnalyzers()
+        public void LoadDiagnosticAnalyzers()
         {
-            List<DiagnosticAnalyzer> analyzers = new List<DiagnosticAnalyzer>();
+
+            this.analyzers.Clear();
 
             // Can throw ReflectionTypeLoadException for unkown reasons
             var assemblyTypes = assembly.DefinedTypes.ToArray();
@@ -107,15 +146,15 @@ namespace InfoExtractor
                     continue;
                 }
 
-                analyzers.Add(analyzer);
+                this.analyzers.Add(analyzer);
             }
-            Console.WriteLine($"Number of DiagnosticAnalyzers: {analyzers.Count}");
-            return analyzers;
+            Console.WriteLine($"Number of DiagnosticAnalyzers: {this.analyzers.Count}");
         }
 
-        public List<CodeRefactoringProvider> LoadCodeRefactoringProviders()
+        public void LoadCodeRefactoringProviders()
         {
-            List<CodeRefactoringProvider> codeRefactorings = new List<CodeRefactoringProvider>();
+
+            this.codeRefactorings.Clear();
 
             // Can throw ReflectionTypeLoadException for unkown reasons
             var assemblyTypes = assembly.DefinedTypes.ToArray();
@@ -148,11 +187,10 @@ namespace InfoExtractor
                     continue;
                 }
 
-                codeRefactorings.Add(codeRefactoring);
+                this.codeRefactorings.Add(codeRefactoring);
             }
-            Console.WriteLine($"Number of CodeRefactoringProvider: {codeRefactorings.Count}");
+            Console.WriteLine($"Number of CodeRefactoringProvider: {this.codeRefactorings.Count}");
 
-            return codeRefactorings;
         }
 
 
@@ -180,8 +218,8 @@ namespace InfoExtractor
 
                 foreach (DiagnosticDescriptor descriptor in analyzer.SupportedDiagnostics)
                 {
-
-                    descriptor.GetType();
+                    var title = descriptor.Title.ToString();
+                    var description = descriptor.Description.ToString();
 
                     this.diagnosticsCSV.Add(
                         new DiagnosticInfoAsCSV(
@@ -189,8 +227,8 @@ namespace InfoExtractor
                             assembly,
                             "DIAGNOSTIC_ANALYZER",
                             descriptor.Id.ToString(),
-                            descriptor.Title.ToString(),
-                            descriptor.Description.ToString(),
+                            title,
+                            description,
                             descriptor.DefaultSeverity.ToString(),
                             descriptor.Category,
                             String.Join(", ", descriptor.CustomTags.ToArray())
