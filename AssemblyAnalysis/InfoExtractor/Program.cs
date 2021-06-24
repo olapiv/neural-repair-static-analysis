@@ -2,6 +2,7 @@
 using System.IO;
 using System.Globalization;
 using System.Threading;
+using System.Reflection;
 using System.Collections.Generic;
 using CsvHelper;
 using CsvHelper.Configuration;
@@ -73,6 +74,14 @@ namespace InfoExtractor
                 catch (Exception ex)
                 {
                     Console.WriteLine($"Exception instantiating AssemblyParser: {ex}");
+                    continue;
+                }
+
+                try
+                {
+                    assemblyParser.LoadDefinedTypes();
+                } catch (ReflectionTypeLoadException)
+                {
                     continue;
                 }
 

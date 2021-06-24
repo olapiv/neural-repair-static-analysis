@@ -17,6 +17,15 @@ namespace InfoExtractor
 {
     public class AssemblyParser
     {
+
+        public String pathToAssembly;
+        public Assembly assembly;
+        public System.Reflection.TypeInfo[] assemblyTypes = { };
+        public List<DiagnosticAnalyzer> analyzers;
+        public List<CodeFixProvider> codeFixers;
+        public List<CodeRefactoringProvider> codeRefactorings;
+        public List<DiagnosticInfoAsCSV> diagnosticsCSV;
+
         public AssemblyParser(String pathToAssembly)
         {
             this.pathToAssembly = pathToAssembly;
@@ -42,9 +51,9 @@ namespace InfoExtractor
             var allFilesCurrent = Directory.GetFiles(currentAssemblyDir, assemblyLookingFor, SearchOption.AllDirectories);
             if (allFilesCurrent.Any())
             {
+                Console.WriteLine($"Found required assembly in sub-directory: {allFilesCurrent.First()}");
                 return Assembly.LoadFrom(allFilesCurrent.First());
             }
-
 
             var relevantDir = Path.Combine(Directory.GetCurrentDirectory(), "nuget_analyzer_packages");
             var allDirs = Directory.GetDirectories(relevantDir).Where(dir => dir.ToLower().Contains(assemblyName.ToLower()));
@@ -54,30 +63,51 @@ namespace InfoExtractor
 
                 if (allFiles.Any())
                 {
+                    Console.WriteLine($"Found required assembly in other NuGet package: {allFilesCurrent.First()}");
                     return Assembly.LoadFrom(allFiles.First());
                 }
             }
 
-            Console.WriteLine($"args.Name: {args.Name}");
-            Console.WriteLine($"args.RequestingAssembly: {args.RequestingAssembly.FullName}");
+            Console.WriteLine($"Did not find assembly dependency: {args.Name}\n\tfor assembly {args.RequestingAssembly.FullName}");
+
             return null;
 
             // throw new NotImplementedException();
         }
 
-        public String pathToAssembly;
-        public Assembly assembly;
-        public List<DiagnosticAnalyzer> analyzers;
-        public List<CodeFixProvider> codeFixers;
-        public List<CodeRefactoringProvider> codeRefactorings;
-        public List<DiagnosticInfoAsCSV> diagnosticsCSV;
+        public void LoadDefinedTypes()
+        {
+
+        //ANALYZER_PACKAGE: nuget_analyzer_packages / AWSSDK.AccessAnalyzer.3.7.0.3 /
+        //packageName: AWSSDK.AccessAnalyzer.3.7.0.3
+        //assemblyFilename: AWSSDK.AccessAnalyzer.dll
+        //Did not find type: Amazon.AccessAnalyzer.Model.AccessDeniedException of assembly AWSSDK.AccessAnalyzer, Version = 3.3.0.0, Culture = neutral, PublicKeyToken = 885c28607f98e604
+
+            try
+            {
+                assemblyTypes = assembly.DefinedTypes.ToArray();
+            }
+            catch (ReflectionTypeLoadException exc)
+            {
+                Console.WriteLine($"\nReflectionTypeLoadException in LoadDefinedTypes: {exc}\n");
+                // --> prints x times: Could not load file or assembly 'AWSSDK.Core, Version=3.3.0.0, Culture=neutral, PublicKeyToken=885c28607f98e604' or one of its dependencies.
+
+                //var notNullTypes = exc.Types.Where(t => t != null);
+
+                //foreach (var x in notNullTypes)
+                //{
+                //    Console.WriteLine($"Did not find type: {x} of assembly {x.Assembly.FullName}");
+                //    x.AssemblyQualifiedName
+                //}
+                //Console.WriteLine($"\n");
+                throw exc;
+            }
+
+        }
 
         public void LoadCodeFixProviders()
         {
             this.codeFixers.Clear();
-
-            // Can throw ReflectionTypeLoadException for unkown reasons
-            var assemblyTypes = assembly.DefinedTypes.ToArray();
 
             foreach (System.Reflection.TypeInfo typeInfo in assemblyTypes)
             {
@@ -117,9 +147,6 @@ namespace InfoExtractor
 
             this.analyzers.Clear();
 
-            // Can throw ReflectionTypeLoadException for unkown reasons
-            var assemblyTypes = assembly.DefinedTypes.ToArray();
-
             foreach (System.Reflection.TypeInfo typeInfo in assemblyTypes)
             {
                 if (typeInfo.IsAbstract
@@ -157,9 +184,6 @@ namespace InfoExtractor
         {
 
             this.codeRefactorings.Clear();
-
-            // Can throw ReflectionTypeLoadException for unkown reasons
-            var assemblyTypes = assembly.DefinedTypes.ToArray();
 
             foreach (System.Reflection.TypeInfo typeInfo in assemblyTypes)
             {
