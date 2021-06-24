@@ -26,6 +26,8 @@ namespace InfoExtractor
             this.analyzers = new List<DiagnosticAnalyzer>();
             this.codeFixers = new List<CodeFixProvider>();
             this.codeRefactorings = new List<CodeRefactoringProvider>();
+
+            this.diagnosticsCSV = new List<DiagnosticInfoAsCSV>();
         }
 
         private Assembly CurrentDomain_AssemblyResolve(object sender, ResolveEventArgs args)
@@ -211,7 +213,6 @@ namespace InfoExtractor
 
         public void GenerateCSVRepresentations(String packageName)
         {
-            this.diagnosticsCSV = new List<DiagnosticInfoAsCSV>();
 
             foreach (DiagnosticAnalyzer analyzer in analyzers)
             {
@@ -285,30 +286,19 @@ namespace InfoExtractor
             };
         }
 
-        public void WriteToCSV(String pathToCSV, Boolean newFile)
+        public void AppendToCSV(String pathToCSV)
         {
-            if (newFile)
-            {
-                using (var writer = new StreamWriter(pathToCSV))
-                using (var csv = new CsvWriter(writer, CultureInfo.CurrentCulture))
-                {
-                    csv.WriteRecords(this.diagnosticsCSV);
-                }
-            }
-            {
-                // Append to file
-                var config = new CsvConfiguration(CultureInfo.CurrentCulture)
-                {
-                    // Don't write the header again.
-                    HasHeaderRecord = false,
-                };
-                using (var stream = File.Open(pathToCSV, FileMode.Append))
-                using (var writer = new StreamWriter(stream))
-                using (var csv = new CsvWriter(writer, config))
-                {
-                    csv.WriteRecords(this.diagnosticsCSV);
-                }
 
+            var config = new CsvConfiguration(CultureInfo.CurrentCulture)
+            {
+                HasHeaderRecord = false
+            };
+
+            using (var stream = File.Open(pathToCSV, FileMode.Append))
+            using (var writer = new StreamWriter(stream))
+            using (var csv = new CsvWriter(writer, config))
+            {
+                csv.WriteRecords(this.diagnosticsCSV);
             }
         }
     }
