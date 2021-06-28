@@ -1,22 +1,17 @@
-# Final Dataset & Corresponding Results
+# Results and Evaluation
 
-## Dataset
+## Experiment Setup
 
-* Dataset & metadata files generated with [finalize_tokenized_dataset.py](../finalize_tokenized_dataset.py)
-* Variable names / identifiers are *not* indexed
-* Train, val & test dataset are randomly chosen from aggregate dataset
-* See metadata files for further information on data
+* NN model: Out-of-the-box OpenNMT Transformer with SelfAttentionDecoder
+* Hardware: Nvidia GeForce GTX 1080
+* NN was evaluated on inferring/translating the test dataset
+* Input: [src-test.txt](../src-test.txt), correct output: [tgt-test.txt](../tgt-test.txt), predicted output: [inference-test.txt](inference-test.txt)
+* Evaluation was scripted in [evaluate_nn_results.py](/evaluate_nn_results.py)
+* Evaluation results to be found in [inference-eval.json](inference-eval.json)
 
 ## Results after 5k steps
 
-* NN was evaluated on inferring/translating the test dataset
-* Input: [src-test.txt](src-test.txt), correct output: [tgt-test.txt](tgt-test.txt), predicted output: [inference-test.txt](inference-test.txt)
-* Evaluation was scripted in [evaluate_nn_results.py](../evaluate_nn_results.py)
-* Evaluation results to be found in [inference-eval.json](inference-eval.json)
-* Model used: Out-of-the-box OpenNMT Transformer with SelfAttentionDecoder
-* Convergence after around 3k steps (1h35min) using Nvidia GeForce GTX 1080
-
-Loss function
+Convergence after around 3k steps (1h35min); Loss function:
 
 ![Loss Function](loss_function_20k_steps.png)
 
