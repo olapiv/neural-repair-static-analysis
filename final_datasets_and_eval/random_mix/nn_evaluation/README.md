@@ -3,6 +3,7 @@
 ## Experiment Setup
 
 * NN model: Out-of-the-box OpenNMT Transformer with SelfAttentionDecoder
+* See further NN parameters in [data.yml](data.yml)
 * Hardware: Nvidia GeForce GTX 1080
 * NN was evaluated on inferring/translating the test dataset
 * Input: [src-test.txt](../src-test.txt), correct output: [tgt-test.txt](../tgt-test.txt), predicted output: [inference-test.txt](inference-test.txt)
