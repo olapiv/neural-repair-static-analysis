@@ -5,7 +5,7 @@ raw_dataset*
 unified_dataset*
 tokenized_dataset*
 toy-ende
-/**/nn_evaluation/run*
+/**/nn/run*
 *.pyc
 .vscode
 nuget.exe
