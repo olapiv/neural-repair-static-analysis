@@ -370,6 +370,27 @@ def create_relevant_source_package_list(df):
         for package in source_packages:
             f.write("%s\n" % package)
 
+def availability_fix_all_provider(df):
+    """
+    How many of our code fixers can be applied to an entire solution?
+    Possible scopes: Document, Project, Solution
+    """
+    _, codefix_providers, _ = total_each_type(df, False)
+
+    num_cp = len(codefix_providers.index)
+
+    num_contains_fixall_provider = len(codefix_providers[codefix_providers["ContainsFixAllProvider"] == True].index)
+    num_solution_scope_supported = codefix_providers['FixAllProviderSupportedScopes'].str.contains('Solution').sum()
+    num_all_scopes_supported = len(codefix_providers[codefix_providers["FixAllProviderSupportedScopes"] == "Document, Project, Solution"].index)
+
+    perc_contains_fixall_provider = num_contains_fixall_provider / num_cp
+    perc_solution_scope_supported = num_solution_scope_supported / num_cp
+    perc_all_scopes_supported = num_all_scopes_supported / num_cp
+
+    print("num_cp: ", num_cp)
+    print("perc_contains_fixall_provider: ", perc_contains_fixall_provider)
+    print("perc_solution_scope_supported: ", perc_solution_scope_supported)
+    print("perc_all_scopes_supported: ", perc_all_scopes_supported)
 
 
 def calculate_analyzer_statistics(csv_file="analyzer_package_details.csv"):
@@ -393,15 +414,17 @@ def calculate_analyzer_statistics(csv_file="analyzer_package_details.csv"):
     df = filter_df_latest_analyzer_versions(df)
 
     # duplicate_diagnostic_ids(df)
-    create_relevant_source_package_list(df)
+    # create_relevant_source_package_list(df)
 
     ###### Requires *filtered* dataframe ######
 
-    total_each_type(df)
+    availability_fix_all_provider(df)
 
-    das_cps_intersections(df)
-    das_cps_averages(df)
-    average_diagnostic_ids_per_package(df)
+    # total_each_type(df)
+
+    # das_cps_intersections(df)
+    # das_cps_averages(df)
+    # average_diagnostic_ids_per_package(df)
 
     ###########################################
 
