@@ -1,6 +1,7 @@
 AOTMapper.1.0.5
 APIDocCodeAnalyzer.1.0.6253.30470
 ATAnalyzer.1.0.5
+AWSSDK.AccessAnalyzer.3.7.0.3
 ActionResponseTypeAnalyzer.1.0.3
 Actor.Analyzer.1.0.1
 Acuminator.Analyzers.2.3.1
@@ -99,12 +100,17 @@ DSharpAnalyzer.1.1.0
 DapperAnalyser.0.0.0.6
 DateTimeAnalyzer_CS.1.0.6619.17972
 DateTimeProvider.Analyser.1.0.106
+DebtRatchet.1.0.5
 DebuggerStepThroughRemover.1.0.5823.28645
 DebuggingUsingsInsertor.1.0.5904.40201
 DecentCodingAnalyzer.1.0.12
 DefaultEcs.Analyzer.0.15.0
 DelSole.CrossAnalyzers.CSharp.1.0.6094.37613
+Dena.CodeAnalysis.Testing.1.0.0
+Deptorygen.1.0.4
 Desktop.Analyzers.1.1.0
+DevOpsFlex.Analyzers.1.0.1.0
+Dhgms.GripeWithRoslyn.Analyzer.1.8.0
 DiagnosticsAnalyzer.1.0.1
 Directum.DocumentationChecker.1.0.4
 DisableDateTimeNow.1.0.5883.39470
@@ -130,6 +136,7 @@ ErrorProne.NET.Structs.0.1.2
 Eshopworld.Tests.Core.Analyzers.1.0.11
 ExampleAnalyzer2.1.0.0
 ExceptionAnalyzer.1.0.5
+ExceptionsAnalyzer.0.1.5
 Excubo.Analyzers.DependencyInjectionValidation.1.0.17
 ExhaustiveMatching.Analyzer.0.5.0
 ExhaustiveSwitchOnEnums.1.0.1
@@ -178,6 +185,7 @@ Jabberwocky.Glass.CodeAnalysis.2.0.0
 Jacobi.VisualStudio.Analyzers.1.0.0
 Json.Net.Proprety.ToPascalCase.1.0.0.0
 Jubjubnest.Style.DotNet.0.1.54.0
+KanColleViewer.PluginAnalyzer.1.1.1.0
 Kingdom.Collections.Enumerations.Analyzers.1.0.3.8081
 Kros.Utils.Analyzers.1.0.0
 Kuno.CodeAnalysis.0.0.8
@@ -225,6 +233,7 @@ Microsoft.CodeAnalysis.VersionCheckAnalyzer.3.3.2
 Microsoft.CodeAnalysis.VisualBasic.CodeStyle.3.9.0
 Microsoft.CodeQuality.Analyzers.3.3.2
 Microsoft.DependencyValidation.Analyzers.0.11.0
+Microsoft.DotNet.FrameworkCompatibilityDiagnostics.0.5.0
 Microsoft.EntityFrameworkCore.Analyzers.5.0.4
 Microsoft.NetCore.Analyzers.3.3.2
 Microsoft.NetFramework.Analyzers.3.3.2
@@ -273,6 +282,7 @@ NonCopyableAnalyzer.0.6.0
 Nopen.NET.1.0.1
 Noria.Common.Roslyn.0.3.5
 NotifyPropertyChangedGenerator.1.1.1.0
+NpgsqlAnalyzers.0.0.2
 NullCheckAnalyzer.1.0.0.3
 NullableClass.Analyzer.0.4.0
 NullableValueAnalyzer.1.0.4
@@ -293,6 +303,7 @@ Philips.CodeAnalysis.DuplicateCodeAnalyzer.1.1.2
 Philips.CodeAnalysis.MaintainabilityAnalyzers.1.2.6.2
 Philips.CodeAnalysis.MoqAnalyzers.1.1.0
 Philips.CodeAnalysis.MsTestAnalyzers.1.1.3
+PhotonWire.Analyzer.1.0.2
 Piranha.Analyzers.8.4.0.18
 PlatformSpecific.Analyzer.2.0.3
 PointelCodeAnalyzer.1.0.0
@@ -301,6 +312,7 @@ PreserveFormattableStringForObjParamsAnalyzer.1.0.6439.929
 PreventEqualsMisusage.1.6.0
 PrismAnalyzer.1.0.0.5
 Privatest.1.0.2
+ProductiveRage.Immutable.4.2.0
 ProgressOnderwijsUtils.Analyzers.2.0.0
 PropertyChangedAnalyzers.3.2.2
 Puma.Security.Rules.2.4.7
@@ -341,6 +353,7 @@ Scifa.CheckedExceptions.1.0.14
 SecurityCodeScan.3.5.4.0
 SecurityCodeScan.VS2017.3.5.4
 SecurityCodeScan.VS2019.5.1.0
+SemDiff.1.1
 SerilogAnalyzer.0.15.0.0
 SharpChecker.1.0.6336.26127
 SharpILMixins.Analyzer.1.0.3
@@ -413,6 +426,7 @@ Walterlv.CodeAnalysis.Analyzers.5.13.0
 WarnAboutTODOs.1.6.0
 WebAnchor.Analyzers.0.5.0
 WebEssentials.AspNetCore.Analyzers.1.0.7
+Weingartner.Json.Migration.Analyzer.310.0.0
 WhitespaceAnalyzers.1.0.5716.21417
 Wintellect.Analyzers.1.0.6.0
 Wintellect.Analyzers.WXF.1.0.7.8
