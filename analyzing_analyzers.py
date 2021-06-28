@@ -366,7 +366,7 @@ def create_relevant_source_package_list(df):
     """
 
     source_packages = list(df.groupby(['NuGetAnalyzerPackage']).groups.keys())
-    with open('c', 'w') as f:
+    with open('nuget_packages_relevant_sources.txt', 'w') as f:
         for package in source_packages:
             f.write("%s\n" % package)
 
@@ -393,7 +393,7 @@ def calculate_analyzer_statistics(csv_file="analyzer_package_details.csv"):
     df = filter_df_latest_analyzer_versions(df)
 
     # duplicate_diagnostic_ids(df)
-    # create_relevant_source_package_list(df)
+    create_relevant_source_package_list(df)
 
     ###### Requires *filtered* dataframe ######
 
