@@ -73,7 +73,7 @@ def unique_source_packages(df, print_bool=True):
     with multiple versions are only counted once."""
 
     # Not optimal - any dots followed by numbers are removed
-    df_hosting_packages = df['HostingPackageName'].str.replace(r'\.\d+', '')
+    df_hosting_packages = df['NuGetAnalyzerPackage'].str.replace(r'\.\d+', '')
     df_hosting_packages.drop_duplicates(inplace=True)
     if print_bool:
         with pd.option_context(
@@ -104,7 +104,7 @@ def missed_packages(df, original_packages='nuget_packages.txt'):
     print("Calculating missed packages")
 
     # Not optimal - any dots followed by numbers are removed
-    df = df['HostingPackageName'].str.replace(r'\.\d+', '')
+    df = df['NuGetAnalyzerPackage'].str.replace(r'\.\d+', '')
     df.drop_duplicates(inplace=True)
 
     original_packages_list = [line.strip() for line in open(original_packages)]
@@ -263,9 +263,9 @@ def highest_version(series):
 
 
 def filter_df_latest_analyzer_versions(df, csv_file="analyzer_package_details_filtered.csv", saveCSVBool=False):
-    df['PackageID'] = df['HostingPackageName'].str.replace(r'\.\d+', '')
+    df['PackageID'] = df['NuGetAnalyzerPackage'].str.replace(r'\.\d+', '')
     df['PackageVersion'] = df.apply(
-        lambda x: x['HostingPackageName'].replace(str(x['PackageID']) + ".", ""), axis=1)
+        lambda x: x['NuGetAnalyzerPackage'].replace(str(x['PackageID']) + ".", ""), axis=1)
 
     df_highest_package = df.groupby('PackageID').agg(
         {'PackageVersion': [highest_version]})
@@ -322,8 +322,8 @@ def das_cps_averages(df, print_bool=True):
     da = diagnostic_analyzers.groupby(['DiagnosticID']).count()
     cp = codefix_providers.groupby(['DiagnosticID']).count()
 
-    average_occurence_da_diagnostic = da["HostingPackageName"].mean()
-    average_occurence_cp_diagnostic = cp["HostingPackageName"].mean()
+    average_occurence_da_diagnostic = da["NuGetAnalyzerPackage"].mean()
+    average_occurence_cp_diagnostic = cp["NuGetAnalyzerPackage"].mean()
 
     if print_bool:
         print("average_occurence_da_diagnostic: ",
@@ -339,9 +339,9 @@ def average_diagnostic_ids_per_package(df, print_bool=True):
     """
     diagnostic_analyzers, codefix_providers = total_das_cps(df, False)
 
-    all = df.groupby('HostingPackageName').count()
-    da = diagnostic_analyzers.groupby(['HostingPackageName']).count()
-    cp = codefix_providers.groupby(['HostingPackageName']).count()
+    all = df.groupby('NuGetAnalyzerPackage').count()
+    da = diagnostic_analyzers.groupby(['NuGetAnalyzerPackage']).count()
+    cp = codefix_providers.groupby(['NuGetAnalyzerPackage']).count()
 
     average_num_all_diagnostics = all["DiagnosticID"].mean()
     average_num_da_diagnostics = da["DiagnosticID"].mean()
@@ -359,7 +359,7 @@ def create_relevant_source_package_list(df):
     - are the newest Nuget version
     """
 
-    source_packages = list(df.groupby(['HostingPackageName']).groups.keys())
+    source_packages = list(df.groupby(['NuGetAnalyzerPackage']).groups.keys())
     with open('c', 'w') as f:
         for package in source_packages:
             f.write("%s\n" % package)

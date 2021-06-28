@@ -144,7 +144,7 @@ function RunAndSaveFix {
     $USEFUL_DIAGNOSTIC_ID = "False"
     foreach ($ANALYZER_PACKAGE_DETAILS_ROW in $ANALYZER_PACKAGE_DETAILS) {
         if (
-            ($ANALYZER_PACKAGE_DETAILS_ROW.HostingPackageName -ne $NUGET_FULL_NAME) `
+            ($ANALYZER_PACKAGE_DETAILS_ROW.NuGetAnalyzerPackage -ne $NUGET_FULL_NAME) `
             -OR
             ($ANALYZER_PACKAGE_DETAILS_ROW.Type -ne "CODEFIX_PROVIDER") `
             -OR
