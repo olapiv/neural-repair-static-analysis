@@ -77,6 +77,12 @@ function ApplyRoslynatorFix {
     #         --supported-diagnostics $DIAGNOSTIC_ID
     #     "
 
+    # $MSBUILD_EXE = "${MS_BUILD_PATH}\MSBuild.exe"
+    # Invoke-Expression "& '$MSBUILD_EXE' $SOLUTION_OR_PROJECT_FILEPATH /t:Restore"
+    # Invoke-Expression "& '$MSBUILD_EXE' $SOLUTION_OR_PROJECT_FILEPATH /t:Clean"
+    # Invoke-Expression "& '$MSBUILD_EXE' $SOLUTION_OR_PROJECT_FILEPATH /t:Restore"
+    # Invoke-Expression "& '$MSBUILD_EXE' $SOLUTION_OR_PROJECT_FILEPATH"
+
     # This basically produces a diff
     C:\Users\vlohse\.nuget\packages\roslynator.commandline\0.1.1\tools\net48\Roslynator.exe fix `
         --msbuild-path $MS_BUILD_PATH `
@@ -85,6 +91,7 @@ function ApplyRoslynatorFix {
         --analyzer-assemblies $NUGET_PATH `
         --supported-diagnostics $DIAGNOSTIC_ID `
         -v quiet
+        # -v diag
 
 }
 
@@ -148,8 +155,19 @@ function RunAndSaveFix {
             -OR
             ($ANALYZER_PACKAGE_DETAILS_ROW.Type -ne "CODEFIX_PROVIDER") `
             -OR
-            ($ANALYZER_PACKAGE_DETAILS_ROW.DiagnosticID -ne $DIAGNOSTIC_ID)
+            ($ANALYZER_PACKAGE_DETAILS_ROW.DiagnosticID -ne $DIAGNOSTIC_ID) `
+            # -OR
+            # (-Not ($ANALYZER_PACKAGE_DETAILS_ROW.FixAllProviderSupportedScopes -Match "Solution"))
         ) {
+            continue
+        }
+
+        $CONTAINS_FIXALL_PROVIDER = $ANALYZER_PACKAGE_DETAILS_ROW.ContainsFixAllProvider
+        $FIXALL_SUPPORTED_SCOPES = $ANALYZER_PACKAGE_DETAILS_ROW.FixAllProviderSupportedScopes
+
+        if  (-Not ($FIXALL_SUPPORTED_SCOPES -Match "Solution")) {
+            Write-Output "CONTAINS_FIXALL_PROVIDER: $CONTAINS_FIXALL_PROVIDER"
+            Write-Output "FIXALL_SUPPORTED_SCOPES: $FIXALL_SUPPORTED_SCOPES"
             continue
         }
 
