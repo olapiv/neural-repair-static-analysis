@@ -4,24 +4,27 @@ import json
 from packaging import version
 
 
-def total_das_cps(df, print_bool=True):
+def total_each_type(df, print_bool=True):
     """
     Total diagnostic_analyzers & codefix_providers
     """
     print("Total rows")
     diagnostic_analyzers = df[df['Type'].str.match('DIAGNOSTIC_ANALYZER')]
     codefix_providers = df[df['Type'].str.match('CODEFIX_PROVIDER')]
+    coderefactoring_providers = df[df['Type'].str.match('CODEREFACTORING_PROVIDER')]
     num_da = len(diagnostic_analyzers.index)
     num_cp = len(codefix_providers.index)
+    num_re = len(coderefactoring_providers.index)
     if print_bool:
         print("Number of das: ", num_da)
         print("Number of cps: ", num_cp)
-    return diagnostic_analyzers, codefix_providers
+        print("Number of refs: ", num_re)
+    return diagnostic_analyzers, codefix_providers, coderefactoring_providers
 
 
 def unique_diagnostic_ids(df):
     print("Calculating unique diagnostic ids")
-    diagnostic_analyzers, codefix_providers = total_das_cps(df, False)
+    diagnostic_analyzers, codefix_providers, _ = total_each_type(df, False)
     num_da = diagnostic_analyzers['DiagnosticID'].nunique()
     num_cp = codefix_providers['DiagnosticID'].nunique()
     print("da: ", num_da)
@@ -54,7 +57,7 @@ def duplicate_diagnostic_ids(df):
     is why we can see so many different versions of the same packages.
     """
     print("Calculating duplicate diagnostic ids")
-    diagnostic_analyzers, codefix_providers = total_das_cps(df, False)
+    diagnostic_analyzers, codefix_providers, _ = total_each_type(df, False)
     da_duplicates = pd.concat(
         g for _, g in diagnostic_analyzers.groupby("DiagnosticID") if len(g) > 1)
     cp_duplicates = pd.concat(
@@ -282,7 +285,7 @@ def filter_df_latest_analyzer_versions(df, csv_file="analyzer_package_details_fi
 
 
 def das_cps_intersections(df, print_bool=True):
-    diagnostic_analyzers, codefix_providers = total_das_cps(df, False)
+    diagnostic_analyzers, codefix_providers, _ = total_each_type(df, False)
 
     da_keys = list(diagnostic_analyzers.groupby(
         ['DiagnosticID']).groups.keys())
@@ -317,7 +320,7 @@ def das_cps_averages(df, print_bool=True):
 
     """
     print("Calculating average diagnostic occurence")
-    diagnostic_analyzers, codefix_providers = total_das_cps(df, False)
+    diagnostic_analyzers, codefix_providers, _ = total_each_type(df, False)
 
     da = diagnostic_analyzers.groupby(['DiagnosticID']).count()
     cp = codefix_providers.groupby(['DiagnosticID']).count()
@@ -337,20 +340,23 @@ def average_diagnostic_ids_per_package(df, print_bool=True):
     Calculating how many diagnostic ID each source analyzer package has
     on average.
     """
-    diagnostic_analyzers, codefix_providers = total_das_cps(df, False)
+    diagnostic_analyzers, codefix_providers, coderefactoring_providers = total_each_type(df, False)
 
     all = df.groupby('NuGetAnalyzerPackage').count()
     da = diagnostic_analyzers.groupby(['NuGetAnalyzerPackage']).count()
     cp = codefix_providers.groupby(['NuGetAnalyzerPackage']).count()
+    re = coderefactoring_providers.groupby(['NuGetAnalyzerPackage']).count()
 
     average_num_all_diagnostics = all["DiagnosticID"].mean()
     average_num_da_diagnostics = da["DiagnosticID"].mean()
     average_num_cp_diagnostics = cp["DiagnosticID"].mean()
+    average_num_re_refactoring_names = re["RefactoringName"].mean()
 
     if print_bool:
         print("average_num_all_diagnostics: ", average_num_all_diagnostics)
         print("average_num_da_diagnostics: ", average_num_da_diagnostics)
         print("average_num_cp_diagnostics: ", average_num_cp_diagnostics)
+        print("average_num_re_refactoring_names: ", average_num_re_refactoring_names)
 
 def create_relevant_source_package_list(df):
     """
@@ -360,10 +366,31 @@ def create_relevant_source_package_list(df):
     """
 
     source_packages = list(df.groupby(['NuGetAnalyzerPackage']).groups.keys())
-    with open('c', 'w') as f:
+    with open('nuget_packages_relevant_sources.txt', 'w') as f:
         for package in source_packages:
             f.write("%s\n" % package)
 
+def availability_fix_all_provider(df):
+    """
+    How many of our code fixers can be applied to an entire solution?
+    Possible scopes: Document, Project, Solution
+    """
+    _, codefix_providers, _ = total_each_type(df, False)
+
+    num_cp = len(codefix_providers.index)
+
+    num_contains_fixall_provider = len(codefix_providers[codefix_providers["ContainsFixAllProvider"] == True].index)
+    num_solution_scope_supported = codefix_providers['FixAllProviderSupportedScopes'].str.contains('Solution').sum()
+    num_all_scopes_supported = len(codefix_providers[codefix_providers["FixAllProviderSupportedScopes"] == "Document, Project, Solution"].index)
+
+    perc_contains_fixall_provider = num_contains_fixall_provider / num_cp
+    perc_solution_scope_supported = num_solution_scope_supported / num_cp
+    perc_all_scopes_supported = num_all_scopes_supported / num_cp
+
+    print("num_cp: ", num_cp)
+    print("perc_contains_fixall_provider: ", perc_contains_fixall_provider)
+    print("perc_solution_scope_supported: ", perc_solution_scope_supported)
+    print("perc_all_scopes_supported: ", perc_all_scopes_supported)
 
 
 def calculate_analyzer_statistics(csv_file="analyzer_package_details.csv"):
@@ -372,7 +399,6 @@ def calculate_analyzer_statistics(csv_file="analyzer_package_details.csv"):
     # TODO: Find out why duplicates exist
     df.drop_duplicates(inplace=True)
 
-    # total_das_cps(df)
     # unique_diagnostic_ids(df)
 
     # duplicate_diagnostic_ids(df)
@@ -388,9 +414,13 @@ def calculate_analyzer_statistics(csv_file="analyzer_package_details.csv"):
     df = filter_df_latest_analyzer_versions(df)
 
     # duplicate_diagnostic_ids(df)
-    create_relevant_source_package_list(df)
+    # create_relevant_source_package_list(df)
 
     ###### Requires *filtered* dataframe ######
+
+    availability_fix_all_provider(df)
+
+    # total_each_type(df)
 
     # das_cps_intersections(df)
     # das_cps_averages(df)

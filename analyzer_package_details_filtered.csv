@@ -1189,6 +1189,17 @@ Eshopworld.Tests.Core.Analyzers.1.0.11,Eshopworld.Tests.Core.Analyzers,CODEFIX_P
 Eshopworld.Tests.Core.Analyzers.1.0.11,Eshopworld.Tests.Core.Analyzers,CODEFIX_PROVIDER,ESWU001,,,,,,True,"Document, Project, Solution",
 ExampleAnalyzer2.1.0.0,RoslynAnalyzer10,DIAGNOSTIC_ANALYZER,ExampleAnalyzer2,ExampleAnalyzer2 Title,ExampleAnalyzer2 Description,Warning,Naming,,,,
 ExampleAnalyzer2.1.0.0,RoslynAnalyzer10,CODEFIX_PROVIDER,ExampleAnalyzer2,,,,,,True,"Document, Project, Solution",
+ExceptionAnalyzer.1.0.5,ExceptionAnalyzer,DIAGNOSTIC_ANALYZER,EA006,Add catched exception as inner exception,,Warning,CodeSmell,,,,
+ExceptionAnalyzer.1.0.5,ExceptionAnalyzer,DIAGNOSTIC_ANALYZER,EA005,Tracing `ex.Message` considered harmful!,,Warning,CodeSmell,,,,
+ExceptionAnalyzer.1.0.5,ExceptionAnalyzer,DIAGNOSTIC_ANALYZER,EA003,Catch block swallows an exception,,Warning,CodeSmell,,,,
+ExceptionAnalyzer.1.0.5,ExceptionAnalyzer,DIAGNOSTIC_ANALYZER,EA002,Swallow exceptions considered harmful,,Warning,CodeSmell,,,,
+ExceptionAnalyzer.1.0.5,ExceptionAnalyzer,DIAGNOSTIC_ANALYZER,EA004,"Rethrow exceptions properly, dude!",,Warning,CodeSmell,,,,
+ExceptionAnalyzer.1.0.5,ExceptionAnalyzer,DIAGNOSTIC_ANALYZER,EA001,Empty catch block considered harmful!,,Warning,CodeSmell,,,,
+ExceptionAnalyzer.1.0.5,ExceptionAnalyzer,CODEFIX_PROVIDER,EA006,,,,,,False,,
+ExceptionAnalyzer.1.0.5,ExceptionAnalyzer,CODEFIX_PROVIDER,EA005,,,,,,False,,
+ExceptionAnalyzer.1.0.5,ExceptionAnalyzer,CODEFIX_PROVIDER,EA002,,,,,,False,,
+ExceptionAnalyzer.1.0.5,ExceptionAnalyzer,CODEFIX_PROVIDER,EA004,,,,,,False,,
+ExceptionAnalyzer.1.0.5,ExceptionAnalyzer,CODEFIX_PROVIDER,EA001,,,,,,False,,
 ExceptionsAnalyzer.0.1.5,ExceptionsAnalyzer,DIAGNOSTIC_ANALYZER,CCN0021,Exception analyzer,Swallowing exceptions without handling considered as bad practice,Warning,Code correctness,,,,
 ExceptionsAnalyzer.0.1.5,ExceptionsAnalyzer,DIAGNOSTIC_ANALYZER,CCN0022,Exception analyzer,Rethrow same exception leads to lost of call stack,Warning,Code correctness,,,,
 ExceptionsAnalyzer.0.1.5,ExceptionsAnalyzer,DIAGNOSTIC_ANALYZER,CCN0023,Exception analyzer,Throw new exception without inner exception leads to lost details,Warning,Code correctness,,,,
@@ -1730,6 +1741,8 @@ Introspect.1.0.6484.26608,Introspect.Analyzer,DIAGNOSTIC_ANALYZER,SI0001,Cannot 
 Introspect.1.0.6484.26608,Introspect.Analyzer,DIAGNOSTIC_ANALYZER,SI0003,Doesn't implement member,Description goes here,Error,Semantics,,,,
 Introspect.1.0.6484.26608,Introspect.Analyzer,DIAGNOSTIC_ANALYZER,SI0004,Cannot inherit non-static interface,Description goes here,Error,Semantics,,,,
 Introspect.1.0.6484.26608,Introspect.Analyzer,DIAGNOSTIC_ANALYZER,SI0005,Static interface cannot contain indexer,Description goes here,Error,Semantics,,,,
+IteratorTasks.1.0.0.0,IteratorTasksGenerator,DIAGNOSTIC_ANALYZER,IteratorTasksGenerator,Check the task completion and exception.,"Check the task completion before yield return, and check the task exception after it.",Warning,Naming,,,,
+IteratorTasks.1.0.0.0,IteratorTasksGenerator,CODEFIX_PROVIDER,IteratorTasksGenerator,,,,,,False,,
 Itslearning.Analyzers.1.0.0,Itslearning.Analyzers,DIAGNOSTIC_ANALYZER,ITSA1004,"Test method should not contain conditional statements like if, switch etc.",Test methods should not contain complex logic that is the subject of testing itself. Try splitting particular cases into dedicated test methods.,Error,Design,,,,
 Itslearning.Analyzers.1.0.0,Itslearning.Analyzers,DIAGNOSTIC_ANALYZER,ITSA1005,"Test method should not contain any other comment than '// arrange', '// act', '// assert'.",Commenting test steps indicates substantial test method complexity. Unit tests should be simple. Consider extracting arrangement steps into some test utility.,Warning,Maintainability,,,,
 Itslearning.Analyzers.1.0.0,Itslearning.Analyzers,DIAGNOSTIC_ANALYZER,ITSA1000,Test file name should have a standard ending.,Test file names should have a standardized format to distinguish them from test utility files. The allowed format is '*Tests.cs' for every file that contains one or more test fixture classes.,Error,Naming,,,,
@@ -3831,14 +3844,14 @@ Microsoft.CodeAnalysis.CSharp.CodeStyle.3.9.0,Microsoft.CodeAnalysis.CSharp.Code
 Microsoft.CodeAnalysis.CSharp.CodeStyle.3.9.0,Microsoft.CodeAnalysis.CSharp.CodeStyle,DIAGNOSTIC_ANALYZER,IDE0005_gen,Using directive is unnecessary.,,Hidden,Style,"NotConfigurable, EnforceOnBuild_Never, Telemetry",,,
 Microsoft.CodeAnalysis.CSharp.CodeStyle.3.9.0,Microsoft.CodeAnalysis.CSharp.CodeStyle,DIAGNOSTIC_ANALYZER,IDE0004,Remove Unnecessary Cast,,Hidden,Style,"Telemetry, EnforceOnBuild_WhenExplicitlyEnabled, Unnecessary",,,
 Microsoft.CodeAnalysis.CSharp.CodeStyle.3.9.0,Microsoft.CodeAnalysis.CSharp.CodeStyle,DIAGNOSTIC_ANALYZER,IDE0009,Member access should be qualified.,,Hidden,Style,"Telemetry, EnforceOnBuild_Never",,,
+Microsoft.CodeAnalysis.CSharp.CodeStyle.3.9.0,Microsoft.CodeAnalysis.CSharp.CodeStyle,DIAGNOSTIC_ANALYZER,IDE0021,Use expression body for constructors,,Hidden,Style,"Telemetry, EnforceOnBuild_Recommended",,,
+Microsoft.CodeAnalysis.CSharp.CodeStyle.3.9.0,Microsoft.CodeAnalysis.CSharp.CodeStyle,DIAGNOSTIC_ANALYZER,IDE0027,Use expression body for accessors,,Hidden,Style,"Telemetry, EnforceOnBuild_Recommended",,,
+Microsoft.CodeAnalysis.CSharp.CodeStyle.3.9.0,Microsoft.CodeAnalysis.CSharp.CodeStyle,DIAGNOSTIC_ANALYZER,IDE0061,Use expression body for local functions,,Hidden,Style,"Telemetry, EnforceOnBuild_Recommended",,,
 Microsoft.CodeAnalysis.CSharp.CodeStyle.3.9.0,Microsoft.CodeAnalysis.CSharp.CodeStyle,DIAGNOSTIC_ANALYZER,IDE0024,Use expression body for operators,,Hidden,Style,"Telemetry, EnforceOnBuild_Recommended",,,
 Microsoft.CodeAnalysis.CSharp.CodeStyle.3.9.0,Microsoft.CodeAnalysis.CSharp.CodeStyle,DIAGNOSTIC_ANALYZER,IDE0025,Use expression body for properties,,Hidden,Style,"Telemetry, EnforceOnBuild_Recommended",,,
 Microsoft.CodeAnalysis.CSharp.CodeStyle.3.9.0,Microsoft.CodeAnalysis.CSharp.CodeStyle,DIAGNOSTIC_ANALYZER,IDE0026,Use expression body for indexers,,Hidden,Style,"Telemetry, EnforceOnBuild_Recommended",,,
 Microsoft.CodeAnalysis.CSharp.CodeStyle.3.9.0,Microsoft.CodeAnalysis.CSharp.CodeStyle,DIAGNOSTIC_ANALYZER,IDE0023,Use expression body for operators,,Hidden,Style,"Telemetry, EnforceOnBuild_Recommended",,,
 Microsoft.CodeAnalysis.CSharp.CodeStyle.3.9.0,Microsoft.CodeAnalysis.CSharp.CodeStyle,DIAGNOSTIC_ANALYZER,IDE0022,Use expression body for methods,,Hidden,Style,"Telemetry, EnforceOnBuild_Recommended",,,
-Microsoft.CodeAnalysis.CSharp.CodeStyle.3.9.0,Microsoft.CodeAnalysis.CSharp.CodeStyle,DIAGNOSTIC_ANALYZER,IDE0021,Use expression body for constructors,,Hidden,Style,"Telemetry, EnforceOnBuild_Recommended",,,
-Microsoft.CodeAnalysis.CSharp.CodeStyle.3.9.0,Microsoft.CodeAnalysis.CSharp.CodeStyle,DIAGNOSTIC_ANALYZER,IDE0027,Use expression body for accessors,,Hidden,Style,"Telemetry, EnforceOnBuild_Recommended",,,
-Microsoft.CodeAnalysis.CSharp.CodeStyle.3.9.0,Microsoft.CodeAnalysis.CSharp.CodeStyle,DIAGNOSTIC_ANALYZER,IDE0061,Use expression body for local functions,,Hidden,Style,"Telemetry, EnforceOnBuild_Recommended",,,
 Microsoft.CodeAnalysis.CSharp.CodeStyle.3.9.0,Microsoft.CodeAnalysis.CSharp.CodeStyle,DIAGNOSTIC_ANALYZER,IDE0034,Simplify 'default' expression,,Hidden,Style,"Telemetry, EnforceOnBuild_Recommended",,,
 Microsoft.CodeAnalysis.CSharp.CodeStyle.3.9.0,Microsoft.CodeAnalysis.CSharp.CodeStyle,DIAGNOSTIC_ANALYZER,IDE0042,Deconstruct variable declaration,,Hidden,Style,"Telemetry, EnforceOnBuild_Recommended",,,
 Microsoft.CodeAnalysis.CSharp.CodeStyle.3.9.0,Microsoft.CodeAnalysis.CSharp.CodeStyle,DIAGNOSTIC_ANALYZER,IDE0045,Convert to conditional expression,,Hidden,Style,"Telemetry, EnforceOnBuild_Recommended",,,
@@ -4877,6 +4890,451 @@ NINNES.RoslynAnalyzers.0.1.3,NINNES.RoslynAnalyzers,DIAGNOSTIC_ANALYZER,NES001,M
 NINNES.RoslynAnalyzers.0.1.3,NINNES.RoslynAnalyzers,DIAGNOSTIC_ANALYZER,NES002,The NES CPU cannot operate on decimal values,The NES CPU cannot operate on decimal values,Error,NES CPU Limitations,,,,
 NINNES.RoslynAnalyzers.0.1.3,NINNES.RoslynAnalyzers,DIAGNOSTIC_ANALYZER,NES003,The NES CPU cannot perform multiplications directly,Use bit-shifting multiplication or NESMath.Multiply to multiply two numbers with an algorithm that can be run on the NES CPU,Error,NES CPU Limitations,,,,
 NINNES.RoslynAnalyzers.0.1.3,NINNES.RoslynAnalyzers,CODEFIX_PROVIDER,NES003,,,,,,True,"Document, Project, Solution",
+NR6Pack.0.10.0,NR6Pack,DIAGNOSTIC_ANALYZER,NR0120,Constructor in abstract class should not be public,,Info,Common Practices and Code Improvements,,,,
+NR6Pack.0.10.0,NR6Pack,DIAGNOSTIC_ANALYZER,NR0039,Replace with call to OfType<T>().Any(),,Warning,Common Practices and Code Improvements,,,,
+NR6Pack.0.10.0,NR6Pack,DIAGNOSTIC_ANALYZER,CS0126ReturnMustBeFollowedByAnyExpression,"Since 'function' doesn't return void, a return keyword must be followed by an object expression",CS0126: A method with return type cannot return without value.,Error,Compiler Errors,,,,
+NR6Pack.0.10.0,NR6Pack,DIAGNOSTIC_ANALYZER,CS0169FieldIsNeverUsedAnalyzer,CS0169: Field is never used,CS0169: Field is never used,Warning,Compiler Warnings,,,,
+NR6Pack.0.10.0,NR6Pack,DIAGNOSTIC_ANALYZER,CS0618UsageOfObsoleteMemberAnalyzer,CS0618: Member is obsolete,CS0618: Member is obsolete,Warning,Compiler Warnings,,,,
+NR6Pack.0.10.0,NR6Pack,DIAGNOSTIC_ANALYZER,CS1729TypeHasNoConstructorWithNArgumentsAnalyzer,CS1729: Class does not contain a 0 argument constructor,CS1729: Class does not contain a 0 argument constructor,Error,Compiler Errors,,,,
+NR6Pack.0.10.0,NR6Pack,DIAGNOSTIC_ANALYZER,ExpressionIsNeverOfProvidedTypeAnalyzer,CS0184:Given expression is never of the provided type,CS0184:Given expression is never of the provided type,Warning,Compiler Warnings,,,,
+NR6Pack.0.10.0,NR6Pack,DIAGNOSTIC_ANALYZER,MissingInterfaceMemberImplementationAnalyzer,Searches for missing interface implementations,Missing interface members,Error,Compiler Errors,,,,
+NR6Pack.0.10.0,NR6Pack,DIAGNOSTIC_ANALYZER,NR0080,Replace with call to OfType<T> (extended cases),,Warning,Common Practices and Code Improvements,,,,
+NR6Pack.0.10.0,NR6Pack,DIAGNOSTIC_ANALYZER,NR0133,Parameter name differs in base declaration,,Warning,Potential Code Quality Issues,,,,
+NR6Pack.0.10.0,NR6Pack,DIAGNOSTIC_ANALYZER,NR0149,Finds potentially erroneous calls to Object.Equals,,Warning,Potential Code Quality Issues,,,,
+NR6Pack.0.10.0,NR6Pack,DIAGNOSTIC_ANALYZER,NR0125,Check if a namespace corresponds to a file location,,Warning,Potential Code Quality Issues,,,,
+NR6Pack.0.10.0,NR6Pack,DIAGNOSTIC_ANALYZER,NR0110,Condition is always 'true' or always 'false',,Warning,Potential Code Quality Issues,,,,
+NR6Pack.0.10.0,NR6Pack,DIAGNOSTIC_ANALYZER,NR0093,Convert 'if' to '&&' expression,,Info,Common Practices and Code Improvements,,,,
+NR6Pack.0.10.0,NR6Pack,DIAGNOSTIC_ANALYZER,NR0095,Warns about using lock (this) or MethodImplOptions.Synchronized,,Warning,Potential Code Quality Issues,,,,
+NR6Pack.0.10.0,NR6Pack,DIAGNOSTIC_ANALYZER,NR0077,Simplify negative relational expression,,Info,Common Practices and Code Improvements,,,,
+NR6Pack.0.10.0,NR6Pack,DIAGNOSTIC_ANALYZER,NR0083,Shows NotImplementedException throws in the quick task bar,,Info,Code Notifications,,,,
+NR6Pack.0.10.0,NR6Pack,DIAGNOSTIC_ANALYZER,NR0099,Parameter is assigned but its value is never used,,Warning,Potential Code Quality Issues,,,,
+NR6Pack.0.10.0,NR6Pack,DIAGNOSTIC_ANALYZER,NR0084,Value assigned to a variable or parameter is not used in all execution path,,Warning,Redundancies in Code,"Unnecessary, Telemetry",,,
+NR6Pack.0.10.0,NR6Pack,DIAGNOSTIC_ANALYZER,NR0129,Removes 'internal' modifiers that are not required,,Warning,Redundancies in Code,"Unnecessary, Telemetry",,,
+NR6Pack.0.10.0,NR6Pack,DIAGNOSTIC_ANALYZER,NR0145,Removes 'private' modifiers that are not required,,Warning,Redundancies in Code,"Unnecessary, Telemetry",,,
+NR6Pack.0.10.0,NR6Pack,DIAGNOSTIC_ANALYZER,NR0112,Checks if static events are removed,,Warning,Potential Code Quality Issues,,,,
+NR6Pack.0.10.0,NR6Pack,DIAGNOSTIC_ANALYZER,NR0081,Validate Xml docs,,Warning,Compiler Warnings,,,,
+NR6Pack.0.10.0,NR6Pack,DIAGNOSTIC_ANALYZER,NR0003,Call to base member with implicit default parameters,,Warning,Potential Code Quality Issues,,,,
+NR6Pack.0.10.0,NR6Pack,DIAGNOSTIC_ANALYZER,NR0016,Bitwise operation on enum which has no [Flags] attribute,,Warning,Potential Code Quality Issues,,,,
+NR6Pack.0.10.0,NR6Pack,DIAGNOSTIC_ANALYZER,NR0105,Type check and casts can be replaced with 'as' and null check,,Info,Potential Code Quality Issues,,,,
+NR6Pack.0.10.0,NR6Pack,DIAGNOSTIC_ANALYZER,NR0017,Possible compare of value type with 'null',,Warning,Potential Code Quality Issues,,,,
+NR6Pack.0.10.0,NR6Pack,DIAGNOSTIC_ANALYZER,NR0018,Comparison of floating point numbers with equality operator,,Warning,Potential Code Quality Issues,,,,
+NR6Pack.0.10.0,NR6Pack,DIAGNOSTIC_ANALYZER,NR0019,'?:' expression has identical true and false branches,,Warning,Potential Code Quality Issues,,,,
+NR6Pack.0.10.0,NR6Pack,DIAGNOSTIC_ANALYZER,NR0020,Delegate subtraction has unpredictable result,,Warning,Potential Code Quality Issues,,,,
+NR6Pack.0.10.0,NR6Pack,DIAGNOSTIC_ANALYZER,NR0021,Warns about calls to virtual member functions occuring in the constructor,,Warning,Potential Code Quality Issues,,,,
+NR6Pack.0.10.0,NR6Pack,DIAGNOSTIC_ANALYZER,NR0022,A catch clause that catches System.Exception and has an empty body,,Warning,Potential Code Quality Issues,,,,
+NR6Pack.0.10.0,NR6Pack,DIAGNOSTIC_ANALYZER,NR0088,Comparing equal expression for equality is usually useless,,Warning,Potential Code Quality Issues,,,,
+NR6Pack.0.10.0,NR6Pack,DIAGNOSTIC_ANALYZER,NR0023,Event unsubscription via anonymous delegate is useless,,Warning,Potential Code Quality Issues,,,,
+NR6Pack.0.10.0,NR6Pack,DIAGNOSTIC_ANALYZER,NR0130,'for' loop control variable is never modified,,Warning,Potential Code Quality Issues,,,,
+NR6Pack.0.10.0,NR6Pack,DIAGNOSTIC_ANALYZER,NR0155,The string format index is out of bounds of the passed arguments,,Warning,Potential Code Quality Issues,,,,
+NR6Pack.0.10.0,NR6Pack,DIAGNOSTIC_ANALYZER,NR0135,Function does not reach its end or a 'return' statement by any of possible execution paths,,Warning,Potential Code Quality Issues,,,,
+NR6Pack.0.10.0,NR6Pack,DIAGNOSTIC_ANALYZER,NR0117,Local variable has the same name as a member and hides it,,Warning,Potential Code Quality Issues,,,,
+NR6Pack.0.10.0,NR6Pack,DIAGNOSTIC_ANALYZER,NR0024,Lowercase 'l' is often confused with '1',,Warning,Potential Code Quality Issues,,,,
+NR6Pack.0.10.0,NR6Pack,DIAGNOSTIC_ANALYZER,NR0146,Member hides static member from outer class,,Warning,Potential Code Quality Issues,,,,
+NR6Pack.0.10.0,NR6Pack,DIAGNOSTIC_ANALYZER,NR0137,Method with optional parameter is hidden by overload,,Warning,Potential Code Quality Issues,,,,
+NR6Pack.0.10.0,NR6Pack,DIAGNOSTIC_ANALYZER,NR0025,Non-readonly field referenced in 'GetHashCode()',,Warning,Potential Code Quality Issues,,,,
+NR6Pack.0.10.0,NR6Pack,DIAGNOSTIC_ANALYZER,NR0143,Cannot resolve symbol in text argument,,Warning,Potential Code Quality Issues,,,,
+NR6Pack.0.10.0,NR6Pack,DIAGNOSTIC_ANALYZER,NR0162,The parameter name is on the wrong argument,,Warning,Potential Code Quality Issues,,,,
+NR6Pack.0.10.0,NR6Pack,DIAGNOSTIC_ANALYZER,NR0026,Possible unassigned object created by 'new',,Warning,Potential Code Quality Issues,,,,
+NR6Pack.0.10.0,NR6Pack,DIAGNOSTIC_ANALYZER,NR0027,Operator Is can be used instead of comparing object GetType() and instances of System.Type object,,Warning,Potential Code Quality Issues,,,,
+NR6Pack.0.10.0,NR6Pack,DIAGNOSTIC_ANALYZER,NR0124,The value of an optional parameter in a method does not match the base method,,Warning,Potential Code Quality Issues,,,,
+NR6Pack.0.10.0,NR6Pack,DIAGNOSTIC_ANALYZER,NR0028,C# doesn't support optional 'ref' or 'out' parameters,,Warning,Potential Code Quality Issues,,,,
+NR6Pack.0.10.0,NR6Pack,DIAGNOSTIC_ANALYZER,NR0082,Parameter has the same name as a member and hides it,,Warning,Potential Code Quality Issues,,,,
+NR6Pack.0.10.0,NR6Pack,DIAGNOSTIC_ANALYZER,NR0136,Parameter name differs in partial method declaration,,Warning,Potential Code Quality Issues,,,,
+NR6Pack.0.10.0,NR6Pack,DIAGNOSTIC_ANALYZER,NR0089,Invocation of polymorphic field event leads to unpredictable result since invocation lists are not virtual,,Warning,Potential Code Quality Issues,,,,
+NR6Pack.0.10.0,NR6Pack,DIAGNOSTIC_ANALYZER,NR0111,Check if a readonly field is used as assignment target,,Warning,Potential Code Quality Issues,,,,
+NR6Pack.0.10.0,NR6Pack,DIAGNOSTIC_ANALYZER,NR0139,Possible multiple enumeration of IEnumerable,,Warning,Potential Code Quality Issues,,,,
+NR6Pack.0.10.0,NR6Pack,DIAGNOSTIC_ANALYZER,NR0108,Warns about static fields in generic types,,Warning,Potential Code Quality Issues,,,,
+NR6Pack.0.10.0,NR6Pack,DIAGNOSTIC_ANALYZER,NR0157,[ThreadStatic] doesn't work with instance fields,,Warning,Potential Code Quality Issues,,,,
+NR6Pack.0.10.0,NR6Pack,DIAGNOSTIC_ANALYZER,NR0029,Warns about property or indexer setters and event adders or removers that do not use the value parameter,,Warning,Potential Code Quality Issues,,,,
+NR6Pack.0.10.0,NR6Pack,DIAGNOSTIC_ANALYZER,ProhibitedModifiersAnalyzer,Checks for prohibited modifiers,Checks for prohibited modifiers,Error,Compiler Errors,,,,
+NR6Pack.0.10.0,NR6Pack,DIAGNOSTIC_ANALYZER,CS0183ExpressionIsAlwaysOfProvidedTypeAnalyzer,CS0183:Given expression is always of the provided type,CS0183:Given expression is always of the provided type,Warning,Compiler Warnings,,,,
+NR6Pack.0.10.0,NR6Pack,DIAGNOSTIC_ANALYZER,CS1573ParameterHasNoMatchingParamTagAnalyzer,Parameter has no matching param tag in the XML comment,Parameter has no matching param tag in the XML comment,Warning,Compiler Warnings,,,,
+NR6Pack.0.10.0,NR6Pack,DIAGNOSTIC_ANALYZER,CS1717AssignmentMadeToSameVariableAnalyzer,CS1717:Assignment made to same variable,CS1717:Assignment made to same variable,Warning,Compiler Warnings,,,,
+NR6Pack.0.10.0,NR6Pack,DIAGNOSTIC_ANALYZER,NR0115,Unassigned readonly field,,Warning,Compiler Warnings,,,,
+NR6Pack.0.10.0,NR6Pack,DIAGNOSTIC_ANALYZER,InconsistentNaming,Inconsistent Naming,Name doesn't match the defined style for this entity.,Warning,Constraint Violations,,,,
+NR6Pack.0.10.0,NR6Pack,DIAGNOSTIC_ANALYZER,NR0009,Non public methods are not found by NUnit,,Warning,NUnit,,,,
+NR6Pack.0.10.0,NR6Pack,DIAGNOSTIC_ANALYZER,NR0002,Convert anonymous method to method group,,Info,Language Usage Opportunities,,,,
+NR6Pack.0.10.0,NR6Pack,DIAGNOSTIC_ANALYZER,NR0010,'?:' expression can be converted to '??' expression,,Info,Language Usage Opportunities,,,,
+NR6Pack.0.10.0,NR6Pack,DIAGNOSTIC_ANALYZER,NR0011,Convert 'if' to '?:',,Info,Language Usage Opportunities,,,,
+NR6Pack.0.10.0,NR6Pack,DIAGNOSTIC_ANALYZER,NR0152,Convert 'if' to '??',,Info,Language Usage Opportunities,,,,
+NR6Pack.0.10.0,NR6Pack,DIAGNOSTIC_ANALYZER,NR0012,'if' statement can be re-written as 'switch' statement,,Info,Language Usage Opportunities,,,,
+NR6Pack.0.10.0,NR6Pack,DIAGNOSTIC_ANALYZER,NR0013,Convert 'Nullable<T>' to the short form 'T?',,Info,Language Usage Opportunities,,,,
+NR6Pack.0.10.0,NR6Pack,DIAGNOSTIC_ANALYZER,NR0161,Convert property to auto property,,Warning,Language Usage Opportunities,,,,
+NR6Pack.0.10.0,NR6Pack,DIAGNOSTIC_ANALYZER,NR0132,Convert to lambda with expression,,Info,Language Usage Opportunities,,,,
+NR6Pack.0.10.0,NR6Pack,DIAGNOSTIC_ANALYZER,NR0014,"If all fields, properties and methods members are static, the class can be made static.",,Info,Language Usage Opportunities,,,,
+NR6Pack.0.10.0,NR6Pack,DIAGNOSTIC_ANALYZER,NR0090,Foreach loops are more efficient,,Warning,Language Usage Opportunities,,,,
+NR6Pack.0.10.0,NR6Pack,DIAGNOSTIC_ANALYZER,NR0015,If an extension method is called as static method convert it to method syntax,,Info,Language Usage Opportunities,,,,
+NR6Pack.0.10.0,NR6Pack,DIAGNOSTIC_ANALYZER,NR0160,Convert 'if...return' to 'return',,Info,Language Usage Opportunities,,,,
+NR6Pack.0.10.0,NR6Pack,DIAGNOSTIC_ANALYZER,NR0091,Use 'var' keyword when possible,,Info,Language Usage Opportunities,,,,
+NR6Pack.0.10.0,NR6Pack,DIAGNOSTIC_ANALYZER,NR0004,An empty public constructor without paramaters is redundant.,,Warning,Redundancies in Symbol Declarations,"Unnecessary, Telemetry",,,
+NR6Pack.0.10.0,NR6Pack,DIAGNOSTIC_ANALYZER,NR0005,Empty destructor is redundant,,Warning,Redundancies in Symbol Declarations,"Unnecessary, Telemetry",,,
+NR6Pack.0.10.0,NR6Pack,DIAGNOSTIC_ANALYZER,NR0006,Empty namespace declaration is redundant,,Warning,Redundancies in Symbol Declarations,"Unnecessary, Telemetry",,,
+NR6Pack.0.10.0,NR6Pack,DIAGNOSTIC_ANALYZER,NR0007,"The default underlying type of enums is int, so defining it explicitly is redundant.",,Warning,Redundancies in Symbol Declarations,"Unnecessary, Telemetry",,,
+NR6Pack.0.10.0,NR6Pack,DIAGNOSTIC_ANALYZER,NR0156,Local variable is never used,,Warning,Redundancies in Symbol Declarations,,,,
+NR6Pack.0.10.0,NR6Pack,DIAGNOSTIC_ANALYZER,NR0001,Class is declared partial but has only one part,,Warning,Redundancies in Symbol Declarations,"Unnecessary, Telemetry",,,
+NR6Pack.0.10.0,NR6Pack,DIAGNOSTIC_ANALYZER,NR0126,This is generated by the compiler and can be safely removed,,Info,Redundancies in Symbol Declarations,"Unnecessary, Telemetry",,,
+NR6Pack.0.10.0,NR6Pack,DIAGNOSTIC_ANALYZER,NR0122,Initializing field with default value is redundant,,Info,Redundancies in Symbol Declarations,"Unnecessary, Telemetry",,,
+NR6Pack.0.10.0,NR6Pack,DIAGNOSTIC_ANALYZER,NR0159,The override of a virtual member is redundant because it consists of only a call to the base,,Warning,Redundancies in Symbol Declarations,"Unnecessary, Telemetry",,,
+NR6Pack.0.10.0,NR6Pack,DIAGNOSTIC_ANALYZER,NR0151,'params' is ignored on overrides,,Warning,Redundancies in Symbol Declarations,"Unnecessary, Telemetry",,,
+NR6Pack.0.10.0,NR6Pack,DIAGNOSTIC_ANALYZER,NR0008,'sealed' modifier is redundant in sealed classes,,Warning,Redundancies in Symbol Declarations,"Unnecessary, Telemetry",,,
+NR6Pack.0.10.0,NR6Pack,DIAGNOSTIC_ANALYZER,NR0154,Parameter is never used,,Warning,Redundancies in Symbol Declarations,,,,
+NR6Pack.0.10.0,NR6Pack,DIAGNOSTIC_ANALYZER,NR0096,Type parameter is never used,,Warning,Redundancies in Symbol Declarations,"Unnecessary, Telemetry",,,
+NR6Pack.0.10.0,NR6Pack,DIAGNOSTIC_ANALYZER,NR0085,"When initializing explicitly typed local variable or array type, array creation expression can be replaced with array initializer.",,Warning,Redundancies in Code,"Unnecessary, Telemetry",,,
+NR6Pack.0.10.0,NR6Pack,DIAGNOSTIC_ANALYZER,NR0065,Expression is always 'true' or always 'false',,Warning,Redundancies in Code,"Unnecessary, Telemetry",,,
+NR6Pack.0.10.0,NR6Pack,DIAGNOSTIC_ANALYZER,NR0098,Finds redundant null coalescing expressions such as expr ?? expr,,Warning,Common Practices and Code Improvements,,,,
+NR6Pack.0.10.0,NR6Pack,DIAGNOSTIC_ANALYZER,NR0066,Double negation is redundant,,Warning,Redundancies in Code,"Unnecessary, Telemetry",,,
+NR6Pack.0.10.0,NR6Pack,DIAGNOSTIC_ANALYZER,NR0067,Empty statement is redundant,,Warning,Redundancies in Code,"Unnecessary, Telemetry",,,
+NR6Pack.0.10.0,NR6Pack,DIAGNOSTIC_ANALYZER,NR0068,'true' is redundant as for statement condition,,Warning,Redundancies in Code,"Unnecessary, Telemetry",,,
+NR6Pack.0.10.0,NR6Pack,DIAGNOSTIC_ANALYZER,NR0069,Redundant explicit property name,,Warning,Redundancies in Code,"Unnecessary, Telemetry",,,
+NR6Pack.0.10.0,NR6Pack,DIAGNOSTIC_ANALYZER,NR0141,Default argument value is redundant,,Warning,Redundancies in Code,"Unnecessary, Telemetry",,,
+NR6Pack.0.10.0,NR6Pack,DIAGNOSTIC_ANALYZER,NR0070,Redundant explicit argument name specification,,Warning,Redundancies in Code,"Unnecessary, Telemetry",,,
+NR6Pack.0.10.0,NR6Pack,DIAGNOSTIC_ANALYZER,NR0071,Parentheses are redundant if attribute has no arguments,,Warning,Redundancies in Code,"Unnecessary, Telemetry",,,
+NR6Pack.0.10.0,NR6Pack,DIAGNOSTIC_ANALYZER,NR0072,'base.' is redundant and can safely be removed,,Warning,Redundancies in Code,"Unnecessary, Telemetry",,,
+NR6Pack.0.10.0,NR6Pack,DIAGNOSTIC_ANALYZER,NR0121,Comparison of a boolean value with 'true' or 'false' constant,,Warning,Redundancies in Code,"Unnecessary, Telemetry",,,
+NR6Pack.0.10.0,NR6Pack,DIAGNOSTIC_ANALYZER,NR0073,Redundant case label,,Warning,Redundancies in Code,"Unnecessary, Telemetry",,,
+NR6Pack.0.10.0,NR6Pack,DIAGNOSTIC_ANALYZER,NR0109,Catch clause with a single 'throw' statement is redundant,,Info,Redundancies in Code,"Unnecessary, Telemetry",,,
+NR6Pack.0.10.0,NR6Pack,DIAGNOSTIC_ANALYZER,NR0134,Check for inequality before assignment is redundant if (x != value) x = value;,,Warning,Redundancies in Code,"Unnecessary, Telemetry",,,
+NR6Pack.0.10.0,NR6Pack,DIAGNOSTIC_ANALYZER,NR0113,Redundant comma in array initializer,,Warning,Redundancies in Code,"Unnecessary, Telemetry",,,
+NR6Pack.0.10.0,NR6Pack,DIAGNOSTIC_ANALYZER,NR0100,"When 'is' keyword is used, which implicitly check null",,Warning,Redundancies in Code,"Unnecessary, Telemetry",,,
+NR6Pack.0.10.0,NR6Pack,DIAGNOSTIC_ANALYZER,NR0164,Explicit delegate creation expression is redundant,,Warning,Redundancies in Code,"Unnecessary, Telemetry",,,
+NR6Pack.0.10.0,NR6Pack,DIAGNOSTIC_ANALYZER,NR0074,Redundant empty 'default' switch branch,,Warning,Redundancies in Code,"Unnecessary, Telemetry",,,
+NR6Pack.0.10.0,NR6Pack,DIAGNOSTIC_ANALYZER,NR0118,Redundant empty finally block,,Warning,Redundancies in Code,"Unnecessary, Telemetry",,,
+NR6Pack.0.10.0,NR6Pack,DIAGNOSTIC_ANALYZER,NR0086,Redundant 'IEnumerable.Cast<T>' or 'IEnumerable.OfType<T>' call,,Warning,Redundancies in Code,"Unnecessary, Telemetry",,,
+NR6Pack.0.10.0,NR6Pack,DIAGNOSTIC_ANALYZER,NR0078,Redundant explicit type in array creation,,Warning,Redundancies in Code,"Unnecessary, Telemetry",,,
+NR6Pack.0.10.0,NR6Pack,DIAGNOSTIC_ANALYZER,NR0103,Redundant explicit size in array creation,,Warning,Redundancies in Code,"Unnecessary, Telemetry",,,
+NR6Pack.0.10.0,NR6Pack,DIAGNOSTIC_ANALYZER,NR0138,Value types are implicitly convertible to nullables,,Warning,Redundancies in Code,"Unnecessary, Telemetry",,,
+NR6Pack.0.10.0,NR6Pack,DIAGNOSTIC_ANALYZER,NR0101,Type is either mentioned in the base type list of another part or in another base type,,Warning,Redundancies in Code,"Unnecessary, Telemetry",,,
+NR6Pack.0.10.0,NR6Pack,DIAGNOSTIC_ANALYZER,NR0147,Redundant 'else' keyword,,Warning,Redundancies in Code,"Unnecessary, Telemetry",,,
+NR6Pack.0.10.0,NR6Pack,DIAGNOSTIC_ANALYZER,NR0094,Explicit type specification can be removed as it can be implicitly inferred,,Warning,Redundancies in Code,"Unnecessary, Telemetry",,,
+NR6Pack.0.10.0,NR6Pack,DIAGNOSTIC_ANALYZER,NR0140,Redundant lambda signature parentheses,,Warning,Redundancies in Code,"Unnecessary, Telemetry",,,
+NR6Pack.0.10.0,NR6Pack,DIAGNOSTIC_ANALYZER,NR0079,Redundant operand in logical conditional expression,,Warning,Redundancies in Code,"Unnecessary, Telemetry",,,
+NR6Pack.0.10.0,NR6Pack,DIAGNOSTIC_ANALYZER,NR0104,"When object creation uses object or collection initializer, empty argument list is redundant",,Warning,Redundancies in Code,"Unnecessary, Telemetry",,,
+NR6Pack.0.10.0,NR6Pack,DIAGNOSTIC_ANALYZER,NR0144,Redundant empty object or collection initializer,,Warning,Redundancies in Code,"Unnecessary, Telemetry",,,
+NR6Pack.0.10.0,NR6Pack,DIAGNOSTIC_ANALYZER,NR0123,Redundant 'string.ToCharArray()' call,,Warning,Redundancies in Code,"Unnecessary, Telemetry",,,
+NR6Pack.0.10.0,NR6Pack,DIAGNOSTIC_ANALYZER,NR0075,Redundant conditional expression,,Warning,Redundancies in Code,"Unnecessary, Telemetry",,,
+NR6Pack.0.10.0,NR6Pack,DIAGNOSTIC_ANALYZER,NR0106,Finds calls to ToString() which would be generated automatically by the compiler,,Warning,Redundancies in Code,"Unnecessary, Telemetry",,,
+NR6Pack.0.10.0,NR6Pack,DIAGNOSTIC_ANALYZER,NR0107,Finds calls to ToString() which would be generated automatically by the compiler,,Warning,Redundancies in Code,"Unnecessary, Telemetry",,,
+NR6Pack.0.10.0,NR6Pack,DIAGNOSTIC_ANALYZER,NR0158,Unsafe modifier in redundant in unsafe context or when no unsafe constructs are used,,Warning,Redundancies in Code,"Unnecessary, Telemetry",,,
+NR6Pack.0.10.0,NR6Pack,DIAGNOSTIC_ANALYZER,NR0076,Remove redundant statement,,Warning,Redundancies in Code,"Unnecessary, Telemetry",,,
+NR6Pack.0.10.0,NR6Pack,DIAGNOSTIC_ANALYZER,NR0128,Detects when no delegate parameter is used in the anonymous method body,,Warning,Redundancies in Code,,,,
+NR6Pack.0.10.0,NR6Pack,DIAGNOSTIC_ANALYZER,NR0114,Use method IsInstanceOfType,,Info,Common Practices and Code Improvements,,,,
+NR6Pack.0.10.0,NR6Pack,DIAGNOSTIC_ANALYZER,NR0116,Replace usages of 'Count()' with call to 'Any()',,Info,Common Practices and Code Improvements,,,,
+NR6Pack.0.10.0,NR6Pack,DIAGNOSTIC_ANALYZER,NR0148,'is' operator can be used,,Info,Common Practices and Code Improvements,,,,
+NR6Pack.0.10.0,NR6Pack,DIAGNOSTIC_ANALYZER,NR0142,Use array creation expression,,Info,Common Practices and Code Improvements,,,,
+NR6Pack.0.10.0,NR6Pack,DIAGNOSTIC_ANALYZER,NR0063,Warns when a culture-aware 'StartsWith' call is used by default.,,Warning,Common Practices and Code Improvements,,,,
+NR6Pack.0.10.0,NR6Pack,DIAGNOSTIC_ANALYZER,NR0062,Warns when a culture-aware 'LastIndexOf' call is used by default.,,Warning,Common Practices and Code Improvements,,,,
+NR6Pack.0.10.0,NR6Pack,DIAGNOSTIC_ANALYZER,NR0060,Warns when a culture-aware 'IndexOf' call is used by default.,,Warning,Common Practices and Code Improvements,,,,
+NR6Pack.0.10.0,NR6Pack,DIAGNOSTIC_ANALYZER,NR0061,Warns when a culture-aware 'EndsWith' call is used by default.,,Warning,Common Practices and Code Improvements,,,,
+NR6Pack.0.10.0,NR6Pack,DIAGNOSTIC_ANALYZER,NR0064,Warns when a culture-aware 'string.CompareTo' call is used by default,,Warning,Common Practices and Code Improvements,,,,
+NR6Pack.0.10.0,NR6Pack,DIAGNOSTIC_ANALYZER,NR0119,Warns when a culture-aware 'Compare' call is used by default,,Warning,Common Practices and Code Improvements,,,,
+NR6Pack.0.10.0,NR6Pack,DIAGNOSTIC_ANALYZER,NR0087,Simplify LINQ expression,,Info,Common Practices and Code Improvements,"Unnecessary, Telemetry",,,
+NR6Pack.0.10.0,NR6Pack,DIAGNOSTIC_ANALYZER,NR0059,Conditional expression can be simplified,,Info,Common Practices and Code Improvements,,,,
+NR6Pack.0.10.0,NR6Pack,DIAGNOSTIC_ANALYZER,NR0127,Uses shorter string.IsNullOrEmpty call instead of a longer condition,,Info,Common Practices and Code Improvements,,,,
+NR6Pack.0.10.0,NR6Pack,DIAGNOSTIC_ANALYZER,NR0058,Redundant Where() call with predicate followed by SingleOrDefault(),,Info,Common Practices and Code Improvements,,,,
+NR6Pack.0.10.0,NR6Pack,DIAGNOSTIC_ANALYZER,NR0057,Redundant Where() call with predicate followed by Single(),,Info,Common Practices and Code Improvements,,,,
+NR6Pack.0.10.0,NR6Pack,DIAGNOSTIC_ANALYZER,NR0056,Redundant Where() call with predicate followed by LongCount(),,Info,Common Practices and Code Improvements,,,,
+NR6Pack.0.10.0,NR6Pack,DIAGNOSTIC_ANALYZER,NR0055,Redundant Where() call with predicate followed by LastOrDefault(),,Info,Common Practices and Code Improvements,,,,
+NR6Pack.0.10.0,NR6Pack,DIAGNOSTIC_ANALYZER,NR0054,Redundant Where() call with predicate followed by Last(),,Info,Common Practices and Code Improvements,,,,
+NR6Pack.0.10.0,NR6Pack,DIAGNOSTIC_ANALYZER,NR0053,Redundant Where() call with predicate followed by FirstOrDefault(),,Info,Common Practices and Code Improvements,,,,
+NR6Pack.0.10.0,NR6Pack,DIAGNOSTIC_ANALYZER,NR0052,Redundant Where() call with predicate followed by First(),,Info,Common Practices and Code Improvements,,,,
+NR6Pack.0.10.0,NR6Pack,DIAGNOSTIC_ANALYZER,NR0051,Redundant Where() call with predicate followed by Count(),,Info,Common Practices and Code Improvements,,,,
+NR6Pack.0.10.0,NR6Pack,DIAGNOSTIC_ANALYZER,NR0050,Redundant Where() call with predicate followed by Any(),,Info,Common Practices and Code Improvements,,,,
+NR6Pack.0.10.0,NR6Pack,DIAGNOSTIC_ANALYZER,NR0049,Replace with simple assignment,,Info,Common Practices and Code Improvements,,,,
+NR6Pack.0.10.0,NR6Pack,DIAGNOSTIC_ANALYZER,NR0048,Replace with call to OfType<T>().Where(),,Info,Common Practices and Code Improvements,,,,
+NR6Pack.0.10.0,NR6Pack,DIAGNOSTIC_ANALYZER,NR0047,Replace with call to OfType<T>().SingleOrDefault(),,Info,Common Practices and Code Improvements,,,,
+NR6Pack.0.10.0,NR6Pack,DIAGNOSTIC_ANALYZER,NR0046,Replace with call to OfType<T>().Single(),,Info,Common Practices and Code Improvements,,,,
+NR6Pack.0.10.0,NR6Pack,DIAGNOSTIC_ANALYZER,NR0045,Replace with call to OfType<T>().LongCount(),,Info,Common Practices and Code Improvements,,,,
+NR6Pack.0.10.0,NR6Pack,DIAGNOSTIC_ANALYZER,NR0044,Replace with call to OfType<T>().LastOrDefault(),,Info,Common Practices and Code Improvements,,,,
+NR6Pack.0.10.0,NR6Pack,DIAGNOSTIC_ANALYZER,NR0043,Replace with call to OfType<T>().Last(),,Info,Common Practices and Code Improvements,,,,
+NR6Pack.0.10.0,NR6Pack,DIAGNOSTIC_ANALYZER,NR0038,Replace with call to OfType<T>,,Info,Common Practices and Code Improvements,,,,
+NR6Pack.0.10.0,NR6Pack,DIAGNOSTIC_ANALYZER,NR0042,Replace with call to OfType<T>().FirstOrDefault(),,Info,Common Practices and Code Improvements,,,,
+NR6Pack.0.10.0,NR6Pack,DIAGNOSTIC_ANALYZER,NR0041,Replace with call to OfType<T>().First(),,Info,Common Practices and Code Improvements,,,,
+NR6Pack.0.10.0,NR6Pack,DIAGNOSTIC_ANALYZER,NR0040,Replace with call to OfType<T>().Count(),,Info,Common Practices and Code Improvements,,,,
+NR6Pack.0.10.0,NR6Pack,DIAGNOSTIC_ANALYZER,NR0037,Replace with call to LastOrDefault<T>(),,Info,Common Practices and Code Improvements,,,,
+NR6Pack.0.10.0,NR6Pack,DIAGNOSTIC_ANALYZER,NR0036,Replace with call to FirstOrDefault<T>(),,Info,Common Practices and Code Improvements,,,,
+NR6Pack.0.10.0,NR6Pack,DIAGNOSTIC_ANALYZER,NR0131,Check for reference equality instead,,Info,Common Practices and Code Improvements,,,,
+NR6Pack.0.10.0,NR6Pack,DIAGNOSTIC_ANALYZER,NR0035,Possible mistaken call to 'object.GetType()',,Warning,Common Practices and Code Improvements,,,,
+NR6Pack.0.10.0,NR6Pack,DIAGNOSTIC_ANALYZER,NR0102,Finds parameters that can be demoted to a base class,,Info,Redundancies in Code,,,,
+NR6Pack.0.10.0,NR6Pack,DIAGNOSTIC_ANALYZER,NR0097,A member doesn't use 'this' object neither explicit nor implicit. It can be made static,,Info,Common Practices and Code Improvements,,,,
+NR6Pack.0.10.0,NR6Pack,DIAGNOSTIC_ANALYZER,NR0092,Convert field to readonly,,Info,Common Practices and Code Improvements,,,,
+NR6Pack.0.10.0,NR6Pack,DIAGNOSTIC_ANALYZER,NR0034,Empty control statement body,,Warning,Common Practices and Code Improvements,,,,
+NR6Pack.0.10.0,NR6Pack,DIAGNOSTIC_ANALYZER,NR0153,Convert local variable or field to constant,,Info,Common Practices and Code Improvements,,,,
+NR6Pack.0.10.0,NR6Pack,DIAGNOSTIC_ANALYZER,NR0033,Convert 'if' to '||' expression,,Info,Common Practices and Code Improvements,,,,
+NR6Pack.0.10.0,NR6Pack,DIAGNOSTIC_ANALYZER,NR0032,Convert 'if-do-while' to 'while' statement,,Info,Common Practices and Code Improvements,,,,
+NR6Pack.0.10.0,NR6Pack,DIAGNOSTIC_ANALYZER,NR0031,"Base parameter has 'params' modifier, but missing in overrider",,Warning,Common Practices and Code Improvements,,,,
+NR6Pack.0.10.0,NR6Pack,DIAGNOSTIC_ANALYZER,NR0030,Suggests using the class declaring a static function when calling it,,Warning,Common Practices and Code Improvements,,,,
+NR6Pack.0.10.0,NR6Pack,DIAGNOSTIC_ANALYZER,NR0163,Suggest the usage of the nameof operator,,Warning,Potential Code Quality Issues,,,,
+NR6Pack.0.10.0,NR6Pack,CODEFIX_PROVIDER,CS1105,,,,,,False,,
+NR6Pack.0.10.0,NR6Pack,CODEFIX_PROVIDER,CS1520,,,,,,False,,
+NR6Pack.0.10.0,NR6Pack,CODEFIX_PROVIDER,CS0108,,,,,,False,,
+NR6Pack.0.10.0,NR6Pack,CODEFIX_PROVIDER,CS0759,,,,,,False,,
+NR6Pack.0.10.0,NR6Pack,CODEFIX_PROVIDER,CS0127,,,,,,False,,
+NR6Pack.0.10.0,NR6Pack,CODEFIX_PROVIDER,CS8030,,,,,,False,,
+NR6Pack.0.10.0,NR6Pack,CODEFIX_PROVIDER,CS0152,,,,,,False,,
+NR6Pack.0.10.0,NR6Pack,CODEFIX_PROVIDER,CS0029,,,,,,False,,
+NR6Pack.0.10.0,NR6Pack,CODEFIX_PROVIDER,CS0266,,,,,,False,,
+NR6Pack.0.10.0,NR6Pack,CODEFIX_PROVIDER,CS1503,,,,,,False,,
+NR6Pack.0.10.0,NR6Pack,CODEFIX_PROVIDER,CS0164,,,,,,False,,
+NR6Pack.0.10.0,NR6Pack,CODEFIX_PROVIDER,CS0162,,,,,,False,,
+NR6Pack.0.10.0,NR6Pack,CODEFIX_PROVIDER,CS0126ReturnMustBeFollowedByAnyExpression,,,,,,False,,
+NR6Pack.0.10.0,NR6Pack,CODEFIX_PROVIDER,CS0169FieldIsNeverUsedAnalyzer,,,,,,False,,
+NR6Pack.0.10.0,NR6Pack,CODEFIX_PROVIDER,CS0618UsageOfObsoleteMemberAnalyzer,,,,,,False,,
+NR6Pack.0.10.0,NR6Pack,CODEFIX_PROVIDER,CS1729TypeHasNoConstructorWithNArgumentsAnalyzer,,,,,,False,,
+NR6Pack.0.10.0,NR6Pack,CODEFIX_PROVIDER,ExpressionIsNeverOfProvidedTypeAnalyzer,,,,,,False,,
+NR6Pack.0.10.0,NR6Pack,CODEFIX_PROVIDER,MissingInterfaceMemberImplementationAnalyzer,,,,,,False,,
+NR6Pack.0.10.0,NR6Pack,CODEFIX_PROVIDER,ProhibitedModifiersAnalyzer,,,,,,False,,
+NR6Pack.0.10.0,NR6Pack,CODEFIX_PROVIDER,CS0183ExpressionIsAlwaysOfProvidedTypeAnalyzer,,,,,,False,,
+NR6Pack.0.10.0,NR6Pack,CODEFIX_PROVIDER,CS1573ParameterHasNoMatchingParamTagAnalyzer,,,,,,False,,
+NR6Pack.0.10.0,NR6Pack,CODEFIX_PROVIDER,CS1717AssignmentMadeToSameVariableAnalyzer,,,,,,False,,
+NR6Pack.0.10.0,NR6Pack,CODEFIX_PROVIDER,NR0115,,,,,,False,,
+NR6Pack.0.10.0,NR6Pack,CODEFIX_PROVIDER,InconsistentNaming,,,,,,False,,
+NR6Pack.0.10.0,NR6Pack,CODEFIX_PROVIDER,NR0004,,,,,,False,,
+NR6Pack.0.10.0,NR6Pack,CODEFIX_PROVIDER,NR0005,,,,,,False,,
+NR6Pack.0.10.0,NR6Pack,CODEFIX_PROVIDER,NR0002,,,,,,False,,
+NR6Pack.0.10.0,NR6Pack,CODEFIX_PROVIDER,NR0006,,,,,,False,,
+NR6Pack.0.10.0,NR6Pack,CODEFIX_PROVIDER,NR0007,,,,,,False,,
+NR6Pack.0.10.0,NR6Pack,CODEFIX_PROVIDER,NR0156,,,,,,False,,
+NR6Pack.0.10.0,NR6Pack,CODEFIX_PROVIDER,NR0001,,,,,,False,,
+NR6Pack.0.10.0,NR6Pack,CODEFIX_PROVIDER,NR0126,,,,,,False,,
+NR6Pack.0.10.0,NR6Pack,CODEFIX_PROVIDER,NR0122,,,,,,False,,
+NR6Pack.0.10.0,NR6Pack,CODEFIX_PROVIDER,NR0159,,,,,,False,,
+NR6Pack.0.10.0,NR6Pack,CODEFIX_PROVIDER,NR0151,,,,,,False,,
+NR6Pack.0.10.0,NR6Pack,CODEFIX_PROVIDER,NR0008,,,,,,False,,
+NR6Pack.0.10.0,NR6Pack,CODEFIX_PROVIDER,NR0154,,,,,,False,,
+NR6Pack.0.10.0,NR6Pack,CODEFIX_PROVIDER,NR0009,,,,,,False,,
+NR6Pack.0.10.0,NR6Pack,CODEFIX_PROVIDER,NR0010,,,,,,False,,
+NR6Pack.0.10.0,NR6Pack,CODEFIX_PROVIDER,NR0011,,,,,,False,,
+NR6Pack.0.10.0,NR6Pack,CODEFIX_PROVIDER,NR0152,,,,,,False,,
+NR6Pack.0.10.0,NR6Pack,CODEFIX_PROVIDER,NR0012,,,,,,False,,
+NR6Pack.0.10.0,NR6Pack,CODEFIX_PROVIDER,NR0013,,,,,,False,,
+NR6Pack.0.10.0,NR6Pack,CODEFIX_PROVIDER,NR0161,,,,,,False,,
+NR6Pack.0.10.0,NR6Pack,CODEFIX_PROVIDER,NR0132,,,,,,False,,
+NR6Pack.0.10.0,NR6Pack,CODEFIX_PROVIDER,NR0014,,,,,,False,,
+NR6Pack.0.10.0,NR6Pack,CODEFIX_PROVIDER,NR0090,,,,,,False,,
+NR6Pack.0.10.0,NR6Pack,CODEFIX_PROVIDER,NR0015,,,,,,False,,
+NR6Pack.0.10.0,NR6Pack,CODEFIX_PROVIDER,NR0160,,,,,,False,,
+NR6Pack.0.10.0,NR6Pack,CODEFIX_PROVIDER,NR0091,,,,,,False,,
+NR6Pack.0.10.0,NR6Pack,CODEFIX_PROVIDER,NR0105,,,,,,False,,
+NR6Pack.0.10.0,NR6Pack,CODEFIX_PROVIDER,NR0017,,,,,,False,,
+NR6Pack.0.10.0,NR6Pack,CODEFIX_PROVIDER,NR0018,,,,,,False,,
+NR6Pack.0.10.0,NR6Pack,CODEFIX_PROVIDER,NR0019,,,,,,False,,
+NR6Pack.0.10.0,NR6Pack,CODEFIX_PROVIDER,NR0088,,,,,,False,,
+NR6Pack.0.10.0,NR6Pack,CODEFIX_PROVIDER,NR0024,,,,,,False,,
+NR6Pack.0.10.0,NR6Pack,CODEFIX_PROVIDER,NR0143,,,,,,False,,
+NR6Pack.0.10.0,NR6Pack,CODEFIX_PROVIDER,NR0162,,,,,,False,,
+NR6Pack.0.10.0,NR6Pack,CODEFIX_PROVIDER,NR0027,,,,,,False,,
+NR6Pack.0.10.0,NR6Pack,CODEFIX_PROVIDER,NR0124,,,,,,False,,
+NR6Pack.0.10.0,NR6Pack,CODEFIX_PROVIDER,NR0136,,,,,,False,,
+NR6Pack.0.10.0,NR6Pack,CODEFIX_PROVIDER,NR0111,,,,,,False,,
+NR6Pack.0.10.0,NR6Pack,CODEFIX_PROVIDER,NR0139,,,,,,False,,
+NR6Pack.0.10.0,NR6Pack,CODEFIX_PROVIDER,NR0157,,,,,,False,,
+NR6Pack.0.10.0,NR6Pack,CODEFIX_PROVIDER,NR0030,,,,,,False,,
+NR6Pack.0.10.0,NR6Pack,CODEFIX_PROVIDER,NR0031,,,,,,False,,
+NR6Pack.0.10.0,NR6Pack,CODEFIX_PROVIDER,NR0032,,,,,,False,,
+NR6Pack.0.10.0,NR6Pack,CODEFIX_PROVIDER,NR0033,,,,,,False,,
+NR6Pack.0.10.0,NR6Pack,CODEFIX_PROVIDER,NR0153,,,,,,False,,
+NR6Pack.0.10.0,NR6Pack,CODEFIX_PROVIDER,NR0034,,,,,,False,,
+NR6Pack.0.10.0,NR6Pack,CODEFIX_PROVIDER,NR0092,,,,,,False,,
+NR6Pack.0.10.0,NR6Pack,CODEFIX_PROVIDER,NR0097,,,,,,False,,
+NR6Pack.0.10.0,NR6Pack,CODEFIX_PROVIDER,NR0102,,,,,,False,,
+NR6Pack.0.10.0,NR6Pack,CODEFIX_PROVIDER,NR0035,,,,,,False,,
+NR6Pack.0.10.0,NR6Pack,CODEFIX_PROVIDER,NR0120,,,,,,False,,
+NR6Pack.0.10.0,NR6Pack,CODEFIX_PROVIDER,NR0131,,,,,,False,,
+NR6Pack.0.10.0,NR6Pack,CODEFIX_PROVIDER,NR0036,,,,,,False,,
+NR6Pack.0.10.0,NR6Pack,CODEFIX_PROVIDER,NR0037,,,,,,False,,
+NR6Pack.0.10.0,NR6Pack,CODEFIX_PROVIDER,NR0038,,,,,,False,,
+NR6Pack.0.10.0,NR6Pack,CODEFIX_PROVIDER,NR0039,,,,,,False,,
+NR6Pack.0.10.0,NR6Pack,CODEFIX_PROVIDER,NR0040,,,,,,False,,
+NR6Pack.0.10.0,NR6Pack,CODEFIX_PROVIDER,NR0041,,,,,,False,,
+NR6Pack.0.10.0,NR6Pack,CODEFIX_PROVIDER,NR0042,,,,,,False,,
+NR6Pack.0.10.0,NR6Pack,CODEFIX_PROVIDER,NR0043,,,,,,False,,
+NR6Pack.0.10.0,NR6Pack,CODEFIX_PROVIDER,NR0044,,,,,,False,,
+NR6Pack.0.10.0,NR6Pack,CODEFIX_PROVIDER,NR0045,,,,,,False,,
+NR6Pack.0.10.0,NR6Pack,CODEFIX_PROVIDER,NR0046,,,,,,False,,
+NR6Pack.0.10.0,NR6Pack,CODEFIX_PROVIDER,NR0047,,,,,,False,,
+NR6Pack.0.10.0,NR6Pack,CODEFIX_PROVIDER,NR0048,,,,,,False,,
+NR6Pack.0.10.0,NR6Pack,CODEFIX_PROVIDER,NR0049,,,,,,False,,
+NR6Pack.0.10.0,NR6Pack,CODEFIX_PROVIDER,NR0050,,,,,,False,,
+NR6Pack.0.10.0,NR6Pack,CODEFIX_PROVIDER,NR0051,,,,,,False,,
+NR6Pack.0.10.0,NR6Pack,CODEFIX_PROVIDER,NR0052,,,,,,False,,
+NR6Pack.0.10.0,NR6Pack,CODEFIX_PROVIDER,NR0053,,,,,,False,,
+NR6Pack.0.10.0,NR6Pack,CODEFIX_PROVIDER,NR0054,,,,,,False,,
+NR6Pack.0.10.0,NR6Pack,CODEFIX_PROVIDER,NR0055,,,,,,False,,
+NR6Pack.0.10.0,NR6Pack,CODEFIX_PROVIDER,NR0056,,,,,,False,,
+NR6Pack.0.10.0,NR6Pack,CODEFIX_PROVIDER,NR0057,,,,,,False,,
+NR6Pack.0.10.0,NR6Pack,CODEFIX_PROVIDER,NR0058,,,,,,False,,
+NR6Pack.0.10.0,NR6Pack,CODEFIX_PROVIDER,NR0127,,,,,,False,,
+NR6Pack.0.10.0,NR6Pack,CODEFIX_PROVIDER,NR0059,,,,,,False,,
+NR6Pack.0.10.0,NR6Pack,CODEFIX_PROVIDER,NR0087,,,,,,False,,
+NR6Pack.0.10.0,NR6Pack,CODEFIX_PROVIDER,NR0119,,,,,,False,,
+NR6Pack.0.10.0,NR6Pack,CODEFIX_PROVIDER,NR0064,,,,,,False,,
+NR6Pack.0.10.0,NR6Pack,CODEFIX_PROVIDER,NR0060,,,,,,False,,
+NR6Pack.0.10.0,NR6Pack,CODEFIX_PROVIDER,NR0061,,,,,,False,,
+NR6Pack.0.10.0,NR6Pack,CODEFIX_PROVIDER,NR0062,,,,,,False,,
+NR6Pack.0.10.0,NR6Pack,CODEFIX_PROVIDER,NR0063,,,,,,False,,
+NR6Pack.0.10.0,NR6Pack,CODEFIX_PROVIDER,NR0142,,,,,,False,,
+NR6Pack.0.10.0,NR6Pack,CODEFIX_PROVIDER,NR0148,,,,,,False,,
+NR6Pack.0.10.0,NR6Pack,CODEFIX_PROVIDER,NR0116,,,,,,False,,
+NR6Pack.0.10.0,NR6Pack,CODEFIX_PROVIDER,NR0114,,,,,,False,,
+NR6Pack.0.10.0,NR6Pack,CODEFIX_PROVIDER,NR0085,,,,,,False,,
+NR6Pack.0.10.0,NR6Pack,CODEFIX_PROVIDER,NR0065,,,,,,False,,
+NR6Pack.0.10.0,NR6Pack,CODEFIX_PROVIDER,NR0098,,,,,,False,,
+NR6Pack.0.10.0,NR6Pack,CODEFIX_PROVIDER,NR0066,,,,,,False,,
+NR6Pack.0.10.0,NR6Pack,CODEFIX_PROVIDER,NR0067,,,,,,False,,
+NR6Pack.0.10.0,NR6Pack,CODEFIX_PROVIDER,NR0068,,,,,,False,,
+NR6Pack.0.10.0,NR6Pack,CODEFIX_PROVIDER,NR0069,,,,,,False,,
+NR6Pack.0.10.0,NR6Pack,CODEFIX_PROVIDER,NR0141,,,,,,False,,
+NR6Pack.0.10.0,NR6Pack,CODEFIX_PROVIDER,NR0070,,,,,,False,,
+NR6Pack.0.10.0,NR6Pack,CODEFIX_PROVIDER,NR0071,,,,,,False,,
+NR6Pack.0.10.0,NR6Pack,CODEFIX_PROVIDER,NR0072,,,,,,False,,
+NR6Pack.0.10.0,NR6Pack,CODEFIX_PROVIDER,NR0121,,,,,,False,,
+NR6Pack.0.10.0,NR6Pack,CODEFIX_PROVIDER,NR0073,,,,,,False,,
+NR6Pack.0.10.0,NR6Pack,CODEFIX_PROVIDER,NR0109,,,,,,False,,
+NR6Pack.0.10.0,NR6Pack,CODEFIX_PROVIDER,NR0134,,,,,,False,,
+NR6Pack.0.10.0,NR6Pack,CODEFIX_PROVIDER,NR0113,,,,,,False,,
+NR6Pack.0.10.0,NR6Pack,CODEFIX_PROVIDER,NR0100,,,,,,False,,
+NR6Pack.0.10.0,NR6Pack,CODEFIX_PROVIDER,NR0164,,,,,,False,,
+NR6Pack.0.10.0,NR6Pack,CODEFIX_PROVIDER,NR0074,,,,,,False,,
+NR6Pack.0.10.0,NR6Pack,CODEFIX_PROVIDER,NR0118,,,,,,False,,
+NR6Pack.0.10.0,NR6Pack,CODEFIX_PROVIDER,NR0086,,,,,,False,,
+NR6Pack.0.10.0,NR6Pack,CODEFIX_PROVIDER,NR0078,,,,,,False,,
+NR6Pack.0.10.0,NR6Pack,CODEFIX_PROVIDER,NR0103,,,,,,False,,
+NR6Pack.0.10.0,NR6Pack,CODEFIX_PROVIDER,NR0138,,,,,,False,,
+NR6Pack.0.10.0,NR6Pack,CODEFIX_PROVIDER,NR0101,,,,,,False,,
+NR6Pack.0.10.0,NR6Pack,CODEFIX_PROVIDER,NR0147,,,,,,False,,
+NR6Pack.0.10.0,NR6Pack,CODEFIX_PROVIDER,NR0094,,,,,,False,,
+NR6Pack.0.10.0,NR6Pack,CODEFIX_PROVIDER,NR0140,,,,,,False,,
+NR6Pack.0.10.0,NR6Pack,CODEFIX_PROVIDER,NR0079,,,,,,False,,
+NR6Pack.0.10.0,NR6Pack,CODEFIX_PROVIDER,NR0104,,,,,,False,,
+NR6Pack.0.10.0,NR6Pack,CODEFIX_PROVIDER,NR0144,,,,,,False,,
+NR6Pack.0.10.0,NR6Pack,CODEFIX_PROVIDER,NR0123,,,,,,False,,
+NR6Pack.0.10.0,NR6Pack,CODEFIX_PROVIDER,NR0075,,,,,,False,,
+NR6Pack.0.10.0,NR6Pack,CODEFIX_PROVIDER,NR0106,,,,,,False,,
+NR6Pack.0.10.0,NR6Pack,CODEFIX_PROVIDER,NR0158,,,,,,False,,
+NR6Pack.0.10.0,NR6Pack,CODEFIX_PROVIDER,NR0076,,,,,,False,,
+NR6Pack.0.10.0,NR6Pack,CODEFIX_PROVIDER,NR0128,,,,,,False,,
+NR6Pack.0.10.0,NR6Pack,CODEFIX_PROVIDER,NR0080,,,,,,False,,
+NR6Pack.0.10.0,NR6Pack,CODEFIX_PROVIDER,NR0133,,,,,,False,,
+NR6Pack.0.10.0,NR6Pack,CODEFIX_PROVIDER,NR0149,,,,,,False,,
+NR6Pack.0.10.0,NR6Pack,CODEFIX_PROVIDER,NR0110,,,,,,False,,
+NR6Pack.0.10.0,NR6Pack,CODEFIX_PROVIDER,NR0093,,,,,,False,,
+NR6Pack.0.10.0,NR6Pack,CODEFIX_PROVIDER,NR0095,,,,,,False,,
+NR6Pack.0.10.0,NR6Pack,CODEFIX_PROVIDER,NR0077,,,,,,False,,
+NR6Pack.0.10.0,NR6Pack,CODEFIX_PROVIDER,NR0099,,,,,,False,,
+NR6Pack.0.10.0,NR6Pack,CODEFIX_PROVIDER,NR0084,,,,,,False,,
+NR6Pack.0.10.0,NR6Pack,CODEFIX_PROVIDER,NR0129,,,,,,False,,
+NR6Pack.0.10.0,NR6Pack,CODEFIX_PROVIDER,NR0145,,,,,,False,,
+NR6Pack.0.10.0,NR6Pack,CODEFIX_PROVIDER,NR0081,,,,,,False,,
+NR6Pack.0.10.0,NR6Pack,CODEFIX_PROVIDER,NR0163,,,,,,False,,
+NR6Pack.0.10.0,NR6Pack,CODEREFACTORING_PROVIDER,,,,,,,,,AddAnotherAccessorCodeRefactoringProvider
+NR6Pack.0.10.0,NR6Pack,CODEREFACTORING_PROVIDER,,,,,,,,,AddCatchExceptionCodeRefactoringProvider
+NR6Pack.0.10.0,NR6Pack,CODEREFACTORING_PROVIDER,,,,,,,,,AddExceptionDescriptionCodeRefactoringProvider
+NR6Pack.0.10.0,NR6Pack,CODEREFACTORING_PROVIDER,,,,,,,,,AddNameToArgumentCodeRefactoringProvider
+NR6Pack.0.10.0,NR6Pack,CODEREFACTORING_PROVIDER,,,,,,,,,AddNewFormatItemCodeRefactoringProvider
+NR6Pack.0.10.0,NR6Pack,CODEREFACTORING_PROVIDER,,,,,,,,,CheckIfParameterIsNullCodeRefactoringProvider
+NR6Pack.0.10.0,NR6Pack,CODEREFACTORING_PROVIDER,,,,,,,,,ComputeConstantValueCodeRefactoringProvider
+NR6Pack.0.10.0,NR6Pack,CODEREFACTORING_PROVIDER,,,,,,,,,ConvertAnonymousMethodToLambdaCodeRefactoringProvider
+NR6Pack.0.10.0,NR6Pack,CODEREFACTORING_PROVIDER,,,,,,,,,ConvertCoalescingToConditionalExpressionCodeRefactoringProvider
+NR6Pack.0.10.0,NR6Pack,CODEREFACTORING_PROVIDER,,,,,,,,,ConvertDecToHexCodeRefactoringProvider
+NR6Pack.0.10.0,NR6Pack,CODEREFACTORING_PROVIDER,,,,,,,,,ConvertEqualityOperatorToEqualsCodeRefactoringProvider
+NR6Pack.0.10.0,NR6Pack,CODEREFACTORING_PROVIDER,,,,,,,,,ConvertEqualityOperatorToReferenceEqualsCodeRefactoringProvider
+NR6Pack.0.10.0,NR6Pack,CODEREFACTORING_PROVIDER,,,,,,,,,ConvertEqualsToEqualityOperatorCodeRefactoringProvider
+NR6Pack.0.10.0,NR6Pack,CODEREFACTORING_PROVIDER,,,,,,,,,ConvertExplicitToImplicitImplementationCodeRefactoringProvider
+NR6Pack.0.10.0,NR6Pack,CODEREFACTORING_PROVIDER,,,,,,,,,ConvertForeachToForCodeRefactoringProvider
+NR6Pack.0.10.0,NR6Pack,CODEREFACTORING_PROVIDER,,,,,,,,,ConvertHexToDecCodeRefactoringProvider
+NR6Pack.0.10.0,NR6Pack,CODEREFACTORING_PROVIDER,,,,,,,,,ConvertIfStatementToConditionalTernaryExpressionCodeRefactoringProvider
+NR6Pack.0.10.0,NR6Pack,CODEREFACTORING_PROVIDER,,,,,,,,,ConvertIfStatementToSwitchStatementCodeRefactoringProvider
+NR6Pack.0.10.0,NR6Pack,CODEREFACTORING_PROVIDER,,,,,,,,,ConvertImplicitToExplicitImplementationCodeRefactoringProvider
+NR6Pack.0.10.0,NR6Pack,CODEREFACTORING_PROVIDER,,,,,,,,,ConvertLambdaBodyExpressionToStatementCodeRefactoringProvider
+NR6Pack.0.10.0,NR6Pack,CODEREFACTORING_PROVIDER,,,,,,,,,ConvertLambdaStatementToExpressionCodeRefactoringProvider
+NR6Pack.0.10.0,NR6Pack,CODEREFACTORING_PROVIDER,,,,,,,,,ConvertLambdaToAnonymousMethodCodeRefactoringProvider
+NR6Pack.0.10.0,NR6Pack,CODEREFACTORING_PROVIDER,,,,,,,,,ConvertMethodGroupToAnonymousMethodCodeRefactoringProvider
+NR6Pack.0.10.0,NR6Pack,CODEREFACTORING_PROVIDER,,,,,,,,,ConvertMethodGroupToLambdaCodeRefactoringProvider
+NR6Pack.0.10.0,NR6Pack,CODEREFACTORING_PROVIDER,,,,,,,,,ConvertReferenceEqualsToEqualityOperatorCodeRefactoringProvider
+NR6Pack.0.10.0,NR6Pack,CODEREFACTORING_PROVIDER,,,,,,,,,ConvertSwitchToIfCodeRefactoringProvider
+NR6Pack.0.10.0,NR6Pack,CODEREFACTORING_PROVIDER,,,,,,,,,CopyCommentsFromBaseCodeRefactoringProvider
+NR6Pack.0.10.0,NR6Pack,CODEREFACTORING_PROVIDER,,,,,,,,,CreateEventInvocatorCodeRefactoringProvider
+NR6Pack.0.10.0,NR6Pack,CODEREFACTORING_PROVIDER,,,,,,,,,FlipEqualsTargetAndArgumentCodeRefactoringProvider
+NR6Pack.0.10.0,NR6Pack,CODEREFACTORING_PROVIDER,,,,,,,,,FlipOperatorArgumentsCodeRefactoringProvider
+NR6Pack.0.10.0,NR6Pack,CODEREFACTORING_PROVIDER,,,,,,,,,FlipRelationalOperatorArgumentsCodeRefactoringProvider
+NR6Pack.0.10.0,NR6Pack,CODEREFACTORING_PROVIDER,,,,,,,,,InsertAnonymousMethodSignatureCodeRefactoringProvider
+NR6Pack.0.10.0,NR6Pack,CODEREFACTORING_PROVIDER,,,,,,,,,InvertConditionalOperatorCodeRefactoringProvider
+NR6Pack.0.10.0,NR6Pack,CODEREFACTORING_PROVIDER,,,,,,,,,InvertIfCodeRefactoringProvider
+NR6Pack.0.10.0,NR6Pack,CODEREFACTORING_PROVIDER,,,,,,,,,RemoveCatchExceptionCodeRefactoringProvider
+NR6Pack.0.10.0,NR6Pack,CODEREFACTORING_PROVIDER,,,,,,,,,InvokeAsStaticMethodCodeRefactoringProvider
+NR6Pack.0.10.0,NR6Pack,CODEREFACTORING_PROVIDER,,,,,,,,,JoinLocalVariableDeclarationAndAssignmentCodeRefactoringProvider
+NR6Pack.0.10.0,NR6Pack,CODEREFACTORING_PROVIDER,,,,,,,,,JoinStringCodeRefactoringProvider
+NR6Pack.0.10.0,NR6Pack,CODEREFACTORING_PROVIDER,,,,,,,,,NegateLogicalExpressionCodeRefactoringProvider
+NR6Pack.0.10.0,NR6Pack,CODEREFACTORING_PROVIDER,,,,,,,,,RemoveRegionEndRegionDirectivesCodeRefactoringProvider
+NR6Pack.0.10.0,NR6Pack,CODEREFACTORING_PROVIDER,,,,,,,,,AddBracesCodeRefactoringProvider
+NR6Pack.0.10.0,NR6Pack,CODEREFACTORING_PROVIDER,,,,,,,,,RemoveBracesCodeRefactoringProvider
+NR6Pack.0.10.0,NR6Pack,CODEREFACTORING_PROVIDER,,,,,,,,,ReplaceAutoPropertyWithPropertyAndBackingFieldCodeRefactoringProvider
+NR6Pack.0.10.0,NR6Pack,CODEREFACTORING_PROVIDER,,,,,,,,,ConvertAutoPropertyToPropertyCodeRefactoringProvider
+NR6Pack.0.10.0,NR6Pack,CODEREFACTORING_PROVIDER,,,,,,,,,ReplaceDirectCastWithSafeCastCodeRefactoringProvider
+NR6Pack.0.10.0,NR6Pack,CODEREFACTORING_PROVIDER,,,,,,,,,ReplacePropertyWithBackingFieldWithAutoPropertyCodeRefactoringProvider
+NR6Pack.0.10.0,NR6Pack,CODEREFACTORING_PROVIDER,,,,,,,,,ReplaceSafeCastWithDirectCastCodeRefactoringProvider
+NR6Pack.0.10.0,NR6Pack,CODEREFACTORING_PROVIDER,,,,,,,,,ReplaceExplicitTypeWithVarCodeRefactoringProvider
+NR6Pack.0.10.0,NR6Pack,CODEREFACTORING_PROVIDER,,,,,,,,,ReplaceVarWithExplicitTypeCodeRefactoringProvider
+NR6Pack.0.10.0,NR6Pack,CODEREFACTORING_PROVIDER,,,,,,,,,SplitIfWithAndConditionInTwoCodeRefactoringProvider
+NR6Pack.0.10.0,NR6Pack,CODEREFACTORING_PROVIDER,,,,,,,,,SplitIfWithOrConditionInTwoCodeRefactoringProvider
+NR6Pack.0.10.0,NR6Pack,CODEREFACTORING_PROVIDER,,,,,,,,,SplitLocalVariableDeclarationAndAssignmentCodeRefactoringProvider
+NR6Pack.0.10.0,NR6Pack,CODEREFACTORING_PROVIDER,,,,,,,,,ConvertHasFlagsToBitwiseFlagComparisonCodeRefactoringProvider
+NR6Pack.0.10.0,NR6Pack,CODEREFACTORING_PROVIDER,,,,,,,,,ConvertBitwiseFlagComparisonToHasFlagsCodeRefactoringProvider
+NR6Pack.0.10.0,NR6Pack,CODEREFACTORING_PROVIDER,,,,,,,,,UseAsAndNullCheckCodeRefactoringProvider
+NR6Pack.0.10.0,NR6Pack,CODEREFACTORING_PROVIDER,,,,,,,,,UseSystemStringEmptyCodeRefactoringProvider
+NR6Pack.0.10.0,NR6Pack,CODEREFACTORING_PROVIDER,,,,,,,,,UseSystemEnvironmentNewLineCodeRefactoringProvider
+NR6Pack.0.10.0,NR6Pack,CODEREFACTORING_PROVIDER,,,,,,,,,ConvertForToWhileCodeRefactoringProvider
+NR6Pack.0.10.0,NR6Pack,CODEREFACTORING_PROVIDER,,,,,,,,,ConvertDoWhileToWhileLoopCodeRefactoringProvider
+NR6Pack.0.10.0,NR6Pack,CODEREFACTORING_PROVIDER,,,,,,,,,NegateIsExpressionCodeRefactoringProvider
+NR6Pack.0.10.0,NR6Pack,CODEREFACTORING_PROVIDER,,,,,,,,,InvertLogicalExpressionCodeRefactoringProvider
+NR6Pack.0.10.0,NR6Pack,CODEREFACTORING_PROVIDER,,,,,,,,,GenerateSwitchLabelsCodeRefactoringProvider
+NR6Pack.0.10.0,NR6Pack,CODEREFACTORING_PROVIDER,,,,,,,,,ReplacePostfixExpressionWithAssignmentCodeRefactoringProvider
+NR6Pack.0.10.0,NR6Pack,CODEREFACTORING_PROVIDER,,,,,,,,,ReplaceWithOperatorAssignmentCodeRefactoringProvider
+NR6Pack.0.10.0,NR6Pack,CODEREFACTORING_PROVIDER,,,,,,,,,ReplaceAssignmentWithPostfixExpressionCodeRefactoringProvider
+NR6Pack.0.10.0,NR6Pack,CODEREFACTORING_PROVIDER,,,,,,,,,ConvertShiftToMultiplyCodeRefactoringProvider
+NR6Pack.0.10.0,NR6Pack,CODEREFACTORING_PROVIDER,,,,,,,,,ReplaceOperatorAssignmentWithAssignmentCodeRefactoringProvider
+NR6Pack.0.10.0,NR6Pack,CODEREFACTORING_PROVIDER,,,,,,,,,ConvertMultiplyToShiftCodeRefactoringProvider
+NR6Pack.0.10.0,NR6Pack,CODEREFACTORING_PROVIDER,,,,,,,,,ExtractWhileConditionToInternalIfStatementCodeRefactoringProvider
+NR6Pack.0.10.0,NR6Pack,CODEREFACTORING_PROVIDER,,,,,,,,,ConvertWhileToDoWhileLoopCodeRefactoringProvider
+NR6Pack.0.10.0,NR6Pack,CODEREFACTORING_PROVIDER,,,,,,,,,ToAbstractVirtualNonVirtualConversionCodeRefactoringProvider
+NR6Pack.0.10.0,NR6Pack,CODEREFACTORING_PROVIDER,,,,,,,,,AutoLinqSumAction
+NR6Pack.0.10.0,NR6Pack,CODEREFACTORING_PROVIDER,,,,,,,,,ChangeAccessModifierAction
+NR6Pack.0.10.0,NR6Pack,CODEREFACTORING_PROVIDER,,,,,,,,,ConvertIfStatementToNullCoalescingExpressionAction
+NR6Pack.0.10.0,NR6Pack,CODEREFACTORING_PROVIDER,,,,,,,,,ConvertIfStatementToReturnStatementAction
+NR6Pack.0.10.0,NR6Pack,CODEREFACTORING_PROVIDER,,,,,,,,,CreateCustomEventImplementationAction
+NR6Pack.0.10.0,NR6Pack,CODEREFACTORING_PROVIDER,,,,,,,,,CreateDelegateAction
+NR6Pack.0.10.0,NR6Pack,CODEREFACTORING_PROVIDER,,,,,,,,,CreateIndexerAction
+NR6Pack.0.10.0,NR6Pack,CODEREFACTORING_PROVIDER,,,,,,,,,CreateOverloadWithoutParameterAction
+NR6Pack.0.10.0,NR6Pack,CODEREFACTORING_PROVIDER,,,,,,,,,ExtractAnonymousMethodAction
+NR6Pack.0.10.0,NR6Pack,CODEREFACTORING_PROVIDER,,,,,,,,,GenerateGetterAction
+NR6Pack.0.10.0,NR6Pack,CODEREFACTORING_PROVIDER,,,,,,,,,GeneratePropertyAction
+NR6Pack.0.10.0,NR6Pack,CODEREFACTORING_PROVIDER,,,,,,,,,IntroduceConstantAction
+NR6Pack.0.10.0,NR6Pack,CODEREFACTORING_PROVIDER,,,,,,,,,IterateViaForeachAction
+NR6Pack.0.10.0,NR6Pack,CODEREFACTORING_PROVIDER,,,,,,,,,LinqFluentToQueryAction
+NR6Pack.0.10.0,NR6Pack,CODEREFACTORING_PROVIDER,,,,,,,,,LinqQueryToFluentAction
+NR6Pack.0.10.0,NR6Pack,CODEREFACTORING_PROVIDER,,,,,,,,,MergeNestedIfAction
+NR6Pack.0.10.0,NR6Pack,CODEREFACTORING_PROVIDER,,,,,,,,,MoveToOuterScopeAction
+NR6Pack.0.10.0,NR6Pack,CODEREFACTORING_PROVIDER,,,,,,,,,PutInsideUsingAction
+NR6Pack.0.10.0,NR6Pack,CODEREFACTORING_PROVIDER,,,,,,,,,SortUsingsAction
+NR6Pack.0.10.0,NR6Pack,CODEREFACTORING_PROVIDER,,,,,,,,,UseStringFormatAction
+NR6Pack.0.10.0,NR6Pack,CODEREFACTORING_PROVIDER,,,,,,,,,ConvertStatementBodyToExpressionBodyCodeRefactoringProvider
+NR6Pack.0.10.0,NR6Pack,CODEREFACTORING_PROVIDER,,,,,,,,,ConvertExpressionBodyToStatementBodyCodeRefactoringProvider
+NR6Pack.0.10.0,NR6Pack,CODEREFACTORING_PROVIDER,,,,,,,,,CheckArrayIndexValueCodeRefactoringProvider
+NR6Pack.0.10.0,NR6Pack,CODEREFACTORING_PROVIDER,,,,,,,,,CheckCollectionIndexValueCodeRefactoringProvider
+NR6Pack.0.10.0,NR6Pack,CODEREFACTORING_PROVIDER,,,,,,,,,CheckStringIndexValueCodeRefactoringProvider
+NR6Pack.0.10.0,NR6Pack,CODEREFACTORING_PROVIDER,,,,,,,,,CheckStringBuilderIndexValueCodeRefactoringProvider
+NR6Pack.0.10.0,NR6Pack,CODEREFACTORING_PROVIDER,,,,,,,,,CheckDictionaryKeyValueCodeRefactoringProvider
+NR6Pack.0.10.0,NR6Pack,CODEREFACTORING_PROVIDER,,,,,,,,,CreateChangedEventCodeRefactoringProvider
+NR6Pack.0.10.0,NR6Pack,CODEREFACTORING_PROVIDER,,,,,,,,,AddOptionalParameterToInvocationCodeRefactoringProvider
+NR6Pack.0.10.0,NR6Pack,CODEREFACTORING_PROVIDER,,,,,,,,,SplitStringCodeRefactoringProvider
+NR6Pack.0.10.0,NR6Pack,CODEREFACTORING_PROVIDER,,,,,,,,,ReverseDirectionForForLoopCodeRefactoringProvider
+NR6Pack.0.10.0,NR6Pack,CODEREFACTORING_PROVIDER,,,,,,,,,InitializeFieldFromConstructorParameterCodeRefactoringProvider
+NR6Pack.0.10.0,NR6Pack,CODEREFACTORING_PROVIDER,,,,,,,,,InitializeAutoPropertyFromConstructorParameterCodeRefactoringProvider
+NR6Pack.0.10.0,NR6Pack,CODEREFACTORING_PROVIDER,,,,,,,,,ConvertTernaryExpressionToIfStatementCodeRefactoringProvider
+NR6Pack.0.10.0,NR6Pack,CODEREFACTORING_PROVIDER,,,,,,,,,SplitDeclarationListCodeRefactoringProvider
+NR6Pack.0.10.0,NR6Pack,CODEREFACTORING_PROVIDER,,,,,,,,,ConvertInterpolatedStringToStringFormatCodeRefactoringProvider
+NR6Pack.0.10.0,NR6Pack,CODEREFACTORING_PROVIDER,,,,,,,,,ConvertStringFormatToInterpolatedStringCodeRefactoringProvider
+NR6Pack.0.10.0,NR6Pack,CODEREFACTORING_PROVIDER,,,,,,,,,ImportStaticClassWithUsingCodeRefactoringProvider
 NSubstitute.Analyzers.CSharp.1.0.14,NSubstitute.Analyzers.CSharp,DIAGNOSTIC_ANALYZER,NS5002,Async callback used in Received.InOrder method.,Async callback used in Received.InOrder method.,Warning,Usage,,,,
 NSubstitute.Analyzers.CSharp.1.0.14,NSubstitute.Analyzers.CSharp,DIAGNOSTIC_ANALYZER,NS3000,Unable to find matching argument.,Unable to find argument.,Warning,Argument specification,,,,
 NSubstitute.Analyzers.CSharp.1.0.14,NSubstitute.Analyzers.CSharp,DIAGNOSTIC_ANALYZER,NS3001,Couldn't convert parameter.,Couldn't convert parameter.,Warning,Argument specification,,,,
@@ -8660,6 +9118,8 @@ System.Runtime.InteropServices.Analyzers.1.0.1,System.Runtime.InteropServices.An
 System.Runtime.InteropServices.Analyzers.1.0.1,System.Runtime.InteropServices.Analyzers,DIAGNOSTIC_ANALYZER,CA1401,P/Invokes should not be visible.,,Warning,Interoperability,Telemetry,,,
 System.Runtime.InteropServices.Analyzers.1.0.1,System.Runtime.InteropServices.Analyzers,DIAGNOSTIC_ANALYZER,CA2101,Specify marshaling for P/Invoke string arguments,"When marshaling strings as ANSI (or as Auto on Win9x), some characters may be changed. If best-fit mapping is on, strings that appear different in Unicode will be marshaled to identical ANSI strings, which may lead to incorrect security decisions. Turning best-fit mapping off reduces this risk, as all characters without equivalents are mapped to '?'. Also, note that CharSet.Ansi is the default setting for all string marshaling; Unicode marshaling must be specified explicitly, either as a CharSet setting of DllImport or StructLayout, or as a MarshalAs attribute with a Unicode (or system-dependent) UnmanagedType.",Warning,Globalization,Telemetry,,,
 System.Runtime.InteropServices.Analyzers.1.0.1,System.Runtime.InteropServices.VisualBasic.Analyzers,CODEFIX_PROVIDER,CA2101,,,,,,False,,
+SystemTimeAnalyzerAndFix.1.0.0.0,SystemTimeAnalyzer,DIAGNOSTIC_ANALYZER,SystemTimeAnalyzer,Use SystemTime.Now(),"Do not use DateTime, use SystemTime",Warning,Usage,,,,
+SystemTimeAnalyzerAndFix.1.0.0.0,SystemTimeAnalyzer,CODEFIX_PROVIDER,SystemTimeAnalyzer,,,,,,False,,
 TBit.Analyzers.1.4.4,TBit.Analyzers,DIAGNOSTIC_ANALYZER,TB0004,Possible unwanted async void.,Async void might result in an unwanted behaviour.,Warning,UnintentionalUsage,,,,
 TBit.Analyzers.1.4.4,TBit.Analyzers,DIAGNOSTIC_ANALYZER,TB0001,Possible missing await keyword.,Unawaited task might result in an unwanted behaviour.,Warning,UnintentionalUsage,,,,
 TBit.Analyzers.1.4.4,TBit.Analyzers,DIAGNOSTIC_ANALYZER,TB0002,Possible unwanted Task returned from method.,Unawaited task might result in an unwanted behaviour.,Warning,UnintentionalUsage,,,,

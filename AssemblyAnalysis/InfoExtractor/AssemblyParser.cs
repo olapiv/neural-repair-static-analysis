@@ -268,10 +268,17 @@ namespace InfoExtractor
 
                 var FixAllDiagnosticIDs = Enumerable.Empty<String>();
                 var supportedScopes = "";
-                var fixAllProvider = codeFixer.GetFixAllProvider();
-                if (fixAllProvider != null) {
-                    FixAllDiagnosticIDs = fixAllProvider.GetSupportedFixAllDiagnosticIds(codeFixer);
-                    supportedScopes = String.Join(", ", fixAllProvider.GetSupportedFixAllScopes().ToArray());
+                try
+                {
+                    var fixAllProvider = codeFixer.GetFixAllProvider();
+                    if (fixAllProvider != null)
+                    {
+                        FixAllDiagnosticIDs = fixAllProvider.GetSupportedFixAllDiagnosticIds(codeFixer);
+                        supportedScopes = String.Join(", ", fixAllProvider.GetSupportedFixAllScopes().ToArray());
+                    }
+                }
+                catch (System.MissingFieldException exc) {
+                    Console.WriteLine(exc);
                 }
 
                 foreach (String fixableDiagnosticID in codeFixer.FixableDiagnosticIds)
