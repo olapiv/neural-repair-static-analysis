@@ -1,0 +1,967 @@
+{
+    "num-unique-diagnostics": 28,
+    "avg-data-points-per-diagnostic": 8.25,
+    "std-data-points-per-diagnostic": 13.988834833537782,
+    "max-tokens-src": 193,
+    "avg-tokens-src": 122.9047619047619,
+    "std-tokens-src": 14.974134230030852,
+    "max-tokens-tgt": 190,
+    "avg-tokens-tgt": 52.42857142857143,
+    "std-tokens-tgt": 35.376427903420904,
+    "diagnostics": {
+        "AnalyzerFinal2": 2,
+        "RS0100": 7,
+        "SA1642D": 70,
+        "NES003": 14,
+        "NoPrivateUnderscore": 38,
+        "RCS1057": 6,
+        "DS01": 3,
+        "CC0004": 6,
+        "_SuperfluousAsync": 12,
+        "VSD0029": 5,
+        "HLQ005": 15,
+        "MT1001": 7,
+        "INTL0003": 7,
+        "ASA002": 12,
+        "RCS1084": 1,
+        "_MissingAsync": 4,
+        "CC0018": 1,
+        "RCS1001": 1,
+        "CSE006": 4,
+        "RCS1102": 4,
+        "DOC102": 1,
+        "DOC105": 1,
+        "RCS1037": 3,
+        "FS0030": 1,
+        "RECS0004": 1,
+        "FV0001": 3,
+        "RECS0014": 1,
+        "WTG3002": 1
+    },
+    "datapoints": [
+        {
+            "ID": "11964198-0",
+            "DiagnosticID": "AnalyzerFinal2"
+        },
+        {
+            "ID": "1331794-0",
+            "DiagnosticID": "RS0100"
+        },
+        {
+            "ID": "13633030-2",
+            "DiagnosticID": "SA1642D"
+        },
+        {
+            "ID": "52255969-1",
+            "DiagnosticID": "NES003"
+        },
+        {
+            "ID": "33610818-1",
+            "DiagnosticID": "NoPrivateUnderscore"
+        },
+        {
+            "ID": "82461302-0",
+            "DiagnosticID": "RCS1057"
+        },
+        {
+            "ID": "3691863-0",
+            "DiagnosticID": "SA1642D"
+        },
+        {
+            "ID": "95197684-0",
+            "DiagnosticID": "SA1642D"
+        },
+        {
+            "ID": "42331085-1",
+            "DiagnosticID": "SA1642D"
+        },
+        {
+            "ID": "5286711-0",
+            "DiagnosticID": "SA1642D"
+        },
+        {
+            "ID": "67015558-0",
+            "DiagnosticID": "SA1642D"
+        },
+        {
+            "ID": "24813856-0",
+            "DiagnosticID": "NES003"
+        },
+        {
+            "ID": "32382089-0",
+            "DiagnosticID": "SA1642D"
+        },
+        {
+            "ID": "97449126-0",
+            "DiagnosticID": "DS01"
+        },
+        {
+            "ID": "98758485-1",
+            "DiagnosticID": "SA1642D"
+        },
+        {
+            "ID": "23865118-0",
+            "DiagnosticID": "CC0004"
+        },
+        {
+            "ID": "48062981-0",
+            "DiagnosticID": "NoPrivateUnderscore"
+        },
+        {
+            "ID": "46540921-0",
+            "DiagnosticID": "NoPrivateUnderscore"
+        },
+        {
+            "ID": "58948298-0",
+            "DiagnosticID": "AnalyzerFinal2"
+        },
+        {
+            "ID": "40852894-0",
+            "DiagnosticID": "NoPrivateUnderscore"
+        },
+        {
+            "ID": "17735185-0",
+            "DiagnosticID": "_SuperfluousAsync"
+        },
+        {
+            "ID": "69949380-0",
+            "DiagnosticID": "VSD0029"
+        },
+        {
+            "ID": "18522458-0",
+            "DiagnosticID": "HLQ005"
+        },
+        {
+            "ID": "80347341-0",
+            "DiagnosticID": "MT1001"
+        },
+        {
+            "ID": "11866910-2",
+            "DiagnosticID": "SA1642D"
+        },
+        {
+            "ID": "88063201-2",
+            "DiagnosticID": "SA1642D"
+        },
+        {
+            "ID": "83657458-3",
+            "DiagnosticID": "INTL0003"
+        },
+        {
+            "ID": "24340701-2",
+            "DiagnosticID": "ASA002"
+        },
+        {
+            "ID": "68574153-1",
+            "DiagnosticID": "HLQ005"
+        },
+        {
+            "ID": "56145298-0",
+            "DiagnosticID": "RCS1084"
+        },
+        {
+            "ID": "96335515-2",
+            "DiagnosticID": "SA1642D"
+        },
+        {
+            "ID": "76090065-0",
+            "DiagnosticID": "NoPrivateUnderscore"
+        },
+        {
+            "ID": "80616160-0",
+            "DiagnosticID": "_MissingAsync"
+        },
+        {
+            "ID": "9610707-0",
+            "DiagnosticID": "HLQ005"
+        },
+        {
+            "ID": "56421795-0",
+            "DiagnosticID": "ASA002"
+        },
+        {
+            "ID": "58811042-0",
+            "DiagnosticID": "SA1642D"
+        },
+        {
+            "ID": "80616160-1",
+            "DiagnosticID": "_MissingAsync"
+        },
+        {
+            "ID": "9610707-1",
+            "DiagnosticID": "HLQ005"
+        },
+        {
+            "ID": "56421795-1",
+            "DiagnosticID": "ASA002"
+        },
+        {
+            "ID": "29232134-0",
+            "DiagnosticID": "NoPrivateUnderscore"
+        },
+        {
+            "ID": "72915252-0",
+            "DiagnosticID": "CC0018"
+        },
+        {
+            "ID": "200752-0",
+            "DiagnosticID": "SA1642D"
+        },
+        {
+            "ID": "96335515-3",
+            "DiagnosticID": "SA1642D"
+        },
+        {
+            "ID": "68574153-0",
+            "DiagnosticID": "HLQ005"
+        },
+        {
+            "ID": "83657458-2",
+            "DiagnosticID": "INTL0003"
+        },
+        {
+            "ID": "88063201-3",
+            "DiagnosticID": "SA1642D"
+        },
+        {
+            "ID": "73805525-0",
+            "DiagnosticID": "SA1642D"
+        },
+        {
+            "ID": "11866910-3",
+            "DiagnosticID": "SA1642D"
+        },
+        {
+            "ID": "17735185-1",
+            "DiagnosticID": "_SuperfluousAsync"
+        },
+        {
+            "ID": "40852894-1",
+            "DiagnosticID": "NoPrivateUnderscore"
+        },
+        {
+            "ID": "8420058-0",
+            "DiagnosticID": "ASA002"
+        },
+        {
+            "ID": "48062981-1",
+            "DiagnosticID": "NoPrivateUnderscore"
+        },
+        {
+            "ID": "46540921-1",
+            "DiagnosticID": "NoPrivateUnderscore"
+        },
+        {
+            "ID": "54460826-0",
+            "DiagnosticID": "NES003"
+        },
+        {
+            "ID": "78546298-0",
+            "DiagnosticID": "RCS1001"
+        },
+        {
+            "ID": "98758485-0",
+            "DiagnosticID": "SA1642D"
+        },
+        {
+            "ID": "95197684-1",
+            "DiagnosticID": "SA1642D"
+        },
+        {
+            "ID": "42331085-0",
+            "DiagnosticID": "SA1642D"
+        },
+        {
+            "ID": "24813856-1",
+            "DiagnosticID": "NES003"
+        },
+        {
+            "ID": "13633030-3",
+            "DiagnosticID": "SA1642D"
+        },
+        {
+            "ID": "52255969-0",
+            "DiagnosticID": "NES003"
+        },
+        {
+            "ID": "33610818-0",
+            "DiagnosticID": "NoPrivateUnderscore"
+        },
+        {
+            "ID": "23250128-0",
+            "DiagnosticID": "CSE006"
+        },
+        {
+            "ID": "90447740-0",
+            "DiagnosticID": "MT1001"
+        },
+        {
+            "ID": "31067145-0",
+            "DiagnosticID": "SA1642D"
+        },
+        {
+            "ID": "19280327-1",
+            "DiagnosticID": "SA1642D"
+        },
+        {
+            "ID": "10251725-1",
+            "DiagnosticID": "HLQ005"
+        },
+        {
+            "ID": "93776205-3",
+            "DiagnosticID": "NoPrivateUnderscore"
+        },
+        {
+            "ID": "31650748-1",
+            "DiagnosticID": "CC0004"
+        },
+        {
+            "ID": "27937343-0",
+            "DiagnosticID": "_SuperfluousAsync"
+        },
+        {
+            "ID": "10775229-1",
+            "DiagnosticID": "NoPrivateUnderscore"
+        },
+        {
+            "ID": "13506167-2",
+            "DiagnosticID": "RCS1057"
+        },
+        {
+            "ID": "94715623-0",
+            "DiagnosticID": "MT1001"
+        },
+        {
+            "ID": "56958588-0",
+            "DiagnosticID": "HLQ005"
+        },
+        {
+            "ID": "55898734-0",
+            "DiagnosticID": "SA1642D"
+        },
+        {
+            "ID": "80598389-0",
+            "DiagnosticID": "_SuperfluousAsync"
+        },
+        {
+            "ID": "26822478-1",
+            "DiagnosticID": "SA1642D"
+        },
+        {
+            "ID": "79680950-1",
+            "DiagnosticID": "ASA002"
+        },
+        {
+            "ID": "44172281-0",
+            "DiagnosticID": "RCS1102"
+        },
+        {
+            "ID": "60611580-0",
+            "DiagnosticID": "RCS1102"
+        },
+        {
+            "ID": "72560504-0",
+            "DiagnosticID": "MT1001"
+        },
+        {
+            "ID": "53792634-0",
+            "DiagnosticID": "DS01"
+        },
+        {
+            "ID": "78349439-0",
+            "DiagnosticID": "RCS1057"
+        },
+        {
+            "ID": "60517800-0",
+            "DiagnosticID": "SA1642D"
+        },
+        {
+            "ID": "90303562-0",
+            "DiagnosticID": "DOC102"
+        },
+        {
+            "ID": "60517800-1",
+            "DiagnosticID": "SA1642D"
+        },
+        {
+            "ID": "72304200-0",
+            "DiagnosticID": "SA1642D"
+        },
+        {
+            "ID": "50966331-2",
+            "DiagnosticID": "ASA002"
+        },
+        {
+            "ID": "43563022-0",
+            "DiagnosticID": "DOC105"
+        },
+        {
+            "ID": "35929271-1",
+            "DiagnosticID": "RS0100"
+        },
+        {
+            "ID": "24500857-0",
+            "DiagnosticID": "NES003"
+        },
+        {
+            "ID": "1460286-1",
+            "DiagnosticID": "RS0100"
+        },
+        {
+            "ID": "26822478-0",
+            "DiagnosticID": "SA1642D"
+        },
+        {
+            "ID": "79680950-0",
+            "DiagnosticID": "ASA002"
+        },
+        {
+            "ID": "86928938-0",
+            "DiagnosticID": "VSD0029"
+        },
+        {
+            "ID": "21972955-0",
+            "DiagnosticID": "CC0004"
+        },
+        {
+            "ID": "55898734-1",
+            "DiagnosticID": "SA1642D"
+        },
+        {
+            "ID": "10775229-0",
+            "DiagnosticID": "NoPrivateUnderscore"
+        },
+        {
+            "ID": "82730042-0",
+            "DiagnosticID": "SA1642D"
+        },
+        {
+            "ID": "52359850-0",
+            "DiagnosticID": "SA1642D"
+        },
+        {
+            "ID": "59468761-0",
+            "DiagnosticID": "SA1642D"
+        },
+        {
+            "ID": "27937343-1",
+            "DiagnosticID": "_SuperfluousAsync"
+        },
+        {
+            "ID": "31650748-0",
+            "DiagnosticID": "CC0004"
+        },
+        {
+            "ID": "18607145-2",
+            "DiagnosticID": "SA1642D"
+        },
+        {
+            "ID": "66149767-2",
+            "DiagnosticID": "_SuperfluousAsync"
+        },
+        {
+            "ID": "5103000-0",
+            "DiagnosticID": "RCS1102"
+        },
+        {
+            "ID": "93776205-2",
+            "DiagnosticID": "NoPrivateUnderscore"
+        },
+        {
+            "ID": "19280327-0",
+            "DiagnosticID": "SA1642D"
+        },
+        {
+            "ID": "88814714-0",
+            "DiagnosticID": "VSD0029"
+        },
+        {
+            "ID": "10251725-0",
+            "DiagnosticID": "HLQ005"
+        },
+        {
+            "ID": "9904849-0",
+            "DiagnosticID": "NES003"
+        },
+        {
+            "ID": "50588072-0",
+            "DiagnosticID": "SA1642D"
+        },
+        {
+            "ID": "13506167-0",
+            "DiagnosticID": "RCS1057"
+        },
+        {
+            "ID": "54772692-1",
+            "DiagnosticID": "NoPrivateUnderscore"
+        },
+        {
+            "ID": "23629174-0",
+            "DiagnosticID": "SA1642D"
+        },
+        {
+            "ID": "63756156-0",
+            "DiagnosticID": "ASA002"
+        },
+        {
+            "ID": "96412111-1",
+            "DiagnosticID": "NoPrivateUnderscore"
+        },
+        {
+            "ID": "31650748-3",
+            "DiagnosticID": "CC0004"
+        },
+        {
+            "ID": "66149767-1",
+            "DiagnosticID": "_SuperfluousAsync"
+        },
+        {
+            "ID": "18607145-1",
+            "DiagnosticID": "SA1642D"
+        },
+        {
+            "ID": "93776205-1",
+            "DiagnosticID": "NoPrivateUnderscore"
+        },
+        {
+            "ID": "94143157-0",
+            "DiagnosticID": "SA1642D"
+        },
+        {
+            "ID": "7159809-0",
+            "DiagnosticID": "MT1001"
+        },
+        {
+            "ID": "51271179-0",
+            "DiagnosticID": "NoPrivateUnderscore"
+        },
+        {
+            "ID": "19431517-0",
+            "DiagnosticID": "NES003"
+        },
+        {
+            "ID": "35761869-0",
+            "DiagnosticID": "_SuperfluousAsync"
+        },
+        {
+            "ID": "60517800-2",
+            "DiagnosticID": "SA1642D"
+        },
+        {
+            "ID": "59109552-0",
+            "DiagnosticID": "RCS1037"
+        },
+        {
+            "ID": "50966331-1",
+            "DiagnosticID": "ASA002"
+        },
+        {
+            "ID": "27989981-0",
+            "DiagnosticID": "SA1642D"
+        },
+        {
+            "ID": "15182169-0",
+            "DiagnosticID": "HLQ005"
+        },
+        {
+            "ID": "92972036-0",
+            "DiagnosticID": "SA1642D"
+        },
+        {
+            "ID": "67039021-1",
+            "DiagnosticID": "CSE006"
+        },
+        {
+            "ID": "23365566-1",
+            "DiagnosticID": "NES003"
+        },
+        {
+            "ID": "26822478-3",
+            "DiagnosticID": "SA1642D"
+        },
+        {
+            "ID": "86928938-3",
+            "DiagnosticID": "VSD0029"
+        },
+        {
+            "ID": "52106304-0",
+            "DiagnosticID": "SA1642D"
+        },
+        {
+            "ID": "55898734-2",
+            "DiagnosticID": "SA1642D"
+        },
+        {
+            "ID": "55898734-3",
+            "DiagnosticID": "SA1642D"
+        },
+        {
+            "ID": "12478198-0",
+            "DiagnosticID": "DS01"
+        },
+        {
+            "ID": "86928938-2",
+            "DiagnosticID": "VSD0029"
+        },
+        {
+            "ID": "26822478-2",
+            "DiagnosticID": "SA1642D"
+        },
+        {
+            "ID": "32137845-0",
+            "DiagnosticID": "NoPrivateUnderscore"
+        },
+        {
+            "ID": "67039021-0",
+            "DiagnosticID": "CSE006"
+        },
+        {
+            "ID": "23365566-0",
+            "DiagnosticID": "NES003"
+        },
+        {
+            "ID": "92972036-1",
+            "DiagnosticID": "SA1642D"
+        },
+        {
+            "ID": "89968874-0",
+            "DiagnosticID": "HLQ005"
+        },
+        {
+            "ID": "54788315-0",
+            "DiagnosticID": "SA1642D"
+        },
+        {
+            "ID": "50966331-0",
+            "DiagnosticID": "ASA002"
+        },
+        {
+            "ID": "40856820-0",
+            "DiagnosticID": "RCS1102"
+        },
+        {
+            "ID": "77668246-0",
+            "DiagnosticID": "HLQ005"
+        },
+        {
+            "ID": "60517800-3",
+            "DiagnosticID": "SA1642D"
+        },
+        {
+            "ID": "32995424-0",
+            "DiagnosticID": "SA1642D"
+        },
+        {
+            "ID": "19431517-1",
+            "DiagnosticID": "NES003"
+        },
+        {
+            "ID": "94143157-1",
+            "DiagnosticID": "SA1642D"
+        },
+        {
+            "ID": "93776205-0",
+            "DiagnosticID": "NoPrivateUnderscore"
+        },
+        {
+            "ID": "66149767-0",
+            "DiagnosticID": "_SuperfluousAsync"
+        },
+        {
+            "ID": "18607145-0",
+            "DiagnosticID": "SA1642D"
+        },
+        {
+            "ID": "96412111-0",
+            "DiagnosticID": "NoPrivateUnderscore"
+        },
+        {
+            "ID": "13506167-1",
+            "DiagnosticID": "RCS1057"
+        },
+        {
+            "ID": "54772692-0",
+            "DiagnosticID": "NoPrivateUnderscore"
+        },
+        {
+            "ID": "10775229-2",
+            "DiagnosticID": "NoPrivateUnderscore"
+        },
+        {
+            "ID": "65436724-0",
+            "DiagnosticID": "NoPrivateUnderscore"
+        },
+        {
+            "ID": "46540921-2",
+            "DiagnosticID": "NoPrivateUnderscore"
+        },
+        {
+            "ID": "65936941-0",
+            "DiagnosticID": "RS0100"
+        },
+        {
+            "ID": "88798847-0",
+            "DiagnosticID": "SA1642D"
+        },
+        {
+            "ID": "89156619-0",
+            "DiagnosticID": "FS0030"
+        },
+        {
+            "ID": "60280080-0",
+            "DiagnosticID": "NoPrivateUnderscore"
+        },
+        {
+            "ID": "93376416-0",
+            "DiagnosticID": "RCS1037"
+        },
+        {
+            "ID": "3509397-0",
+            "DiagnosticID": "INTL0003"
+        },
+        {
+            "ID": "95197684-2",
+            "DiagnosticID": "SA1642D"
+        },
+        {
+            "ID": "47886982-0",
+            "DiagnosticID": "RECS0004"
+        },
+        {
+            "ID": "13633030-0",
+            "DiagnosticID": "SA1642D"
+        },
+        {
+            "ID": "33670189-0",
+            "DiagnosticID": "RS0100"
+        },
+        {
+            "ID": "82983971-0",
+            "DiagnosticID": "RCS1037"
+        },
+        {
+            "ID": "11349633-0",
+            "DiagnosticID": "NoPrivateUnderscore"
+        },
+        {
+            "ID": "80616160-2",
+            "DiagnosticID": "_MissingAsync"
+        },
+        {
+            "ID": "9610707-2",
+            "DiagnosticID": "HLQ005"
+        },
+        {
+            "ID": "45665750-0",
+            "DiagnosticID": "NoPrivateUnderscore"
+        },
+        {
+            "ID": "96335515-0",
+            "DiagnosticID": "SA1642D"
+        },
+        {
+            "ID": "86287485-0",
+            "DiagnosticID": "RS0100"
+        },
+        {
+            "ID": "62175244-0",
+            "DiagnosticID": "FV0001"
+        },
+        {
+            "ID": "52009882-0",
+            "DiagnosticID": "NoPrivateUnderscore"
+        },
+        {
+            "ID": "24340701-0",
+            "DiagnosticID": "ASA002"
+        },
+        {
+            "ID": "34062928-0",
+            "DiagnosticID": "SA1642D"
+        },
+        {
+            "ID": "83657458-1",
+            "DiagnosticID": "INTL0003"
+        },
+        {
+            "ID": "44515212-0",
+            "DiagnosticID": "NoPrivateUnderscore"
+        },
+        {
+            "ID": "88063201-0",
+            "DiagnosticID": "SA1642D"
+        },
+        {
+            "ID": "54722993-0",
+            "DiagnosticID": "RECS0014"
+        },
+        {
+            "ID": "84973007-0",
+            "DiagnosticID": "INTL0003"
+        },
+        {
+            "ID": "11866910-0",
+            "DiagnosticID": "SA1642D"
+        },
+        {
+            "ID": "17735185-2",
+            "DiagnosticID": "_SuperfluousAsync"
+        },
+        {
+            "ID": "53095309-0",
+            "DiagnosticID": "NoPrivateUnderscore"
+        },
+        {
+            "ID": "21045226-0",
+            "DiagnosticID": "NoPrivateUnderscore"
+        },
+        {
+            "ID": "26804758-0",
+            "DiagnosticID": "NoPrivateUnderscore"
+        },
+        {
+            "ID": "98320085-1",
+            "DiagnosticID": "NES003"
+        },
+        {
+            "ID": "2022203-0",
+            "DiagnosticID": "_SuperfluousAsync"
+        },
+        {
+            "ID": "13411231-0",
+            "DiagnosticID": "SA1642D"
+        },
+        {
+            "ID": "2022203-1",
+            "DiagnosticID": "_SuperfluousAsync"
+        },
+        {
+            "ID": "98320085-0",
+            "DiagnosticID": "NES003"
+        },
+        {
+            "ID": "43031950-0",
+            "DiagnosticID": "MT1001"
+        },
+        {
+            "ID": "57243462-0",
+            "DiagnosticID": "SA1642D"
+        },
+        {
+            "ID": "11866910-1",
+            "DiagnosticID": "SA1642D"
+        },
+        {
+            "ID": "64237647-0",
+            "DiagnosticID": "HLQ005"
+        },
+        {
+            "ID": "44515212-1",
+            "DiagnosticID": "NoPrivateUnderscore"
+        },
+        {
+            "ID": "88063201-1",
+            "DiagnosticID": "SA1642D"
+        },
+        {
+            "ID": "65517737-0",
+            "DiagnosticID": "CSE006"
+        },
+        {
+            "ID": "83657458-0",
+            "DiagnosticID": "INTL0003"
+        },
+        {
+            "ID": "12723995-0",
+            "DiagnosticID": "SA1642D"
+        },
+        {
+            "ID": "85675723-0",
+            "DiagnosticID": "NoPrivateUnderscore"
+        },
+        {
+            "ID": "52009882-1",
+            "DiagnosticID": "NoPrivateUnderscore"
+        },
+        {
+            "ID": "24340701-1",
+            "DiagnosticID": "ASA002"
+        },
+        {
+            "ID": "85528646-0",
+            "DiagnosticID": "RCS1057"
+        },
+        {
+            "ID": "86287485-1",
+            "DiagnosticID": "RS0100"
+        },
+        {
+            "ID": "62175244-1",
+            "DiagnosticID": "FV0001"
+        },
+        {
+            "ID": "96335515-1",
+            "DiagnosticID": "SA1642D"
+        },
+        {
+            "ID": "56318367-0",
+            "DiagnosticID": "NES003"
+        },
+        {
+            "ID": "54273763-0",
+            "DiagnosticID": "_MissingAsync"
+        },
+        {
+            "ID": "33610818-2",
+            "DiagnosticID": "NoPrivateUnderscore"
+        },
+        {
+            "ID": "52614067-0",
+            "DiagnosticID": "CC0004"
+        },
+        {
+            "ID": "4211965-0",
+            "DiagnosticID": "WTG3002"
+        },
+        {
+            "ID": "13633030-1",
+            "DiagnosticID": "SA1642D"
+        },
+        {
+            "ID": "67592808-0",
+            "DiagnosticID": "SA1642D"
+        },
+        {
+            "ID": "20807138-0",
+            "DiagnosticID": "HLQ005"
+        },
+        {
+            "ID": "27904537-0",
+            "DiagnosticID": "FV0001"
+        },
+        {
+            "ID": "50396260-0",
+            "DiagnosticID": "INTL0003"
+        },
+        {
+            "ID": "33034838-0",
+            "DiagnosticID": "MT1001"
+        },
+        {
+            "ID": "84306464-0",
+            "DiagnosticID": "HLQ005"
+        },
+        {
+            "ID": "39714491-0",
+            "DiagnosticID": "SA1642D"
+        },
+        {
+            "ID": "63955922-0",
+            "DiagnosticID": "SA1642D"
+        },
+        {
+            "ID": "46540921-3",
+            "DiagnosticID": "NoPrivateUnderscore"
+        }
+    ]
+}
