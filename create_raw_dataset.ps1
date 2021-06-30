@@ -1,3 +1,5 @@
+$MS_BUILD_PATH = 'C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin'
+$MSBUILD_EXE = "${MS_BUILD_PATH}\MSBuild.exe"
 
 $CURRENT_DIR = $PWD
 $OUTPUT_DIR_FIX = "$CURRENT_DIR/raw_dataset/diffs"
@@ -63,6 +65,9 @@ $GH_REPOS | ForEach-Object -ThrottleLimit 10 -Parallel {
 
         $SOLUTION_FILENAME = $SOLUTION_FILE.Filename
         $SOLUTION_FILEPATH = $SOLUTION_FILE.Filepath
+
+        Invoke-Expression "& '$Using:MSBUILD_EXE' $SOLUTION_FILEPATH /t:Restore"
+        # Invoke-Expression "& '$Using:MSBUILD_EXE' $SOLUTION_FILEPATH /t:Clean"
 
         Write-Output "Working with SOLUTION_FILENAME: $SOLUTION_FILENAME"
 
