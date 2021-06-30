@@ -211,6 +211,7 @@ def filter_useful_datapoints(tokenized_files):
     useful_datapoints = []
     bad_newline_endings = 0
 
+    seen_src = set()
     for tokenized_file in tokenized_files:
 
         print("tokenized_file: ", tokenized_file.name)
@@ -242,9 +243,18 @@ def filter_useful_datapoints(tokenized_files):
             print("Too many tokens; num_tgt_tokens: ", num_tgt_tokens)
             continue
 
+        # Can happen since dataset was generated across C# solutions; one project can be included by 
+        # multiple solutions and therefore fix duplications may occur
+        if src_string in seen_src:
+            print(f"Duplication in of src_string!")
+            continue
+        else:
+            seen_src.add(src_string)
+
         useful_datapoints.append(tokenized_file)
 
     print("bad_newline_endings: ", bad_newline_endings)
+    print("src_string duplications: ", len(seen_src))
 
     return useful_datapoints
 
