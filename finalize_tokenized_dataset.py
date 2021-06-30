@@ -182,19 +182,18 @@ def generate_diagnostics_statistics(metadata):
 
     all_diagnostics = Counter({})
     for stage in Stage:
-        num_unique_diagnostics = len(
-            metadata[stage.value]["data"]["diagnostics"])
-        metadata[stage.value]["data"]["num-unique-diagnostics"] = num_unique_diagnostics
 
-        data_points_per_diagnostic = metadata[stage.value]["data"]["diagnostics"].values(
-        )
+        diagnostics = metadata[stage.value]["data"]["diagnostics"]
+
+        metadata[stage.value]["data"]["num-unique-diagnostics"] = len(diagnostics)
+
+        data_points_per_diagnostic = diagnostics.values()
         metadata[stage.value]["data"]["avg-data-points-per-diagnostic"] = statistics.mean(
             data_points_per_diagnostic)
         metadata[stage.value]["data"]["std-data-points-per-diagnostic"] = statistics.pstdev(
             data_points_per_diagnostic)
 
-        all_diagnostics += Counter(metadata[stage.value]
-                                   ["data"]["diagnostics"])
+        all_diagnostics += Counter(diagnostics)
 
     metadata["total"]["data"]["diagnostics"] = all_diagnostics
     metadata["total"]["data"]["num-unique-diagnostics"] = len(all_diagnostics)
