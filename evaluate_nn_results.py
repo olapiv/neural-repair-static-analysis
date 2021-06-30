@@ -10,12 +10,13 @@ import plotly.graph_objects as go
 
 
 final_dataset_dir = "experiment/random_mix"
+eval_dir = f"{final_dataset_dir}/nn_evaluation"
 metadata_test_file = f"{final_dataset_dir}/metadata-test.json"
 metadata_train_file = f"{final_dataset_dir}/metadata-train.json"
 src_test_file = f"{final_dataset_dir}/src-test.txt"
 tgt_test_file = f"{final_dataset_dir}/tgt-test.txt"
-inference_test_file = f"{final_dataset_dir}/nn_evaluation/inference-test.txt"
-inference_eval_file = f"{final_dataset_dir}/nn_evaluation/inference-eval.json"
+inference_test_file = f"{eval_dir}/inference-test.txt"
+inference_eval_file = f"{eval_dir}/inference-eval.json"
 
 FORMATTING_TOKENS = ["WHITESPACE", "NEWLINE", "TAB"]
 
@@ -447,7 +448,7 @@ def sort_for_characteristic_examples(evaluation_dict):
     }
 
 
-def plot_num_datapoints_vs_success(evaluation_dict):
+def plot_num_datapoints_vs_success(evaluation_dict, filename):
     datapoints_graph = flatten_result_per_diagnostic(
         evaluation_dict["result_per_diagnostic"])
 
@@ -475,35 +476,40 @@ def plot_num_datapoints_vs_success(evaluation_dict):
     fig.update_xaxes(title_text='Number datapoints in train')
     fig.update_yaxes(title_text='Percentage of Correct Predictions in Test')
     fig.show()
+    fig.write_image(f"{eval_dir}/{filename}")
 
 
 def plot_src_len_vs_success(evaluation_dict):
     x = list(evaluation_dict["avg_success_perc_per_src_len"].keys())
     y = [success_perc for success_perc in evaluation_dict["avg_success_perc_per_src_len"].values()]
-    plot_num_tokens_vs_success(x, y, "Number of Source Tokens")
+    plot_num_tokens_vs_success(
+        x, y, "Number of Source Tokens", "success-rate-src-len.png")
 
 
 def plot_tgt_len_vs_success(evaluation_dict):
     x = list(evaluation_dict["avg_success_perc_per_tgt_len"].keys())
     y = [success_perc for success_perc in evaluation_dict["avg_success_perc_per_tgt_len"].values()]
-    plot_num_tokens_vs_success(x, y, "Number of Target Tokens")
+    plot_num_tokens_vs_success(
+        x, y, "Number of Target Tokens", "success-rate-tgt-len.png")
 
 
 def plot_src_num_format_tokens_vs_success(evaluation_dict):
     x = list(
         evaluation_dict["avg_success_perc_per_src_formatting_token"].keys())
     y = [success_perc for success_perc in evaluation_dict["avg_success_perc_per_src_formatting_token"].values()]
-    plot_num_tokens_vs_success(x, y, "Number of Formatting Tokens in Source")
+    plot_num_tokens_vs_success(
+        x, y, "Number of Formatting Tokens in Source", "success-rate-num-format-tokens-src.png")
 
 
 def plot_tgt_num_format_tokens_vs_success(evaluation_dict):
     x = list(
         evaluation_dict["avg_success_perc_per_tgt_formatting_token"].keys())
     y = [success_perc for success_perc in evaluation_dict["avg_success_perc_per_tgt_formatting_token"].values()]
-    plot_num_tokens_vs_success(x, y, "Number of Formatting Tokens in Target")
+    plot_num_tokens_vs_success(
+        x, y, "Number of Formatting Tokens in Target", "success-rate-num-format-tokens-tgt.png")
 
 
-def plot_num_tokens_vs_success(x, y, independent_var):
+def plot_num_tokens_vs_success(x, y, independent_var, filename):
     fig = go.Figure(data=go.Scatter(x=x,
                                     y=y,
                                     # mode='markers',
@@ -520,6 +526,7 @@ def plot_num_tokens_vs_success(x, y, independent_var):
     fig.update_xaxes(title_text=f'{independent_var}')
     fig.update_yaxes(title_text='Percentage of Correct Predictions in Test')
     fig.show()
+    fig.write_image(f"{eval_dir}/{filename}")
 
 
 def remove_redundant_data(evaluation_dict):
@@ -604,7 +611,7 @@ def main():
     save_characteristic_examples(evaluation_dict, characteristic_examples_dict,
                                  src_test_list, tgt_test_list, inference_test_list, metadata_test)
 
-    plot_num_datapoints_vs_success(evaluation_dict)
+    plot_num_datapoints_vs_success(evaluation_dict, "impact_data_on_accuracy.png")
     plot_src_len_vs_success(evaluation_dict)
     plot_tgt_len_vs_success(evaluation_dict)
 
