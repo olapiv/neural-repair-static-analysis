@@ -7,20 +7,26 @@ import statistics
 from enum import Enum
 from collections import Counter
 
+random.seed(10)
 
 tokenized_dataset_dir = "tokenized_dataset"
 final_dataset_dir = "final_dataset"
 
+LIMIT_TARGET_TOKENS = 500
+LIMIT_SOURCE_TOKENS = 500
 
-class NormalMode:
-    train_perc = 0.6
-    val_perc = 0.2
-    test_perc = 0.2
 
-# train: 10000  --> 63%
-# test: 2737  -->  17%
-# val: 3000  --> 19%
-# 15737
+class Modes:
+
+    class CopyMode:
+        train_perc = 0.6
+        val_perc = 0.2
+        test_perc = 0.2
+
+    class ExtrapolationMode:
+        train_perc = 0.7
+        val_perc = 0.2
+        test_perc = 0.1
 
 
 class InputOutput(Enum):
@@ -141,14 +147,20 @@ def generate_num_token_statistics(metadata):
     total_src = []
     total_tgt = []
     for stage in Stage:
-        metadata[stage.value]["data"]["max-tokens-src"] = max(metadata[stage.value]["data"]["token-num-src"])
-        metadata[stage.value]["data"]["avg-tokens-src"] = statistics.mean(metadata[stage.value]["data"]["token-num-src"])
-        metadata[stage.value]["data"]["std-tokens-src"] = statistics.pstdev(metadata[stage.value]["data"]["token-num-src"])
+        metadata[stage.value]["data"]["max-tokens-src"] = max(
+            metadata[stage.value]["data"]["token-num-src"])
+        metadata[stage.value]["data"]["avg-tokens-src"] = statistics.mean(
+            metadata[stage.value]["data"]["token-num-src"])
+        metadata[stage.value]["data"]["std-tokens-src"] = statistics.pstdev(
+            metadata[stage.value]["data"]["token-num-src"])
         total_src += metadata[stage.value]["data"]["token-num-src"]
 
-        metadata[stage.value]["data"]["max-tokens-tgt"] = max(metadata[stage.value]["data"]["token-num-tgt"])
-        metadata[stage.value]["data"]["avg-tokens-tgt"] = statistics.mean(metadata[stage.value]["data"]["token-num-tgt"])
-        metadata[stage.value]["data"]["std-tokens-tgt"] = statistics.pstdev(metadata[stage.value]["data"]["token-num-tgt"])
+        metadata[stage.value]["data"]["max-tokens-tgt"] = max(
+            metadata[stage.value]["data"]["token-num-tgt"])
+        metadata[stage.value]["data"]["avg-tokens-tgt"] = statistics.mean(
+            metadata[stage.value]["data"]["token-num-tgt"])
+        metadata[stage.value]["data"]["std-tokens-tgt"] = statistics.pstdev(
+            metadata[stage.value]["data"]["token-num-tgt"])
         total_tgt += metadata[stage.value]["data"]["token-num-tgt"]
 
         metadata[stage.value]["data"].pop("token-num-src", None)
@@ -169,55 +181,34 @@ def generate_num_token_statistics(metadata):
 def generate_diagnostics_statistics(metadata):
 
     all_diagnostics = Counter({})
-    for stage in Stage:        
-        num_unique_diagnostics = len(metadata[stage.value]["data"]["diagnostics"])
+    for stage in Stage:
+        num_unique_diagnostics = len(
+            metadata[stage.value]["data"]["diagnostics"])
         metadata[stage.value]["data"]["num-unique-diagnostics"] = num_unique_diagnostics
 
-        data_points_per_diagnostic = metadata[stage.value]["data"]["diagnostics"].values()
-        metadata[stage.value]["data"]["avg-data-points-per-diagnostic"] = statistics.mean(data_points_per_diagnostic)
-        metadata[stage.value]["data"]["std-data-points-per-diagnostic"] = statistics.pstdev(data_points_per_diagnostic)
+        data_points_per_diagnostic = metadata[stage.value]["data"]["diagnostics"].values(
+        )
+        metadata[stage.value]["data"]["avg-data-points-per-diagnostic"] = statistics.mean(
+            data_points_per_diagnostic)
+        metadata[stage.value]["data"]["std-data-points-per-diagnostic"] = statistics.pstdev(
+            data_points_per_diagnostic)
 
-        all_diagnostics += Counter(metadata[stage.value]["data"]["diagnostics"])
+        all_diagnostics += Counter(metadata[stage.value]
+                                   ["data"]["diagnostics"])
 
     metadata["total"]["data"]["diagnostics"] = all_diagnostics
     metadata["total"]["data"]["num-unique-diagnostics"] = len(all_diagnostics)
     data_points_per_diagnostic = all_diagnostics.values()
-    metadata["total"]["data"]["avg-data-points-per-diagnostic"] = statistics.mean(data_points_per_diagnostic)
-    metadata["total"]["data"]["std-data-points-per-diagnostic"] = statistics.pstdev(data_points_per_diagnostic)
+    metadata["total"]["data"]["avg-data-points-per-diagnostic"] = statistics.mean(
+        data_points_per_diagnostic)
+    metadata["total"]["data"]["std-data-points-per-diagnostic"] = statistics.pstdev(
+        data_points_per_diagnostic)
     metadata["total"]["data"].pop("datapoints", None)
 
 
-def main(zero_index_vars=False):
-    """
-        Two modes:
-            1. COPY_MODE: copy behaviour learning (Entirely mixed)
-                60%, 20%, 20%
+def filter_useful_datapoints(tokenized_files):
 
-            2. EXTRAP_MODE: extrapolation learning (Only new diag messages for validation)
-                70%, 20%, 10%
-
-        1. COPY_MODE:
-            1. Mix datapoints randomly
-        1. EXTRAP_MODE: (TODO: do later)
-            1. Count no. of datapoints per Diag ID
-            1. Calculate % of dataset per Diag ID
-            1. ...
-        1. Flatten all data
-    """
-
-    # Clear content of all files
-    for filepath in all_filepaths:
-        open(filepath, 'w').close()
-
-    tokenized_files = [f for f in os.scandir(
-        tokenized_dataset_dir) if f.is_file() and f.name.endswith(".json")]
-    random.shuffle(tokenized_files)
-
-    num_total_datapoints = len(tokenized_files)
-    train_datapoints = 0
-    test_datapoints = 0
-    val_datapoints = 0
-
+    useful_datapoints = []
     bad_newline_endings = 0
 
     for tokenized_file in tokenized_files:
@@ -243,23 +234,140 @@ def main(zero_index_vars=False):
         num_src_tokens = len(src_string.split())
         num_tgt_tokens = len(target_string.split())
 
-        if num_src_tokens > 500:
+        if num_src_tokens > LIMIT_SOURCE_TOKENS:
             print("Too many tokens; num_src_tokens: ", num_src_tokens)
             continue
 
-        if num_tgt_tokens > 500:
+        if num_tgt_tokens > LIMIT_TARGET_TOKENS:
             print("Too many tokens; num_tgt_tokens: ", num_tgt_tokens)
             continue
 
-        if (train_datapoints / num_total_datapoints) < NormalMode.train_perc:
+        useful_datapoints.append(tokenized_file)
+
+    print("bad_newline_endings: ", bad_newline_endings)
+
+    return useful_datapoints
+
+
+def split_dataset_by_diagnostics(tokenized_files):
+    """
+        Evaluate NN for EXTRAPOLATION
+        70% diagnostics in train
+        20% diagnostics in validation
+        10% diagnostics in test
+        --> Mix diagnostics randomly
+    """
+
+    # Get and shuffle diagnostics
+    diagnostics = []
+    for tokenized_file in tokenized_files:
+        with open(tokenized_file) as json_file:
+            tokenized_data_dict = json.load(json_file)
+        diagnostics.append(tokenized_data_dict["DiagnosticID"])
+
+    diagnostics = list(set(diagnostics))
+    random.shuffle(diagnostics)
+
+    # Consider checking analyzer_package_details.csv that test diagnostics are unique
+
+    # Split diagnostics into datasets
+    train_diagnostics = []
+    val_diagnostics = []
+    test_diagnostics = []
+    for diagnostic in diagnostics:
+        if (len(train_diagnostics) / len(diagnostics)) < Modes.ExtrapolationMode.train_perc:
+            train_diagnostics.append(diagnostic)
+        elif (len(val_diagnostics) / len(diagnostics)) < Modes.ExtrapolationMode.val_perc:
+            val_diagnostics.append(diagnostic)
+        else:
+            test_diagnostics.append(diagnostic)
+
+    # Assign datapoints to datasets
+    file_to_dataset = {}
+    for tokenized_file in tokenized_files:
+
+        with open(tokenized_file) as json_file:
+            tokenized_data_dict = json.load(json_file)
+
+        diagnostic = tokenized_data_dict["DiagnosticID"]
+        if diagnostic in train_diagnostics:
+            file_to_dataset[tokenized_file.name] = Stage.train.value
+        elif diagnostic in val_diagnostics:
+            file_to_dataset[tokenized_file.name] = Stage.val.value
+        else:
+            file_to_dataset[tokenized_file.name] = Stage.test.value
+
+    return file_to_dataset
+
+
+def split_dataset_by_datapoints(tokenized_files):
+    """
+        Train NN for COPY
+        60% datapoints in train
+        20% datapoints in validation
+        20% datapoints in test
+        --> Mix datapoints randomly
+    """
+
+    random.shuffle(tokenized_files)
+
+    file_to_dataset = {}
+
+    num_total_datapoints = len(tokenized_files)
+    train_datapoints = 0
+    val_datapoints = 0
+    test_datapoints = 0
+
+    for tokenized_file in tokenized_files:
+
+        if (train_datapoints / num_total_datapoints) < Modes.CopyMode.train_perc:
             train_datapoints += 1
-            current_stage = Stage.train.value
-        elif (val_datapoints / num_total_datapoints) < NormalMode.val_perc:
+            file_to_dataset[tokenized_file.name] = Stage.train.value
+        elif (val_datapoints / num_total_datapoints) < Modes.CopyMode.val_perc:
             val_datapoints += 1
-            current_stage = Stage.val.value
+            file_to_dataset[tokenized_file.name] = Stage.val.value
         else:
             test_datapoints += 1
-            current_stage = Stage.test.value
+            file_to_dataset[tokenized_file.name] = Stage.test.value
+
+    return file_to_dataset
+
+
+def main(mode=Modes.ExtrapolationMode, zero_index_vars=False):
+    """
+        Two modes:
+            1. COPY_MODE: copy behaviour learning (Entirely mixed)
+            2. EXTRAP_MODE: extrapolation learning (Only new diag messages for test & validation)
+    """
+
+    # Clear content of all files
+    for filepath in all_filepaths:
+        open(filepath, 'w').close()
+
+    tokenized_files = [f for f in os.scandir(
+        tokenized_dataset_dir) if f.is_file() and f.name.endswith(".json")]
+
+    tokenized_files = filter_useful_datapoints(tokenized_files)
+
+    if mode == Modes.ExtrapolationMode:
+        file_to_dataset = split_dataset_by_diagnostics(tokenized_files)
+    elif mode == Modes.CopyMode:
+        file_to_dataset = split_dataset_by_datapoints(tokenized_files)
+    else:
+        raise Exception(f"mode not existent!: {mode}")
+
+    for tokenized_file in tokenized_files:
+
+        with open(tokenized_file) as json_file:
+            tokenized_data_dict = json.load(json_file)
+
+        src_string = flatten_input_datapoint(tokenized_data_dict)
+        target_string = flatten_output_datapoint(tokenized_data_dict)
+
+        num_src_tokens = len(src_string.split())
+        num_tgt_tokens = len(target_string.split())
+
+        current_stage = file_to_dataset[tokenized_file.name]
 
         src_filepath = data_files["src"][current_stage]
         target_filepath = data_files["tgt"][current_stage]
@@ -281,8 +389,6 @@ def main(zero_index_vars=False):
         with open(target_filepath, 'a', encoding='utf-8') as target_file:
             target_file.write(target_string)
 
-    print("bad_newline_endings: ", bad_newline_endings)
-
     generate_num_token_statistics(metadata)
     generate_diagnostics_statistics(metadata)
 
@@ -297,4 +403,4 @@ def main(zero_index_vars=False):
 
 
 if __name__ == '__main__':
-    main()
+    main(Modes.ExtrapolationMode)
