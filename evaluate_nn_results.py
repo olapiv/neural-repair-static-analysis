@@ -9,13 +9,15 @@ from collections import Counter
 import plotly.graph_objects as go
 
 
-final_dataset_dir = "final_dataset"
+final_dataset_dir = "experiment/random_mix"
 metadata_test_file = f"{final_dataset_dir}/metadata-test.json"
 metadata_train_file = f"{final_dataset_dir}/metadata-train.json"
 src_test_file = f"{final_dataset_dir}/src-test.txt"
 tgt_test_file = f"{final_dataset_dir}/tgt-test.txt"
-inference_test_file = f"{final_dataset_dir}/inference-test.txt"
-inference_eval_file = f"{final_dataset_dir}/inference-eval.json"
+inference_test_file = f"{final_dataset_dir}/nn_evaluation/inference-test.txt"
+inference_eval_file = f"{final_dataset_dir}/nn_evaluation/inference-eval.json"
+
+FORMATTING_TOKENS = ["WHITESPACE", "NEWLINE", "TAB"]
 
 data_example = {
     "id": "",
@@ -53,6 +55,13 @@ evaluation_dict = {
         # 23: 0.7
     },
     "avg_success_perc_per_tgt_len": {
+        # 23: 0.7
+    },
+
+    "avg_success_perc_per_src_formatting_token": {
+        # 23: 0.7
+    },
+    "avg_success_perc_per_tgt_formatting_token": {
         # 23: 0.7
     },
 
@@ -259,6 +268,54 @@ def save_num_tokens_vs_success_perc(evaluation_dict, metadata_train, metadata_te
     evaluation_dict["avg_success_perc_per_tgt_len"] = success_perc_per_tgt_len
 
 
+def save_num_formatting_tokens_vs_success_perc(evaluation_dict, src_test_list, tgt_test_list, inference_test_list):
+
+    result_per_src_num_format_tokens = {}
+    result_per_tgt_num_format_tokens = {}
+
+    for index, tgt_test_line in enumerate(tgt_test_list):
+        is_correct = tgt_test_line == inference_test_list[index]
+
+        src_test_line = src_test_list[index]
+
+        src_test_line = src_test_line.rstrip('\n').split(" ")
+        tgt_test_line = tgt_test_line.rstrip('\n').split(" ")
+
+        src_num_format_token = len(
+            [token for token in src_test_line if token in FORMATTING_TOKENS])
+        tgt_num_format_token = len(
+            [token for token in tgt_test_line if token in FORMATTING_TOKENS])
+
+        if src_num_format_token not in result_per_src_num_format_tokens:
+            result_per_src_num_format_tokens[src_num_format_token] = {}
+            result_per_src_num_format_tokens[src_num_format_token]["correct"] = 0
+            result_per_src_num_format_tokens[src_num_format_token]["wrong"] = 0
+        if tgt_num_format_token not in result_per_tgt_num_format_tokens:
+            result_per_tgt_num_format_tokens[tgt_num_format_token] = {}
+            result_per_tgt_num_format_tokens[tgt_num_format_token]["correct"] = 0
+            result_per_tgt_num_format_tokens[tgt_num_format_token]["wrong"] = 0
+
+        if is_correct:
+            result_per_src_num_format_tokens[src_num_format_token]["correct"] += 1
+            result_per_tgt_num_format_tokens[tgt_num_format_token]["correct"] += 1
+        else:
+            result_per_src_num_format_tokens[src_num_format_token]["wrong"] += 1
+            result_per_tgt_num_format_tokens[tgt_num_format_token]["wrong"] += 1
+
+    success_perc_per_src_format_token = {}
+    for src_len, value in result_per_src_num_format_tokens.items():
+        success_perc_per_src_format_token[src_len] = value["correct"] / \
+            (value["correct"] + value["wrong"])
+
+    success_perc_per_tgt_format_token = {}
+    for tgt_len, value in result_per_tgt_num_format_tokens.items():
+        success_perc_per_tgt_format_token[tgt_len] = value["correct"] / \
+            (value["correct"] + value["wrong"])
+
+    evaluation_dict["avg_success_perc_per_src_formatting_token"] = success_perc_per_src_format_token
+    evaluation_dict["avg_success_perc_per_tgt_formatting_token"] = success_perc_per_tgt_format_token
+
+
 def flatten_result_per_diagnostic(result_per_diagnostic_dict):
     flattened = []
     for key, value in result_per_diagnostic_dict.items():
@@ -423,16 +480,30 @@ def plot_num_datapoints_vs_success(evaluation_dict):
 def plot_src_len_vs_success(evaluation_dict):
     x = list(evaluation_dict["avg_success_perc_per_src_len"].keys())
     y = [success_perc for success_perc in evaluation_dict["avg_success_perc_per_src_len"].values()]
-    plot_num_tokens_vs_success(x, y, "Source")
+    plot_num_tokens_vs_success(x, y, "Number of Source Tokens")
 
 
 def plot_tgt_len_vs_success(evaluation_dict):
     x = list(evaluation_dict["avg_success_perc_per_tgt_len"].keys())
     y = [success_perc for success_perc in evaluation_dict["avg_success_perc_per_tgt_len"].values()]
-    plot_num_tokens_vs_success(x, y, "Target")
+    plot_num_tokens_vs_success(x, y, "Number of Target Tokens")
 
 
-def plot_num_tokens_vs_success(x, y, type_tokens):
+def plot_src_num_format_tokens_vs_success(evaluation_dict):
+    x = list(
+        evaluation_dict["avg_success_perc_per_src_formatting_token"].keys())
+    y = [success_perc for success_perc in evaluation_dict["avg_success_perc_per_src_formatting_token"].values()]
+    plot_num_tokens_vs_success(x, y, "Number of Formatting Tokens in Source")
+
+
+def plot_tgt_num_format_tokens_vs_success(evaluation_dict):
+    x = list(
+        evaluation_dict["avg_success_perc_per_tgt_formatting_token"].keys())
+    y = [success_perc for success_perc in evaluation_dict["avg_success_perc_per_tgt_formatting_token"].values()]
+    plot_num_tokens_vs_success(x, y, "Number of Formatting Tokens in Target")
+
+
+def plot_num_tokens_vs_success(x, y, independent_var):
     fig = go.Figure(data=go.Scatter(x=x,
                                     y=y,
                                     # mode='markers',
@@ -445,8 +516,8 @@ def plot_num_tokens_vs_success(x, y, type_tokens):
                                     ),
                                     mode='markers'))
     fig.update_layout(
-        title=f"How {type_tokens} Length Impacts Success Rate of Predictions")
-    fig.update_xaxes(title_text=f'Number {type_tokens} tokens')
+        title=f"How {independent_var} Impacts Success Rate of Predictions")
+    fig.update_xaxes(title_text=f'{independent_var}')
     fig.update_yaxes(title_text='Percentage of Correct Predictions in Test')
     fig.show()
 
@@ -488,6 +559,9 @@ def main():
 
     save_num_tokens_vs_success_perc(evaluation_dict, metadata_train,
                                     metadata_test, src_test_list, tgt_test_list, inference_test_list)
+
+    save_num_formatting_tokens_vs_success_perc(
+        evaluation_dict, src_test_list, tgt_test_list, inference_test_list)
 
     save_result_per_diagnostic(
         evaluation_dict, metadata_train, metadata_test, tgt_test_list, inference_test_list)
@@ -533,6 +607,9 @@ def main():
     plot_num_datapoints_vs_success(evaluation_dict)
     plot_src_len_vs_success(evaluation_dict)
     plot_tgt_len_vs_success(evaluation_dict)
+
+    plot_src_num_format_tokens_vs_success(evaluation_dict)
+    plot_tgt_num_format_tokens_vs_success(evaluation_dict)
 
     remove_redundant_data(evaluation_dict)
 

@@ -22,8 +22,14 @@ Measuring the impact of datapoints per diagnostic on its accuracy in the followi
 
 Each datapoint represents a diagnostic. It is hard to decipher a correlation between number of data points a diagnostic requires in train to be successfully predicted in test.
 
-Measuring the impact of number of tokens in target/source on success rate of predictions in test in the followng figure.
+Measuring the impact of number of tokens in target/source on success rate of predictions in test in the followng figures.
+
+![Source Length vs Success Rate](success-rate-src-len.png)
 
 ![Target Length vs Success Rate](success-rate-tgt-len.png)
 
-![Source Length vs Success Rate](success-rate-src-len.png)
+Measuring the impact of number of **formatting** tokens in target/source on success rate of predictions in test in the followng figures.
+
+![Source Length vs Success Rate](success-rate-num-format-tokens-src.png)
+
+![Target Length vs Success Rate](success-rate-num-format-tokens-tgt.png)
