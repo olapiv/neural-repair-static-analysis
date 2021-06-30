@@ -2,14 +2,16 @@
 
 ## Possible Independent Variables
 
+✔︎: Generated dataset, ✔︎✔︎: Trained model
+
 * FINALIZING_DATASET: Mixture of train, val & test dataset
-  * Randomly mixed to measure **copy** learning ✔︎
-  * Selecting diagnostics exclusively for test-set to measure **extrapolation** learning
+  * Randomly mixed to measure **copy** learning ✔︎✔︎
+  * Selecting diagnostics exclusively for test-set to measure **extrapolation** learning ✔︎
 * NEURAL_NETWORK: Filter datapoints for limited number of source & target tokens in train
-  * Max number of source & target tokens ✔︎
+  * Max number of source & target tokens ✔︎✔︎
   * No restrictions
 * TOKENIZATION: Distribution of number of context tokens before & after required lines
-  * Evenly split prepending and appending tokens to required lines ✔︎
+  * Evenly split prepending and appending tokens to required lines ✔︎✔︎
     * Con: NN could learn to evenly subtract tokens at the beginning and end, until n number of full lines are left; If more than one line, it knows how many lines to remove through REMOVE/REPLACE
     * Pro: Still better than simply adding constant number of context lines, which is even easier to count
   * Random distribution of prepending and appending tokens
