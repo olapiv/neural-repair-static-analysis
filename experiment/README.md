@@ -2,29 +2,31 @@
 
 ## Possible Independent Variables
 
-* Mixture of train, val & test dataset
-  * Randomly mixed to measure **copy** learning
+* FINALIZING_DATASET: Mixture of train, val & test dataset
+  * Randomly mixed to measure **copy** learning ✔︎
   * Selecting diagnostics exclusively for test-set to measure **extrapolation** learning
-* Max number of source/target (input/output) tokens in train
-* Number of tokens before & after required lines
-  * Fixed number of tokens
+* NEURAL_NETWORK: Filter datapoints for limited number of source & target tokens in train
+  * Max number of source & target tokens ✔︎
+  * No restrictions
+* TOKENIZATION: Number of tokens before & after required lines
+  * Fixed number of tokens ✔︎
     * Con: NN could learn to count tokens to place always a standard diff at the same line
   * Random number of tokens
     * Pro: NN may have to learn more about dependencies between tokens to understand where to place its diff
-* Randomly masking/removing diagnostic line number in input
+* FINALIZING_DATASET: Randomly masking/removing diagnostic line number in input
   * Assumption: The NN may develop a better understanding of the code as it has to guess where the error is.
   * Pro: Can potentially be a helpful model in the evaluation by removing the final layer in the NN. Solely diagnostic messages can be fed to the NN and then their hidden representations can be calculated. May be an interesting analysis to calculate nearest neighbours.
-* Indexing variable names / identifiers
+* TOKENIZATION: Indexing variable names / identifiers
   * Assumption: In the majority of cases, static analyzers do not require naming for their fixes. Identifier names can therefore be regarded as unnecessary noise to the NN and it will therefore perform better when indexing identifiers.
   * Pro: Massively reducing src/tgt space
   * Con: No chance of changing identifier names in real applications
-* Separating variable names / identifiers between camel cases
+* TOKENIZATION: Separating variable names / identifiers between camel cases
   * Assumption: "Understanding" variable names; establishing connections between them
   * Pro: Enables NN to predict **unseen** identifier changes
   * Pro: Potentially reducing src/tgt space
   * Con: Increasing number of tokens
   * Example: Diagnostic VSD0001 in NuGet VSDiagnostics.1.10.0, stating "Asynchronous methods should end with the -Async suffix.", will add "Async" to method names. If not separated by camel case, the NN cannot learn to fix new method names, as every method name will be an entirely new representation in the src/tgt space.
-* Randomly masking diagnostic in input
+* FINALIZING_DATASET: Randomly masking diagnostic in input
   * Assumption: The NN may develop an understanding what is "good"/"bad" code. However, this is not the goal to be achieved, as it should soley learn how to translate a message into a code change.
 
 ## NN - How To
