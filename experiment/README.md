@@ -8,11 +8,12 @@
 * NEURAL_NETWORK: Filter datapoints for limited number of source & target tokens in train
   * Max number of source & target tokens ✔︎
   * No restrictions
-* TOKENIZATION: Number of tokens before & after required lines
-  * Fixed number of tokens ✔︎
-    * Con: NN could learn to count tokens to place always a standard diff at the same line
-  * Random number of tokens
-    * Pro: NN may have to learn more about dependencies between tokens to understand where to place its diff
+* TOKENIZATION: Distribution of number of context tokens before & after required lines
+  * Evenly split prepending and appending tokens to required lines ✔︎
+    * Con: NN could learn to evenly subtract tokens at the beginning and end, until n number of full lines are left; If more than one line, it knows how many lines to remove through REMOVE/REPLACE
+    * Pro: Still better than simply adding constant number of context lines, which is even easier to count
+  * Random distribution of prepending and appending tokens
+    * Pro: NN may have to learn more about dependencies between tokens to understand where to place its diff and which diff action to apply
 * FINALIZING_DATASET: Randomly masking/removing diagnostic line number in input
   * Assumption: The NN may develop a better understanding of the code as it has to guess where the error is.
   * Pro: Can potentially be a helpful model in the evaluation by removing the final layer in the NN. Solely diagnostic messages can be fed to the NN and then their hidden representations can be calculated. May be an interesting analysis to calculate nearest neighbours.
