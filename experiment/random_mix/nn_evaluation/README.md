@@ -3,6 +3,8 @@
 ## Experiment Setup
 
 * NN model: Out-of-the-box OpenNMT Transformer with SelfAttentionDecoder
+* Max number of input tokens in training (Diagnostic Message + FILE_CONTENT): 150
+* Max number of output tokens in training: 100
 * See further NN parameters in [nn/data.yml](nn/data.yml)
 * Hardware: Nvidia GeForce GTX 1080
 * NN was evaluated on inferring/translating the test dataset
