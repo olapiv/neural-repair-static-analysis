@@ -483,14 +483,14 @@ def plot_src_len_vs_success(evaluation_dict):
     x = list(evaluation_dict["avg_success_perc_per_src_len"].keys())
     y = [success_perc for success_perc in evaluation_dict["avg_success_perc_per_src_len"].values()]
     plot_num_tokens_vs_success(
-        x, y, "Number of Source Tokens", "success-rate-src-len.png")
+        x, y, "Number of Source Tokens", "success-rate-src-len.svg")
 
 
 def plot_tgt_len_vs_success(evaluation_dict):
     x = list(evaluation_dict["avg_success_perc_per_tgt_len"].keys())
     y = [success_perc for success_perc in evaluation_dict["avg_success_perc_per_tgt_len"].values()]
     plot_num_tokens_vs_success(
-        x, y, "Number of Target Tokens", "success-rate-tgt-len.png")
+        x, y, "Number of Target Tokens", "success-rate-tgt-len.svg")
 
 
 def plot_src_num_format_tokens_vs_success(evaluation_dict):
@@ -498,7 +498,7 @@ def plot_src_num_format_tokens_vs_success(evaluation_dict):
         evaluation_dict["avg_success_perc_per_src_formatting_token"].keys())
     y = [success_perc for success_perc in evaluation_dict["avg_success_perc_per_src_formatting_token"].values()]
     plot_num_tokens_vs_success(
-        x, y, "Number of Formatting Tokens in Source", "success-rate-num-format-tokens-src.png")
+        x, y, "Number of Formatting Tokens in Source", "success-rate-num-format-tokens-src.svg")
 
 
 def plot_tgt_num_format_tokens_vs_success(evaluation_dict):
@@ -506,7 +506,7 @@ def plot_tgt_num_format_tokens_vs_success(evaluation_dict):
         evaluation_dict["avg_success_perc_per_tgt_formatting_token"].keys())
     y = [success_perc for success_perc in evaluation_dict["avg_success_perc_per_tgt_formatting_token"].values()]
     plot_num_tokens_vs_success(
-        x, y, "Number of Formatting Tokens in Target", "success-rate-num-format-tokens-tgt.png")
+        x, y, "Number of Formatting Tokens in Target", "success-rate-num-format-tokens-tgt.svg")
 
 
 def plot_num_tokens_vs_success(x, y, independent_var, filename):
@@ -611,7 +611,7 @@ def main():
     save_characteristic_examples(evaluation_dict, characteristic_examples_dict,
                                  src_test_list, tgt_test_list, inference_test_list, metadata_test)
 
-    plot_num_datapoints_vs_success(evaluation_dict, "impact_data_on_accuracy.png")
+    plot_num_datapoints_vs_success(evaluation_dict, "impact_data_on_accuracy.svg")
     plot_src_len_vs_success(evaluation_dict)
     plot_tgt_len_vs_success(evaluation_dict)
 
