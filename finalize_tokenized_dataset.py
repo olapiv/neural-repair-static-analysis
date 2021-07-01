@@ -209,6 +209,7 @@ def filter_useful_datapoints(tokenized_files):
 
     useful_datapoints = []
     bad_newline_endings = 0
+    duplications = {}
 
     seen_src = set()
     for tokenized_file in tokenized_files:
@@ -246,6 +247,9 @@ def filter_useful_datapoints(tokenized_files):
         # multiple solutions and therefore fix duplications may occur
         if src_string in seen_src:
             print(f"Duplication in of src_string!")
+            if src_string not in duplications:
+                duplications[src_string] = 0
+            duplications[src_string] += 1
             continue
         else:
             seen_src.add(src_string)
@@ -253,7 +257,10 @@ def filter_useful_datapoints(tokenized_files):
         useful_datapoints.append(tokenized_file)
 
     print("bad_newline_endings: ", bad_newline_endings)
-    print("src_string duplications: ", len(seen_src))
+    print("Total initial tokenized files :", len(tokenized_files))
+    print("Total useful tokenized files :", len(useful_datapoints))
+    print("Total src duplications: ", len(tokenized_files) - len(seen_src))
+    print("Unique src duplications: ", len(duplications.keys()))
 
     return useful_datapoints
 
