@@ -7,10 +7,10 @@ import statistics
 from enum import Enum
 from collections import Counter
 
-random.seed(10)
+random.seed(10)  # For reproducible shuffles
 
 tokenized_dataset_dir = "tokenized_dataset"
-final_dataset_dir = "final_dataset"
+final_dataset_dir = "experiment"
 
 LIMIT_TARGET_TOKENS = 500
 LIMIT_SOURCE_TOKENS = 500
@@ -19,11 +19,13 @@ LIMIT_SOURCE_TOKENS = 500
 class Modes:
 
     class CopyMode:
+        dataset_dir = "random_mix"
         train_perc = 0.6
         val_perc = 0.2
         test_perc = 0.2
 
     class ExtrapolationMode:
+        dataset_dir = "split_by_diagnostics"
         train_perc = 0.7
         val_perc = 0.2
         test_perc = 0.1
@@ -38,18 +40,6 @@ class Stage(Enum):
     train = "train"
     val = "val"
     test = "test"
-
-
-all_filepaths = []
-
-data_files = {}
-for inputOutput in InputOutput:
-    data_files[inputOutput.value] = {}
-    for stage in Stage:
-        data_files[inputOutput.value][stage.value] = {}
-        filepath = f"{final_dataset_dir}/{inputOutput.value}-{stage.value}.txt"
-        data_files[inputOutput.value][stage.value] = filepath
-        all_filepaths.append(filepath)
 
 
 metadata_dict = {
@@ -79,18 +69,35 @@ metadata_dict = {
     ]
 }
 
-metadata = {}
-total_metadata = f"{final_dataset_dir}/metadata-total.json"
-metadata["total"] = {}
-metadata["total"]["file"] = total_metadata
-metadata["total"]["data"] = copy.deepcopy(metadata_dict)
-all_filepaths.append(total_metadata)
-for stage in Stage:
-    metadata[stage.value] = {}
-    metadata_filepath = f"{final_dataset_dir}/metadata-{stage.value}.json"
-    metadata[stage.value]["file"] = metadata_filepath
-    all_filepaths.append(metadata_filepath)
-    metadata[stage.value]["data"] = copy.deepcopy(metadata_dict)
+
+def initialize_data_files(mode, all_filepaths):
+    data_files = {}
+    for inputOutput in InputOutput:
+        data_files[inputOutput.value] = {}
+        for stage in Stage:
+            data_files[inputOutput.value][stage.value] = {}
+            filepath = f"{final_dataset_dir}/{mode.dataset_dir}/{inputOutput.value}-{stage.value}.txt"
+            data_files[inputOutput.value][stage.value] = filepath
+            all_filepaths.append(filepath)
+
+    return data_files
+
+
+def initialize_metadata(mode, all_filepaths):
+    metadata = {}
+    total_metadata = f"{final_dataset_dir}/{mode.dataset_dir}/metadata-total.json"
+    metadata["total"] = {}
+    metadata["total"]["file"] = total_metadata
+    metadata["total"]["data"] = copy.deepcopy(metadata_dict)
+    all_filepaths.append(total_metadata)
+    for stage in Stage:
+        metadata[stage.value] = {}
+        metadata_filepath = f"{final_dataset_dir}/{mode.dataset_dir}/metadata-{stage.value}.json"
+        metadata[stage.value]["file"] = metadata_filepath
+        all_filepaths.append(metadata_filepath)
+        metadata[stage.value]["data"] = copy.deepcopy(metadata_dict)
+
+    return metadata
 
 
 def flatten_input_datapoint(datapoint_dict):
@@ -282,6 +289,7 @@ def split_dataset_by_diagnostics(tokenized_files):
         diagnostics.append(tokenized_data_dict["DiagnosticID"])
 
     diagnostics = list(set(diagnostics))
+    diagnostics.sort()  # To have a reproducible shuffle
     random.shuffle(diagnostics)
 
     # Consider checking analyzer_package_details.csv that test diagnostics are unique
@@ -325,7 +333,7 @@ def split_dataset_by_datapoints(tokenized_files):
         --> Mix datapoints randomly
     """
 
-    random.shuffle(tokenized_files)
+    random.shuffle(tokenized_files.sort())  # Sort first to have a reproducible shuffle
 
     file_to_dataset = {}
 
@@ -355,6 +363,10 @@ def main(mode=Modes.ExtrapolationMode, zero_index_vars=False):
             1. COPY_MODE: copy behaviour learning (Entirely mixed)
             2. EXTRAP_MODE: extrapolation learning (Only new diag messages for test & validation)
     """
+    all_filepaths = []
+
+    metadata = initialize_metadata(mode, all_filepaths)
+    data_files = initialize_data_files(mode, all_filepaths)
 
     # Clear content of all files
     for filepath in all_filepaths:
