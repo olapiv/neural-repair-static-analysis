@@ -43,6 +43,7 @@ class Stage(Enum):
 
 
 metadata_dict = {
+    "num-datapoints": 0,
     "num-unique-diagnostics": 0,
     "avg-data-points-per-diagnostic": 0,
     "std-data-points-per-diagnostic": 0,
@@ -357,6 +358,14 @@ def split_dataset_by_datapoints(tokenized_files):
     return file_to_dataset
 
 
+def calculate_num_datapoints(metadata, file_to_dataset):
+
+    metadata["total"]["data"]["num-datapoints"] = len(file_to_dataset)
+    for stage in Stage:
+        filtered_dict = {k: v for k, v in file_to_dataset.items() if v == stage.value}
+        metadata[stage.value]["data"]["num-datapoints"] = len(filtered_dict)
+
+
 def main(mode=Modes.ExtrapolationMode, zero_index_vars=False):
     """
         Two modes:
@@ -381,8 +390,8 @@ def main(mode=Modes.ExtrapolationMode, zero_index_vars=False):
         file_to_dataset = split_dataset_by_diagnostics(tokenized_files)
     elif mode == Modes.CopyMode:
         file_to_dataset = split_dataset_by_datapoints(tokenized_files)
-    else:
-        raise Exception(f"mode not existent!: {mode}")
+
+    calculate_num_datapoints(metadata, file_to_dataset)
 
     for tokenized_file in tokenized_files:
 
