@@ -9,7 +9,7 @@ from collections import Counter
 import plotly.graph_objects as go
 
 
-final_dataset_dir = "experiment/random_mix"
+final_dataset_dir = "experiment/split_by_diagnostics"
 eval_dir = f"{final_dataset_dir}/nn_evaluation"
 metadata_test_file = f"{final_dataset_dir}/metadata-test.json"
 metadata_train_file = f"{final_dataset_dir}/metadata-train.json"
@@ -599,11 +599,9 @@ def main():
 
     evaluation_dict["num_extrapolated_datapoints"] = extrapolated_total
 
-    evaluation_dict["correct_results_total_perc"] = total_correct / \
-        total_total
-    evaluation_dict["correct_results_copied_perc"] = copied_correct / copied_total
-    evaluation_dict["correct_results_extrapolated_perc"] = extrapolated_correct / \
-        extrapolated_total
+    evaluation_dict["correct_results_total_perc"] = (total_correct / total_total) if total_total > 0 else None
+    evaluation_dict["correct_results_copied_perc"] = (copied_correct / copied_total) if copied_total else None
+    evaluation_dict["correct_results_extrapolated_perc"] = (extrapolated_correct / extrapolated_total) if extrapolated_total else None
 
     characteristic_examples_dict = sort_for_characteristic_examples(
         evaluation_dict)
