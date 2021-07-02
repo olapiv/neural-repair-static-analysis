@@ -14,7 +14,7 @@
 
 ## Results after n steps
 
-Convergence after around n steps (xh ymin); Loss function:
+Convergence after 5k steps (3h 16min); Loss function:
 
 ![Loss Function](loss_function_20k_steps.png)
 
