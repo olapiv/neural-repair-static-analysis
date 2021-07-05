@@ -62,9 +62,9 @@ Calculated tokens:
         self.run_single_test(test_string, true_token_list)
 
     def test_class_definition(self):
-        test_string = "public static Image img;"
+        test_string = "public static Image imgCOPY;"
         true_token_list = ["public", "WHITESPACE", "static",
-                           "WHITESPACE", "Image", "WHITESPACE", "img", ";", "NEWLINE"]
+                           "WHITESPACE", "Image", "WHITESPACE", "imgCOPY", ";", "NEWLINE"]
         self.run_single_test(test_string, true_token_list)
 
     def test_char_string(self):
@@ -110,12 +110,12 @@ klll mmklll
     def test_multiline_block_comment(self):
         test_string = """{
 /*
-    Change 'Unused' to xyz.
+    Change 'eclipseRCPExt' to xyz.
     It's hard!
     What is 'this'?
 */
 }"""
-        true_token_list = ["{", "NEWLINE", "/*", "NEWLINE", ["WHITESPACE"]*4, "Change", "WHITESPACE", "'", "Unused", "'",
+        true_token_list = ["{", "NEWLINE", "/*", "NEWLINE", ["WHITESPACE"]*4, "Change", "WHITESPACE", "'", "eclipseRCPExt", "'",
                            "WHITESPACE", "to", "WHITESPACE", "xyz", ".", "NEWLINE", [
                                "WHITESPACE"]*4, "It's", "WHITESPACE", "hard", "!", "NEWLINE",
                            ["WHITESPACE"]*4, "What", "WHITESPACE", "is", "WHITESPACE", "'", "this", "'", "?", "NEWLINE", "*/", "NEWLINE", "}", "NEWLINE"
@@ -124,9 +124,9 @@ klll mmklll
 
     def test_code_whitespace(self):
         test_string = """try{
-    z = 5  // Comment
+    eclipseRCPExt = 5  // Comment
 }"""
-        true_token_list = ["try", "{", "NEWLINE", ["WHITESPACE"]*4, "z", "WHITESPACE", "=", "WHITESPACE", "5",
+        true_token_list = ["try", "{", "NEWLINE", ["WHITESPACE"]*4, "eclipseRCPExt", "WHITESPACE", "=", "WHITESPACE", "5",
                            ["WHITESPACE"]*2, "//", "WHITESPACE", "Comment", "NEWLINE", "}", "NEWLINE"]
         self.run_single_test(test_string, true_token_list)
 
@@ -175,9 +175,9 @@ Redirect = 302,"""
 
     def test_basic_class(self):
 
-        test_string = """class Xyz {
+        test_string = """class ConnectAWSToDB {
     }"""
-        true_token_list = ["class", "WHITESPACE", "Xyz", "WHITESPACE", "{", "NEWLINE", ["WHITESPACE"]*4, "}", "NEWLINE"]
+        true_token_list = ["class", "WHITESPACE", "ConnectAWSToDB", "WHITESPACE", "{", "NEWLINE", ["WHITESPACE"]*4, "}", "NEWLINE"]
         self.run_single_test(test_string, true_token_list)
 
     def test_where_keyword(self):

@@ -35,11 +35,16 @@ class LanguageLexer(UnprocessedTokensMixin, RegexLexer):
     formatting being tokenized. This is therefore an incorrect datapoint.
     """
 
+    camelCase = '(?<=[a-z])(?=[A-Z])|(?<=[A-Z])(?=[A-Z][a-z])'
+
     tokens = {
         'root': [
 
+
+            # (r'(?:(?<=class\W)|(?<=struct\W))', using(this), ('identifier')),
+
             # Variable names in string:
-            (r'(?<=[\s\n]\')[^\']+(?=\'[\W])', Name),  # Separates the "'"
+            (r'(?<=[\s\n]\')', using(this), ('identifiers')),  # Separates the "'"
             # (r'(?<=[\s\n])\'[^\']+\'(?=[\W])', Name),  # Includes the "'"
 
             # Words, including ones with apostrophes:
@@ -50,7 +55,19 @@ class LanguageLexer(UnprocessedTokensMixin, RegexLexer):
             # Consider not binding punctuation here
             (r'[~!%^&*()+=|\'\]\[:;,.<>/?-]', Punctuation),
 
-        ]
+        ],
+
+        # Separate identifiers by camelcase
+        'identifiers': [
+        
+                # ('[A-Z]+(?=[A-Z][a-z])|[A-Z][a-z]+|[a-z]+|[A-Z]+', Name),
+                ('[A-Z]+(?=[A-Z][a-z])', Name),
+                ('[A-Z][a-z]+', Name),
+                ('([a-z]+)', Name),
+                ('([A-Z]+)', Name),
+
+                ('\'', Punctuation, '#pop')
+        ],
     }
 
 
@@ -80,15 +97,19 @@ class CSharpAndCommentsLexer(UnprocessedTokensMixin, CSharpLexer):
                  # method name
                  r'(' + cs_ident + ')'
                  # signature start
-                 r'(\s*\()',
-                 bygroups(using(this), Name.Function, using(this))),
+                 # r'(\s*\()', bygroups(using(this), Name.Function, using(this))),
+
+                 r'(\s*\()', using(this), ('identifier'), using(this))),
+
                 ####################
 
                 # Avoid bundling too much..
                 ####### OLD: #######
                 # (r'^\s*\[.*?\]', Name.Attribute),
                 ####### NEW: #######
-                (r'(?<=\[)\w+(?=\])', Name.Attribute),
+                # (r'(?<=\[)\w+(?=\])', Name.Attribute),
+
+                (r'(?<=\[)\w+(?=\])', using(this), ('identifier'), using(this)),
                 ####################
 
                 # Stop binding formatting:
@@ -177,22 +198,17 @@ class CSharpAndCommentsLexer(UnprocessedTokensMixin, CSharpLexer):
                 (r'\b(class|struct|namespace|using)\b', Keyword),
 
                 # Avoid bundling whitespace
-                (r'(?:(?<=class\W)|(?<=struct\W))\w+', Name.Class),
-                (r'(?:(?<=namespace\W)|(?<=using\W))\w+',
-                 Name.Class),
+                (r'(?:(?<=class\W)|(?<=struct\W))', using(this), ('identifier')),
+                (r'(?:(?<=namespace\W)|(?<=using\W))', using(this), ('identifier')),
+
                 ####################
 
                 (cs_ident, Name),
             ],
 
-            # Not used anymore
-            'class': [
-                (cs_ident, Name.Class, '#pop'),
+            'identifier': [
+                (r'[A-Z]+(?=[A-Z][a-z])|[A-Z][a-z]+|[a-z]+|[A-Z]+', Name),
                 default('#pop'),
-            ],
-            'namespace': [
-                (r'(?=\()', Text, '#pop'),  # using (resource)
-                ('(' + cs_ident + r'|\.)+', Name.Namespace, '#pop'),
             ],
 
             ####### NEW: #######
@@ -270,9 +286,9 @@ if __name__ == "__main__":
     # with open(c_sharp_filepath, 'r') as file:
     #     original_file = file.read()
 
-    original_file = """class Xyz {
+    original_file = """class eclipseRCPExt {
     }"""
 
     # run_only_language_lexer(original_file)
-    # run_pygments_lexer(original_file)
-    run_pygments_lexer_indexed_identifiers(original_file)
+    run_pygments_lexer(original_file)
+    # run_pygments_lexer_indexed_identifiers(original_file)
