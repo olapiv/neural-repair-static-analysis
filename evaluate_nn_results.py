@@ -41,16 +41,25 @@ evaluation_dict = {
     "num_total_datapoints": 0,
     "num_extrapolated_datapoints": 0,
 
+    "num_diagnostics_total": 0,
+    "num_diagnostics_copied": 0,
+    "num_diagnostics_extrapolated": 0,
+
     # Hard to do this per diagnostic, since some may have been both correct and incorrect
-    "correct_results_total_perc": 0,
-    "correct_results_copied_perc": 0,
-    "correct_results_extrapolated_perc": 0,
+    "correct_results_total_perc": None,
+    "correct_results_copied_perc": None,
+    "correct_results_extrapolated_perc": None,
 
-    "avg_src_len_correct_result": 0,
-    "avg_src_len_incorrect_result": 0,
+    # Give all diagnostics same weight, even if they have unequal numbers of data points
+    "avg_success_per_diagnostic_total": None,
+    "avg_success_per_diagnostic_copied": None,
+    "avg_success_per_diagnostic_extrapolated": None,
 
-    "avg_tgt_len_correct_result": 0,
-    "avg_tgt_len_incorrect_result": 0,
+    "avg_src_len_correct_result": None,
+    "avg_src_len_incorrect_result": None,
+
+    "avg_tgt_len_correct_result": None,
+    "avg_tgt_len_incorrect_result": None,
 
     "avg_success_perc_per_src_len": {
         # 23: 0.7
@@ -195,6 +204,34 @@ def save_result_per_diagnostic(evaluation_dict, metadata_train, metadata_test, t
             else:
                 evaluation_dict["result_per_diagnostic"][diagnostic_id]["wrong"].append(
                     index)
+
+
+def save_diagnostic_avg_results(evaluation_dict):
+
+    total_diagnostics = evaluation_dict["result_per_diagnostic"]
+    copied_diagnostics = {diagnostic_id: result for diagnostic_id, result in total_diagnostics.items() if result["num_datapoints_in_train"] > 0}
+    extrapolated_diagnostics = {diagnostic_id: result for diagnostic_id, result in total_diagnostics.items() if result["num_datapoints_in_train"] == 0}
+
+    percentage_added_total = sum([v["perc_correct"] for v in total_diagnostics.values()])
+    percentage_added_copied = sum([v["perc_correct"] for v in copied_diagnostics.values()])
+    percentage_added_extrapolated = sum([v["perc_correct"] for v in extrapolated_diagnostics.values()])
+
+    num_diagnostics_total = len(total_diagnostics.keys())
+    num_diagnostics_copied = len(copied_diagnostics.keys())
+    num_diagnostics_extrapolated = len(extrapolated_diagnostics.keys())
+
+    evaluation_dict["num_diagnostics_total"] = num_diagnostics_total
+    evaluation_dict["num_diagnostics_copied"] = num_diagnostics_copied
+    evaluation_dict["num_diagnostics_extrapolated"] = num_diagnostics_extrapolated
+
+    if num_diagnostics_total != 0:
+        evaluation_dict["avg_success_per_diagnostic_total"] = percentage_added_total / num_diagnostics_total
+
+    if num_diagnostics_copied != 0:
+        evaluation_dict["avg_success_per_diagnostic_copied"] = percentage_added_copied / num_diagnostics_copied
+
+    if num_diagnostics_extrapolated != 0:
+        evaluation_dict["avg_success_per_diagnostic_extrapolated"] = percentage_added_extrapolated / num_diagnostics_extrapolated
 
 
 def save_num_tokens_vs_success_perc(evaluation_dict, metadata_train, metadata_test, src_test_list, tgt_test_list, inference_test_list):
@@ -599,11 +636,14 @@ def main():
 
     evaluation_dict["num_extrapolated_datapoints"] = extrapolated_total
 
-    evaluation_dict["correct_results_total_perc"] = total_correct / \
-        total_total
-    evaluation_dict["correct_results_copied_perc"] = copied_correct / copied_total
-    evaluation_dict["correct_results_extrapolated_perc"] = extrapolated_correct / \
-        extrapolated_total
+    evaluation_dict["correct_results_total_perc"] = (
+        total_correct / total_total) if total_total > 0 else None
+    evaluation_dict["correct_results_copied_perc"] = (
+        copied_correct / copied_total) if copied_total else None
+    evaluation_dict["correct_results_extrapolated_perc"] = (
+        extrapolated_correct / extrapolated_total) if extrapolated_total else None
+
+    save_diagnostic_avg_results(evaluation_dict)
 
     characteristic_examples_dict = sort_for_characteristic_examples(
         evaluation_dict)
@@ -611,7 +651,8 @@ def main():
     save_characteristic_examples(evaluation_dict, characteristic_examples_dict,
                                  src_test_list, tgt_test_list, inference_test_list, metadata_test)
 
-    plot_num_datapoints_vs_success(evaluation_dict, "impact_data_on_accuracy.svg")
+    plot_num_datapoints_vs_success(
+        evaluation_dict, "impact_data_on_accuracy.svg")
     plot_src_len_vs_success(evaluation_dict)
     plot_tgt_len_vs_success(evaluation_dict)
 
