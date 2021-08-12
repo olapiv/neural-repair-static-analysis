@@ -11,6 +11,7 @@
 * Input: [src-test.txt](../src-test.txt), correct output: [tgt-test.txt](../tgt-test.txt), predicted output: [inference-test.txt](inference-test.txt)
 * Evaluation was scripted in [evaluate_nn_results.py](/evaluate_nn_results.py)
 * Evaluation results to be found in [inference-eval.json](inference-eval.json)
+* Pearson Number calculated with [scipy.stats.pearsonr](https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.pearsonr.html)
 
 ## Results after n steps
 
@@ -28,10 +29,18 @@ Measuring the impact of number of tokens in target/source on success rate of pre
 
 ![Source Length vs Success Rate](extrap_success_rate_src_len.svg)
 
+pearsonr: (-0.4914593737102244, 0.0036782574151330073)
+
 ![Target Length vs Success Rate](extrap_success_rate_tgt_len.svg)
+
+pearsonr: (-0.3056570333260562, 0.0005560697798332885)
 
 Measuring the impact of number of **formatting** tokens in target/source on success rate of predictions in test in the following figures.
 
 ![Source Length vs Success Rate](extrap_success_rate_num_format_tokens_src.svg)
 
+pearsonr: (0.5096095535734051, 6.614083595210592e-06)
+
 ![Target Length vs Success Rate](extrap_success_rate_num_format_tokens_tgt.svg)
+
+pearsonr: (-0.25656282814241116, 0.0120826741767113)

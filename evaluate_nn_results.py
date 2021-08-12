@@ -8,13 +8,14 @@ from enum import Enum
 from collections import Counter
 import plotly.graph_objects as go
 import plotly.express as px
+from scipy.stats import pearsonr
 
 
 class Experiment(Enum):
     copy = "random_mix"
     extrap = "split_by_diagnostics"
 
-experiment = Experiment.extrap
+experiment = Experiment.copy
 
 final_dataset_dir = f"experiment/{experiment.value}"
 eval_dir = f"{final_dataset_dir}/nn_evaluation"
@@ -521,6 +522,8 @@ def plot_num_datapoints_vs_success(evaluation_dict, filename):
     fig.show()
     fig.write_image(f"{eval_dir}/{filename}")
 
+    print(f"for {filename}; pearsonr: {pearsonr(x, y)}")
+
 
 def plot_src_len_vs_success(evaluation_dict):
     x = list(evaluation_dict["avg_success_perc_per_src_len"].keys())
@@ -572,6 +575,8 @@ def plot_num_tokens_vs_success(x, y, independent_var, filename):
     fig.update_yaxes(title_text='Percentage of Correct Predictions in Test')
     fig.show()
     fig.write_image(f"{eval_dir}/{filename}")
+
+    print(f"for {filename}; pearsonr: {pearsonr(x, y)}")
 
 
 def remove_redundant_data(evaluation_dict):
