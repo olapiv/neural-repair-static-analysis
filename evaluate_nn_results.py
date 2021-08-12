@@ -7,6 +7,7 @@ import statistics
 from enum import Enum
 from collections import Counter
 import plotly.graph_objects as go
+import plotly.express as px
 
 
 class Experiment(Enum):
@@ -499,21 +500,21 @@ def plot_num_datapoints_vs_success(evaluation_dict, filename):
          for datapoint in datapoints_graph]
     y = [datapoint["perc_correct"] for datapoint in datapoints_graph]
     text = [datapoint["diagnostic_id"] for datapoint in datapoints_graph]
-    fig = go.Figure(data=go.Scatter(x=x,
-                                    y=y,
-                                    # mode='markers',
-                                    marker=dict(
-                                        size=9,
-                                        # set color equal to a variable
-                                        color="rgba(5,5,5,0.4)",
-                                        # colorscale='Viridis', # one of plotly colorscales
-                                        # showscale=True
-                                    ),
-                                    textposition='top right',
-                                    # textposition=[f"{random.choice(['top', 'bottom', 'middle'])} {random.choice(['left', 'right', 'center'])}" for datapoint in datapoints_graph],
-                                    textfont_size=10,
-                                    mode='text+markers',
-                                    text=text))
+
+    fig = px.scatter(
+        x=x,
+        y=y,
+        text=text,
+        trendline="ols"
+    )
+
+    markers=dict(size=9, color="rgba(5,5,5,0.4)")
+    fig.update_traces(
+        marker=markers,
+        textposition='top right',
+        textfont_size=10,
+    )
+    
     # fig.update_layout(title="Per Diagnostic: Data Points Needed To Produce Good Results in Test")
     fig.update_xaxes(title_text='Number datapoints in train')
     fig.update_yaxes(title_text='Percentage of Correct Predictions in Test')
@@ -554,17 +555,14 @@ def plot_tgt_num_format_tokens_vs_success(evaluation_dict):
 
 
 def plot_num_tokens_vs_success(x, y, independent_var, filename):
-    fig = go.Figure(data=go.Scatter(x=x,
-                                    y=y,
-                                    # mode='markers',
-                                    marker=dict(
-                                        size=9,
-                                        # set color equal to a variable
-                                        color="rgba(5,5,5,0.4)",
-                                        # colorscale='Viridis', # one of plotly colorscales
-                                        # showscale=True
-                                    ),
-                                    mode='markers'))
+    
+    fig = px.scatter(x=x, y=y, trendline="ols")
+
+    markers=dict(size=9, color="rgba(5,5,5,0.4)")
+    fig.update_traces(
+        marker=markers
+    )
+
     # fig.update_layout(title=f"How {independent_var} Impacts Success Rate of Predictions")
     fig.update_xaxes(title_text=f'{independent_var}')
     fig.update_yaxes(title_text='Percentage of Correct Predictions in Test')
