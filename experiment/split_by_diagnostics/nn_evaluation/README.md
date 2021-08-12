@@ -20,18 +20,18 @@ Convergence after 5k steps (3h 16min); Loss function:
 
 Measuring the impact of datapoints per diagnostic on its accuracy in the following figure.
 
-![Impact data per Diagnostic on Accuracy](impact_data_on_accuracy.svg)
+![Impact data per Diagnostic on Accuracy](extrap_impact_data_on_accuracy.svg)
 
 Each datapoint represents a diagnostic. It is hard to decipher a correlation between number of data points a diagnostic requires in train to be successfully predicted in test.
 
-Measuring the impact of number of tokens in target/source on success rate of predictions in test in the followng figures.
+Measuring the impact of number of tokens in target/source on success rate of predictions in test in the following figures.
 
-![Source Length vs Success Rate](success-rate-src-len.svg)
+![Source Length vs Success Rate](extrap_success_rate_src_len.svg)
 
-![Target Length vs Success Rate](success-rate-tgt-len.svg)
+![Target Length vs Success Rate](extrap_success_rate_tgt_len.svg)
 
-Measuring the impact of number of **formatting** tokens in target/source on success rate of predictions in test in the followng figures.
+Measuring the impact of number of **formatting** tokens in target/source on success rate of predictions in test in the following figures.
 
-![Source Length vs Success Rate](success-rate-num-format-tokens-src.svg)
+![Source Length vs Success Rate](extrap_success_rate_num_format_tokens_src.svg)
 
-![Target Length vs Success Rate](success-rate-num-format-tokens-tgt.svg)
+![Target Length vs Success Rate](extrap_success_rate_num_format_tokens_tgt.svg)

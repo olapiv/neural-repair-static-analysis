@@ -9,7 +9,13 @@ from collections import Counter
 import plotly.graph_objects as go
 
 
-final_dataset_dir = "experiment/random_mix"
+class Experiment(Enum):
+    copy = "random_mix"
+    extrap = "split_by_diagnostics"
+
+experiment = Experiment.extrap
+
+final_dataset_dir = f"experiment/{experiment.value}"
 eval_dir = f"{final_dataset_dir}/nn_evaluation"
 metadata_test_file = f"{final_dataset_dir}/metadata-test.json"
 metadata_train_file = f"{final_dataset_dir}/metadata-train.json"
@@ -508,8 +514,7 @@ def plot_num_datapoints_vs_success(evaluation_dict, filename):
                                     textfont_size=10,
                                     mode='text+markers',
                                     text=text))
-    fig.update_layout(
-        title="Per Diagnostic: Data Points Needed To Produce Good Results in Test")
+    # fig.update_layout(title="Per Diagnostic: Data Points Needed To Produce Good Results in Test")
     fig.update_xaxes(title_text='Number datapoints in train')
     fig.update_yaxes(title_text='Percentage of Correct Predictions in Test')
     fig.show()
@@ -519,15 +524,17 @@ def plot_num_datapoints_vs_success(evaluation_dict, filename):
 def plot_src_len_vs_success(evaluation_dict):
     x = list(evaluation_dict["avg_success_perc_per_src_len"].keys())
     y = [success_perc for success_perc in evaluation_dict["avg_success_perc_per_src_len"].values()]
+    # Need to append experiment.name to filename because of Latex SVG problems
     plot_num_tokens_vs_success(
-        x, y, "Number of Source Tokens", "success-rate-src-len.svg")
+        x, y, "Number of Source Tokens", f"{experiment.name}_success_rate_src_len.svg")
 
 
 def plot_tgt_len_vs_success(evaluation_dict):
     x = list(evaluation_dict["avg_success_perc_per_tgt_len"].keys())
     y = [success_perc for success_perc in evaluation_dict["avg_success_perc_per_tgt_len"].values()]
+    # Need to append experiment.name to filename because of Latex SVG problems
     plot_num_tokens_vs_success(
-        x, y, "Number of Target Tokens", "success-rate-tgt-len.svg")
+        x, y, "Number of Target Tokens", f"{experiment.name}_success_rate_tgt_len.svg")
 
 
 def plot_src_num_format_tokens_vs_success(evaluation_dict):
@@ -535,7 +542,7 @@ def plot_src_num_format_tokens_vs_success(evaluation_dict):
         evaluation_dict["avg_success_perc_per_src_formatting_token"].keys())
     y = [success_perc for success_perc in evaluation_dict["avg_success_perc_per_src_formatting_token"].values()]
     plot_num_tokens_vs_success(
-        x, y, "Number of Formatting Tokens in Source", "success-rate-num-format-tokens-src.svg")
+        x, y, "Number of Formatting Tokens in Source", f"{experiment.name}_success_rate_num_format_tokens_src.svg")
 
 
 def plot_tgt_num_format_tokens_vs_success(evaluation_dict):
@@ -543,7 +550,7 @@ def plot_tgt_num_format_tokens_vs_success(evaluation_dict):
         evaluation_dict["avg_success_perc_per_tgt_formatting_token"].keys())
     y = [success_perc for success_perc in evaluation_dict["avg_success_perc_per_tgt_formatting_token"].values()]
     plot_num_tokens_vs_success(
-        x, y, "Number of Formatting Tokens in Target", "success-rate-num-format-tokens-tgt.svg")
+        x, y, "Number of Formatting Tokens in Target", f"{experiment.name}_success_rate_num_format_tokens_tgt.svg")
 
 
 def plot_num_tokens_vs_success(x, y, independent_var, filename):
@@ -558,8 +565,7 @@ def plot_num_tokens_vs_success(x, y, independent_var, filename):
                                         # showscale=True
                                     ),
                                     mode='markers'))
-    fig.update_layout(
-        title=f"How {independent_var} Impacts Success Rate of Predictions")
+    # fig.update_layout(title=f"How {independent_var} Impacts Success Rate of Predictions")
     fig.update_xaxes(title_text=f'{independent_var}')
     fig.update_yaxes(title_text='Percentage of Correct Predictions in Test')
     fig.show()
@@ -652,7 +658,7 @@ def main():
                                  src_test_list, tgt_test_list, inference_test_list, metadata_test)
 
     plot_num_datapoints_vs_success(
-        evaluation_dict, "impact_data_on_accuracy.svg")
+        evaluation_dict, f"{experiment.name}_impact_data_on_accuracy.svg")
     plot_src_len_vs_success(evaluation_dict)
     plot_tgt_len_vs_success(evaluation_dict)
 
