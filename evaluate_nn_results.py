@@ -505,7 +505,7 @@ def plot_num_datapoints_vs_success(evaluation_dict, filename):
         x=x,
         y=y,
         text=text,
-        trendline="ols"
+        # trendline="ols"
     )
 
     markers=dict(size=9, color="rgba(5,5,5,0.4)")
@@ -556,7 +556,11 @@ def plot_tgt_num_format_tokens_vs_success(evaluation_dict):
 
 def plot_num_tokens_vs_success(x, y, independent_var, filename):
     
-    fig = px.scatter(x=x, y=y, trendline="ols")
+    fig = px.scatter(
+        x=x,
+        y=y,
+        # trendline="ols"
+    )
 
     markers=dict(size=9, color="rgba(5,5,5,0.4)")
     fig.update_traces(
