@@ -1,6 +1,7 @@
 id: 43126908-0
 diagnostic: FM_Missing
 perc_correct: 0.0
+num_datapoints_in_train: 0
 <<<<<<<< CORRECT >>>>>>>>
   "config">Profile configuration</param>
           void CreateProfile(string profileName, Action<IProfileExpression> config);

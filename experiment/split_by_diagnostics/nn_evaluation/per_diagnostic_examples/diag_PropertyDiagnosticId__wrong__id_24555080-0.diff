@@ -1,0 +1,36 @@
+id: 24555080-0
+diagnostic: PropertyDiagnosticId
+perc_correct: 0.0
+num_datapoints_in_train: 0
+<<<<<<<< CORRECT >>>>>>>>
+  namespace Wox.Plugin
+  {
+      public class ActionContext
+      {
+<<<< DIAGNOSTIC: property should have public get and protected set >>>>
+-         public SpecialKeyState SpecialKeyState { get; set; }
++         public SpecialKeyState SpecialKeyState { get; protected set; }
+      }
+  
+      public class SpecialKeyState
+      {
+          public bool CtrlPressed { get; set; }
+       
+<<<<<<<< INNFERRED >>>>>>>>
+  namespace Wox.Plugin
+  {
+      public class ActionContext
+      {
++         private SpecialKeyState _specialKeyState;
++ 
++         public event PropertyChangedEventHandler PropertyChanged;
++ 
+<<<< DIAGNOSTIC: property should have public get and protected set >>>>
+-         public SpecialKeyState SpecialKeyState { get; set; }
++         public SpecialKeyState SpecialKeyState
+      }
+  
+      public class SpecialKeyState
+      {
+          public bool CtrlPressed { get; set; }
+       

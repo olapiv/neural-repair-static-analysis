@@ -1,0 +1,22 @@
+id: 19461990-1
+diagnostic: RCS1032
+perc_correct: 0.3333333333333333
+num_datapoints_in_train: 0
+<<<<<<<< CORRECT >>>>>>>>
+  
+          {
+              System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+<<<< DIAGNOSTIC: remove redundant parentheses. >>>>
+-             if ((propertyChanged != null))
++             if (propertyChanged != null)
+              {
+                  propertyChanged(this, new System
+<<<<<<<< INNFERRED >>>>>>>>
+  
+          {
+              System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+<<<< DIAGNOSTIC: remove redundant parentheses. >>>>
+-             if ((propertyChanged != null))
++             if ((propertyChanged is null))
+              {
+                  propertyChanged(this, new System

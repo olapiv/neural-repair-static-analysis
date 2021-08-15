@@ -1,0 +1,24 @@
+id: 38667271-1
+diagnostic: VSD0033
+perc_correct: 0.0
+num_datapoints_in_train: 0
+<<<<<<<< CORRECT >>>>>>>>
+  ;
+          // we log the current qpc so substract by this.
+<<<< DIAGNOSTIC: use alias ulong instead of concrete type uint64. >>>>
+-         static UInt64 qpcStart = 0;
++         static ulong qpcStart = 0;
+<<<< DIAGNOSTIC: use alias int instead of concrete type int32. >>>>
+-         static Int32 totalAllocThreads = 0;
++         static int totalAllocThreads = 0;
+          static Dictionary<string, int> threadMapping = new Dictionary<string, int>
+<<<<<<<< INNFERRED >>>>>>>>
+  ;
+          // we log the current qpc so substract by this.
+<<<< DIAGNOSTIC: use alias ulong instead of concrete type uint64. >>>>
+-         static UInt64 qpcStart = 0;
+<<<< DIAGNOSTIC: use alias int instead of concrete type int32. >>>>
+-         static Int32 totalAllocThreads = 0;
++         static readonly Dictionary<string, int> threadMapping = new Dictionary<string, int>(12);
++         static readonly Dictionary<string, int>(112);
+          static Dictionary<string, int> threadMapping = new Dictionary<string, int>

@@ -1,0 +1,31 @@
+id: 58235933-1
+diagnostic: CH0003
+perc_correct: 0.02857142857142857
+num_datapoints_in_train: 0
+<<<<<<<< CORRECT >>>>>>>>
+  .Reflection;
+  using System.ComponentModel;
+  namespace AutoMapper
+  {
+      using Execution;
+      using Configuration;
+      using Features;
+<<<< DIAGNOSTIC: sort using directives in alphabetical order, with system usings first. >>>>
+-     using QueryableExtensions.Impl;
+      using Internal;
+      /// <summary>
+      /// Main configuration object holding all mapping configuration for a 
+<<<<<<<< INNFERRED >>>>>>>>
+  .Reflection;
+  using System.ComponentModel;
+  namespace AutoMapper
+  {
+      using Execution;
+      using Configuration;
+      using Features;
+<<<< DIAGNOSTIC: sort using directives in alphabetical order, with system usings first. >>>>
+-     using QueryableExtensions.Impl;
++ using System;
+      using Internal;
+      /// <summary>
+      /// Main configuration object holding all mapping configuration for a 

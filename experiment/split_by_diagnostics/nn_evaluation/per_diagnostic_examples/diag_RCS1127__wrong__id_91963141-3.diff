@@ -1,0 +1,35 @@
+id: 91963141-3
+diagnostic: RCS1127
+perc_correct: 0.0
+num_datapoints_in_train: 0
+<<<<<<<< CORRECT >>>>>>>>
+  		Reader.MoveToContent();
+  
+  			bool b21=false, b22=false;
+  
+<<<< DIAGNOSTIC: merge local declaration with assignment. >>>>
+- 			System.Object[] o24;
++ 			System.Object[] o24 = null;
+- 			o24 = null;
+<<<< DIAGNOSTIC: merge local declaration with assignment. >>>>
+- 			DbLinq.Schema.Dbml.Type[] o26;
++ 			DbLinq.Schema.Dbml.Type[] o26 = null;
+- 			o26 = null;
+  			int n23=0, n25=0;
+  
+  			while (Reader.NodeType 
+<<<<<<<< INNFERRED >>>>>>>>
+  		Reader.MoveToContent();
+  
+  			bool b21=false, b22=false;
+  
+<<<< DIAGNOSTIC: merge local declaration with assignment. >>>>
+- 			System.Object[] o24;
++             var b21 = this.GetUpsertParameters(objectToInsert, false;
+  			o24 = null;
+<<<< DIAGNOSTIC: merge local declaration with assignment. >>>>
+  			DbLinq.Schema.Dbml.Type[] o26;
+  			o26 = null;
+  			int n23=0, n25=0;
+  
+  			while (Reader.NodeType 

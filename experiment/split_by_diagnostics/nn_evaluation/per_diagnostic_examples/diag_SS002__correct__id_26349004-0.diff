@@ -1,0 +1,16 @@
+id: 26349004-0
+diagnostic: SS002
+perc_correct: 0.8571428571428571
+num_datapoints_in_train: 0
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  (duration);
+  
+              long messagesInFlight = 0;
+<<<< DIAGNOSTIC: use datetime.utcnow to get a consistent value >>>>
+-             DateTime lastWrite = DateTime.Now;
++             DateTime lastWrite = DateTime.UtcNow;
+<<<< DIAGNOSTIC: use datetime.utcnow to get a consistent value >>>>
+-             DateTime lastRead = DateTime.Now;
++             DateTime lastRead = DateTime.UtcNow;
+  
+              await StressTaskExtensions.WhenAllThrowOnFirstException(token, Sender, Receiver,

@@ -1,0 +1,13 @@
+id: 91707536-3
+diagnostic: FS0128
+perc_correct: 0.6436781609195402
+num_datapoints_in_train: 0
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+   != 0)
+              {
++                 {
+                  if (singularization == Singularization.Singular)
+<<<< DIAGNOSTIC: add braces to single statement in this if >>>>
+                      part = words.Singularize(part);
+                  else
+    

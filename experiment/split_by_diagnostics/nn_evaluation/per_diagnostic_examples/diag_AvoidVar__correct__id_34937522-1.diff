@@ -1,0 +1,12 @@
+id: 34937522-1
+diagnostic: AvoidVar
+perc_correct: 0.5975609756097561
+num_datapoints_in_train: 0
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+          foreach (var analyze in GetAnalyzers())
+              {
+<<<< DIAGNOSTIC: use 'Expression' instead of 'var' >>>>
+-                 var e = analyze(expression);
++                 Expression e = analyze(expression);
+                  if (e != null)
+            

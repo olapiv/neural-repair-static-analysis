@@ -1,0 +1,13 @@
+id: 83657458-1
+diagnostic: INTL0003
+perc_correct: 0.125
+num_datapoints_in_train: 0
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+        return 255.0 * (12.92 * d);
+              }
+  
+<<<< DIAGNOSTIC: method 'clip' should be pascalcase >>>>
+-             byte clip(double d)
++             byte Clip(double d)
+              {
+                  if (d < 0) 

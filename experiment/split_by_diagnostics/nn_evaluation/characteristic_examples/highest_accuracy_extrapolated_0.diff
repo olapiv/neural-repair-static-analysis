@@ -1,6 +1,8 @@
 id: 41785527-0
 diagnostic: RECS0015
-perc_correct: 1.0<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+perc_correct: 1.0
+num_datapoints_in_train: 0
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
   ";
               literalType += string.Join(", ", keyValues.ToArray());
 <<<< DIAGNOSTIC: convert static method call to extension method call >>>>

@@ -1,0 +1,15 @@
+id: 5759889-0
+diagnostic: RCS1032
+perc_correct: 0.3333333333333333
+num_datapoints_in_train: 0
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  (x.Type != y.Type)
+                  return false;
+  
+<<<< DIAGNOSTIC: remove redundant parentheses. >>>>
+-             return (x.ToString() == y.ToString());
++             return x.ToString() == y.ToString();
+          }
+  
+          /// <summary>
+          //

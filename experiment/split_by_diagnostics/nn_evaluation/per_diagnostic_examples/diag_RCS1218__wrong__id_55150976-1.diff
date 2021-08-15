@@ -1,0 +1,37 @@
+id: 55150976-1
+diagnostic: RCS1218
+perc_correct: 0.0
+num_datapoints_in_train: 0
+<<<<<<<< CORRECT >>>>>>>>
+  				ob.@EntityBase = Reader.Value;
+  				}
+<<<< DIAGNOSTIC: simplify code branching. >>>>
+- 				else if (IsXmlnsAttribute (Reader.Name)) {
++ 				else if (!IsXmlnsAttribute(Reader.Name))
++                 {
++                     UnknownNode(ob);
++                 }
++             }
+- 				}
+- 				else {
+- 					UnknownNode (ob);
+- 				}
+- 			}
+  
+  			Reader.MoveToElement ();
+  			Reader.MoveToElement();
+<<<<<<<< INNFERRED >>>>>>>>
+  				ob.@EntityBase = Reader.Value;
+  				}
+<<<< DIAGNOSTIC: simplify code branching. >>>>
+- 				else if (IsXmlnsAttribute (Reader.Name)) {
++                 else
++                 {
+  				}
+  				else {
+  					UnknownNode (ob);
+  				}
+  			}
+  
+  			Reader.MoveToElement ();
+  			Reader.MoveToElement();

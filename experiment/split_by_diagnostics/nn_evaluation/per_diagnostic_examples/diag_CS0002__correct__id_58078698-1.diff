@@ -1,6 +1,8 @@
 id: 58078698-1
 diagnostic: CS0002
-perc_correct: 0.9473684210526315<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+perc_correct: 0.9473684210526315
+num_datapoints_in_train: 0
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
    }
   
               File.WriteAllText (crash_report_file_path, crash_report);

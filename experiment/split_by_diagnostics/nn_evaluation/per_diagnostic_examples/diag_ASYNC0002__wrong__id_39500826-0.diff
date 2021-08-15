@@ -1,3 +1,7 @@
+id: 39500826-0
+diagnostic: ASYNC0002
+perc_correct: 0.5
+num_datapoints_in_train: 0
 <<<<<<<< CORRECT >>>>>>>>
         return _serverTask.Value;
               }

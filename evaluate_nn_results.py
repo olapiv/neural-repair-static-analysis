@@ -21,6 +21,8 @@ experiment = Experiment.extrap
 
 final_dataset_dir = f"experiment/{experiment.value}"
 eval_dir = f"{final_dataset_dir}/nn_evaluation"
+characteristic_examples_dir = f"{eval_dir}/characteristic_examples"
+examples_per_diagnostic_dir = f"{eval_dir}/per_diagnostic_examples"
 metadata_test_file = f"{final_dataset_dir}/metadata-test.json"
 metadata_train_file = f"{final_dataset_dir}/metadata-train.json"
 src_test_file = f"{final_dataset_dir}/src-test.txt"
@@ -403,8 +405,76 @@ def flatten_result_per_diagnostic(result_per_diagnostic_dict):
     return flattened
 
 
+def generate_diff(
+    diagnostic_result,
+    src_test_list,
+    tgt_test_list,
+    inference_test_list,
+    metadata_test,
+    getCorrectExample=True
+):
+
+    # diagnostic_result:
+    # {
+    #     'diagnostic_id': 'CS0002', 
+    #     'perc_correct': 0.9473684210526315,
+    #     'correct': [31, 113, 133, 233, 290, 328, 341, 432, 527, 580, 624, 1410, 1415, 1455, 1494, 1541, 1567, 1577],
+    #     'wrong': [1188],
+    #     'num_datapoints_in_train': 0
+    # }
+
+    if getCorrectExample:
+        if not diagnostic_result["correct"]:
+            return None, None
+
+        # Get first datapoint of given diagnostic
+        line_num = diagnostic_result["correct"][0]
+
+        diff_tgt = tgt_test_list[line_num]
+
+        parsed_diff_correct = recreate_diff(diff_tgt)
+
+    else:
+        if not diagnostic_result["wrong"]:
+            return None, None
+
+        # Get first datapoint of given diagnostic
+        line_num = diagnostic_result["wrong"][0]
+
+        # Show what went wrong
+        diff_tgt = tgt_test_list[line_num]
+        diff_inferred = inference_test_list[line_num]
+
+        parsed_diff_correct = recreate_diff(diff_tgt)
+        parsed_diff_inferred = recreate_diff(diff_inferred)
+
+    src_str = src_test_list[line_num]
+    parsed_src = recreate_src(src_str)
+
+    datapoint_id = metadata_test["datapoints"][line_num]["ID"]
+
+    diff_with_diags = f"""id: {datapoint_id}
+diagnostic: {diagnostic_result['diagnostic_id']}
+perc_correct: {diagnostic_result['perc_correct']}
+num_datapoints_in_train: {diagnostic_result['num_datapoints_in_train']}"""
+
+    correct_diff_with_diags = create_diff_with_diags(parsed_src, parsed_diff_correct)
+
+    if getCorrectExample:
+        diff_with_diags += "\n<<<<<<<< CORRECTLY INFERRED >>>>>>>>\n"
+        diff_with_diags += correct_diff_with_diags
+
+    else:
+        inferred_diff_with_diags = create_diff_with_diags(parsed_src, parsed_diff_inferred)
+        diff_with_diags += "\n<<<<<<<< CORRECT >>>>>>>>\n"
+        diff_with_diags += correct_diff_with_diags
+        diff_with_diags += "\n<<<<<<<< INNFERRED >>>>>>>>\n"
+        diff_with_diags += inferred_diff_with_diags
+
+    return datapoint_id, diff_with_diags
+    
+
 def save_characteristic_examples(
-    evaluation_dict,
     characteristic_examples_dict,
     src_test_list,
     tgt_test_list,
@@ -417,82 +487,71 @@ def save_characteristic_examples(
             if result_num == 2:
                 break
 
-            parsed_diff_inferred = None
-            
             # Get a correct datapoint
             if key in ["highest_accuracy_copied", "highest_accuracy_extrapolated"]:
-                if not diagnostic_result["correct"]:
-                    continue
 
-                # Get first datapoint of given diagnostic
-                line_num = diagnostic_result["correct"][0]
+                _, diff_with_diags = generate_diff(
+                    diagnostic_result,
+                    src_test_list,
+                    tgt_test_list,
+                    inference_test_list,
+                    metadata_test,
+                    True
+                )
 
-                diff_tgt = tgt_test_list[line_num]
-
-                parsed_diff_correct = recreate_diff(diff_tgt)
-
-            # Get an incorrect datapoint
-            elif key in ["lowest_accuracy_copied", "lowest_accuracy_extrapolated"]:
-                if not diagnostic_result["wrong"]:
-                    continue
-
-                # Get first datapoint of given diagnostic
-                line_num = diagnostic_result["wrong"][0]
-
-                # Show what went wrong
-                diff_tgt = tgt_test_list[line_num]
-                diff_inferred = inference_test_list[line_num]
-
-                parsed_diff_correct = recreate_diff(diff_tgt)
-                parsed_diff_inferred = recreate_diff(
-                    diff_inferred)
-
-            # TODO later: Get a correct & incorrect datapoint
-            else:  # ambiguous_accuracy_copied & ambiguous_accuracy_extrapolated
-                if not diagnostic_result["wrong"]:
-                    continue
-
-                # Get first datapoint of given diagnostic
-                line_num = diagnostic_result["wrong"][0]
-
-                # Show what went wrong
-                diff_tgt = tgt_test_list[line_num]
-                diff_inferred = inference_test_list[line_num]
-
-                parsed_diff_correct = recreate_diff(diff_tgt)
-                parsed_diff_inferred = recreate_diff(
-                    diff_inferred)
-
-            src_str = src_test_list[line_num]
-            parsed_src = recreate_src(src_str)
-
-            datapoint_id = metadata_test["datapoints"][line_num]["ID"]
-
-            diff_with_diags = f"""id: {datapoint_id}
-diagnostic: {diagnostic_result['diagnostic_id']}
-perc_correct: {diagnostic_result['perc_correct']}"""
-
-            correct_diff_with_diags = create_diff_with_diags(
-                parsed_src, parsed_diff_correct)
-            if parsed_diff_inferred:
-                inferred_diff_with_diags = create_diff_with_diags(
-                    parsed_src, parsed_diff_inferred)
-
-                diff_with_diags += "\n<<<<<<<< CORRECT >>>>>>>>\n"
-                diff_with_diags += correct_diff_with_diags
-                diff_with_diags += "\n<<<<<<<< INNFERRED >>>>>>>>\n"
-                diff_with_diags += inferred_diff_with_diags
+            # Get an incorrect or ambiguous datapoint
+            # key in (lowest_accuracy_copied, lowest_accuracy_extrapolated,
+            # ambiguous_accuracy_copied & ambiguous_accuracy_extrapolated)
             else:
-                diff_with_diags += "<<<<<<<< CORRECTLY INFERRED >>>>>>>>\n"
-                diff_with_diags += correct_diff_with_diags
 
-            diff_filename = f"example_{key}_{str(result_num)}"
-            diff_filepath = f"{eval_dir}/{diff_filename}.diff"
+                _, diff_with_diags = generate_diff(
+                    diagnostic_result,
+                    src_test_list,
+                    tgt_test_list,
+                    inference_test_list,
+                    metadata_test,
+                    False
+                )
+
+            if not diff_with_diags:
+                continue
+
+            diff_filename = f"{key}_{str(result_num)}"
+            diff_filepath = f"{characteristic_examples_dir}/{diff_filename}.diff"
             with open(diff_filepath, 'w', encoding='utf-8') as diff_file:
                 diff_file.write(diff_with_diags)
 
 
-# def save_all_examples():
+def save_one_wrong_one_right_per_diagnostic(
+    evaluation_dict,
+    src_test_list,
+    tgt_test_list,
+    inference_test_list,
+    metadata_test
+):
+    result_per_diagnostic = flatten_result_per_diagnostic(evaluation_dict["result_per_diagnostic"])
+
+    for diagnostic_result in result_per_diagnostic:
+
+        for getCorrectExample in [True, False]:
+            datapoint_id, diff_with_diags = generate_diff(
+                diagnostic_result,
+                src_test_list,
+                tgt_test_list,
+                inference_test_list,
+                metadata_test,
+                getCorrectExample
+            )
+            
+            if not diff_with_diags:
+                continue
+
+            diagnostic_id = diagnostic_result['diagnostic_id']
+            correct = "correct" if getCorrectExample else "wrong"
+            diff_filename = f"diag_{diagnostic_id}__{correct}__id_{datapoint_id}"
+            diff_filepath = f"{examples_per_diagnostic_dir}/{diff_filename}.diff"
+            with open(diff_filepath, 'w', encoding='utf-8') as diff_file:
+                diff_file.write(diff_with_diags)
 
 
 def sort_for_characteristic_examples(evaluation_dict):
@@ -726,8 +785,21 @@ def main():
     characteristic_examples_dict = sort_for_characteristic_examples(
         evaluation_dict)
 
-    save_characteristic_examples(evaluation_dict, characteristic_examples_dict,
-                                 src_test_list, tgt_test_list, inference_test_list, metadata_test)
+    save_characteristic_examples(
+        characteristic_examples_dict,           
+        src_test_list,
+        tgt_test_list,
+        inference_test_list,
+        metadata_test
+    )
+
+    save_one_wrong_one_right_per_diagnostic(
+        evaluation_dict,
+        src_test_list,
+        tgt_test_list,
+        inference_test_list,
+        metadata_test
+    )
 
     plot_num_datapoints_vs_success(
         evaluation_dict, f"{experiment.name}_impact_data_on_accuracy.svg")
