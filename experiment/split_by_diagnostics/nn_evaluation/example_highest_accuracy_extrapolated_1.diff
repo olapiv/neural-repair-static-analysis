@@ -1,10 +1,12 @@
-<<<<<<<< CORRECTLY INFERRED >>>>>>>>
-  ";
-              literalType += string.Join(", ", keyValues.ToArray());
-<<<< DIAGNOSTIC: convert static method call to extension method call >>>>
--             DbLinqMemberInfoExtensions.SetMemberValue(memberInfo, owner, literalType);
-+             memberInfo.SetMemberValue(owner, literalType);
-          }
+id: 58078698-1
+diagnostic: CS0002
+perc_correct: 0.9473684210526315<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+   }
   
-          internal EnumType(object owner, MemberInfo memberInfo)
-      
+              File.WriteAllText (crash_report_file_path, crash_report);
+<<<< DIAGNOSTIC: use datetime.utcnow instead of datetime.now >>>>
+-             Console.WriteLine (DateTime.Now.ToString ("HH:mm:ss") + " | Wrote crash report to " + crash_report_file_path);
++             Console.WriteLine (DateTime.UtcNow.ToString ("HH:mm:ss") + " | Wrote crash report to " + crash_report_file_path);
+          }
+      }
+  }

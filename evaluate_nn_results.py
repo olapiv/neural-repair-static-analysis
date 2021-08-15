@@ -30,23 +30,6 @@ inference_eval_file = f"{eval_dir}/inference-eval.json"
 
 FORMATTING_TOKENS = ["WHITESPACE", "NEWLINE", "TAB"]
 
-data_example = {
-    "id": "",
-    "diagnostic_id": "",
-    "perc_correct": 0.0,
-    "parsed_src": {
-        "diagnostic_occurances": [
-            # {
-            #     "diagnostic_line": "",
-            #     "diagnostic_message": "",
-            # }
-        ],
-        "file_context": "",
-    },
-    "parsed_diff_correct": {},
-    "parsed_diff_inferred": {},
-}
-
 evaluation_dict = {
     "num_total_datapoints": 0,
     "num_extrapolated_datapoints": 0,
@@ -84,16 +67,6 @@ evaluation_dict = {
     "avg_success_perc_per_tgt_formatting_token": {
         # 23: 0.7
     },
-
-    # Take different DiagnosticIDs for examples here
-
-    # Fill with multiple "data_example":
-    "highest_accuracy_copied_examples": [],
-    "highest_accuracy_extrapolated_examples": [],
-    "lowest_accuracy_copied_examples": [],
-    "lowest_accuracy_extrapolated_examples": [],
-    "ambiguous_accuracy_copied_examples": [],
-    "ambiguous_accuracy_extrapolated_examples": [],
 
     "result_per_diagnostic": {
         # "DA2001": {
@@ -222,7 +195,8 @@ def create_diff_with_diags(src_dict, tgt_dict):
                 continue
             if line_index_original == int(diagnostic['diagnostic_line']):
                 diag_message = f"<<<< DIAGNOSTIC: {diagnostic['diagnostic_message']} >>>>"
-                diff_list_with_diagnostics.insert(line_index_diff + inserted_diags, diag_message)
+                diff_list_with_diagnostics.insert(
+                    line_index_diff + inserted_diags, diag_message)
                 inserted_diags += 1
 
             line_index_original += 1
@@ -439,15 +413,12 @@ def save_characteristic_examples(
 ):
 
     for key, result_per_diagnostic_list in characteristic_examples_dict.items():
-        num_examples = 0
-        for diagnostic_result in result_per_diagnostic_list:
-            if num_examples == 2:
+        for result_num, diagnostic_result in enumerate(result_per_diagnostic_list):
+            if result_num == 2:
                 break
-            num_examples += 1
 
-            example_dict = copy.deepcopy(data_example)
-            example_dict["diagnostic_id"] = diagnostic_result["diagnostic_id"]
-
+            parsed_diff_inferred = None
+            
             # Get a correct datapoint
             if key in ["highest_accuracy_copied", "highest_accuracy_extrapolated"]:
                 if not diagnostic_result["correct"]:
@@ -458,8 +429,7 @@ def save_characteristic_examples(
 
                 diff_tgt = tgt_test_list[line_num]
 
-                example_dict["parsed_diff_correct"] = recreate_diff(diff_tgt)
-                example_dict.pop('parsed_diff_inferred', None)
+                parsed_diff_correct = recreate_diff(diff_tgt)
 
             # Get an incorrect datapoint
             elif key in ["lowest_accuracy_copied", "lowest_accuracy_extrapolated"]:
@@ -473,8 +443,8 @@ def save_characteristic_examples(
                 diff_tgt = tgt_test_list[line_num]
                 diff_inferred = inference_test_list[line_num]
 
-                example_dict["parsed_diff_correct"] = recreate_diff(diff_tgt)
-                example_dict["parsed_diff_inferred"] = recreate_diff(
+                parsed_diff_correct = recreate_diff(diff_tgt)
+                parsed_diff_inferred = recreate_diff(
                     diff_inferred)
 
             # TODO later: Get a correct & incorrect datapoint
@@ -489,29 +459,26 @@ def save_characteristic_examples(
                 diff_tgt = tgt_test_list[line_num]
                 diff_inferred = inference_test_list[line_num]
 
-                example_dict["parsed_diff_correct"] = recreate_diff(diff_tgt)
-                example_dict["parsed_diff_inferred"] = recreate_diff(
+                parsed_diff_correct = recreate_diff(diff_tgt)
+                parsed_diff_inferred = recreate_diff(
                     diff_inferred)
 
-            datapoint_id = metadata_test["datapoints"][line_num]["ID"]
-            example_dict["id"] = datapoint_id
-
-            example_dict["perc_correct"] = diagnostic_result["perc_correct"]
-
             src_str = src_test_list[line_num]
-            example_dict["parsed_src"] = recreate_src(src_str)
+            parsed_src = recreate_src(src_str)
 
-            key_name = key + "_examples"
-            if key_name not in evaluation_dict:
-                evaluation_dict[key_name] = []
-            evaluation_dict[key_name].append(example_dict)
+            datapoint_id = metadata_test["datapoints"][line_num]["ID"]
 
-            diff_with_diags = ""
-            correct_diff_with_diags = create_diff_with_diags(example_dict["parsed_src"], example_dict["parsed_diff_correct"])
-            if "parsed_diff_inferred" in example_dict:
-                inferred_diff_with_diags = create_diff_with_diags(example_dict["parsed_src"], example_dict["parsed_diff_inferred"])
+            diff_with_diags = f"""id: {datapoint_id}
+diagnostic: {diagnostic_result['diagnostic_id']}
+perc_correct: {diagnostic_result['perc_correct']}"""
 
-                diff_with_diags += "<<<<<<<< CORRECT >>>>>>>>\n"
+            correct_diff_with_diags = create_diff_with_diags(
+                parsed_src, parsed_diff_correct)
+            if parsed_diff_inferred:
+                inferred_diff_with_diags = create_diff_with_diags(
+                    parsed_src, parsed_diff_inferred)
+
+                diff_with_diags += "\n<<<<<<<< CORRECT >>>>>>>>\n"
                 diff_with_diags += correct_diff_with_diags
                 diff_with_diags += "\n<<<<<<<< INNFERRED >>>>>>>>\n"
                 diff_with_diags += inferred_diff_with_diags
@@ -519,10 +486,13 @@ def save_characteristic_examples(
                 diff_with_diags += "<<<<<<<< CORRECTLY INFERRED >>>>>>>>\n"
                 diff_with_diags += correct_diff_with_diags
 
-            diff_filename = f"example_{key}_{str(len(evaluation_dict[key_name]))}"
+            diff_filename = f"example_{key}_{str(result_num)}"
             diff_filepath = f"{eval_dir}/{diff_filename}.diff"
             with open(diff_filepath, 'w', encoding='utf-8') as diff_file:
                 diff_file.write(diff_with_diags)
+
+
+# def save_all_examples():
 
 
 def sort_for_characteristic_examples(evaluation_dict):

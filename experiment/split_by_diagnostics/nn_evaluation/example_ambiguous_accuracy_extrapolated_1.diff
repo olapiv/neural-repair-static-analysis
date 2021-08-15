@@ -1,18 +1,27 @@
+id: 39500826-0
+diagnostic: ASYNC0002
+perc_correct: 0.5
 <<<<<<<< CORRECT >>>>>>>>
-   t, DataContext dataContext)
+        return _serverTask.Value;
+              }
+          }
+  
+<<<< DIAGNOSTIC: remove async suffix from method name >>>>
+-         public ValueTask DisposeAsync() => StopAsync();
++         public ValueTask Dispose() => StopAsync();
+  
+          private async Task StartCore()
           {
-+             {
-              foreach (var member in dataContext.Mapping.GetTable(t).RowType.IdentityMembers)
-<<<< DIAGNOSTIC: add braces to single statement in this foreach loop >>>>
-                  keyMembers.Add(member.Member);
-              type = t;
-   
+           
 <<<<<<<< INNFERRED >>>>>>>>
-   t, DataContext dataContext)
+        return _serverTask.Value;
+              }
+          }
+  
+<<<< DIAGNOSTIC: remove async suffix from method name >>>>
+-         public ValueTask DisposeAsync() => StopAsync();
++         private async Task StartCoreAsync()
+  
+          private async Task StartCore()
           {
-              foreach (var member in dataContext.Mapping.GetTable(t).RowType.IdentityMembers)
-+             {
-<<<< DIAGNOSTIC: add braces to single statement in this foreach loop >>>>
-                  keyMembers.Add(member.Member);
-              type = t;
-   
+           
