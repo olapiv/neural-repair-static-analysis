@@ -1,5 +1,6 @@
 import os
 import json
+import re
 import random
 import math
 import copy
@@ -17,7 +18,7 @@ class Experiment(Enum):
     extrap = "split_by_diagnostics"
 
 
-experiment = Experiment.extrap
+experiment = Experiment.copy
 
 final_dataset_dir = f"experiment/{experiment.value}"
 eval_dir = f"{final_dataset_dir}/nn_evaluation"
@@ -149,9 +150,11 @@ def recreate_src(src_string):
         file_context).rstrip('\n').split("\n")
 
     # LINE 2 MESSAGE unused WHITESPACE field WHITESPACE ' _array ' LINE 3 MESSAGE unused WHITESPACE field WHITESPACE ' _dummy '
-    for diag_occ_str in diagnostic_occurances_str.split("LINE"):
+    # for diag_occ_str in diagnostic_occurances_str.split("LINE"):  # Screw up with NEWLINE
+    for diag_occ_str in re.findall(r'LINE\s\d+\sMESSAGE(?:(?!LINE\s\d+\sMESSAGE).)*', diagnostic_occurances_str):
         if diag_occ_str == "":
             continue
+        diag_occ_str = diag_occ_str.lstrip("LINE ")
         diag_occ = {}
         (diag_line_str, diag_message_str) = diag_occ_str.split("MESSAGE")
         diag_occ["diagnostic_line"] = diag_line_str.strip()
@@ -416,7 +419,7 @@ def generate_diff(
 
     # diagnostic_result:
     # {
-    #     'diagnostic_id': 'CS0002', 
+    #     'diagnostic_id': 'CS0002',
     #     'perc_correct': 0.9473684210526315,
     #     'correct': [31, 113, 133, 233, 290, 328, 341, 432, 527, 580, 624, 1410, 1415, 1455, 1494, 1541, 1567, 1577],
     #     'wrong': [1188],
@@ -458,21 +461,23 @@ diagnostic: {diagnostic_result['diagnostic_id']}
 perc_correct: {diagnostic_result['perc_correct']}
 num_datapoints_in_train: {diagnostic_result['num_datapoints_in_train']}"""
 
-    correct_diff_with_diags = create_diff_with_diags(parsed_src, parsed_diff_correct)
+    correct_diff_with_diags = create_diff_with_diags(
+        parsed_src, parsed_diff_correct)
 
     if getCorrectExample:
         diff_with_diags += "\n<<<<<<<< CORRECTLY INFERRED >>>>>>>>\n"
         diff_with_diags += correct_diff_with_diags
 
     else:
-        inferred_diff_with_diags = create_diff_with_diags(parsed_src, parsed_diff_inferred)
+        inferred_diff_with_diags = create_diff_with_diags(
+            parsed_src, parsed_diff_inferred)
         diff_with_diags += "\n<<<<<<<< CORRECT >>>>>>>>\n"
         diff_with_diags += correct_diff_with_diags
         diff_with_diags += "\n<<<<<<<< INNFERRED >>>>>>>>\n"
         diff_with_diags += inferred_diff_with_diags
 
     return datapoint_id, diff_with_diags
-    
+
 
 def save_characteristic_examples(
     characteristic_examples_dict,
@@ -529,7 +534,8 @@ def save_one_wrong_one_right_per_diagnostic(
     inference_test_list,
     metadata_test
 ):
-    result_per_diagnostic = flatten_result_per_diagnostic(evaluation_dict["result_per_diagnostic"])
+    result_per_diagnostic = flatten_result_per_diagnostic(
+        evaluation_dict["result_per_diagnostic"])
 
     for diagnostic_result in result_per_diagnostic:
 
@@ -542,7 +548,7 @@ def save_one_wrong_one_right_per_diagnostic(
                 metadata_test,
                 getCorrectExample
             )
-            
+
             if not diff_with_diags:
                 continue
 
@@ -786,7 +792,7 @@ def main():
         evaluation_dict)
 
     save_characteristic_examples(
-        characteristic_examples_dict,           
+        characteristic_examples_dict,
         src_test_list,
         tgt_test_list,
         inference_test_list,
