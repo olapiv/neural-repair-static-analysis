@@ -1,0 +1,24 @@
+<<<<<<<< CORRECT >>>>>>>>
+     {
+<<<< DIAGNOSTIC: statements must be placed on their own line >>>>
+-             if (other is null) return false;
++             if (other is null)
++                 return false;
+<<<< DIAGNOSTIC: statements must be placed on their own line >>>>
+-             if (ReferenceEquals(this, other)) return true;
++             if (ReferenceEquals(this, other))
++                 return true;
+<<<< DIAGNOSTIC: statements must be placed on their own line >>>>
+-             if (other.GetType() != GetType()) return false; 
++             if (other.GetType() != GetType())
++                 return false; 
+       
+<<<<<<<< INNFERRED >>>>>>>>
+     {
+<<<< DIAGNOSTIC: statements must be placed on their own line >>>>
+-             if (other is null) return false;
+<<<< DIAGNOSTIC: statements must be placed on their own line >>>>
+-             if (ReferenceEquals(this, other)) return true;
+<<<< DIAGNOSTIC: statements must be placed on their own line >>>>
+              if (other.GetType() != GetType()) return false; 
+       

@@ -1,0 +1,18 @@
+<<<<<<<< CORRECT >>>>>>>>
+   t, DataContext dataContext)
+          {
++             {
+              foreach (var member in dataContext.Mapping.GetTable(t).RowType.IdentityMembers)
+<<<< DIAGNOSTIC: add braces to single statement in this foreach loop >>>>
+                  keyMembers.Add(member.Member);
+              type = t;
+   
+<<<<<<<< INNFERRED >>>>>>>>
+   t, DataContext dataContext)
+          {
+              foreach (var member in dataContext.Mapping.GetTable(t).RowType.IdentityMembers)
++             {
+<<<< DIAGNOSTIC: add braces to single statement in this foreach loop >>>>
+                  keyMembers.Add(member.Member);
+              type = t;
+   

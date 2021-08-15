@@ -1,0 +1,10 @@
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+   }
+  
+              File.WriteAllText (crash_report_file_path, crash_report);
+<<<< DIAGNOSTIC: use datetime.utcnow instead of datetime.now >>>>
+-             Console.WriteLine (DateTime.Now.ToString ("HH:mm:ss") + " | Wrote crash report to " + crash_report_file_path);
++             Console.WriteLine (DateTime.UtcNow.ToString ("HH:mm:ss") + " | Wrote crash report to " + crash_report_file_path);
+          }
+      }
+  }

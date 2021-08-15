@@ -1,0 +1,10 @@
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  ";
+              literalType += string.Join(", ", keyValues.ToArray());
+<<<< DIAGNOSTIC: convert static method call to extension method call >>>>
+-             DbLinqMemberInfoExtensions.SetMemberValue(memberInfo, owner, literalType);
++             memberInfo.SetMemberValue(owner, literalType);
+          }
+  
+          internal EnumType(object owner, MemberInfo memberInfo)
+      

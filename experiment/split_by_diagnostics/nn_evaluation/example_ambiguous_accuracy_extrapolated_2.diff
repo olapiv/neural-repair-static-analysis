@@ -1,0 +1,24 @@
+<<<<<<<< CORRECT >>>>>>>>
+        return _serverTask.Value;
+              }
+          }
+  
+<<<< DIAGNOSTIC: remove async suffix from method name >>>>
+-         public ValueTask DisposeAsync() => StopAsync();
++         public ValueTask Dispose() => StopAsync();
+  
+          private async Task StartCore()
+          {
+           
+<<<<<<<< INNFERRED >>>>>>>>
+        return _serverTask.Value;
+              }
+          }
+  
+<<<< DIAGNOSTIC: remove async suffix from method name >>>>
+-         public ValueTask DisposeAsync() => StopAsync();
++         private async Task StartCoreAsync()
+  
+          private async Task StartCore()
+          {
+           

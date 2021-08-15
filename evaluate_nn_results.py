@@ -3,6 +3,7 @@ import json
 import random
 import math
 import copy
+import difflib
 import statistics
 from enum import Enum
 from collections import Counter
@@ -14,6 +15,7 @@ from scipy.stats import pearsonr
 class Experiment(Enum):
     copy = "random_mix"
     extrap = "split_by_diagnostics"
+
 
 experiment = Experiment.extrap
 
@@ -184,6 +186,50 @@ def recreate_src(src_string):
     return parsed_src
 
 
+def create_diff_with_diags(src_dict, tgt_dict):
+
+    original_file = src_dict["file_context"][:]
+    changed_file = src_dict["file_context"][:]
+
+    diff_type = tgt_dict["diff_type"]
+    if diff_type == "ADD":
+        prev_src_loc = int(tgt_dict["previous_source_location"])
+        changed_file[prev_src_loc:prev_src_loc] = tgt_dict["target_lines"]
+
+    elif diff_type == "REMOVE":
+        src_start = int(tgt_dict["source_location_start"])
+        src_end = int(tgt_dict["source_location_end"])
+        del changed_file[src_start:src_end + 1]
+
+    else:
+        src_start = int(tgt_dict["source_location"][0])
+        src_end = int(tgt_dict["source_location"][-1])
+        del changed_file[src_start:src_end + 1]
+        changed_file[src_start:src_start] = tgt_dict["target_lines"]
+
+    # ['  Lalalalala', '  lalala', '- dia', '+ dida', '?   +\n']
+    diff_list = list(difflib.Differ().compare(original_file, changed_file))
+    diff_list = [x for x in diff_list if not x.startswith("?")]
+
+    # Inserting diagnostic message
+    diff_list_with_diagnostics = diff_list[:]
+    inserted_diags = 0
+    for diagnostic in src_dict["diagnostic_occurances"]:
+
+        line_index_original = 0
+        for line_index_diff, diff_line in enumerate(diff_list):
+            if diff_line.startswith("+"):
+                continue
+            if line_index_original == int(diagnostic['diagnostic_line']):
+                diag_message = f"<<<< DIAGNOSTIC: {diagnostic['diagnostic_message']} >>>>"
+                diff_list_with_diagnostics.insert(line_index_diff + inserted_diags, diag_message)
+                inserted_diags += 1
+
+            line_index_original += 1
+
+    return '\n'.join(diff_list_with_diagnostics)
+
+
 def save_result_per_diagnostic(evaluation_dict, metadata_train, metadata_test, tgt_test_list, inference_test_list):
 
     for index, tgt_test_line in enumerate(tgt_test_list):
@@ -217,12 +263,17 @@ def save_result_per_diagnostic(evaluation_dict, metadata_train, metadata_test, t
 def save_diagnostic_avg_results(evaluation_dict):
 
     total_diagnostics = evaluation_dict["result_per_diagnostic"]
-    copied_diagnostics = {diagnostic_id: result for diagnostic_id, result in total_diagnostics.items() if result["num_datapoints_in_train"] > 0}
-    extrapolated_diagnostics = {diagnostic_id: result for diagnostic_id, result in total_diagnostics.items() if result["num_datapoints_in_train"] == 0}
+    copied_diagnostics = {diagnostic_id: result for diagnostic_id,
+                          result in total_diagnostics.items() if result["num_datapoints_in_train"] > 0}
+    extrapolated_diagnostics = {diagnostic_id: result for diagnostic_id,
+                                result in total_diagnostics.items() if result["num_datapoints_in_train"] == 0}
 
-    percentage_added_total = sum([v["perc_correct"] for v in total_diagnostics.values()])
-    percentage_added_copied = sum([v["perc_correct"] for v in copied_diagnostics.values()])
-    percentage_added_extrapolated = sum([v["perc_correct"] for v in extrapolated_diagnostics.values()])
+    percentage_added_total = sum([v["perc_correct"]
+                                 for v in total_diagnostics.values()])
+    percentage_added_copied = sum([v["perc_correct"]
+                                  for v in copied_diagnostics.values()])
+    percentage_added_extrapolated = sum(
+        [v["perc_correct"] for v in extrapolated_diagnostics.values()])
 
     num_diagnostics_total = len(total_diagnostics.keys())
     num_diagnostics_copied = len(copied_diagnostics.keys())
@@ -233,13 +284,16 @@ def save_diagnostic_avg_results(evaluation_dict):
     evaluation_dict["num_diagnostics_extrapolated"] = num_diagnostics_extrapolated
 
     if num_diagnostics_total != 0:
-        evaluation_dict["avg_success_per_diagnostic_total"] = percentage_added_total / num_diagnostics_total
+        evaluation_dict["avg_success_per_diagnostic_total"] = percentage_added_total / \
+            num_diagnostics_total
 
     if num_diagnostics_copied != 0:
-        evaluation_dict["avg_success_per_diagnostic_copied"] = percentage_added_copied / num_diagnostics_copied
+        evaluation_dict["avg_success_per_diagnostic_copied"] = percentage_added_copied / \
+            num_diagnostics_copied
 
     if num_diagnostics_extrapolated != 0:
-        evaluation_dict["avg_success_per_diagnostic_extrapolated"] = percentage_added_extrapolated / num_diagnostics_extrapolated
+        evaluation_dict["avg_success_per_diagnostic_extrapolated"] = percentage_added_extrapolated / \
+            num_diagnostics_extrapolated
 
 
 def save_num_tokens_vs_success_perc(evaluation_dict, metadata_train, metadata_test, src_test_list, tgt_test_list, inference_test_list):
@@ -452,6 +506,24 @@ def save_characteristic_examples(
                 evaluation_dict[key_name] = []
             evaluation_dict[key_name].append(example_dict)
 
+            diff_with_diags = ""
+            correct_diff_with_diags = create_diff_with_diags(example_dict["parsed_src"], example_dict["parsed_diff_correct"])
+            if "parsed_diff_inferred" in example_dict:
+                inferred_diff_with_diags = create_diff_with_diags(example_dict["parsed_src"], example_dict["parsed_diff_inferred"])
+
+                diff_with_diags += "<<<<<<<< CORRECT >>>>>>>>\n"
+                diff_with_diags += correct_diff_with_diags
+                diff_with_diags += "\n<<<<<<<< INNFERRED >>>>>>>>\n"
+                diff_with_diags += inferred_diff_with_diags
+            else:
+                diff_with_diags += "<<<<<<<< CORRECTLY INFERRED >>>>>>>>\n"
+                diff_with_diags += correct_diff_with_diags
+
+            diff_filename = f"example_{key}_{str(len(evaluation_dict[key_name]))}"
+            diff_filepath = f"{eval_dir}/{diff_filename}.diff"
+            with open(diff_filepath, 'w', encoding='utf-8') as diff_file:
+                diff_file.write(diff_with_diags)
+
 
 def sort_for_characteristic_examples(evaluation_dict):
 
@@ -505,29 +577,28 @@ def plot_num_datapoints_vs_success(evaluation_dict, filename):
     fig = px.scatter(
         x=x,
         y=y,
-        ## Text makes picture unreadable in Latex:
+        # Text makes picture unreadable in Latex:
         # text=text,
 
         # trendline="ols"
     )
 
-    markers=dict(size=9, color="rgba(5,5,5,0.4)")
+    markers = dict(size=9, color="rgba(5,5,5,0.4)")
     fig.update_traces(
         marker=markers,
-        
-        ## Text makes picture unreadable in Latex:
+
+        # Text makes picture unreadable in Latex:
         # textposition='top right',
         # textfont_size=10,
     )
-    
+
     # fig.update_layout(title="Per Diagnostic: Data Points Needed To Produce Good Results in Test")
     fig.update_xaxes(title_text='Number datapoints in train')
     fig.update_yaxes(title_text='Success Rate')
-    fig.show()
+    # fig.show()
     fig.write_image(f"{eval_dir}/{filename}")
 
     print(f"for {filename}; pearsonr: {pearsonr(x, y)}")
-
 
 
 def plot_src_format_tokens_vs_success(evaluation_dict):
@@ -538,14 +609,14 @@ def plot_src_format_tokens_vs_success(evaluation_dict):
 
     filename = f"{experiment.name}_success_rate_formatting_len_src.svg"
     x_axis = "Number of Formatting Source Tokens"
-    
+
     x = list(
         evaluation_dict["avg_success_perc_per_src_formatting_token"].keys())
     y = [success_perc for success_perc in evaluation_dict["avg_success_perc_per_src_formatting_token"].values()]
 
     fig = plot_num_tokens_vs_success(x, y, x_axis, "")
 
-    fig.show()
+    # fig.show()
     fig.write_image(f"{eval_dir}/{filename}")
 
     # print(f"for {filename}; pearsonr: {pearsonr(x, y)}")
@@ -560,32 +631,35 @@ def plot_tgt_tokens_vs_success(evaluation_dict):
     x_axis = "Number of Target Tokens"
 
     x_total = list(evaluation_dict["avg_success_perc_per_tgt_len"].keys())
-    y_total = [success_perc for success_perc in evaluation_dict["avg_success_perc_per_tgt_len"].values()]
-    legend="Total"
+    y_total = [
+        success_perc for success_perc in evaluation_dict["avg_success_perc_per_tgt_len"].values()]
+    legend = "Total"
 
     fig = plot_num_tokens_vs_success(x_total, y_total, x_axis, legend)
-    
+
     x_formatting = list(
         evaluation_dict["avg_success_perc_per_tgt_formatting_token"].keys())
-    y_formatting = [success_perc for success_perc in evaluation_dict["avg_success_perc_per_tgt_formatting_token"].values()]
-    legend="Formatting"
-    
-    # Need to append experiment.name to filename because of Latex SVG problems
-    fig = plot_num_tokens_vs_success(x_formatting, y_formatting, x_axis, legend, fig)
+    y_formatting = [
+        success_perc for success_perc in evaluation_dict["avg_success_perc_per_tgt_formatting_token"].values()]
+    legend = "Formatting"
 
-    fig.show()
+    # Need to append experiment.name to filename because of Latex SVG problems
+    fig = plot_num_tokens_vs_success(
+        x_formatting, y_formatting, x_axis, legend, fig)
+
+    # fig.show()
     fig.write_image(f"{eval_dir}/{filename}")
 
 
 def plot_num_tokens_vs_success(x, y, x_axis, legend, fig=None):
-    
+
     if not fig:
         fig = go.Figure()
         fig.update_yaxes(title_text='Success Rate')
         fig.update_xaxes(title_text=x_axis)
-        markers=dict(size=9, color="rgba(255,0,0,0.8)")
+        markers = dict(size=9, color="rgba(255,0,0,0.8)")
     else:
-        markers=dict(size=9, color="rgba(0,0,255,0.8)")
+        markers = dict(size=9, color="rgba(0,0,255,0.8)")
 
     fig.add_trace(
         go.Scatter(
@@ -596,7 +670,7 @@ def plot_num_tokens_vs_success(x, y, x_axis, legend, fig=None):
             name=legend
         )
     )
-    
+
     return fig
 
 
@@ -687,7 +761,7 @@ def main():
 
     plot_num_datapoints_vs_success(
         evaluation_dict, f"{experiment.name}_impact_data_on_accuracy.svg")
-    
+
     plot_src_format_tokens_vs_success(evaluation_dict)
     plot_tgt_tokens_vs_success(evaluation_dict)
 
