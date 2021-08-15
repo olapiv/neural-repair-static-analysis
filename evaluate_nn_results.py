@@ -15,7 +15,7 @@ class Experiment(Enum):
     copy = "random_mix"
     extrap = "split_by_diagnostics"
 
-experiment = Experiment.copy
+experiment = Experiment.extrap
 
 final_dataset_dir = f"experiment/{experiment.value}"
 eval_dir = f"{final_dataset_dir}/nn_evaluation"
@@ -505,78 +505,99 @@ def plot_num_datapoints_vs_success(evaluation_dict, filename):
     fig = px.scatter(
         x=x,
         y=y,
-        text=text,
+        ## Text makes picture unreadable in Latex:
+        # text=text,
+
         # trendline="ols"
     )
 
     markers=dict(size=9, color="rgba(5,5,5,0.4)")
     fig.update_traces(
         marker=markers,
-        textposition='top right',
-        textfont_size=10,
+        
+        ## Text makes picture unreadable in Latex:
+        # textposition='top right',
+        # textfont_size=10,
     )
     
     # fig.update_layout(title="Per Diagnostic: Data Points Needed To Produce Good Results in Test")
     fig.update_xaxes(title_text='Number datapoints in train')
-    fig.update_yaxes(title_text='Percentage of Correct Predictions in Test')
+    fig.update_yaxes(title_text='Success Rate')
     fig.show()
     fig.write_image(f"{eval_dir}/{filename}")
 
     print(f"for {filename}; pearsonr: {pearsonr(x, y)}")
 
 
-def plot_src_len_vs_success(evaluation_dict):
-    x = list(evaluation_dict["avg_success_perc_per_src_len"].keys())
-    y = [success_perc for success_perc in evaluation_dict["avg_success_perc_per_src_len"].values()]
-    # Need to append experiment.name to filename because of Latex SVG problems
-    plot_num_tokens_vs_success(
-        x, y, "Number of Source Tokens", f"{experiment.name}_success_rate_src_len.svg")
 
+def plot_src_format_tokens_vs_success(evaluation_dict):
+    """
+    Not done for total tokens because file content is fixed to 100 tokens; Only checking 
+    for formatting tokens in source.
+    """
 
-def plot_tgt_len_vs_success(evaluation_dict):
-    x = list(evaluation_dict["avg_success_perc_per_tgt_len"].keys())
-    y = [success_perc for success_perc in evaluation_dict["avg_success_perc_per_tgt_len"].values()]
-    # Need to append experiment.name to filename because of Latex SVG problems
-    plot_num_tokens_vs_success(
-        x, y, "Number of Target Tokens", f"{experiment.name}_success_rate_tgt_len.svg")
-
-
-def plot_src_num_format_tokens_vs_success(evaluation_dict):
+    filename = f"{experiment.name}_success_rate_formatting_len_src.svg"
+    x_axis = "Number of Formatting Source Tokens"
+    
     x = list(
         evaluation_dict["avg_success_perc_per_src_formatting_token"].keys())
     y = [success_perc for success_perc in evaluation_dict["avg_success_perc_per_src_formatting_token"].values()]
-    plot_num_tokens_vs_success(
-        x, y, "Number of Formatting Tokens in Source", f"{experiment.name}_success_rate_num_format_tokens_src.svg")
 
+    fig = plot_num_tokens_vs_success(x, y, x_axis, "")
 
-def plot_tgt_num_format_tokens_vs_success(evaluation_dict):
-    x = list(
-        evaluation_dict["avg_success_perc_per_tgt_formatting_token"].keys())
-    y = [success_perc for success_perc in evaluation_dict["avg_success_perc_per_tgt_formatting_token"].values()]
-    plot_num_tokens_vs_success(
-        x, y, "Number of Formatting Tokens in Target", f"{experiment.name}_success_rate_num_format_tokens_tgt.svg")
-
-
-def plot_num_tokens_vs_success(x, y, independent_var, filename):
-    
-    fig = px.scatter(
-        x=x,
-        y=y,
-        # trendline="ols"
-    )
-
-    markers=dict(size=9, color="rgba(5,5,5,0.4)")
-    fig.update_traces(
-        marker=markers
-    )
-
-    # fig.update_layout(title=f"How {independent_var} Impacts Success Rate of Predictions")
-    fig.update_xaxes(title_text=f'{independent_var}')
-    fig.update_yaxes(title_text='Percentage of Correct Predictions in Test')
     fig.show()
     fig.write_image(f"{eval_dir}/{filename}")
 
-    print(f"for {filename}; pearsonr: {pearsonr(x, y)}")
+    # print(f"for {filename}; pearsonr: {pearsonr(x, y)}")
+
+
+def plot_tgt_tokens_vs_success(evaluation_dict):
+    """
+    Plots total tokens and formatting tokens into one graph
+    """
+
+    filename = f"{experiment.name}_success_rate_tgt_len.svg"
+    x_axis = "Number of Target Tokens"
+
+    x_total = list(evaluation_dict["avg_success_perc_per_tgt_len"].keys())
+    y_total = [success_perc for success_perc in evaluation_dict["avg_success_perc_per_tgt_len"].values()]
+    legend="Total"
+
+    fig = plot_num_tokens_vs_success(x_total, y_total, x_axis, legend)
+    
+    x_formatting = list(
+        evaluation_dict["avg_success_perc_per_tgt_formatting_token"].keys())
+    y_formatting = [success_perc for success_perc in evaluation_dict["avg_success_perc_per_tgt_formatting_token"].values()]
+    legend="Formatting"
+    
+    # Need to append experiment.name to filename because of Latex SVG problems
+    fig = plot_num_tokens_vs_success(x_formatting, y_formatting, x_axis, legend, fig)
+
+    fig.show()
+    fig.write_image(f"{eval_dir}/{filename}")
+
+
+def plot_num_tokens_vs_success(x, y, x_axis, legend, fig=None):
+    
+    if not fig:
+        fig = go.Figure()
+        fig.update_yaxes(title_text='Success Rate')
+        fig.update_xaxes(title_text=x_axis)
+        markers=dict(size=9, color="rgba(255,0,0,0.8)")
+    else:
+        markers=dict(size=9, color="rgba(0,0,255,0.8)")
+
+    fig.add_trace(
+        go.Scatter(
+            x=x,
+            y=y,
+            mode="markers",
+            marker=markers,
+            name=legend
+        )
+    )
+    
+    return fig
 
 
 def remove_redundant_data(evaluation_dict):
@@ -666,11 +687,9 @@ def main():
 
     plot_num_datapoints_vs_success(
         evaluation_dict, f"{experiment.name}_impact_data_on_accuracy.svg")
-    plot_src_len_vs_success(evaluation_dict)
-    plot_tgt_len_vs_success(evaluation_dict)
-
-    plot_src_num_format_tokens_vs_success(evaluation_dict)
-    plot_tgt_num_format_tokens_vs_success(evaluation_dict)
+    
+    plot_src_format_tokens_vs_success(evaluation_dict)
+    plot_tgt_tokens_vs_success(evaluation_dict)
 
     remove_redundant_data(evaluation_dict)
 

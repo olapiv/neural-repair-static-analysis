@@ -19,28 +19,12 @@ Convergence after 5k steps (3h 16min); Loss function:
 
 ![Loss Function](loss_function_20k_steps.png)
 
-Measuring the impact of datapoints per diagnostic on its accuracy in the following figure.
+### Influence of Number of **Formatting** Tokens in Source on Success Rate of Predictions
 
-![Impact data per Diagnostic on Accuracy](extrap_impact_data_on_accuracy.svg)
+![Source Formatting Length vs Success Rate](extrap_success_rate_formatting_len_src.svg)
 
-Each datapoint represents a diagnostic. It is hard to decipher a correlation between number of data points a diagnostic requires in train to be successfully predicted in test.
+The influence of total tokens in source is omitted, since the number of file context tokens for input is held constant.
 
-Measuring the impact of number of tokens in target/source on success rate of predictions in test in the following figures.
-
-![Source Length vs Success Rate](extrap_success_rate_src_len.svg)
-
-pearsonr: (-0.4914593737102244, 0.0036782574151330073)
+### Influence of Number of Tokens in Target on Success Rate of Predictions
 
 ![Target Length vs Success Rate](extrap_success_rate_tgt_len.svg)
-
-pearsonr: (-0.3056570333260562, 0.0005560697798332885)
-
-Measuring the impact of number of **formatting** tokens in target/source on success rate of predictions in test in the following figures.
-
-![Source Length vs Success Rate](extrap_success_rate_num_format_tokens_src.svg)
-
-pearsonr: (0.5096095535734051, 6.614083595210592e-06)
-
-![Target Length vs Success Rate](extrap_success_rate_num_format_tokens_tgt.svg)
-
-pearsonr: (-0.25656282814241116, 0.0120826741767113)
