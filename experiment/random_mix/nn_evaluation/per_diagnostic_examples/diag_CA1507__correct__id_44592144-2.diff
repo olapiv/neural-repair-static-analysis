@@ -1,0 +1,16 @@
+id: 44592144-2
+diagnostic: CA1507
+perc_correct: 1.0
+num_datapoints_in_train: 6
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  	}
+  
+  		public void InsertRange(int index, IEnumerable<SharpTreeNode> nodes)
+  		{
+  			if (nodes == null)
+<<<< DIAGNOSTIC: use nameof in place of string literal 'nodes' >>>>
+- 				throw new ArgumentNullException("nodes");
++ 				throw new ArgumentNullException(nameof(nodes));
+  			ThrowOnReentrancy();
+  			List<SharpTreeNode> newNodes = nodes.ToList();
+  			if (newNodes.Count == 0)

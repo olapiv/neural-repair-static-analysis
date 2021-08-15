@@ -1,0 +1,22 @@
+id: 27028903-0
+diagnostic: mmlajOnalbPublicFieldAnalyzer
+perc_correct: 0.8620689655172413
+num_datapoints_in_train: 75
+<<<<<<<< CORRECT >>>>>>>>
+         /// The raw SQL command.
+              /// </summary>
+<<<< DIAGNOSTIC: analyzer format (mmlaj) >>>>
+-             public readonly string sql;
++             private readonly string sql;
+  
+              /// <summary>
+              /// The SQL command
+<<<<<<<< INNFERRED >>>>>>>>
+         /// The raw SQL command.
+              /// </summary>
+<<<< DIAGNOSTIC: analyzer format (mmlaj) >>>>
+-             public readonly string sql;
++             private readonly string _Sql;
+  
+              /// <summary>
+              /// The SQL command

@@ -1,0 +1,24 @@
+id: 92884266-1
+diagnostic: DecimalPoints
+perc_correct: 0.0
+num_datapoints_in_train: 6
+<<<<<<<< CORRECT >>>>>>>>
+  { get; set; }
+  
+          public double ProgressPercentage { get; private set; }
+<<<< DIAGNOSTIC: apply restriction on decimal points >>>>
+-         public double ProgressSpeed { get; private set; }
++         [RegularExpression(@"^[0-9]*(?:\.[0-9]{0,2})?$")]//Roslyn auto generated to restrict decimal points.        public double ProgressSpeed { get; private set; }
+          public string ProgressInformation { get; private set; }
+  
+          public 
+<<<<<<<< INNFERRED >>>>>>>>
+  { get; set; }
+  
+          public double ProgressPercentage { get; private set; }
+<<<< DIAGNOSTIC: apply restriction on decimal points >>>>
+-         public double ProgressSpeed { get; private set; }
++         [RegularExpression(@"^[0-9]*(?:\.[0-9]{0,2})?$")]//Roslyn auto generated to restrict decimal points.        public double DoubleValue { get; set; }
+          public string ProgressInformation { get; private set; }
+  
+          public 

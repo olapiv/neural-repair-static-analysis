@@ -1,0 +1,28 @@
+id: 58214897-0
+diagnostic: SA1629
+perc_correct: 0.3333333333333333
+num_datapoints_in_train: 3
+<<<<<<<< CORRECT >>>>>>>>
+  .Media;
+  
+  namespace MaterialDesignColors
+  {
+      /// <summary>
+<<<< DIAGNOSTIC: documentation text should end with a period >>>>
+-     /// Provides access to all colour swatches.  For information regarding Material Design colours see https://www.google.com/design/spec/style/color.html
++     /// Provides access to all colour swatches.  For information regarding Material Design colours see https://www.google.com/design/spec/style/color.html.
+      /// </summary>
+      public class SwatchesProvider
+   
+<<<<<<<< INNFERRED >>>>>>>>
+  .Media;
+  
+  namespace MaterialDesignColors
+  {
+      /// <summary>
+<<<< DIAGNOSTIC: documentation text should end with a period >>>>
+-     /// Provides access to all colour swatches.  For information regarding Material Design colours see https://www.google.com/design/spec/style/color.html
++     public sealed class SwatchesProvider
+      /// </summary>
+      public class SwatchesProvider
+   

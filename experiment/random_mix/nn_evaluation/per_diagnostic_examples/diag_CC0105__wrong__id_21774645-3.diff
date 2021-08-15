@@ -1,0 +1,18 @@
+id: 21774645-3
+diagnostic: CC0105
+perc_correct: 0.15384615384615385
+num_datapoints_in_train: 68
+<<<<<<<< CORRECT >>>>>>>>
+                       BuilderContext builderContext)
+          {
+<<<< DIAGNOSTIC: use 'var' instead of specifying the type name. >>>>
+-             int valueIndex = RegisterOutputParameter(expression, builderContext);
++             var valueIndex = RegisterOutputParameter(expression, builderContext);
+              Type storageType = expression.StorageInfo != null ? expression.StorageInfo.GetMemberType() :
+<<<<<<<< INNFERRED >>>>>>>>
+                       BuilderContext builderContext)
+          {
+<<<< DIAGNOSTIC: use 'var' instead of specifying the type name. >>>>
+-             int valueIndex = RegisterOutputParameter(expression, builderContext);
++             var storageType = expression.StorageInfo != null ? expression.StorageInfo.GetMemberType() : null;
+              Type storageType = expression.StorageInfo != null ? expression.StorageInfo.GetMemberType() :

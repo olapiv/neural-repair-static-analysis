@@ -1,0 +1,16 @@
+id: 21725289-1
+diagnostic: RCS1018
+perc_correct: 0.3333333333333333
+num_datapoints_in_train: 3
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+   = 0xf,
+          EnterDueToProc = 0xf0,
+          SetIdeal = 0xf00,
+      };
+<<<< DIAGNOSTIC: add accessibility modifiers. >>>>
+-     struct SampleInfo
++     internal struct SampleInfo
+      {
+          // -1 means uninit.
+          public int tid;
+         

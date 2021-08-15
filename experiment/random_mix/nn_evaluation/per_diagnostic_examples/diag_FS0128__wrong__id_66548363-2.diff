@@ -1,0 +1,28 @@
+id: 66548363-2
+diagnostic: FS0128
+perc_correct: 0.6666666666666666
+num_datapoints_in_train: 27
+<<<<<<<< CORRECT >>>>>>>>
+   null;
+  		}
+  
+  		public object this[int index] {
+  			get {
++ 				{
+  				if (index < 0 || index >= this.Count)
+<<<< DIAGNOSTIC: add braces to single statement in this if >>>>
+  					throw new ArgumentOutOfRangeException();
+  				return SharpTreeNode.GetNodeByVisibleIndex(root, includeRoot ? index : index + 1);
+  		
+<<<<<<<< INNFERRED >>>>>>>>
+   null;
+  		}
+  
+  		public object this[int index] {
+  			get {
++                 {
+  				if (index < 0 || index >= this.Count)
+<<<< DIAGNOSTIC: add braces to single statement in this if >>>>
+  					throw new ArgumentOutOfRangeException();
+  				return SharpTreeNode.GetNodeByVisibleIndex(root, includeRoot ? index : index + 1);
+  		

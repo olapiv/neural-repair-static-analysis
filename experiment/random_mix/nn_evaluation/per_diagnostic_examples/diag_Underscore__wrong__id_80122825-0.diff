@@ -1,0 +1,26 @@
+id: 80122825-0
+diagnostic: Underscore
+perc_correct: 0.0
+num_datapoints_in_train: 6
+<<<<<<<< CORRECT >>>>>>>>
+  Colors.White;
+  
+          public static bool IsLightColor(this Color color)
+          {
+<<<< DIAGNOSTIC: the name 'rgb_srgb' includes an underscore. >>>>
+-             double rgb_srgb(double d)
++             double rgbSrgb(double d)
+              {
+                  d /= 255.0;
+   
+<<<<<<<< INNFERRED >>>>>>>>
+  Colors.White;
+  
+          public static bool IsLightColor(this Color color)
+          {
+<<<< DIAGNOSTIC: the name 'rgb_srgb' includes an underscore. >>>>
+-             double rgb_srgb(double d)
++             double Rgb_srgb(double d)
+              {
+                  d /= 255.0;
+   

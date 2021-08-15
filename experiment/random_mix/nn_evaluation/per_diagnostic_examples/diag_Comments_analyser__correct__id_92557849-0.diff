@@ -1,0 +1,12 @@
+id: 92557849-0
+diagnostic: Comments_analyser
+perc_correct: 0.09090909090909091
+num_datapoints_in_train: 65
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  / optionally return DataSet, and collect return params.
+          /// </summary>
+<<<< DIAGNOSTIC: type name 'Parameternotdocumented' contains lowercase letters >>>>
+<<<< DIAGNOSTIC: type name 'Parameternotdocumented' contains lowercase letters >>>>
+-         public override System.Data.Linq.IExecuteResult ExecuteMethodCall(DataContext context, MethodInfo method
++         public override System.Data.Linq.IExecuteResult ExecuteMethodCall(DATACONTEXT context, MethodInfo method
+                                     

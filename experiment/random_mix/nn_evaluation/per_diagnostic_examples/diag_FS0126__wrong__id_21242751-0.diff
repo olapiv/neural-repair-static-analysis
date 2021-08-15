@@ -1,0 +1,23 @@
+id: 21242751-0
+diagnostic: FS0126
+perc_correct: 0.0
+num_datapoints_in_train: 0
+<<<<<<<< CORRECT >>>>>>>>
+   Server? server)
+          {
+              server = null;
+<<<< DIAGNOSTIC: try catch syntax is discouraged. >>>>
+-             try
+-             {
+                  if (uri.Scheme != "ss")
+        
+<<<<<<<< INNFERRED >>>>>>>>
+   Server? server)
+          {
+              server = null;
+<<<< DIAGNOSTIC: try catch syntax is discouraged. >>>>
+-             try
++             catch (Exception ex)
+              {
+                  if (uri.Scheme != "ss")
+        

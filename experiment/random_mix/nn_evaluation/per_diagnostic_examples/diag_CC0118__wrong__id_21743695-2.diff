@@ -1,0 +1,20 @@
+id: 21743695-2
+diagnostic: CC0118
+perc_correct: 0.0
+num_datapoints_in_train: 2
+<<<<<<<< CORRECT >>>>>>>>
+  
+              }
+<<<< DIAGNOSTIC: unnecessary '.ToString()' call in string concatenation. >>>>
+-             var dm = new DynamicMethod("ParamInfo" + Guid.NewGuid().ToString(), null, new[] { typeof(IDbCommand), typeof(object) }, type, true);
++             var dm = new DynamicMethod("ParamInfo" + Guid.NewGuid(), null, new[] { typeof(IDbCommand), typeof(object) }, type, true);
+  
+              var il
+<<<<<<<< INNFERRED >>>>>>>>
+  
+              }
+<<<< DIAGNOSTIC: unnecessary '.ToString()' call in string concatenation. >>>>
+-             var dm = new DynamicMethod("ParamInfo" + Guid.NewGuid().ToString(), null, new[] { typeof(IDbCommand), typeof(object) }, type, true);
++                 readonly CommandType? commandType;
+  
+              var il

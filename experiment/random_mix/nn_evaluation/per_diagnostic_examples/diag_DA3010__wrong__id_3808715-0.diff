@@ -1,0 +1,44 @@
+id: 3808715-0
+diagnostic: DA3010
+perc_correct: 0.5
+num_datapoints_in_train: 21
+<<<<<<<< CORRECT >>>>>>>>
+  , see <http://www.gnu.org/licenses/>.
+  
+  
+  using System;
+  using System.Reflection;
+  
+  namespace Sparkles {
+-     
++ 
++     /// <summary> 
++     /// 
++     /// </summary>
+<<<< DIAGNOSTIC: type 'OS' doesn't have /// comments >>>>
+-     public enum OS {
++     public enum OS
++     {
+          Unknown,
+          macOS,
+          Windows,
+          Ubuntu
+<<<<<<<< INNFERRED >>>>>>>>
+  , see <http://www.gnu.org/licenses/>.
+  
+  
+  using System;
+  using System.Reflection;
+  
+  namespace Sparkles {
++ 
++     /// <summary> 
++     /// 
++     /// </summary>
+      
+<<<< DIAGNOSTIC: type 'OS' doesn't have /// comments >>>>
+      public enum OS {
+          Unknown,
+          macOS,
+          Windows,
+          Ubuntu

@@ -1,0 +1,36 @@
+id: 21615192-0
+diagnostic: SA1612D
+perc_correct: 0.0641025641025641
+num_datapoints_in_train: 258
+<<<<<<<< CORRECT >>>>>>>>
+     public interface IHasVirtualFiles
+      {
+          bool IsDirectory { get; }
+          bool IsFile { get; }
++         /// <summary>
++         /// get the file.
++         /// </summary>
++         /// <returns>the virtual file.</returns>
+  
+<<<< DIAGNOSTIC: method documentation: no documentation. >>>>
+          IVirtualFile GetFile();
+          
+          IVirtualDirectory GetDirectory();
+      }
+  }
+<<<<<<<< INNFERRED >>>>>>>>
+     public interface IHasVirtualFiles
+      {
+          bool IsDirectory { get; }
+          bool IsFile { get; }
++ 
++         /// <summary>
++         /// flush the .
++         /// </summary>
+  
+<<<< DIAGNOSTIC: method documentation: no documentation. >>>>
+          IVirtualFile GetFile();
+          
+          IVirtualDirectory GetDirectory();
+      }
+  }

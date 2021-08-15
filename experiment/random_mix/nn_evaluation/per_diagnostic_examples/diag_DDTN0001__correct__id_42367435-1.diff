@@ -1,0 +1,12 @@
+id: 42367435-1
+diagnostic: DDTN0001
+perc_correct: 1.0
+num_datapoints_in_train: 9
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+               SyncUpBase ();
+                  
+<<<< DIAGNOSTIC: call datetime.utcnow rather than datetime.now >>>>
+-                 this.last_poll = DateTime.Now;
++                 this.last_poll = DateTime.UtcNow;
+                  
+                  if (HasRemoteChanges

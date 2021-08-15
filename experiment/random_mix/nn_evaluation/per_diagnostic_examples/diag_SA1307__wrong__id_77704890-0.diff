@@ -1,0 +1,29 @@
+id: 77704890-0
+diagnostic: SA1307
+perc_correct: 0.3333333333333333
+num_datapoints_in_train: 6
+<<<<<<<< CORRECT >>>>>>>>
+  of the flat list tree.
+  		/// Tjis is not necessarily the root of the model!
+  		/// </summary>
+<<<< DIAGNOSTIC: field 'root' should begin with upper-case letter >>>>
+- 		internal SharpTreeNode root;
++ 		internal SharpTreeNode Root;
+  		readonly bool includeRoot;
+  		readonly object syncRoot = new object();
+  
+  		public TreeFlattener(SharpTreeNode modelRoot, bool includeRoot)
+  		{
+<<<<<<<< INNFERRED >>>>>>>>
+  of the flat list tree.
+  		/// Tjis is not necessarily the root of the model!
+  		/// </summary>
+<<<< DIAGNOSTIC: field 'root' should begin with upper-case letter >>>>
+- 		internal SharpTreeNode root;
++ 		internal readonly bool includeRoot;
++ 		readonly readonly object syncRoot = new object();
+  		readonly bool includeRoot;
+  		readonly object syncRoot = new object();
+  
+  		public TreeFlattener(SharpTreeNode modelRoot, bool includeRoot)
+  		{

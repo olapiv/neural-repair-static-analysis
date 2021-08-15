@@ -1,0 +1,33 @@
+id: 16156455-3
+diagnostic: VarAnalyzer
+perc_correct: 0.5
+num_datapoints_in_train: 19
+<<<<<<<< CORRECT >>>>>>>>
+   e);
+  		}
+  
+  		internal void HandleDragOver(SharpTreeViewItem item, DragEventArgs e)
+  		{
+  			HidePreview();
+  
+<<<< DIAGNOSTIC: var keyword usage is not legit in this context >>>>
+- 			var target = GetDropTarget(item, e);
++ 			DropTarget target = GetDropTarget(item, e);
+  			if (target != null)
+  			{
+  				e.Handled = true;
+  				ShowPreview(target.Item,
+<<<<<<<< INNFERRED >>>>>>>>
+   e);
+  		}
+  
+  		internal void HandleDragOver(SharpTreeViewItem item, DragEventArgs e)
+  		{
+  			HidePreview();
+  
+<<<< DIAGNOSTIC: var keyword usage is not legit in this context >>>>
+- 			var target = GetDropTarget(item, e);
+  			if (target != null)
+  			{
+  				e.Handled = true;
+  				ShowPreview(target.Item,

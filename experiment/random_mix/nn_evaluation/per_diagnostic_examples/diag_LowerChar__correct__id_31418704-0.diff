@@ -1,0 +1,15 @@
+id: 31418704-0
+diagnostic: LowerChar
+perc_correct: 1.0
+num_datapoints_in_train: 20
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2243:AttributeStringLiteralsShouldParseCorrectly",
+  	Justification = "AssemblyInformationalVersion does not need to be a parsable version")]
+  
+<<<< DIAGNOSTIC: type name 'RevisionClass' contains lowercase letters >>>>
+- internal static class RevisionClass
++ internal static class REVISIONCLASS
+  {
+  	public const string Major = "4";
+  	public const string Minor = "2";
+  	public const string Build = "

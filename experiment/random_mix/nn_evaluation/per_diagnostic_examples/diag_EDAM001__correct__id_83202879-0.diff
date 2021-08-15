@@ -1,0 +1,14 @@
+id: 83202879-0
+diagnostic: EDAM001
+perc_correct: 0.08196721311475409
+num_datapoints_in_train: 171
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  to generate exceptions (with formatted strings)
+      /// This is for internal use only
+      /// </summary>
+<<<< DIAGNOSTIC: explicit default access modifiers are just noise. >>>>
+-     internal class Error
++     class Error
+      {
+          public static Exception BadArgument(string format, params object[] parameters)
+          {

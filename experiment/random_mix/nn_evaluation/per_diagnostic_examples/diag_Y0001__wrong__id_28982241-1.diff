@@ -1,0 +1,28 @@
+id: 28982241-1
+diagnostic: Y0001
+perc_correct: 0.0
+num_datapoints_in_train: 14
+<<<<<<<< CORRECT >>>>>>>>
+  void CopyAll(string sourceDirectory, string targetDirectory)
+          {
+<<<< DIAGNOSTIC: variable should use implicit type >>>>
+-             DirectoryInfo diSource = new DirectoryInfo(sourceDirectory);
++             var diSource = new DirectoryInfo(sourceDirectory);
+<<<< DIAGNOSTIC: variable should use implicit type >>>>
+-             DirectoryInfo diTarget = new DirectoryInfo(targetDirectory);
++             var diTarget = new DirectoryInfo(targetDirectory);
+  
+              CopyAll(diSource, diTarget);
+    
+<<<<<<<< INNFERRED >>>>>>>>
+  void CopyAll(string sourceDirectory, string targetDirectory)
+          {
+<<<< DIAGNOSTIC: variable should use implicit type >>>>
+-             DirectoryInfo diSource = new DirectoryInfo(sourceDirectory);
+<<<< DIAGNOSTIC: variable should use implicit type >>>>
+-             DirectoryInfo diTarget = new DirectoryInfo(targetDirectory);
++         static void CopyAll(string contentType,
++              string targetDirectory));
+  
+              CopyAll(diSource, diTarget);
+    

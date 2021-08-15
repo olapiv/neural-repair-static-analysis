@@ -1,0 +1,34 @@
+id: 31182521-1
+diagnostic: OhNoPubImplicitCastForeach
+perc_correct: 0.0
+num_datapoints_in_train: 2
+<<<<<<<< CORRECT >>>>>>>>
+   new SharpTreeViewAutomationPeer(this);
+  		}
+  		#region Track selection
+  
+  		protected override void OnSelectionChanged(SelectionChangedEventArgs e)
+  		{
+<<<< DIAGNOSTIC: implicit run time cast from 'object' to 'ICSharpCode.TreeView.SharpTreeNode' >>>>
+- 			foreach (SharpTreeNode node in e.RemovedItems)
++ 			foreach (var node in e.RemovedItems)
+  			{
+  				node.IsSelected = false;
+  			}
+  			foreach (SharpTreeNode node in e.AddedItems)
+  		
+<<<<<<<< INNFERRED >>>>>>>>
+   new SharpTreeViewAutomationPeer(this);
+  		}
+  		#region Track selection
+  
+  		protected override void OnSelectionChanged(SelectionChangedEventArgs e)
+  		{
+<<<< DIAGNOSTIC: implicit run time cast from 'object' to 'ICSharpCode.TreeView.SharpTreeNode' >>>>
+- 			foreach (SharpTreeNode node in e.RemovedItems)
++ 			foreach (var node in e.NewItems)
+  			{
+  				node.IsSelected = false;
+  			}
+  			foreach (SharpTreeNode node in e.AddedItems)
+  		

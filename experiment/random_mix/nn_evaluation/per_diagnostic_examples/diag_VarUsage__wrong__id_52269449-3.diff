@@ -1,0 +1,18 @@
+id: 52269449-3
+diagnostic: VarUsage
+perc_correct: 0.3888888888888889
+num_datapoints_in_train: 106
+<<<<<<<< CORRECT >>>>>>>>
+  outputParameterIndex)
+                          {
+<<<< DIAGNOSTIC: 'outputDbParameter' variable should not be defined with var. >>>>
+-                             var outputDbParameter = dataReader.GetValue(outputParameterIndex);
++                             object outputDbParameter = dataReader.GetValue(outputParameterIndex);
+                              SetOutputParameterValue
+<<<<<<<< INNFERRED >>>>>>>>
+  outputParameterIndex)
+                          {
+<<<< DIAGNOSTIC: 'outputDbParameter' variable should not be defined with var. >>>>
+-                             var outputDbParameter = dataReader.GetValue(outputParameterIndex);
++                             object value = operand.Evaluate();
+                              SetOutputParameterValue

@@ -1,0 +1,16 @@
+id: 65170026-3
+diagnostic: MEN009
+perc_correct: 0.4166666666666667
+num_datapoints_in_train: 24
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+          [DbLinqToDo]
+          object ICollection.SyncRoot
+          {
+<<<< DIAGNOSTIC: use notsupportedexception instead of notimplementedexception. >>>>
+-             get { throw new NotImplementedException(); }
++             get { throw new NotSupportedException(); }
+          }
+  
+          #endregion
+  
+          /// <summary>

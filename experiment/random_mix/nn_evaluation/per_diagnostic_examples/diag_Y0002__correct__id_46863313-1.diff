@@ -1,0 +1,12 @@
+id: 46863313-1
+diagnostic: Y0002
+perc_correct: 0.5
+num_datapoints_in_train: 13
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+                  }
+              }
+  
+<<<< DIAGNOSTIC: variable should use explicit type >>>>
+-             var threadsSeenTotalOrdered = threadsSeenTotal.OrderByDescending(i => i.Value);
++             IOrderedEnumerable<KeyValuePair<int, int>> threadsSeenTotalOrdered = threadsSeenTotal.OrderByDescending(i => i.Value);
+              swPassOneFiles[(int)PassOneViewType.Thread].WriteLine("\n-------

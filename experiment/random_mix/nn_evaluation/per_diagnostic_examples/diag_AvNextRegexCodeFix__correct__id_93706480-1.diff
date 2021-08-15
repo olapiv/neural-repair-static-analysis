@@ -1,0 +1,16 @@
+id: 93706480-1
+diagnostic: AvNextRegexCodeFix
+perc_correct: 0.8235294117647058
+num_datapoints_in_train: 76
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+    }
+      
+      [DataContract]
+      public class StringResponse : IHasResponseStatus, IMeta
+      {
++         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.RegexConverter), @"^[a-zA-Z0-9]*$")]//Roslyn auto generated
+<<<< DIAGNOSTIC: type name 'Results' should be decorated with regexconverter attribute >>>>
+          [DataMember(Order = 1)]
+          public string Results { get; set; }
+  
+          [DataMember(Order = 2

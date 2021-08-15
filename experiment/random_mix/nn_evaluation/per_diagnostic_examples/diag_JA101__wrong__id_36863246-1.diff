@@ -1,0 +1,24 @@
+id: 36863246-1
+diagnostic: JA101
+perc_correct: 0.04918032786885246
+num_datapoints_in_train: 157
+<<<<<<<< CORRECT >>>>>>>>
+  {
+                      operating_system = OS.macOS;
+  
+<<<< DIAGNOSTIC: handle the return value of 'output.Contains("ubuntu")'. >>>>
+-                 } else if (output.Contains ("Ubuntu")) {
++                 } else if (_ = output.Contains("Ubuntu")) {
+                      operating_system = OS.Ubuntu;
+  
+    
+<<<<<<<< INNFERRED >>>>>>>>
+  {
+                      operating_system = OS.macOS;
+  
+<<<< DIAGNOSTIC: handle the return value of 'output.Contains("ubuntu")'. >>>>
+-                 } else if (output.Contains ("Ubuntu")) {
++ 
+                      operating_system = OS.Ubuntu;
+  
+    

@@ -1,0 +1,37 @@
+id: 92041229-0
+diagnostic: SA1503
+perc_correct: 0.75
+num_datapoints_in_train: 54
+<<<<<<<< CORRECT >>>>>>>>
+  Brightness;
+  
+              b *= 255;
+  
++             if (s.IsCloseTo(0))
++             {
+<<<< DIAGNOSTIC: braces should not be omitted >>>>
+-             if (s.IsCloseTo(0)) return Color.FromRgb((byte)b, (byte)b, (byte)b);
++                 return Color.FromRgb((byte)b, (byte)b, (byte)b);
++             }
++ 
++             if (h.IsCloseTo(360))
++             {
++                 h = 0;
++             }
++ 
++             while (h > 360)
++             {
++                 h -= 360;
++             }
+  
+              if (h.IsCloseTo(360)) 
+<<<<<<<< INNFERRED >>>>>>>>
+  Brightness;
+  
+              b *= 255;
++             {
+  
+<<<< DIAGNOSTIC: braces should not be omitted >>>>
+              if (s.IsCloseTo(0)) return Color.FromRgb((byte)b, (byte)b, (byte)b);
+  
+              if (h.IsCloseTo(360)) 

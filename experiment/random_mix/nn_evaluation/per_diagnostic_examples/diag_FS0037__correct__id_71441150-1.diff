@@ -1,0 +1,12 @@
+id: 71441150-1
+diagnostic: FS0037
+perc_correct: 1.0
+num_datapoints_in_train: 4
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  = strRest.Substring(endIndex);
+              }
+  
+<<<< DIAGNOSTIC: commented code should be removed. >>>>
+-             //Console.WriteLine("string is --{0}--, remaining --{1}--", strRet, strRemaining);
+              return strRet;
+          

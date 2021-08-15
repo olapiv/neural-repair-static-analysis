@@ -1,0 +1,10 @@
+id: 90844778-2
+diagnostic: DOC100
+perc_correct: 0.5
+num_datapoints_in_train: 20
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+            /// </summary>
+<<<< DIAGNOSTIC: place text in paragraphs >>>>
+-             /// <remarks>Note: the row can be accessed via "dynamic", or by casting to an IDictionary&lt;string,object&gt;</remarks>
++             /// <remarks><para>Note: the row can be accessed via "dynamic", or by casting to an IDictionary&lt;string,object&gt;</para></remarks>
+              public dynamic ReadFirstOrDefault()

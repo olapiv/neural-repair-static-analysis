@@ -1,0 +1,20 @@
+id: 65194341-1
+diagnostic: RB003
+perc_correct: 0.5
+num_datapoints_in_train: 17
+<<<<<<<< CORRECT >>>>>>>>
+  (map == null || map is DefaultTypeMap)
+              {
+<<<< DIAGNOSTIC: lock statement should be avoided in orleans environment >>>>
+-                 lock (_typeMaps)
+-                 {
+                      _typeMaps.Remove(type);
+    
+<<<<<<<< INNFERRED >>>>>>>>
+  (map == null || map is DefaultTypeMap)
+              {
+<<<< DIAGNOSTIC: lock statement should be avoided in orleans environment >>>>
+-                 lock (_typeMaps)
+                  {
+                      _typeMaps.Remove(type);
+    

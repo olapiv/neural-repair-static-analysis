@@ -1,0 +1,14 @@
+id: 94431440-0
+diagnostic: DA4002
+perc_correct: 0.8571428571428571
+num_datapoints_in_train: 98
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+   /// <summary>
+      /// Implement on Request DTOs that need access to the raw Request Stream
++     /// <remarks></remarks>
+      /// </summary>
+<<<< DIAGNOSTIC: type 'IRequiresRequestStream' doesn't have remark in the comment >>>>
+      public interface IRequiresRequestStream
+      {
+          /// <summary>
+          /// The raw Http Request

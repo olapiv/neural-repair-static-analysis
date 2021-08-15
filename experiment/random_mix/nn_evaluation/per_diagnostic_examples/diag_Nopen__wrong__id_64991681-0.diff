@@ -1,0 +1,24 @@
+id: 64991681-0
+diagnostic: Nopen
+perc_correct: 0.28846153846153844
+num_datapoints_in_train: 146
+<<<<<<<< CORRECT >>>>>>>>
+   Identity of a cached query in Dapper, used for extensibility.
+          /// </summary>
+<<<< DIAGNOSTIC: class 'Identity' is implicitly open. classes should be explicitly marked sealed, abstract, or [open]. >>>>
+-         public class Identity : IEquatable<Identity>
++         public sealed class Identity : IEquatable<Identity>
+          {
+              internal virtual int TypeCount => 0;
+  
+     
+<<<<<<<< INNFERRED >>>>>>>>
+   Identity of a cached query in Dapper, used for extensibility.
+          /// </summary>
+<<<< DIAGNOSTIC: class 'Identity' is implicitly open. classes should be explicitly marked sealed, abstract, or [open]. >>>>
+-         public class Identity : IEquatable<Identity>
++     public sealed class DynamicParameters
+          {
+              internal virtual int TypeCount => 0;
+  
+     

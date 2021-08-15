@@ -1,0 +1,27 @@
+id: 544181-0
+diagnostic: DOC201
+perc_correct: 0.0
+num_datapoints_in_train: 0
+<<<<<<<< CORRECT >>>>>>>>
+  		<list>
+<<<< DIAGNOSTIC: item should have description >>>>
+-         ///			<item>"/Inventory"</item>
++         ///			<item><description>"/Inventory"</description></item>
+<<<< DIAGNOSTIC: item should have description >>>>
+-         ///			<item>"/Inventory/{Category}/{ItemId}"</item>
++         ///			<item><description>"/Inventory/{Category}/{ItemId}"</description></item>
+<<<< DIAGNOSTIC: item should have description >>>>
+-         ///			<item>"/Inventory/{ItemPath*}"</item>
++         ///			<item><description>"/Inventory/{ItemPath*}"</description></item>
+        
+<<<<<<<< INNFERRED >>>>>>>>
+  		<list>
++                           var totalNodesRead = 0;
++                      object entitySetValue = memberData.Member.GetMemberValue(value);
+<<<< DIAGNOSTIC: item should have description >>>>
+-         ///			<item>"/Inventory"</item>
+<<<< DIAGNOSTIC: item should have description >>>>
+-         ///			<item>"/Inventory/{Category}/{ItemId}"</item>
+<<<< DIAGNOSTIC: item should have description >>>>
+-         ///			<item>"/Inventory/{ItemPath*}"</item>
+        

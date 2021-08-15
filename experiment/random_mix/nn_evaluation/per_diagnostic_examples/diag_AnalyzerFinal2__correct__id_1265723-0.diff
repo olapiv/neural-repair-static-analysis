@@ -1,0 +1,15 @@
+id: 1265723-0
+diagnostic: AnalyzerFinal2
+perc_correct: 1.0
+num_datapoints_in_train: 22
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  <summary>
+  	/// Collection that validates that inserted nodes do not have another parent.
+  	/// </summary>
+<<<< DIAGNOSTIC: type name 'SharpTreeNodeCollection' contains lowercase letters >>>>
+- 	public sealed class SharpTreeNodeCollection : IList<SharpTreeNode>, INotifyCollectionChanged
++ 	public sealed class SHARPTREENODECOLLECTION : IList<SHARPTREENODE>, INotifyCollectionChanged
+  	{
+  		readonly SharpTreeNode parent;
+  		List<SharpTreeNode> list = new List<SharpTreeNode>();
+  		bool isRaisingEvent;

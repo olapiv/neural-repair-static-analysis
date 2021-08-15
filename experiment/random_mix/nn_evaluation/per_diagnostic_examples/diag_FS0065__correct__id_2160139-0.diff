@@ -1,0 +1,12 @@
+id: 2160139-0
+diagnostic: FS0065
+perc_correct: 1.0
+num_datapoints_in_train: 3
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  Base64Url
+      {
+          public static string Encode(string data) => Encode(Encoding.UTF8.GetBytes(data));
+<<<< DIAGNOSTIC: remove trailing whitespace >>>>
+-         
++ 
+          public static string Encode(byte[] bytes) => Convert.ToBase64String(bytes).TrimEnd('=').Replace('+', '-').

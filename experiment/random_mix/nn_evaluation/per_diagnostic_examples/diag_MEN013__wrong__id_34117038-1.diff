@@ -1,0 +1,18 @@
+id: 34117038-1
+diagnostic: MEN013
+perc_correct: 0.8333333333333334
+num_datapoints_in_train: 7
+<<<<<<<< CORRECT >>>>>>>>
+      var day_diff = (int) time_diff.TotalDays;                
+<<<< DIAGNOSTIC: use utcnow.date instead of today. >>>>
+-             DateTime yesterday = DateTime.Today.AddDays (-1);
++             DateTime yesterday = DateTime.UtcNow.Date.AddDays (-1);
+  
+              if (timestamp >= yesterday && timestamp < DateTime.Today) {
+<<<<<<<< INNFERRED >>>>>>>>
+      var day_diff = (int) time_diff.TotalDays;                
+<<<< DIAGNOSTIC: use utcnow.date instead of today. >>>>
+-             DateTime yesterday = DateTime.Today.AddDays (-1);
++             if (timestamp >= yesterday && timestamp < DateTime.UtcNow.Date) {
+  
+              if (timestamp >= yesterday && timestamp < DateTime.Today) {

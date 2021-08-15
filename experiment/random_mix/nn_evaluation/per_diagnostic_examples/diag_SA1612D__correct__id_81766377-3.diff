@@ -1,0 +1,16 @@
+id: 81766377-3
+diagnostic: SA1612D
+perc_correct: 0.0641025641025641
+num_datapoints_in_train: 258
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  );
+          void QueueCommand(Action<IRedisClient> command, Action onSuccessCallback, Action<Exception> onErrorCallback);
++         /// <summary>
++         /// queue the command.
++         /// </summary>
++         /// <param name="command">the command.</param>
+  
+<<<< DIAGNOSTIC: method documentation: no documentation. >>>>
+          void QueueCommand(Func<IRedisClient, int> command);
+          void QueueCommand(Func<IRedisClient, int> command, Action<int> onSuccessCallback);
+        

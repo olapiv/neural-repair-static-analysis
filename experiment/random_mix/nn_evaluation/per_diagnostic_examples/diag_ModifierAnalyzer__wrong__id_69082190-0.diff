@@ -1,0 +1,26 @@
+id: 69082190-0
+diagnostic: ModifierAnalyzer
+perc_correct: 0.6097560975609756
+num_datapoints_in_train: 383
+<<<<<<<< CORRECT >>>>>>>>
+  = table;
+              this.typeName = typeName;
+          }
+  
+<<<< DIAGNOSTIC: message format: need to specify access modifier  >>>>
+-         void SqlMapper.ICustomQueryParameter.AddParameter(IDbCommand command, string name)
++         private void SqlMapper.ICustomQueryParameter.AddParameter(IDbCommand command, string name)
+          {
+              var param = command.CreateParameter();
+    
+<<<<<<<< INNFERRED >>>>>>>>
+  = table;
+              this.typeName = typeName;
+          }
+  
+<<<< DIAGNOSTIC: message format: need to specify access modifier  >>>>
+-         void SqlMapper.ICustomQueryParameter.AddParameter(IDbCommand command, string name)
++         private void SqlMapper.IParameterCallbacks.OnCompleted()
+          {
+              var param = command.CreateParameter();
+    

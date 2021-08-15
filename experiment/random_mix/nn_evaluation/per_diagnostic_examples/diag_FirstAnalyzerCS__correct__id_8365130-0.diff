@@ -1,0 +1,17 @@
+id: 8365130-0
+diagnostic: FirstAnalyzerCS
+perc_correct: 1.0
+num_datapoints_in_train: 21
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  using System.Collections.Generic;
+  
+  namespace Shadowsocks.Models
+  {
+<<<< DIAGNOSTIC: type name 'IGroup' contains lowercase letters >>>>
+-     public interface IGroup<T>
++     public interface IGROUP<T>
+      {
+          /// <summary>
+          /// Gets or sets the SIP008 configuration version.
+          /// </summary>
+        

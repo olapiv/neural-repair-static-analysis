@@ -1,0 +1,31 @@
+id: 41373433-0
+diagnostic: WS002
+perc_correct: 0.0
+num_datapoints_in_train: 1
+<<<<<<<< CORRECT >>>>>>>>
+  }
+  
+          public string Name { get; }
+  
+          public Color Color { get; }
+  
+          public Color Foreground { get; }
+  
+          public override string ToString() => Name;
+      }
+<<<< DIAGNOSTIC: file does not end with a newline >>>>
+  }
+<<<<<<<< INNFERRED >>>>>>>>
+  }
+  
+          public string Name { get; }
+  
+          public Color Color { get; }
+  
+          public Color Foreground { get; }
+  
+          public override string ToString() => Name;
+      }
+<<<< DIAGNOSTIC: file does not end with a newline >>>>
+- }
++         public static string _SSHPath = "";

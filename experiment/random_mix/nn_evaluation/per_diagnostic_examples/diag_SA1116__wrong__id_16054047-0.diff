@@ -1,0 +1,38 @@
+id: 16054047-0
+diagnostic: SA1116
+perc_correct: 0.0
+num_datapoints_in_train: 8
+<<<<<<<< CORRECT >>>>>>>>
+   System.Windows.Media;
+  
+  namespace ICSharpCode.TreeView
+  {
+  	public class SharpTreeNodeView : Control
+  	{
+  		static SharpTreeNodeView()
+  		{
+<<<< DIAGNOSTIC: the parameters should begin on the line after the declaration, whenever the parameter span across multiple lines >>>>
+- 			DefaultStyleKeyProperty.OverrideMetadata(typeof(SharpTreeNodeView),
++ 			DefaultStyleKeyProperty.OverrideMetadata(
++ 			    typeof(SharpTreeNodeView),
+  													 new FrameworkPropertyMetadata(typeof(SharpTreeNodeView)));
+  		}
+  
+  		public static readonly DependencyProperty TextBackgroundProperty =
+<<<<<<<< INNFERRED >>>>>>>>
+   System.Windows.Media;
+  
+  namespace ICSharpCode.TreeView
+  {
+  	public class SharpTreeNodeView : Control
+  	{
+  		static SharpTreeNodeView()
+  		{
+<<<< DIAGNOSTIC: the parameters should begin on the line after the declaration, whenever the parameter span across multiple lines >>>>
+- 			DefaultStyleKeyProperty.OverrideMetadata(typeof(SharpTreeNodeView),
++ 			DefaultStyleKeyProperty.OverrideMetadata(
++ 			    typeof(InsertMarker),
+  													 new FrameworkPropertyMetadata(typeof(SharpTreeNodeView)));
+  		}
+  
+  		public static readonly DependencyProperty TextBackgroundProperty =

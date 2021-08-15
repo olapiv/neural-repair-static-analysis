@@ -1,0 +1,19 @@
+id: 69008192-0
+diagnostic: RECS0001
+perc_correct: 1.0
+num_datapoints_in_train: 2
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  
+  using System.Web.UI.WebControls;
+  using System.Web.UI.HtmlControls;
+  using System.Diagnostics;
+  
+  	[Themeable (true)]
+<<<< DIAGNOSTIC: partial class with single part >>>>
+- 	public partial class MyParent : System.Web.UI.UserControl
++ 	public class MyParent : System.Web.UI.UserControl
+  	{
+  		protected override void OnInit (EventArgs e)
+  		{
+  			Debug.WriteLine ("parent.OnInit");
+  		

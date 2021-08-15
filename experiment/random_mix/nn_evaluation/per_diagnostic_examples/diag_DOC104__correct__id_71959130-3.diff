@@ -1,0 +1,10 @@
+id: 71959130-3
+diagnostic: DOC104
+perc_correct: 0.75
+num_datapoints_in_train: 12
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  / <param name="type">The type to read.</param>
+<<<< DIAGNOSTIC: prefer '<seelangword="keyword"/>' to '<c>keyword</c>' for referencing language keywords >>>>
+-             /// <exception cref="ArgumentNullException"><paramref name="type"/> is <c>null</c>.</exception>
++             /// <exception cref="ArgumentNullException"><paramref name="type"/> is <see langword="null"/>.</exception>
+              public Task<object> ReadSingleAsync(Type type)

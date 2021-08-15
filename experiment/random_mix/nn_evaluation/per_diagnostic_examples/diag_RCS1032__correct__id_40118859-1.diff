@@ -1,0 +1,12 @@
+id: 40118859-1
+diagnostic: RCS1032
+perc_correct: 1.0
+num_datapoints_in_train: 6
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+        (totalGCDurationMS / totalGCCount),
+                  nodeIndexToPrint,
+<<<< DIAGNOSTIC: remove redundant parentheses. >>>>
+-                 (totalAllocMB * 100.0 / totalBudgetMB));
++                 totalAllocMB * 100.0 / totalBudgetMB);
+  
+              for (int fileIndex = 0; fileIndex < (int)PassOneViewType.

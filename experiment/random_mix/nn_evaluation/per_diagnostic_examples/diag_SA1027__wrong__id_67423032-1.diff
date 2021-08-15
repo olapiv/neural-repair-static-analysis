@@ -1,0 +1,52 @@
+id: 67423032-1
+diagnostic: SA1027
+perc_correct: 0.0
+num_datapoints_in_train: 5
+<<<<<<<< CORRECT >>>>>>>>
+   class MyDefault : System.Web.UI.Page
+  	{
+  		protected void Page_Load (object sender, EventArgs e)
+  		{
+  
+<<<< DIAGNOSTIC: tabs and spaces should be used correctly >>>>
+- 		}
++         }
+<<<< DIAGNOSTIC: tabs and spaces should be used correctly >>>>
+- 		protected override void OnInit (EventArgs e)
++         protected override void OnInit (EventArgs e)
+<<<< DIAGNOSTIC: tabs and spaces should be used correctly >>>>
+- 		{
++         {
+<<<< DIAGNOSTIC: tabs and spaces should be used correctly >>>>
+- 			Debug.WriteLine ("page.OnInit");
++             Debug.WriteLine ("page.OnInit");
+<<<< DIAGNOSTIC: tabs and spaces should be used correctly >>>>
+- 			base.OnInit (e);
+<<<< DIAGNOSTIC: tabs and spaces should be used correctly >>>>
+- 		}
+<<<< DIAGNOSTIC: tabs and spaces should be used correctly >>>>
+- 	}
++             base.OnInit (e);
++         }
++     }
+<<<<<<<< INNFERRED >>>>>>>>
+   class MyDefault : System.Web.UI.Page
+  	{
+  		protected void Page_Load (object sender, EventArgs e)
+  		{
+  
++ 		public class User {
+<<<< DIAGNOSTIC: tabs and spaces should be used correctly >>>>
+- 		}
+<<<< DIAGNOSTIC: tabs and spaces should be used correctly >>>>
+- 		protected override void OnInit (EventArgs e)
+<<<< DIAGNOSTIC: tabs and spaces should be used correctly >>>>
+- 		{
+<<<< DIAGNOSTIC: tabs and spaces should be used correctly >>>>
+- 			Debug.WriteLine ("page.OnInit");
+<<<< DIAGNOSTIC: tabs and spaces should be used correctly >>>>
+- 			base.OnInit (e);
+<<<< DIAGNOSTIC: tabs and spaces should be used correctly >>>>
+  		}
+<<<< DIAGNOSTIC: tabs and spaces should be used correctly >>>>
+  	}

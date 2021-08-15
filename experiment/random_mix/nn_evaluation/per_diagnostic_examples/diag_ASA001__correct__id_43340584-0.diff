@@ -1,0 +1,13 @@
+id: 43340584-0
+diagnostic: ASA001
+perc_correct: 1.0
+num_datapoints_in_train: 1
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  the specified <paramref name="task"/>.
+          /// </summary>
+<<<< DIAGNOSTIC: async method name 'CastResult' should end with 'Async' as the method returns task >>>>
+-         internal static Task<TTo> CastResult<TFrom, TTo>(this Task<TFrom> task)
++         internal static Task<TTo> CastResultAsync<TFrom, TTo>(this Task<TFrom> task)
+              where TFrom : TTo
+          {
+     

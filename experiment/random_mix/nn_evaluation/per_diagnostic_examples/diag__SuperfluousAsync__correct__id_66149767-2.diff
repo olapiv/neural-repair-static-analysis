@@ -1,0 +1,14 @@
+id: 66149767-2
+diagnostic: _SuperfluousAsync
+perc_correct: 1.0
+num_datapoints_in_train: 8
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+       /// </summary>
+          /// <param name="sessionId"></param>
+          /// <returns></returns>
+          ISession CreateSession(string sessionId);
+<<<< DIAGNOSTIC: 'CreateSessionAsync' is not a tap method but ends with async. >>>>
+-         ISessionAsync CreateSessionAsync(string sessionId);
++         ISessionAsync CreateSession(string sessionId);
+      }
+  }

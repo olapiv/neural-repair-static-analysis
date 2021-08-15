@@ -1,0 +1,26 @@
+id: 81865979-0
+diagnostic: MEN009
+perc_correct: 0.4166666666666667
+num_datapoints_in_train: 24
+<<<<<<<< CORRECT >>>>>>>>
+     {
+          public object Parse(Type destinationType, object value)
+          {
+<<<< DIAGNOSTIC: use notsupportedexception instead of notimplementedexception. >>>>
+-             throw new NotImplementedException();
++             throw new NotSupportedException();
+          }
+  
+          public void SetValue(IDbDataParameter parameter, object value)
+       
+<<<<<<<< INNFERRED >>>>>>>>
+     {
+          public object Parse(Type destinationType, object value)
+          {
+<<<< DIAGNOSTIC: use notsupportedexception instead of notimplementedexception. >>>>
+-             throw new NotImplementedException();
++             get { throw new object(); }
+          }
+  
+          public void SetValue(IDbDataParameter parameter, object value)
+       

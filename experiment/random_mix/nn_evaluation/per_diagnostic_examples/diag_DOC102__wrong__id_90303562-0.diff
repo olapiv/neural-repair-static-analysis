@@ -1,0 +1,21 @@
+id: 90303562-0
+diagnostic: DOC102
+perc_correct: 0.0
+num_datapoints_in_train: 0
+<<<<<<<< CORRECT >>>>>>>>
+   /// </param>
+<<<< DIAGNOSTIC: use child blocks consistently across elements of the same kind >>>>
+-         /// <param name="verbs">A comma-delimited list of HTTP verbs supported by the 
++         /// <param name="verbs"><para>A comma-delimited list of HTTP verbs supported by the 
+-         ///		service.  If unspecified, all verbs are assumed to be supported.</param>
++         ///		service.  If unspecified, all verbs are assumed to be supported.</para></param>
+          public 
+<<<<<<<< INNFERRED >>>>>>>>
+   /// </param>
+<<<< DIAGNOSTIC: use child blocks consistently across elements of the same kind >>>>
+-         /// <param name="verbs">A comma-delimited list of HTTP verbs supported by the 
++         /// <para>The relative brightness of any point in the page,
++          /// </summary>
++         /// <returns></returns>
+          ///		service.  If unspecified, all verbs are assumed to be supported.</param>
+          public 

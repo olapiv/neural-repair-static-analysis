@@ -1,0 +1,15 @@
+id: 61385231-0
+diagnostic: CA1805
+perc_correct: 0.3333333333333333
+num_datapoints_in_train: 3
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  
+          private bool objectTrackingEnabled = true;
+          private bool deferredLoadingEnabled = true;
+  
+<<<< DIAGNOSTIC: member 'queryCacheEnabled' is explicitly initialized to its default value >>>>
+-         private bool queryCacheEnabled = false;
++         private bool queryCacheEnabled;
+  
+          /// <summary>
+          /// Disable the QueryCache: this is surely good

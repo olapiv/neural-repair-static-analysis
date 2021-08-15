@@ -1,0 +1,20 @@
+id: 93434071-0
+diagnostic: CC0023
+perc_correct: 0.13636363636363635
+num_datapoints_in_train: 45
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+   Reserved.
+  // License: https://raw.github.com/ServiceStack/ServiceStack/master/license.txt
+  
+  
+  using System;
+  
+  namespace ServiceStack
+  {
+<<<< DIAGNOSTIC: mark 'AttributeBase' as sealed. >>>>
+-     public class AttributeBase : Attribute
++     public sealed class AttributeBase : Attribute
+      {
+          public AttributeBase()
+          {
+              this

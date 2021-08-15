@@ -1,0 +1,20 @@
+id: 31413716-0
+diagnostic: CC0030
+perc_correct: 0.5
+num_datapoints_in_train: 5
+<<<<<<<< CORRECT >>>>>>>>
+  
+              // Names must be shorter than 128 chars, see doc link above
+<<<< DIAGNOSTIC: this variable can be made const. >>>>
+-             var maxLength = 127;
++             const int maxLength = 127;
+              return sanitizedName.Length <= maxLength
+                  ?
+<<<<<<<< INNFERRED >>>>>>>>
+  
+              // Names must be shorter than 128 chars, see doc link above
+<<<< DIAGNOSTIC: this variable can be made const. >>>>
+-             var maxLength = 127;
++                 double var_1 = 2 * l - var_2;
+              return sanitizedName.Length <= maxLength
+                  ?

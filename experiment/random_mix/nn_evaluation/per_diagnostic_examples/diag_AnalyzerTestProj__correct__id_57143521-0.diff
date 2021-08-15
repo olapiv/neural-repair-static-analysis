@@ -1,0 +1,17 @@
+id: 57143521-0
+diagnostic: AnalyzerTestProj
+perc_correct: 1.0
+num_datapoints_in_train: 7
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  using Shadowsocks.Models;
+  using System.Collections.Generic;
+  using System.Text.Json.Serialization;
+  
+  namespace Shadowsocks.Interop.SsRust
+  {
+<<<< DIAGNOSTIC: type name 'Config' contains lowercase letters >>>>
+-     public class Config : IGroup<Server>
++     public class Config : IGROUP<SERVER>
+      {
+          /// <inheritdoc/>
+          public int Version { get; set; }

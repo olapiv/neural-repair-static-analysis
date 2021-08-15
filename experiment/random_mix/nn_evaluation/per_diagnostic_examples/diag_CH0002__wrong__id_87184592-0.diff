@@ -1,0 +1,38 @@
+id: 87184592-0
+diagnostic: CH0002
+perc_correct: 0.7692307692307693
+num_datapoints_in_train: 85
+<<<<<<<< CORRECT >>>>>>>>
+<<<< DIAGNOSTIC: move the using directive within the namespace scope. >>>>
+- using System;
+<<<< DIAGNOSTIC: move the using directive within the namespace scope. >>>>
+- using System.Threading.Tasks;
+<<<< DIAGNOSTIC: move the using directive within the namespace scope. >>>>
+- using ServiceStack.Messaging;
+  
+  namespace ServiceStack.Web
+  {
+      public interface IServiceRunner
+      {
+          object Process(IRequest requestContext, object instance, object request);
+      }
+  
+      public interface IServiceRunner<TRequest> : IServiceRunner
+    
+<<<<<<<< INNFERRED >>>>>>>>
+<<<< DIAGNOSTIC: move the using directive within the namespace scope. >>>>
+- using System;
+<<<< DIAGNOSTIC: move the using directive within the namespace scope. >>>>
+- using System.Threading.Tasks;
+<<<< DIAGNOSTIC: move the using directive within the namespace scope. >>>>
+  using ServiceStack.Messaging;
+  
+  namespace ServiceStack.Web
+  {
+      public interface IServiceRunner
+      {
+          object Process(IRequest requestContext, object instance, object request);
+      }
+  
+      public interface IServiceRunner<TRequest> : IServiceRunner
+    

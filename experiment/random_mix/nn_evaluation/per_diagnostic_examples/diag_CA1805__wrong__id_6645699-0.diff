@@ -1,0 +1,28 @@
+id: 6645699-0
+diagnostic: CA1805
+perc_correct: 0.3333333333333333
+num_datapoints_in_train: 3
+<<<<<<<< CORRECT >>>>>>>>
+  = 1,
+          MaxType = 2
+      };
+      class Program
+      {
+<<<< DIAGNOSTIC: member 'fLogging' is explicitly initialized to its default value >>>>
+-         static bool fLogging = false;
++         static bool fLogging;
+  
+          static string ParseString(string str, string strStart, string strEnd, out string strRemaining)
+      
+<<<<<<<< INNFERRED >>>>>>>>
+  = 1,
+          MaxType = 2
+      };
+      class Program
+      {
+<<<< DIAGNOSTIC: member 'fLogging' is explicitly initialized to its default value >>>>
+-         static bool fLogging = false;
++ static bool fLogging = false;
+  
+          static string ParseString(string str, string strStart, string strEnd, out string strRemaining)
+      

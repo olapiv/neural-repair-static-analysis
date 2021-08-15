@@ -1,0 +1,40 @@
+id: 61857269-0
+diagnostic: ClassWithoutModifierAnalyzer
+perc_correct: 0.8333333333333334
+num_datapoints_in_train: 12
+<<<<<<<< CORRECT >>>>>>>>
+   DEALINGS IN THE SOFTWARE.
+  
+  using System.Windows;
+  using System.Windows.Controls;
+  using System.Windows.Input;
+  
+  namespace ICSharpCode.TreeView
+  {
+<<<< DIAGNOSTIC: your class must have at least one modifier. (public, internal, etc) >>>>
+- 	class EditTextBox : TextBox
++ 	public class EditTextBox : TextBox
+  	{
+  		static EditTextBox()
+  		{
+  			DefaultStyleKeyProperty.OverrideMetadata(typeof(EditTextBox),
+  				new FrameworkPropertyMetadata(typeof(EditTextBox)));
+  		
+<<<<<<<< INNFERRED >>>>>>>>
+   DEALINGS IN THE SOFTWARE.
+  
+  using System.Windows;
+  using System.Windows.Controls;
+  using System.Windows.Input;
+  
+  namespace ICSharpCode.TreeView
+  {
+<<<< DIAGNOSTIC: your class must have at least one modifier. (public, internal, etc) >>>>
+- 	class EditTextBox : TextBox
++ 	sealed class EditTextBox : TextBox
+  	{
+  		static EditTextBox()
+  		{
+  			DefaultStyleKeyProperty.OverrideMetadata(typeof(EditTextBox),
+  				new FrameworkPropertyMetadata(typeof(EditTextBox)));
+  		

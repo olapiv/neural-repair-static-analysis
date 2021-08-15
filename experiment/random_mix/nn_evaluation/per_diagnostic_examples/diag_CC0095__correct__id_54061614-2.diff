@@ -1,0 +1,10 @@
+id: 54061614-2
+diagnostic: CC0095
+perc_correct: 0.3333333333333333
+num_datapoints_in_train: 1
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+          totalNodes = Int32.Parse(strTemp);
+<<<< DIAGNOSTIC: use string interpolation >>>>
+-                             Console.WriteLine("total procs: {0}, nodes: {1}", totalProcs, totalNodes);
++                             Console.WriteLine($"total procs: {totalProcs}, nodes: {totalNodes}");
+                       

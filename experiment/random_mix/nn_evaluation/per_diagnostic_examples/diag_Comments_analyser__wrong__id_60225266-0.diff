@@ -1,0 +1,17 @@
+id: 60225266-0
+diagnostic: Comments_analyser
+perc_correct: 0.09090909090909091
+num_datapoints_in_train: 65
+<<<<<<<< CORRECT >>>>>>>>
+          public override bool CanResetValue(object component) => true;
+<<<< DIAGNOSTIC: type name 'Missingsummary' contains lowercase letters >>>>
+-                 public override void ResetValue(object component) => ((DapperRow)component).Remove(_index);
++                 public override void ResetValue(object component) => ((DAPPERROW)component).Remove(_index);
+                  public override bool IsReadOnly => false
+<<<<<<<< INNFERRED >>>>>>>>
+          public override bool CanResetValue(object component) => true;
+<<<< DIAGNOSTIC: type name 'Missingsummary' contains lowercase letters >>>>
+-                 public override void ResetValue(object component) => ((DapperRow)component).Remove(_index);
++                 public override bool ShouldSerializeValue(object component) => ((DAPPERROW)component).TryGetValue(_index, out _);
+-                 public override bool IsReadOnly => false
++                 public override Type ComponentType => typeof(DAPPERROW);

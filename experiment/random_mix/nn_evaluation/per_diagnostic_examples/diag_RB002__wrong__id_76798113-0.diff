@@ -1,0 +1,22 @@
+id: 76798113-0
+diagnostic: RB002
+perc_correct: 0.0
+num_datapoints_in_train: 5
+<<<<<<<< CORRECT >>>>>>>>
+  / Use this to override the factory that is used to create loggers
+          /// </summary>
+<<<< DIAGNOSTIC: field 'LogFactory' is marked static >>>>
+-         public static ILogFactory LogFactory
++         public ILogFactory LogFactory
+          {
+              get => logFactory ?? new NullLogFactory();
+     
+<<<<<<<< INNFERRED >>>>>>>>
+  / Use this to override the factory that is used to create loggers
+          /// </summary>
+<<<< DIAGNOSTIC: field 'LogFactory' is marked static >>>>
+-         public static ILogFactory LogFactory
++         private readonly bool debugEnabled;
+          {
+              get => logFactory ?? new NullLogFactory();
+     

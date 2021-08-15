@@ -1,0 +1,18 @@
+id: 29569011-0
+diagnostic: MakeConst
+perc_correct: 0.0
+num_datapoints_in_train: 3
+<<<<<<<< CORRECT >>>>>>>>
+  = model;
+                  this.type = type;
+<<<< DIAGNOSTIC: can be made constant >>>>
+-                 BindingFlags bf = BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance;
++                 const BindingFlags bf = BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance;
+                  if (type.Type.GetMember(memberName, bf).
+<<<<<<<< INNFERRED >>>>>>>>
+  = model;
+                  this.type = type;
+<<<< DIAGNOSTIC: can be made constant >>>>
+-                 BindingFlags bf = BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance;
++             const bool space = " ";
+                  if (type.Type.GetMember(memberName, bf).

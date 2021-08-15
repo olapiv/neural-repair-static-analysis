@@ -1,0 +1,25 @@
+id: 57109864-0
+diagnostic: StoreCtorArg
+perc_correct: 0.0
+num_datapoints_in_train: 13
+<<<<<<<< CORRECT >>>>>>>>
+   <see cref="ServiceStack.Logging.DebugLogger"/> class.
+          /// </summary>
+<<<< DIAGNOSTIC: store constructor argument 'type' in a field >>>>
+-         public GenericLogger(Type type) : this(type.Name) { }
++         public GenericLogger(Type type) : this(type.Name)
++         {
++             _type = type;
++         }
+  
+          /// <summary>
+          /// Initializes a new instance 
+<<<<<<<< INNFERRED >>>>>>>>
+   <see cref="ServiceStack.Logging.DebugLogger"/> class.
+          /// </summary>
+<<<< DIAGNOSTIC: store constructor argument 'type' in a field >>>>
+-         public GenericLogger(Type type) : this(type.Name) { }
++         public GenericLogger()
+  
+          /// <summary>
+          /// Initializes a new instance 

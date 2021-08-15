@@ -1,0 +1,25 @@
+id: 92950271-0
+diagnostic: DOC104
+perc_correct: 0.75
+num_datapoints_in_train: 12
+<<<<<<<< CORRECT >>>>>>>>
+  {
+      /// <summary>
+<<<< DIAGNOSTIC: prefer '<seelangword="keyword"/>' to '<c>keyword</c>' for referencing language keywords >>>>
+-     /// Indicates that the value of the marked element could be <c>null</c> sometimes,
++     /// Indicates that the value of the marked element could be <see langword="null"/> sometimes,
+<<<< DIAGNOSTIC: prefer '<seelangword="keyword"/>' to '<c>keyword</c>' for referencing language keywords >>>>
+-     /// so the check for <c>null</c> is necessary before its usage.
++     /// so the check for <see langword="null"/> is necessary before its usage.
+      /// </summary>
+   
+<<<<<<<< INNFERRED >>>>>>>>
+  {
+      /// <summary>
++         /// <exception cref="ArgumentNullException"><paramref name="type"/> is <see langword="null"/>.</exception>
+<<<< DIAGNOSTIC: prefer '<seelangword="keyword"/>' to '<c>keyword</c>' for referencing language keywords >>>>
+-     /// Indicates that the value of the marked element could be <c>null</c> sometimes,
+<<<< DIAGNOSTIC: prefer '<seelangword="keyword"/>' to '<c>keyword</c>' for referencing language keywords >>>>
+-     /// so the check for <c>null</c> is necessary before its usage.
+      /// </summary>
+   

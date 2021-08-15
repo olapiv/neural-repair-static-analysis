@@ -1,0 +1,24 @@
+id: 65334447-0
+diagnostic: CSharpAnalyzer
+perc_correct: 0.88
+num_datapoints_in_train: 74
+<<<<<<<< CORRECT >>>>>>>>
+  /// <summary>
+      /// Provides provider-agnostic access to bulk-copy services
+      /// </summary>
+<<<< DIAGNOSTIC: type name 'BulkCopy' contains lowercase letters >>>>
+-     public abstract class BulkCopy : IDisposable
++     public abstract class BULKCOPY : IDisposable
+      {
+          /// <summary>
+          /// Attempt to create a BulkCopy 
+<<<<<<<< INNFERRED >>>>>>>>
+  /// <summary>
+      /// Provides provider-agnostic access to bulk-copy services
+      /// </summary>
+<<<< DIAGNOSTIC: type name 'BulkCopy' contains lowercase letters >>>>
+-     public abstract class BulkCopy : IDisposable
++     public class RESOURCES
+      {
+          /// <summary>
+          /// Attempt to create a BulkCopy 
