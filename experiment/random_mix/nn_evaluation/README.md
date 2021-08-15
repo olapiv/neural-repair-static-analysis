@@ -11,6 +11,7 @@
 * Input: [src-test.txt](../src-test.txt), correct output: [tgt-test.txt](../tgt-test.txt), predicted output: [inference-test.txt](inference-test.txt)
 * Evaluation was scripted in [evaluate_nn_results.py](/evaluate_nn_results.py)
 * Evaluation results to be found in [inference-eval.json](inference-eval.json)
+* Humanly readable output examples are saved in [characteristic_examples](characteristic_examples) and in [per_diagnostic_examples](per_diagnostic_examples)
 * Pearson Number calculated with [scipy.stats.pearsonr](https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.pearsonr.html)
 
 ## Results after 5k steps
