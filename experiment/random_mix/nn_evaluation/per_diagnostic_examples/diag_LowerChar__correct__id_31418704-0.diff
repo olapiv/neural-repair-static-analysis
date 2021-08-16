@@ -1,6 +1,6 @@
 id: 31418704-0
 diagnostic: LowerChar
-perc_correct: 1.0
+perc_correct_in_test: 1.0
 num_datapoints_in_train: 20
 <<<<<<<< CORRECTLY INFERRED >>>>>>>>
   CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2243:AttributeStringLiteralsShouldParseCorrectly",

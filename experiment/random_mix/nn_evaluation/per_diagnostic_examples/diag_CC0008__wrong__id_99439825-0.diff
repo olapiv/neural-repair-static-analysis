@@ -1,6 +1,6 @@
 id: 99439825-0
 diagnostic: CC0008
-perc_correct: 0.0
+perc_correct_in_test: 0.0
 num_datapoints_in_train: 2
 <<<<<<<< CORRECT >>>>>>>>
   ] = tableName;
@@ -15,7 +15,7 @@ num_datapoints_in_train: 2
 +                     Member = tableName.MemberName
 +                 };
            
-<<<<<<<< INNFERRED >>>>>>>>
+<<<<<<<< INFERRED >>>>>>>>
   ] = tableName;
   
 <<<< DIAGNOSTIC: you can use initializers in here. >>>>

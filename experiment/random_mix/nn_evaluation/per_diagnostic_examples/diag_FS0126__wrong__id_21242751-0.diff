@@ -1,6 +1,6 @@
 id: 21242751-0
 diagnostic: FS0126
-perc_correct: 0.0
+perc_correct_in_test: 0.0
 num_datapoints_in_train: 0
 <<<<<<<< CORRECT >>>>>>>>
    Server? server)
@@ -11,7 +11,7 @@ num_datapoints_in_train: 0
 -             {
                   if (uri.Scheme != "ss")
         
-<<<<<<<< INNFERRED >>>>>>>>
+<<<<<<<< INFERRED >>>>>>>>
    Server? server)
           {
               server = null;

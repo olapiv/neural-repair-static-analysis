@@ -1,6 +1,6 @@
 id: 69894727-1
 diagnostic: CC0065
-perc_correct: 0.8810810810810811
+perc_correct_in_test: 0.8810810810810811
 num_datapoints_in_train: 560
 <<<<<<<< CORRECTLY INFERRED >>>>>>>>
   #region MIT license

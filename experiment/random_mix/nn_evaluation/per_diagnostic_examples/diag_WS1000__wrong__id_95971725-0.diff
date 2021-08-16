@@ -1,6 +1,6 @@
 id: 95971725-0
 diagnostic: WS1000
-perc_correct: 0.9878048780487805
+perc_correct_in_test: 0.9878048780487805
 num_datapoints_in_train: 447
 <<<<<<<< CORRECT >>>>>>>>
   T> hash);
@@ -11,7 +11,7 @@ num_datapoints_in_train: 447
 +         //Useful common app-logic
           void StoreRelatedEntities<TChild>(object parentId, List<TChild> children);
           void StoreRelatedEntities<
-<<<<<<<< INNFERRED >>>>>>>>
+<<<<<<<< INFERRED >>>>>>>>
   T> hash);
           Dictionary<TKey, T> GetAllEntriesFromHash<TKey>(IRedisHash<TKey, T> hash);
   

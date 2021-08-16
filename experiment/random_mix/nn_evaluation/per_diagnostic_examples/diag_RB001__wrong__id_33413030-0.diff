@@ -1,6 +1,6 @@
 id: 33413030-0
 diagnostic: RB001
-perc_correct: 0.5
+perc_correct_in_test: 0.5
 num_datapoints_in_train: 24
 <<<<<<<< CORRECT >>>>>>>>
   Windows.Data;
@@ -20,7 +20,7 @@ num_datapoints_in_train: 24
   		}
   
   		public object Convert(
-<<<<<<<< INNFERRED >>>>>>>>
+<<<<<<<< INFERRED >>>>>>>>
   Windows.Data;
   using System.Windows.Markup;
   

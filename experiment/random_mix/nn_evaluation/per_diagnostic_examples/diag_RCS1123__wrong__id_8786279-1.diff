@@ -1,6 +1,6 @@
 id: 8786279-1
 diagnostic: RCS1123
-perc_correct: 0.5
+perc_correct_in_test: 0.5
 num_datapoints_in_train: 14
 <<<<<<<< CORRECT >>>>>>>>
   r))
@@ -10,7 +10,7 @@ num_datapoints_in_train: 14
 +                     h = ((g - b) / d) + (g < b ? 6 : 0);
                   }
        
-<<<<<<<< INNFERRED >>>>>>>>
+<<<<<<<< INFERRED >>>>>>>>
   r))
                   {
 <<<< DIAGNOSTIC: add parentheses when necessary. >>>>

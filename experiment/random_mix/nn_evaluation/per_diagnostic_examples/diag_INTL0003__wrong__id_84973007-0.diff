@@ -1,6 +1,6 @@
 id: 84973007-0
 diagnostic: INTL0003
-perc_correct: 0.5
+perc_correct_in_test: 0.5
 num_datapoints_in_train: 4
 <<<<<<<< CORRECT >>>>>>>>
      }
@@ -12,7 +12,7 @@ num_datapoints_in_train: 4
 +             double Xyz_lab(double v)
               {
                   if (v > LabConstants.e
-<<<<<<<< INNFERRED >>>>>>>>
+<<<<<<<< INFERRED >>>>>>>>
      }
   
           public static Lab ToLab(this Xyz xyz)

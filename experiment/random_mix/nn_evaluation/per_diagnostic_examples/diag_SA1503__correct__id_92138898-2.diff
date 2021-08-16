@@ -1,6 +1,6 @@
 id: 92138898-2
 diagnostic: SA1503
-perc_correct: 0.75
+perc_correct_in_test: 0.75
 num_datapoints_in_train: 54
 <<<<<<<< CORRECTLY INFERRED >>>>>>>>
    int startIndex, bool tryBackward, out bool charWasUsed)

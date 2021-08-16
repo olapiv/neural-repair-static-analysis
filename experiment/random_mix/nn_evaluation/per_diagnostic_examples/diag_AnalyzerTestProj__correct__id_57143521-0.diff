@@ -1,6 +1,6 @@
 id: 57143521-0
 diagnostic: AnalyzerTestProj
-perc_correct: 1.0
+perc_correct_in_test: 1.0
 num_datapoints_in_train: 7
 <<<<<<<< CORRECTLY INFERRED >>>>>>>>
   using Shadowsocks.Models;

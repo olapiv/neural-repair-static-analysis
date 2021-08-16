@@ -1,6 +1,6 @@
 id: 62175244-0
 diagnostic: FV0001
-perc_correct: 0.0
+perc_correct_in_test: 0.0
 num_datapoints_in_train: 2
 <<<<<<<< CORRECT >>>>>>>>
   nameof(task));
@@ -12,7 +12,7 @@ num_datapoints_in_train: 2
   
               var source = new TaskCompletionSource<TTo>();
         
-<<<<<<<< INNFERRED >>>>>>>>
+<<<<<<<< INFERRED >>>>>>>>
   nameof(task));
   
               if (task.Status == TaskStatus.RanToCompletion)

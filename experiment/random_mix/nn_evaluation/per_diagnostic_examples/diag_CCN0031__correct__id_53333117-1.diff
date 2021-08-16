@@ -1,6 +1,6 @@
 id: 53333117-1
 diagnostic: CCN0031
-perc_correct: 0.043478260869565216
+perc_correct_in_test: 0.043478260869565216
 num_datapoints_in_train: 61
 <<<<<<<< CORRECTLY INFERRED >>>>>>>>
                       {

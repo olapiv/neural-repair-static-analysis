@@ -1,6 +1,6 @@
 id: 58214897-0
 diagnostic: SA1629
-perc_correct: 0.3333333333333333
+perc_correct_in_test: 0.3333333333333333
 num_datapoints_in_train: 3
 <<<<<<<< CORRECT >>>>>>>>
   .Media;
@@ -14,7 +14,7 @@ num_datapoints_in_train: 3
       /// </summary>
       public class SwatchesProvider
    
-<<<<<<<< INNFERRED >>>>>>>>
+<<<<<<<< INFERRED >>>>>>>>
   .Media;
   
   namespace MaterialDesignColors

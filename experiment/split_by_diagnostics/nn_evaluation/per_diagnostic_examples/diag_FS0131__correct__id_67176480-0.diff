@@ -1,6 +1,6 @@
 id: 67176480-0
 diagnostic: FS0131
-perc_correct: 0.5
+perc_correct_in_test: 0.5
 num_datapoints_in_train: 0
 <<<<<<<< CORRECTLY INFERRED >>>>>>>>
    public void Append(IList<SqlPart> newParts)

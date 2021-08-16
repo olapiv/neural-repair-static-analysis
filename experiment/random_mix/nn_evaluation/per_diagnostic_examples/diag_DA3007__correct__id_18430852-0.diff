@@ -1,6 +1,6 @@
 id: 18430852-0
 diagnostic: DA3007
-perc_correct: 0.8592592592592593
+perc_correct_in_test: 0.8592592592592593
 num_datapoints_in_train: 396
 <<<<<<<< CORRECTLY INFERRED >>>>>>>>
   

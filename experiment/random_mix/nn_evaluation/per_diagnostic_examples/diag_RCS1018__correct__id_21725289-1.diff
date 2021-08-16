@@ -1,6 +1,6 @@
 id: 21725289-1
 diagnostic: RCS1018
-perc_correct: 0.3333333333333333
+perc_correct_in_test: 0.3333333333333333
 num_datapoints_in_train: 3
 <<<<<<<< CORRECTLY INFERRED >>>>>>>>
    = 0xf,

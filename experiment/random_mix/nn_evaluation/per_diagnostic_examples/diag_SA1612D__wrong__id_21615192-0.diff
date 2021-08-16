@@ -1,6 +1,6 @@
 id: 21615192-0
 diagnostic: SA1612D
-perc_correct: 0.0641025641025641
+perc_correct_in_test: 0.0641025641025641
 num_datapoints_in_train: 258
 <<<<<<<< CORRECT >>>>>>>>
      public interface IHasVirtualFiles
@@ -18,7 +18,7 @@ num_datapoints_in_train: 258
           IVirtualDirectory GetDirectory();
       }
   }
-<<<<<<<< INNFERRED >>>>>>>>
+<<<<<<<< INFERRED >>>>>>>>
      public interface IHasVirtualFiles
       {
           bool IsDirectory { get; }

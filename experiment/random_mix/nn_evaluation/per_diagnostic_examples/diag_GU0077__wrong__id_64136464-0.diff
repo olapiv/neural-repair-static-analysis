@@ -1,6 +1,6 @@
 id: 64136464-0
 diagnostic: GU0077
-perc_correct: 0.24324324324324326
+perc_correct_in_test: 0.24324324324324326
 num_datapoints_in_train: 120
 <<<<<<<< CORRECT >>>>>>>>
             // caution: this makes the cache harder to maintain
@@ -9,7 +9,7 @@ num_datapoints_in_train: 120
 +                     else if (modifiedMembers is null || modifiedMembers.Contains(memberInfo))
                       {
           
-<<<<<<<< INNFERRED >>>>>>>>
+<<<<<<<< INFERRED >>>>>>>>
             // caution: this makes the cache harder to maintain
 <<<< DIAGNOSTIC: prefer is null. >>>>
 -                     else if (modifiedMembers == null || modifiedMembers.Contains(memberInfo))

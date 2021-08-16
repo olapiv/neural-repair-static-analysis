@@ -1,6 +1,6 @@
 id: 23299697-0
 diagnostic: RECS0002
-perc_correct: 0.0
+perc_correct_in_test: 0.0
 num_datapoints_in_train: 0
 <<<<<<<< CORRECT >>>>>>>>
   (typeof(EditTextBox),
@@ -18,7 +18,7 @@ num_datapoints_in_train: 0
   
   		public SharpTreeNode Node {
   			get { 
-<<<<<<<< INNFERRED >>>>>>>>
+<<<<<<<< INFERRED >>>>>>>>
   (typeof(EditTextBox),
   				new FrameworkPropertyMetadata(typeof(EditTextBox)));
   		}

@@ -1,6 +1,6 @@
 id: 86412583-1
 diagnostic: mmlajOnalbPublicFieldAnalyzer
-perc_correct: 0.8620689655172413
+perc_correct_in_test: 0.8620689655172413
 num_datapoints_in_train: 75
 <<<<<<<< CORRECTLY INFERRED >>>>>>>>
    defined in HeapBalanceFlagMask. Most of the time the flags are

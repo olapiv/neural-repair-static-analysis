@@ -1,6 +1,6 @@
 id: 92557849-0
 diagnostic: Comments_analyser
-perc_correct: 0.09090909090909091
+perc_correct_in_test: 0.09090909090909091
 num_datapoints_in_train: 65
 <<<<<<<< CORRECTLY INFERRED >>>>>>>>
   / optionally return DataSet, and collect return params.

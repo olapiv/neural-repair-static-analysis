@@ -1,6 +1,6 @@
 id: 59267754-0
 diagnostic: RCS1118
-perc_correct: 1.0
+perc_correct_in_test: 1.0
 num_datapoints_in_train: 1
 <<<<<<<< CORRECTLY INFERRED >>>>>>>>
                        threadsSeenPerTimeUnit.Clear();

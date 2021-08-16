@@ -1,6 +1,6 @@
 id: 1265723-0
 diagnostic: AnalyzerFinal2
-perc_correct: 1.0
+perc_correct_in_test: 1.0
 num_datapoints_in_train: 22
 <<<<<<<< CORRECTLY INFERRED >>>>>>>>
   <summary>

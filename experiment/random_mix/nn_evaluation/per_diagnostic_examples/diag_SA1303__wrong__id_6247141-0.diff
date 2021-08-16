@@ -1,6 +1,6 @@
 id: 6247141-0
 diagnostic: SA1303
-perc_correct: 0.0
+perc_correct_in_test: 0.0
 num_datapoints_in_train: 0
 <<<<<<<< CORRECT >>>>>>>>
   
@@ -14,7 +14,7 @@ num_datapoints_in_train: 0
 -         public const double e = 216 / 24389.0;
 +         public const double E = 216 / 24389.0;
     
-<<<<<<<< INNFERRED >>>>>>>>
+<<<<<<<< INFERRED >>>>>>>>
   
   
           public static readonly double eCubedRoot = Math.Pow(e, 1.0 / 3);

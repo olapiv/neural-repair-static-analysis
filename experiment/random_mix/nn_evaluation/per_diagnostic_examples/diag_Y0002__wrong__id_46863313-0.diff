@@ -1,6 +1,6 @@
 id: 46863313-0
 diagnostic: Y0002
-perc_correct: 0.5
+perc_correct_in_test: 0.5
 num_datapoints_in_train: 13
 <<<<<<<< CORRECT >>>>>>>>
        }
@@ -11,7 +11,7 @@ num_datapoints_in_train: 13
 +             foreach (KeyValuePair<string, int> t in threadMapping)
               {
                   Console.WriteLine("t#{
-<<<<<<<< INNFERRED >>>>>>>>
+<<<<<<<< INFERRED >>>>>>>>
        }
   
 +             IOrderedEnumerable<KeyValuePair<string, int>> t = new Dictionary<string, int>();

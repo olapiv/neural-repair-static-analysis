@@ -1,6 +1,6 @@
 id: 35390418-0
 diagnostic: SA1121
-perc_correct: 0.5
+perc_correct_in_test: 0.5
 num_datapoints_in_train: 4
 <<<<<<<< CORRECTLY INFERRED >>>>>>>>
   = 0;

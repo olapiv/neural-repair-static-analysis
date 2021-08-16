@@ -1,6 +1,6 @@
 id: 43126908-0
 diagnostic: FM_Missing
-perc_correct: 0.0
+perc_correct_in_test: 0.0
 num_datapoints_in_train: 0
 <<<<<<<< CORRECT >>>>>>>>
   "config">Profile configuration</param>
@@ -13,7 +13,7 @@ num_datapoints_in_train: 0
       {
           private readonly List<Profile> _profiles = new List<Profile>();
     
-<<<<<<<< INNFERRED >>>>>>>>
+<<<<<<<< INFERRED >>>>>>>>
   "config">Profile configuration</param>
           void CreateProfile(string profileName, Action<IProfileExpression> config);
       }

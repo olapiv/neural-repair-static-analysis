@@ -73,7 +73,7 @@ evaluation_dict = {
 
     "result_per_diagnostic": {
         # "DA2001": {
-        #     "perc_correct": 0,
+        #     "perc_correct_in_test": 0,
         #     "correct": 0,
         #     "wrong": 0,
         #     "num_datapoints_in_train": 0
@@ -224,7 +224,7 @@ def save_result_per_diagnostic(evaluation_dict, metadata_train, metadata_test, t
         if diagnostic_id not in evaluation_dict["result_per_diagnostic"]:
 
             evaluation_dict["result_per_diagnostic"][diagnostic_id] = {
-                # "perc_correct": 0,  # Calculate later
+                # "perc_correct_in_test": 0,  # Calculate later
                 "correct": [index] if is_correct else [],
                 "wrong": [] if is_correct else [index],
                 "num_datapoints_in_train": num_datapoints_in_train,
@@ -247,12 +247,12 @@ def save_diagnostic_avg_results(evaluation_dict):
     extrapolated_diagnostics = {diagnostic_id: result for diagnostic_id,
                                 result in total_diagnostics.items() if result["num_datapoints_in_train"] == 0}
 
-    percentage_added_total = sum([v["perc_correct"]
+    percentage_added_total = sum([v["perc_correct_in_test"]
                                  for v in total_diagnostics.values()])
-    percentage_added_copied = sum([v["perc_correct"]
+    percentage_added_copied = sum([v["perc_correct_in_test"]
                                   for v in copied_diagnostics.values()])
     percentage_added_extrapolated = sum(
-        [v["perc_correct"] for v in extrapolated_diagnostics.values()])
+        [v["perc_correct_in_test"] for v in extrapolated_diagnostics.values()])
 
     num_diagnostics_total = len(total_diagnostics.keys())
     num_diagnostics_copied = len(copied_diagnostics.keys())
@@ -400,7 +400,7 @@ def flatten_result_per_diagnostic(result_per_diagnostic_dict):
     for key, value in result_per_diagnostic_dict.items():
         flattened.append({
             "diagnostic_id": key,
-            "perc_correct": value["perc_correct"],
+            "perc_correct_in_test": value["perc_correct_in_test"],
             "correct": value["correct"],
             "wrong": value["wrong"],
             "num_datapoints_in_train": value["num_datapoints_in_train"],
@@ -420,7 +420,7 @@ def generate_diff(
     # diagnostic_result:
     # {
     #     'diagnostic_id': 'CS0002',
-    #     'perc_correct': 0.9473684210526315,
+    #     'perc_correct_in_test': 0.9473684210526315,
     #     'correct': [31, 113, 133, 233, 290, 328, 341, 432, 527, 580, 624, 1410, 1415, 1455, 1494, 1541, 1567, 1577],
     #     'wrong': [1188],
     #     'num_datapoints_in_train': 0
@@ -458,7 +458,7 @@ def generate_diff(
 
     diff_with_diags = f"""id: {datapoint_id}
 diagnostic: {diagnostic_result['diagnostic_id']}
-perc_correct: {diagnostic_result['perc_correct']}
+perc_correct_in_test: {diagnostic_result['perc_correct_in_test']}
 num_datapoints_in_train: {diagnostic_result['num_datapoints_in_train']}"""
 
     correct_diff_with_diags = create_diff_with_diags(
@@ -473,7 +473,7 @@ num_datapoints_in_train: {diagnostic_result['num_datapoints_in_train']}"""
             parsed_src, parsed_diff_inferred)
         diff_with_diags += "\n<<<<<<<< CORRECT >>>>>>>>\n"
         diff_with_diags += correct_diff_with_diags
-        diff_with_diags += "\n<<<<<<<< INNFERRED >>>>>>>>\n"
+        diff_with_diags += "\n<<<<<<<< INFERRED >>>>>>>>\n"
         diff_with_diags += inferred_diff_with_diags
 
     return datapoint_id, diff_with_diags
@@ -568,27 +568,27 @@ def sort_for_characteristic_examples(evaluation_dict):
     highest_accuracy_copied = [
         result for result in result_per_diagnostic if result["num_datapoints_in_train"] > 0]
     highest_accuracy_copied.sort(
-        key=lambda x: x.get('perc_correct'), reverse=True)
+        key=lambda x: x.get('perc_correct_in_test'), reverse=True)
     highest_accuracy_extrapolated = [
         result for result in result_per_diagnostic if result["num_datapoints_in_train"] == 0]
     highest_accuracy_extrapolated.sort(
-        key=lambda x: x.get('perc_correct'), reverse=True)
+        key=lambda x: x.get('perc_correct_in_test'), reverse=True)
 
     lowest_accuracy_copied = [
         result for result in result_per_diagnostic if result["num_datapoints_in_train"] > 0]
-    lowest_accuracy_copied.sort(key=lambda x: x.get('perc_correct'))
+    lowest_accuracy_copied.sort(key=lambda x: x.get('perc_correct_in_test'))
     lowest_accuracy_extrapolated = [
         result for result in result_per_diagnostic if result["num_datapoints_in_train"] == 0]
-    lowest_accuracy_extrapolated.sort(key=lambda x: x.get('perc_correct'))
+    lowest_accuracy_extrapolated.sort(key=lambda x: x.get('perc_correct_in_test'))
 
     ambiguous_accuracy_copied = [
         result for result in result_per_diagnostic if result["num_datapoints_in_train"] > 0]
     ambiguous_accuracy_copied.sort(
-        key=lambda x: abs(x.get('perc_correct') - 0.5))
+        key=lambda x: abs(x.get('perc_correct_in_test') - 0.5))
     ambiguous_accuracy_extrapolated = [
         result for result in result_per_diagnostic if result["num_datapoints_in_train"] == 0]
     ambiguous_accuracy_extrapolated.sort(
-        key=lambda x: abs(x.get('perc_correct') - 0.5))
+        key=lambda x: abs(x.get('perc_correct_in_test') - 0.5))
 
     return {
         "highest_accuracy_copied": highest_accuracy_copied,
@@ -606,7 +606,7 @@ def plot_num_datapoints_vs_success(evaluation_dict, filename):
 
     x = [datapoint["num_datapoints_in_train"]
          for datapoint in datapoints_graph]
-    y = [datapoint["perc_correct"] for datapoint in datapoints_graph]
+    y = [datapoint["perc_correct_in_test"] for datapoint in datapoints_graph]
     text = [datapoint["diagnostic_id"] for datapoint in datapoints_graph]
 
     fig = px.scatter(
@@ -765,7 +765,7 @@ def main():
         num_correct = len(value["correct"])
         num_wrong = len(value["wrong"])
         total_datapoints = num_correct + num_wrong
-        value["perc_correct"] = num_correct / total_datapoints
+        value["perc_correct_in_test"] = num_correct / total_datapoints
 
         total_total += total_datapoints
         total_correct += num_correct

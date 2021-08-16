@@ -1,6 +1,6 @@
 id: 94193071-0
 diagnostic: Wintellect003
-perc_correct: 0.8214285714285714
+perc_correct_in_test: 0.8214285714285714
 num_datapoints_in_train: 62
 <<<<<<<< CORRECT >>>>>>>>
   		}
@@ -15,7 +15,7 @@ num_datapoints_in_train: 62
   
   				// Tell the flattener about the removed nodes:
   				if (removedNodes != null)
-<<<<<<<< INNFERRED >>>>>>>>
+<<<<<<<< INFERRED >>>>>>>>
   		}
   				// also update the model children:
   				UpdateChildIsVisible(false);

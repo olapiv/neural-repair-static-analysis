@@ -1,6 +1,6 @@
 id: 44168692-2
 diagnostic: INTL0001
-perc_correct: 0.045454545454545456
+perc_correct_in_test: 0.045454545454545456
 num_datapoints_in_train: 58
 <<<<<<<< CORRECTLY INFERRED >>>>>>>>
    new NotSupportedException();

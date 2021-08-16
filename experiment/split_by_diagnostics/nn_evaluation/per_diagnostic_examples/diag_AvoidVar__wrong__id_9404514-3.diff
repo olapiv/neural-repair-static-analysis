@@ -1,6 +1,6 @@
 id: 9404514-3
 diagnostic: AvoidVar
-perc_correct: 0.5975609756097561
+perc_correct_in_test: 0.5975609756097561
 num_datapoints_in_train: 0
 <<<<<<<< CORRECT >>>>>>>>
    int currentValue = 1;
@@ -11,7 +11,7 @@ num_datapoints_in_train: 0
               {
                   string keyValue;
      
-<<<<<<<< INNFERRED >>>>>>>>
+<<<<<<<< INFERRED >>>>>>>>
    int currentValue = 1;
               var keyValues = new List<string>();
 <<<< DIAGNOSTIC: use 'KeyValuePair<string,int>' instead of 'var' >>>>

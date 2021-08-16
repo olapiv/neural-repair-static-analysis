@@ -1,6 +1,6 @@
 id: 57828733-2
 diagnostic: VSD0023
-perc_correct: 0.25
+perc_correct_in_test: 0.25
 num_datapoints_in_train: 14
 <<<<<<<< CORRECTLY INFERRED >>>>>>>>
   (!string.IsNullOrEmpty(PluginOpts))

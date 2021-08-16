@@ -1,6 +1,6 @@
 id: 9117614-1
 diagnostic: DateTimeOffsetInsteadOfDateTimeAnalyzer
-perc_correct: 0.7916666666666666
+perc_correct_in_test: 0.7916666666666666
 num_datapoints_in_train: 83
 <<<<<<<< CORRECT >>>>>>>>
   );
@@ -12,7 +12,7 @@ num_datapoints_in_train: 83
 +         bool CheckAndSet(string key, object value, ulong lastModifiedValue, DateTimeOffset expiresAt);
   
           IDictionary<string, object> GetAll(IEnumerable<string> keys, out IDictionary<string, 
-<<<<<<<< INNFERRED >>>>>>>>
+<<<<<<<< INFERRED >>>>>>>>
   );
   
           bool CheckAndSet(string key, object value, ulong lastModifiedValue);

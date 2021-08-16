@@ -1,6 +1,6 @@
 id: 87184592-0
 diagnostic: CH0002
-perc_correct: 0.7692307692307693
+perc_correct_in_test: 0.7692307692307693
 num_datapoints_in_train: 85
 <<<<<<<< CORRECT >>>>>>>>
 <<<< DIAGNOSTIC: move the using directive within the namespace scope. >>>>
@@ -19,7 +19,7 @@ num_datapoints_in_train: 85
   
       public interface IServiceRunner<TRequest> : IServiceRunner
     
-<<<<<<<< INNFERRED >>>>>>>>
+<<<<<<<< INFERRED >>>>>>>>
 <<<< DIAGNOSTIC: move the using directive within the namespace scope. >>>>
 - using System;
 <<<< DIAGNOSTIC: move the using directive within the namespace scope. >>>>

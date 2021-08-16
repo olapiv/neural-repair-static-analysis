@@ -1,6 +1,6 @@
 id: 23784121-0
 diagnostic: RCS1169
-perc_correct: 0.5
+perc_correct_in_test: 0.5
 num_datapoints_in_train: 7
 <<<<<<<< CORRECT >>>>>>>>
    System.Collections.Generic;
@@ -15,7 +15,7 @@ num_datapoints_in_train: 7
           {
               "add",
           
-<<<<<<<< INNFERRED >>>>>>>>
+<<<<<<<< INFERRED >>>>>>>>
    System.Collections.Generic;
   
   namespace GVFS.Hooks

@@ -1,6 +1,6 @@
 id: 16054047-0
 diagnostic: SA1116
-perc_correct: 0.0
+perc_correct_in_test: 0.0
 num_datapoints_in_train: 8
 <<<<<<<< CORRECT >>>>>>>>
    System.Windows.Media;
@@ -19,7 +19,7 @@ num_datapoints_in_train: 8
   		}
   
   		public static readonly DependencyProperty TextBackgroundProperty =
-<<<<<<<< INNFERRED >>>>>>>>
+<<<<<<<< INFERRED >>>>>>>>
    System.Windows.Media;
   
   namespace ICSharpCode.TreeView

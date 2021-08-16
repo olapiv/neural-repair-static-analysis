@@ -1,6 +1,6 @@
 id: 65513759-0
 diagnostic: SA1633
-perc_correct: 0.7777777777777778
+perc_correct_in_test: 0.7777777777777778
 num_datapoints_in_train: 30
 <<<<<<<< CORRECTLY INFERRED >>>>>>>>
 + // <copyright file="IndigoSwatch.cs" company="PlaceholderCompany">

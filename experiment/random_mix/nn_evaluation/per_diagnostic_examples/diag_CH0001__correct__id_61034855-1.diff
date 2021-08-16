@@ -1,6 +1,6 @@
 id: 61034855-1
 diagnostic: CH0001
-perc_correct: 0.6
+perc_correct_in_test: 0.6
 num_datapoints_in_train: 544
 <<<<<<<< CORRECTLY INFERRED >>>>>>>>
   #region MIT license

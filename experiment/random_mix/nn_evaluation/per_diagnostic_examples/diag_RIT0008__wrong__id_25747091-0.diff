@@ -1,6 +1,6 @@
 id: 25747091-0
 diagnostic: RIT0008
-perc_correct: 0.0
+perc_correct_in_test: 0.0
 num_datapoints_in_train: 6
 <<<<<<<< CORRECT >>>>>>>>
    out string strRemaining)
@@ -11,7 +11,7 @@ num_datapoints_in_train: 6
 +             if (strStart is object)
               {
                   startIndex = str.IndexOf(strStart
-<<<<<<<< INNFERRED >>>>>>>>
+<<<<<<<< INFERRED >>>>>>>>
    out string strRemaining)
           {
               int startIndex = 0;

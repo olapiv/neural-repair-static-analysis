@@ -1,6 +1,6 @@
 id: 11127651-0
 diagnostic: Nopen
-perc_correct: 0.28846153846153844
+perc_correct_in_test: 0.28846153846153844
 num_datapoints_in_train: 146
 <<<<<<<< CORRECTLY INFERRED >>>>>>>>
   ;

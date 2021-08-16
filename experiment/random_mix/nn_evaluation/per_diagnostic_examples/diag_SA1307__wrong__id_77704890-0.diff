@@ -1,6 +1,6 @@
 id: 77704890-0
 diagnostic: SA1307
-perc_correct: 0.3333333333333333
+perc_correct_in_test: 0.3333333333333333
 num_datapoints_in_train: 6
 <<<<<<<< CORRECT >>>>>>>>
   of the flat list tree.
@@ -14,7 +14,7 @@ num_datapoints_in_train: 6
   
   		public TreeFlattener(SharpTreeNode modelRoot, bool includeRoot)
   		{
-<<<<<<<< INNFERRED >>>>>>>>
+<<<<<<<< INFERRED >>>>>>>>
   of the flat list tree.
   		/// Tjis is not necessarily the root of the model!
   		/// </summary>

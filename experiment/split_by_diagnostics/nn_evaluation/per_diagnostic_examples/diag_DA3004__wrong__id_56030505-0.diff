@@ -1,6 +1,6 @@
 id: 56030505-0
 diagnostic: DA3004
-perc_correct: 0.0
+perc_correct_in_test: 0.0
 num_datapoints_in_train: 0
 <<<<<<<< CORRECT >>>>>>>>
   ): {2} ({3})", Member, Name, Type, DbType);
@@ -16,7 +16,7 @@ num_datapoints_in_train: 0
           public Connection()
           {
               SpecifiedPropertyUpdater.Register
-<<<<<<<< INNFERRED >>>>>>>>
+<<<<<<<< INFERRED >>>>>>>>
   ): {2} ({3})", Member, Name, Type, DbType);
           }
       }

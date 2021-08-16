@@ -1,6 +1,6 @@
 id: 31182521-1
 diagnostic: OhNoPubImplicitCastForeach
-perc_correct: 0.0
+perc_correct_in_test: 0.0
 num_datapoints_in_train: 2
 <<<<<<<< CORRECT >>>>>>>>
    new SharpTreeViewAutomationPeer(this);
@@ -17,7 +17,7 @@ num_datapoints_in_train: 2
   			}
   			foreach (SharpTreeNode node in e.AddedItems)
   		
-<<<<<<<< INNFERRED >>>>>>>>
+<<<<<<<< INFERRED >>>>>>>>
    new SharpTreeViewAutomationPeer(this);
   		}
   		#region Track selection

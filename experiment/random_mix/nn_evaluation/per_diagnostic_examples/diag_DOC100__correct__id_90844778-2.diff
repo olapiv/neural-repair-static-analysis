@@ -1,6 +1,6 @@
 id: 90844778-2
 diagnostic: DOC100
-perc_correct: 0.5
+perc_correct_in_test: 0.5
 num_datapoints_in_train: 20
 <<<<<<<< CORRECTLY INFERRED >>>>>>>>
             /// </summary>

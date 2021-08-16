@@ -1,6 +1,6 @@
 id: 544181-0
 diagnostic: DOC201
-perc_correct: 0.0
+perc_correct_in_test: 0.0
 num_datapoints_in_train: 0
 <<<<<<<< CORRECT >>>>>>>>
   		<list>
@@ -14,7 +14,7 @@ num_datapoints_in_train: 0
 -         ///			<item>"/Inventory/{ItemPath*}"</item>
 +         ///			<item><description>"/Inventory/{ItemPath*}"</description></item>
         
-<<<<<<<< INNFERRED >>>>>>>>
+<<<<<<<< INFERRED >>>>>>>>
   		<list>
 +                           var totalNodesRead = 0;
 +                      object entitySetValue = memberData.Member.GetMemberValue(value);

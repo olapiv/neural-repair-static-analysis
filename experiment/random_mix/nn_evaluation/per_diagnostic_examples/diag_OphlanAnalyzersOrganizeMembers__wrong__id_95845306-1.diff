@@ -1,6 +1,6 @@
 id: 95845306-1
 diagnostic: OphlanAnalyzersOrganizeMembers
-perc_correct: 0.0
+perc_correct_in_test: 0.0
 num_datapoints_in_train: 1
 <<<<<<<< CORRECT >>>>>>>>
   item.Node) + 1;
@@ -21,7 +21,7 @@ num_datapoints_in_train: 1
   		void ShowPreview(SharpTreeViewItem item, DropPlace place)
   		{
   			previewNodeView =
-<<<<<<<< INNFERRED >>>>>>>>
+<<<<<<<< INFERRED >>>>>>>>
   item.Node) + 1;
   				}
   			}

@@ -1,6 +1,6 @@
 id: 47096651-2
 diagnostic: DOC203
-perc_correct: 0.5
+perc_correct_in_test: 0.5
 num_datapoints_in_train: 1
 <<<<<<<< CORRECT >>>>>>>>
   be in <see cref="string.Format(IFormatProvider,string,object[])"/>-like form.
@@ -10,7 +10,7 @@ num_datapoints_in_train: 1
 +     /// <example><c>
       /// [StringFormatMethod("message")]
       /// void ShowError(string message, params object[] args) { 
-<<<<<<<< INNFERRED >>>>>>>>
+<<<<<<<< INFERRED >>>>>>>>
   be in <see cref="string.Format(IFormatProvider,string,object[])"/>-like form.
 +     /// <example></example>
       /// </summary>

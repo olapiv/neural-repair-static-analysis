@@ -1,6 +1,6 @@
 id: 92950271-0
 diagnostic: DOC104
-perc_correct: 0.75
+perc_correct_in_test: 0.75
 num_datapoints_in_train: 12
 <<<<<<<< CORRECT >>>>>>>>
   {
@@ -13,7 +13,7 @@ num_datapoints_in_train: 12
 +     /// so the check for <see langword="null"/> is necessary before its usage.
       /// </summary>
    
-<<<<<<<< INNFERRED >>>>>>>>
+<<<<<<<< INFERRED >>>>>>>>
   {
       /// <summary>
 +         /// <exception cref="ArgumentNullException"><paramref name="type"/> is <see langword="null"/>.</exception>

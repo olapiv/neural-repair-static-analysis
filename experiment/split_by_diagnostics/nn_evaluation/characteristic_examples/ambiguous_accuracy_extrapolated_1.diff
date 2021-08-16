@@ -1,6 +1,6 @@
 id: 39500826-0
 diagnostic: ASYNC0002
-perc_correct: 0.5
+perc_correct_in_test: 0.5
 num_datapoints_in_train: 0
 <<<<<<<< CORRECT >>>>>>>>
         return _serverTask.Value;
@@ -14,7 +14,7 @@ num_datapoints_in_train: 0
           private async Task StartCore()
           {
            
-<<<<<<<< INNFERRED >>>>>>>>
+<<<<<<<< INFERRED >>>>>>>>
         return _serverTask.Value;
               }
           }

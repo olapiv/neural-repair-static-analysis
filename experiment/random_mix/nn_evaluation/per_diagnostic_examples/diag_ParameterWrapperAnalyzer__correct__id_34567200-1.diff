@@ -1,6 +1,6 @@
 id: 34567200-1
 diagnostic: ParameterWrapperAnalyzer
-perc_correct: 0.010526315789473684
+perc_correct_in_test: 0.010526315789473684
 num_datapoints_in_train: 274
 <<<<<<<< CORRECTLY INFERRED >>>>>>>>
     : base(expression, restrictions)

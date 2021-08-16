@@ -1,6 +1,6 @@
 id: 89181234-0
 diagnostic: RECS0093
-perc_correct: 0.0
+perc_correct_in_test: 0.0
 num_datapoints_in_train: 0
 <<<<<<<< CORRECT >>>>>>>>
    = true;
@@ -9,7 +9,7 @@ num_datapoints_in_train: 0
 +                                 alloc_count_p &= !strRemaining.Contains("p");
 -                                     alloc_count_p = false;
         
-<<<<<<<< INNFERRED >>>>>>>>
+<<<<<<<< INFERRED >>>>>>>>
    = true;
 <<<< DIAGNOSTIC: replace with '&=' >>>>
 -                                 if (strRemaining.Contains("p"))

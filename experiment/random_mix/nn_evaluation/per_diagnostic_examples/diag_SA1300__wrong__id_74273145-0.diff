@@ -1,6 +1,6 @@
 id: 74273145-0
 diagnostic: SA1300
-perc_correct: 0.6
+perc_correct_in_test: 0.6
 num_datapoints_in_train: 8
 <<<<<<<< CORRECT >>>>>>>>
    KIND, either express or implied.
@@ -16,7 +16,7 @@ num_datapoints_in_train: 8
       {
           //this exists only to aid in finding this assembly 
    
-<<<<<<<< INNFERRED >>>>>>>>
+<<<<<<<< INFERRED >>>>>>>>
    KIND, either express or implied.
   // See the License for the specific language governing permissions and
   // limitations under the License.

@@ -1,6 +1,6 @@
 id: 76401033-3
 diagnostic: RS0100
-perc_correct: 0.0
+perc_correct_in_test: 0.0
 num_datapoints_in_train: 0
 <<<<<<<< CORRECT >>>>>>>>
      {
@@ -17,7 +17,7 @@ num_datapoints_in_train: 0
 +             if (other.GetType() != GetType())
 +                 return false; 
        
-<<<<<<<< INNFERRED >>>>>>>>
+<<<<<<<< INFERRED >>>>>>>>
      {
 <<<< DIAGNOSTIC: statements must be placed on their own line >>>>
 -             if (other is null) return false;

@@ -1,6 +1,6 @@
 id: 98558963-1
 diagnostic: CA1801
-perc_correct: 0.3333333333333333
+perc_correct_in_test: 0.3333333333333333
 num_datapoints_in_train: 13
 <<<<<<<< CORRECTLY INFERRED >>>>>>>>
        {

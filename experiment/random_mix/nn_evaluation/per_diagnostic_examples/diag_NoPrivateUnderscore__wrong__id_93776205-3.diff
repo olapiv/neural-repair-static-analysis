@@ -1,6 +1,6 @@
 id: 93776205-3
 diagnostic: NoPrivateUnderscore
-perc_correct: 0.0
+perc_correct_in_test: 0.0
 num_datapoints_in_train: 24
 <<<<<<<< CORRECT >>>>>>>>
   new NotImplementedException(); }
@@ -13,7 +13,7 @@ num_datapoints_in_train: 24
   
   		/// <summary>
   		/// Initializes a new instance of the <see cref="AttributedMetaModel"/
-<<<<<<<< INNFERRED >>>>>>>>
+<<<<<<<< INFERRED >>>>>>>>
   new NotImplementedException(); }
   		}
   

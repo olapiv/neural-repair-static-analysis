@@ -1,6 +1,6 @@
 id: 81865979-0
 diagnostic: MEN009
-perc_correct: 0.4166666666666667
+perc_correct_in_test: 0.4166666666666667
 num_datapoints_in_train: 24
 <<<<<<<< CORRECT >>>>>>>>
      {
@@ -13,7 +13,7 @@ num_datapoints_in_train: 24
   
           public void SetValue(IDbDataParameter parameter, object value)
        
-<<<<<<<< INNFERRED >>>>>>>>
+<<<<<<<< INFERRED >>>>>>>>
      {
           public object Parse(Type destinationType, object value)
           {

@@ -1,6 +1,6 @@
 id: 23885513-1
 diagnostic: CC0052
-perc_correct: 0.2857142857142857
+perc_correct_in_test: 0.2857142857142857
 num_datapoints_in_train: 18
 <<<<<<<< CORRECTLY INFERRED >>>>>>>>
    static UInt64 qpcStart = 0;

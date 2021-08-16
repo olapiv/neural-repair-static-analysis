@@ -1,6 +1,6 @@
 id: 97513678-0
 diagnostic: CC0037
-perc_correct: 0.6923076923076923
+perc_correct_in_test: 0.6923076923076923
 num_datapoints_in_train: 42
 <<<<<<<< CORRECTLY INFERRED >>>>>>>>
   //Copyright (c) ServiceStack, Inc. All Rights Reserved.

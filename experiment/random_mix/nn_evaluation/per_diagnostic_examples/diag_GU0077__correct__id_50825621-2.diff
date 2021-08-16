@@ -1,6 +1,6 @@
 id: 50825621-2
 diagnostic: GU0077
-perc_correct: 0.24324324324324326
+perc_correct_in_test: 0.24324324324324326
 num_datapoints_in_train: 120
 <<<<<<<< CORRECTLY INFERRED >>>>>>>>
   null, int? commandTimeout = null, CommandType? commandType = null)

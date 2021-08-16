@@ -1,6 +1,6 @@
 id: 72846070-3
 diagnostic: SA1600D
-perc_correct: 0.04878048780487805
+perc_correct_in_test: 0.04878048780487805
 num_datapoints_in_train: 124
 <<<<<<<< CORRECT >>>>>>>>
   private readonly Action<TEntity> onAdd;
@@ -16,7 +16,7 @@ num_datapoints_in_train: 124
   		private bool assignedValues;
           private List<TEntity> source;
          
-<<<<<<<< INNFERRED >>>>>>>>
+<<<<<<<< INFERRED >>>>>>>>
   private readonly Action<TEntity> onAdd;
           private readonly Action<TEntity> onRemove;
   

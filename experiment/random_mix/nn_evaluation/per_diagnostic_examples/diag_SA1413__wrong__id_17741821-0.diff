@@ -1,6 +1,6 @@
 id: 17741821-0
 diagnostic: SA1413
-perc_correct: 0.0
+perc_correct_in_test: 0.0
 num_datapoints_in_train: 10
 <<<<<<<< CORRECT >>>>>>>>
   PrintWarning, PrintError),
@@ -12,7 +12,7 @@ num_datapoints_in_train: 10
   
           static int Main(string[] args)
      
-<<<<<<<< INNFERRED >>>>>>>>
+<<<<<<<< INFERRED >>>>>>>>
   PrintWarning, PrintError),
               new UninstallPerformanceCountersCommand(PrintInfo, PrintSuccess, PrintWarning, PrintError),
 <<<< DIAGNOSTIC: use trailing comma in multi-line initializers >>>>

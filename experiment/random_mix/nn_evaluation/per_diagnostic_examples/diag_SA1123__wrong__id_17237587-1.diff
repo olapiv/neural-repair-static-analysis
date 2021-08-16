@@ -1,6 +1,6 @@
 id: 17237587-1
 diagnostic: SA1123
-perc_correct: 0.0
+perc_correct_in_test: 0.0
 num_datapoints_in_train: 1
 <<<<<<<< CORRECT >>>>>>>>
            throw Error.BadArgument("S0257: can not find parameter '{0}'", parameterName);
@@ -10,7 +10,7 @@ num_datapoints_in_train: 1
   
               // for table...
               var unaliasedTableExpression = 
-<<<<<<<< INNFERRED >>>>>>>>
+<<<<<<<< INFERRED >>>>>>>>
            throw Error.BadArgument("S0257: can not find parameter '{0}'", parameterName);
   
 <<<< DIAGNOSTIC: region must not be located within a code element. >>>>

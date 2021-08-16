@@ -1,6 +1,6 @@
 id: 28471435-3
 diagnostic: CH0001
-perc_correct: 0.6
+perc_correct_in_test: 0.6
 num_datapoints_in_train: 544
 <<<<<<<< CORRECT >>>>>>>>
   else if (day_diff < 7) {
@@ -10,7 +10,7 @@ num_datapoints_in_train: 544
 + 
               } else if (day_diff < 31) {
                  
-<<<<<<<< INNFERRED >>>>>>>>
+<<<<<<<< INFERRED >>>>>>>>
   else if (day_diff < 7) {
                   return timestamp.ToString ("dddd");
 <<<< DIAGNOSTIC: remove trailing whitespace. whilst this analyzer includes a code fix provider, it is recommended you install the trailing whitespace visualizer add-in to automatically remove all trailing whitespace. see https://marketplace.visualstudio.com/items?itemname=madskristensen.trailingwhitespacevisualizer. >>>>

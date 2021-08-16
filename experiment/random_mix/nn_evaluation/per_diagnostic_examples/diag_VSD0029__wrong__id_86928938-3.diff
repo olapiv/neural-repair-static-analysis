@@ -1,6 +1,6 @@
 id: 86928938-3
 diagnostic: VSD0029
-perc_correct: 0.0
+perc_correct_in_test: 0.0
 num_datapoints_in_train: 1
 <<<<<<<< CORRECT >>>>>>>>
               return false;
@@ -14,7 +14,7 @@ num_datapoints_in_train: 1
 -         }
       }
   }
-<<<<<<<< INNFERRED >>>>>>>>
+<<<<<<<< INFERRED >>>>>>>>
               return false;
           }
   

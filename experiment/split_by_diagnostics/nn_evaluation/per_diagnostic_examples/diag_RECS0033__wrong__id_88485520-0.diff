@@ -1,6 +1,6 @@
 id: 88485520-0
 diagnostic: RECS0033
-perc_correct: 0.0
+perc_correct_in_test: 0.0
 num_datapoints_in_train: 0
 <<<<<<<< CORRECT >>>>>>>>
    e in expressions)
@@ -11,7 +11,7 @@ num_datapoints_in_train: 0
 +                 builderContext.IsExternalInExpressionChain |= e == last;
   
                   // write full 
-<<<<<<<< INNFERRED >>>>>>>>
+<<<<<<<< INFERRED >>>>>>>>
    e in expressions)
               {
 <<<< DIAGNOSTIC: replace with '|=' >>>>

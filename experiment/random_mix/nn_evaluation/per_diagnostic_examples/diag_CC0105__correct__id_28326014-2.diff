@@ -1,6 +1,6 @@
 id: 28326014-2
 diagnostic: CC0105
-perc_correct: 0.15384615384615385
+perc_correct_in_test: 0.15384615384615385
 num_datapoints_in_train: 68
 <<<<<<<< CORRECTLY INFERRED >>>>>>>>
        IDbCommand cmd = null;

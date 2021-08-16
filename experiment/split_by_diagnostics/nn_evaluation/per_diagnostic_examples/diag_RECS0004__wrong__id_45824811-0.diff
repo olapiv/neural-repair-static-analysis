@@ -1,6 +1,6 @@
 id: 45824811-0
 diagnostic: RECS0004
-perc_correct: 0.0
+perc_correct_in_test: 0.0
 num_datapoints_in_train: 0
 <<<<<<<< CORRECT >>>>>>>>
   .Linq
@@ -16,7 +16,7 @@ num_datapoints_in_train: 0
 -         }
       }
   }
-<<<<<<<< INNFERRED >>>>>>>>
+<<<<<<<< INFERRED >>>>>>>>
   .Linq
   #endif
   {

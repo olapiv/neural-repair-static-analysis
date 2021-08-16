@@ -1,6 +1,6 @@
 id: 97581602-0
 diagnostic: AANA003
-perc_correct: 0.14285714285714285
+perc_correct_in_test: 0.14285714285714285
 num_datapoints_in_train: 22
 <<<<<<<< CORRECTLY INFERRED >>>>>>>>
   item was successfully removed from the cache; false otherwise.

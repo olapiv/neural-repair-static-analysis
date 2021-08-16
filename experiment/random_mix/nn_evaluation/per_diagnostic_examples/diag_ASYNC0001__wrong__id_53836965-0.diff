@@ -1,6 +1,6 @@
 id: 53836965-0
 diagnostic: ASYNC0001
-perc_correct: 0.0
+perc_correct_in_test: 0.0
 num_datapoints_in_train: 5
 <<<<<<<< CORRECT >>>>>>>>
   /// <returns>A (hot) task of <see cref="Response"/> instance.</returns>
@@ -9,7 +9,7 @@ num_datapoints_in_train: 5
 +         public override async Task<object> InvokeAsync(DynamicDictionary parameters, CancellationToken cancellationToken)
           {
               return await this.Action.Invoke(parameters, 
-<<<<<<<< INNFERRED >>>>>>>>
+<<<<<<<< INFERRED >>>>>>>>
   /// <returns>A (hot) task of <see cref="Response"/> instance.</returns>
 <<<< DIAGNOSTIC: append asynchronous method name with async >>>>
 -         public override async Task<object> Invoke(DynamicDictionary parameters, CancellationToken cancellationToken)

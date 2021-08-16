@@ -1,6 +1,6 @@
 id: 96399509-2
 diagnostic: GU0073
-perc_correct: 0.13636363636363635
+perc_correct_in_test: 0.13636363636363635
 num_datapoints_in_train: 131
 <<<<<<<< CORRECT >>>>>>>>
           public DbLinqToDoAttribute(string comment)
@@ -16,7 +16,7 @@ num_datapoints_in_train: 131
           }
       }
   }
-<<<<<<<< INNFERRED >>>>>>>>
+<<<<<<<< INFERRED >>>>>>>>
           public DbLinqToDoAttribute(string comment)
           {
               Comment = comment;

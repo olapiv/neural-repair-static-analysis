@@ -1,6 +1,6 @@
 id: 44705862-1
 diagnostic: SA1137
-perc_correct: 0.07692307692307693
+perc_correct_in_test: 0.07692307692307693
 num_datapoints_in_train: 0
 <<<<<<<< CORRECT >>>>>>>>
       columnAttribute.Name = memberInfo.Name;
@@ -14,7 +14,7 @@ num_datapoints_in_train: 0
           {
               get { return null; }
           }
-<<<<<<<< INNFERRED >>>>>>>>
+<<<<<<<< INFERRED >>>>>>>>
       columnAttribute.Name = memberInfo.Name;
           }
   

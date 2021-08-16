@@ -1,6 +1,6 @@
 id: 62331733-1
 diagnostic: SA1101
-perc_correct: 0.7692307692307693
+perc_correct_in_test: 0.7692307692307693
 num_datapoints_in_train: 47
 <<<<<<<< CORRECT >>>>>>>>
         public ColorPair(Color color, Color? foreground)
@@ -14,7 +14,7 @@ num_datapoints_in_train: 47
           }
   
           public Color GetForegroundColor() => ForegroundColor
-<<<<<<<< INNFERRED >>>>>>>>
+<<<<<<<< INFERRED >>>>>>>>
         public ColorPair(Color color, Color? foreground)
           {
 <<<< DIAGNOSTIC: prefix local calls with this >>>>

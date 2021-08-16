@@ -1,6 +1,6 @@
 id: 26827337-0
 diagnostic: CCN0031
-perc_correct: 0.043478260869565216
+perc_correct_in_test: 0.043478260869565216
 num_datapoints_in_train: 61
 <<<<<<<< CORRECT >>>>>>>>
    TSixth, TSeventh>(Type primaryType, int gridIndex) =>
@@ -9,7 +9,7 @@ num_datapoints_in_train: 61
 +                 new Identity<TFirst, TSecond, TThird, TFourth, TFifth, TSixth, TSeventh>(sql: sql, commandType: commandType, connectionString: connectionString, type: primaryType, parametersType: parametersType, gridIndex: gridIndex);
   
               internal Identity ForGrid(Type
-<<<<<<<< INNFERRED >>>>>>>>
+<<<<<<<< INFERRED >>>>>>>>
    TSixth, TSeventh>(Type primaryType, int gridIndex) =>
 <<<< DIAGNOSTIC: method calls with 4 or more parameters should have param names >>>>
 -                 new Identity<TFirst, TSecond, TThird, TFourth, TFifth, TSixth, TSeventh>(sql, commandType, connectionString, primaryType, parametersType, gridIndex);

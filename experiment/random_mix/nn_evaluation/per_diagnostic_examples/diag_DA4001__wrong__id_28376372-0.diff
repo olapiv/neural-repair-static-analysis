@@ -1,6 +1,6 @@
 id: 28376372-0
 diagnostic: DA4001
-perc_correct: 0.9452054794520548
+perc_correct_in_test: 0.9452054794520548
 num_datapoints_in_train: 208
 <<<<<<<< CORRECT >>>>>>>>
      /// Unified API to create any missing Tables, Data Structure Schema 
@@ -11,7 +11,7 @@ num_datapoints_in_train: 208
           void InitSchema();
       }
   }
-<<<<<<<< INNFERRED >>>>>>>>
+<<<<<<<< INFERRED >>>>>>>>
      /// Unified API to create any missing Tables, Data Structure Schema 
           /// or perform any other tasks dependencies require to run at Startup.
           /// </summary>

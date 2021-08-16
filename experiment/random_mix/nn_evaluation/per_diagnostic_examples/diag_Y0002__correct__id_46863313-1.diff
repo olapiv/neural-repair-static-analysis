@@ -1,6 +1,6 @@
 id: 46863313-1
 diagnostic: Y0002
-perc_correct: 0.5
+perc_correct_in_test: 0.5
 num_datapoints_in_train: 13
 <<<<<<<< CORRECTLY INFERRED >>>>>>>>
                   }

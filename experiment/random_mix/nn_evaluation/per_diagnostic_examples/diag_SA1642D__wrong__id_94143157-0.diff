@@ -1,6 +1,6 @@
 id: 94143157-0
 diagnostic: SA1642D
-perc_correct: 0.0
+perc_correct_in_test: 0.0
 num_datapoints_in_train: 39
 <<<<<<<< CORRECT >>>>>>>>
    }
@@ -16,7 +16,7 @@ num_datapoints_in_train: 39
           public Properties(IEnumerable<Property> collection) : base(collection) { }
       }
   }
-<<<<<<<< INNFERRED >>>>>>>>
+<<<<<<<< INFERRED >>>>>>>>
    }
   
       [CollectionDataContract(ItemName = "Property")]

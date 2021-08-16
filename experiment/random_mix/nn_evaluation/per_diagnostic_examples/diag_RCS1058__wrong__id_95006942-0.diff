@@ -1,6 +1,6 @@
 id: 95006942-0
 diagnostic: RCS1058
-perc_correct: 0.0
+perc_correct_in_test: 0.0
 num_datapoints_in_train: 2
 <<<<<<<< CORRECT >>>>>>>>
   , string outputPath, string configFile)
@@ -13,7 +13,7 @@ num_datapoints_in_train: 2
 +             url ??= "/signalr";
   
               var assemblies = Directory.GetFiles(
-<<<<<<<< INNFERRED >>>>>>>>
+<<<<<<<< INFERRED >>>>>>>>
   , string outputPath, string configFile)
           {
 +                     if (file is null)

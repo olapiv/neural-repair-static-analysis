@@ -1,6 +1,6 @@
 id: 36863246-1
 diagnostic: JA101
-perc_correct: 0.04918032786885246
+perc_correct_in_test: 0.04918032786885246
 num_datapoints_in_train: 157
 <<<<<<<< CORRECT >>>>>>>>
   {
@@ -12,7 +12,7 @@ num_datapoints_in_train: 157
                       operating_system = OS.Ubuntu;
   
     
-<<<<<<<< INNFERRED >>>>>>>>
+<<<<<<<< INFERRED >>>>>>>>
   {
                       operating_system = OS.macOS;
   

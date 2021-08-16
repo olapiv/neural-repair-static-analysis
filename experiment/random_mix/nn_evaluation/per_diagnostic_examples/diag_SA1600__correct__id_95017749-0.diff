@@ -1,6 +1,6 @@
 id: 95017749-0
 diagnostic: SA1600
-perc_correct: 0.75
+perc_correct_in_test: 0.75
 num_datapoints_in_train: 3
 <<<<<<<< CORRECTLY INFERRED >>>>>>>>
    class MyDefault : System.Web.UI.Page

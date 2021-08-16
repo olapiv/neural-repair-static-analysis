@@ -1,6 +1,6 @@
 id: 10186834-0
 diagnostic: SA1633
-perc_correct: 0.7777777777777778
+perc_correct_in_test: 0.7777777777777778
 num_datapoints_in_train: 30
 <<<<<<<< CORRECT >>>>>>>>
 + // <copyright file="Server.cs" company="PlaceholderCompany">
@@ -19,7 +19,7 @@ num_datapoints_in_train: 30
           /// <inheritdoc/>
           [JsonPropertyName("server")]
       
-<<<<<<<< INNFERRED >>>>>>>>
+<<<<<<<< INFERRED >>>>>>>>
 <<<< DIAGNOSTIC: the file header is missing or not located at the top of the file. >>>>
   using System;
   using System.Collections.Generic;

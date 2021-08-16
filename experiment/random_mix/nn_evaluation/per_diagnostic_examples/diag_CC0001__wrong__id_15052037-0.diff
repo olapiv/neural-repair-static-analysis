@@ -1,6 +1,6 @@
 id: 15052037-0
 diagnostic: CC0001
-perc_correct: 0.125
+perc_correct_in_test: 0.125
 num_datapoints_in_train: 106
 <<<<<<<< CORRECT >>>>>>>>
   - 1; i >= 0; i--)
@@ -9,7 +9,7 @@ num_datapoints_in_train: 106
 -                     string key = fieldNames[i];
 +                     var key = fieldNames[i];
                       if (key != null) fieldNameLookup[key]
-<<<<<<<< INNFERRED >>>>>>>>
+<<<<<<<< INFERRED >>>>>>>>
   - 1; i >= 0; i--)
                   {
 <<<< DIAGNOSTIC: use 'var' instead of specifying the type name. >>>>

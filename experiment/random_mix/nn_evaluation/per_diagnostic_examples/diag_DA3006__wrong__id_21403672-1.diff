@@ -1,6 +1,6 @@
 id: 21403672-1
 diagnostic: DA3006
-perc_correct: 0.625
+perc_correct_in_test: 0.625
 num_datapoints_in_train: 33
 <<<<<<<< CORRECT >>>>>>>>
   , CancellationToken token=default);
@@ -14,7 +14,7 @@ num_datapoints_in_train: 33
 +         Task RemoveAllAsync(CancellationToken token = default);
       }
   }
-<<<<<<<< INNFERRED >>>>>>>>
+<<<<<<<< INFERRED >>>>>>>>
   , CancellationToken token=default);
   
           /// <summary>

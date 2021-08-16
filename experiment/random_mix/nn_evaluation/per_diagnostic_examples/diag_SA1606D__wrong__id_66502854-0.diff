@@ -1,6 +1,6 @@
 id: 66502854-0
 diagnostic: SA1606D
-perc_correct: 0.14084507042253522
+perc_correct_in_test: 0.14084507042253522
 num_datapoints_in_train: 156
 <<<<<<<< CORRECT >>>>>>>>
   using DbLinq.Data.Linq.Mapping;
@@ -17,7 +17,7 @@ num_datapoints_in_train: 156
       {
           /// <summary>
           /// Returns a Expression reading a 
-<<<<<<<< INNFERRED >>>>>>>>
+<<<<<<<< INFERRED >>>>>>>>
   using DbLinq.Data.Linq.Mapping;
   using DbLinq.Data.Linq.Sugar;
   using DbLinq.Util;

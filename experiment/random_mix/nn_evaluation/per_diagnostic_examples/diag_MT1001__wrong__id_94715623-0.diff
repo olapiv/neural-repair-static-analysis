@@ -1,6 +1,6 @@
 id: 94715623-0
 diagnostic: MT1001
-perc_correct: 0.3333333333333333
+perc_correct_in_test: 0.3333333333333333
 num_datapoints_in_train: 3
 <<<<<<<< CORRECT >>>>>>>>
   .Web.UI;
@@ -18,7 +18,7 @@ num_datapoints_in_train: 3
   		protected override void OnInit (EventArgs e)
   		{
   			Debug.WriteLine ("parent.OnInit"
-<<<<<<<< INNFERRED >>>>>>>>
+<<<<<<<< INFERRED >>>>>>>>
   .Web.UI;
   using System.Web.UI.WebControls;
   using System.Web.UI.HtmlControls;

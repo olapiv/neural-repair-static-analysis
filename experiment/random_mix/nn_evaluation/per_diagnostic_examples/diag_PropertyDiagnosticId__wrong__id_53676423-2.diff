@@ -1,6 +1,6 @@
 id: 53676423-2
 diagnostic: PropertyDiagnosticId
-perc_correct: 0.6666666666666666
+perc_correct_in_test: 0.6666666666666666
 num_datapoints_in_train: 7
 <<<<<<<< CORRECT >>>>>>>>
   
@@ -12,7 +12,7 @@ num_datapoints_in_train: 7
   
           /// <inheritdoc/>
           [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-<<<<<<<< INNFERRED >>>>>>>>
+<<<<<<<< INFERRED >>>>>>>>
   
           /// <inheritdoc/>
           [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]

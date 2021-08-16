@@ -1,6 +1,6 @@
 id: 27026362-0
 diagnostic: WTG1004
-perc_correct: 0.0
+perc_correct_in_test: 0.0
 num_datapoints_in_train: 4
 <<<<<<<< CORRECT >>>>>>>>
   
@@ -20,7 +20,7 @@ num_datapoints_in_train: 4
 + 		public double B { get; }
   
           public 
-<<<<<<<< INNFERRED >>>>>>>>
+<<<<<<<< INFERRED >>>>>>>>
   
   
   namespace MaterialDesignColors.ColorManipulation

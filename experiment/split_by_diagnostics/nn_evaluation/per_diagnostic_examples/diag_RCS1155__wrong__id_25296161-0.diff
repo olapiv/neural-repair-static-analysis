@@ -1,6 +1,6 @@
 id: 25296161-0
 diagnostic: RCS1155
-perc_correct: 0.0
+perc_correct_in_test: 0.0
 num_datapoints_in_train: 0
 <<<<<<<< CORRECT >>>>>>>>
   types =
@@ -9,7 +9,7 @@ num_datapoints_in_train: 0
 -                 where type.Name.ToLowerInvariant() == vendorClassToLoad.ToLowerInvariant() &&
 +                 where string.Equals(type.Name, vendorClassToLoad, StringComparison.InvariantCultureIgnoreCase) &&
                       type.GetInterfaces().Contains(typeof(IVendor)
-<<<<<<<< INNFERRED >>>>>>>>
+<<<<<<<< INFERRED >>>>>>>>
   types =
                   from type in assy.GetTypes()
 <<<< DIAGNOSTIC: use stringcomparison when comparing strings. >>>>

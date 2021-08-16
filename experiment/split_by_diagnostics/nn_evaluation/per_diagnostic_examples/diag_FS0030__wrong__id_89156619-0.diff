@@ -1,6 +1,6 @@
 id: 89156619-0
 diagnostic: FS0030
-perc_correct: 0.6666666666666666
+perc_correct_in_test: 0.6666666666666666
 num_datapoints_in_train: 0
 <<<<<<<< CORRECT >>>>>>>>
   ,
@@ -11,7 +11,7 @@ num_datapoints_in_train: 0
               int randomValue = random.Next(0, 100);
   
          
-<<<<<<<< INNFERRED >>>>>>>>
+<<<<<<<< INFERRED >>>>>>>>
   ,
               // which will have a probability of 10/100 == 10%.
 <<<< DIAGNOSTIC: this variable can be made const. >>>>

@@ -1,6 +1,6 @@
 id: 65771407-3
 diagnostic: CA1801
-perc_correct: 0.3333333333333333
+perc_correct_in_test: 0.3333333333333333
 num_datapoints_in_train: 13
 <<<<<<<< CORRECT >>>>>>>>
   		Reader.MoveToContent();
@@ -18,7 +18,7 @@ num_datapoints_in_train: 13
   		{
   			Reader.ReadStartElement ();
   			DbLinq.Schema.Dbml.MemberModifier res = GetEnumValue_MemberModifier (Reader.ReadString()
-<<<<<<<< INNFERRED >>>>>>>>
+<<<<<<<< INFERRED >>>>>>>>
   		Reader.MoveToContent();
   			}
   

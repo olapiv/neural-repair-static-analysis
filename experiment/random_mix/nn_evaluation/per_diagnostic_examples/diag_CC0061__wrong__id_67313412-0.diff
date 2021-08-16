@@ -1,6 +1,6 @@
 id: 67313412-0
 diagnostic: CC0061
-perc_correct: 0.6666666666666666
+perc_correct_in_test: 0.6666666666666666
 num_datapoints_in_train: 5
 <<<<<<<< CORRECT >>>>>>>>
   /> instance or <see langword="null" />
@@ -10,7 +10,7 @@ num_datapoints_in_train: 5
 +         public async Task<Response> InvokeAsync(NancyContext context, CancellationToken cancellationToken)
           {
               foreach (var pipelineDelegate in this.PipelineDelegates)
-<<<<<<<< INNFERRED >>>>>>>>
+<<<<<<<< INFERRED >>>>>>>>
   /> instance or <see langword="null" />
           /// </returns>
 <<<< DIAGNOSTIC: change method name to invokeasync >>>>

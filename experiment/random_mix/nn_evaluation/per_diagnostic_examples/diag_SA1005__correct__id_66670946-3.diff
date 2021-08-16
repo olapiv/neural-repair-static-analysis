@@ -1,6 +1,6 @@
 id: 66670946-3
 diagnostic: SA1005
-perc_correct: 0.42857142857142855
+perc_correct_in_test: 0.42857142857142855
 num_datapoints_in_train: 17
 <<<<<<<< CORRECTLY INFERRED >>>>>>>>
   = strRest.Substring(endIndex);

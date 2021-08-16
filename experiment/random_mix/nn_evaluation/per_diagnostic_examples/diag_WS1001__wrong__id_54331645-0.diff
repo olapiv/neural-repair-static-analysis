@@ -1,6 +1,6 @@
 id: 54331645-0
 diagnostic: WS1001
-perc_correct: 0.98
+perc_correct_in_test: 0.98
 num_datapoints_in_train: 176
 <<<<<<<< CORRECT >>>>>>>>
   BelongToAttribute : AttributeBase
@@ -14,7 +14,7 @@ num_datapoints_in_train: 176
       }
   }
 + 
-<<<<<<<< INNFERRED >>>>>>>>
+<<<<<<<< INFERRED >>>>>>>>
   BelongToAttribute : AttributeBase
       {
           public Type BelongToTableType { get; set; }

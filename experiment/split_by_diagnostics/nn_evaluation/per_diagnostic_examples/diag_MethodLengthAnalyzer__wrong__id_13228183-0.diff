@@ -1,6 +1,6 @@
 id: 13228183-0
 diagnostic: MethodLengthAnalyzer
-perc_correct: 0.0
+perc_correct_in_test: 0.0
 num_datapoints_in_train: 0
 <<<<<<<< CORRECT >>>>>>>>
   object Value;
@@ -11,7 +11,7 @@ num_datapoints_in_train: 0
           private static object MapDynamic(StringDictionary source, object boxedDestination, Type destinationType, ResolutionContext context, ProfileMap profileMap)
           {
               boxedDestination ?
-<<<<<<<< INNFERRED >>>>>>>>
+<<<<<<<< INFERRED >>>>>>>>
   object Value;
               public int Count;
           }

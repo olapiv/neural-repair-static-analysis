@@ -1,6 +1,6 @@
 id: 9387697-1
 diagnostic: AvoidVar
-perc_correct: 0.5135135135135135
+perc_correct_in_test: 0.5135135135135135
 num_datapoints_in_train: 224
 <<<<<<<< CORRECTLY INFERRED >>>>>>>>
   /param>

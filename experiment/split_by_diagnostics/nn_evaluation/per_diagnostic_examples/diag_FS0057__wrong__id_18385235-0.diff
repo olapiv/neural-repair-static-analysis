@@ -1,6 +1,6 @@
 id: 18385235-0
 diagnostic: FS0057
-perc_correct: 0.16666666666666666
+perc_correct_in_test: 0.16666666666666666
 num_datapoints_in_train: 0
 <<<<<<<< CORRECT >>>>>>>>
          Context.RegisterUpdate(entity);
@@ -14,7 +14,7 @@ num_datapoints_in_train: 0
           {
               throw new NotImplementedException();
          
-<<<<<<<< INNFERRED >>>>>>>>
+<<<<<<<< INFERRED >>>>>>>>
          Context.RegisterUpdate(entity);
           }
   

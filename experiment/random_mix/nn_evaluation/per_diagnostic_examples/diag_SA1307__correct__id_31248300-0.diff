@@ -1,6 +1,6 @@
 id: 31248300-0
 diagnostic: SA1307
-perc_correct: 0.3333333333333333
+perc_correct_in_test: 0.3333333333333333
 num_datapoints_in_train: 6
 <<<<<<<< CORRECTLY INFERRED >>>>>>>>
    double WhitePointY = 1;

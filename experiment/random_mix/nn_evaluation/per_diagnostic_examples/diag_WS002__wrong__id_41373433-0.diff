@@ -1,6 +1,6 @@
 id: 41373433-0
 diagnostic: WS002
-perc_correct: 0.0
+perc_correct_in_test: 0.0
 num_datapoints_in_train: 1
 <<<<<<<< CORRECT >>>>>>>>
   }
@@ -15,7 +15,7 @@ num_datapoints_in_train: 1
       }
 <<<< DIAGNOSTIC: file does not end with a newline >>>>
   }
-<<<<<<<< INNFERRED >>>>>>>>
+<<<<<<<< INFERRED >>>>>>>>
   }
   
           public string Name { get; }

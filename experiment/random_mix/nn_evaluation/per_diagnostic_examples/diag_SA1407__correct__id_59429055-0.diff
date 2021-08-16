@@ -1,6 +1,6 @@
 id: 59429055-0
 diagnostic: SA1407
-perc_correct: 1.0
+perc_correct_in_test: 1.0
 num_datapoints_in_train: 24
 <<<<<<<< CORRECTLY INFERRED >>>>>>>>
    * (1 - s);

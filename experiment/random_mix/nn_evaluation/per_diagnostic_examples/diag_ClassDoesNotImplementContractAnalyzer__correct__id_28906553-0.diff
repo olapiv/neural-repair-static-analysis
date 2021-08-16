@@ -1,6 +1,6 @@
 id: 28906553-0
 diagnostic: ClassDoesNotImplementContractAnalyzer
-perc_correct: 0.6
+perc_correct_in_test: 0.6
 num_datapoints_in_train: 21
 <<<<<<<< CORRECTLY INFERRED >>>>>>>>
   using System.Collections.Generic;

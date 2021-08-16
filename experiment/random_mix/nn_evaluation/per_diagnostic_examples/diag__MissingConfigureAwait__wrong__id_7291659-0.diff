@@ -1,6 +1,6 @@
 id: 7291659-0
 diagnostic: _MissingConfigureAwait
-perc_correct: 0.0
+perc_correct_in_test: 0.0
 num_datapoints_in_train: 0
 <<<<<<<< CORRECT >>>>>>>>
    {
@@ -11,7 +11,7 @@ num_datapoints_in_train: 0
               return result;
           }
      
-<<<<<<<< INNFERRED >>>>>>>>
+<<<<<<<< INFERRED >>>>>>>>
    {
               var result = ThrowDisposed<T>();
 <<<< DIAGNOSTIC: consider using .configureawait(false) on async method 'Yield'. >>>>

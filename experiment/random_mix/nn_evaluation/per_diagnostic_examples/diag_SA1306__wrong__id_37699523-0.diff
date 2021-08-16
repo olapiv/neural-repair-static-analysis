@@ -1,6 +1,6 @@
 id: 37699523-0
 diagnostic: SA1306
-perc_correct: 0.0
+perc_correct_in_test: 0.0
 num_datapoints_in_train: 2
 <<<<<<<< CORRECT >>>>>>>>
   
@@ -11,7 +11,7 @@ num_datapoints_in_train: 2
 +         static int[] allocMB;
           static int budgetMB = 0;
           // These are subscript chars for 0-9
-<<<<<<<< INNFERRED >>>>>>>>
+<<<<<<<< INFERRED >>>>>>>>
   
   
           // This represents allocated MB on each heap; parse from the lines following [GC_alloc_mb]

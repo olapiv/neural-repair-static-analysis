@@ -1,6 +1,6 @@
 id: 28982241-1
 diagnostic: Y0001
-perc_correct: 0.0
+perc_correct_in_test: 0.0
 num_datapoints_in_train: 14
 <<<<<<<< CORRECT >>>>>>>>
   void CopyAll(string sourceDirectory, string targetDirectory)
@@ -14,7 +14,7 @@ num_datapoints_in_train: 14
   
               CopyAll(diSource, diTarget);
     
-<<<<<<<< INNFERRED >>>>>>>>
+<<<<<<<< INFERRED >>>>>>>>
   void CopyAll(string sourceDirectory, string targetDirectory)
           {
 <<<< DIAGNOSTIC: variable should use implicit type >>>>

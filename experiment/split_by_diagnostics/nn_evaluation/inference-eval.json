@@ -347,197 +347,197 @@
     "result_per_diagnostic": {
         "FM_Missing": {
             "num_datapoints_in_train": 0,
-            "perc_correct": 0.0,
+            "perc_correct_in_test": 0.0,
             "num_datapoints_in_test": 2
         },
         "AvoidVar": {
             "num_datapoints_in_train": 0,
-            "perc_correct": 0.5975609756097561,
+            "perc_correct_in_test": 0.5975609756097561,
             "num_datapoints_in_test": 328
         },
         "SA1513": {
             "num_datapoints_in_train": 0,
-            "perc_correct": 0.3617021276595745,
+            "perc_correct_in_test": 0.3617021276595745,
             "num_datapoints_in_test": 188
         },
         "DA4003": {
             "num_datapoints_in_train": 0,
-            "perc_correct": 0.5081967213114754,
+            "perc_correct_in_test": 0.5081967213114754,
             "num_datapoints_in_test": 61
         },
         "WS002": {
             "num_datapoints_in_train": 0,
-            "perc_correct": 0.8476190476190476,
+            "perc_correct_in_test": 0.8476190476190476,
             "num_datapoints_in_test": 105
         },
         "RS0100": {
             "num_datapoints_in_train": 0,
-            "perc_correct": 0.0,
+            "perc_correct_in_test": 0.0,
             "num_datapoints_in_test": 57
         },
         "RCS1212": {
             "num_datapoints_in_train": 0,
-            "perc_correct": 0.0,
+            "perc_correct_in_test": 0.0,
             "num_datapoints_in_test": 5
         },
         "FS0128": {
             "num_datapoints_in_train": 0,
-            "perc_correct": 0.6436781609195402,
+            "perc_correct_in_test": 0.6436781609195402,
             "num_datapoints_in_test": 348
         },
         "SA1137": {
             "num_datapoints_in_train": 0,
-            "perc_correct": 0.07692307692307693,
+            "perc_correct_in_test": 0.07692307692307693,
             "num_datapoints_in_test": 52
         },
         "MethodLengthAnalyzer": {
             "num_datapoints_in_train": 0,
-            "perc_correct": 0.0,
+            "perc_correct_in_test": 0.0,
             "num_datapoints_in_test": 67
         },
         "CS0002": {
             "num_datapoints_in_train": 0,
-            "perc_correct": 0.9473684210526315,
+            "perc_correct_in_test": 0.9473684210526315,
             "num_datapoints_in_test": 19
         },
         "SA1106": {
             "num_datapoints_in_train": 0,
-            "perc_correct": 0.05555555555555555,
+            "perc_correct_in_test": 0.05555555555555555,
             "num_datapoints_in_test": 18
         },
         "FS0030": {
             "num_datapoints_in_train": 0,
-            "perc_correct": 0.6666666666666666,
+            "perc_correct_in_test": 0.6666666666666666,
             "num_datapoints_in_test": 3
         },
         "PropertyDiagnosticId": {
             "num_datapoints_in_train": 0,
-            "perc_correct": 0.0,
+            "perc_correct_in_test": 0.0,
             "num_datapoints_in_test": 23
         },
         "RCS1218": {
             "num_datapoints_in_train": 0,
-            "perc_correct": 0.0,
+            "perc_correct_in_test": 0.0,
             "num_datapoints_in_test": 4
         },
         "PostIncrement": {
             "num_datapoints_in_train": 0,
-            "perc_correct": 0.0,
+            "perc_correct_in_test": 0.0,
             "num_datapoints_in_test": 49
         },
         "CH0003": {
             "num_datapoints_in_train": 0,
-            "perc_correct": 0.02857142857142857,
+            "perc_correct_in_test": 0.02857142857142857,
             "num_datapoints_in_test": 70
         },
         "SA1617": {
             "num_datapoints_in_train": 0,
-            "perc_correct": 0.0,
+            "perc_correct_in_test": 0.0,
             "num_datapoints_in_test": 5
         },
         "RCS1171": {
             "num_datapoints_in_train": 0,
-            "perc_correct": 0.0,
+            "perc_correct_in_test": 0.0,
             "num_datapoints_in_test": 7
         },
         "RCS1032": {
             "num_datapoints_in_train": 0,
-            "perc_correct": 0.3333333333333333,
+            "perc_correct_in_test": 0.3333333333333333,
             "num_datapoints_in_test": 15
         },
         "DS01": {
             "num_datapoints_in_train": 0,
-            "perc_correct": 0.0,
+            "perc_correct_in_test": 0.0,
             "num_datapoints_in_test": 6
         },
         "FS0057": {
             "num_datapoints_in_train": 0,
-            "perc_correct": 0.16666666666666666,
+            "perc_correct_in_test": 0.16666666666666666,
             "num_datapoints_in_test": 6
         },
         "VSD0033": {
             "num_datapoints_in_train": 0,
-            "perc_correct": 0.0,
+            "perc_correct_in_test": 0.0,
             "num_datapoints_in_test": 20
         },
         "SA1111": {
             "num_datapoints_in_train": 0,
-            "perc_correct": 0.2222222222222222,
+            "perc_correct_in_test": 0.2222222222222222,
             "num_datapoints_in_test": 18
         },
         "SA1519": {
             "num_datapoints_in_train": 0,
-            "perc_correct": 0.9411764705882353,
+            "perc_correct_in_test": 0.9411764705882353,
             "num_datapoints_in_test": 17
         },
         "SS002": {
             "num_datapoints_in_train": 0,
-            "perc_correct": 0.8571428571428571,
+            "perc_correct_in_test": 0.8571428571428571,
             "num_datapoints_in_test": 7
         },
         "OhNoPubImplicitCastForeach": {
             "num_datapoints_in_train": 0,
-            "perc_correct": 0.0,
+            "perc_correct_in_test": 0.0,
             "num_datapoints_in_test": 12
         },
         "RECS0033": {
             "num_datapoints_in_train": 0,
-            "perc_correct": 0.0,
+            "perc_correct_in_test": 0.0,
             "num_datapoints_in_test": 7
         },
         "RCS1127": {
             "num_datapoints_in_train": 0,
-            "perc_correct": 0.0,
+            "perc_correct_in_test": 0.0,
             "num_datapoints_in_test": 4
         },
         "CA1805": {
             "num_datapoints_in_train": 0,
-            "perc_correct": 0.25,
+            "perc_correct_in_test": 0.25,
             "num_datapoints_in_test": 12
         },
         "INTL0003": {
             "num_datapoints_in_train": 0,
-            "perc_correct": 0.125,
+            "perc_correct_in_test": 0.125,
             "num_datapoints_in_test": 8
         },
         "FS0131": {
             "num_datapoints_in_train": 0,
-            "perc_correct": 0.5,
+            "perc_correct_in_test": 0.5,
             "num_datapoints_in_test": 38
         },
         "CA1001": {
             "num_datapoints_in_train": 0,
-            "perc_correct": 0.0,
+            "perc_correct_in_test": 0.0,
             "num_datapoints_in_test": 3
         },
         "CC0011": {
             "num_datapoints_in_train": 0,
-            "perc_correct": 0.0,
+            "perc_correct_in_test": 0.0,
             "num_datapoints_in_test": 2
         },
         "RECS0004": {
             "num_datapoints_in_train": 0,
-            "perc_correct": 0.0,
+            "perc_correct_in_test": 0.0,
             "num_datapoints_in_test": 3
         },
         "ASYNC0002": {
             "num_datapoints_in_train": 0,
-            "perc_correct": 0.5,
+            "perc_correct_in_test": 0.5,
             "num_datapoints_in_test": 2
         },
         "RECS0015": {
             "num_datapoints_in_train": 0,
-            "perc_correct": 1.0,
+            "perc_correct_in_test": 1.0,
             "num_datapoints_in_test": 1
         },
         "RCS1155": {
             "num_datapoints_in_train": 0,
-            "perc_correct": 0.0,
+            "perc_correct_in_test": 0.0,
             "num_datapoints_in_test": 1
         },
         "DA3004": {
             "num_datapoints_in_train": 0,
-            "perc_correct": 0.0,
+            "perc_correct_in_test": 0.0,
             "num_datapoints_in_test": 1
         }
     }

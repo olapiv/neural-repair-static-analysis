@@ -1,6 +1,6 @@
 id: 91995982-0
 diagnostic: VarUsage
-perc_correct: 0.3888888888888889
+perc_correct_in_test: 0.3888888888888889
 num_datapoints_in_train: 106
 <<<<<<<< CORRECTLY INFERRED >>>>>>>>
    be consumed in the correct order, and each result can only be consumed once");

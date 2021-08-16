@@ -1,6 +1,6 @@
 id: 44558759-0
 diagnostic: DOC202
-perc_correct: 0.0
+perc_correct_in_test: 0.0
 num_datapoints_in_train: 4
 <<<<<<<< CORRECT >>>>>>>>
        ///  This instance will be shared by other invocations of 
@@ -9,7 +9,7 @@ num_datapoints_in_train: 4
 +         ///  <c>Get()</c> with the same <paramref name="interfaceType" /> value.
           /// </returns>
           object Get(
-<<<<<<<< INNFERRED >>>>>>>>
+<<<<<<<< INFERRED >>>>>>>>
        ///  This instance will be shared by other invocations of 
 <<<< DIAGNOSTIC: use section elements correctly >>>>
 -         ///  <c>Get()</c> with the same <param name="interfaceType" /> value.

@@ -1,6 +1,6 @@
 id: 67423032-1
 diagnostic: SA1027
-perc_correct: 0.0
+perc_correct_in_test: 0.0
 num_datapoints_in_train: 5
 <<<<<<<< CORRECT >>>>>>>>
    class MyDefault : System.Web.UI.Page
@@ -29,7 +29,7 @@ num_datapoints_in_train: 5
 +             base.OnInit (e);
 +         }
 +     }
-<<<<<<<< INNFERRED >>>>>>>>
+<<<<<<<< INFERRED >>>>>>>>
    class MyDefault : System.Web.UI.Page
   	{
   		protected void Page_Load (object sender, EventArgs e)

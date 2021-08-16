@@ -1,6 +1,6 @@
 id: 16018770-1
 diagnostic: RemoveRegions
-perc_correct: 0.967741935483871
+perc_correct_in_test: 0.967741935483871
 num_datapoints_in_train: 184
 <<<<<<<< CORRECTLY INFERRED >>>>>>>>
   , ARISING FROM,

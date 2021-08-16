@@ -1,6 +1,6 @@
 id: 85927854-0
 diagnostic: SA1200
-perc_correct: 0.7777777777777778
+perc_correct_in_test: 0.7777777777777778
 num_datapoints_in_train: 38
 <<<<<<<< CORRECT >>>>>>>>
   CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
@@ -22,7 +22,7 @@ num_datapoints_in_train: 38
   	static class ExtensionMethods
   	{
   		public static T FindAncestor<T>
-<<<<<<<< INNFERRED >>>>>>>>
+<<<<<<<< INFERRED >>>>>>>>
   CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
   // DEALINGS IN THE SOFTWARE.
   

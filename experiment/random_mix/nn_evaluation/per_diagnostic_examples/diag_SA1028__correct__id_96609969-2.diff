@@ -1,6 +1,6 @@
 id: 96609969-2
 diagnostic: SA1028
-perc_correct: 1.0
+perc_correct_in_test: 1.0
 num_datapoints_in_train: 16
 <<<<<<<< CORRECTLY INFERRED >>>>>>>>
   you may not use this file except in compliance with the License.

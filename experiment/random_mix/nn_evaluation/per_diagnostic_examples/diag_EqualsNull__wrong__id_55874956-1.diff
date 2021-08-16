@@ -1,6 +1,6 @@
 id: 55874956-1
 diagnostic: EqualsNull
-perc_correct: 0.0
+perc_correct_in_test: 0.0
 num_datapoints_in_train: 34
 <<<<<<<< CORRECT >>>>>>>>
   
@@ -14,7 +14,7 @@ num_datapoints_in_train: 34
   				if (includeRoot)
   					return SharpTreeNode.GetVisibleIndexForNode(node);
   				else
-<<<<<<<< INNFERRED >>>>>>>>
+<<<<<<<< INFERRED >>>>>>>>
   
   		public int IndexOf(object item)
   		{

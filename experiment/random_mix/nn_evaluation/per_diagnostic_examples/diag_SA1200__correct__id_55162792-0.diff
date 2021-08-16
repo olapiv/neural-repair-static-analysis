@@ -1,6 +1,6 @@
 id: 55162792-0
 diagnostic: SA1200
-perc_correct: 0.7777777777777778
+perc_correct_in_test: 0.7777777777777778
 num_datapoints_in_train: 38
 <<<<<<<< CORRECTLY INFERRED >>>>>>>>
 <<<< DIAGNOSTIC: using directive should appear within a namespace declaration >>>>

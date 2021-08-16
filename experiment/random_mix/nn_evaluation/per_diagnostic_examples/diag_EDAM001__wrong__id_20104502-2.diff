@@ -1,6 +1,6 @@
 id: 20104502-2
 diagnostic: EDAM001
-perc_correct: 0.08196721311475409
+perc_correct_in_test: 0.08196721311475409
 num_datapoints_in_train: 171
 <<<<<<<< CORRECT >>>>>>>>
   summary>
@@ -15,7 +15,7 @@ num_datapoints_in_train: 171
           public void Debug(object message, Exception exception)
   		{
   		}
-<<<<<<<< INNFERRED >>>>>>>>
+<<<<<<<< INFERRED >>>>>>>>
   summary>
           /// Logs the specified message.
           /// </summary>

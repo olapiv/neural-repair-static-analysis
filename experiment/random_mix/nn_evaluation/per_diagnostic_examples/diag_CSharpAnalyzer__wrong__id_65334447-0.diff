@@ -1,6 +1,6 @@
 id: 65334447-0
 diagnostic: CSharpAnalyzer
-perc_correct: 0.88
+perc_correct_in_test: 0.88
 num_datapoints_in_train: 74
 <<<<<<<< CORRECT >>>>>>>>
   /// <summary>
@@ -12,7 +12,7 @@ num_datapoints_in_train: 74
       {
           /// <summary>
           /// Attempt to create a BulkCopy 
-<<<<<<<< INNFERRED >>>>>>>>
+<<<<<<<< INFERRED >>>>>>>>
   /// <summary>
       /// Provides provider-agnostic access to bulk-copy services
       /// </summary>

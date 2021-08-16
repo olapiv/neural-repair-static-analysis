@@ -1,6 +1,6 @@
 id: 75605363-0
 diagnostic: AvNextRegexCodeFix
-perc_correct: 0.8235294117647058
+perc_correct_in_test: 0.8235294117647058
 num_datapoints_in_train: 76
 <<<<<<<< CORRECT >>>>>>>>
   {}
@@ -14,7 +14,7 @@ num_datapoints_in_train: 76
 -         public string Name { get; set; }
 - 
       
-<<<<<<<< INNFERRED >>>>>>>>
+<<<<<<<< INFERRED >>>>>>>>
   {}
   
           /// <summary>

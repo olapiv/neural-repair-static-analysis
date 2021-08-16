@@ -1,6 +1,6 @@
 id: 96576251-0
 diagnostic: FS0128
-perc_correct: 0.6436781609195402
+perc_correct_in_test: 0.6436781609195402
 num_datapoints_in_train: 0
 <<<<<<<< CORRECT >>>>>>>>
    public override int Serialize(Memory<byte> buffer)
@@ -14,7 +14,7 @@ num_datapoints_in_train: 0
   
               buffer.Span[0] = 1;
      
-<<<<<<<< INNFERRED >>>>>>>>
+<<<<<<<< INFERRED >>>>>>>>
    public override int Serialize(Memory<byte> buffer)
 +             {
           {

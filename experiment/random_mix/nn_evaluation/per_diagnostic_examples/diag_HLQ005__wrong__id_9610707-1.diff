@@ -1,6 +1,6 @@
 id: 9610707-1
 diagnostic: HLQ005
-perc_correct: 0.0
+perc_correct_in_test: 0.0
 num_datapoints_in_train: 9
 <<<<<<<< CORRECT >>>>>>>>
                   where t.IsEqualTo(tableExpression)
@@ -9,7 +9,7 @@ num_datapoints_in_train: 9
 +                                         select t).FirstOrDefault();
               if (foundTableExpression != null)
      
-<<<<<<<< INNFERRED >>>>>>>>
+<<<<<<<< INFERRED >>>>>>>>
                   where t.IsEqualTo(tableExpression)
 <<<< DIAGNOSTIC: avoid the use of 'SingleOrDefault'. use 'FirstOrDefault' instead. >>>>
 -                                         select t).SingleOrDefault();

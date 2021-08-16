@@ -1,6 +1,6 @@
 id: 5859020-0
 diagnostic: mmlajPublicFieldAnalyzer
-perc_correct: 0.6666666666666666
+perc_correct_in_test: 0.6666666666666666
 num_datapoints_in_train: 43
 <<<<<<<< CORRECT >>>>>>>>
       {
@@ -12,7 +12,7 @@ num_datapoints_in_train: 43
 +             private IDictionary<string, IDictionary<string, ColumnName>> ColumnsNames = new Dictionary<string, IDictionary<string, ColumnName>>();
   
        
-<<<<<<<< INNFERRED >>>>>>>>
+<<<<<<<< INFERRED >>>>>>>>
       {
 <<<< DIAGNOSTIC: declaration is public. (add static / replace it with private) (mmlaj) >>>>
 -             public IDictionary<string, TableName> TablesNames = new Dictionary<string, TableName>();

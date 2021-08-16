@@ -1,6 +1,6 @@
 id: 38048259-0
 diagnostic: CH0003
-perc_correct: 0.2222222222222222
+perc_correct_in_test: 0.2222222222222222
 num_datapoints_in_train: 21
 <<<<<<<< CORRECTLY INFERRED >>>>>>>>
   using System;

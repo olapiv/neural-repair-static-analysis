@@ -1,6 +1,6 @@
 id: 13502045-1
 diagnostic: Wintellect004
-perc_correct: 0.6567164179104478
+perc_correct_in_test: 0.6567164179104478
 num_datapoints_in_train: 179
 <<<<<<<< CORRECT >>>>>>>>
    public double A { get; }
@@ -14,7 +14,7 @@ num_datapoints_in_train: 179
           {
               L = l;
           
-<<<<<<<< INNFERRED >>>>>>>>
+<<<<<<<< INFERRED >>>>>>>>
    public double A { get; }
           public double B { get; }
   

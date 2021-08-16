@@ -1,6 +1,6 @@
 id: 65170026-3
 diagnostic: MEN009
-perc_correct: 0.4166666666666667
+perc_correct_in_test: 0.4166666666666667
 num_datapoints_in_train: 24
 <<<<<<<< CORRECTLY INFERRED >>>>>>>>
           [DbLinqToDo]

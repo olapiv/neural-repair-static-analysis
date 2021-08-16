@@ -1,6 +1,6 @@
 id: 27245302-2
 diagnostic: DA3001
-perc_correct: 0.5
+perc_correct_in_test: 0.5
 num_datapoints_in_train: 12
 <<<<<<<< CORRECTLY INFERRED >>>>>>>>
   sourceColumn, string destinationColumn)

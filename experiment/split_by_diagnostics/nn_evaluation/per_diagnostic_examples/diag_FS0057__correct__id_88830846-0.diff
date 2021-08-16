@@ -1,6 +1,6 @@
 id: 88830846-0
 diagnostic: FS0057
-perc_correct: 0.16666666666666666
+perc_correct_in_test: 0.16666666666666666
 num_datapoints_in_train: 0
 <<<<<<<< CORRECTLY INFERRED >>>>>>>>
   > these_keys, other_keys;

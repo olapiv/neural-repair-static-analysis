@@ -1,6 +1,6 @@
 id: 79502473-0
 diagnostic: SA1513
-perc_correct: 0.3617021276595745
+perc_correct_in_test: 0.3617021276595745
 num_datapoints_in_train: 0
 <<<<<<<< CORRECTLY INFERRED >>>>>>>>
    case ExpressionType.NewArrayInit:

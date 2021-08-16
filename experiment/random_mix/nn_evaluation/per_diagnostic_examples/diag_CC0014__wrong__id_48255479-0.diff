@@ -1,6 +1,6 @@
 id: 48255479-0
 diagnostic: CC0014
-perc_correct: 0.0
+perc_correct_in_test: 0.0
 num_datapoints_in_train: 4
 <<<<<<<< CORRECT >>>>>>>>
   Type defaultType;
@@ -11,7 +11,7 @@ num_datapoints_in_train: 4
 -             else
 -                 defaultType = null;
         
-<<<<<<<< INNFERRED >>>>>>>>
+<<<<<<<< INFERRED >>>>>>>>
   Type defaultType;
 <<<< DIAGNOSTIC: you can use a ternary operator. >>>>
 -             if (operands.Count > 0)

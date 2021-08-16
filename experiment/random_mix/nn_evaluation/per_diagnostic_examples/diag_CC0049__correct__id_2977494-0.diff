@@ -1,6 +1,6 @@
 id: 2977494-0
 diagnostic: CC0049
-perc_correct: 0.5
+perc_correct_in_test: 0.5
 num_datapoints_in_train: 3
 <<<<<<<< CORRECTLY INFERRED >>>>>>>>
    CanShowTo(RequestAttributes.InternalNetworkAccess);

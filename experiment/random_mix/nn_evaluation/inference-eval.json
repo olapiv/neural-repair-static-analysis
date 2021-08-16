@@ -446,1012 +446,1012 @@
     "result_per_diagnostic": {
         "WS1000": {
             "num_datapoints_in_train": 447,
-            "perc_correct": 0.9878048780487805,
+            "perc_correct_in_test": 0.9878048780487805,
             "num_datapoints_in_test": 164
         },
         "INTL0001": {
             "num_datapoints_in_train": 58,
-            "perc_correct": 0.045454545454545456,
+            "perc_correct_in_test": 0.045454545454545456,
             "num_datapoints_in_test": 22
         },
         "DA4002": {
             "num_datapoints_in_train": 98,
-            "perc_correct": 0.8571428571428571,
+            "perc_correct_in_test": 0.8571428571428571,
             "num_datapoints_in_test": 28
         },
         "VSD0033": {
             "num_datapoints_in_train": 2,
-            "perc_correct": 0.0,
+            "perc_correct_in_test": 0.0,
             "num_datapoints_in_test": 1
         },
         "SA1623D": {
             "num_datapoints_in_train": 316,
-            "perc_correct": 0.10112359550561797,
+            "perc_correct_in_test": 0.10112359550561797,
             "num_datapoints_in_test": 89
         },
         "Wintellect002": {
             "num_datapoints_in_train": 8,
-            "perc_correct": 0.0,
+            "perc_correct_in_test": 0.0,
             "num_datapoints_in_test": 1
         },
         "Wintellect012": {
             "num_datapoints_in_train": 103,
-            "perc_correct": 1.0,
+            "perc_correct_in_test": 1.0,
             "num_datapoints_in_test": 32
         },
         "SA1101": {
             "num_datapoints_in_train": 47,
-            "perc_correct": 0.7692307692307693,
+            "perc_correct_in_test": 0.7692307692307693,
             "num_datapoints_in_test": 13
         },
         "Comments_analyser": {
             "num_datapoints_in_train": 65,
-            "perc_correct": 0.09090909090909091,
+            "perc_correct_in_test": 0.09090909090909091,
             "num_datapoints_in_test": 22
         },
         "VarUsage": {
             "num_datapoints_in_train": 106,
-            "perc_correct": 0.3888888888888889,
+            "perc_correct_in_test": 0.3888888888888889,
             "num_datapoints_in_test": 36
         },
         "CC0065": {
             "num_datapoints_in_train": 560,
-            "perc_correct": 0.8810810810810811,
+            "perc_correct_in_test": 0.8810810810810811,
             "num_datapoints_in_test": 185
         },
         "AvNextRegularExpressionCodeFix": {
             "num_datapoints_in_train": 93,
-            "perc_correct": 0.6666666666666666,
+            "perc_correct_in_test": 0.6666666666666666,
             "num_datapoints_in_test": 18
         },
         "SA1516": {
             "num_datapoints_in_train": 135,
-            "perc_correct": 1.0,
+            "perc_correct_in_test": 1.0,
             "num_datapoints_in_test": 45
         },
         "ParameterWrapperAnalyzer": {
             "num_datapoints_in_train": 274,
-            "perc_correct": 0.010526315789473684,
+            "perc_correct_in_test": 0.010526315789473684,
             "num_datapoints_in_test": 95
         },
         "VarAnalyzer": {
             "num_datapoints_in_train": 19,
-            "perc_correct": 0.5,
+            "perc_correct_in_test": 0.5,
             "num_datapoints_in_test": 6
         },
         "GU0077": {
             "num_datapoints_in_train": 120,
-            "perc_correct": 0.24324324324324326,
+            "perc_correct_in_test": 0.24324324324324326,
             "num_datapoints_in_test": 37
         },
         "AvoidVar": {
             "num_datapoints_in_train": 224,
-            "perc_correct": 0.5135135135135135,
+            "perc_correct_in_test": 0.5135135135135135,
             "num_datapoints_in_test": 74
         },
         "CH0001": {
             "num_datapoints_in_train": 544,
-            "perc_correct": 0.6,
+            "perc_correct_in_test": 0.6,
             "num_datapoints_in_test": 170
         },
         "Nopen": {
             "num_datapoints_in_train": 146,
-            "perc_correct": 0.28846153846153844,
+            "perc_correct_in_test": 0.28846153846153844,
             "num_datapoints_in_test": 52
         },
         "CC0021": {
             "num_datapoints_in_train": 74,
-            "perc_correct": 0.1875,
+            "perc_correct_in_test": 0.1875,
             "num_datapoints_in_test": 32
         },
         "EDAM001": {
             "num_datapoints_in_train": 171,
-            "perc_correct": 0.08196721311475409,
+            "perc_correct_in_test": 0.08196721311475409,
             "num_datapoints_in_test": 61
         },
         "CC0105": {
             "num_datapoints_in_train": 68,
-            "perc_correct": 0.15384615384615385,
+            "perc_correct_in_test": 0.15384615384615385,
             "num_datapoints_in_test": 26
         },
         "USI0001": {
             "num_datapoints_in_train": 92,
-            "perc_correct": 0.8235294117647058,
+            "perc_correct_in_test": 0.8235294117647058,
             "num_datapoints_in_test": 34
         },
         "WS1001": {
             "num_datapoints_in_train": 176,
-            "perc_correct": 0.98,
+            "perc_correct_in_test": 0.98,
             "num_datapoints_in_test": 50
         },
         "DA3002": {
             "num_datapoints_in_train": 101,
-            "perc_correct": 0.7307692307692307,
+            "perc_correct_in_test": 0.7307692307692307,
             "num_datapoints_in_test": 26
         },
         "DA3006": {
             "num_datapoints_in_train": 33,
-            "perc_correct": 0.625,
+            "perc_correct_in_test": 0.625,
             "num_datapoints_in_test": 8
         },
         "CCN0031": {
             "num_datapoints_in_train": 61,
-            "perc_correct": 0.043478260869565216,
+            "perc_correct_in_test": 0.043478260869565216,
             "num_datapoints_in_test": 23
         },
         "RCS1058": {
             "num_datapoints_in_train": 2,
-            "perc_correct": 0.0,
+            "perc_correct_in_test": 0.0,
             "num_datapoints_in_test": 1
         },
         "CC0037": {
             "num_datapoints_in_train": 42,
-            "perc_correct": 0.6923076923076923,
+            "perc_correct_in_test": 0.6923076923076923,
             "num_datapoints_in_test": 13
         },
         "AvNextRegexCodeFix": {
             "num_datapoints_in_train": 76,
-            "perc_correct": 0.8235294117647058,
+            "perc_correct_in_test": 0.8235294117647058,
             "num_datapoints_in_test": 17
         },
         "CH0003": {
             "num_datapoints_in_train": 21,
-            "perc_correct": 0.2222222222222222,
+            "perc_correct_in_test": 0.2222222222222222,
             "num_datapoints_in_test": 9
         },
         "DA4001": {
             "num_datapoints_in_train": 208,
-            "perc_correct": 0.9452054794520548,
+            "perc_correct_in_test": 0.9452054794520548,
             "num_datapoints_in_test": 73
         },
         "SA1606D": {
             "num_datapoints_in_train": 156,
-            "perc_correct": 0.14084507042253522,
+            "perc_correct_in_test": 0.14084507042253522,
             "num_datapoints_in_test": 71
         },
         "Y0001": {
             "num_datapoints_in_train": 14,
-            "perc_correct": 0.0,
+            "perc_correct_in_test": 0.0,
             "num_datapoints_in_test": 5
         },
         "CC0023": {
             "num_datapoints_in_train": 45,
-            "perc_correct": 0.13636363636363635,
+            "perc_correct_in_test": 0.13636363636363635,
             "num_datapoints_in_test": 22
         },
         "CA1801": {
             "num_datapoints_in_train": 13,
-            "perc_correct": 0.3333333333333333,
+            "perc_correct_in_test": 0.3333333333333333,
             "num_datapoints_in_test": 3
         },
         "JA101": {
             "num_datapoints_in_train": 157,
-            "perc_correct": 0.04918032786885246,
+            "perc_correct_in_test": 0.04918032786885246,
             "num_datapoints_in_test": 61
         },
         "SA1407": {
             "num_datapoints_in_train": 24,
-            "perc_correct": 1.0,
+            "perc_correct_in_test": 1.0,
             "num_datapoints_in_test": 5
         },
         "RemoveRegions": {
             "num_datapoints_in_train": 184,
-            "perc_correct": 0.967741935483871,
+            "perc_correct_in_test": 0.967741935483871,
             "num_datapoints_in_test": 62
         },
         "CC0001": {
             "num_datapoints_in_train": 106,
-            "perc_correct": 0.125,
+            "perc_correct_in_test": 0.125,
             "num_datapoints_in_test": 32
         },
         "DA3007": {
             "num_datapoints_in_train": 396,
-            "perc_correct": 0.8592592592592593,
+            "perc_correct_in_test": 0.8592592592592593,
             "num_datapoints_in_test": 135
         },
         "NES003": {
             "num_datapoints_in_train": 10,
-            "perc_correct": 0.0,
+            "perc_correct_in_test": 0.0,
             "num_datapoints_in_test": 4
         },
         "GU0073": {
             "num_datapoints_in_train": 131,
-            "perc_correct": 0.13636363636363635,
+            "perc_correct_in_test": 0.13636363636363635,
             "num_datapoints_in_test": 44
         },
         "DOC101": {
             "num_datapoints_in_train": 3,
-            "perc_correct": 0.0,
+            "perc_correct_in_test": 0.0,
             "num_datapoints_in_test": 2
         },
         "DTA001": {
             "num_datapoints_in_train": 41,
-            "perc_correct": 0.7333333333333333,
+            "perc_correct_in_test": 0.7333333333333333,
             "num_datapoints_in_test": 15
         },
         "EqualsNull": {
             "num_datapoints_in_train": 34,
-            "perc_correct": 0.0,
+            "perc_correct_in_test": 0.0,
             "num_datapoints_in_test": 8
         },
         "ModifierAnalyzer": {
             "num_datapoints_in_train": 383,
-            "perc_correct": 0.6097560975609756,
+            "perc_correct_in_test": 0.6097560975609756,
             "num_datapoints_in_test": 123
         },
         "Wintellect003": {
             "num_datapoints_in_train": 62,
-            "perc_correct": 0.8214285714285714,
+            "perc_correct_in_test": 0.8214285714285714,
             "num_datapoints_in_test": 28
         },
         "MakeConst": {
             "num_datapoints_in_train": 3,
-            "perc_correct": 0.0,
+            "perc_correct_in_test": 0.0,
             "num_datapoints_in_test": 2
         },
         "EPS05": {
             "num_datapoints_in_train": 5,
-            "perc_correct": 0.0,
+            "perc_correct_in_test": 0.0,
             "num_datapoints_in_test": 7
         },
         "FS0128": {
             "num_datapoints_in_train": 27,
-            "perc_correct": 0.6666666666666666,
+            "perc_correct_in_test": 0.6666666666666666,
             "num_datapoints_in_test": 9
         },
         "AANA003": {
             "num_datapoints_in_train": 22,
-            "perc_correct": 0.14285714285714285,
+            "perc_correct_in_test": 0.14285714285714285,
             "num_datapoints_in_test": 7
         },
         "DateTimeOffsetInsteadOfDateTimeAnalyzer": {
             "num_datapoints_in_train": 83,
-            "perc_correct": 0.7916666666666666,
+            "perc_correct_in_test": 0.7916666666666666,
             "num_datapoints_in_test": 24
         },
         "SA1122": {
             "num_datapoints_in_train": 13,
-            "perc_correct": 1.0,
+            "perc_correct_in_test": 1.0,
             "num_datapoints_in_test": 3
         },
         "SA1005": {
             "num_datapoints_in_train": 17,
-            "perc_correct": 0.42857142857142855,
+            "perc_correct_in_test": 0.42857142857142855,
             "num_datapoints_in_test": 7
         },
         "CH0002": {
             "num_datapoints_in_train": 85,
-            "perc_correct": 0.7692307692307693,
+            "perc_correct_in_test": 0.7692307692307693,
             "num_datapoints_in_test": 26
         },
         "SA1600D": {
             "num_datapoints_in_train": 124,
-            "perc_correct": 0.04878048780487805,
+            "perc_correct_in_test": 0.04878048780487805,
             "num_datapoints_in_test": 41
         },
         "CSharpAnalyzer": {
             "num_datapoints_in_train": 74,
-            "perc_correct": 0.88,
+            "perc_correct_in_test": 0.88,
             "num_datapoints_in_test": 25
         },
         "mmlajPublicFieldAnalyzer": {
             "num_datapoints_in_train": 43,
-            "perc_correct": 0.6666666666666666,
+            "perc_correct_in_test": 0.6666666666666666,
             "num_datapoints_in_test": 9
         },
         "mmlajOnalbPublicFieldAnalyzer": {
             "num_datapoints_in_train": 75,
-            "perc_correct": 0.8620689655172413,
+            "perc_correct_in_test": 0.8620689655172413,
             "num_datapoints_in_test": 29
         },
         "AADE002": {
             "num_datapoints_in_train": 15,
-            "perc_correct": 0.0,
+            "perc_correct_in_test": 0.0,
             "num_datapoints_in_test": 3
         },
         "Wintellect004": {
             "num_datapoints_in_train": 179,
-            "perc_correct": 0.6567164179104478,
+            "perc_correct_in_test": 0.6567164179104478,
             "num_datapoints_in_test": 67
         },
         "SA1612D": {
             "num_datapoints_in_train": 258,
-            "perc_correct": 0.0641025641025641,
+            "perc_correct_in_test": 0.0641025641025641,
             "num_datapoints_in_test": 78
         },
         "MEN013": {
             "num_datapoints_in_train": 7,
-            "perc_correct": 0.8333333333333334,
+            "perc_correct_in_test": 0.8333333333333334,
             "num_datapoints_in_test": 6
         },
         "CC0048": {
             "num_datapoints_in_train": 23,
-            "perc_correct": 0.2,
+            "perc_correct_in_test": 0.2,
             "num_datapoints_in_test": 10
         },
         "RCS1123": {
             "num_datapoints_in_train": 14,
-            "perc_correct": 0.5,
+            "perc_correct_in_test": 0.5,
             "num_datapoints_in_test": 2
         },
         "SA1121": {
             "num_datapoints_in_train": 4,
-            "perc_correct": 0.5,
+            "perc_correct_in_test": 0.5,
             "num_datapoints_in_test": 2
         },
         "SA1633": {
             "num_datapoints_in_train": 30,
-            "perc_correct": 0.7777777777777778,
+            "perc_correct_in_test": 0.7777777777777778,
             "num_datapoints_in_test": 9
         },
         "SA1300": {
             "num_datapoints_in_train": 8,
-            "perc_correct": 0.6,
+            "perc_correct_in_test": 0.6,
             "num_datapoints_in_test": 5
         },
         "AT001": {
             "num_datapoints_in_train": 22,
-            "perc_correct": 0.0,
+            "perc_correct_in_test": 0.0,
             "num_datapoints_in_test": 9
         },
         "RECS0001": {
             "num_datapoints_in_train": 2,
-            "perc_correct": 1.0,
+            "perc_correct_in_test": 1.0,
             "num_datapoints_in_test": 1
         },
         "SA1120": {
             "num_datapoints_in_train": 3,
-            "perc_correct": 1.0,
+            "perc_correct_in_test": 1.0,
             "num_datapoints_in_test": 1
         },
         "SA1200": {
             "num_datapoints_in_train": 38,
-            "perc_correct": 0.7777777777777778,
+            "perc_correct_in_test": 0.7777777777777778,
             "num_datapoints_in_test": 18
         },
         "CA1805": {
             "num_datapoints_in_train": 3,
-            "perc_correct": 0.3333333333333333,
+            "perc_correct_in_test": 0.3333333333333333,
             "num_datapoints_in_test": 3
         },
         "Wintellect015": {
             "num_datapoints_in_train": 29,
-            "perc_correct": 0.8181818181818182,
+            "perc_correct_in_test": 0.8181818181818182,
             "num_datapoints_in_test": 11
         },
         "SA1210": {
             "num_datapoints_in_train": 2,
-            "perc_correct": 1.0,
+            "perc_correct_in_test": 1.0,
             "num_datapoints_in_test": 3
         },
         "ASA001": {
             "num_datapoints_in_train": 1,
-            "perc_correct": 1.0,
+            "perc_correct_in_test": 1.0,
             "num_datapoints_in_test": 2
         },
         "SA1642D": {
             "num_datapoints_in_train": 39,
-            "perc_correct": 0.0,
+            "perc_correct_in_test": 0.0,
             "num_datapoints_in_test": 17
         },
         "SA1515": {
             "num_datapoints_in_train": 4,
-            "perc_correct": 1.0,
+            "perc_correct_in_test": 1.0,
             "num_datapoints_in_test": 4
         },
         "DA3010": {
             "num_datapoints_in_train": 21,
-            "perc_correct": 0.5,
+            "perc_correct_in_test": 0.5,
             "num_datapoints_in_test": 6
         },
         "SA1615": {
             "num_datapoints_in_train": 0,
-            "perc_correct": 0.0,
+            "perc_correct_in_test": 0.0,
             "num_datapoints_in_test": 2
         },
         "FV0001": {
             "num_datapoints_in_train": 2,
-            "perc_correct": 0.0,
+            "perc_correct_in_test": 0.0,
             "num_datapoints_in_test": 1
         },
         "LowerChar": {
             "num_datapoints_in_train": 20,
-            "perc_correct": 1.0,
+            "perc_correct_in_test": 1.0,
             "num_datapoints_in_test": 8
         },
         "StoreCtorArg": {
             "num_datapoints_in_train": 13,
-            "perc_correct": 0.0,
+            "perc_correct_in_test": 0.0,
             "num_datapoints_in_test": 3
         },
         "ClassWithoutModifierAnalyzer": {
             "num_datapoints_in_train": 12,
-            "perc_correct": 0.8333333333333334,
+            "perc_correct_in_test": 0.8333333333333334,
             "num_datapoints_in_test": 6
         },
         "PropertyDiagnosticId": {
             "num_datapoints_in_train": 7,
-            "perc_correct": 0.6666666666666666,
+            "perc_correct_in_test": 0.6666666666666666,
             "num_datapoints_in_test": 3
         },
         "AvNextPropertyCodeFix": {
             "num_datapoints_in_train": 76,
-            "perc_correct": 0.7777777777777778,
+            "perc_correct_in_test": 0.7777777777777778,
             "num_datapoints_in_test": 27
         },
         "CC0014": {
             "num_datapoints_in_train": 4,
-            "perc_correct": 0.0,
+            "perc_correct_in_test": 0.0,
             "num_datapoints_in_test": 1
         },
         "RS0100": {
             "num_datapoints_in_train": 2,
-            "perc_correct": 0.0,
+            "perc_correct_in_test": 0.0,
             "num_datapoints_in_test": 4
         },
         "DateTimeToday": {
             "num_datapoints_in_train": 0,
-            "perc_correct": 0.0,
+            "perc_correct_in_test": 0.0,
             "num_datapoints_in_test": 1
         },
         "CC0091": {
             "num_datapoints_in_train": 30,
-            "perc_correct": 0.625,
+            "perc_correct_in_test": 0.625,
             "num_datapoints_in_test": 8
         },
         "SA1106": {
             "num_datapoints_in_train": 9,
-            "perc_correct": 0.5,
+            "perc_correct_in_test": 0.5,
             "num_datapoints_in_test": 2
         },
         "AnalyzerTestProj": {
             "num_datapoints_in_train": 7,
-            "perc_correct": 1.0,
+            "perc_correct_in_test": 1.0,
             "num_datapoints_in_test": 4
         },
         "CC0052": {
             "num_datapoints_in_train": 18,
-            "perc_correct": 0.2857142857142857,
+            "perc_correct_in_test": 0.2857142857142857,
             "num_datapoints_in_test": 7
         },
         "SA1629": {
             "num_datapoints_in_train": 3,
-            "perc_correct": 0.3333333333333333,
+            "perc_correct_in_test": 0.3333333333333333,
             "num_datapoints_in_test": 3
         },
         "CA1507": {
             "num_datapoints_in_train": 6,
-            "perc_correct": 1.0,
+            "perc_correct_in_test": 1.0,
             "num_datapoints_in_test": 3
         },
         "MT1001": {
             "num_datapoints_in_train": 3,
-            "perc_correct": 0.3333333333333333,
+            "perc_correct_in_test": 0.3333333333333333,
             "num_datapoints_in_test": 3
         },
         "DOC104": {
             "num_datapoints_in_train": 12,
-            "perc_correct": 0.75,
+            "perc_correct_in_test": 0.75,
             "num_datapoints_in_test": 4
         },
         "DA4006": {
             "num_datapoints_in_train": 13,
-            "perc_correct": 1.0,
+            "perc_correct_in_test": 1.0,
             "num_datapoints_in_test": 8
         },
         "SA1600": {
             "num_datapoints_in_train": 3,
-            "perc_correct": 0.75,
+            "perc_correct_in_test": 0.75,
             "num_datapoints_in_test": 4
         },
         "DA3001": {
             "num_datapoints_in_train": 12,
-            "perc_correct": 0.5,
+            "perc_correct_in_test": 0.5,
             "num_datapoints_in_test": 2
         },
         "CC0095": {
             "num_datapoints_in_train": 1,
-            "perc_correct": 0.3333333333333333,
+            "perc_correct_in_test": 0.3333333333333333,
             "num_datapoints_in_test": 3
         },
         "SA1313": {
             "num_datapoints_in_train": 4,
-            "perc_correct": 0.0,
+            "perc_correct_in_test": 0.0,
             "num_datapoints_in_test": 1
         },
         "CS0002": {
             "num_datapoints_in_train": 10,
-            "perc_correct": 1.0,
+            "perc_correct_in_test": 1.0,
             "num_datapoints_in_test": 2
         },
         "CA1822": {
             "num_datapoints_in_train": 52,
-            "perc_correct": 0.8666666666666667,
+            "perc_correct_in_test": 0.8666666666666667,
             "num_datapoints_in_test": 15
         },
         "TestAnalyzer": {
             "num_datapoints_in_train": 33,
-            "perc_correct": 0.7272727272727273,
+            "perc_correct_in_test": 0.7272727272727273,
             "num_datapoints_in_test": 11
         },
         "CLASS0001": {
             "num_datapoints_in_train": 31,
-            "perc_correct": 1.0,
+            "perc_correct_in_test": 1.0,
             "num_datapoints_in_test": 8
         },
         "FS0037": {
             "num_datapoints_in_train": 4,
-            "perc_correct": 1.0,
+            "perc_correct_in_test": 1.0,
             "num_datapoints_in_test": 1
         },
         "WTG1004": {
             "num_datapoints_in_train": 4,
-            "perc_correct": 0.0,
+            "perc_correct_in_test": 0.0,
             "num_datapoints_in_test": 1
         },
         "HLQ005": {
             "num_datapoints_in_train": 9,
-            "perc_correct": 0.0,
+            "perc_correct_in_test": 0.0,
             "num_datapoints_in_test": 3
         },
         "MEN009": {
             "num_datapoints_in_train": 24,
-            "perc_correct": 0.4166666666666667,
+            "perc_correct_in_test": 0.4166666666666667,
             "num_datapoints_in_test": 12
         },
         "RB002": {
             "num_datapoints_in_train": 5,
-            "perc_correct": 0.0,
+            "perc_correct_in_test": 0.0,
             "num_datapoints_in_test": 4
         },
         "SA1503": {
             "num_datapoints_in_train": 54,
-            "perc_correct": 0.75,
+            "perc_correct_in_test": 0.75,
             "num_datapoints_in_test": 8
         },
         "NoPrivateUnderscore": {
             "num_datapoints_in_train": 24,
-            "perc_correct": 0.0,
+            "perc_correct_in_test": 0.0,
             "num_datapoints_in_test": 5
         },
         "RB001": {
             "num_datapoints_in_train": 24,
-            "perc_correct": 0.5,
+            "perc_correct_in_test": 0.5,
             "num_datapoints_in_test": 4
         },
         "ClassDoesNotImplementContractAnalyzer": {
             "num_datapoints_in_train": 21,
-            "perc_correct": 0.6,
+            "perc_correct_in_test": 0.6,
             "num_datapoints_in_test": 5
         },
         "ClassNameUpperCaseAnalyzer": {
             "num_datapoints_in_train": 37,
-            "perc_correct": 1.0,
+            "perc_correct_in_test": 1.0,
             "num_datapoints_in_test": 12
         },
         "DA4004": {
             "num_datapoints_in_train": 16,
-            "perc_correct": 0.6666666666666666,
+            "perc_correct_in_test": 0.6666666666666666,
             "num_datapoints_in_test": 3
         },
         "AnalyzerFinal2": {
             "num_datapoints_in_train": 22,
-            "perc_correct": 1.0,
+            "perc_correct_in_test": 1.0,
             "num_datapoints_in_test": 10
         },
         "SA1100": {
             "num_datapoints_in_train": 0,
-            "perc_correct": 0.0,
+            "perc_correct_in_test": 0.0,
             "num_datapoints_in_test": 1
         },
         "CC0118": {
             "num_datapoints_in_train": 2,
-            "perc_correct": 0.0,
+            "perc_correct_in_test": 0.0,
             "num_datapoints_in_test": 3
         },
         "CC0004": {
             "num_datapoints_in_train": 2,
-            "perc_correct": 0.0,
+            "perc_correct_in_test": 0.0,
             "num_datapoints_in_test": 4
         },
         "RCS1018": {
             "num_datapoints_in_train": 3,
-            "perc_correct": 0.3333333333333333,
+            "perc_correct_in_test": 0.3333333333333333,
             "num_datapoints_in_test": 3
         },
         "SA1413": {
             "num_datapoints_in_train": 10,
-            "perc_correct": 0.0,
+            "perc_correct_in_test": 0.0,
             "num_datapoints_in_test": 3
         },
         "CC0030": {
             "num_datapoints_in_train": 5,
-            "perc_correct": 0.5,
+            "perc_correct_in_test": 0.5,
             "num_datapoints_in_test": 2
         },
         "DictionaryVariableFix": {
             "num_datapoints_in_train": 3,
-            "perc_correct": 0.0,
+            "perc_correct_in_test": 0.0,
             "num_datapoints_in_test": 1
         },
         "DA4005": {
             "num_datapoints_in_train": 15,
-            "perc_correct": 1.0,
+            "perc_correct_in_test": 1.0,
             "num_datapoints_in_test": 5
         },
         "ASYNC0001": {
             "num_datapoints_in_train": 5,
-            "perc_correct": 0.0,
+            "perc_correct_in_test": 0.0,
             "num_datapoints_in_test": 1
         },
         "SA1028": {
             "num_datapoints_in_train": 16,
-            "perc_correct": 1.0,
+            "perc_correct_in_test": 1.0,
             "num_datapoints_in_test": 6
         },
         "CC0022": {
             "num_datapoints_in_train": 1,
-            "perc_correct": 0.0,
+            "perc_correct_in_test": 0.0,
             "num_datapoints_in_test": 2
         },
         "CA2101": {
             "num_datapoints_in_train": 0,
-            "perc_correct": 0.0,
+            "perc_correct_in_test": 0.0,
             "num_datapoints_in_test": 1
         },
         "VSD0023": {
             "num_datapoints_in_train": 14,
-            "perc_correct": 0.25,
+            "perc_correct_in_test": 0.25,
             "num_datapoints_in_test": 4
         },
         "VSD0029": {
             "num_datapoints_in_train": 1,
-            "perc_correct": 0.0,
+            "perc_correct_in_test": 0.0,
             "num_datapoints_in_test": 2
         },
         "SA1306": {
             "num_datapoints_in_train": 2,
-            "perc_correct": 0.0,
+            "perc_correct_in_test": 0.0,
             "num_datapoints_in_test": 3
         },
         "DOC102": {
             "num_datapoints_in_train": 0,
-            "perc_correct": 0.0,
+            "perc_correct_in_test": 0.0,
             "num_datapoints_in_test": 1
         },
         "CC0061": {
             "num_datapoints_in_train": 5,
-            "perc_correct": 0.6666666666666666,
+            "perc_correct_in_test": 0.6666666666666666,
             "num_datapoints_in_test": 3
         },
         "SA1513": {
             "num_datapoints_in_train": 20,
-            "perc_correct": 1.0,
+            "perc_correct_in_test": 1.0,
             "num_datapoints_in_test": 5
         },
         "CC0015": {
             "num_datapoints_in_train": 4,
-            "perc_correct": 0.5,
+            "perc_correct_in_test": 0.5,
             "num_datapoints_in_test": 2
         },
         "FS0065": {
             "num_datapoints_in_train": 3,
-            "perc_correct": 1.0,
+            "perc_correct_in_test": 1.0,
             "num_datapoints_in_test": 2
         },
         "SA1008": {
             "num_datapoints_in_train": 14,
-            "perc_correct": 1.0,
+            "perc_correct_in_test": 1.0,
             "num_datapoints_in_test": 3
         },
         "OhNoPubImplicitCastForeach": {
             "num_datapoints_in_train": 2,
-            "perc_correct": 0.0,
+            "perc_correct_in_test": 0.0,
             "num_datapoints_in_test": 2
         },
         "Y0002": {
             "num_datapoints_in_train": 13,
-            "perc_correct": 0.5,
+            "perc_correct_in_test": 0.5,
             "num_datapoints_in_test": 4
         },
         "SA1400": {
             "num_datapoints_in_train": 6,
-            "perc_correct": 1.0,
+            "perc_correct_in_test": 1.0,
             "num_datapoints_in_test": 1
         },
         "RCS1247": {
             "num_datapoints_in_train": 0,
-            "perc_correct": 0.0,
+            "perc_correct_in_test": 0.0,
             "num_datapoints_in_test": 1
         },
         "FS0126": {
             "num_datapoints_in_train": 0,
-            "perc_correct": 0.0,
+            "perc_correct_in_test": 0.0,
             "num_datapoints_in_test": 1
         },
         "RCS1084": {
             "num_datapoints_in_train": 1,
-            "perc_correct": 1.0,
+            "perc_correct_in_test": 1.0,
             "num_datapoints_in_test": 1
         },
         "RB003": {
             "num_datapoints_in_train": 17,
-            "perc_correct": 0.5,
+            "perc_correct_in_test": 0.5,
             "num_datapoints_in_test": 4
         },
         "RCS1001": {
             "num_datapoints_in_train": 1,
-            "perc_correct": 1.0,
+            "perc_correct_in_test": 1.0,
             "num_datapoints_in_test": 1
         },
         "CC0049": {
             "num_datapoints_in_train": 3,
-            "perc_correct": 0.5,
+            "perc_correct_in_test": 0.5,
             "num_datapoints_in_test": 2
         },
         "RIT0008": {
             "num_datapoints_in_train": 6,
-            "perc_correct": 0.0,
+            "perc_correct_in_test": 0.0,
             "num_datapoints_in_test": 2
         },
         "Method_length_60": {
             "num_datapoints_in_train": 1,
-            "perc_correct": 1.0,
+            "perc_correct_in_test": 1.0,
             "num_datapoints_in_test": 3
         },
         "RCS1102": {
             "num_datapoints_in_train": 3,
-            "perc_correct": 0.0,
+            "perc_correct_in_test": 0.0,
             "num_datapoints_in_test": 1
         },
         "CC0057": {
             "num_datapoints_in_train": 10,
-            "perc_correct": 0.25,
+            "perc_correct_in_test": 0.25,
             "num_datapoints_in_test": 4
         },
         "ASA002": {
             "num_datapoints_in_train": 9,
-            "perc_correct": 1.0,
+            "perc_correct_in_test": 1.0,
             "num_datapoints_in_test": 2
         },
         "SA1027": {
             "num_datapoints_in_train": 5,
-            "perc_correct": 0.0,
+            "perc_correct_in_test": 0.0,
             "num_datapoints_in_test": 1
         },
         "VSTHRD200": {
             "num_datapoints_in_train": 10,
-            "perc_correct": 1.0,
+            "perc_correct_in_test": 1.0,
             "num_datapoints_in_test": 2
         },
         "Analyzer1": {
             "num_datapoints_in_train": 25,
-            "perc_correct": 1.0,
+            "perc_correct_in_test": 1.0,
             "num_datapoints_in_test": 8
         },
         "SA1303": {
             "num_datapoints_in_train": 0,
-            "perc_correct": 0.0,
+            "perc_correct_in_test": 0.0,
             "num_datapoints_in_test": 1
         },
         "CCN0011": {
             "num_datapoints_in_train": 3,
-            "perc_correct": 0.0,
+            "perc_correct_in_test": 0.0,
             "num_datapoints_in_test": 2
         },
         "VSD0048": {
             "num_datapoints_in_train": 1,
-            "perc_correct": 0.0,
+            "perc_correct_in_test": 0.0,
             "num_datapoints_in_test": 1
         },
         "DecimalPoints": {
             "num_datapoints_in_train": 6,
-            "perc_correct": 0.0,
+            "perc_correct_in_test": 0.0,
             "num_datapoints_in_test": 2
         },
         "CC0013": {
             "num_datapoints_in_train": 3,
-            "perc_correct": 0.5,
+            "perc_correct_in_test": 0.5,
             "num_datapoints_in_test": 2
         },
         "SA1311": {
             "num_datapoints_in_train": 1,
-            "perc_correct": 1.0,
+            "perc_correct_in_test": 1.0,
             "num_datapoints_in_test": 1
         },
         "SA1307": {
             "num_datapoints_in_train": 6,
-            "perc_correct": 0.3333333333333333,
+            "perc_correct_in_test": 0.3333333333333333,
             "num_datapoints_in_test": 3
         },
         "SA1123": {
             "num_datapoints_in_train": 1,
-            "perc_correct": 0.0,
+            "perc_correct_in_test": 0.0,
             "num_datapoints_in_test": 1
         },
         "CC0008": {
             "num_datapoints_in_train": 2,
-            "perc_correct": 0.0,
+            "perc_correct_in_test": 0.0,
             "num_datapoints_in_test": 3
         },
         "ODSUnusedCodeAnalyser": {
             "num_datapoints_in_train": 10,
-            "perc_correct": 1.0,
+            "perc_correct_in_test": 1.0,
             "num_datapoints_in_test": 2
         },
         "DOC100": {
             "num_datapoints_in_train": 20,
-            "perc_correct": 0.5,
+            "perc_correct_in_test": 0.5,
             "num_datapoints_in_test": 4
         },
         "INTL0003": {
             "num_datapoints_in_train": 4,
-            "perc_correct": 0.5,
+            "perc_correct_in_test": 0.5,
             "num_datapoints_in_test": 2
         },
         "RECS0002": {
             "num_datapoints_in_train": 0,
-            "perc_correct": 0.0,
+            "perc_correct_in_test": 0.0,
             "num_datapoints_in_test": 1
         },
         "CSE006": {
             "num_datapoints_in_train": 2,
-            "perc_correct": 0.0,
+            "perc_correct_in_test": 0.0,
             "num_datapoints_in_test": 1
         },
         "SA1119": {
             "num_datapoints_in_train": 8,
-            "perc_correct": 1.0,
+            "perc_correct_in_test": 1.0,
             "num_datapoints_in_test": 1
         },
         "RECS0033": {
             "num_datapoints_in_train": 1,
-            "perc_correct": 0.0,
+            "perc_correct_in_test": 0.0,
             "num_datapoints_in_test": 1
         },
         "DOC202": {
             "num_datapoints_in_train": 4,
-            "perc_correct": 0.0,
+            "perc_correct_in_test": 0.0,
             "num_datapoints_in_test": 1
         },
         "SA1116": {
             "num_datapoints_in_train": 8,
-            "perc_correct": 0.0,
+            "perc_correct_in_test": 0.0,
             "num_datapoints_in_test": 2
         },
         "SA1137": {
             "num_datapoints_in_train": 5,
-            "perc_correct": 1.0,
+            "perc_correct_in_test": 1.0,
             "num_datapoints_in_test": 1
         },
         "CA1028": {
             "num_datapoints_in_train": 3,
-            "perc_correct": 0.0,
+            "perc_correct_in_test": 0.0,
             "num_datapoints_in_test": 1
         },
         "RIT0004": {
             "num_datapoints_in_train": 2,
-            "perc_correct": 1.0,
+            "perc_correct_in_test": 1.0,
             "num_datapoints_in_test": 1
         },
         "DDTN0001": {
             "num_datapoints_in_train": 9,
-            "perc_correct": 1.0,
+            "perc_correct_in_test": 1.0,
             "num_datapoints_in_test": 1
         },
         "RECS0093": {
             "num_datapoints_in_train": 0,
-            "perc_correct": 0.0,
+            "perc_correct_in_test": 0.0,
             "num_datapoints_in_test": 1
         },
         "FS0127": {
             "num_datapoints_in_train": 2,
-            "perc_correct": 1.0,
+            "perc_correct_in_test": 1.0,
             "num_datapoints_in_test": 1
         },
         "Underscore": {
             "num_datapoints_in_train": 6,
-            "perc_correct": 0.0,
+            "perc_correct_in_test": 0.0,
             "num_datapoints_in_test": 2
         },
         "FirstAnalyzerCS": {
             "num_datapoints_in_train": 21,
-            "perc_correct": 1.0,
+            "perc_correct_in_test": 1.0,
             "num_datapoints_in_test": 3
         },
         "DOC203": {
             "num_datapoints_in_train": 1,
-            "perc_correct": 0.5,
+            "perc_correct_in_test": 0.5,
             "num_datapoints_in_test": 2
         },
         "RCS1015": {
             "num_datapoints_in_train": 4,
-            "perc_correct": 1.0,
+            "perc_correct_in_test": 1.0,
             "num_datapoints_in_test": 2
         },
         "RCS1080": {
             "num_datapoints_in_train": 0,
-            "perc_correct": 0.0,
+            "perc_correct_in_test": 0.0,
             "num_datapoints_in_test": 1
         },
         "DA3005": {
             "num_datapoints_in_train": 3,
-            "perc_correct": 1.0,
+            "perc_correct_in_test": 1.0,
             "num_datapoints_in_test": 1
         },
         "OphlanAnalyzersOrganizeMembers": {
             "num_datapoints_in_train": 1,
-            "perc_correct": 0.0,
+            "perc_correct_in_test": 0.0,
             "num_datapoints_in_test": 1
         },
         "SA1009": {
             "num_datapoints_in_train": 6,
-            "perc_correct": 1.0,
+            "perc_correct_in_test": 1.0,
             "num_datapoints_in_test": 1
         },
         "EPC12": {
             "num_datapoints_in_train": 3,
-            "perc_correct": 1.0,
+            "perc_correct_in_test": 1.0,
             "num_datapoints_in_test": 1
         },
         "FS0030": {
             "num_datapoints_in_train": 1,
-            "perc_correct": 0.0,
+            "perc_correct_in_test": 0.0,
             "num_datapoints_in_test": 1
         },
         "_SuperfluousAsync": {
             "num_datapoints_in_train": 8,
-            "perc_correct": 1.0,
+            "perc_correct_in_test": 1.0,
             "num_datapoints_in_test": 1
         },
         "AANA001": {
             "num_datapoints_in_train": 0,
-            "perc_correct": 1.0,
+            "perc_correct_in_test": 1.0,
             "num_datapoints_in_test": 1
         },
         "_MissingConfigureAwait": {
             "num_datapoints_in_train": 0,
-            "perc_correct": 0.0,
+            "perc_correct_in_test": 0.0,
             "num_datapoints_in_test": 1
         },
         "RCS1169": {
             "num_datapoints_in_train": 7,
-            "perc_correct": 0.5,
+            "perc_correct_in_test": 0.5,
             "num_datapoints_in_test": 2
         },
         "CC0060": {
             "num_datapoints_in_train": 0,
-            "perc_correct": 0.0,
+            "perc_correct_in_test": 0.0,
             "num_datapoints_in_test": 1
         },
         "DOC201": {
             "num_datapoints_in_train": 0,
-            "perc_correct": 0.0,
+            "perc_correct_in_test": 0.0,
             "num_datapoints_in_test": 1
         },
         "RCS1032": {
             "num_datapoints_in_train": 6,
-            "perc_correct": 1.0,
+            "perc_correct_in_test": 1.0,
             "num_datapoints_in_test": 1
         },
         "WS002": {
             "num_datapoints_in_train": 1,
-            "perc_correct": 0.0,
+            "perc_correct_in_test": 0.0,
             "num_datapoints_in_test": 1
         },
         "RCS1118": {
             "num_datapoints_in_train": 1,
-            "perc_correct": 1.0,
+            "perc_correct_in_test": 1.0,
             "num_datapoints_in_test": 1
         },
         "SA1003": {
             "num_datapoints_in_train": 4,
-            "perc_correct": 1.0,
+            "perc_correct_in_test": 1.0,
             "num_datapoints_in_test": 1
         },
         "SA1110": {
             "num_datapoints_in_train": 1,
-            "perc_correct": 1.0,
+            "perc_correct_in_test": 1.0,
             "num_datapoints_in_test": 1
         }
     }

@@ -1,6 +1,6 @@
 id: 50838114-2
 diagnostic: RCS1123
-perc_correct: 0.5
+perc_correct_in_test: 0.5
 num_datapoints_in_train: 14
 <<<<<<<< CORRECTLY INFERRED >>>>>>>>
          // Clear what we recorded for the last GC.

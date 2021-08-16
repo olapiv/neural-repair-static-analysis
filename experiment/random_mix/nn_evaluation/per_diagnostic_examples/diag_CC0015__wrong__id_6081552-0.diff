@@ -1,6 +1,6 @@
 id: 6081552-0
 diagnostic: CC0015
-perc_correct: 0.5
+perc_correct_in_test: 0.5
 num_datapoints_in_train: 4
 <<<<<<<< CORRECT >>>>>>>>
   = new AttributedAssociationMetaDataMember(memberInfo, association, this);
@@ -12,7 +12,7 @@ num_datapoints_in_train: 4
           }
   
           internal void SetMetaTable(
-<<<<<<<< INNFERRED >>>>>>>>
+<<<<<<<< INFERRED >>>>>>>>
   = new AttributedAssociationMetaDataMember(memberInfo, association, this);
   				AssociationsLookup[memberInfo] = dataMember;
 <<<< DIAGNOSTIC: remove unnecessary parenthesis. >>>>

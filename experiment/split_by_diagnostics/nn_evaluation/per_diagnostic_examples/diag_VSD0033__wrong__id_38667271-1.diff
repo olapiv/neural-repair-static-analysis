@@ -1,6 +1,6 @@
 id: 38667271-1
 diagnostic: VSD0033
-perc_correct: 0.0
+perc_correct_in_test: 0.0
 num_datapoints_in_train: 0
 <<<<<<<< CORRECT >>>>>>>>
   ;
@@ -12,7 +12,7 @@ num_datapoints_in_train: 0
 -         static Int32 totalAllocThreads = 0;
 +         static int totalAllocThreads = 0;
           static Dictionary<string, int> threadMapping = new Dictionary<string, int>
-<<<<<<<< INNFERRED >>>>>>>>
+<<<<<<<< INFERRED >>>>>>>>
   ;
           // we log the current qpc so substract by this.
 <<<< DIAGNOSTIC: use alias ulong instead of concrete type uint64. >>>>

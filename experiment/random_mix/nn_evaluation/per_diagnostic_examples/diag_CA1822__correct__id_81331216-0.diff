@@ -1,6 +1,6 @@
 id: 81331216-0
 diagnostic: CA1822
-perc_correct: 0.8666666666666667
+perc_correct_in_test: 0.8666666666666667
 num_datapoints_in_train: 52
 <<<<<<<< CORRECTLY INFERRED >>>>>>>>
   protected abstract void LoadConstraints(Database schema, SchemaName schemaName, IDbConnection conn, NameFormat nameFormat, Names names);

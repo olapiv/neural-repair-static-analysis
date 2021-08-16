@@ -1,6 +1,6 @@
 id: 69082190-0
 diagnostic: ModifierAnalyzer
-perc_correct: 0.6097560975609756
+perc_correct_in_test: 0.6097560975609756
 num_datapoints_in_train: 383
 <<<<<<<< CORRECT >>>>>>>>
   = table;
@@ -13,7 +13,7 @@ num_datapoints_in_train: 383
           {
               var param = command.CreateParameter();
     
-<<<<<<<< INNFERRED >>>>>>>>
+<<<<<<<< INFERRED >>>>>>>>
   = table;
               this.typeName = typeName;
           }

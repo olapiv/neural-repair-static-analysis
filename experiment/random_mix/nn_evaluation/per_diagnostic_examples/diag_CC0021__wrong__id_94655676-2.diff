@@ -1,6 +1,6 @@
 id: 94655676-2
 diagnostic: CC0021
-perc_correct: 0.1875
+perc_correct_in_test: 0.1875
 num_datapoints_in_train: 74
 <<<<<<<< CORRECT >>>>>>>>
       SyncStatusChanged (Status);
@@ -12,7 +12,7 @@ num_datapoints_in_train: 74
                   SyncDownBase ();
   
           
-<<<<<<<< INNFERRED >>>>>>>>
+<<<<<<<< INFERRED >>>>>>>>
       SyncStatusChanged (Status);
   
               } else {

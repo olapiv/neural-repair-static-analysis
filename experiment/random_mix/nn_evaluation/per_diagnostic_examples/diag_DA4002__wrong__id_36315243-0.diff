@@ -1,6 +1,6 @@
 id: 36315243-0
 diagnostic: DA4002
-perc_correct: 0.8571428571428571
+perc_correct_in_test: 0.8571428571428571
 num_datapoints_in_train: 98
 <<<<<<<< CORRECT >>>>>>>>
   using DbLinq.Data.Linq.Sql;
@@ -17,7 +17,7 @@ num_datapoints_in_train: 98
           protected class UpsertParameters
           {
               public 
-<<<<<<<< INNFERRED >>>>>>>>
+<<<<<<<< INFERRED >>>>>>>>
   using DbLinq.Data.Linq.Sql;
   using DbLinq.Data.Linq.Sugar.Expressions;
   using DbLinq.Util;

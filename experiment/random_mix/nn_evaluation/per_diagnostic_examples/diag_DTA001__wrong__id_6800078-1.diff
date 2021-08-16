@@ -1,6 +1,6 @@
 id: 6800078-1
 diagnostic: DTA001
-perc_correct: 0.7333333333333333
+perc_correct_in_test: 0.7333333333333333
 num_datapoints_in_train: 41
 <<<<<<<< CORRECT >>>>>>>>
   );
@@ -12,7 +12,7 @@ num_datapoints_in_train: 41
 +         bool CheckAndSet(string key, object value, ulong lastModifiedValue, DateTimeOffset expiresAt);
   
           IDictionary<string, object> GetAll(IEnumerable<string> keys, out IDictionary<string, 
-<<<<<<<< INNFERRED >>>>>>>>
+<<<<<<<< INFERRED >>>>>>>>
   );
   
           bool CheckAndSet(string key, object value, ulong lastModifiedValue);

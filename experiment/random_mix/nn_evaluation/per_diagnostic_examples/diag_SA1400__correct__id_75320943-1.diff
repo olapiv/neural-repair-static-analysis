@@ -1,6 +1,6 @@
 id: 75320943-1
 diagnostic: SA1400
-perc_correct: 1.0
+perc_correct_in_test: 1.0
 num_datapoints_in_train: 6
 <<<<<<<< CORRECTLY INFERRED >>>>>>>>
    = 0xf,

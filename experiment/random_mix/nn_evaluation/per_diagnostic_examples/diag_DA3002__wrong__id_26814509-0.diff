@@ -1,6 +1,6 @@
 id: 26814509-0
 diagnostic: DA3002
-perc_correct: 0.7307692307692307
+perc_correct_in_test: 0.7307692307692307
 num_datapoints_in_train: 101
 <<<<<<<< CORRECT >>>>>>>>
   
@@ -20,7 +20,7 @@ num_datapoints_in_train: 101
       {
   		//Seperator used for key lists
   		private static readonly char[] STRING_SEPERATOR =  new[] { 
-<<<<<<<< INNFERRED >>>>>>>>
+<<<<<<<< INFERRED >>>>>>>>
   
   using System.Linq;
   using System.Reflection;

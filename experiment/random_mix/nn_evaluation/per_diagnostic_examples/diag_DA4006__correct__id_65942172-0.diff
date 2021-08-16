@@ -1,6 +1,6 @@
 id: 65942172-0
 diagnostic: DA4006
-perc_correct: 1.0
+perc_correct_in_test: 1.0
 num_datapoints_in_train: 13
 <<<<<<<< CORRECTLY INFERRED >>>>>>>>
   / <summary>

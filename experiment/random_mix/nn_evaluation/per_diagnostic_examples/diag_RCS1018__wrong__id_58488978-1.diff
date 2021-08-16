@@ -1,6 +1,6 @@
 id: 58488978-1
 diagnostic: RCS1018
-perc_correct: 0.3333333333333333
+perc_correct_in_test: 0.3333333333333333
 num_datapoints_in_train: 3
 <<<<<<<< CORRECT >>>>>>>>
    = 0xf,
@@ -14,7 +14,7 @@ num_datapoints_in_train: 3
           // -1 means uninit.
           public int tid;
          
-<<<<<<<< INNFERRED >>>>>>>>
+<<<<<<<< INFERRED >>>>>>>>
    = 0xf,
           EnterDueToProc = 0xf0,
           SetIdeal = 0xf00,

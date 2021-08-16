@@ -1,6 +1,6 @@
 id: 50253599-1
 diagnostic: DA4003
-perc_correct: 0.5081967213114754
+perc_correct_in_test: 0.5081967213114754
 num_datapoints_in_train: 0
 <<<<<<<< CORRECT >>>>>>>>
           /// </param>
@@ -10,7 +10,7 @@ num_datapoints_in_train: 0
           public static bool TryParse(string url, [NotNullWhen(true)] out Server? server)
           {
         
-<<<<<<<< INNFERRED >>>>>>>>
+<<<<<<<< INFERRED >>>>>>>>
           /// </param>
 +         /// <param name="url"></param>
           /// <returns>True for success. False for failure.</returns>

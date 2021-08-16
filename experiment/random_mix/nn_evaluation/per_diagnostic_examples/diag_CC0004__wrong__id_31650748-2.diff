@@ -1,6 +1,6 @@
 id: 31650748-2
 diagnostic: CC0004
-perc_correct: 0.0
+perc_correct_in_test: 0.0
 num_datapoints_in_train: 2
 <<<<<<<< CORRECT >>>>>>>>
                  try { cmd.Cancel(); }
@@ -12,7 +12,7 @@ num_datapoints_in_train: 2
 +                         }
                       }
         
-<<<<<<<< INNFERRED >>>>>>>>
+<<<<<<<< INFERRED >>>>>>>>
                  try { cmd.Cancel(); }
 <<<< DIAGNOSTIC: empty catch block. >>>>
 -                         catch { /* don't spoil the existing exception */ }

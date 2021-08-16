@@ -1,6 +1,6 @@
 id: 87853861-2
 diagnostic: CCN0011
-perc_correct: 0.0
+perc_correct_in_test: 0.0
 num_datapoints_in_train: 3
 <<<<<<<< CORRECT >>>>>>>>
    { }
@@ -16,7 +16,7 @@ num_datapoints_in_train: 3
       public class ValidateEqualAttribute : ValidateAttribute
       {
        
-<<<<<<<< INNFERRED >>>>>>>>
+<<<<<<<< INFERRED >>>>>>>>
    { }
       }
       public class ValidateRegularExpressionAttribute : ValidateAttribute

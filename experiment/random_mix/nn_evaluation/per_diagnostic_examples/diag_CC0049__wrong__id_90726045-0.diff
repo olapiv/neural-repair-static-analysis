@@ -1,6 +1,6 @@
 id: 90726045-0
 diagnostic: CC0049
-perc_correct: 0.5
+perc_correct_in_test: 0.5
 num_datapoints_in_train: 3
 <<<<<<<< CORRECT >>>>>>>>
   "></param>
@@ -10,7 +10,7 @@ num_datapoints_in_train: 3
 -             if (this.objectTrackingEnabled == false)
 +             if (!this.objectTrackingEnabled)
                   throw new InvalidOperationException("Object tracking is not enabled for the current
-<<<<<<<< INNFERRED >>>>>>>>
+<<<<<<<< INFERRED >>>>>>>>
   "></param>
           public virtual void SubmitChanges(ConflictMode failureMode)
           {

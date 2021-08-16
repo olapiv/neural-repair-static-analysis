@@ -1,6 +1,6 @@
 id: 26542131-0
 diagnostic: Wintellect012
-perc_correct: 1.0
+perc_correct_in_test: 1.0
 num_datapoints_in_train: 103
 <<<<<<<< CORRECTLY INFERRED >>>>>>>>
   MaterialDesignColors

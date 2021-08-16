@@ -1,6 +1,6 @@
 id: 3086881-0
 diagnostic: ModifierAnalyzer
-perc_correct: 0.6097560975609756
+perc_correct_in_test: 0.6097560975609756
 num_datapoints_in_train: 383
 <<<<<<<< CORRECTLY INFERRED >>>>>>>>
   </param>

@@ -1,6 +1,6 @@
 id: 32025957-0
 diagnostic: CC0091
-perc_correct: 0.625
+perc_correct_in_test: 0.625
 num_datapoints_in_train: 30
 <<<<<<<< CORRECT >>>>>>>>
   expression among other eager-loading expressions");
@@ -13,7 +13,7 @@ num_datapoints_in_train: 30
           {
               var mt = member.GetMemberType();
         
-<<<<<<<< INNFERRED >>>>>>>>
+<<<<<<<< INFERRED >>>>>>>>
   expression among other eager-loading expressions");
               }
           }

@@ -1,6 +1,6 @@
 id: 65504238-0
 diagnostic: AvNextPropertyCodeFix
-perc_correct: 0.7777777777777778
+perc_correct_in_test: 0.7777777777777778
 num_datapoints_in_train: 76
 <<<<<<<< CORRECT >>>>>>>>
     {
@@ -13,7 +13,7 @@ num_datapoints_in_train: 76
           public bool Unique { get; set; }
   
           
-<<<<<<<< INNFERRED >>>>>>>>
+<<<<<<<< INFERRED >>>>>>>>
     {
               Unique = unique;
           }

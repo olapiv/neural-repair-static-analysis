@@ -1,6 +1,6 @@
 id: 34336072-0
 diagnostic: CH0003
-perc_correct: 0.2222222222222222
+perc_correct_in_test: 0.2222222222222222
 num_datapoints_in_train: 21
 <<<<<<<< CORRECT >>>>>>>>
   Collections.Generic;
@@ -18,7 +18,7 @@ num_datapoints_in_train: 21
   namespace DbLinq.Data.Linq.Sugar.Expressions
   {
       //
-<<<<<<<< INNFERRED >>>>>>>>
+<<<<<<<< INFERRED >>>>>>>>
   Collections.Generic;
   using System.Diagnostics;
   using System.Linq;

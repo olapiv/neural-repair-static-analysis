@@ -1,6 +1,6 @@
 id: 97670869-0
 diagnostic: SA1106
-perc_correct: 0.05555555555555555
+perc_correct_in_test: 0.05555555555555555
 num_datapoints_in_train: 0
 <<<<<<<< CORRECTLY INFERRED >>>>>>>>
       AuthenticationSchemes authenticationSchemes = AuthenticationSchemes.Anonymous

@@ -1,6 +1,6 @@
 id: 10123608-0
 diagnostic: SA1111
-perc_correct: 0.2222222222222222
+perc_correct_in_test: 0.2222222222222222
 num_datapoints_in_train: 0
 <<<<<<<< CORRECT >>>>>>>>
     Path.Combine(
@@ -12,7 +12,7 @@ num_datapoints_in_train: 0
 -             );
   
         
-<<<<<<<< INNFERRED >>>>>>>>
+<<<<<<<< INFERRED >>>>>>>>
     Path.Combine(
                       context.Request.Url.Segments.Select(s => s.Replace("/", "")).ToArray()
 <<<< DIAGNOSTIC: closing parenthesis should be on line of last parameter >>>>

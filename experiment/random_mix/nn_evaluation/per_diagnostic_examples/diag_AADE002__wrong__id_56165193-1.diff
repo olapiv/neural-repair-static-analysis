@@ -1,6 +1,6 @@
 id: 56165193-1
 diagnostic: AADE002
-perc_correct: 0.0
+perc_correct_in_test: 0.0
 num_datapoints_in_train: 15
 <<<<<<<< CORRECT >>>>>>>>
   ;
@@ -12,7 +12,7 @@ num_datapoints_in_train: 15
 +         private static async Task<T> QueryRowAsync<T>(this IDbConnection cnn, Row row, Type effectiveType, CommandDefinition command, CancellationToken cancellationToken)
           {
               object param =
-<<<<<<<< INNFERRED >>>>>>>>
+<<<<<<<< INFERRED >>>>>>>>
   ;
               }
           }

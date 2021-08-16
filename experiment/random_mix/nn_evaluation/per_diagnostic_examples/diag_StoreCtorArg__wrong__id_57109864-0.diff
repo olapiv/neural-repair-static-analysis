@@ -1,6 +1,6 @@
 id: 57109864-0
 diagnostic: StoreCtorArg
-perc_correct: 0.0
+perc_correct_in_test: 0.0
 num_datapoints_in_train: 13
 <<<<<<<< CORRECT >>>>>>>>
    <see cref="ServiceStack.Logging.DebugLogger"/> class.
@@ -14,7 +14,7 @@ num_datapoints_in_train: 13
   
           /// <summary>
           /// Initializes a new instance 
-<<<<<<<< INNFERRED >>>>>>>>
+<<<<<<<< INFERRED >>>>>>>>
    <see cref="ServiceStack.Logging.DebugLogger"/> class.
           /// </summary>
 <<<< DIAGNOSTIC: store constructor argument 'type' in a field >>>>

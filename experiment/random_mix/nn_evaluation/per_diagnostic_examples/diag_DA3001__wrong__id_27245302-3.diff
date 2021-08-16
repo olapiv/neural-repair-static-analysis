@@ -1,6 +1,6 @@
 id: 27245302-3
 diagnostic: DA3001
-perc_correct: 0.5
+perc_correct_in_test: 0.5
 num_datapoints_in_train: 12
 <<<<<<<< CORRECT >>>>>>>>
   (int sourceColumn, int destinationColumn)
@@ -14,7 +14,7 @@ num_datapoints_in_train: 12
           public override void WriteToServer(DataTable source)
               => _wrapped.WriteToServer(source);
           public override void WriteToServer(
-<<<<<<<< INNFERRED >>>>>>>>
+<<<<<<<< INFERRED >>>>>>>>
   (int sourceColumn, int destinationColumn)
               => _wrapped.ColumnMappings.Add(sourceColumn, destinationColumn);
 +         /// <summary> 

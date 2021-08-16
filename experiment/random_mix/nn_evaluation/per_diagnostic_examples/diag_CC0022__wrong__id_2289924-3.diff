@@ -1,6 +1,6 @@
 id: 2289924-3
 diagnostic: CC0022
-perc_correct: 0.0
+perc_correct_in_test: 0.0
 num_datapoints_in_train: 1
 <<<<<<<< CORRECT >>>>>>>>
          password = (password + salt).SHA256 ().Substring (0, 32);
@@ -11,7 +11,7 @@ num_datapoints_in_train: 1
 +             {
                   KeySize = 256,
               
-<<<<<<<< INNFERRED >>>>>>>>
+<<<<<<<< INFERRED >>>>>>>>
          password = (password + salt).SHA256 ().Substring (0, 32);
   
 <<<< DIAGNOSTIC: rijndaelmanaged should be disposed. >>>>

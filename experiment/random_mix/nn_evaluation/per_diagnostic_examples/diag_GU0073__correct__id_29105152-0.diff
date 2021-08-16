@@ -1,6 +1,6 @@
 id: 29105152-0
 diagnostic: GU0073
-perc_correct: 0.13636363636363635
+perc_correct_in_test: 0.13636363636363635
 num_datapoints_in_train: 131
 <<<<<<<< CORRECTLY INFERRED >>>>>>>>
    setValueMethod = typeof(DapperRow).GetMethod("SetValue", new Type[] { typeof(string), typeof(object) });

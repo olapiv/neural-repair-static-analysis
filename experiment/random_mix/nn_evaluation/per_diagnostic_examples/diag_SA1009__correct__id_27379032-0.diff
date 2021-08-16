@@ -1,6 +1,6 @@
 id: 27379032-0
 diagnostic: SA1009
-perc_correct: 1.0
+perc_correct_in_test: 1.0
 num_datapoints_in_train: 6
 <<<<<<<< CORRECTLY INFERRED >>>>>>>>
   e);

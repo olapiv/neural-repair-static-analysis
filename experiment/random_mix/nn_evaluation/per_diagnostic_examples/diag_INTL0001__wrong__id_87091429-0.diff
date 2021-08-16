@@ -1,6 +1,6 @@
 id: 87091429-0
 diagnostic: INTL0001
-perc_correct: 0.045454545454545456
+perc_correct_in_test: 0.045454545454545456
 num_datapoints_in_train: 58
 <<<<<<<< CORRECT >>>>>>>>
    SampleInfo
@@ -16,7 +16,7 @@ num_datapoints_in_train: 58
 -         public int countSamples;
 +         public int _CountSamples;
           // This is to present m/p/i - each 
-<<<<<<<< INNFERRED >>>>>>>>
+<<<<<<<< INFERRED >>>>>>>>
    SampleInfo
       {
           // -1 means uninit.

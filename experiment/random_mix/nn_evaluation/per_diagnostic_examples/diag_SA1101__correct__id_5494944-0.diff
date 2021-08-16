@@ -1,6 +1,6 @@
 id: 5494944-0
 diagnostic: SA1101
-perc_correct: 0.7692307692307693
+perc_correct_in_test: 0.7692307692307693
 num_datapoints_in_train: 47
 <<<<<<<< CORRECTLY INFERRED >>>>>>>>
   CyanA200, CyanA200 },

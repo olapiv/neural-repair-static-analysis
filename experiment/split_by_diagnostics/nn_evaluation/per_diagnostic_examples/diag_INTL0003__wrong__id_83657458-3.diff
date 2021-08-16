@@ -1,6 +1,6 @@
 id: 83657458-3
 diagnostic: INTL0003
-perc_correct: 0.125
+perc_correct_in_test: 0.125
 num_datapoints_in_train: 0
 <<<<<<<< CORRECT >>>>>>>>
      }
@@ -12,7 +12,7 @@ num_datapoints_in_train: 0
 +             double Lab_xyz(double d)
               {
                   if (d > LabConstants.eCubedRoot
-<<<<<<<< INNFERRED >>>>>>>>
+<<<<<<<< INFERRED >>>>>>>>
      }
   
           public static Xyz ToXyz(this Lab lab)

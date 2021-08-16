@@ -1,6 +1,6 @@
 id: 72505056-1
 diagnostic: Wintellect015
-perc_correct: 0.8181818181818182
+perc_correct_in_test: 0.8181818181818182
 num_datapoints_in_train: 29
 <<<<<<<< CORRECT >>>>>>>>
      double var_2;
@@ -18,7 +18,7 @@ num_datapoints_in_train: 29
 +                 }
   
          
-<<<<<<<< INNFERRED >>>>>>>>
+<<<<<<<< INFERRED >>>>>>>>
      double var_2;
 <<<< DIAGNOSTIC: dharmendra - testing new loop in the c# >>>>
 -                 if (l < 0.5) var_2 = l * (1 + s);

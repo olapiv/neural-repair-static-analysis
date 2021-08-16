@@ -1,6 +1,6 @@
 id: 35834661-1
 diagnostic: ParameterWrapperAnalyzer
-perc_correct: 0.010526315789473684
+perc_correct_in_test: 0.010526315789473684
 num_datapoints_in_train: 274
 <<<<<<<< CORRECT >>>>>>>>
   
@@ -14,7 +14,7 @@ num_datapoints_in_train: 274
 +                 )
           {
               // 1. Find the table in current 
-<<<<<<<< INNFERRED >>>>>>>>
+<<<<<<<< INFERRED >>>>>>>>
   
           /// <returns>A registered table or the current newly registered one</returns>
 <<<< DIAGNOSTIC: member 'RegisterTable' has suboptimal parameter formatting >>>>

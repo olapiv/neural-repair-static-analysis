@@ -1,6 +1,6 @@
 id: 37715229-0
 diagnostic: CC0048
-perc_correct: 0.2
+perc_correct_in_test: 0.2
 num_datapoints_in_train: 23
 <<<<<<<< CORRECT >>>>>>>>
                throw new ArgumentException(
@@ -8,7 +8,7 @@ num_datapoints_in_train: 23
 -                     string.Format("Don't know how to convert the SQL type '{0}' into a managed type.", dataTypeL),
 + $"Don't know how to convert the SQL type '{dataTypeL}' into a managed type.",
                       
-<<<<<<<< INNFERRED >>>>>>>>
+<<<<<<<< INFERRED >>>>>>>>
                throw new ArgumentException(
 <<<< DIAGNOSTIC: use string interpolation >>>>
 -                     string.Format("Don't know how to convert the SQL type '{0}' into a managed type.", dataTypeL),

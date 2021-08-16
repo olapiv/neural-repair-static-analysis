@@ -1,6 +1,6 @@
 id: 61506282-0
 diagnostic: DA3006
-perc_correct: 0.625
+perc_correct_in_test: 0.625
 num_datapoints_in_train: 33
 <<<<<<<< CORRECTLY INFERRED >>>>>>>>
   the cache at the cache key specified regardless if it already exists or not.

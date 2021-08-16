@@ -1,6 +1,6 @@
 id: 66548363-2
 diagnostic: FS0128
-perc_correct: 0.6666666666666666
+perc_correct_in_test: 0.6666666666666666
 num_datapoints_in_train: 27
 <<<<<<<< CORRECT >>>>>>>>
    null;
@@ -14,7 +14,7 @@ num_datapoints_in_train: 27
   					throw new ArgumentOutOfRangeException();
   				return SharpTreeNode.GetNodeByVisibleIndex(root, includeRoot ? index : index + 1);
   		
-<<<<<<<< INNFERRED >>>>>>>>
+<<<<<<<< INFERRED >>>>>>>>
    null;
   		}
   

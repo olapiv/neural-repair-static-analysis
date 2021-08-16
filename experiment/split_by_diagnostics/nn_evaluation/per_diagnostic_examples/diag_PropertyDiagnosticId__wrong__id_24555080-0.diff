@@ -1,6 +1,6 @@
 id: 24555080-0
 diagnostic: PropertyDiagnosticId
-perc_correct: 0.0
+perc_correct_in_test: 0.0
 num_datapoints_in_train: 0
 <<<<<<<< CORRECT >>>>>>>>
   namespace Wox.Plugin
@@ -16,7 +16,7 @@ num_datapoints_in_train: 0
       {
           public bool CtrlPressed { get; set; }
        
-<<<<<<<< INNFERRED >>>>>>>>
+<<<<<<<< INFERRED >>>>>>>>
   namespace Wox.Plugin
   {
       public class ActionContext

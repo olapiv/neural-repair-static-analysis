@@ -1,6 +1,6 @@
 id: 75783999-0
 diagnostic: ODSUnusedCodeAnalyser
-perc_correct: 1.0
+perc_correct_in_test: 1.0
 num_datapoints_in_train: 10
 <<<<<<<< CORRECTLY INFERRED >>>>>>>>
   

@@ -1,6 +1,6 @@
 id: 72007757-1
 diagnostic: DA4003
-perc_correct: 0.5081967213114754
+perc_correct_in_test: 0.5081967213114754
 num_datapoints_in_train: 0
 <<<<<<<< CORRECTLY INFERRED >>>>>>>>
   param name="destExpression">Destination parameter</param>

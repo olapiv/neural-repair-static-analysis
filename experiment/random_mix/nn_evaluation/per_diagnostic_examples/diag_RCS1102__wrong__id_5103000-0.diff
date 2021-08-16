@@ -1,6 +1,6 @@
 id: 5103000-0
 diagnostic: RCS1102
-perc_correct: 0.0
+perc_correct_in_test: 0.0
 num_datapoints_in_train: 3
 <<<<<<<< CORRECT >>>>>>>>
   using Newtonsoft.Json;
@@ -16,7 +16,7 @@ num_datapoints_in_train: 3
           /// This struct must remain here for DiskLayout9to10Upgrade_BackgroundAndPlaceholderListToFileBased
           /// </summary>
          
-<<<<<<<< INNFERRED >>>>>>>>
+<<<<<<<< INFERRED >>>>>>>>
   using Newtonsoft.Json;
   using System;
   

@@ -1,6 +1,6 @@
 id: 14164143-0
 diagnostic: Method_length_60
-perc_correct: 1.0
+perc_correct_in_test: 1.0
 num_datapoints_in_train: 1
 <<<<<<<< CORRECTLY INFERRED >>>>>>>>
   / optionally return DataSet, and collect return params.

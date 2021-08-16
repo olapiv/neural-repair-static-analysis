@@ -1,6 +1,6 @@
 id: 55685540-2
 diagnostic: AvoidVar
-perc_correct: 0.5135135135135135
+perc_correct_in_test: 0.5135135135135135
 num_datapoints_in_train: 224
 <<<<<<<< CORRECT >>>>>>>>
      if (resourceDictionary != null)
@@ -9,7 +9,7 @@ num_datapoints_in_train: 224
 -                     foreach (var entry in resourceDictionary.OfType<DictionaryEntry>()
 +                     foreach (DictionaryEntry entry in resourceDictionary.OfType<DictionaryEntry>()
                           .OrderBy(de =>
-<<<<<<<< INNFERRED >>>>>>>>
+<<<<<<<< INFERRED >>>>>>>>
      if (resourceDictionary != null)
                   {
 + 

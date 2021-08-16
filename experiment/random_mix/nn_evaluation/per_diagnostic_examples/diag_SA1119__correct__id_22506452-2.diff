@@ -1,6 +1,6 @@
 id: 22506452-2
 diagnostic: SA1119
-perc_correct: 1.0
+perc_correct_in_test: 1.0
 num_datapoints_in_train: 8
 <<<<<<<< CORRECTLY INFERRED >>>>>>>>
         (totalGCDurationMS / totalGCCount),

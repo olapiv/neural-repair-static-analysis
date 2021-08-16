@@ -1,6 +1,6 @@
 id: 3808715-0
 diagnostic: DA3010
-perc_correct: 0.5
+perc_correct_in_test: 0.5
 num_datapoints_in_train: 21
 <<<<<<<< CORRECT >>>>>>>>
   , see <http://www.gnu.org/licenses/>.
@@ -23,7 +23,7 @@ num_datapoints_in_train: 21
           macOS,
           Windows,
           Ubuntu
-<<<<<<<< INNFERRED >>>>>>>>
+<<<<<<<< INFERRED >>>>>>>>
   , see <http://www.gnu.org/licenses/>.
   
   

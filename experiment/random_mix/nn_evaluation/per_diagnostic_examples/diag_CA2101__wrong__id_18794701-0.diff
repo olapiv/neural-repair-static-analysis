@@ -1,6 +1,6 @@
 id: 18794701-0
 diagnostic: CA2101
-perc_correct: 0.0
+perc_correct_in_test: 0.0
 num_datapoints_in_train: 0
 <<<<<<<< CORRECT >>>>>>>>
   .Threading;
@@ -16,7 +16,7 @@ num_datapoints_in_train: 0
           public static extern uint WinExec(string lpCmdLine, uint uCmdShow);
   
           public static
-<<<<<<<< INNFERRED >>>>>>>>
+<<<<<<<< INFERRED >>>>>>>>
   .Threading;
   using System.Windows.Forms;
   

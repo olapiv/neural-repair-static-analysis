@@ -1,6 +1,6 @@
 id: 38123915-2
 diagnostic: SA1516
-perc_correct: 1.0
+perc_correct_in_test: 1.0
 num_datapoints_in_train: 135
 <<<<<<<< CORRECTLY INFERRED >>>>>>>>
   ColorConverter.ConvertFromString("#C8E6C9");

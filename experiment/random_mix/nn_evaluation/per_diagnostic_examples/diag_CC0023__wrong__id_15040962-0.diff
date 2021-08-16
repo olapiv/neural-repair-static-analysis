@@ -1,6 +1,6 @@
 id: 15040962-0
 diagnostic: CC0023
-perc_correct: 0.13636363636363635
+perc_correct_in_test: 0.13636363636363635
 num_datapoints_in_train: 45
 <<<<<<<< CORRECT >>>>>>>>
    Code Page
@@ -12,7 +12,7 @@ num_datapoints_in_train: 45
       {
           public string VirtualPath { get; set; }
           public string Layout
-<<<<<<<< INNFERRED >>>>>>>>
+<<<<<<<< INFERRED >>>>>>>>
    Code Page
       /// </summary>
       [AttributeUsage(AttributeTargets.Class | AttributeTargets.Method, Inherited = true)]

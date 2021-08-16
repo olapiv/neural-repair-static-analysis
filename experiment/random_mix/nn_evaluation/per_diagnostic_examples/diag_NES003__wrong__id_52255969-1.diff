@@ -1,6 +1,6 @@
 id: 52255969-1
 diagnostic: NES003
-perc_correct: 0.0
+perc_correct_in_test: 0.0
 num_datapoints_in_train: 10
 <<<<<<<< CORRECT >>>>>>>>
   )Math.Floor(h);
@@ -9,7 +9,7 @@ num_datapoints_in_train: 10
 -             var p = b * (1 - s);
 +             var p = NESMath.Multiply(b, (1 - s));
               var q = b * (1 - s * f);
-<<<<<<<< INNFERRED >>>>>>>>
+<<<<<<<< INFERRED >>>>>>>>
   )Math.Floor(h);
               var f = h - i;
 <<<< DIAGNOSTIC: use bit-shifting multiplication or nesmath.multiply to multiply two numbers with an algorithm that can be run on the nes cpu >>>>

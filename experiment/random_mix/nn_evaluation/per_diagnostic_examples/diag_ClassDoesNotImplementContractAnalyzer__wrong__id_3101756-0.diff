@@ -1,6 +1,6 @@
 id: 3101756-0
 diagnostic: ClassDoesNotImplementContractAnalyzer
-perc_correct: 0.6
+perc_correct_in_test: 0.6
 num_datapoints_in_train: 21
 <<<<<<<< CORRECT >>>>>>>>
   using System;
@@ -16,7 +16,7 @@ num_datapoints_in_train: 21
           {
               var xyz = c.ToXyz();
    
-<<<<<<<< INNFERRED >>>>>>>>
+<<<<<<<< INFERRED >>>>>>>>
   using System;
   using System.Windows.Media;
   

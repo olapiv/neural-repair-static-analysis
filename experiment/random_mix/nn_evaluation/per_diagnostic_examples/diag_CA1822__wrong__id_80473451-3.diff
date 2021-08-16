@@ -1,6 +1,6 @@
 id: 80473451-3
 diagnostic: CA1822
-perc_correct: 0.8666666666666667
+perc_correct_in_test: 0.8666666666666667
 num_datapoints_in_train: 52
 <<<<<<<< CORRECT >>>>>>>>
       /// <param name="expression"></param>
@@ -10,7 +10,7 @@ num_datapoints_in_train: 52
 +         private static bool IsConversionRequired(UnaryExpression expression)
           {
               // obvious (and probably never happens), conversion to 
-<<<<<<<< INNFERRED >>>>>>>>
+<<<<<<<< INFERRED >>>>>>>>
       /// <param name="expression"></param>
           /// <returns></returns>
 <<<< DIAGNOSTIC: member 'IsConversionRequired' does not access instance data and can be marked as static >>>>

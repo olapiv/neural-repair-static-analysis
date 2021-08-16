@@ -1,6 +1,6 @@
 id: 16773097-0
 diagnostic: MEN013
-perc_correct: 0.8333333333333334
+perc_correct_in_test: 0.8333333333333334
 num_datapoints_in_train: 7
 <<<<<<<< CORRECTLY INFERRED >>>>>>>>
   

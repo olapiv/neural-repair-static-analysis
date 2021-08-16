@@ -1,6 +1,6 @@
 id: 20478175-3
 diagnostic: WS1000
-perc_correct: 0.9878048780487805
+perc_correct_in_test: 0.9878048780487805
 num_datapoints_in_train: 447
 <<<<<<<< CORRECTLY INFERRED >>>>>>>>
   // 

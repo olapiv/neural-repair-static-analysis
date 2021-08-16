@@ -1,6 +1,6 @@
 id: 327624-3
 diagnostic: Wintellect004
-perc_correct: 0.6567164179104478
+perc_correct_in_test: 0.6567164179104478
 num_datapoints_in_train: 179
 <<<<<<<< CORRECTLY INFERRED >>>>>>>>
   = 1,

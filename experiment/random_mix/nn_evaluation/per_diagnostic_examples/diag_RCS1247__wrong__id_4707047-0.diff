@@ -1,6 +1,6 @@
 id: 4707047-0
 diagnostic: RCS1247
-perc_correct: 0.0
+perc_correct_in_test: 0.0
 num_datapoints_in_train: 0
 <<<<<<<< CORRECT >>>>>>>>
    <example>
@@ -11,7 +11,7 @@ num_datapoints_in_train: 0
       /// </example>
       [AttributeUsage(AttributeTargets.Assembly)]
       public sealed class IncludeInNancyAssemblyScanningAttribute : Attribute
-<<<<<<<< INNFERRED >>>>>>>>
+<<<<<<<< INFERRED >>>>>>>>
    <example>
 +     /// <example></example>
       /// Apply the attribute, typically in AssemblyInfo.(cs|fs|vb), as follows:

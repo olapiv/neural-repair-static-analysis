@@ -1,6 +1,6 @@
 id: 8144876-0
 diagnostic: Wintellect002
-perc_correct: 0.0
+perc_correct_in_test: 0.0
 num_datapoints_in_train: 8
 <<<<<<<< CORRECT >>>>>>>>
    (e.OldItems != null)
@@ -12,7 +12,7 @@ num_datapoints_in_train: 8
 + 					Debug.Assert(node.modelParent == this, "node.modelParent == this");
   					node.modelParent = null;
   					Debug.WriteLine("Removing {0} from {1}", node, 
-<<<<<<<< INNFERRED >>>>>>>>
+<<<<<<<< INFERRED >>>>>>>>
    (e.OldItems != null)
   			{
   				foreach (SharpTreeNode node in e.OldItems)
