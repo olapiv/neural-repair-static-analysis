@@ -1,0 +1,27 @@
+id: 18385235-0
+diagnostic: FS0057
+perc_correct_in_test: 0.16666666666666666
+num_datapoints_in_train: 0
+<<<<<<<< CORRECT >>>>>>>>
+         Context.RegisterUpdate(entity);
+          }
+  
+          [DbLinqToDo]
+<<<< DIAGNOSTIC: parameter 'entity' is not used. >>>>
+<<<< DIAGNOSTIC: parameter 'asModified' is not used. >>>>
+-         public void Attach(TEntity entity, bool asModified)
++         public void Attach()
+          {
+              throw new NotImplementedException();
+         
+<<<<<<<< INFERRED >>>>>>>>
+         Context.RegisterUpdate(entity);
+          }
+  
+          [DbLinqToDo]
+<<<< DIAGNOSTIC: parameter 'entity' is not used. >>>>
+<<<< DIAGNOSTIC: parameter 'asModified' is not used. >>>>
+          public void Attach(TEntity entity, bool asModified)
+          {
+              throw new NotImplementedException();
+         

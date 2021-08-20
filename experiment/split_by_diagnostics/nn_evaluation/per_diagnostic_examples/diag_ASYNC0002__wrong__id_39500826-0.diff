@@ -1,0 +1,28 @@
+id: 39500826-0
+diagnostic: ASYNC0002
+perc_correct_in_test: 0.5
+num_datapoints_in_train: 0
+<<<<<<<< CORRECT >>>>>>>>
+        return _serverTask.Value;
+              }
+          }
+  
+<<<< DIAGNOSTIC: remove async suffix from method name >>>>
+-         public ValueTask DisposeAsync() => StopAsync();
++         public ValueTask Dispose() => StopAsync();
+  
+          private async Task StartCore()
+          {
+           
+<<<<<<<< INFERRED >>>>>>>>
+        return _serverTask.Value;
+              }
+          }
+  
+<<<< DIAGNOSTIC: remove async suffix from method name >>>>
+-         public ValueTask DisposeAsync() => StopAsync();
++         private async Task StartCoreAsync()
+  
+          private async Task StartCore()
+          {
+           

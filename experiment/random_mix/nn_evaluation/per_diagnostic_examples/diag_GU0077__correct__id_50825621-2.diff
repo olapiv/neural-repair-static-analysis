@@ -1,0 +1,11 @@
+id: 50825621-2
+diagnostic: GU0077
+perc_correct_in_test: 0.24324324324324326
+num_datapoints_in_train: 120
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  null, int? commandTimeout = null, CommandType? commandType = null)
+          {
+<<<< DIAGNOSTIC: prefer is null. >>>>
+-             if (type == null) throw new ArgumentNullException(nameof(type));
++             if (type is null) throw new ArgumentNullException(nameof(type));
+              return QueryRowAsync<object>(cnn, Row.FirstOrDefault, type, new CommandDefinition

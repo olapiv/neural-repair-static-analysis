@@ -1,0 +1,10 @@
+id: 96224332-2
+diagnostic: CC0001
+perc_correct_in_test: 0.125
+num_datapoints_in_train: 106
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+                var typedIdentity = identity.ForGrid(type, gridIndex);
+<<<< DIAGNOSTIC: use 'var' instead of specifying the type name. >>>>
+-                     CacheInfo cache = GetCacheInfo(typedIdentity, null, addToCache);
++                     var cache = GetCacheInfo(typedIdentity, null, addToCache);
+                      var deserializer = cache.Deserializer;

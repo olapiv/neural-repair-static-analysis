@@ -1,0 +1,18 @@
+id: 43483959-0
+diagnostic: DateTimeOffsetInsteadOfDateTimeAnalyzer
+perc_correct_in_test: 0.7916666666666666
+num_datapoints_in_train: 83
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  );
+  
+              File.WriteAllText (file_path, text);
+          }
+  
+  
+<<<< DIAGNOSTIC: replace datetime usage with datetimeoffset >>>>
+<<<< DIAGNOSTIC: replace datetime usage with datetimeoffset >>>>
+-         DateTime progress_last_change = DateTime.Now;
++         DateTimeOffset progress_last_change = DateTimeOffset.Now;
+  
+          protected void OnProgressChanged (double percentage, double speed, string information) {
+          

@@ -1,0 +1,13 @@
+id: 18786749-0
+diagnostic: WS002
+perc_correct_in_test: 0.8476190476190476
+num_datapoints_in_train: 0
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  ContentType;
+              CapturedHasEntityBody = request.HasEntityBody;
+              CapturedEntityBody    = request.InputStream.StreamToString();
+              CapturedUrl           = request.Url;
+          }
+      }
+<<<< DIAGNOSTIC: file does not end with a newline >>>>
+  }

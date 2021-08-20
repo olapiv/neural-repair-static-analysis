@@ -1,0 +1,22 @@
+id: 46863313-0
+diagnostic: Y0002
+perc_correct_in_test: 0.5
+num_datapoints_in_train: 13
+<<<<<<<< CORRECT >>>>>>>>
+       }
+  
+              Console.WriteLine("---Threading mapping---");
+<<<< DIAGNOSTIC: variable should use explicit type >>>>
+-             foreach (var t in threadMapping)
++             foreach (KeyValuePair<string, int> t in threadMapping)
+              {
+                  Console.WriteLine("t#{
+<<<<<<<< INFERRED >>>>>>>>
+       }
+  
++             IOrderedEnumerable<KeyValuePair<string, int>> t = new Dictionary<string, int>();
+-             Console.WriteLine("---Threading mapping---");
+<<<< DIAGNOSTIC: variable should use explicit type >>>>
+-             foreach (var t in threadMapping)
+              {
+                  Console.WriteLine("t#{

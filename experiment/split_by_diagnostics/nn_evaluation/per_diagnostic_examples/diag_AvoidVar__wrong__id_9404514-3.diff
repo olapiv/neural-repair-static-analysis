@@ -1,0 +1,22 @@
+id: 9404514-3
+diagnostic: AvoidVar
+perc_correct_in_test: 0.5975609756097561
+num_datapoints_in_train: 0
+<<<<<<<< CORRECT >>>>>>>>
+   int currentValue = 1;
+              var keyValues = new List<string>();
+<<<< DIAGNOSTIC: use 'KeyValuePair<string,int>' instead of 'var' >>>>
+-             foreach (var pair in pairs)
++             foreach (KeyValuePair<string, int> pair in pairs)
+              {
+                  string keyValue;
+     
+<<<<<<<< INFERRED >>>>>>>>
+   int currentValue = 1;
+              var keyValues = new List<string>();
+<<<< DIAGNOSTIC: use 'KeyValuePair<string,int>' instead of 'var' >>>>
+-             foreach (var pair in pairs)
++             foreach (KeyValuePair<string, int> pair in threadMapping)
+              {
+                  string keyValue;
+     

@@ -1,0 +1,13 @@
+id: 97581602-0
+diagnostic: AANA003
+perc_correct_in_test: 0.14285714285714285
+num_datapoints_in_train: 22
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  item was successfully removed from the cache; false otherwise.
+          /// </returns>
+<<<< DIAGNOSTIC: cancellationtoken parameter 'token' name differs from 'cancellationToken' >>>>
+-         Task<bool> RemoveAsync(string key, CancellationToken token=default);
++         Task<bool> RemoveAsync(string key, CancellationToken cancellationToken=default);
+  
+          /// <summary>
+          /// Removes the cache for all

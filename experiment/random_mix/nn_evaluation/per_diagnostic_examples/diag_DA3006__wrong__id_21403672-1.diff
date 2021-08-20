@@ -1,0 +1,27 @@
+id: 21403672-1
+diagnostic: DA3006
+perc_correct_in_test: 0.625
+num_datapoints_in_train: 33
+<<<<<<<< CORRECT >>>>>>>>
+  , CancellationToken token=default);
+  
+          /// <summary>
+          /// Delete all Cache Entries (requires ICacheClient that implements IRemoveByPattern)
+          /// </summary>
++         /// <returns></returns>
+<<<< DIAGNOSTIC: method 'RemoveAllAsync' doesn't have /// returns in comment >>>>
+-         Task RemoveAllAsync(CancellationToken token=default);
++         Task RemoveAllAsync(CancellationToken token = default);
+      }
+  }
+<<<<<<<< INFERRED >>>>>>>>
+  , CancellationToken token=default);
+  
+          /// <summary>
+          /// Delete all Cache Entries (requires ICacheClient that implements IRemoveByPattern)
++         /// <returns></returns>
+          /// </summary>
+<<<< DIAGNOSTIC: method 'RemoveAllAsync' doesn't have /// returns in comment >>>>
+          Task RemoveAllAsync(CancellationToken token=default);
+      }
+  }

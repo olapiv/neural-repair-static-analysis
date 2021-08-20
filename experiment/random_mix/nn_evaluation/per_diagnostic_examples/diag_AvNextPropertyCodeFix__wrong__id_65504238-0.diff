@@ -1,0 +1,27 @@
+id: 65504238-0
+diagnostic: AvNextPropertyCodeFix
+perc_correct_in_test: 0.7777777777777778
+num_datapoints_in_train: 76
+<<<<<<<< CORRECT >>>>>>>>
+    {
+              Unique = unique;
+          }
+-         
+<<<< DIAGNOSTIC: type name 'Name' should be decorated with maxlength attribute >>>>
+-         public string Name { get; set; }
+  
+          public bool Unique { get; set; }
+  
+          
+<<<<<<<< INFERRED >>>>>>>>
+    {
+              Unique = unique;
+          }
++         [System.ComponentModel.DataAnnotations.MaxLength(200)]//Roslyn auto generated
+          
+<<<< DIAGNOSTIC: type name 'Name' should be decorated with maxlength attribute >>>>
+          public string Name { get; set; }
+  
+          public bool Unique { get; set; }
+  
+          

@@ -1,0 +1,26 @@
+id: 6247141-0
+diagnostic: SA1303
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 0
+<<<<<<<< CORRECT >>>>>>>>
+  
+  
+-         public static readonly double eCubedRoot = Math.Pow(e, 1.0 / 3);
++         public static readonly double eCubedRoot = Math.Pow(E, 1.0 / 3);
+<<<< DIAGNOSTIC: const field names should begin with upper-case letter. >>>>
+-         public const double k = 24389 / 27.0;
++         public const double K = 24389 / 27.0;
+<<<< DIAGNOSTIC: const field names should begin with upper-case letter. >>>>
+-         public const double e = 216 / 24389.0;
++         public const double E = 216 / 24389.0;
+    
+<<<<<<<< INFERRED >>>>>>>>
+  
+  
+          public static readonly double eCubedRoot = Math.Pow(e, 1.0 / 3);
+<<<< DIAGNOSTIC: const field names should begin with upper-case letter. >>>>
+-         public const double k = 24389 / 27.0;
++         internal static readonly double k = 24389 / 27.0;
+<<<< DIAGNOSTIC: const field names should begin with upper-case letter. >>>>
+          public const double e = 216 / 24389.0;
+    

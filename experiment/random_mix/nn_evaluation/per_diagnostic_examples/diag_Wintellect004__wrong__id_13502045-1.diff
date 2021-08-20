@@ -1,0 +1,28 @@
+id: 13502045-1
+diagnostic: Wintellect004
+perc_correct_in_test: 0.6567164179104478
+num_datapoints_in_train: 179
+<<<<<<<< CORRECT >>>>>>>>
+   public double A { get; }
+          public double B { get; }
+  
+<<<< DIAGNOSTIC: convert 'double' to the explicit type 'Double' >>>>
+<<<< DIAGNOSTIC: convert 'double' to the explicit type 'Double' >>>>
+<<<< DIAGNOSTIC: convert 'double' to the explicit type 'Double' >>>>
+-         public Lab(double l, double a, double b)
++         public Lab(Double l, Double a, Double b)
+          {
+              L = l;
+          
+<<<<<<<< INFERRED >>>>>>>>
+   public double A { get; }
+          public double B { get; }
+  
+<<<< DIAGNOSTIC: convert 'double' to the explicit type 'Double' >>>>
+<<<< DIAGNOSTIC: convert 'double' to the explicit type 'Double' >>>>
+<<<< DIAGNOSTIC: convert 'double' to the explicit type 'Double' >>>>
+-         public Lab(double l, double a, double b)
++             Double r, g, b;
+          {
+              L = l;
+          

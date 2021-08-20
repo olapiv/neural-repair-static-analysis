@@ -1,0 +1,16 @@
+id: 11232831-0
+diagnostic: CC0037
+perc_correct_in_test: 0.6923076923076923
+num_datapoints_in_train: 42
+<<<<<<<< CORRECT >>>>>>>>
+             var mappingContextParameter = Expression.Parameter(typeof(MappingContext), "mappingContext");
+<<<< DIAGNOSTIC: commented code should be removed. >>>>
+-             //var table = builderContext.QueryContext.DataContext.Mapping.GetTable(tableType);
+              var bindings = new List<MemberBinding>();
+        
+<<<<<<<< INFERRED >>>>>>>>
+             var mappingContextParameter = Expression.Parameter(typeof(MappingContext), "mappingContext");
+<<<< DIAGNOSTIC: commented code should be removed. >>>>
+-             //var table = builderContext.QueryContext.DataContext.Mapping.GetTable(tableType);
+-             var bindings = new List<MemberBinding>();
+        

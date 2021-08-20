@@ -1,0 +1,22 @@
+id: 37699523-0
+diagnostic: SA1306
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 2
+<<<<<<<< CORRECT >>>>>>>>
+  
+  
+          // This represents allocated MB on each heap; parse from the lines following [GC_alloc_mb]
+<<<< DIAGNOSTIC: field 'AllocMB' should begin with lower-case letter >>>>
+-         static int[] AllocMB;
++         static int[] allocMB;
+          static int budgetMB = 0;
+          // These are subscript chars for 0-9
+<<<<<<<< INFERRED >>>>>>>>
+  
+  
+          // This represents allocated MB on each heap; parse from the lines following [GC_alloc_mb]
+<<<< DIAGNOSTIC: field 'AllocMB' should begin with lower-case letter >>>>
+-         static int[] AllocMB;
++                 if (identityMembers is null)
+          static int budgetMB = 0;
+          // These are subscript chars for 0-9

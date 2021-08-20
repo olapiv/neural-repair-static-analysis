@@ -1,0 +1,14 @@
+id: 23070408-0
+diagnostic: DTA001
+perc_correct_in_test: 0.7333333333333333
+num_datapoints_in_train: 41
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+   to use for the current Date (defaults to UtcNow)
+          /// </summary>
+<<<< DIAGNOSTIC: advertencia! consider replacing with datetimeoffset >>>>
+-         Func<DateTime> CurrentDateFn { get; set; }
++         Func<DateTimeOffset> CurrentDateFn { get; set; }
+  
+          /// <summary>
+          /// Log a request
+       

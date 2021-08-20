@@ -1,0 +1,29 @@
+id: 72505056-1
+diagnostic: Wintellect015
+perc_correct_in_test: 0.8181818181818182
+num_datapoints_in_train: 29
+<<<<<<<< CORRECT >>>>>>>>
+     double var_2;
++                 if (l < 0.5)
++                 {
+<<<< DIAGNOSTIC: dharmendra - testing new loop in the c# >>>>
+-                 if (l < 0.5) var_2 = l * (1 + s);
++                     var_2 = l * (1 + s);
++                 }
++                 else
++                 {
+<<<< DIAGNOSTIC: dharmendra - testing new loop in the c# >>>>
+-                 else var_2 = (l + s) - (s * l);
++                     var_2 = (l + s) - (s * l);
++                 }
+  
+         
+<<<<<<<< INFERRED >>>>>>>>
+     double var_2;
+<<<< DIAGNOSTIC: dharmendra - testing new loop in the c# >>>>
+-                 if (l < 0.5) var_2 = l * (1 + s);
++                 var_2 = l < 0.5 ? l * (1 + s) : (l + s);
+<<<< DIAGNOSTIC: dharmendra - testing new loop in the c# >>>>
+                  else var_2 = (l + s) - (s * l);
+  
+         

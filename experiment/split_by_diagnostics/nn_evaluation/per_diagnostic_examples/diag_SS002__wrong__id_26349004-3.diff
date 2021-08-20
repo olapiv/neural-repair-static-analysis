@@ -1,0 +1,20 @@
+id: 26349004-3
+diagnostic: SS002
+perc_correct_in_test: 0.8571428571428571
+num_datapoints_in_train: 0
+<<<<<<<< CORRECT >>>>>>>>
+                 await Task.Delay(500);
+  
+<<<< DIAGNOSTIC: use datetime.utcnow to get a consistent value >>>>
+-                     if((DateTime.Now - lastWrite) >= TimeSpan.FromSeconds(10))
++                     if((DateTime.UtcNow- lastWrite) >= TimeSpan.FromSeconds(10))
+                      {
+         
+<<<<<<<< INFERRED >>>>>>>>
+                 await Task.Delay(500);
+  
+<<<< DIAGNOSTIC: use datetime.utcnow to get a consistent value >>>>
+-                     if((DateTime.Now - lastWrite) >= TimeSpan.FromSeconds(10))
++                     if((DateTime.UtcNow - lastWrite) >= TimeSpan.FromSeconds(10))
+                      {
+         

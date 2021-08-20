@@ -1,0 +1,32 @@
+id: 3101756-0
+diagnostic: ClassDoesNotImplementContractAnalyzer
+perc_correct_in_test: 0.6
+num_datapoints_in_train: 21
+<<<<<<<< CORRECT >>>>>>>>
+  using System;
+  using System.Windows.Media;
+  
+  namespace MaterialDesignColors.ColorManipulation
+  {
+<<<< DIAGNOSTIC: class 'LabConverter' doesn't implement any interfaces from connector contracts. >>>>
+-     internal static class LabConverter
++     internal static class LabConverter : Tridion.Remoting.Contracts.IValueObject
+      {
+          public static Lab ToLab(this Color c)
+          {
+              var xyz = c.ToXyz();
+   
+<<<<<<<< INFERRED >>>>>>>>
+  using System;
+  using System.Windows.Media;
+  
+  namespace MaterialDesignColors.ColorManipulation
+  {
+<<<< DIAGNOSTIC: class 'LabConverter' doesn't implement any interfaces from connector contracts. >>>>
+-     internal static class LabConverter
++     public class LabConstants : Tridion.Remoting.Contracts.IValueObject
+      {
+          public static Lab ToLab(this Color c)
+          {
+              var xyz = c.ToXyz();
+   

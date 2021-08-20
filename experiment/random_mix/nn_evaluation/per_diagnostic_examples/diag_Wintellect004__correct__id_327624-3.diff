@@ -1,0 +1,16 @@
+id: 327624-3
+diagnostic: Wintellect004
+perc_correct_in_test: 0.6567164179104478
+num_datapoints_in_train: 179
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  = 1,
+          MaxType = 2
+      };
+      class Program
+      {
+<<<< DIAGNOSTIC: convert 'bool' to the explicit type 'Boolean' >>>>
+-         static bool fLogging = false;
++         static Boolean fLogging = false;
+  
+          static string ParseString(string str, string strStart, string strEnd, out string strRemaining)
+      

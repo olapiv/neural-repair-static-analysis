@@ -1,0 +1,36 @@
+id: 94715623-0
+diagnostic: MT1001
+perc_correct_in_test: 0.3333333333333333
+num_datapoints_in_train: 3
+<<<<<<<< CORRECT >>>>>>>>
+  .Web.UI;
+  using System.Web.UI.WebControls;
+  using System.Web.UI.HtmlControls;
+  using System.Diagnostics;
+  
+- 	[Themeable (true)]
++ [Themeable (true)]
++ [TestClass]
+<<<< DIAGNOSTIC: the class 'MyParent' should be marked with the [testclass] attribute >>>>
+- 	public partial class MyParent : System.Web.UI.UserControl
++ public partial class MyParent : System.Web.UI.UserControl
+  	{
+  		protected override void OnInit (EventArgs e)
+  		{
+  			Debug.WriteLine ("parent.OnInit"
+<<<<<<<< INFERRED >>>>>>>>
+  .Web.UI;
+  using System.Web.UI.WebControls;
+  using System.Web.UI.HtmlControls;
+  using System.Diagnostics;
+  
+  	[Themeable (true)]
++ [Themeable (true)]
++ [TestClass]
+<<<< DIAGNOSTIC: the class 'MyParent' should be marked with the [testclass] attribute >>>>
+- 	public partial class MyParent : System.Web.UI.UserControl
++ public partial class MyParent : System.Web.UI.UserControl
+  	{
+  		protected override void OnInit (EventArgs e)
+  		{
+  			Debug.WriteLine ("parent.OnInit"

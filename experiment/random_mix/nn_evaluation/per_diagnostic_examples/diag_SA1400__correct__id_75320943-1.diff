@@ -1,0 +1,16 @@
+id: 75320943-1
+diagnostic: SA1400
+perc_correct_in_test: 1.0
+num_datapoints_in_train: 6
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+   = 0xf,
+          EnterDueToProc = 0xf0,
+          SetIdeal = 0xf00,
+      };
+<<<< DIAGNOSTIC: element 'SampleInfo' should declare an access modifier >>>>
+-     struct SampleInfo
++     internal struct SampleInfo
+      {
+          // -1 means uninit.
+          public int tid;
+         

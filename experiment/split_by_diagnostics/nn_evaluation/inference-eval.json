@@ -1,9 +1,15 @@
 {
     "num_total_datapoints": 1594,
     "num_extrapolated_datapoints": 1594,
+    "num_diagnostics_total": 39,
+    "num_diagnostics_copied": 0,
+    "num_diagnostics_extrapolated": 39,
     "correct_results_total_perc": 0.4341279799247177,
     "correct_results_copied_perc": null,
     "correct_results_extrapolated_perc": 0.4341279799247177,
+    "avg_success_per_diagnostic_total": 0.24690727517543765,
+    "avg_success_per_diagnostic_copied": null,
+    "avg_success_per_diagnostic_extrapolated": 0.24690727517543765,
     "avg_src_len_correct_result": 118.69364161849711,
     "avg_src_len_incorrect_result": 122.60753880266076,
     "avg_tgt_len_correct_result": 23.94942196531792,
@@ -338,436 +344,200 @@
         "154": 0.0,
         "103": 0.0
     },
-    "highest_accuracy_copied_examples": [],
-    "highest_accuracy_extrapolated_examples": [
-        {
-            "id": "41785527-0",
-            "diagnostic_id": "RECS0015",
-            "perc_correct": 1.0,
-            "parsed_src": {
-                "diagnostic_occurances": [
-                    {
-                        "diagnostic_line": "2",
-                        "diagnostic_message": "convert static method call to extension method call"
-                    }
-                ],
-                "file_context": [
-                    "\";",
-                    "            literalType += string.Join(\", \", keyValues.ToArray());",
-                    "            DbLinqMemberInfoExtensions.SetMemberValue(memberInfo, owner, literalType);",
-                    "        }",
-                    "",
-                    "        internal EnumType(object owner, MemberInfo memberInfo)",
-                    "    "
-                ]
-            },
-            "parsed_diff_correct": {
-                "diff_type": "REPLACE",
-                "source_location": [
-                    "2"
-                ],
-                "target_lines": [
-                    "            memberInfo.SetMemberValue(owner, literalType);"
-                ]
-            }
-        },
-        {
-            "id": "58078698-1",
-            "diagnostic_id": "CS0002",
-            "perc_correct": 0.9473684210526315,
-            "parsed_src": {
-                "diagnostic_occurances": [
-                    {
-                        "diagnostic_line": "3",
-                        "diagnostic_message": "use datetime.utcnow instead of datetime.now"
-                    }
-                ],
-                "file_context": [
-                    " }",
-                    "",
-                    "            File.WriteAllText (crash_report_file_path, crash_report);",
-                    "            Console.WriteLine (DateTime.Now.ToString (\"HH:mm:ss\") + \" | Wrote crash report to \" + crash_report_file_path);",
-                    "        }",
-                    "    }",
-                    "}"
-                ]
-            },
-            "parsed_diff_correct": {
-                "diff_type": "REPLACE",
-                "source_location": [
-                    "3"
-                ],
-                "target_lines": [
-                    "            Console.WriteLine (DateTime.UtcNow.ToString (\"HH:mm:ss\") + \" | Wrote crash report to \" + crash_report_file_path);"
-                ]
-            }
-        }
-    ],
-    "lowest_accuracy_copied_examples": [],
-    "lowest_accuracy_extrapolated_examples": [
-        {
-            "id": "43126908-0",
-            "diagnostic_id": "FM_Missing",
-            "perc_correct": 0.0,
-            "parsed_src": {
-                "diagnostic_occurances": [
-                    {
-                        "diagnostic_line": "3",
-                        "diagnostic_message": "the migration attribute is missing"
-                    }
-                ],
-                "file_context": [
-                    "\"config\">Profile configuration</param>",
-                    "        void CreateProfile(string profileName, Action<IProfileExpression> config);",
-                    "    }",
-                    "    public class MapperConfigurationExpression : Profile, IGlobalConfigurationExpression",
-                    "    {",
-                    "        private readonly List<Profile> _profiles = new List<Profile>();",
-                    "  "
-                ]
-            },
-            "parsed_diff_correct": {
-                "diff_type": "ADD",
-                "previous_source_location": "2",
-                "target_lines": [
-                    "",
-                    "    [Migration(20210629181357)]"
-                ]
-            },
-            "parsed_diff_inferred": {
-                "diff_type": "REPLACE",
-                "source_location": [
-                    "3"
-                ],
-                "target_lines": [
-                    "        private readonly IGlobalConfiguration config;"
-                ]
-            }
-        },
-        {
-            "id": "76401033-3",
-            "diagnostic_id": "RS0100",
-            "perc_correct": 0.0,
-            "parsed_src": {
-                "diagnostic_occurances": [
-                    {
-                        "diagnostic_line": "1",
-                        "diagnostic_message": "statements must be placed on their own line"
-                    },
-                    {
-                        "diagnostic_line": "2",
-                        "diagnostic_message": "statements must be placed on their own line"
-                    },
-                    {
-                        "diagnostic_line": "3",
-                        "diagnostic_message": "statements must be placed on their own line"
-                    }
-                ],
-                "file_context": [
-                    "   {",
-                    "            if (other is null) return false;",
-                    "            if (ReferenceEquals(this, other)) return true;",
-                    "            if (other.GetType() != GetType()) return false; ",
-                    "     "
-                ]
-            },
-            "parsed_diff_correct": {
-                "diff_type": "REPLACE",
-                "source_location": [
-                    "1",
-                    "2",
-                    "3"
-                ],
-                "target_lines": [
-                    "            if (other is null)",
-                    "                return false;",
-                    "            if (ReferenceEquals(this, other))",
-                    "                return true;",
-                    "            if (other.GetType() != GetType())",
-                    "                return false; "
-                ]
-            },
-            "parsed_diff_inferred": {
-                "diff_type": "REMOVE",
-                "source_location_start": "1",
-                "source_location_end": "2"
-            }
-        }
-    ],
-    "ambiguous_accuracy_copied_examples": [],
-    "ambiguous_accuracy_extrapolated_examples": [
-        {
-            "id": "69065037-0",
-            "diagnostic_id": "FS0131",
-            "perc_correct": 0.5,
-            "parsed_src": {
-                "diagnostic_occurances": [
-                    {
-                        "diagnostic_line": "3",
-                        "diagnostic_message": "add braces to single statement in this foreach loop"
-                    }
-                ],
-                "file_context": [
-                    " t, DataContext dataContext)",
-                    "        {",
-                    "            foreach (var member in dataContext.Mapping.GetTable(t).RowType.IdentityMembers)",
-                    "                keyMembers.Add(member.Member);",
-                    "            type = t;",
-                    " "
-                ]
-            },
-            "parsed_diff_correct": {
-                "diff_type": "ADD",
-                "previous_source_location": "2",
-                "target_lines": [
-                    "            {"
-                ]
-            },
-            "parsed_diff_inferred": {
-                "diff_type": "ADD",
-                "previous_source_location": "3",
-                "target_lines": [
-                    "            {"
-                ]
-            }
-        },
-        {
-            "id": "39500826-0",
-            "diagnostic_id": "ASYNC0002",
-            "perc_correct": 0.5,
-            "parsed_src": {
-                "diagnostic_occurances": [
-                    {
-                        "diagnostic_line": "4",
-                        "diagnostic_message": "remove async suffix from method name"
-                    }
-                ],
-                "file_context": [
-                    "      return _serverTask.Value;",
-                    "            }",
-                    "        }",
-                    "",
-                    "        public ValueTask DisposeAsync() => StopAsync();",
-                    "",
-                    "        private async Task StartCore()",
-                    "        {",
-                    "         "
-                ]
-            },
-            "parsed_diff_correct": {
-                "diff_type": "REPLACE",
-                "source_location": [
-                    "4"
-                ],
-                "target_lines": [
-                    "        public ValueTask Dispose() => StopAsync();"
-                ]
-            },
-            "parsed_diff_inferred": {
-                "diff_type": "REPLACE",
-                "source_location": [
-                    "4"
-                ],
-                "target_lines": [
-                    "        private async Task StartCoreAsync()"
-                ]
-            }
-        }
-    ],
     "result_per_diagnostic": {
         "FM_Missing": {
             "num_datapoints_in_train": 0,
-            "perc_correct": 0.0,
+            "perc_correct_in_test": 0.0,
             "num_datapoints_in_test": 2
         },
         "AvoidVar": {
             "num_datapoints_in_train": 0,
-            "perc_correct": 0.5975609756097561,
+            "perc_correct_in_test": 0.5975609756097561,
             "num_datapoints_in_test": 328
         },
         "SA1513": {
             "num_datapoints_in_train": 0,
-            "perc_correct": 0.3617021276595745,
+            "perc_correct_in_test": 0.3617021276595745,
             "num_datapoints_in_test": 188
         },
         "DA4003": {
             "num_datapoints_in_train": 0,
-            "perc_correct": 0.5081967213114754,
+            "perc_correct_in_test": 0.5081967213114754,
             "num_datapoints_in_test": 61
         },
         "WS002": {
             "num_datapoints_in_train": 0,
-            "perc_correct": 0.8476190476190476,
+            "perc_correct_in_test": 0.8476190476190476,
             "num_datapoints_in_test": 105
         },
         "RS0100": {
             "num_datapoints_in_train": 0,
-            "perc_correct": 0.0,
+            "perc_correct_in_test": 0.0,
             "num_datapoints_in_test": 57
         },
         "RCS1212": {
             "num_datapoints_in_train": 0,
-            "perc_correct": 0.0,
+            "perc_correct_in_test": 0.0,
             "num_datapoints_in_test": 5
         },
         "FS0128": {
             "num_datapoints_in_train": 0,
-            "perc_correct": 0.6436781609195402,
+            "perc_correct_in_test": 0.6436781609195402,
             "num_datapoints_in_test": 348
         },
         "SA1137": {
             "num_datapoints_in_train": 0,
-            "perc_correct": 0.07692307692307693,
+            "perc_correct_in_test": 0.07692307692307693,
             "num_datapoints_in_test": 52
         },
         "MethodLengthAnalyzer": {
             "num_datapoints_in_train": 0,
-            "perc_correct": 0.0,
+            "perc_correct_in_test": 0.0,
             "num_datapoints_in_test": 67
         },
         "CS0002": {
             "num_datapoints_in_train": 0,
-            "perc_correct": 0.9473684210526315,
+            "perc_correct_in_test": 0.9473684210526315,
             "num_datapoints_in_test": 19
         },
         "SA1106": {
             "num_datapoints_in_train": 0,
-            "perc_correct": 0.05555555555555555,
+            "perc_correct_in_test": 0.05555555555555555,
             "num_datapoints_in_test": 18
         },
         "FS0030": {
             "num_datapoints_in_train": 0,
-            "perc_correct": 0.6666666666666666,
+            "perc_correct_in_test": 0.6666666666666666,
             "num_datapoints_in_test": 3
         },
         "PropertyDiagnosticId": {
             "num_datapoints_in_train": 0,
-            "perc_correct": 0.0,
+            "perc_correct_in_test": 0.0,
             "num_datapoints_in_test": 23
         },
         "RCS1218": {
             "num_datapoints_in_train": 0,
-            "perc_correct": 0.0,
+            "perc_correct_in_test": 0.0,
             "num_datapoints_in_test": 4
         },
         "PostIncrement": {
             "num_datapoints_in_train": 0,
-            "perc_correct": 0.0,
+            "perc_correct_in_test": 0.0,
             "num_datapoints_in_test": 49
         },
         "CH0003": {
             "num_datapoints_in_train": 0,
-            "perc_correct": 0.02857142857142857,
+            "perc_correct_in_test": 0.02857142857142857,
             "num_datapoints_in_test": 70
         },
         "SA1617": {
             "num_datapoints_in_train": 0,
-            "perc_correct": 0.0,
+            "perc_correct_in_test": 0.0,
             "num_datapoints_in_test": 5
         },
         "RCS1171": {
             "num_datapoints_in_train": 0,
-            "perc_correct": 0.0,
+            "perc_correct_in_test": 0.0,
             "num_datapoints_in_test": 7
         },
         "RCS1032": {
             "num_datapoints_in_train": 0,
-            "perc_correct": 0.3333333333333333,
+            "perc_correct_in_test": 0.3333333333333333,
             "num_datapoints_in_test": 15
         },
         "DS01": {
             "num_datapoints_in_train": 0,
-            "perc_correct": 0.0,
+            "perc_correct_in_test": 0.0,
             "num_datapoints_in_test": 6
         },
         "FS0057": {
             "num_datapoints_in_train": 0,
-            "perc_correct": 0.16666666666666666,
+            "perc_correct_in_test": 0.16666666666666666,
             "num_datapoints_in_test": 6
         },
         "VSD0033": {
             "num_datapoints_in_train": 0,
-            "perc_correct": 0.0,
+            "perc_correct_in_test": 0.0,
             "num_datapoints_in_test": 20
         },
         "SA1111": {
             "num_datapoints_in_train": 0,
-            "perc_correct": 0.2222222222222222,
+            "perc_correct_in_test": 0.2222222222222222,
             "num_datapoints_in_test": 18
         },
         "SA1519": {
             "num_datapoints_in_train": 0,
-            "perc_correct": 0.9411764705882353,
+            "perc_correct_in_test": 0.9411764705882353,
             "num_datapoints_in_test": 17
         },
         "SS002": {
             "num_datapoints_in_train": 0,
-            "perc_correct": 0.8571428571428571,
+            "perc_correct_in_test": 0.8571428571428571,
             "num_datapoints_in_test": 7
         },
         "OhNoPubImplicitCastForeach": {
             "num_datapoints_in_train": 0,
-            "perc_correct": 0.0,
+            "perc_correct_in_test": 0.0,
             "num_datapoints_in_test": 12
         },
         "RECS0033": {
             "num_datapoints_in_train": 0,
-            "perc_correct": 0.0,
+            "perc_correct_in_test": 0.0,
             "num_datapoints_in_test": 7
         },
         "RCS1127": {
             "num_datapoints_in_train": 0,
-            "perc_correct": 0.0,
+            "perc_correct_in_test": 0.0,
             "num_datapoints_in_test": 4
         },
         "CA1805": {
             "num_datapoints_in_train": 0,
-            "perc_correct": 0.25,
+            "perc_correct_in_test": 0.25,
             "num_datapoints_in_test": 12
         },
         "INTL0003": {
             "num_datapoints_in_train": 0,
-            "perc_correct": 0.125,
+            "perc_correct_in_test": 0.125,
             "num_datapoints_in_test": 8
         },
         "FS0131": {
             "num_datapoints_in_train": 0,
-            "perc_correct": 0.5,
+            "perc_correct_in_test": 0.5,
             "num_datapoints_in_test": 38
         },
         "CA1001": {
             "num_datapoints_in_train": 0,
-            "perc_correct": 0.0,
+            "perc_correct_in_test": 0.0,
             "num_datapoints_in_test": 3
         },
         "CC0011": {
             "num_datapoints_in_train": 0,
-            "perc_correct": 0.0,
+            "perc_correct_in_test": 0.0,
             "num_datapoints_in_test": 2
         },
         "RECS0004": {
             "num_datapoints_in_train": 0,
-            "perc_correct": 0.0,
+            "perc_correct_in_test": 0.0,
             "num_datapoints_in_test": 3
         },
         "ASYNC0002": {
             "num_datapoints_in_train": 0,
-            "perc_correct": 0.5,
+            "perc_correct_in_test": 0.5,
             "num_datapoints_in_test": 2
         },
         "RECS0015": {
             "num_datapoints_in_train": 0,
-            "perc_correct": 1.0,
+            "perc_correct_in_test": 1.0,
             "num_datapoints_in_test": 1
         },
         "RCS1155": {
             "num_datapoints_in_train": 0,
-            "perc_correct": 0.0,
+            "perc_correct_in_test": 0.0,
             "num_datapoints_in_test": 1
         },
         "DA3004": {
             "num_datapoints_in_train": 0,
-            "perc_correct": 0.0,
+            "perc_correct_in_test": 0.0,
             "num_datapoints_in_test": 1
         }
     }

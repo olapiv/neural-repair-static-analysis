@@ -1,0 +1,20 @@
+id: 20704956-0
+diagnostic: SA1003
+perc_correct_in_test: 1.0
+num_datapoints_in_train: 4
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  e);
+  		}
+  		[Themeable (true)]
+  		public string ImageUrl
+  		{
+  			get
+  			{
+<<<< DIAGNOSTIC: operator '(Image)' should not be followed by whitespace. >>>>
+- 				return ((Image) Controls[0]).ImageUrl;
++ 				return ((Image)Controls[0]).ImageUrl;
+  			}
+  			set
+  			{
+  				Debug.WriteLine ("child.set_ImageUrl");
+  				((Image)

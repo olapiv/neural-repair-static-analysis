@@ -1,0 +1,14 @@
+id: 58078698-1
+diagnostic: CS0002
+perc_correct_in_test: 0.9473684210526315
+num_datapoints_in_train: 0
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+   }
+  
+              File.WriteAllText (crash_report_file_path, crash_report);
+<<<< DIAGNOSTIC: use datetime.utcnow instead of datetime.now >>>>
+-             Console.WriteLine (DateTime.Now.ToString ("HH:mm:ss") + " | Wrote crash report to " + crash_report_file_path);
++             Console.WriteLine (DateTime.UtcNow.ToString ("HH:mm:ss") + " | Wrote crash report to " + crash_report_file_path);
+          }
+      }
+  }

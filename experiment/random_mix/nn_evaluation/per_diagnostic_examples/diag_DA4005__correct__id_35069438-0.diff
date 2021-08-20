@@ -1,0 +1,13 @@
+id: 35069438-0
+diagnostic: DA4005
+perc_correct_in_test: 1.0
+num_datapoints_in_train: 15
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  cref="Double.PositiveInfinity"/> and <see cref="Double.NegativeInfinity"/> with <see cref="JsonWriter"/>.
++     /// <remarks></remarks>
+      /// </summary>
+<<<< DIAGNOSTIC: type 'FloatFormatHandling' doesn't have remark in the comment >>>>
+      public enum FloatFormatHandling
+      {
+          /// <summary>
+          /// Write special floating point

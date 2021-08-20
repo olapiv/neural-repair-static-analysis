@@ -1,0 +1,13 @@
+id: 51738891-0
+diagnostic: CC0021
+perc_correct_in_test: 0.1875
+num_datapoints_in_train: 74
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+              if (registrationType == null)
+              {
+<<<< DIAGNOSTIC: use 'nameof(registrationType)' instead of specifying the program element name. >>>>
+-                 throw new ArgumentNullException("registrationType");
++                 throw new ArgumentNullException(nameof(registrationType));
+              }
+  
+              if (implementation == null)

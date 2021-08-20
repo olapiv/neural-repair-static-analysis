@@ -1,0 +1,16 @@
+id: 67126233-0
+diagnostic: RB003
+perc_correct_in_test: 0.5
+num_datapoints_in_train: 17
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  		return new GeneratedWriter();
+  			}
+  		}
+  
+  		public override System.Collections.Hashtable ReadMethods {
+  			get {
+<<<< DIAGNOSTIC: lock statement should be avoided in orleans environment >>>>
+- 				lock (this) {
+  					if (readMethods == null) {
+  						readMethods = new System.Collections.Hashtable ();
+  					

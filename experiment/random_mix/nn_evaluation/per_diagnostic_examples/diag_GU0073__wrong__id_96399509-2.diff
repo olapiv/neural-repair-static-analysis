@@ -1,0 +1,32 @@
+id: 96399509-2
+diagnostic: GU0073
+perc_correct_in_test: 0.13636363636363635
+num_datapoints_in_train: 131
+<<<<<<<< CORRECT >>>>>>>>
+          public DbLinqToDoAttribute(string comment)
+          {
+              Comment = comment;
+          }
+  #endif
+  
+<<<< DIAGNOSTIC: member .ctor of non-public type dblinqtodoattribute should be internal. >>>>
+-         public DbLinqToDoAttribute()
++         internal DbLinqToDoAttribute()
+          {
+          }
+      }
+  }
+<<<<<<<< INFERRED >>>>>>>>
+          public DbLinqToDoAttribute(string comment)
+          {
+              Comment = comment;
+          }
+  #endif
+  
+<<<< DIAGNOSTIC: member .ctor of non-public type dblinqtodoattribute should be internal. >>>>
+-         public DbLinqToDoAttribute()
++         internal DbLinqToDoAttribute(string comment)
+          {
+          }
+      }
+  }

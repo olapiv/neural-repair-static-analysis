@@ -1,0 +1,18 @@
+id: 63916922-0
+diagnostic: CSharpAnalyzer
+perc_correct_in_test: 0.88
+num_datapoints_in_train: 74
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  using System;
+  using System.Collections.Generic;
+  using System.Text.Json.Serialization;
+  
+  namespace Shadowsocks.Models
+  {
+<<<< DIAGNOSTIC: type name 'Group' contains lowercase letters >>>>
+-     public class Group : IGroup<Server>
++     public class GROUP : IGROUP<SERVER>
+      {
+          /// <summary>
+          /// Gets or sets the group name.
+      

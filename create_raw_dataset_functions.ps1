@@ -1,6 +1,7 @@
 $ROSLYNATOR = "C:\Users\vlohse\.nuget\packages\roslynator.commandline\0.1.1\tools\net48\Roslynator.exe"
 $MS_BUILD_PATH = 'C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin'
-
+# $MS_BUILD_PATH = 'C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\15.0\Bin'
+$MSBUILD_EXE = "${MS_BUILD_PATH}\MSBuild.exe"
 
 function GetAllRepoSolutions{
     param (
@@ -77,21 +78,24 @@ function ApplyRoslynatorFix {
     #         --supported-diagnostics $DIAGNOSTIC_ID
     #     "
 
-    # $MSBUILD_EXE = "${MS_BUILD_PATH}\MSBuild.exe"
+    
     # Invoke-Expression "& '$MSBUILD_EXE' $SOLUTION_OR_PROJECT_FILEPATH /t:Restore"
     # Invoke-Expression "& '$MSBUILD_EXE' $SOLUTION_OR_PROJECT_FILEPATH /t:Clean"
+    # Invoke-Expression "& '$MSBUILD_EXE' $SOLUTION_OR_PROJECT_FILEPATH /t:Rebuild"
     # Invoke-Expression "& '$MSBUILD_EXE' $SOLUTION_OR_PROJECT_FILEPATH /t:Restore"
     # Invoke-Expression "& '$MSBUILD_EXE' $SOLUTION_OR_PROJECT_FILEPATH"
 
     # This basically produces a diff
-    C:\Users\vlohse\.nuget\packages\roslynator.commandline\0.1.1\tools\net48\Roslynator.exe fix `
+    # C:\Users\vlohse\.nuget\packages\roslynator.commandline\0.1.1\tools\net48\Roslynator.exe fix `
+    # C:\Users\vlohse\source\repos\Roslynator\src\CommandLine\bin\Debug\net48\Roslynator.exe fix `
+    C:\Users\vlohse\source\repos\Roslynator\src\CommandLine\bin\Release\net48\Roslynator.exe fix `
         --msbuild-path $MS_BUILD_PATH `
         $SOLUTION_OR_PROJECT_FILEPATH `
         --ignore-analyzer-references `
         --analyzer-assemblies $NUGET_PATH `
         --supported-diagnostics $DIAGNOSTIC_ID `
         -v quiet
-        # -v diag
+        # --verbosity diag
 
 }
 

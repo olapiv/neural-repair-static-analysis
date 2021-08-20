@@ -1,0 +1,32 @@
+id: 94143157-0
+diagnostic: SA1642D
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 39
+<<<<<<<< CORRECT >>>>>>>>
+   }
+  
+      [CollectionDataContract(ItemName = "Property")]
+      public class Properties : List<Property>
++         /// <summary>
++         /// Initializes a new instance of the <see cref="Properties"/> class.
++         /// </summary>
+      {
+<<<< DIAGNOSTIC: constructors must be correctly documented. >>>>
+          public Properties() { }
+          public Properties(IEnumerable<Property> collection) : base(collection) { }
+      }
+  }
+<<<<<<<< INFERRED >>>>>>>>
+   }
+  
+      [CollectionDataContract(ItemName = "Property")]
+      public class Properties : List<Property>
++         /// <summary>
++         /// Initializes a new instance of the <see cref="ArrayOfStringId"/> class.
++         /// </summary>
+      {
+<<<< DIAGNOSTIC: constructors must be correctly documented. >>>>
+          public Properties() { }
+          public Properties(IEnumerable<Property> collection) : base(collection) { }
+      }
+  }

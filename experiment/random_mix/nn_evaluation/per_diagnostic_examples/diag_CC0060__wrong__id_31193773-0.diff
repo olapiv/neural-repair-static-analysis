@@ -1,0 +1,24 @@
+id: 31193773-0
+diagnostic: CC0060
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 0
+<<<<<<<< CORRECT >>>>>>>>
+  TimeSpan Long  = new TimeSpan (0, 0, 15, 0);
+          }
+  
+  
+<<<< DIAGNOSTIC: constructor should not be public. >>>>
+-         public BaseRepository (string path, Configuration config)
++         protected BaseRepository (string path, Configuration config)
+          {
+              Logger.LogInfo (path, "Initializing...");
+<<<<<<<< INFERRED >>>>>>>>
+  TimeSpan Long  = new TimeSpan (0, 0, 15, 0);
+          }
+  
+  
+<<<< DIAGNOSTIC: constructor should not be public. >>>>
+-         public BaseRepository (string path, Configuration config)
++         public BaseRepository(string path, Configuration config, string localPath, string name, Uri remoteUrl)
+          {
+              Logger.LogInfo (path, "Initializing...");

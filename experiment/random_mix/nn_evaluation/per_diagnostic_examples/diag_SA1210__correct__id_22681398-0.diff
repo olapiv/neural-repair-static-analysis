@@ -1,0 +1,18 @@
+id: 22681398-0
+diagnostic: SA1210
+perc_correct_in_test: 1.0
+num_datapoints_in_train: 2
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  using System;
+  using System.Web;
+  using System.Web.UI;
+<<<< DIAGNOSTIC: using directives should be ordered alphabetically by the namespaces >>>>
+- using System.Web.UI.WebControls;
+  using System.Web.UI.HtmlControls;
+  using System.Diagnostics;
+  
+  	[Themeable (true)]
+  	public partial class MyParent : System.Web.UI.UserControl
+  	{
+  		protected override void OnInit (EventArgs e)
+  		

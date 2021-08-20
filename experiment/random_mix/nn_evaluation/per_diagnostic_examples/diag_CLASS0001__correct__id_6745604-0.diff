@@ -1,0 +1,17 @@
+id: 6745604-0
+diagnostic: CLASS0001
+perc_correct_in_test: 1.0
+num_datapoints_in_train: 31
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+    A = a;
+              B = b;
+          }
+      }
+  
+<<<< DIAGNOSTIC: seal classes that do not have any virtual or abstract methods, properties, events, or indexers >>>>
+-     internal class LabConstants
++     internal sealed class LabConstants
+      {
+          public const double Kn = 18;
+  
+          public const double WhitePointX 
