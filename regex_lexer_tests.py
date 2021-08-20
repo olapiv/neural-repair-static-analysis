@@ -2,6 +2,7 @@ import unittest
 import requests
 import json
 from regex_lexer import CSharpAndCommentsLexer
+from regex_lexer_camelcase import CSharpAndCommentsCamelcaseLexer
 from tokenizing_unified_dataset import split_tokens_by_line
 
 
@@ -30,7 +31,7 @@ def flatten(foo):
 class TestRegexLexer(unittest.TestCase):
 
     standard_lexer = CSharpAndCommentsLexer()
-    camelcase_lexer = CSharpAndCommentsLexer()
+    camelcase_lexer = CSharpAndCommentsCamelcaseLexer()
 
     def run_single_test(self, test_string, true_token_list, camelcase=False, index_vars=False):
         true_token_list = flatten(true_token_list)
