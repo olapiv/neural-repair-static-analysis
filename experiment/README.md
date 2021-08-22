@@ -1,5 +1,25 @@
 # Experiment
 
+Each directory represents a different dataset. They all contain the same fixes and the differences can be read from the directory names. Each dataset also contains metadata files for further information on the data. All files were generated with [finalize_tokenized_dataset.py](/finalize_tokenized_dataset.py). Each dataset also contains results from one or more experiments of neural learning.
+
+## Reading directory names
+
+1. Imitation vs Extrapolation
+   * Imitation: Train, val & test dataset are *randomly* chosen from aggregate dataset, thereby having overlapping diagnostics
+     * train_perc = 60% of datapoints
+     * val_perc = 20% of datapoints
+     * test_perc = 20% of datapoints
+   * Extrapolation: Train, val & test dataset have unique sets of diagnostics
+     * train_perc = 70% of diagnostics
+     * val_perc = 20% of diagnostics
+     * test_perc = 10% of diagnostics
+2. Max number of FILE_CONTENT tokens in input (required lines + context)
+3. Tokenization method of identifiers
+   * Standard (webHandler --> webHandler)
+   * Splitting by camelcase (webHandler --> web Handler)
+   * Zero-indexing (webHandler --> VAR-0)
+4. Raw dataset version
+
 ## Possible Independent Variables
 
 ✔︎: Generated dataset, ✔︎✔︎: Trained model
