@@ -44,9 +44,18 @@ class Stage(Enum):
 
 metadata_dict = {
     "num-datapoints": 0,
-    "num-unique-diagnostics": 0,
+
+    "num-nugets": 0,
+    "avg-data-points-per-nuget": 0,
+    "std-data-points-per-nuget": 0,
+
+    "num-diagnostics": 0,
     "avg-data-points-per-diagnostic": 0,
     "std-data-points-per-diagnostic": 0,
+
+    "num-repos": 0,
+    "avg-data-points-per-repo": 0,
+    "std-data-points-per-repo": 0,
 
     "token-num-src": [],
     "max-tokens-src": 0,
@@ -58,14 +67,25 @@ metadata_dict = {
     "avg-tokens-tgt": 0,
     "std-tokens-tgt": 0,
 
+    "nugets": {
+        # "BitCodeAnalyzer.4.1.0": 3,
+        # "Documentation.Analyser.1.1.1": 5
+    },
     "diagnostics": {
         # "DA2001": 4,
         # "DA2003": 4
     },
+    "repos": {
+        # "dapper-dot-net": 4,
+        # "mono": 9,
+        # "ServiceStack": 2
+    },
     "datapoints": [
         # {
         #     "ID": "226128-0",
-        #     "DiagnosticID": "DA2003"
+        #     "DiagnosticID": "DA2003",
+        #     "Nuget": "Documentation.Analyser.1.1.1",
+        #     "Repo": "mono"
         # }
     ]
 }
@@ -103,6 +123,8 @@ class Pipeline:
         metadata["total"] = {}
         metadata["total"]["file"] = total_metadata
         metadata["total"]["data"] = copy.deepcopy(metadata_dict)
+        metadata["total"]["data"].pop("datapoints", None)
+
         all_filepaths.append(total_metadata)
         for stage in Stage:
             metadata[stage.value] = {}
@@ -207,26 +229,61 @@ class Pipeline:
 
             diagnostics = metadata[stage.value]["data"]["diagnostics"]
 
-            metadata[stage.value]["data"]["num-unique-diagnostics"] = len(
-                diagnostics)
+            metadata[stage.value]["data"]["num-diagnostics"] = len(diagnostics)
 
             data_points_per_diagnostic = diagnostics.values()
-            metadata[stage.value]["data"]["avg-data-points-per-diagnostic"] = statistics.mean(
-                data_points_per_diagnostic)
-            metadata[stage.value]["data"]["std-data-points-per-diagnostic"] = statistics.pstdev(
-                data_points_per_diagnostic)
+            metadata[stage.value]["data"]["avg-data-points-per-diagnostic"] = statistics.mean(data_points_per_diagnostic)
+            metadata[stage.value]["data"]["std-data-points-per-diagnostic"] = statistics.pstdev(data_points_per_diagnostic)
 
             all_diagnostics += Counter(diagnostics)
 
         metadata["total"]["data"]["diagnostics"] = all_diagnostics
-        metadata["total"]["data"]["num-unique-diagnostics"] = len(
-            all_diagnostics)
+        metadata["total"]["data"]["num-diagnostics"] = len(all_diagnostics)
         data_points_per_diagnostic = all_diagnostics.values()
-        metadata["total"]["data"]["avg-data-points-per-diagnostic"] = statistics.mean(
-            data_points_per_diagnostic)
-        metadata["total"]["data"]["std-data-points-per-diagnostic"] = statistics.pstdev(
-            data_points_per_diagnostic)
-        metadata["total"]["data"].pop("datapoints", None)
+        metadata["total"]["data"]["avg-data-points-per-diagnostic"] = statistics.mean(data_points_per_diagnostic)
+        metadata["total"]["data"]["std-data-points-per-diagnostic"] = statistics.pstdev(data_points_per_diagnostic)
+
+    def generate_nuget_statistics(self, metadata):
+
+        all_nugets = Counter({})
+        for stage in Stage:
+
+            nugets = metadata[stage.value]["data"]["nugets"]
+
+            metadata[stage.value]["data"]["num-nugets"] = len(nugets)
+
+            data_points_per_nuget = nugets.values()
+            metadata[stage.value]["data"]["avg-data-points-per-nuget"] = statistics.mean(data_points_per_nuget)
+            metadata[stage.value]["data"]["std-data-points-per-nuget"] = statistics.pstdev(data_points_per_nuget)
+
+            all_nugets += Counter(nugets)
+
+        metadata["total"]["data"]["nugets"] = all_nugets
+        metadata["total"]["data"]["num-nugets"] = len(all_nugets)
+        data_points_per_nuget = all_nugets.values()
+        metadata["total"]["data"]["avg-data-points-per-nuget"] = statistics.mean(data_points_per_nuget)
+        metadata["total"]["data"]["std-data-points-per-nuget"] = statistics.pstdev(data_points_per_nuget)
+
+    def generate_repo_statistics(self, metadata):
+
+        all_repos = Counter({})
+        for stage in Stage:
+
+            repos = metadata[stage.value]["data"]["repos"]
+
+            metadata[stage.value]["data"]["num-repos"] = len(repos)
+
+            data_points_per_repo = repos.values()
+            metadata[stage.value]["data"]["avg-data-points-per-repo"] = statistics.mean(data_points_per_repo)
+            metadata[stage.value]["data"]["std-data-points-per-repo"] = statistics.pstdev(data_points_per_repo)
+
+            all_repos += Counter(repos)
+
+        metadata["total"]["data"]["repos"] = all_repos
+        metadata["total"]["data"]["num-repos"] = len(all_repos)
+        data_points_per_repo = all_repos.values()
+        metadata["total"]["data"]["avg-data-points-per-repo"] = statistics.mean(data_points_per_repo)
+        metadata["total"]["data"]["std-data-points-per-repo"] = statistics.pstdev(data_points_per_repo)
 
     def filter_useful_datapoints(self, tokenized_files):
 
@@ -410,6 +467,10 @@ class Pipeline:
             with open(tokenized_file) as json_file:
                 tokenized_data_dict = json.load(json_file)
 
+            diagnostic_id = tokenized_data_dict["DiagnosticID"]
+            nuget_name = tokenized_data_dict["AnalyzerNuGet"]
+            repo = tokenized_data_dict["Repo"]
+
             src_string = self.flatten_input_datapoint(tokenized_data_dict)
             target_string = self.flatten_output_datapoint(tokenized_data_dict)
 
@@ -418,21 +479,30 @@ class Pipeline:
 
             current_stage = file_to_dataset[tokenized_file.name]
 
-            src_filepath = data_files["src"][current_stage]
-            target_filepath = data_files["tgt"][current_stage]
-            metadata[current_stage]["data"]["token-num-src"].append(
-                num_src_tokens)
-            metadata[current_stage]["data"]["token-num-tgt"].append(
-                num_tgt_tokens)
-            diagnostic_id = tokenized_data_dict["DiagnosticID"]
+            metadata[current_stage]["data"]["token-num-src"].append(num_src_tokens)
+            metadata[current_stage]["data"]["token-num-tgt"].append(num_tgt_tokens)
+            
             metadata[current_stage]["data"]["datapoints"].append({
                 "ID": os.path.splitext(tokenized_file.name)[0],
-                "DiagnosticID": diagnostic_id
+                "DiagnosticID": diagnostic_id,
+                "Nuget": nuget_name,
+                "Repo": repo
             })
-            if diagnostic_id in metadata[current_stage]["data"]["diagnostics"]:
-                metadata[current_stage]["data"]["diagnostics"][diagnostic_id] += 1
-            else:
-                metadata[current_stage]["data"]["diagnostics"][diagnostic_id] = 1
+
+            if diagnostic_id not in metadata[current_stage]["data"]["diagnostics"]:
+                metadata[current_stage]["data"]["diagnostics"][diagnostic_id] = 0
+            metadata[current_stage]["data"]["diagnostics"][diagnostic_id] += 1
+            
+            if nuget_name not in metadata[current_stage]["data"]["nugets"]:
+                metadata[current_stage]["data"]["nugets"][nuget_name] = 0
+            metadata[current_stage]["data"]["nugets"][nuget_name] += 1
+
+            if repo not in metadata[current_stage]["data"]["repos"]:
+                metadata[current_stage]["data"]["repos"][repo] = 0
+            metadata[current_stage]["data"]["repos"][repo] += 1
+
+            src_filepath = data_files["src"][current_stage]
+            target_filepath = data_files["tgt"][current_stage]
 
             with open(src_filepath, 'a', encoding='utf-8') as src_file:
                 src_file.write(src_string)
@@ -442,6 +512,8 @@ class Pipeline:
 
         self.generate_num_token_statistics(metadata)
         self.generate_diagnostics_statistics(metadata)
+        self.generate_nuget_statistics(metadata)
+        self.generate_repo_statistics(metadata)
 
         for stage in Stage:
             with open(metadata[stage.value]["file"], 'w') as fout:
@@ -455,7 +527,7 @@ class Pipeline:
 
 if __name__ == '__main__':
 
-    input_dir = "tokenized_datasets/200_tokens__camelcase__3"
+    input_dir = "tokenized_datasets/100_tokens__standard__3"
     mode = Modes.Imitation
 
     pipeline = Pipeline(input_dir, mode)
