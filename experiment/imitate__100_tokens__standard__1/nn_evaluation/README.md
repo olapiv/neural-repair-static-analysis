@@ -22,7 +22,7 @@ Convergence after around 3k steps (1h35min); Loss function:
 
 ### Influence of Datapoints per Diagnostic on Diagnostics' Accuracy
 
-![Impact data per Diagnostic on Accuracy](copy_impact_data_on_accuracy.svg)
+![Impact data per Diagnostic on Accuracy](imitate_impact_data_on_accuracy.svg)
 
 pearsonr: (0.10934174253963695, 0.12137157877175254)
 
@@ -30,10 +30,10 @@ Each datapoint represents a diagnostic. It is hard to decipher a correlation bet
 
 ### Influence of Number of **Formatting** Tokens in Source on Success Rate of Predictions
 
-![Source Formatting Length vs Success Rate](copy_success_rate_formatting_len_src.svg)
+![Source Formatting Length vs Success Rate](imitate_success_rate_formatting_len_src.svg)
 
 The influence of total tokens in source is omitted, since the number of file context tokens for input is held constant.
 
 ### Influence of Number of Tokens in Target on Success Rate of Predictions
 
-![Target Length vs Success Rate](copy_success_rate_tgt_len.svg)
+![Target Length vs Success Rate](imitate_success_rate_tgt_len.svg)
