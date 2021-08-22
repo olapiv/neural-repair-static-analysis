@@ -1,0 +1,21 @@
+id: 61335155-0
+diagnostic: CC0011
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 0
+<<<<<<<< CORRECT >>>>>>>>
+    .Where(o => o != null)
+<<<< DIAGNOSTIC: you can remove 'Where' moving the predicate to 'Any'. >>>>
+-                     .Where(s => s.SpecialNodeType == SpecialExpressionType.Count)
++ .Any(s => s.SpecialNodeType == SpecialExpressionType.Count)
+-                     .Any())
++ )
+              {
+      
+<<<<<<<< INFERRED >>>>>>>>
+    .Where(o => o != null)
+<<<< DIAGNOSTIC: you can remove 'Where' moving the predicate to 'Any'. >>>>
+-                     .Where(s => s.SpecialNodeType == SpecialExpressionType.Count)
++                 public SpecialExpressionType SpecialNodeType
+                      .Any())
+              {
+      

@@ -1,0 +1,12 @@
+id: 47096651-1
+diagnostic: DOC203
+perc_correct_in_test: 0.5
+num_datapoints_in_train: 1
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+   that the value of the marked element could never be <c>null</c>.
+      /// </summary>
+<<<< DIAGNOSTIC: use block elements correctly >>>>
+-     /// <example><code>
++     /// <example><c>
+      /// [NotNull] object Foo() {
+      ///   return null; // Warning: Possible 'null

@@ -1,0 +1,17 @@
+id: 51272245-1
+diagnostic: RIT0004
+perc_correct_in_test: 1.0
+num_datapoints_in_train: 2
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+   = 0xf,
+          EnterDueToProc = 0xf0,
+          SetIdeal = 0xf00,
+      };
++ 
+<<<< DIAGNOSTIC: 'SampleInfo' does not have an explicit modifier >>>>
+-     struct SampleInfo
++     internal struct SampleInfo
+      {
+          // -1 means uninit.
+          public int tid;
+         

@@ -1,0 +1,19 @@
+id: 75783999-0
+diagnostic: ODSUnusedCodeAnalyser
+perc_correct_in_test: 1.0
+num_datapoints_in_train: 10
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  
+  using System.Web.UI.WebControls;
+  using System.Web.UI.HtmlControls;
+  using System.Diagnostics;
+  
+  	[Themeable (true)]
+<<<< DIAGNOSTIC: type name 'MyParent' contains lowercase letters >>>>
+- 	public partial class MyParent : System.Web.UI.UserControl
++ 	public partial class MYPARENT : System.Web.UI.UserControl
+  	{
+  		protected override void OnInit (EventArgs e)
+  		{
+  			Debug.WriteLine ("parent.OnInit");
+  		

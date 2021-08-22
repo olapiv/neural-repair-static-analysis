@@ -1,0 +1,18 @@
+id: 5067928-1
+diagnostic: SA1519
+perc_correct_in_test: 0.9411764705882353
+num_datapoints_in_train: 0
+<<<<<<<< CORRECT >>>>>>>>
+        case ExpressionType.AndAlso:
++                         {
+                          if (canOptimizeLeft)
+<<<< DIAGNOSTIC: braces should not be omitted from multi-line child statement >>>>
+                              if ((bool)bin.Left.Evaluate())
+                
+<<<<<<<< INFERRED >>>>>>>>
+        case ExpressionType.AndAlso:
++                     {
+                          if (canOptimizeLeft)
+<<<< DIAGNOSTIC: braces should not be omitted from multi-line child statement >>>>
+                              if ((bool)bin.Left.Evaluate())
+                

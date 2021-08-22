@@ -1,0 +1,28 @@
+id: 8603416-0
+diagnostic: DA4004
+perc_correct_in_test: 0.6666666666666666
+num_datapoints_in_train: 16
+<<<<<<<< CORRECT >>>>>>>>
+  0")]
+      [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+      [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
+<<<< DIAGNOSTIC: type 'Resources' doesn't have example in the comment >>>>
+-     internal class Resources {
++     internal class Resources
+-         
++     {
+          private static global::System.Resources.ResourceManager resourceMan;
+          
+          
+<<<<<<<< INFERRED >>>>>>>>
+  0")]
+      [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+      [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
+<<<< DIAGNOSTIC: type 'Resources' doesn't have example in the comment >>>>
+-     internal class Resources {
++     internal class Resources
++      {
+          
+          private static global::System.Resources.ResourceManager resourceMan;
+          
+          

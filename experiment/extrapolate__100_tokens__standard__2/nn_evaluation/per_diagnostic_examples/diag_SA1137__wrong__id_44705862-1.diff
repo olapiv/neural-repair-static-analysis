@@ -1,0 +1,28 @@
+id: 44705862-1
+diagnostic: SA1137
+perc_correct_in_test: 0.07692307692307693
+num_datapoints_in_train: 0
+<<<<<<<< CORRECT >>>>>>>>
+      columnAttribute.Name = memberInfo.Name;
+          }
+  
+          private ColumnAttribute columnAttribute;
+  
+<<<< DIAGNOSTIC: elements should have the same indentation >>>>
+-         public override MetaAssociation Association
++ 		public override MetaAssociation Association
+          {
+              get { return null; }
+          }
+<<<<<<<< INFERRED >>>>>>>>
+      columnAttribute.Name = memberInfo.Name;
+          }
+  
+          private ColumnAttribute columnAttribute;
+  
+<<<< DIAGNOSTIC: elements should have the same indentation >>>>
+-         public override MetaAssociation Association
++         /// <inheritdoc/>
+          {
+              get { return null; }
+          }

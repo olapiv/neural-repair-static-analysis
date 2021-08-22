@@ -1,0 +1,15 @@
+id: 14965200-1
+diagnostic: CC0091
+perc_correct_in_test: 0.625
+num_datapoints_in_train: 30
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+       }
+  
+              return select;
+          }
+  
+<<<< DIAGNOSTIC: make 'Join' method static. >>>>
+-         public SqlStatement Join(QueryContext queryContext, params SqlStatement[] clauses)
++         public static SqlStatement Join(QueryContext queryContext, params SqlStatement[] clauses)
+          {
+              return SqlStatement.Join(queryContext.DataContext.Vendor.SqlProvider.

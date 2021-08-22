@@ -1,0 +1,20 @@
+id: 80473451-3
+diagnostic: CA1822
+perc_correct_in_test: 0.8666666666666667
+num_datapoints_in_train: 52
+<<<<<<<< CORRECT >>>>>>>>
+      /// <param name="expression"></param>
+          /// <returns></returns>
+<<<< DIAGNOSTIC: member 'IsConversionRequired' does not access instance data and can be marked as static >>>>
+-         private bool IsConversionRequired(UnaryExpression expression)
++         private static bool IsConversionRequired(UnaryExpression expression)
+          {
+              // obvious (and probably never happens), conversion to 
+<<<<<<<< INFERRED >>>>>>>>
+      /// <param name="expression"></param>
+          /// <returns></returns>
+<<<< DIAGNOSTIC: member 'IsConversionRequired' does not access instance data and can be marked as static >>>>
+-         private bool IsConversionRequired(UnaryExpression expression)
++                 if (_ = IsConversionRequired(unaryExpression))
+          {
+              // obvious (and probably never happens), conversion to 

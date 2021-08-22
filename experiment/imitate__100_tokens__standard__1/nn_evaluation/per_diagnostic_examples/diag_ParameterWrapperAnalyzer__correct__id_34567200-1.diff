@@ -1,0 +1,15 @@
+id: 34567200-1
+diagnostic: ParameterWrapperAnalyzer
+perc_correct_in_test: 0.010526315789473684
+num_datapoints_in_train: 274
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+    : base(expression, restrictions)
+              {
+              }
+  
+<<<< DIAGNOSTIC: member 'DapperRowMetaObject.ctor' has suboptimal parameter formatting >>>>
+-             public DapperRowMetaObject(
++             public DapperRowMetaObject
++             (
+                  System.Linq.Expressions.Expression expression,
+                 

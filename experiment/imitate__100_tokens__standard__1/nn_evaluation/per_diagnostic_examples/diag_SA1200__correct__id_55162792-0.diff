@@ -1,0 +1,16 @@
+id: 55162792-0
+diagnostic: SA1200
+perc_correct_in_test: 0.7777777777777778
+num_datapoints_in_train: 38
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+<<<< DIAGNOSTIC: using directive should appear within a namespace declaration >>>>
+- using System.Collections.Generic;
+<<<< DIAGNOSTIC: using directive should appear within a namespace declaration >>>>
+- using System.Windows.Media;
+- 
+  namespace MaterialDesignColors.Recommended
+  {
+      public class GreySwatch : ISwatch
+      {
+          public static Color Grey50 { get; } = (Color)ColorConverter.ConvertFromString("#FAFAFA");
+          public static Color 

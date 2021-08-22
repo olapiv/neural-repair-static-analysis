@@ -1,0 +1,41 @@
+id: 79446539-0
+diagnostic: CA1001
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 0
+<<<<<<<< CORRECT >>>>>>>>
+  />.
+  
+  
+  using System;
+  using System.Net.Sockets;
+  using System.Text;
+  using System.Threading;
+  
+  namespace Sparkles {
+  
+<<<< DIAGNOSTIC: type 'TcpListener' owns disposable field(s) 'socket' but is not disposable >>>>
+-     public class TcpListener : BaseListener {
++     public class TcpListener : BaseListener, IDisposable
++     {
+  
+          private Socket socket;
+          private Thread thread;
+          private bool
+<<<<<<<< INFERRED >>>>>>>>
+  />.
+  
+  
+  using System;
+  using System.Net.Sockets;
+  using System.Text;
+  using System.Threading;
+  
+  namespace Sparkles {
+  
+<<<< DIAGNOSTIC: type 'TcpListener' owns disposable field(s) 'socket' but is not disposable >>>>
+-     public class TcpListener : BaseListener {
++         private class TcpListener : BaseListener {
+  
+          private Socket socket;
+          private Thread thread;
+          private bool

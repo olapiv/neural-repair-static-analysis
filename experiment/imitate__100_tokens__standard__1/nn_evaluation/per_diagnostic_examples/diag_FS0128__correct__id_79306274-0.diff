@@ -1,0 +1,15 @@
+id: 79306274-0
+diagnostic: FS0128
+perc_correct_in_test: 0.6666666666666666
+num_datapoints_in_train: 27
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  ) + (isVisible ? 1 : 0) + (right != null ? right.totalListLength : 0));
++ 			{
+  			if (left != null)
+<<<< DIAGNOSTIC: add braces to single statement in this if >>>>
+  				left.CheckInvariants();
+  			if (right != null)
+  				right.CheckInvariants();
+  		}
+  
+  		[Conditional("DEBUG")

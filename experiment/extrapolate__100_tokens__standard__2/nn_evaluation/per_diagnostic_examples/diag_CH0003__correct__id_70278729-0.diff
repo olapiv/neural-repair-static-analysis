@@ -1,0 +1,17 @@
+id: 70278729-0
+diagnostic: CH0003
+perc_correct_in_test: 0.02857142857142857
+num_datapoints_in_train: 0
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+<<<< DIAGNOSTIC: sort using directives in alphabetical order, with system usings first. >>>>
+- using AutoMapper.Internal;
+  using System;
+  using System.Collections.Generic;
+  namespace AutoMapper
+  {
+      /// <summary>
+      /// Context information regarding resolution of a destination value
+      /// </summary>
+      public class ResolutionContext : IInternalRuntimeMapper
+      {
+         

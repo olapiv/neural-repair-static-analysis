@@ -1,0 +1,24 @@
+id: 84973007-0
+diagnostic: INTL0003
+perc_correct_in_test: 0.5
+num_datapoints_in_train: 4
+<<<<<<<< CORRECT >>>>>>>>
+     }
+  
+          public static Lab ToLab(this Xyz xyz)
+          {
+<<<< DIAGNOSTIC: method 'xyz_lab' should be pascalcase >>>>
+-             double xyz_lab(double v)
++             double Xyz_lab(double v)
+              {
+                  if (v > LabConstants.e
+<<<<<<<< INFERRED >>>>>>>>
+     }
+  
+          public static Lab ToLab(this Xyz xyz)
+          {
+<<<< DIAGNOSTIC: method 'xyz_lab' should be pascalcase >>>>
+-             double xyz_lab(double v)
++             double Rgb_xyz(double v)
+              {
+                  if (v > LabConstants.e

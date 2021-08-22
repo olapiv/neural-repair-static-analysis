@@ -1,0 +1,16 @@
+id: 28906553-0
+diagnostic: ClassDoesNotImplementContractAnalyzer
+perc_correct_in_test: 0.6
+num_datapoints_in_train: 21
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  using System.Collections.Generic;
+  using System.Windows.Media;
+  
+  namespace MaterialDesignColors.Recommended
+  {
+<<<< DIAGNOSTIC: class 'LimeSwatch' doesn't implement any interfaces from connector contracts. >>>>
+-     public class LimeSwatch : ISwatch
++     public class LimeSwatch : ISwatch, Tridion.Remoting.Contracts.IValueObject
+      {
+          public static Color Lime50 { get; } = (Color)ColorConverter.ConvertFromString("#F9FBE7");
+          public static Color 

@@ -1,0 +1,26 @@
+id: 77849462-0
+diagnostic: AANA003
+perc_correct_in_test: 0.14285714285714285
+num_datapoints_in_train: 22
+<<<<<<<< CORRECT >>>>>>>>
+  / <typeparam name="T"></typeparam>
+      public interface IEntityStoreAsync<T>
+      {
+<<<< DIAGNOSTIC: cancellationtoken parameter 'token' name differs from 'cancellationToken' >>>>
+-         Task<T> GetByIdAsync(object id, CancellationToken token = default);
++         Task<T> GetByIdAsync(object id, CancellationToken cancellationToken = default);
+  
+          Task<IList<T>> GetByIdsAsync(IEnumerable ids, CancellationToken token = default);
+  
+   
+<<<<<<<< INFERRED >>>>>>>>
+  / <typeparam name="T"></typeparam>
+      public interface IEntityStoreAsync<T>
+      {
+<<<< DIAGNOSTIC: cancellationtoken parameter 'token' name differs from 'cancellationToken' >>>>
+-         Task<T> GetByIdAsync(object id, CancellationToken token = default);
++         Task<T> GetByIdAsync<T>(object id, CancellationToken cancellationToken = default);
+  
+          Task<IList<T>> GetByIdsAsync(IEnumerable ids, CancellationToken token = default);
+  
+   

@@ -1,0 +1,12 @@
+id: 9433560-1
+diagnostic: CC0015
+perc_correct_in_test: 0.5
+num_datapoints_in_train: 4
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+         password = (password + salt).SHA256 ().Substring (0, 32);
+  
+<<<< DIAGNOSTIC: remove unnecessary parenthesis. >>>>
+-             RijndaelManaged aes = new RijndaelManaged () {
++             RijndaelManaged aes = new RijndaelManaged  {
+                  KeySize = 256,
+              

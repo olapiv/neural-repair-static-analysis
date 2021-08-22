@@ -1,0 +1,17 @@
+id: 26015335-3
+diagnostic: RCS1015
+perc_correct_in_test: 1.0
+num_datapoints_in_train: 4
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  ();
+  		}
+  
+  		public void RemoveAll(Predicate<SharpTreeNode> match)
+  		{
+  			if (match == null)
+<<<< DIAGNOSTIC: use nameof operator. >>>>
+- 				throw new ArgumentNullException("match");
++ 				throw new ArgumentNullException(nameof(match));
+  			ThrowOnReentrancy();
+  			int firstToRemove = 0;
+  			for (int i = 0; i < list.Count

@@ -1,0 +1,27 @@
+id: 59992124-2
+diagnostic: SA1623D
+perc_correct_in_test: 0.10112359550561797
+num_datapoints_in_train: 316
+<<<<<<<< CORRECT >>>>>>>>
+     /// </summary>
+          public class Identity : IEquatable<Identity>
++ 
++             /// <summary>
++             /// Gets the type count.
++             /// </summary>
+          {
+<<<< DIAGNOSTIC: property documentation: no documentation. >>>>
+              internal virtual int TypeCount => 0;
+  
+              internal virtual Type GetType(int index) => throw new
+<<<<<<<< INFERRED >>>>>>>>
+     /// </summary>
+          public class Identity : IEquatable<Identity>
++             /// <summary>
++             /// Gets the type count.
++             /// </summary>
+          {
+<<<< DIAGNOSTIC: property documentation: no documentation. >>>>
+              internal virtual int TypeCount => 0;
+  
+              internal virtual Type GetType(int index) => throw new

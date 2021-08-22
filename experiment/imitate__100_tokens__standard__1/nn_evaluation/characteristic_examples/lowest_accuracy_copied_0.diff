@@ -1,0 +1,16 @@
+id: 38667271-2
+diagnostic: VSD0033
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 2
+<<<<<<<< CORRECT >>>>>>>>
+  strTemp = ParseString(s, "qpf=", ",", out strRemaining);
+<<<< DIAGNOSTIC: use alias ulong instead of concrete type uint64. >>>>
+-                             qpfAdjusted = UInt64.Parse(strTemp) / 1000;
++                             qpfAdjusted = ulong.Parse(strTemp) / 1000;
+                             
+<<<<<<<< INFERRED >>>>>>>>
+  strTemp = ParseString(s, "qpf=", ",", out strRemaining);
+<<<< DIAGNOSTIC: use alias ulong instead of concrete type uint64. >>>>
+-                             qpfAdjusted = UInt64.Parse(strTemp) / 1000;
++                             qpcStart = ulong.Parse(strTemp);
+                             

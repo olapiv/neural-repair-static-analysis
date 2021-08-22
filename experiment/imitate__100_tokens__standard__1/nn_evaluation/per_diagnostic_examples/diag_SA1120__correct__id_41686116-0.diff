@@ -1,0 +1,9 @@
+id: 41686116-0
+diagnostic: SA1120
+perc_correct_in_test: 1.0
+num_datapoints_in_train: 3
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+            // count for m/p/i observed during this unit of time.
+<<<< DIAGNOSTIC: comments should contain text >>>>
+-                             //
+                              strTemp = ParseString(s

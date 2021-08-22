@@ -1,0 +1,36 @@
+id: 34336072-0
+diagnostic: CH0003
+perc_correct_in_test: 0.2222222222222222
+num_datapoints_in_train: 21
+<<<<<<<< CORRECT >>>>>>>>
+  Collections.Generic;
+  using System.Diagnostics;
+  using System.Linq;
+  using System.Linq.Expressions;
+  using System.Data.Linq.Mapping;
+  using System.Reflection;
+- 
+<<<< DIAGNOSTIC: sort using directives in alphabetical order, with system usings first. >>>>
+- using DbLinq.Util;
+  using DbLinq.Data.Linq.Sugar.ExpressionMutator;
+  using DbLinq.Data.Linq.Sugar.Implementation;
+  
+  namespace DbLinq.Data.Linq.Sugar.Expressions
+  {
+      //
+<<<<<<<< INFERRED >>>>>>>>
+  Collections.Generic;
+  using System.Diagnostics;
+  using System.Linq;
+  using System.Linq.Expressions;
+  using System.Data.Linq.Mapping;
+  using System.Reflection;
+  
+<<<< DIAGNOSTIC: sort using directives in alphabetical order, with system usings first. >>>>
+- using DbLinq.Util;
+  using DbLinq.Data.Linq.Sugar.ExpressionMutator;
+  using DbLinq.Data.Linq.Sugar.Implementation;
+  
+  namespace DbLinq.Data.Linq.Sugar.Expressions
+  {
+      //

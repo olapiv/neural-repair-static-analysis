@@ -1,0 +1,26 @@
+id: 93776205-3
+diagnostic: NoPrivateUnderscore
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 24
+<<<<<<<< CORRECT >>>>>>>>
+  new NotImplementedException(); }
+  		}
+  
+  		//This function will try to add unknown table types
+<<<< DIAGNOSTIC: type name '_Tables' starts with an underscore >>>>
+- 		private IDictionary<Type, MetaTable> _Tables = new Dictionary<Type, MetaTable>();
++ 		private IDictionary<Type, MetaTable> Tables = new Dictionary<Type, MetaTable>();
+  
+  		/// <summary>
+  		/// Initializes a new instance of the <see cref="AttributedMetaModel"/
+<<<<<<<< INFERRED >>>>>>>>
+  new NotImplementedException(); }
+  		}
+  
+  		//This function will try to add unknown table types
+<<<< DIAGNOSTIC: type name '_Tables' starts with an underscore >>>>
+- 		private IDictionary<Type, MetaTable> _Tables = new Dictionary<Type, MetaTable>();
++ 		private readonly Type parent;
+  
+  		/// <summary>
+  		/// Initializes a new instance of the <see cref="AttributedMetaModel"/

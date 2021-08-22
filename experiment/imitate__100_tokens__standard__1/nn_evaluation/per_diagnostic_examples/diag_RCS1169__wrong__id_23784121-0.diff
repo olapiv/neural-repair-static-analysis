@@ -1,0 +1,30 @@
+id: 23784121-0
+diagnostic: RCS1169
+perc_correct_in_test: 0.5
+num_datapoints_in_train: 7
+<<<<<<<< CORRECT >>>>>>>>
+   System.Collections.Generic;
+  
+  namespace GVFS.Hooks
+  {
+      internal static class KnownGitCommands
+      {
+<<<< DIAGNOSTIC: make field read-only. >>>>
+-         private static HashSet<string> knownCommands = new HashSet<string>()
++         private static readonly HashSet<string> knownCommands = new HashSet<string>()
+          {
+              "add",
+          
+<<<<<<<< INFERRED >>>>>>>>
+   System.Collections.Generic;
+  
+  namespace GVFS.Hooks
+  {
+      internal static class KnownGitCommands
+      {
+<<<< DIAGNOSTIC: make field read-only. >>>>
+-         private static HashSet<string> knownCommands = new HashSet<string>()
++         static readonly Dictionary<string, string> GetSqlToManagedTypeMapping(DbConnection connection)
+          {
+              "add",
+          

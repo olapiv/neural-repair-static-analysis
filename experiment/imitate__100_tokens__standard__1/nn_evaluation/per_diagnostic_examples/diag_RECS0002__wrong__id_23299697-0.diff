@@ -1,0 +1,36 @@
+id: 23299697-0
+diagnostic: RECS0002
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 0
+<<<<<<<< CORRECT >>>>>>>>
+  (typeof(EditTextBox),
+  				new FrameworkPropertyMetadata(typeof(EditTextBox)));
+  		}
+  
+  		public EditTextBox()
+  		{
+<<<< DIAGNOSTIC: anonymous method can be simplified to method group >>>>
+- 			Loaded += delegate { Init(); };
++ 			Loaded += Init;
+  		}
+  
+  		public SharpTreeViewItem Item { get; set; }
+  
+  		public SharpTreeNode Node {
+  			get { 
+<<<<<<<< INFERRED >>>>>>>>
+  (typeof(EditTextBox),
+  				new FrameworkPropertyMetadata(typeof(EditTextBox)));
+  		}
+  
+  		public EditTextBox()
+  		{
+<<<< DIAGNOSTIC: anonymous method can be simplified to method group >>>>
+- 			Loaded += delegate { Init(); };
++ 		internal EditTextBox()
+  		}
+  
+  		public SharpTreeViewItem Item { get; set; }
+  
+  		public SharpTreeNode Node {
+  			get { 

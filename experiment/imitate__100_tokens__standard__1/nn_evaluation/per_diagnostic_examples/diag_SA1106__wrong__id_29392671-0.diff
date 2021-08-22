@@ -1,0 +1,25 @@
+id: 29392671-0
+diagnostic: SA1106
+perc_correct_in_test: 0.5
+num_datapoints_in_train: 9
+<<<<<<<< CORRECT >>>>>>>>
+             }
+              if (memberInfo is MethodInfo)
+<<<< DIAGNOSTIC: code must not contain empty statements >>>>
+-                 return ((MethodInfo)memberInfo).IsStatic; ;
++                 return ((MethodInfo)memberInfo).IsStatic;
+              throw new ArgumentException();
+          }
+  
+     
+<<<<<<<< INFERRED >>>>>>>>
+             }
+              if (memberInfo is MethodInfo)
+<<<< DIAGNOSTIC: code must not contain empty statements >>>>
+-                 return ((MethodInfo)memberInfo).IsStatic; ;
++                 return ((MethodInfo)memberInfo).IsStatic;
++             ;
+              throw new ArgumentException();
+          }
+  
+     

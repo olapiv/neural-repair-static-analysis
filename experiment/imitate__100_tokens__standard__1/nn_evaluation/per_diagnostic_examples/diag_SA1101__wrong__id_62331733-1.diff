@@ -1,0 +1,28 @@
+id: 62331733-1
+diagnostic: SA1101
+perc_correct_in_test: 0.7692307692307693
+num_datapoints_in_train: 47
+<<<<<<<< CORRECT >>>>>>>>
+        public ColorPair(Color color, Color? foreground)
+          {
+<<<< DIAGNOSTIC: prefix local calls with this >>>>
+-             Color = color;
++             this.Color = color;
+<<<< DIAGNOSTIC: prefix local calls with this >>>>
+-             ForegroundColor = foreground;
++             this.ForegroundColor = foreground;
+          }
+  
+          public Color GetForegroundColor() => ForegroundColor
+<<<<<<<< INFERRED >>>>>>>>
+        public ColorPair(Color color, Color? foreground)
+          {
+<<<< DIAGNOSTIC: prefix local calls with this >>>>
+-             Color = color;
++             this.Color = color;
+<<<< DIAGNOSTIC: prefix local calls with this >>>>
+-             ForegroundColor = foreground;
++             this.ForegroundColor = null;
+          }
+  
+          public Color GetForegroundColor() => ForegroundColor

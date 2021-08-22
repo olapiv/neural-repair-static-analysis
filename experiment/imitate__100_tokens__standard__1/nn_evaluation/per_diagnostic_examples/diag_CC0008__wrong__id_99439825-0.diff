@@ -1,0 +1,26 @@
+id: 99439825-0
+diagnostic: CC0008
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 2
+<<<<<<<< CORRECT >>>>>>>>
+  ] = tableName;
+  
+<<<< DIAGNOSTIC: you can use initializers in here. >>>>
+-                 var table = new Table();
++                 var table = new Table
++                 {
+-                 table.Name = tableName.DbName;
++                     Name = tableName.DbName,
+-                 table.Member = tableName.MemberName;
++                     Member = tableName.MemberName
++                 };
+           
+<<<<<<<< INFERRED >>>>>>>>
+  ] = tableName;
+  
+<<<< DIAGNOSTIC: you can use initializers in here. >>>>
+-                 var table = new Table();
++                 foreach (Table table in currentSelect.Tables)
+                  table.Name = tableName.DbName;
+                  table.Member = tableName.MemberName;
+           

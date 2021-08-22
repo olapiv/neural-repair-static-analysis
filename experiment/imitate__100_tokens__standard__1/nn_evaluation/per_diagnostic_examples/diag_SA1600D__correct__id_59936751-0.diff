@@ -1,0 +1,19 @@
+id: 59936751-0
+diagnostic: SA1600D
+perc_correct_in_test: 0.04878048780487805
+num_datapoints_in_train: 124
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+    /// Made public so its testable
+      /// </summary>
+  	public class NullLogFactory : ILogFactory
++ 
++         /// <summary>
++         /// the debug enabled.
++         /// </summary>
+      {
+<<<< DIAGNOSTIC: members must be correctly documented. >>>>
+          private readonly bool debugEnabled;
+  
+          public NullLogFactory(bool debugEnabled=false)
+          {
+           

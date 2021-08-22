@@ -1,0 +1,23 @@
+id: 58304962-2
+diagnostic: DOC101
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 3
+<<<<<<<< CORRECT >>>>>>>>
+  
+      /// <example>
+<<<< DIAGNOSTIC: use child blocks consistently >>>>
+-     /// In this example, the 'forEach' method is a source template available over all values
++     /// <para>In this example, the 'forEach' method is a source template available over all values
+-     /// of enumerable types, producing ordinary C# 'foreach' statement and placing caret inside block:
++     /// of enumerable types, producing ordinary C# 'foreach' statement and placing caret inside block:</para>
+      /// <code>
+   
+<<<<<<<< INFERRED >>>>>>>>
+  
+      /// <example>
+<<<< DIAGNOSTIC: use child blocks consistently >>>>
+-     /// In this example, the 'forEach' method is a source template available over all values
++     /// <para>Examples of generated notifications:</para>
+      /// of enumerable types, producing ordinary C# 'foreach' statement and placing caret inside block:
+      /// <code>
+   

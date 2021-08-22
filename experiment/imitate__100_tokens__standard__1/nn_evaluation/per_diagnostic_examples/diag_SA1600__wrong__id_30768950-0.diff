@@ -1,0 +1,33 @@
+id: 30768950-0
+diagnostic: SA1600
+perc_correct_in_test: 0.75
+num_datapoints_in_train: 3
+<<<<<<<< CORRECT >>>>>>>>
+  
+          public int flags;
+          public int idealProcNo;
++         /// <summary>
++         /// Initializes a new instance of the <see cref="SampleInfo"/> struct.
++         /// </summary>
++         /// <param name="_tid"></param>
++         /// <param name="_allocHeap"></param>
++         /// <param name="_countSamples"></param>
++         /// <param name="_flags"></param>
++         /// <param name="_idealProcNo"></param>
+  
+<<<< DIAGNOSTIC: elements should be documented >>>>
+          public SampleInfo(int _tid, int _allocHeap, int _countSamples, int _flags, int _idealProcNo)
+          {
+              tid = _tid;
+    
+<<<<<<<< INFERRED >>>>>>>>
+  
+          public int flags;
+          public int idealProcNo;
+  
+<<<< DIAGNOSTIC: elements should be documented >>>>
+-         public SampleInfo(int _tid, int _allocHeap, int _countSamples, int _flags, int _idealProcNo)
++     internal struct SampleInfo
+          {
+              tid = _tid;
+    

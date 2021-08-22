@@ -1,0 +1,17 @@
+id: 57136629-2
+diagnostic: SA1623D
+perc_correct_in_test: 0.10112359550561797
+num_datapoints_in_train: 316
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  ColumnExpression = newOperands[0];
+              return this;
+          }
++         /// <summary>
++         /// Gets the operands.
++         /// </summary>
+  
+<<<< DIAGNOSTIC: property documentation: no documentation. >>>>
+          public override System.Collections.Generic.IEnumerable<Expression> Operands
+          {
+              get
+              {

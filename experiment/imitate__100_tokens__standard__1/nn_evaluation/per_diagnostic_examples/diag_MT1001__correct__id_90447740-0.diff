@@ -1,0 +1,18 @@
+id: 90447740-0
+diagnostic: MT1001
+perc_correct_in_test: 0.3333333333333333
+num_datapoints_in_train: 3
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  using System;
+  using System.Collections.Generic;
+  using System.Text.Json.Serialization;
+  
+  namespace Shadowsocks.Models
++     [TestClass]
+  {
+<<<< DIAGNOSTIC: the class 'Group' should be marked with the [testclass] attribute >>>>
+      public class Group : IGroup<Server>
+      {
+          /// <summary>
+          /// Gets or sets the group name.
+      

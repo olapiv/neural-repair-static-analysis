@@ -1,0 +1,25 @@
+id: 42307631-0
+diagnostic: AvNextRegularExpressionCodeFix
+perc_correct_in_test: 0.6666666666666666
+num_datapoints_in_train: 93
+<<<<<<<< CORRECT >>>>>>>>
+  public class DataType : IDataType
+          {
++             [System.ComponentModel.DataAnnotations.RegularExpression(@"^[a-zA-Z0-9]*$")]//Roslyn auto generated
+<<<< DIAGNOSTIC: type name 'SqlType' should be decorated with regularexpress attribute >>>>
+-             public virtual string SqlType { get; set; }
++             public string SqlType { get; set; }
++             [System.ComponentModel.DataAnnotations.RegularExpression(@"^[a-zA-Z0-9]*$")]//Roslyn auto generated
+<<<< DIAGNOSTIC: type name 'ManagedType' should be decorated with regularexpress attribute >>>>
+-             public virtual string ManagedType { get; set; }
++             public string ManagedType { get; set; }
+              public virtual bool Nullable 
+<<<<<<<< INFERRED >>>>>>>>
+  public class DataType : IDataType
++             [System.ComponentModel.DataAnnotations.RegularExpression(@"^[a-zA-Z0-9]*$")]//Roslyn auto generated
+          {
+<<<< DIAGNOSTIC: type name 'SqlType' should be decorated with regularexpress attribute >>>>
+              public virtual string SqlType { get; set; }
+<<<< DIAGNOSTIC: type name 'ManagedType' should be decorated with regularexpress attribute >>>>
+              public virtual string ManagedType { get; set; }
+              public virtual bool Nullable 

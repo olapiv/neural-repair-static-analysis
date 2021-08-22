@@ -1,0 +1,24 @@
+id: 6081552-0
+diagnostic: CC0015
+perc_correct_in_test: 0.5
+num_datapoints_in_train: 4
+<<<<<<<< CORRECT >>>>>>>>
+  = new AttributedAssociationMetaDataMember(memberInfo, association, this);
+  				AssociationsLookup[memberInfo] = dataMember;
+<<<< DIAGNOSTIC: remove unnecessary parenthesis. >>>>
+- 				_AssociationFixupList.Add(new AssociationData() { Association = association, Member = memberInfo, DataMember = dataMember });
++ 				_AssociationFixupList.Add(new AssociationData { Association = association, Member = memberInfo, DataMember = dataMember });
+  			}
+          }
+  
+          internal void SetMetaTable(
+<<<<<<<< INFERRED >>>>>>>>
+  = new AttributedAssociationMetaDataMember(memberInfo, association, this);
+  				AssociationsLookup[memberInfo] = dataMember;
+<<<< DIAGNOSTIC: remove unnecessary parenthesis. >>>>
+- 				_AssociationFixupList.Add(new AssociationData() { Association = association, Member = memberInfo, DataMember = dataMember });
++                 void Upsert(object target, UpsertQuery insertQuery)
+  			}
+          }
+  
+          internal void SetMetaTable(
