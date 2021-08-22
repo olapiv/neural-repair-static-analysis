@@ -1,5 +1,7 @@
 import os
 import json
+from multiprocessing import Pool
+from itertools import product
 from regex_lexer import CSharpAndCommentsLexer, LanguageLexer
 from regex_lexer_camelcase import CSharpAndCommentsCamelcaseLexer, LanguageCamelcaseLexer
 from enum import Enum
@@ -14,14 +16,12 @@ class TokenizationType(Enum):
 
 class Pipeline:
 
-    def __init__(self, input_dir, num_file_context_tokens, tokenization_type=TokenizationType.standard):
+    def __init__(self, input_dir, output_dir, num_file_context_tokens, tokenization_type=TokenizationType.standard):
         self.input_dir = input_dir
         self.num_file_context_tokens = num_file_context_tokens
         self.tokenization_type = tokenization_type
 
-        dataset_version = input_dir.split("_")[-1]
-        self.output_dir = f"tokenized_datasets/{num_file_context_tokens}_tokens__{tokenization_type.value}__{dataset_version}"
-        Path(self.output_dir).mkdir(parents=True, exist_ok=True)
+        self.output_dir = output_dir
 
         if self.tokenization_type == TokenizationType.camelcase:
             self.the_lexer = CSharpAndCommentsCamelcaseLexer()
@@ -205,9 +205,12 @@ class Pipeline:
             diff_action["SourceLocationStart"] -= line_offset
             diff_action["SourceLocationEnd"] -= line_offset
 
-    def run_single_datapoint(self, unified_file):
+    def run_single_datapoint(self, unified_file_path):
 
-        with open(unified_file, 'r') as file:
+        unified_file_basename = os.path.basename(os.path.normpath(unified_file_path))
+        print(f"File to tokenize: {unified_file_basename}")
+
+        with open(unified_file_path, 'r') as file:
             orig_file_string = file.read()
             if not orig_file_string.isascii():
                 print("File is not ASCII!")
@@ -223,7 +226,7 @@ class Pipeline:
 
         if any(["\n" in token[1] for token in orig_file_tokens]):
             print(
-                "Newline tokenized incorrectly! unified_file: {unified_file.name}")
+                "Newline tokenized incorrectly! unified_file: {unified_file_basename}")
             exit(0)
             # return
 
@@ -292,7 +295,7 @@ class Pipeline:
 
             if any(["\n" in token[1] for token in diffed_required_tokens]):
                 print(
-                    "Newline tokenized incorrectly! unified_file: {unified_file.name}")
+                    "Newline tokenized incorrectly! unified_file: {unified_file_basename}")
                 exit(0)
                 # return
 
@@ -334,33 +337,42 @@ class Pipeline:
 
         self.remove_redundant_fields(unified_data_dict)
 
-        new_filepath = f"{self.output_dir}/{unified_file.name}"
+        new_filepath = f"{self.output_dir}/{unified_file_basename}"
         with open(new_filepath, 'w', encoding='utf-8') as f:
             json.dump(unified_data_dict, f, ensure_ascii=False, indent=2)
 
-    def main(self):
+    @staticmethod
+    def start_and_run(unified_file_path, input_dir, output_dir, num_file_context_tokens, tokenization_type):
 
-        unified_files = [f for f in os.scandir(
-            self.input_dir) if f.is_file() and f.name.endswith(".json")]
-        tokenized_files = [f.name for f in os.scandir(
-            self.output_dir) if f.is_file()]
+        pipeline = Pipeline(input_dir, output_dir, num_file_context_tokens, tokenization_type)
+        pipeline.run_single_datapoint(unified_file_path)
 
-        for unified_file in unified_files:
 
-            print(f"File to tokenize: {unified_file.name}")
+def main(input_dir, num_file_context_tokens, tokenization_type):
 
-            if unified_file.name in tokenized_files:
-                print("File already tokenized")
-                continue
+    dataset_version = input_dir.split("_")[-1]
+    output_dir = f"tokenized_datasets/{num_file_context_tokens}_tokens__{tokenization_type.value}__{dataset_version}"
+    Path(output_dir).mkdir(parents=True, exist_ok=True)
 
-            self.run_single_datapoint(unified_file)
+    unified_files = [f for f in os.scandir(
+        input_dir) if f.is_file() and f.name.endswith(".json")]
+    already_tokenized_files = [f.name for f in os.scandir(
+        output_dir) if f.is_file()]
+    unified_files_to_do = [f.path for f in unified_files if f.name not in already_tokenized_files]
+
+    print(f"Num unified files: {len(unified_files)}")
+    print(f"Num unified files left to do: {len(unified_files_to_do)}")
+
+    args = product(unified_files_to_do, [input_dir], [output_dir], [num_file_context_tokens], [tokenization_type])
+
+    with Pool(6) as p:
+        p.starmap(Pipeline.start_and_run, args)
 
 
 if __name__ == '__main__':
 
-    num_file_context_tokens = 200
+    num_file_context_tokens = 150
     tokenization_type = TokenizationType.camelcase
     input_dir = "unified_dataset_3"
 
-    pipeline = Pipeline(input_dir, num_file_context_tokens, tokenization_type)
-    pipeline.main()
+    main(input_dir, num_file_context_tokens, tokenization_type)
