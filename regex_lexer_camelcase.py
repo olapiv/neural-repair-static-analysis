@@ -28,7 +28,7 @@ class UnprocessedTokensMixin(object):
                 yield index, token, value
 
 
-class LanguageLexer(UnprocessedTokensMixin, RegexLexer):
+class LanguageCamelcaseLexer(UnprocessedTokensMixin, RegexLexer):
     """
     Occasionally (quite rarely), multiple lines are put into quotation marks. Since
     we only assume that these are used for variable names, this leads to none of the
@@ -152,32 +152,32 @@ class CSharpAndCommentsCamelcaseLexer(UnprocessedTokensMixin, CSharpLexer):
             ],
 
             'block-comments': [
-                # First group parsed by LanguageLexer, second group parsed by root again
-                (r'(.+?)(\*/)', bygroups(using(LanguageLexer), Comment.Multiline), '#pop'),
+                # First group parsed by LanguageCamelcaseLexer, second group parsed by root again
+                (r'(.+?)(\*/)', bygroups(using(LanguageCamelcaseLexer), Comment.Multiline), '#pop'),
             ],
             'line-comments': [
-                # First group parsed by LanguageLexer, second group parsed by root again
-                (r'(.+?)(\n)', bygroups(using(LanguageLexer), Text), '#pop'),
+                # First group parsed by LanguageCamelcaseLexer, second group parsed by root again
+                (r'(.+?)(\n)', bygroups(using(LanguageCamelcaseLexer), Text), '#pop'),
             ],
             'verbatim-strings': [
                 # This represents 3 groups; the last char before \" will be matched a second time,
                 # so we use None to ignore it.
                 # TODO: Figure out why it is matched a second time
                 (r'((""|[^"])*)(")',
-                 bygroups(using(LanguageLexer), None, String), '#pop'),
+                 bygroups(using(LanguageCamelcaseLexer), None, String), '#pop'),
             ],
             'other-strings': [
                 # This represents 3 groups; the last char before \" will be matched a second time,
                 # so we use None to ignore it.
                 # TODO: Figure out why it is matched a second time
                 (r'((\\\\|\\[^\\]|[^"\\\n])*)(["\n])',
-                 bygroups(using(LanguageLexer), None, String), '#pop'),
+                 bygroups(using(LanguageCamelcaseLexer), None, String), '#pop'),
             ]
         }
 
 
 def run_only_language_lexer(original_file_string):
-    textlex = LanguageLexer()
+    textlex = LanguageCamelcaseLexer()
     result = textlex.get_tokens(original_file_string)
     for (token_type, value) in result:
         print(f"token_type: {token_type}, value: {value}")
