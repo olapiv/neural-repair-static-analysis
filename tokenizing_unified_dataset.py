@@ -41,12 +41,12 @@ class Pipeline:
         #     if data_dict["ParsedDiff"]["ActionType"] != "ADD":
         #         data_dict["ParsedDiff"]["Action"].pop("TargetStartLocation", None)
 
-        data_dict.pop("Repo", None)
         data_dict.pop("RepoURL", None)
         data_dict.pop("SolutionFile", None)
         data_dict.pop("FilePath", None)
         data_dict.pop("Commit", None)
-        data_dict.pop("AnalyzerNuGet", None)
+        # data_dict.pop("Repo", None)
+        # data_dict.pop("AnalyzerNuGet", None)
         # data_dict.pop("FileContextStart", None)
         # data_dict.pop("RequiredLinesStart", None)
         # data_dict.pop("RequiredLinesEnd", None)
