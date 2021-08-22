@@ -1,0 +1,10 @@
+id: 87368411-0
+diagnostic: RCS1084
+perc_correct_in_test: 1.0
+num_datapoints_in_train: 1
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+      string strIncludeAll = (fIncludeAllTime ? "-ia1-" : "-ia0-");
+<<<< DIAGNOSTIC: use coalesce expression instead of conditional expression. >>>>
+-             string strTI = ((strThreadIndices == null) ? "" : strThreadIndices);
++             string strTI = (strThreadIndices ?? "");
+              string strPassOneLog = strLogNameWithoutExtension + "-pass1-n" + 

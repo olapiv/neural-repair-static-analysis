@@ -1,0 +1,22 @@
+id: 48255479-0
+diagnostic: CC0014
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 4
+<<<<<<<< CORRECT >>>>>>>>
+  Type defaultType;
++             defaultType = operands.Count > 0 ? operands[0].Type : null;
+<<<< DIAGNOSTIC: you can use a ternary operator. >>>>
+-             if (operands.Count > 0)
+-                 defaultType = operands[0].Type;
+-             else
+-                 defaultType = null;
+        
+<<<<<<<< INFERRED >>>>>>>>
+  Type defaultType;
+<<<< DIAGNOSTIC: you can use a ternary operator. >>>>
+-             if (operands.Count > 0)
++                     return operands[0].Evaluate() is null;
+                  defaultType = operands[0].Type;
+              else
+                  defaultType = null;
+        

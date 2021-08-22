@@ -1,0 +1,10 @@
+id: 81408768-3
+diagnostic: CC0048
+perc_correct_in_test: 0.2
+num_datapoints_in_train: 23
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  i = 0; i < expression.Arguments.Count; i++)
+<<<< DIAGNOSTIC: use string interpolation >>>>
+-                 lines.AddRange(Write(expression.Arguments[i], string.Format("#{0:0##}", i), depth));
++                 lines.AddRange(Write(expression.Arguments[i], $"#{i:0##}", depth));
+              if (expression.Members != null)

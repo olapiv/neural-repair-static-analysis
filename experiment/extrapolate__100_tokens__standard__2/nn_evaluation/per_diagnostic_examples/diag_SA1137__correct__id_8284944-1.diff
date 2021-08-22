@@ -1,0 +1,15 @@
+id: 8284944-1
+diagnostic: SA1137
+perc_correct_in_test: 0.07692307692307693
+num_datapoints_in_train: 0
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+   return entity;
+          }
+  
+          readonly IDataMapper DataMapper = ObjectFactory.Get<IDataMapper>();
+<<<< DIAGNOSTIC: elements should have the same indentation >>>>
+- 		private void SetEntityRefQueries(object entity)
++         private void SetEntityRefQueries(object entity)
+  		{
+              if (!this.deferredLoadingEnabled)
+                  return;

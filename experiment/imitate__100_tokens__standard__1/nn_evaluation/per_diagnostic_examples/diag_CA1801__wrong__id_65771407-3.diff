@@ -1,0 +1,36 @@
+id: 65771407-3
+diagnostic: CA1801
+perc_correct_in_test: 0.3333333333333333
+num_datapoints_in_train: 13
+<<<<<<<< CORRECT >>>>>>>>
+  		Reader.MoveToContent();
+  			}
+  
+  			ReadEndElement();
+  
+  			return ob;
+  		}
+  
+<<<< DIAGNOSTIC: parameter isnullable of method readobject_membermodifier is never used. remove the parameter or use it in the method body. >>>>
+<<<< DIAGNOSTIC: parameter checktype of method readobject_membermodifier is never used. remove the parameter or use it in the method body. >>>>
+- 		public DbLinq.Schema.Dbml.MemberModifier ReadObject_MemberModifier (bool isNullable, bool checkType)
++ 		public DbLinq.Schema.Dbml.MemberModifier ReadObject_MemberModifier (bool checkType)
+  		{
+  			Reader.ReadStartElement ();
+  			DbLinq.Schema.Dbml.MemberModifier res = GetEnumValue_MemberModifier (Reader.ReadString()
+<<<<<<<< INFERRED >>>>>>>>
+  		Reader.MoveToContent();
+  			}
+  
+  			ReadEndElement();
+  
+  			return ob;
+  		}
+  
+<<<< DIAGNOSTIC: parameter isnullable of method readobject_membermodifier is never used. remove the parameter or use it in the method body. >>>>
+<<<< DIAGNOSTIC: parameter checktype of method readobject_membermodifier is never used. remove the parameter or use it in the method body. >>>>
+- 		public DbLinq.Schema.Dbml.MemberModifier ReadObject_MemberModifier (bool isNullable, bool checkType)
++ 		public DbLinq.Schema.Dbml.MemberModifier ReadObject_MemberModifier ()
+  		{
+  			Reader.ReadStartElement ();
+  			DbLinq.Schema.Dbml.MemberModifier res = GetEnumValue_MemberModifier (Reader.ReadString()

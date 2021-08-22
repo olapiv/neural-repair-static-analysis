@@ -1,0 +1,20 @@
+id: 56773643-1
+diagnostic: CC0013
+perc_correct_in_test: 0.5
+num_datapoints_in_train: 3
+<<<<<<<< CORRECT >>>>>>>>
+              {
+<<<< DIAGNOSTIC: you can use a ternary operator. >>>>
+-                 if (this.StringIndexStartsAtOne)
++                 return this.StringIndexStartsAtOne ? 1 : 0;
+-                     return 1;
+-                 else return 0;
+              }
+<<<<<<<< INFERRED >>>>>>>>
+              {
++             return hasFields ? (Exception)new ArgumentException(
+<<<< DIAGNOSTIC: you can use a ternary operator. >>>>
+-                 if (this.StringIndexStartsAtOne)
+-                     return 1;
+-                 else return 0;
+-             }

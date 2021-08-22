@@ -1,0 +1,34 @@
+id: 46653344-0
+diagnostic: DA3007
+perc_correct_in_test: 0.8592592592592593
+num_datapoints_in_train: 396
+<<<<<<<< CORRECT >>>>>>>>
+  public partial class InstallationInfo {
+  
+          static OS operating_system = OS.Unknown;
+  
++         /// <summary> 
++         /// 
++         /// </summary>
+<<<< DIAGNOSTIC: property name 'OperatingSystem' doesn't have /// comment >>>>
+-         public static OS OperatingSystem {
++         public static OS OperatingSystem
++         {
+-             get {
++             get
++             {
+                  if (operating_system != OS.Unknown)
+       
+<<<<<<<< INFERRED >>>>>>>>
+  public partial class InstallationInfo {
+  
+          static OS operating_system = OS.Unknown;
++         /// <summary> 
++         /// 
++         /// </summary>
+  
+<<<< DIAGNOSTIC: property name 'OperatingSystem' doesn't have /// comment >>>>
+          public static OS OperatingSystem {
+              get {
+                  if (operating_system != OS.Unknown)
+       

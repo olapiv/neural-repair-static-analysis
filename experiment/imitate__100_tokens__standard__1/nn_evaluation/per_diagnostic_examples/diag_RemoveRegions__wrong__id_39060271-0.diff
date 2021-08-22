@@ -1,0 +1,20 @@
+id: 39060271-0
+diagnostic: RemoveRegions
+perc_correct_in_test: 0.967741935483871
+num_datapoints_in_train: 184
+<<<<<<<< CORRECT >>>>>>>>
+                return GetEnumerator();
+              }
+  
+<<<< DIAGNOSTIC: regions are not needed any more >>>>
+-             #region Implementation of ICollection<KeyValuePair<string,object>>
+- 
+              void ICollection<KeyValuePair<string, object>>.Add(KeyValuePair<string, object> item)
+<<<<<<<< INFERRED >>>>>>>>
+                return GetEnumerator();
+              }
+  
+<<<< DIAGNOSTIC: regions are not needed any more >>>>
+-             #region Implementation of ICollection<KeyValuePair<string,object>>
+  
+              void ICollection<KeyValuePair<string, object>>.Add(KeyValuePair<string, object> item)

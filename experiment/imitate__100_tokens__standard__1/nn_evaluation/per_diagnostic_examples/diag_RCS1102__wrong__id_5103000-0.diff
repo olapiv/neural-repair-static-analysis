@@ -1,0 +1,32 @@
+id: 5103000-0
+diagnostic: RCS1102
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 3
+<<<<<<<< CORRECT >>>>>>>>
+  using Newtonsoft.Json;
+  using System;
+  
+  namespace GVFS.GVFlt
+  {
+<<<< DIAGNOSTIC: make class static. >>>>
+-     public class GVFltCallbacks
++     public static class GVFltCallbacks
+      {
+          /// <summary>
+          /// This struct must remain here for DiskLayout9to10Upgrade_BackgroundAndPlaceholderListToFileBased
+          /// </summary>
+         
+<<<<<<<< INFERRED >>>>>>>>
+  using Newtonsoft.Json;
+  using System;
+  
+  namespace GVFS.GVFlt
+  {
+<<<< DIAGNOSTIC: make class static. >>>>
+-     public class GVFltCallbacks
++     public readonly struct CommandDefinition
+      {
+          /// <summary>
+          /// This struct must remain here for DiskLayout9to10Upgrade_BackgroundAndPlaceholderListToFileBased
+          /// </summary>
+         

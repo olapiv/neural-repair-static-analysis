@@ -1,0 +1,15 @@
+id: 86412583-1
+diagnostic: mmlajOnalbPublicFieldAnalyzer
+perc_correct_in_test: 0.8620689655172413
+num_datapoints_in_train: 75
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+   defined in HeapBalanceFlagMask. Most of the time the flags are
+          // 0s.
+<<<< DIAGNOSTIC: analyzer format (mmlaj) >>>>
+-         public int flags;
++         private int flags;
+<<<< DIAGNOSTIC: analyzer format (mmlaj) >>>>
+-         public int idealProcNo;
++         private int idealProcNo;
+  
+          public SampleInfo(int _tid, int _allocHeap, int _countSamples, int _flags, int 

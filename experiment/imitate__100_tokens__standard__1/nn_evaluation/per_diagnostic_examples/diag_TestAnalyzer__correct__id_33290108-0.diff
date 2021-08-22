@@ -1,0 +1,22 @@
+id: 33290108-0
+diagnostic: TestAnalyzer
+perc_correct_in_test: 0.7272727272727273
+num_datapoints_in_train: 33
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+   USE OR OTHER
+  // DEALINGS IN THE SOFTWARE.
+  
+  using System.Windows;
+  using System.Windows.Controls;
+  
+  namespace ICSharpCode.TreeView
+  {
+<<<< DIAGNOSTIC: type name 'InsertMarker' contains lowercase letters >>>>
+- 	public class InsertMarker : Control
++ 	public class INSERTMARKER : Control
+  	{
+  		static InsertMarker()
+  		{
+  			DefaultStyleKeyProperty.OverrideMetadata(typeof(InsertMarker),
+  				new FrameworkPropertyMetadata(typeof(InsertMarker)));
+  	

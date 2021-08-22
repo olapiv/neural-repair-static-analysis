@@ -1,0 +1,18 @@
+id: 27245302-2
+diagnostic: DA3001
+perc_correct_in_test: 0.5
+num_datapoints_in_train: 12
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  sourceColumn, string destinationColumn)
+              => _wrapped.ColumnMappings.Add(sourceColumn, destinationColumn);
++         /// <summary> 
++         /// 
++         /// </summary>
++         /// <param name="sourceColumn"></param>
++         /// <param name="destinationColumn"></param>
+  
+<<<< DIAGNOSTIC: method 'AddColumnMapping' doesn't have /// comment for documentation >>>>
+          public override void AddColumnMapping(int sourceColumn, int destinationColumn)
+              => _wrapped.ColumnMappings.Add(sourceColumn, destinationColumn);
+  
+          

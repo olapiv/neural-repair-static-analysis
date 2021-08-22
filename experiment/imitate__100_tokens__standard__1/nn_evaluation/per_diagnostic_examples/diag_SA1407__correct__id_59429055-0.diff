@@ -1,0 +1,14 @@
+id: 59429055-0
+diagnostic: SA1407
+perc_correct_in_test: 1.0
+num_datapoints_in_train: 24
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+   * (1 - s);
+<<<< DIAGNOSTIC: arithmetic expressions should declare precedence >>>>
+-             var q = b * (1 - s * f);
++             var q = b * (1 - (s * f));
+<<<< DIAGNOSTIC: arithmetic expressions should declare precedence >>>>
+-             var t = b * (1 - s * (1 - f));
++             var t = b * (1 - (s * (1 - f)));
+  
+             

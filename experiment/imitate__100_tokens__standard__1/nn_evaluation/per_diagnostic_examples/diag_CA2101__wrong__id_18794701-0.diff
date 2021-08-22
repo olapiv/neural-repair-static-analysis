@@ -1,0 +1,32 @@
+id: 18794701-0
+diagnostic: CA2101
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 0
+<<<<<<<< CORRECT >>>>>>>>
+  .Threading;
+  using System.Windows.Forms;
+  
+  namespace ShareX.Steam
+  {
+      public static class Helpers
+      {
+<<<< DIAGNOSTIC: specify marshaling for p/invoke string arguments >>>>
+-         [DllImport("kernel32.dll")]
++         [DllImport("kernel32.dll", CharSet = CharSet.Unicode)]
+          public static extern uint WinExec(string lpCmdLine, uint uCmdShow);
+  
+          public static
+<<<<<<<< INFERRED >>>>>>>>
+  .Threading;
+  using System.Windows.Forms;
+  
+  namespace ShareX.Steam
+  {
+      public static class Helpers
+      {
+<<<< DIAGNOSTIC: specify marshaling for p/invoke string arguments >>>>
+-         [DllImport("kernel32.dll")]
++     public static class HELPERS
+          public static extern uint WinExec(string lpCmdLine, uint uCmdShow);
+  
+          public static

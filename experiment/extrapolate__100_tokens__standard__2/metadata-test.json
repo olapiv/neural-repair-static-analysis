@@ -1,0 +1,6431 @@
+{
+    "num-datapoints": 1594,
+    "num-unique-diagnostics": 39,
+    "avg-data-points-per-diagnostic": 40.87179487179487,
+    "std-data-points-per-diagnostic": 77.78378299349059,
+    "max-tokens-src": 173,
+    "avg-tokens-src": 120.90840652446676,
+    "std-tokens-src": 7.30860458459822,
+    "max-tokens-tgt": 237,
+    "avg-tokens-tgt": 30.01693851944793,
+    "std-tokens-tgt": 27.635108308173884,
+    "diagnostics": {
+        "FM_Missing": 2,
+        "AvoidVar": 328,
+        "SA1513": 188,
+        "DA4003": 61,
+        "WS002": 105,
+        "RS0100": 57,
+        "RCS1212": 5,
+        "FS0128": 348,
+        "SA1137": 52,
+        "MethodLengthAnalyzer": 67,
+        "CS0002": 19,
+        "SA1106": 18,
+        "FS0030": 3,
+        "PropertyDiagnosticId": 23,
+        "RCS1218": 4,
+        "PostIncrement": 49,
+        "CH0003": 70,
+        "SA1617": 5,
+        "RCS1171": 7,
+        "RCS1032": 15,
+        "DS01": 6,
+        "FS0057": 6,
+        "VSD0033": 20,
+        "SA1111": 18,
+        "SA1519": 17,
+        "SS002": 7,
+        "OhNoPubImplicitCastForeach": 12,
+        "RECS0033": 7,
+        "RCS1127": 4,
+        "CA1805": 12,
+        "INTL0003": 8,
+        "FS0131": 38,
+        "CA1001": 3,
+        "CC0011": 2,
+        "RECS0004": 3,
+        "ASYNC0002": 2,
+        "RECS0015": 1,
+        "RCS1155": 1,
+        "DA3004": 1
+    },
+    "datapoints": [
+        {
+            "ID": "43126908-0",
+            "DiagnosticID": "FM_Missing"
+        },
+        {
+            "ID": "34937522-1",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "8387259-3",
+            "DiagnosticID": "SA1513"
+        },
+        {
+            "ID": "9404514-3",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "64149022-0",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "79502473-0",
+            "DiagnosticID": "SA1513"
+        },
+        {
+            "ID": "50253599-1",
+            "DiagnosticID": "DA4003"
+        },
+        {
+            "ID": "61810426-2",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "18786749-0",
+            "DiagnosticID": "WS002"
+        },
+        {
+            "ID": "76401033-3",
+            "DiagnosticID": "RS0100"
+        },
+        {
+            "ID": "41784336-1",
+            "DiagnosticID": "RCS1212"
+        },
+        {
+            "ID": "172597-0",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "41676545-0",
+            "DiagnosticID": "SA1513"
+        },
+        {
+            "ID": "20265654-0",
+            "DiagnosticID": "SA1513"
+        },
+        {
+            "ID": "91707536-3",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "66548363-2",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "4832533-2",
+            "DiagnosticID": "SA1513"
+        },
+        {
+            "ID": "96576251-0",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "91557573-1",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "1331794-0",
+            "DiagnosticID": "RS0100"
+        },
+        {
+            "ID": "83513998-1",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "44705862-1",
+            "DiagnosticID": "SA1137"
+        },
+        {
+            "ID": "23438399-0",
+            "DiagnosticID": "WS002"
+        },
+        {
+            "ID": "8284944-1",
+            "DiagnosticID": "SA1137"
+        },
+        {
+            "ID": "55183453-0",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "64037408-3",
+            "DiagnosticID": "SA1137"
+        },
+        {
+            "ID": "6963935-2",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "72746234-2",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "13228183-0",
+            "DiagnosticID": "MethodLengthAnalyzer"
+        },
+        {
+            "ID": "35146772-2",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "83083593-1",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "58078698-1",
+            "DiagnosticID": "CS0002"
+        },
+        {
+            "ID": "75162561-0",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "52671923-2",
+            "DiagnosticID": "SA1513"
+        },
+        {
+            "ID": "7571988-0",
+            "DiagnosticID": "SA1106"
+        },
+        {
+            "ID": "29876240-1",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "65899503-0",
+            "DiagnosticID": "SA1513"
+        },
+        {
+            "ID": "98866014-0",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "2339409-0",
+            "DiagnosticID": "FS0030"
+        },
+        {
+            "ID": "78205963-3",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "32256428-0",
+            "DiagnosticID": "SA1513"
+        },
+        {
+            "ID": "17519798-0",
+            "DiagnosticID": "SA1513"
+        },
+        {
+            "ID": "24555080-0",
+            "DiagnosticID": "PropertyDiagnosticId"
+        },
+        {
+            "ID": "55150976-1",
+            "DiagnosticID": "RCS1218"
+        },
+        {
+            "ID": "12019629-1",
+            "DiagnosticID": "PostIncrement"
+        },
+        {
+            "ID": "68904421-0",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "44426920-1",
+            "DiagnosticID": "MethodLengthAnalyzer"
+        },
+        {
+            "ID": "58235933-1",
+            "DiagnosticID": "CH0003"
+        },
+        {
+            "ID": "46652975-2",
+            "DiagnosticID": "SA1513"
+        },
+        {
+            "ID": "89230358-2",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "836798-1",
+            "DiagnosticID": "MethodLengthAnalyzer"
+        },
+        {
+            "ID": "19936657-0",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "85332414-0",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "13540079-1",
+            "DiagnosticID": "SA1137"
+        },
+        {
+            "ID": "9842344-3",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "5038686-0",
+            "DiagnosticID": "RS0100"
+        },
+        {
+            "ID": "87073582-0",
+            "DiagnosticID": "SA1617"
+        },
+        {
+            "ID": "93042368-1",
+            "DiagnosticID": "CH0003"
+        },
+        {
+            "ID": "95795220-1",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "76559408-2",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "44736229-0",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "85075055-0",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "13609767-0",
+            "DiagnosticID": "SA1513"
+        },
+        {
+            "ID": "64014848-2",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "58665524-0",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "29081793-0",
+            "DiagnosticID": "MethodLengthAnalyzer"
+        },
+        {
+            "ID": "34651235-0",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "54340213-1",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "10120140-0",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "72007757-1",
+            "DiagnosticID": "DA4003"
+        },
+        {
+            "ID": "61218210-1",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "64449158-3",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "19037770-3",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "85949852-2",
+            "DiagnosticID": "DA4003"
+        },
+        {
+            "ID": "66052807-3",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "36745350-0",
+            "DiagnosticID": "RCS1171"
+        },
+        {
+            "ID": "57266178-3",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "92856117-1",
+            "DiagnosticID": "SA1513"
+        },
+        {
+            "ID": "72799074-1",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "90502092-0",
+            "DiagnosticID": "SA1513"
+        },
+        {
+            "ID": "12086981-2",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "71951390-0",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "30820078-3",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "37804445-0",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "72584310-1",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "5759889-0",
+            "DiagnosticID": "RCS1032"
+        },
+        {
+            "ID": "89699347-0",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "5454452-0",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "24530452-0",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "39595597-0",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "49056501-1",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "4873034-0",
+            "DiagnosticID": "SA1137"
+        },
+        {
+            "ID": "27758150-2",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "55318140-1",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "97449126-0",
+            "DiagnosticID": "DS01"
+        },
+        {
+            "ID": "32606642-3",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "70480413-0",
+            "DiagnosticID": "SA1137"
+        },
+        {
+            "ID": "18385235-0",
+            "DiagnosticID": "FS0057"
+        },
+        {
+            "ID": "38667271-1",
+            "DiagnosticID": "VSD0033"
+        },
+        {
+            "ID": "90896666-0",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "84180450-0",
+            "DiagnosticID": "SA1106"
+        },
+        {
+            "ID": "42837203-0",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "49327145-0",
+            "DiagnosticID": "WS002"
+        },
+        {
+            "ID": "5803655-0",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "73103583-0",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "96435927-1",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "34306228-2",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "11925596-1",
+            "DiagnosticID": "SA1513"
+        },
+        {
+            "ID": "83739360-0",
+            "DiagnosticID": "WS002"
+        },
+        {
+            "ID": "59247551-0",
+            "DiagnosticID": "SA1137"
+        },
+        {
+            "ID": "10123608-0",
+            "DiagnosticID": "SA1111"
+        },
+        {
+            "ID": "58321346-3",
+            "DiagnosticID": "SA1513"
+        },
+        {
+            "ID": "6528504-3",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "20192300-0",
+            "DiagnosticID": "CS0002"
+        },
+        {
+            "ID": "13325230-2",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "48963427-1",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "64800952-0",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "6183709-0",
+            "DiagnosticID": "DA4003"
+        },
+        {
+            "ID": "92379047-2",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "1266751-3",
+            "DiagnosticID": "DA4003"
+        },
+        {
+            "ID": "24648561-0",
+            "DiagnosticID": "PropertyDiagnosticId"
+        },
+        {
+            "ID": "39390615-0",
+            "DiagnosticID": "PropertyDiagnosticId"
+        },
+        {
+            "ID": "8032468-0",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "16808209-0",
+            "DiagnosticID": "SA1513"
+        },
+        {
+            "ID": "31871481-1",
+            "DiagnosticID": "SA1137"
+        },
+        {
+            "ID": "87269314-1",
+            "DiagnosticID": "SA1513"
+        },
+        {
+            "ID": "78007421-1",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "63560204-3",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "54239022-1",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "15129623-1",
+            "DiagnosticID": "SA1513"
+        },
+        {
+            "ID": "56994329-0",
+            "DiagnosticID": "SA1513"
+        },
+        {
+            "ID": "46106022-1",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "53676423-3",
+            "DiagnosticID": "PropertyDiagnosticId"
+        },
+        {
+            "ID": "37337419-0",
+            "DiagnosticID": "CS0002"
+        },
+        {
+            "ID": "28593204-1",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "3875684-1",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "14865809-1",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "94453270-0",
+            "DiagnosticID": "WS002"
+        },
+        {
+            "ID": "81296005-2",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "32431788-0",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "55191062-1",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "72563258-0",
+            "DiagnosticID": "SA1519"
+        },
+        {
+            "ID": "64098520-0",
+            "DiagnosticID": "WS002"
+        },
+        {
+            "ID": "55594131-0",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "51435165-2",
+            "DiagnosticID": "SA1513"
+        },
+        {
+            "ID": "40352375-2",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "98461372-0",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "28303781-3",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "3780967-1",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "62331066-2",
+            "DiagnosticID": "SA1513"
+        },
+        {
+            "ID": "98727270-3",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "92515489-0",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "50446667-0",
+            "DiagnosticID": "SA1111"
+        },
+        {
+            "ID": "56539465-3",
+            "DiagnosticID": "SA1137"
+        },
+        {
+            "ID": "51631953-0",
+            "DiagnosticID": "RCS1171"
+        },
+        {
+            "ID": "75020508-3",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "19805711-0",
+            "DiagnosticID": "CH0003"
+        },
+        {
+            "ID": "23122420-0",
+            "DiagnosticID": "CH0003"
+        },
+        {
+            "ID": "26090631-0",
+            "DiagnosticID": "VSD0033"
+        },
+        {
+            "ID": "70139944-0",
+            "DiagnosticID": "WS002"
+        },
+        {
+            "ID": "24646100-1",
+            "DiagnosticID": "SA1513"
+        },
+        {
+            "ID": "57128000-1",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "98853118-0",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "84082531-0",
+            "DiagnosticID": "PostIncrement"
+        },
+        {
+            "ID": "66956442-0",
+            "DiagnosticID": "WS002"
+        },
+        {
+            "ID": "39113266-2",
+            "DiagnosticID": "DA4003"
+        },
+        {
+            "ID": "68212317-1",
+            "DiagnosticID": "SA1513"
+        },
+        {
+            "ID": "98913236-2",
+            "DiagnosticID": "SA1513"
+        },
+        {
+            "ID": "79173483-0",
+            "DiagnosticID": "PostIncrement"
+        },
+        {
+            "ID": "41980286-0",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "68259512-0",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "80513981-1",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "69364516-0",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "8048894-2",
+            "DiagnosticID": "DA4003"
+        },
+        {
+            "ID": "18882598-0",
+            "DiagnosticID": "MethodLengthAnalyzer"
+        },
+        {
+            "ID": "15552077-0",
+            "DiagnosticID": "SA1513"
+        },
+        {
+            "ID": "11802497-1",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "15817623-0",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "55846232-0",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "45483522-2",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "19829123-0",
+            "DiagnosticID": "CH0003"
+        },
+        {
+            "ID": "59240914-1",
+            "DiagnosticID": "PostIncrement"
+        },
+        {
+            "ID": "77177581-1",
+            "DiagnosticID": "SA1513"
+        },
+        {
+            "ID": "75229225-0",
+            "DiagnosticID": "MethodLengthAnalyzer"
+        },
+        {
+            "ID": "77563208-0",
+            "DiagnosticID": "CH0003"
+        },
+        {
+            "ID": "49038964-0",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "34846379-3",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "15441731-1",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "61461519-1",
+            "DiagnosticID": "DA4003"
+        },
+        {
+            "ID": "3677959-2",
+            "DiagnosticID": "SA1513"
+        },
+        {
+            "ID": "48873088-0",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "91342015-0",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "90068624-2",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "56740923-0",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "80482186-1",
+            "DiagnosticID": "SA1106"
+        },
+        {
+            "ID": "82390429-1",
+            "DiagnosticID": "RS0100"
+        },
+        {
+            "ID": "93792527-2",
+            "DiagnosticID": "DA4003"
+        },
+        {
+            "ID": "5509172-1",
+            "DiagnosticID": "SA1111"
+        },
+        {
+            "ID": "62078406-3",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "47021958-3",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "30768256-1",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "11057014-0",
+            "DiagnosticID": "WS002"
+        },
+        {
+            "ID": "43063796-1",
+            "DiagnosticID": "SA1513"
+        },
+        {
+            "ID": "96966425-0",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "76170568-0",
+            "DiagnosticID": "FS0057"
+        },
+        {
+            "ID": "56943899-0",
+            "DiagnosticID": "VSD0033"
+        },
+        {
+            "ID": "32805910-2",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "26345944-1",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "22108357-1",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "66867332-3",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "20813407-2",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "28633306-0",
+            "DiagnosticID": "SA1513"
+        },
+        {
+            "ID": "39581190-0",
+            "DiagnosticID": "WS002"
+        },
+        {
+            "ID": "40113237-1",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "74727341-0",
+            "DiagnosticID": "WS002"
+        },
+        {
+            "ID": "41184986-0",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "73726805-3",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "19157352-0",
+            "DiagnosticID": "WS002"
+        },
+        {
+            "ID": "41573617-3",
+            "DiagnosticID": "SA1513"
+        },
+        {
+            "ID": "38046303-2",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "18281693-2",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "81081370-0",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "85907701-0",
+            "DiagnosticID": "DA4003"
+        },
+        {
+            "ID": "12436430-0",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "26349004-0",
+            "DiagnosticID": "SS002"
+        },
+        {
+            "ID": "26190055-0",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "98716596-3",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "39819748-1",
+            "DiagnosticID": "SA1513"
+        },
+        {
+            "ID": "7266960-2",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "83191794-2",
+            "DiagnosticID": "SA1513"
+        },
+        {
+            "ID": "50855612-1",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "27200082-2",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "2039250-0",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "41996828-3",
+            "DiagnosticID": "CS0002"
+        },
+        {
+            "ID": "6435850-0",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "13920880-1",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "93666803-3",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "15472797-0",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "78847150-2",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "39772437-0",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "54054406-3",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "91921224-0",
+            "DiagnosticID": "WS002"
+        },
+        {
+            "ID": "47765632-0",
+            "DiagnosticID": "SA1513"
+        },
+        {
+            "ID": "36418862-1",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "19461990-1",
+            "DiagnosticID": "RCS1032"
+        },
+        {
+            "ID": "29157795-2",
+            "DiagnosticID": "SA1513"
+        },
+        {
+            "ID": "75172874-0",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "40597082-0",
+            "DiagnosticID": "OhNoPubImplicitCastForeach"
+        },
+        {
+            "ID": "54266327-2",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "90698797-0",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "9632075-0",
+            "DiagnosticID": "WS002"
+        },
+        {
+            "ID": "24197184-2",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "43324705-0",
+            "DiagnosticID": "PostIncrement"
+        },
+        {
+            "ID": "82298482-3",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "48218590-0",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "23158847-0",
+            "DiagnosticID": "SA1513"
+        },
+        {
+            "ID": "88485520-0",
+            "DiagnosticID": "RECS0033"
+        },
+        {
+            "ID": "49116535-1",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "91963141-3",
+            "DiagnosticID": "RCS1127"
+        },
+        {
+            "ID": "41373433-0",
+            "DiagnosticID": "WS002"
+        },
+        {
+            "ID": "29212511-1",
+            "DiagnosticID": "MethodLengthAnalyzer"
+        },
+        {
+            "ID": "78900541-3",
+            "DiagnosticID": "SA1513"
+        },
+        {
+            "ID": "31327553-0",
+            "DiagnosticID": "SA1513"
+        },
+        {
+            "ID": "84074264-0",
+            "DiagnosticID": "SA1513"
+        },
+        {
+            "ID": "94499718-2",
+            "DiagnosticID": "MethodLengthAnalyzer"
+        },
+        {
+            "ID": "32681641-0",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "19991331-1",
+            "DiagnosticID": "MethodLengthAnalyzer"
+        },
+        {
+            "ID": "45511614-2",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "93096528-1",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "18477534-2",
+            "DiagnosticID": "SA1519"
+        },
+        {
+            "ID": "15856690-0",
+            "DiagnosticID": "CA1805"
+        },
+        {
+            "ID": "74411041-0",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "15068445-0",
+            "DiagnosticID": "SA1137"
+        },
+        {
+            "ID": "26548135-2",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "90817436-1",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "3711260-1",
+            "DiagnosticID": "SA1513"
+        },
+        {
+            "ID": "83657458-3",
+            "DiagnosticID": "INTL0003"
+        },
+        {
+            "ID": "58423416-0",
+            "DiagnosticID": "CH0003"
+        },
+        {
+            "ID": "71768071-0",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "97252133-0",
+            "DiagnosticID": "SA1513"
+        },
+        {
+            "ID": "91017598-2",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "17639595-0",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "58465646-3",
+            "DiagnosticID": "SA1513"
+        },
+        {
+            "ID": "9745074-1",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "70638035-0",
+            "DiagnosticID": "RS0100"
+        },
+        {
+            "ID": "78265771-3",
+            "DiagnosticID": "SA1513"
+        },
+        {
+            "ID": "9387697-2",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "1304803-0",
+            "DiagnosticID": "FS0030"
+        },
+        {
+            "ID": "20630532-0",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "62064567-1",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "70816512-0",
+            "DiagnosticID": "CS0002"
+        },
+        {
+            "ID": "509318-1",
+            "DiagnosticID": "SA1111"
+        },
+        {
+            "ID": "75367410-1",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "23156186-0",
+            "DiagnosticID": "MethodLengthAnalyzer"
+        },
+        {
+            "ID": "62600414-1",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "69065037-0",
+            "DiagnosticID": "FS0131"
+        },
+        {
+            "ID": "84655620-1",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "85935025-0",
+            "DiagnosticID": "DS01"
+        },
+        {
+            "ID": "80724361-3",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "65629430-2",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "74968853-3",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "93490326-2",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "7531671-0",
+            "DiagnosticID": "SA1513"
+        },
+        {
+            "ID": "33080507-0",
+            "DiagnosticID": "SA1137"
+        },
+        {
+            "ID": "51640308-0",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "1018456-3",
+            "DiagnosticID": "SA1137"
+        },
+        {
+            "ID": "4632534-3",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "9731239-0",
+            "DiagnosticID": "MethodLengthAnalyzer"
+        },
+        {
+            "ID": "73551331-0",
+            "DiagnosticID": "CH0003"
+        },
+        {
+            "ID": "53649477-0",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "5704579-3",
+            "DiagnosticID": "RS0100"
+        },
+        {
+            "ID": "89859625-0",
+            "DiagnosticID": "SA1513"
+        },
+        {
+            "ID": "46248264-1",
+            "DiagnosticID": "SA1513"
+        },
+        {
+            "ID": "53374780-0",
+            "DiagnosticID": "WS002"
+        },
+        {
+            "ID": "88435513-1",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "34401716-3",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "13838738-0",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "21397968-2",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "42387519-0",
+            "DiagnosticID": "PostIncrement"
+        },
+        {
+            "ID": "1456186-1",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "69403984-0",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "5067928-0",
+            "DiagnosticID": "SA1519"
+        },
+        {
+            "ID": "6107706-1",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "79096438-0",
+            "DiagnosticID": "SA1513"
+        },
+        {
+            "ID": "67176480-0",
+            "DiagnosticID": "FS0131"
+        },
+        {
+            "ID": "76107608-0",
+            "DiagnosticID": "SA1513"
+        },
+        {
+            "ID": "47484913-3",
+            "DiagnosticID": "RCS1218"
+        },
+        {
+            "ID": "25106771-0",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "63242293-0",
+            "DiagnosticID": "CS0002"
+        },
+        {
+            "ID": "94436109-3",
+            "DiagnosticID": "MethodLengthAnalyzer"
+        },
+        {
+            "ID": "23515111-0",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "44828260-0",
+            "DiagnosticID": "SA1513"
+        },
+        {
+            "ID": "79446539-0",
+            "DiagnosticID": "CA1001"
+        },
+        {
+            "ID": "90362640-0",
+            "DiagnosticID": "CH0003"
+        },
+        {
+            "ID": "34804383-0",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "30239165-1",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "16813922-1",
+            "DiagnosticID": "PostIncrement"
+        },
+        {
+            "ID": "92086938-3",
+            "DiagnosticID": "PostIncrement"
+        },
+        {
+            "ID": "47484913-2",
+            "DiagnosticID": "RCS1218"
+        },
+        {
+            "ID": "37368645-2",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "25106771-1",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "63242293-1",
+            "DiagnosticID": "CS0002"
+        },
+        {
+            "ID": "94436109-2",
+            "DiagnosticID": "MethodLengthAnalyzer"
+        },
+        {
+            "ID": "44828260-1",
+            "DiagnosticID": "SA1513"
+        },
+        {
+            "ID": "34804383-1",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "16813922-0",
+            "DiagnosticID": "PostIncrement"
+        },
+        {
+            "ID": "54786185-3",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "30239165-0",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "92086938-2",
+            "DiagnosticID": "PostIncrement"
+        },
+        {
+            "ID": "80931269-0",
+            "DiagnosticID": "SA1111"
+        },
+        {
+            "ID": "42387519-1",
+            "DiagnosticID": "PostIncrement"
+        },
+        {
+            "ID": "1456186-0",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "5067928-1",
+            "DiagnosticID": "SA1519"
+        },
+        {
+            "ID": "23389036-0",
+            "DiagnosticID": "WS002"
+        },
+        {
+            "ID": "46248264-0",
+            "DiagnosticID": "SA1513"
+        },
+        {
+            "ID": "71358726-0",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "85853222-0",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "97410933-2",
+            "DiagnosticID": "RS0100"
+        },
+        {
+            "ID": "30668030-3",
+            "DiagnosticID": "SA1513"
+        },
+        {
+            "ID": "18078590-2",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "97876565-2",
+            "DiagnosticID": "RS0100"
+        },
+        {
+            "ID": "34401716-2",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "18472716-3",
+            "DiagnosticID": "DA4003"
+        },
+        {
+            "ID": "93490326-3",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "68770708-1",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "11070250-0",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "7531671-1",
+            "DiagnosticID": "SA1513"
+        },
+        {
+            "ID": "4632534-2",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "1018456-2",
+            "DiagnosticID": "SA1137"
+        },
+        {
+            "ID": "51640308-1",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "9731239-1",
+            "DiagnosticID": "MethodLengthAnalyzer"
+        },
+        {
+            "ID": "53649477-1",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "5704579-2",
+            "DiagnosticID": "RS0100"
+        },
+        {
+            "ID": "54688334-2",
+            "DiagnosticID": "SA1513"
+        },
+        {
+            "ID": "89859625-1",
+            "DiagnosticID": "SA1513"
+        },
+        {
+            "ID": "62600414-0",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "13179971-0",
+            "DiagnosticID": "CA1805"
+        },
+        {
+            "ID": "84655620-0",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "80724361-2",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "85935025-1",
+            "DiagnosticID": "DS01"
+        },
+        {
+            "ID": "65629430-3",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "4199695-0",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "74968853-2",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "86404016-1",
+            "DiagnosticID": "FS0057"
+        },
+        {
+            "ID": "9745074-0",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "70638035-1",
+            "DiagnosticID": "RS0100"
+        },
+        {
+            "ID": "58465646-2",
+            "DiagnosticID": "SA1513"
+        },
+        {
+            "ID": "8751428-0",
+            "DiagnosticID": "FS0131"
+        },
+        {
+            "ID": "62064567-0",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "27186945-0",
+            "DiagnosticID": "CH0003"
+        },
+        {
+            "ID": "509318-0",
+            "DiagnosticID": "SA1111"
+        },
+        {
+            "ID": "48832498-0",
+            "DiagnosticID": "RCS1212"
+        },
+        {
+            "ID": "75367410-0",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "74411041-1",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "90817436-0",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "86384202-0",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "83657458-2",
+            "DiagnosticID": "INTL0003"
+        },
+        {
+            "ID": "71768071-1",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "97252133-1",
+            "DiagnosticID": "SA1513"
+        },
+        {
+            "ID": "11297686-0",
+            "DiagnosticID": "SA1137"
+        },
+        {
+            "ID": "82488791-0",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "91017598-3",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "94499718-3",
+            "DiagnosticID": "MethodLengthAnalyzer"
+        },
+        {
+            "ID": "32681641-1",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "82575440-0",
+            "DiagnosticID": "RCS1032"
+        },
+        {
+            "ID": "45511614-3",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "88657994-0",
+            "DiagnosticID": "SA1137"
+        },
+        {
+            "ID": "18477534-3",
+            "DiagnosticID": "SA1519"
+        },
+        {
+            "ID": "23158847-1",
+            "DiagnosticID": "SA1513"
+        },
+        {
+            "ID": "39109699-3",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "79698570-0",
+            "DiagnosticID": "CA1001"
+        },
+        {
+            "ID": "11779100-0",
+            "DiagnosticID": "SA1513"
+        },
+        {
+            "ID": "49116535-0",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "91963141-2",
+            "DiagnosticID": "RCS1127"
+        },
+        {
+            "ID": "65477668-3",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "29212511-0",
+            "DiagnosticID": "MethodLengthAnalyzer"
+        },
+        {
+            "ID": "78900541-2",
+            "DiagnosticID": "SA1513"
+        },
+        {
+            "ID": "81745830-0",
+            "DiagnosticID": "CH0003"
+        },
+        {
+            "ID": "84074264-1",
+            "DiagnosticID": "SA1513"
+        },
+        {
+            "ID": "52560262-1",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "15472797-1",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "83875812-0",
+            "DiagnosticID": "WS002"
+        },
+        {
+            "ID": "22825832-0",
+            "DiagnosticID": "MethodLengthAnalyzer"
+        },
+        {
+            "ID": "36418862-0",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "29157795-3",
+            "DiagnosticID": "SA1513"
+        },
+        {
+            "ID": "40597082-1",
+            "DiagnosticID": "OhNoPubImplicitCastForeach"
+        },
+        {
+            "ID": "43324705-1",
+            "DiagnosticID": "PostIncrement"
+        },
+        {
+            "ID": "34447368-0",
+            "DiagnosticID": "WS002"
+        },
+        {
+            "ID": "90698797-1",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "82298482-2",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "50855612-0",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "27200082-3",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "41996828-2",
+            "DiagnosticID": "CS0002"
+        },
+        {
+            "ID": "93666803-2",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "967076-0",
+            "DiagnosticID": "WS002"
+        },
+        {
+            "ID": "37632239-3",
+            "DiagnosticID": "DA4003"
+        },
+        {
+            "ID": "41573617-2",
+            "DiagnosticID": "SA1513"
+        },
+        {
+            "ID": "73726805-2",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "86357978-0",
+            "DiagnosticID": "FS0057"
+        },
+        {
+            "ID": "38046303-3",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "18281693-3",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "81081370-1",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "12436430-1",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "65888520-0",
+            "DiagnosticID": "MethodLengthAnalyzer"
+        },
+        {
+            "ID": "26349004-1",
+            "DiagnosticID": "SS002"
+        },
+        {
+            "ID": "85907701-1",
+            "DiagnosticID": "DA4003"
+        },
+        {
+            "ID": "26190055-1",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "39819748-0",
+            "DiagnosticID": "SA1513"
+        },
+        {
+            "ID": "98716596-2",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "1913588-0",
+            "DiagnosticID": "WS002"
+        },
+        {
+            "ID": "32805910-3",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "26345944-0",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "22108357-0",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "66867332-2",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "28633306-1",
+            "DiagnosticID": "SA1513"
+        },
+        {
+            "ID": "43350989-0",
+            "DiagnosticID": "DA4003"
+        },
+        {
+            "ID": "40113237-0",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "91768999-0",
+            "DiagnosticID": "MethodLengthAnalyzer"
+        },
+        {
+            "ID": "83612746-0",
+            "DiagnosticID": "PropertyDiagnosticId"
+        },
+        {
+            "ID": "96685335-0",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "12993617-1",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "55068360-2",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "30768256-0",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "43063796-0",
+            "DiagnosticID": "SA1513"
+        },
+        {
+            "ID": "96966425-1",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "2901429-1",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "56943899-1",
+            "DiagnosticID": "VSD0033"
+        },
+        {
+            "ID": "61461519-0",
+            "DiagnosticID": "DA4003"
+        },
+        {
+            "ID": "80482186-0",
+            "DiagnosticID": "SA1106"
+        },
+        {
+            "ID": "46752609-0",
+            "DiagnosticID": "WS002"
+        },
+        {
+            "ID": "82390429-0",
+            "DiagnosticID": "RS0100"
+        },
+        {
+            "ID": "41891520-0",
+            "DiagnosticID": "WS002"
+        },
+        {
+            "ID": "3174392-3",
+            "DiagnosticID": "SA1513"
+        },
+        {
+            "ID": "62078406-2",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "45483522-3",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "59240914-0",
+            "DiagnosticID": "PostIncrement"
+        },
+        {
+            "ID": "77177581-0",
+            "DiagnosticID": "SA1513"
+        },
+        {
+            "ID": "23639102-2",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "34846379-2",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "15441731-0",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "81655105-0",
+            "DiagnosticID": "MethodLengthAnalyzer"
+        },
+        {
+            "ID": "11099256-0",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "70496977-0",
+            "DiagnosticID": "SA1513"
+        },
+        {
+            "ID": "36185093-1",
+            "DiagnosticID": "SA1513"
+        },
+        {
+            "ID": "8048894-3",
+            "DiagnosticID": "DA4003"
+        },
+        {
+            "ID": "69364516-1",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "46987905-2",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "18882598-1",
+            "DiagnosticID": "MethodLengthAnalyzer"
+        },
+        {
+            "ID": "79785043-1",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "71779152-0",
+            "DiagnosticID": "WS002"
+        },
+        {
+            "ID": "75020508-2",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "26090631-1",
+            "DiagnosticID": "VSD0033"
+        },
+        {
+            "ID": "43872194-0",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "98853118-1",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "43630310-0",
+            "DiagnosticID": "WS002"
+        },
+        {
+            "ID": "68212317-0",
+            "DiagnosticID": "SA1513"
+        },
+        {
+            "ID": "51435165-3",
+            "DiagnosticID": "SA1513"
+        },
+        {
+            "ID": "40352375-3",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "98461372-1",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "28303781-2",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "70760830-0",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "92515489-1",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "61656376-1",
+            "DiagnosticID": "SA1519"
+        },
+        {
+            "ID": "48802030-0",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "56539465-2",
+            "DiagnosticID": "SA1137"
+        },
+        {
+            "ID": "51631953-1",
+            "DiagnosticID": "RCS1171"
+        },
+        {
+            "ID": "99326944-0",
+            "DiagnosticID": "MethodLengthAnalyzer"
+        },
+        {
+            "ID": "15129623-0",
+            "DiagnosticID": "SA1513"
+        },
+        {
+            "ID": "12770964-0",
+            "DiagnosticID": "CH0003"
+        },
+        {
+            "ID": "46106022-0",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "31459038-2",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "53676423-2",
+            "DiagnosticID": "PropertyDiagnosticId"
+        },
+        {
+            "ID": "3875684-0",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "28593204-0",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "14865809-0",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "32431788-1",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "11385721-0",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "55594131-1",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "96348934-0",
+            "DiagnosticID": "CH0003"
+        },
+        {
+            "ID": "38003347-1",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "16808209-1",
+            "DiagnosticID": "SA1513"
+        },
+        {
+            "ID": "31871481-0",
+            "DiagnosticID": "SA1137"
+        },
+        {
+            "ID": "37760396-0",
+            "DiagnosticID": "WS002"
+        },
+        {
+            "ID": "78007421-0",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "63560204-2",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "97076033-0",
+            "DiagnosticID": "OhNoPubImplicitCastForeach"
+        },
+        {
+            "ID": "58321346-2",
+            "DiagnosticID": "SA1513"
+        },
+        {
+            "ID": "20192300-1",
+            "DiagnosticID": "CS0002"
+        },
+        {
+            "ID": "13325230-3",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "6183709-1",
+            "DiagnosticID": "DA4003"
+        },
+        {
+            "ID": "64800952-1",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "92379047-3",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "90896666-1",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "61333366-0",
+            "DiagnosticID": "RS0100"
+        },
+        {
+            "ID": "25489107-0",
+            "DiagnosticID": "FS0131"
+        },
+        {
+            "ID": "51775226-2",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "98573271-0",
+            "DiagnosticID": "FS0131"
+        },
+        {
+            "ID": "4523160-0",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "66440720-0",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "11925596-0",
+            "DiagnosticID": "SA1513"
+        },
+        {
+            "ID": "62065888-0",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "27758150-3",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "55318140-0",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "52253316-0",
+            "DiagnosticID": "DA4003"
+        },
+        {
+            "ID": "32606642-2",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "70480413-1",
+            "DiagnosticID": "SA1137"
+        },
+        {
+            "ID": "38667271-0",
+            "DiagnosticID": "VSD0033"
+        },
+        {
+            "ID": "31182521-2",
+            "DiagnosticID": "OhNoPubImplicitCastForeach"
+        },
+        {
+            "ID": "30820078-2",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "72584310-0",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "5454452-1",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "4364208-2",
+            "DiagnosticID": "SA1513"
+        },
+        {
+            "ID": "2065489-0",
+            "DiagnosticID": "SA1137"
+        },
+        {
+            "ID": "39595597-1",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "61218210-0",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "64449158-2",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "838164-0",
+            "DiagnosticID": "MethodLengthAnalyzer"
+        },
+        {
+            "ID": "71070430-0",
+            "DiagnosticID": "SA1513"
+        },
+        {
+            "ID": "66052807-2",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "92856117-0",
+            "DiagnosticID": "SA1513"
+        },
+        {
+            "ID": "98628979-0",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "85075055-1",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "6711561-0",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "64014848-3",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "37166802-0",
+            "DiagnosticID": "SA1519"
+        },
+        {
+            "ID": "54529811-0",
+            "DiagnosticID": "WS002"
+        },
+        {
+            "ID": "73035561-3",
+            "DiagnosticID": "SA1513"
+        },
+        {
+            "ID": "31541356-0",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "12019629-0",
+            "DiagnosticID": "PostIncrement"
+        },
+        {
+            "ID": "44426920-0",
+            "DiagnosticID": "MethodLengthAnalyzer"
+        },
+        {
+            "ID": "58235933-0",
+            "DiagnosticID": "CH0003"
+        },
+        {
+            "ID": "89230358-3",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "836798-0",
+            "DiagnosticID": "MethodLengthAnalyzer"
+        },
+        {
+            "ID": "85332414-1",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "13540079-0",
+            "DiagnosticID": "SA1137"
+        },
+        {
+            "ID": "5038686-1",
+            "DiagnosticID": "RS0100"
+        },
+        {
+            "ID": "87073582-1",
+            "DiagnosticID": "SA1617"
+        },
+        {
+            "ID": "49668495-0",
+            "DiagnosticID": "WS002"
+        },
+        {
+            "ID": "93042368-0",
+            "DiagnosticID": "CH0003"
+        },
+        {
+            "ID": "75162561-1",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "58078698-0",
+            "DiagnosticID": "CS0002"
+        },
+        {
+            "ID": "55394882-0",
+            "DiagnosticID": "MethodLengthAnalyzer"
+        },
+        {
+            "ID": "29876240-0",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "98866014-1",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "51482597-0",
+            "DiagnosticID": "PostIncrement"
+        },
+        {
+            "ID": "52269792-0",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "18432268-0",
+            "DiagnosticID": "WS002"
+        },
+        {
+            "ID": "32256428-1",
+            "DiagnosticID": "SA1513"
+        },
+        {
+            "ID": "85357349-0",
+            "DiagnosticID": "WS002"
+        },
+        {
+            "ID": "24555080-1",
+            "DiagnosticID": "PropertyDiagnosticId"
+        },
+        {
+            "ID": "43741281-0",
+            "DiagnosticID": "SA1513"
+        },
+        {
+            "ID": "96120460-0",
+            "DiagnosticID": "CH0003"
+        },
+        {
+            "ID": "55150976-0",
+            "DiagnosticID": "RCS1218"
+        },
+        {
+            "ID": "60585904-0",
+            "DiagnosticID": "SA1513"
+        },
+        {
+            "ID": "83083593-0",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "66548363-3",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "4832533-3",
+            "DiagnosticID": "SA1513"
+        },
+        {
+            "ID": "96576251-1",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "91557573-0",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "44705862-0",
+            "DiagnosticID": "SA1137"
+        },
+        {
+            "ID": "50547007-0",
+            "DiagnosticID": "SA1106"
+        },
+        {
+            "ID": "8284944-0",
+            "DiagnosticID": "SA1137"
+        },
+        {
+            "ID": "55183453-1",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "64037408-2",
+            "DiagnosticID": "SA1137"
+        },
+        {
+            "ID": "43126908-1",
+            "DiagnosticID": "FM_Missing"
+        },
+        {
+            "ID": "8387259-2",
+            "DiagnosticID": "SA1513"
+        },
+        {
+            "ID": "59248686-0",
+            "DiagnosticID": "SA1513"
+        },
+        {
+            "ID": "99747798-0",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "13330850-0",
+            "DiagnosticID": "WS002"
+        },
+        {
+            "ID": "51218882-0",
+            "DiagnosticID": "WS002"
+        },
+        {
+            "ID": "50253599-0",
+            "DiagnosticID": "DA4003"
+        },
+        {
+            "ID": "76401033-2",
+            "DiagnosticID": "RS0100"
+        },
+        {
+            "ID": "41784336-0",
+            "DiagnosticID": "RCS1212"
+        },
+        {
+            "ID": "172597-1",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "20265654-1",
+            "DiagnosticID": "SA1513"
+        },
+        {
+            "ID": "91707536-2",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "52010630-0",
+            "DiagnosticID": "SA1513"
+        },
+        {
+            "ID": "33882823-0",
+            "DiagnosticID": "CA1805"
+        },
+        {
+            "ID": "63807221-0",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "17840797-3",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "77007176-0",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "61545464-1",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "50928793-0",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "77733529-1",
+            "DiagnosticID": "SA1513"
+        },
+        {
+            "ID": "60093679-0",
+            "DiagnosticID": "CS0002"
+        },
+        {
+            "ID": "98265255-0",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "57458134-0",
+            "DiagnosticID": "FS0131"
+        },
+        {
+            "ID": "66768514-1",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "50634997-0",
+            "DiagnosticID": "MethodLengthAnalyzer"
+        },
+        {
+            "ID": "27746867-2",
+            "DiagnosticID": "SA1137"
+        },
+        {
+            "ID": "28421179-1",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "11916134-3",
+            "DiagnosticID": "SA1513"
+        },
+        {
+            "ID": "35026080-0",
+            "DiagnosticID": "DA4003"
+        },
+        {
+            "ID": "59915146-0",
+            "DiagnosticID": "FS0131"
+        },
+        {
+            "ID": "26495349-0",
+            "DiagnosticID": "SA1513"
+        },
+        {
+            "ID": "16952601-0",
+            "DiagnosticID": "SA1137"
+        },
+        {
+            "ID": "60612531-1",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "70162245-2",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "84620977-0",
+            "DiagnosticID": "WS002"
+        },
+        {
+            "ID": "15029385-0",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "64785188-3",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "34079707-0",
+            "DiagnosticID": "SA1513"
+        },
+        {
+            "ID": "52021664-1",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "54813086-0",
+            "DiagnosticID": "SA1519"
+        },
+        {
+            "ID": "40603471-2",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "52370029-0",
+            "DiagnosticID": "DA4003"
+        },
+        {
+            "ID": "19134580-2",
+            "DiagnosticID": "CH0003"
+        },
+        {
+            "ID": "27466599-0",
+            "DiagnosticID": "DA4003"
+        },
+        {
+            "ID": "67009174-0",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "25294081-3",
+            "DiagnosticID": "SA1519"
+        },
+        {
+            "ID": "91565142-0",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "85129657-2",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "2158677-0",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "4763411-3",
+            "DiagnosticID": "PropertyDiagnosticId"
+        },
+        {
+            "ID": "7368725-0",
+            "DiagnosticID": "CH0003"
+        },
+        {
+            "ID": "18738604-0",
+            "DiagnosticID": "SA1106"
+        },
+        {
+            "ID": "7711432-0",
+            "DiagnosticID": "SA1513"
+        },
+        {
+            "ID": "19857632-1",
+            "DiagnosticID": "MethodLengthAnalyzer"
+        },
+        {
+            "ID": "22496200-1",
+            "DiagnosticID": "SA1513"
+        },
+        {
+            "ID": "35901476-0",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "84853709-1",
+            "DiagnosticID": "SA1513"
+        },
+        {
+            "ID": "24599992-0",
+            "DiagnosticID": "SA1137"
+        },
+        {
+            "ID": "84091839-1",
+            "DiagnosticID": "RCS1032"
+        },
+        {
+            "ID": "18248378-0",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "4654200-0",
+            "DiagnosticID": "DA4003"
+        },
+        {
+            "ID": "19621266-2",
+            "DiagnosticID": "SA1513"
+        },
+        {
+            "ID": "37232057-1",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "95444250-2",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "59226815-0",
+            "DiagnosticID": "VSD0033"
+        },
+        {
+            "ID": "49094972-0",
+            "DiagnosticID": "WS002"
+        },
+        {
+            "ID": "6645699-1",
+            "DiagnosticID": "CA1805"
+        },
+        {
+            "ID": "3113432-0",
+            "DiagnosticID": "SA1137"
+        },
+        {
+            "ID": "15784341-0",
+            "DiagnosticID": "MethodLengthAnalyzer"
+        },
+        {
+            "ID": "33534409-1",
+            "DiagnosticID": "SA1111"
+        },
+        {
+            "ID": "2693233-0",
+            "DiagnosticID": "SA1513"
+        },
+        {
+            "ID": "76802836-0",
+            "DiagnosticID": "CH0003"
+        },
+        {
+            "ID": "17724728-0",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "78967838-0",
+            "DiagnosticID": "WS002"
+        },
+        {
+            "ID": "57336002-3",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "4887799-0",
+            "DiagnosticID": "SA1137"
+        },
+        {
+            "ID": "44508135-1",
+            "DiagnosticID": "SA1513"
+        },
+        {
+            "ID": "40552557-3",
+            "DiagnosticID": "SA1513"
+        },
+        {
+            "ID": "13643586-0",
+            "DiagnosticID": "SA1513"
+        },
+        {
+            "ID": "33773578-0",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "85250450-0",
+            "DiagnosticID": "SA1513"
+        },
+        {
+            "ID": "10580833-1",
+            "DiagnosticID": "CH0003"
+        },
+        {
+            "ID": "61892806-1",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "24642547-0",
+            "DiagnosticID": "SA1513"
+        },
+        {
+            "ID": "17484429-1",
+            "DiagnosticID": "RS0100"
+        },
+        {
+            "ID": "74066122-2",
+            "DiagnosticID": "SA1137"
+        },
+        {
+            "ID": "48057175-1",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "58513889-2",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "4531779-3",
+            "DiagnosticID": "DA4003"
+        },
+        {
+            "ID": "6197571-0",
+            "DiagnosticID": "PostIncrement"
+        },
+        {
+            "ID": "78581395-1",
+            "DiagnosticID": "DA4003"
+        },
+        {
+            "ID": "77499272-0",
+            "DiagnosticID": "SA1513"
+        },
+        {
+            "ID": "84578441-2",
+            "DiagnosticID": "SA1513"
+        },
+        {
+            "ID": "79306274-0",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "39417709-2",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "80615843-3",
+            "DiagnosticID": "SA1513"
+        },
+        {
+            "ID": "13423234-1",
+            "DiagnosticID": "SA1513"
+        },
+        {
+            "ID": "8206447-0",
+            "DiagnosticID": "SA1137"
+        },
+        {
+            "ID": "89702935-3",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "82501833-3",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "593305-1",
+            "DiagnosticID": "SA1513"
+        },
+        {
+            "ID": "59267435-2",
+            "DiagnosticID": "VSD0033"
+        },
+        {
+            "ID": "47237400-0",
+            "DiagnosticID": "CH0003"
+        },
+        {
+            "ID": "57975131-1",
+            "DiagnosticID": "DA4003"
+        },
+        {
+            "ID": "22898352-0",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "45110966-1",
+            "DiagnosticID": "SA1513"
+        },
+        {
+            "ID": "60067036-3",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "2597726-2",
+            "DiagnosticID": "SA1513"
+        },
+        {
+            "ID": "83760436-0",
+            "DiagnosticID": "DA4003"
+        },
+        {
+            "ID": "24602242-0",
+            "DiagnosticID": "CH0003"
+        },
+        {
+            "ID": "37889910-0",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "1493472-1",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "36550530-0",
+            "DiagnosticID": "WS002"
+        },
+        {
+            "ID": "87809426-2",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "34629346-3",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "53526894-1",
+            "DiagnosticID": "SA1111"
+        },
+        {
+            "ID": "42029518-0",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "31203477-0",
+            "DiagnosticID": "SA1513"
+        },
+        {
+            "ID": "22085815-0",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "60916023-0",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "61055598-0",
+            "DiagnosticID": "RS0100"
+        },
+        {
+            "ID": "41020471-1",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "93210072-2",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "6530529-0",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "65876373-2",
+            "DiagnosticID": "DA4003"
+        },
+        {
+            "ID": "78041901-2",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "7581262-2",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "70278729-0",
+            "DiagnosticID": "CH0003"
+        },
+        {
+            "ID": "40118859-2",
+            "DiagnosticID": "RCS1032"
+        },
+        {
+            "ID": "56316336-0",
+            "DiagnosticID": "DA4003"
+        },
+        {
+            "ID": "26958952-2",
+            "DiagnosticID": "DA4003"
+        },
+        {
+            "ID": "78532368-0",
+            "DiagnosticID": "SA1111"
+        },
+        {
+            "ID": "28079972-0",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "41544130-3",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "29600949-1",
+            "DiagnosticID": "MethodLengthAnalyzer"
+        },
+        {
+            "ID": "92269219-3",
+            "DiagnosticID": "FS0131"
+        },
+        {
+            "ID": "62611405-1",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "39656905-0",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "69460240-2",
+            "DiagnosticID": "PropertyDiagnosticId"
+        },
+        {
+            "ID": "61494272-2",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "57146807-0",
+            "DiagnosticID": "PostIncrement"
+        },
+        {
+            "ID": "6384947-2",
+            "DiagnosticID": "DA4003"
+        },
+        {
+            "ID": "59511643-0",
+            "DiagnosticID": "RS0100"
+        },
+        {
+            "ID": "12349540-2",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "9547867-0",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "39073689-0",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "48488404-3",
+            "DiagnosticID": "SA1617"
+        },
+        {
+            "ID": "93914082-0",
+            "DiagnosticID": "SA1137"
+        },
+        {
+            "ID": "49868892-1",
+            "DiagnosticID": "CA1805"
+        },
+        {
+            "ID": "73479727-3",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "83840351-0",
+            "DiagnosticID": "MethodLengthAnalyzer"
+        },
+        {
+            "ID": "16950385-0",
+            "DiagnosticID": "WS002"
+        },
+        {
+            "ID": "93057766-2",
+            "DiagnosticID": "FS0131"
+        },
+        {
+            "ID": "19696848-1",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "29427406-2",
+            "DiagnosticID": "SA1513"
+        },
+        {
+            "ID": "70256118-1",
+            "DiagnosticID": "RS0100"
+        },
+        {
+            "ID": "14614206-0",
+            "DiagnosticID": "RS0100"
+        },
+        {
+            "ID": "57333038-0",
+            "DiagnosticID": "FS0131"
+        },
+        {
+            "ID": "97278880-0",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "23757769-0",
+            "DiagnosticID": "SA1106"
+        },
+        {
+            "ID": "17163015-0",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "60451600-2",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "61607850-0",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "30042924-0",
+            "DiagnosticID": "CH0003"
+        },
+        {
+            "ID": "80992074-2",
+            "DiagnosticID": "DA4003"
+        },
+        {
+            "ID": "15694564-3",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "91903672-3",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "49640195-0",
+            "DiagnosticID": "RCS1032"
+        },
+        {
+            "ID": "52099363-0",
+            "DiagnosticID": "MethodLengthAnalyzer"
+        },
+        {
+            "ID": "97670869-0",
+            "DiagnosticID": "SA1106"
+        },
+        {
+            "ID": "61335155-0",
+            "DiagnosticID": "CC0011"
+        },
+        {
+            "ID": "52617948-0",
+            "DiagnosticID": "SA1137"
+        },
+        {
+            "ID": "35275670-3",
+            "DiagnosticID": "SA1513"
+        },
+        {
+            "ID": "14718071-0",
+            "DiagnosticID": "MethodLengthAnalyzer"
+        },
+        {
+            "ID": "7552665-0",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "42508011-0",
+            "DiagnosticID": "DA4003"
+        },
+        {
+            "ID": "11802717-3",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "82320651-3",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "80206722-3",
+            "DiagnosticID": "SA1513"
+        },
+        {
+            "ID": "7156457-3",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "46195236-2",
+            "DiagnosticID": "PropertyDiagnosticId"
+        },
+        {
+            "ID": "69293111-2",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "7295218-3",
+            "DiagnosticID": "SA1137"
+        },
+        {
+            "ID": "14100688-1",
+            "DiagnosticID": "MethodLengthAnalyzer"
+        },
+        {
+            "ID": "52056855-1",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "84570740-0",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "25086184-3",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "67600576-0",
+            "DiagnosticID": "CH0003"
+        },
+        {
+            "ID": "29386006-2",
+            "DiagnosticID": "SA1106"
+        },
+        {
+            "ID": "35670917-1",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "87463420-0",
+            "DiagnosticID": "SA1513"
+        },
+        {
+            "ID": "67740026-0",
+            "DiagnosticID": "MethodLengthAnalyzer"
+        },
+        {
+            "ID": "27024567-0",
+            "DiagnosticID": "WS002"
+        },
+        {
+            "ID": "82178727-1",
+            "DiagnosticID": "PostIncrement"
+        },
+        {
+            "ID": "79358359-0",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "21665015-2",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "67976080-1",
+            "DiagnosticID": "SA1137"
+        },
+        {
+            "ID": "32591640-0",
+            "DiagnosticID": "WS002"
+        },
+        {
+            "ID": "22147171-3",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "276541-0",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "18359944-0",
+            "DiagnosticID": "MethodLengthAnalyzer"
+        },
+        {
+            "ID": "71327656-0",
+            "DiagnosticID": "FS0057"
+        },
+        {
+            "ID": "21032272-0",
+            "DiagnosticID": "SA1106"
+        },
+        {
+            "ID": "56103110-0",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "21323885-3",
+            "DiagnosticID": "DA4003"
+        },
+        {
+            "ID": "49323485-2",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "90542260-3",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "65469757-0",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "9247653-0",
+            "DiagnosticID": "DA4003"
+        },
+        {
+            "ID": "73806708-3",
+            "DiagnosticID": "SA1137"
+        },
+        {
+            "ID": "50272037-2",
+            "DiagnosticID": "MethodLengthAnalyzer"
+        },
+        {
+            "ID": "41395432-0",
+            "DiagnosticID": "RCS1032"
+        },
+        {
+            "ID": "38834675-2",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "3645350-0",
+            "DiagnosticID": "WS002"
+        },
+        {
+            "ID": "53792634-0",
+            "DiagnosticID": "DS01"
+        },
+        {
+            "ID": "72879050-2",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "90333027-1",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "74578147-2",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "10039391-0",
+            "DiagnosticID": "WS002"
+        },
+        {
+            "ID": "61749056-0",
+            "DiagnosticID": "WS002"
+        },
+        {
+            "ID": "34403722-0",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "22892519-0",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "79793093-0",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "17519191-2",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "18844006-1",
+            "DiagnosticID": "SA1513"
+        },
+        {
+            "ID": "79608695-1",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "26371769-0",
+            "DiagnosticID": "CH0003"
+        },
+        {
+            "ID": "13693486-0",
+            "DiagnosticID": "RS0100"
+        },
+        {
+            "ID": "85639524-0",
+            "DiagnosticID": "WS002"
+        },
+        {
+            "ID": "41226775-0",
+            "DiagnosticID": "SA1106"
+        },
+        {
+            "ID": "50861833-0",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "18844006-0",
+            "DiagnosticID": "SA1513"
+        },
+        {
+            "ID": "79608695-0",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "20377751-0",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "13693486-1",
+            "DiagnosticID": "RS0100"
+        },
+        {
+            "ID": "24783228-0",
+            "DiagnosticID": "CH0003"
+        },
+        {
+            "ID": "22892519-1",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "68613424-0",
+            "DiagnosticID": "WS002"
+        },
+        {
+            "ID": "45051696-0",
+            "DiagnosticID": "CH0003"
+        },
+        {
+            "ID": "72879050-3",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "90333027-0",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "17625202-1",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "99130265-3",
+            "DiagnosticID": "SA1137"
+        },
+        {
+            "ID": "9483728-1",
+            "DiagnosticID": "SA1137"
+        },
+        {
+            "ID": "65469757-1",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "9247653-1",
+            "DiagnosticID": "DA4003"
+        },
+        {
+            "ID": "86619868-0",
+            "DiagnosticID": "CH0003"
+        },
+        {
+            "ID": "73806708-2",
+            "DiagnosticID": "SA1137"
+        },
+        {
+            "ID": "50272037-3",
+            "DiagnosticID": "MethodLengthAnalyzer"
+        },
+        {
+            "ID": "41395432-1",
+            "DiagnosticID": "RCS1032"
+        },
+        {
+            "ID": "38834675-3",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "83109203-2",
+            "DiagnosticID": "OhNoPubImplicitCastForeach"
+        },
+        {
+            "ID": "33335291-0",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "37514371-0",
+            "DiagnosticID": "PostIncrement"
+        },
+        {
+            "ID": "9185350-0",
+            "DiagnosticID": "CH0003"
+        },
+        {
+            "ID": "21032272-1",
+            "DiagnosticID": "SA1106"
+        },
+        {
+            "ID": "21323885-2",
+            "DiagnosticID": "DA4003"
+        },
+        {
+            "ID": "65892691-2",
+            "DiagnosticID": "RECS0033"
+        },
+        {
+            "ID": "54962781-0",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "90542260-2",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "57947336-0",
+            "DiagnosticID": "CH0003"
+        },
+        {
+            "ID": "82178727-0",
+            "DiagnosticID": "PostIncrement"
+        },
+        {
+            "ID": "21665015-3",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "65643774-0",
+            "DiagnosticID": "WS002"
+        },
+        {
+            "ID": "67976080-0",
+            "DiagnosticID": "SA1137"
+        },
+        {
+            "ID": "35929271-1",
+            "DiagnosticID": "RS0100"
+        },
+        {
+            "ID": "22147171-2",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "77040417-1",
+            "DiagnosticID": "PropertyDiagnosticId"
+        },
+        {
+            "ID": "26315198-0",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "35670917-0",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "80206722-2",
+            "DiagnosticID": "SA1513"
+        },
+        {
+            "ID": "7156457-2",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "6918372-3",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "46195236-3",
+            "DiagnosticID": "PropertyDiagnosticId"
+        },
+        {
+            "ID": "7295218-2",
+            "DiagnosticID": "SA1137"
+        },
+        {
+            "ID": "14100688-0",
+            "DiagnosticID": "MethodLengthAnalyzer"
+        },
+        {
+            "ID": "52056855-0",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "35275670-2",
+            "DiagnosticID": "SA1513"
+        },
+        {
+            "ID": "7421073-1",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "7552665-1",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "42508011-1",
+            "DiagnosticID": "DA4003"
+        },
+        {
+            "ID": "11802717-2",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "82320651-2",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "15694564-2",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "1460286-1",
+            "DiagnosticID": "RS0100"
+        },
+        {
+            "ID": "52099363-1",
+            "DiagnosticID": "MethodLengthAnalyzer"
+        },
+        {
+            "ID": "43246944-0",
+            "DiagnosticID": "WS002"
+        },
+        {
+            "ID": "21756871-0",
+            "DiagnosticID": "WS002"
+        },
+        {
+            "ID": "61607850-1",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "57702449-2",
+            "DiagnosticID": "SA1513"
+        },
+        {
+            "ID": "19696848-0",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "70256118-0",
+            "DiagnosticID": "RS0100"
+        },
+        {
+            "ID": "14614206-1",
+            "DiagnosticID": "RS0100"
+        },
+        {
+            "ID": "97278880-1",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "12349540-3",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "9547867-1",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "48488404-2",
+            "DiagnosticID": "SA1617"
+        },
+        {
+            "ID": "49868892-0",
+            "DiagnosticID": "CA1805"
+        },
+        {
+            "ID": "73479727-2",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "61573015-0",
+            "DiagnosticID": "WS002"
+        },
+        {
+            "ID": "92269219-2",
+            "DiagnosticID": "FS0131"
+        },
+        {
+            "ID": "62611405-0",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "96671598-0",
+            "DiagnosticID": "CH0003"
+        },
+        {
+            "ID": "95028652-0",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "61494272-3",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "57146807-1",
+            "DiagnosticID": "PostIncrement"
+        },
+        {
+            "ID": "59511643-1",
+            "DiagnosticID": "RS0100"
+        },
+        {
+            "ID": "6384947-3",
+            "DiagnosticID": "DA4003"
+        },
+        {
+            "ID": "99741043-0",
+            "DiagnosticID": "FS0131"
+        },
+        {
+            "ID": "40118859-3",
+            "DiagnosticID": "RCS1032"
+        },
+        {
+            "ID": "26958952-3",
+            "DiagnosticID": "DA4003"
+        },
+        {
+            "ID": "28079972-1",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "6243754-2",
+            "DiagnosticID": "SA1111"
+        },
+        {
+            "ID": "29600949-0",
+            "DiagnosticID": "MethodLengthAnalyzer"
+        },
+        {
+            "ID": "77031788-0",
+            "DiagnosticID": "SA1111"
+        },
+        {
+            "ID": "60916023-1",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "93210072-3",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "65876373-3",
+            "DiagnosticID": "DA4003"
+        },
+        {
+            "ID": "91252290-0",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "37889910-1",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "80038686-0",
+            "DiagnosticID": "SA1513"
+        },
+        {
+            "ID": "1493472-0",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "87809426-3",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "34629346-2",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "53526894-0",
+            "DiagnosticID": "SA1111"
+        },
+        {
+            "ID": "70392318-0",
+            "DiagnosticID": "RS0100"
+        },
+        {
+            "ID": "22085815-1",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "44592638-0",
+            "DiagnosticID": "CH0003"
+        },
+        {
+            "ID": "37997747-0",
+            "DiagnosticID": "MethodLengthAnalyzer"
+        },
+        {
+            "ID": "22898352-1",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "45110966-0",
+            "DiagnosticID": "SA1513"
+        },
+        {
+            "ID": "34799153-2",
+            "DiagnosticID": "MethodLengthAnalyzer"
+        },
+        {
+            "ID": "45824811-0",
+            "DiagnosticID": "RECS0004"
+        },
+        {
+            "ID": "7594553-0",
+            "DiagnosticID": "SA1137"
+        },
+        {
+            "ID": "89702935-2",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "19666558-0",
+            "DiagnosticID": "PostIncrement"
+        },
+        {
+            "ID": "82501833-2",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "593305-0",
+            "DiagnosticID": "SA1513"
+        },
+        {
+            "ID": "59267435-3",
+            "DiagnosticID": "VSD0033"
+        },
+        {
+            "ID": "80615843-2",
+            "DiagnosticID": "SA1513"
+        },
+        {
+            "ID": "13423234-0",
+            "DiagnosticID": "SA1513"
+        },
+        {
+            "ID": "39321299-0",
+            "DiagnosticID": "SA1111"
+        },
+        {
+            "ID": "8206447-1",
+            "DiagnosticID": "SA1137"
+        },
+        {
+            "ID": "34040711-0",
+            "DiagnosticID": "RS0100"
+        },
+        {
+            "ID": "7423650-0",
+            "DiagnosticID": "CH0003"
+        },
+        {
+            "ID": "4531779-2",
+            "DiagnosticID": "DA4003"
+        },
+        {
+            "ID": "78581395-0",
+            "DiagnosticID": "DA4003"
+        },
+        {
+            "ID": "84578441-3",
+            "DiagnosticID": "SA1513"
+        },
+        {
+            "ID": "79306274-1",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "8817636-0",
+            "DiagnosticID": "WS002"
+        },
+        {
+            "ID": "10580833-0",
+            "DiagnosticID": "CH0003"
+        },
+        {
+            "ID": "61892806-0",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "19820531-0",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "24642547-1",
+            "DiagnosticID": "SA1513"
+        },
+        {
+            "ID": "17484429-0",
+            "DiagnosticID": "RS0100"
+        },
+        {
+            "ID": "28546759-0",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "78388740-0",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "17724728-1",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "35431974-0",
+            "DiagnosticID": "CH0003"
+        },
+        {
+            "ID": "57336002-2",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "44508135-0",
+            "DiagnosticID": "SA1513"
+        },
+        {
+            "ID": "4887799-1",
+            "DiagnosticID": "SA1137"
+        },
+        {
+            "ID": "40552557-2",
+            "DiagnosticID": "SA1513"
+        },
+        {
+            "ID": "49546678-0",
+            "DiagnosticID": "CH0003"
+        },
+        {
+            "ID": "50719826-1",
+            "DiagnosticID": "MethodLengthAnalyzer"
+        },
+        {
+            "ID": "13643586-1",
+            "DiagnosticID": "SA1513"
+        },
+        {
+            "ID": "69739008-0",
+            "DiagnosticID": "VSD0033"
+        },
+        {
+            "ID": "82564955-0",
+            "DiagnosticID": "CH0003"
+        },
+        {
+            "ID": "1460791-0",
+            "DiagnosticID": "SA1106"
+        },
+        {
+            "ID": "32743428-0",
+            "DiagnosticID": "CC0011"
+        },
+        {
+            "ID": "6645699-0",
+            "DiagnosticID": "CA1805"
+        },
+        {
+            "ID": "19621266-3",
+            "DiagnosticID": "SA1513"
+        },
+        {
+            "ID": "56371509-0",
+            "DiagnosticID": "SA1106"
+        },
+        {
+            "ID": "37232057-0",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "95444250-3",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "59226815-1",
+            "DiagnosticID": "VSD0033"
+        },
+        {
+            "ID": "35901476-1",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "22496200-0",
+            "DiagnosticID": "SA1513"
+        },
+        {
+            "ID": "32421173-2",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "24599992-1",
+            "DiagnosticID": "SA1137"
+        },
+        {
+            "ID": "14220743-0",
+            "DiagnosticID": "WS002"
+        },
+        {
+            "ID": "84091839-0",
+            "DiagnosticID": "RCS1032"
+        },
+        {
+            "ID": "2158677-1",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "4763411-2",
+            "DiagnosticID": "PropertyDiagnosticId"
+        },
+        {
+            "ID": "55685540-1",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "18738604-1",
+            "DiagnosticID": "SA1106"
+        },
+        {
+            "ID": "44416035-2",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "19857632-0",
+            "DiagnosticID": "MethodLengthAnalyzer"
+        },
+        {
+            "ID": "53651347-0",
+            "DiagnosticID": "SA1111"
+        },
+        {
+            "ID": "52370029-1",
+            "DiagnosticID": "DA4003"
+        },
+        {
+            "ID": "31615193-0",
+            "DiagnosticID": "RCS1171"
+        },
+        {
+            "ID": "68101698-0",
+            "DiagnosticID": "DA4003"
+        },
+        {
+            "ID": "27466599-1",
+            "DiagnosticID": "DA4003"
+        },
+        {
+            "ID": "68028025-2",
+            "DiagnosticID": "SA1513"
+        },
+        {
+            "ID": "25294081-2",
+            "DiagnosticID": "SA1519"
+        },
+        {
+            "ID": "88528794-0",
+            "DiagnosticID": "MethodLengthAnalyzer"
+        },
+        {
+            "ID": "64785188-2",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "62127585-0",
+            "DiagnosticID": "SA1513"
+        },
+        {
+            "ID": "29260208-0",
+            "DiagnosticID": "CA1805"
+        },
+        {
+            "ID": "52021664-0",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "78840767-1",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "19808855-0",
+            "DiagnosticID": "WS002"
+        },
+        {
+            "ID": "60612531-0",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "57458134-1",
+            "DiagnosticID": "FS0131"
+        },
+        {
+            "ID": "98792799-0",
+            "DiagnosticID": "WS002"
+        },
+        {
+            "ID": "28421179-0",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "41582335-0",
+            "DiagnosticID": "FS0131"
+        },
+        {
+            "ID": "35026080-1",
+            "DiagnosticID": "DA4003"
+        },
+        {
+            "ID": "59915146-1",
+            "DiagnosticID": "FS0131"
+        },
+        {
+            "ID": "26495349-1",
+            "DiagnosticID": "SA1513"
+        },
+        {
+            "ID": "54320460-2",
+            "DiagnosticID": "SA1513"
+        },
+        {
+            "ID": "56598896-2",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "63807221-1",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "17840797-2",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "33503855-0",
+            "DiagnosticID": "PropertyDiagnosticId"
+        },
+        {
+            "ID": "57064837-0",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "50928793-1",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "30951042-0",
+            "DiagnosticID": "FS0131"
+        },
+        {
+            "ID": "77733529-0",
+            "DiagnosticID": "SA1513"
+        },
+        {
+            "ID": "34629346-1",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "3897534-0",
+            "DiagnosticID": "MethodLengthAnalyzer"
+        },
+        {
+            "ID": "50287045-0",
+            "DiagnosticID": "CA1805"
+        },
+        {
+            "ID": "37889910-2",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "93530381-0",
+            "DiagnosticID": "SA1106"
+        },
+        {
+            "ID": "72564622-3",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "47136337-0",
+            "DiagnosticID": "CH0003"
+        },
+        {
+            "ID": "34799153-1",
+            "DiagnosticID": "MethodLengthAnalyzer"
+        },
+        {
+            "ID": "22898352-2",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "60067036-1",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "59267435-0",
+            "DiagnosticID": "VSD0033"
+        },
+        {
+            "ID": "10575883-1",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "54230610-0",
+            "DiagnosticID": "WS002"
+        },
+        {
+            "ID": "89702935-1",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "44355283-0",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "39417709-0",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "14759948-0",
+            "DiagnosticID": "CH0003"
+        },
+        {
+            "ID": "79220978-0",
+            "DiagnosticID": "FS0131"
+        },
+        {
+            "ID": "81344836-1",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "20560006-1",
+            "DiagnosticID": "PostIncrement"
+        },
+        {
+            "ID": "79306274-2",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "22160704-0",
+            "DiagnosticID": "RECS0033"
+        },
+        {
+            "ID": "58513889-0",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "43095592-0",
+            "DiagnosticID": "PostIncrement"
+        },
+        {
+            "ID": "17921938-1",
+            "DiagnosticID": "RCS1032"
+        },
+        {
+            "ID": "74067344-0",
+            "DiagnosticID": "PostIncrement"
+        },
+        {
+            "ID": "61892806-3",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "53242871-0",
+            "DiagnosticID": "SA1513"
+        },
+        {
+            "ID": "70757047-2",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "66674126-0",
+            "DiagnosticID": "WS002"
+        },
+        {
+            "ID": "50719826-2",
+            "DiagnosticID": "MethodLengthAnalyzer"
+        },
+        {
+            "ID": "22583520-0",
+            "DiagnosticID": "RS0100"
+        },
+        {
+            "ID": "55325302-0",
+            "DiagnosticID": "WS002"
+        },
+        {
+            "ID": "54682282-1",
+            "DiagnosticID": "DA4003"
+        },
+        {
+            "ID": "57336002-1",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "44428940-2",
+            "DiagnosticID": "RCS1171"
+        },
+        {
+            "ID": "2693233-2",
+            "DiagnosticID": "SA1513"
+        },
+        {
+            "ID": "74261701-0",
+            "DiagnosticID": "SA1513"
+        },
+        {
+            "ID": "6645699-3",
+            "DiagnosticID": "CA1805"
+        },
+        {
+            "ID": "59226815-2",
+            "DiagnosticID": "VSD0033"
+        },
+        {
+            "ID": "95444250-0",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "21646726-0",
+            "DiagnosticID": "MethodLengthAnalyzer"
+        },
+        {
+            "ID": "76234635-0",
+            "DiagnosticID": "FS0131"
+        },
+        {
+            "ID": "29342153-0",
+            "DiagnosticID": "RECS0004"
+        },
+        {
+            "ID": "2501869-0",
+            "DiagnosticID": "SA1519"
+        },
+        {
+            "ID": "79928472-0",
+            "DiagnosticID": "SS002"
+        },
+        {
+            "ID": "92142139-3",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "34266709-0",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "82685778-0",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "84091839-3",
+            "DiagnosticID": "RCS1032"
+        },
+        {
+            "ID": "35901476-2",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "33654572-0",
+            "DiagnosticID": "PostIncrement"
+        },
+        {
+            "ID": "32421173-1",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "44009222-2",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "2661069-0",
+            "DiagnosticID": "WS002"
+        },
+        {
+            "ID": "4763411-1",
+            "DiagnosticID": "PropertyDiagnosticId"
+        },
+        {
+            "ID": "55685540-2",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "19157248-3",
+            "DiagnosticID": "SA1137"
+        },
+        {
+            "ID": "20732419-0",
+            "DiagnosticID": "MethodLengthAnalyzer"
+        },
+        {
+            "ID": "43554777-0",
+            "DiagnosticID": "WS002"
+        },
+        {
+            "ID": "65876605-0",
+            "DiagnosticID": "WS002"
+        },
+        {
+            "ID": "40603471-0",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "55470631-0",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "71738062-1",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "63268177-3",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "73669518-0",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "64785188-1",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "94929055-1",
+            "DiagnosticID": "RS0100"
+        },
+        {
+            "ID": "15113193-1",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "54313032-0",
+            "DiagnosticID": "SA1513"
+        },
+        {
+            "ID": "68476703-0",
+            "DiagnosticID": "SA1513"
+        },
+        {
+            "ID": "60612531-3",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "15416484-2",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "83335569-2",
+            "DiagnosticID": "SA1137"
+        },
+        {
+            "ID": "26841512-0",
+            "DiagnosticID": "CH0003"
+        },
+        {
+            "ID": "16952601-2",
+            "DiagnosticID": "SA1137"
+        },
+        {
+            "ID": "15990495-3",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "70161887-0",
+            "DiagnosticID": "SA1617"
+        },
+        {
+            "ID": "11916134-1",
+            "DiagnosticID": "SA1513"
+        },
+        {
+            "ID": "9893758-2",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "59915146-2",
+            "DiagnosticID": "FS0131"
+        },
+        {
+            "ID": "28421179-3",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "27746867-0",
+            "DiagnosticID": "SA1137"
+        },
+        {
+            "ID": "38907326-0",
+            "DiagnosticID": "WS002"
+        },
+        {
+            "ID": "57458134-2",
+            "DiagnosticID": "FS0131"
+        },
+        {
+            "ID": "41678310-1",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "9867164-0",
+            "DiagnosticID": "FS0131"
+        },
+        {
+            "ID": "56598896-1",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "25052415-2",
+            "DiagnosticID": "SA1513"
+        },
+        {
+            "ID": "17840797-1",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "63807221-2",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "96057118-1",
+            "DiagnosticID": "CH0003"
+        },
+        {
+            "ID": "58496743-0",
+            "DiagnosticID": "CH0003"
+        },
+        {
+            "ID": "55502796-2",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "10990337-0",
+            "DiagnosticID": "FS0131"
+        },
+        {
+            "ID": "6263091-0",
+            "DiagnosticID": "CH0003"
+        },
+        {
+            "ID": "85351667-0",
+            "DiagnosticID": "SA1513"
+        },
+        {
+            "ID": "9364851-0",
+            "DiagnosticID": "RS0100"
+        },
+        {
+            "ID": "41986223-0",
+            "DiagnosticID": "CH0003"
+        },
+        {
+            "ID": "34403722-2",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "16902531-0",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "17625202-2",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "48910663-0",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "12587854-0",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "16131678-0",
+            "DiagnosticID": "CH0003"
+        },
+        {
+            "ID": "72879050-0",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "83109203-1",
+            "DiagnosticID": "OhNoPubImplicitCastForeach"
+        },
+        {
+            "ID": "19516048-0",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "34553264-0",
+            "DiagnosticID": "RS0100"
+        },
+        {
+            "ID": "50272037-0",
+            "DiagnosticID": "MethodLengthAnalyzer"
+        },
+        {
+            "ID": "19281508-0",
+            "DiagnosticID": "WS002"
+        },
+        {
+            "ID": "38834675-0",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "85566176-0",
+            "DiagnosticID": "CH0003"
+        },
+        {
+            "ID": "54128382-2",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "98700600-0",
+            "DiagnosticID": "WS002"
+        },
+        {
+            "ID": "90542260-1",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "88752055-1",
+            "DiagnosticID": "PropertyDiagnosticId"
+        },
+        {
+            "ID": "50371561-0",
+            "DiagnosticID": "MethodLengthAnalyzer"
+        },
+        {
+            "ID": "65892691-1",
+            "DiagnosticID": "RECS0033"
+        },
+        {
+            "ID": "49323485-0",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "21032272-2",
+            "DiagnosticID": "SA1106"
+        },
+        {
+            "ID": "24468941-0",
+            "DiagnosticID": "WS002"
+        },
+        {
+            "ID": "22147171-1",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "58257607-0",
+            "DiagnosticID": "SA1111"
+        },
+        {
+            "ID": "97480628-2",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "17462985-0",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "17367959-2",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "3619341-0",
+            "DiagnosticID": "SS002"
+        },
+        {
+            "ID": "82178727-3",
+            "DiagnosticID": "PostIncrement"
+        },
+        {
+            "ID": "21665015-0",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "96001850-1",
+            "DiagnosticID": "RS0100"
+        },
+        {
+            "ID": "77040417-2",
+            "DiagnosticID": "PropertyDiagnosticId"
+        },
+        {
+            "ID": "21798641-0",
+            "DiagnosticID": "SA1513"
+        },
+        {
+            "ID": "84570740-2",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "69293111-0",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "98432194-0",
+            "DiagnosticID": "OhNoPubImplicitCastForeach"
+        },
+        {
+            "ID": "91158950-0",
+            "DiagnosticID": "WS002"
+        },
+        {
+            "ID": "6918372-0",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "46195236-0",
+            "DiagnosticID": "PropertyDiagnosticId"
+        },
+        {
+            "ID": "7156457-1",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "37839245-0",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "82320651-1",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "7552665-2",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "80842051-1",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "72490619-1",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "9174824-0",
+            "DiagnosticID": "SA1519"
+        },
+        {
+            "ID": "31789972-1",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "25916563-1",
+            "DiagnosticID": "SA1513"
+        },
+        {
+            "ID": "81542440-3",
+            "DiagnosticID": "DA4003"
+        },
+        {
+            "ID": "15694564-1",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "71013829-0",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "61607850-2",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "14614206-2",
+            "DiagnosticID": "RS0100"
+        },
+        {
+            "ID": "85896779-0",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "70256118-3",
+            "DiagnosticID": "RS0100"
+        },
+        {
+            "ID": "88830846-0",
+            "DiagnosticID": "FS0057"
+        },
+        {
+            "ID": "59996650-1",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "19696848-3",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "29427406-0",
+            "DiagnosticID": "SA1513"
+        },
+        {
+            "ID": "92039799-1",
+            "DiagnosticID": "SA1513"
+        },
+        {
+            "ID": "56798012-0",
+            "DiagnosticID": "WS002"
+        },
+        {
+            "ID": "93057766-0",
+            "DiagnosticID": "FS0131"
+        },
+        {
+            "ID": "73479727-1",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "40974323-3",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "30442365-0",
+            "DiagnosticID": "SA1513"
+        },
+        {
+            "ID": "72469690-0",
+            "DiagnosticID": "CS0002"
+        },
+        {
+            "ID": "59511643-2",
+            "DiagnosticID": "RS0100"
+        },
+        {
+            "ID": "57146807-2",
+            "DiagnosticID": "PostIncrement"
+        },
+        {
+            "ID": "44527938-0",
+            "DiagnosticID": "WS002"
+        },
+        {
+            "ID": "14614409-0",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "88597836-0",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "92269219-1",
+            "DiagnosticID": "FS0131"
+        },
+        {
+            "ID": "4920400-1",
+            "DiagnosticID": "SA1513"
+        },
+        {
+            "ID": "34397471-3",
+            "DiagnosticID": "SA1513"
+        },
+        {
+            "ID": "64150986-0",
+            "DiagnosticID": "CA1001"
+        },
+        {
+            "ID": "46899853-0",
+            "DiagnosticID": "WS002"
+        },
+        {
+            "ID": "28079972-2",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "17536610-0",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "44947964-0",
+            "DiagnosticID": "SA1513"
+        },
+        {
+            "ID": "74420558-1",
+            "DiagnosticID": "SA1513"
+        },
+        {
+            "ID": "11607158-1",
+            "DiagnosticID": "RS0100"
+        },
+        {
+            "ID": "93210072-0",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "43034115-0",
+            "DiagnosticID": "RCS1171"
+        },
+        {
+            "ID": "66948627-0",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "7043505-0",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "57457446-1",
+            "DiagnosticID": "SA1513"
+        },
+        {
+            "ID": "74420558-0",
+            "DiagnosticID": "SA1513"
+        },
+        {
+            "ID": "11607158-0",
+            "DiagnosticID": "RS0100"
+        },
+        {
+            "ID": "93210072-1",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "7043505-1",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "57457446-0",
+            "DiagnosticID": "SA1513"
+        },
+        {
+            "ID": "34397471-2",
+            "DiagnosticID": "SA1513"
+        },
+        {
+            "ID": "28079972-3",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "58630652-0",
+            "DiagnosticID": "ASYNC0002"
+        },
+        {
+            "ID": "30442365-1",
+            "DiagnosticID": "SA1513"
+        },
+        {
+            "ID": "59511643-3",
+            "DiagnosticID": "RS0100"
+        },
+        {
+            "ID": "9560431-0",
+            "DiagnosticID": "WS002"
+        },
+        {
+            "ID": "83646306-0",
+            "DiagnosticID": "SA1111"
+        },
+        {
+            "ID": "91186742-1",
+            "DiagnosticID": "CH0003"
+        },
+        {
+            "ID": "12478198-0",
+            "DiagnosticID": "DS01"
+        },
+        {
+            "ID": "72901050-0",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "22054379-0",
+            "DiagnosticID": "VSD0033"
+        },
+        {
+            "ID": "92269219-0",
+            "DiagnosticID": "FS0131"
+        },
+        {
+            "ID": "4920400-0",
+            "DiagnosticID": "SA1513"
+        },
+        {
+            "ID": "73479727-0",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "38048259-0",
+            "DiagnosticID": "CH0003"
+        },
+        {
+            "ID": "78770583-0",
+            "DiagnosticID": "CH0003"
+        },
+        {
+            "ID": "14614206-3",
+            "DiagnosticID": "RS0100"
+        },
+        {
+            "ID": "864291-0",
+            "DiagnosticID": "WS002"
+        },
+        {
+            "ID": "70256118-2",
+            "DiagnosticID": "RS0100"
+        },
+        {
+            "ID": "19696848-2",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "92039799-0",
+            "DiagnosticID": "SA1513"
+        },
+        {
+            "ID": "93057766-1",
+            "DiagnosticID": "FS0131"
+        },
+        {
+            "ID": "61607850-3",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "37202644-2",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "25916563-0",
+            "DiagnosticID": "SA1513"
+        },
+        {
+            "ID": "81542440-2",
+            "DiagnosticID": "DA4003"
+        },
+        {
+            "ID": "15694564-0",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "82320651-0",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "6357242-0",
+            "DiagnosticID": "SA1519"
+        },
+        {
+            "ID": "7552665-3",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "80842051-0",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "9174824-1",
+            "DiagnosticID": "SA1519"
+        },
+        {
+            "ID": "31789972-0",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "62877021-0",
+            "DiagnosticID": "SA1513"
+        },
+        {
+            "ID": "98432194-1",
+            "DiagnosticID": "OhNoPubImplicitCastForeach"
+        },
+        {
+            "ID": "6918372-1",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "7156457-0",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "96001850-0",
+            "DiagnosticID": "RS0100"
+        },
+        {
+            "ID": "66445792-1",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "22147171-0",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "58257607-1",
+            "DiagnosticID": "SA1111"
+        },
+        {
+            "ID": "82178727-2",
+            "DiagnosticID": "PostIncrement"
+        },
+        {
+            "ID": "21665015-1",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "90542260-0",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "97730781-3",
+            "DiagnosticID": "RCS1171"
+        },
+        {
+            "ID": "33726227-0",
+            "DiagnosticID": "WS002"
+        },
+        {
+            "ID": "88752055-0",
+            "DiagnosticID": "PropertyDiagnosticId"
+        },
+        {
+            "ID": "50371561-1",
+            "DiagnosticID": "MethodLengthAnalyzer"
+        },
+        {
+            "ID": "65892691-0",
+            "DiagnosticID": "RECS0033"
+        },
+        {
+            "ID": "49323485-1",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "83109203-0",
+            "DiagnosticID": "OhNoPubImplicitCastForeach"
+        },
+        {
+            "ID": "50272037-1",
+            "DiagnosticID": "MethodLengthAnalyzer"
+        },
+        {
+            "ID": "38834675-1",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "19838705-0",
+            "DiagnosticID": "WS002"
+        },
+        {
+            "ID": "85566176-1",
+            "DiagnosticID": "CH0003"
+        },
+        {
+            "ID": "9483728-3",
+            "DiagnosticID": "SA1137"
+        },
+        {
+            "ID": "99130265-1",
+            "DiagnosticID": "SA1137"
+        },
+        {
+            "ID": "12587854-1",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "72879050-1",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "84317056-0",
+            "DiagnosticID": "WS002"
+        },
+        {
+            "ID": "16902531-1",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "25359328-0",
+            "DiagnosticID": "DA4003"
+        },
+        {
+            "ID": "16733593-0",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "59704086-0",
+            "DiagnosticID": "RECS0033"
+        },
+        {
+            "ID": "85351667-1",
+            "DiagnosticID": "SA1513"
+        },
+        {
+            "ID": "9364851-1",
+            "DiagnosticID": "RS0100"
+        },
+        {
+            "ID": "93025974-0",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "29392671-0",
+            "DiagnosticID": "SA1106"
+        },
+        {
+            "ID": "88794414-0",
+            "DiagnosticID": "CH0003"
+        },
+        {
+            "ID": "56598896-0",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "25052415-3",
+            "DiagnosticID": "SA1513"
+        },
+        {
+            "ID": "17840797-0",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "63807221-3",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "96057118-0",
+            "DiagnosticID": "CH0003"
+        },
+        {
+            "ID": "55502796-3",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "41785527-0",
+            "DiagnosticID": "RECS0015"
+        },
+        {
+            "ID": "9893758-3",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "59915146-3",
+            "DiagnosticID": "FS0131"
+        },
+        {
+            "ID": "28421179-2",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "57458134-3",
+            "DiagnosticID": "FS0131"
+        },
+        {
+            "ID": "41678310-0",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "60612531-2",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "54313032-1",
+            "DiagnosticID": "SA1513"
+        },
+        {
+            "ID": "8361550-0",
+            "DiagnosticID": "PostIncrement"
+        },
+        {
+            "ID": "83335569-3",
+            "DiagnosticID": "SA1137"
+        },
+        {
+            "ID": "26841512-1",
+            "DiagnosticID": "CH0003"
+        },
+        {
+            "ID": "73642490-0",
+            "DiagnosticID": "WS002"
+        },
+        {
+            "ID": "33400256-0",
+            "DiagnosticID": "DA4003"
+        },
+        {
+            "ID": "71738062-0",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "73669518-1",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "64785188-0",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "94929055-0",
+            "DiagnosticID": "RS0100"
+        },
+        {
+            "ID": "15113193-0",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "19157248-2",
+            "DiagnosticID": "SA1137"
+        },
+        {
+            "ID": "19134580-1",
+            "DiagnosticID": "CH0003"
+        },
+        {
+            "ID": "40603471-1",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "65948346-0",
+            "DiagnosticID": "WS002"
+        },
+        {
+            "ID": "25296161-0",
+            "DiagnosticID": "RCS1155"
+        },
+        {
+            "ID": "87254158-0",
+            "DiagnosticID": "SA1513"
+        },
+        {
+            "ID": "84091839-2",
+            "DiagnosticID": "RCS1032"
+        },
+        {
+            "ID": "35901476-3",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "33654572-1",
+            "DiagnosticID": "PostIncrement"
+        },
+        {
+            "ID": "32421173-0",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "59226815-3",
+            "DiagnosticID": "VSD0033"
+        },
+        {
+            "ID": "95444250-1",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "2501869-1",
+            "DiagnosticID": "SA1519"
+        },
+        {
+            "ID": "92142139-2",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "15784341-3",
+            "DiagnosticID": "MethodLengthAnalyzer"
+        },
+        {
+            "ID": "6645699-2",
+            "DiagnosticID": "CA1805"
+        },
+        {
+            "ID": "54682282-0",
+            "DiagnosticID": "DA4003"
+        },
+        {
+            "ID": "57336002-0",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "17921938-0",
+            "DiagnosticID": "RCS1032"
+        },
+        {
+            "ID": "74067344-1",
+            "DiagnosticID": "PostIncrement"
+        },
+        {
+            "ID": "61892806-2",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "70757047-3",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "20560006-0",
+            "DiagnosticID": "PostIncrement"
+        },
+        {
+            "ID": "81344836-0",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "79306274-3",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "6950710-0",
+            "DiagnosticID": "WS002"
+        },
+        {
+            "ID": "83324705-0",
+            "DiagnosticID": "WS002"
+        },
+        {
+            "ID": "34040711-2",
+            "DiagnosticID": "RS0100"
+        },
+        {
+            "ID": "22022292-0",
+            "DiagnosticID": "WS002"
+        },
+        {
+            "ID": "58513889-1",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "67799198-0",
+            "DiagnosticID": "WS002"
+        },
+        {
+            "ID": "39417709-1",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "59267435-1",
+            "DiagnosticID": "VSD0033"
+        },
+        {
+            "ID": "89702935-0",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "34799153-0",
+            "DiagnosticID": "MethodLengthAnalyzer"
+        },
+        {
+            "ID": "22898352-3",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "54324232-0",
+            "DiagnosticID": "WS002"
+        },
+        {
+            "ID": "20876321-0",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "34629346-0",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "3897534-1",
+            "DiagnosticID": "MethodLengthAnalyzer"
+        },
+        {
+            "ID": "37889910-3",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "86647991-0",
+            "DiagnosticID": "WS002"
+        },
+        {
+            "ID": "36185093-2",
+            "DiagnosticID": "SA1513"
+        },
+        {
+            "ID": "98566485-0",
+            "DiagnosticID": "PostIncrement"
+        },
+        {
+            "ID": "85205207-0",
+            "DiagnosticID": "PostIncrement"
+        },
+        {
+            "ID": "70496977-3",
+            "DiagnosticID": "SA1513"
+        },
+        {
+            "ID": "10012232-0",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "54996699-0",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "34649508-1",
+            "DiagnosticID": "FS0131"
+        },
+        {
+            "ID": "64371221-0",
+            "DiagnosticID": "SA1111"
+        },
+        {
+            "ID": "39113266-0",
+            "DiagnosticID": "DA4003"
+        },
+        {
+            "ID": "81237693-0",
+            "DiagnosticID": "CH0003"
+        },
+        {
+            "ID": "92767115-1",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "2513621-0",
+            "DiagnosticID": "WS002"
+        },
+        {
+            "ID": "36397048-1",
+            "DiagnosticID": "CH0003"
+        },
+        {
+            "ID": "62331066-0",
+            "DiagnosticID": "SA1513"
+        },
+        {
+            "ID": "69472293-0",
+            "DiagnosticID": "SA1519"
+        },
+        {
+            "ID": "65936941-0",
+            "DiagnosticID": "RS0100"
+        },
+        {
+            "ID": "15775889-0",
+            "DiagnosticID": "SA1513"
+        },
+        {
+            "ID": "81296005-0",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "28593204-3",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "80898130-1",
+            "DiagnosticID": "FS0131"
+        },
+        {
+            "ID": "87269314-3",
+            "DiagnosticID": "SA1513"
+        },
+        {
+            "ID": "89734202-1",
+            "DiagnosticID": "SA1513"
+        },
+        {
+            "ID": "1266751-1",
+            "DiagnosticID": "DA4003"
+        },
+        {
+            "ID": "13325230-0",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "64800952-2",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "89156619-0",
+            "DiagnosticID": "FS0030"
+        },
+        {
+            "ID": "55645362-0",
+            "DiagnosticID": "WS002"
+        },
+        {
+            "ID": "38667271-3",
+            "DiagnosticID": "VSD0033"
+        },
+        {
+            "ID": "52253316-3",
+            "DiagnosticID": "DA4003"
+        },
+        {
+            "ID": "3509397-0",
+            "DiagnosticID": "INTL0003"
+        },
+        {
+            "ID": "5454452-2",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "30820078-1",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "30144382-0",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "31182521-1",
+            "DiagnosticID": "OhNoPubImplicitCastForeach"
+        },
+        {
+            "ID": "2830451-1",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "66052807-1",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "58040017-0",
+            "DiagnosticID": "FS0131"
+        },
+        {
+            "ID": "85949852-0",
+            "DiagnosticID": "DA4003"
+        },
+        {
+            "ID": "73035561-0",
+            "DiagnosticID": "SA1513"
+        },
+        {
+            "ID": "48190363-0",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "64014848-0",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "76559408-0",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "85075055-2",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "30521464-0",
+            "DiagnosticID": "WS002"
+        },
+        {
+            "ID": "9842344-1",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "46652975-0",
+            "DiagnosticID": "SA1513"
+        },
+        {
+            "ID": "12019629-3",
+            "DiagnosticID": "PostIncrement"
+        },
+        {
+            "ID": "58063897-0",
+            "DiagnosticID": "WS002"
+        },
+        {
+            "ID": "7315275-2",
+            "DiagnosticID": "SA1513"
+        },
+        {
+            "ID": "76279071-0",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "98866014-2",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "78205963-1",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "83083593-3",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "47886982-0",
+            "DiagnosticID": "RECS0004"
+        },
+        {
+            "ID": "9873093-1",
+            "DiagnosticID": "MethodLengthAnalyzer"
+        },
+        {
+            "ID": "33670189-0",
+            "DiagnosticID": "RS0100"
+        },
+        {
+            "ID": "73245118-0",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "66548363-0",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "91707536-1",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "68640263-1",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "41784336-3",
+            "DiagnosticID": "RCS1212"
+        },
+        {
+            "ID": "64912383-0",
+            "DiagnosticID": "CS0002"
+        },
+        {
+            "ID": "92086938-1",
+            "DiagnosticID": "PostIncrement"
+        },
+        {
+            "ID": "34804383-2",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "37368645-1",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "25106771-2",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "63242293-2",
+            "DiagnosticID": "CS0002"
+        },
+        {
+            "ID": "67815714-0",
+            "DiagnosticID": "SA1513"
+        },
+        {
+            "ID": "42387519-2",
+            "DiagnosticID": "PostIncrement"
+        },
+        {
+            "ID": "73141750-0",
+            "DiagnosticID": "RCS1032"
+        },
+        {
+            "ID": "64190405-0",
+            "DiagnosticID": "INTL0003"
+        },
+        {
+            "ID": "97410933-1",
+            "DiagnosticID": "RS0100"
+        },
+        {
+            "ID": "74318547-0",
+            "DiagnosticID": "WS002"
+        },
+        {
+            "ID": "5704579-1",
+            "DiagnosticID": "RS0100"
+        },
+        {
+            "ID": "54688334-1",
+            "DiagnosticID": "SA1513"
+        },
+        {
+            "ID": "57126677-0",
+            "DiagnosticID": "MethodLengthAnalyzer"
+        },
+        {
+            "ID": "62117374-0",
+            "DiagnosticID": "FS0131"
+        },
+        {
+            "ID": "9731239-2",
+            "DiagnosticID": "MethodLengthAnalyzer"
+        },
+        {
+            "ID": "53649477-2",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "51993280-0",
+            "DiagnosticID": "CH0003"
+        },
+        {
+            "ID": "4632534-1",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "51640308-2",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "65629430-0",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "86287485-0",
+            "DiagnosticID": "RS0100"
+        },
+        {
+            "ID": "85935025-2",
+            "DiagnosticID": "DS01"
+        },
+        {
+            "ID": "50530057-0",
+            "DiagnosticID": "WS002"
+        },
+        {
+            "ID": "59332413-0",
+            "DiagnosticID": "PostIncrement"
+        },
+        {
+            "ID": "98245151-0",
+            "DiagnosticID": "CH0003"
+        },
+        {
+            "ID": "68530705-0",
+            "DiagnosticID": "SA1513"
+        },
+        {
+            "ID": "56030505-0",
+            "DiagnosticID": "DA3004"
+        },
+        {
+            "ID": "83657458-1",
+            "DiagnosticID": "INTL0003"
+        },
+        {
+            "ID": "94499718-0",
+            "DiagnosticID": "MethodLengthAnalyzer"
+        },
+        {
+            "ID": "12785727-3",
+            "DiagnosticID": "PropertyDiagnosticId"
+        },
+        {
+            "ID": "38207036-0",
+            "DiagnosticID": "WS002"
+        },
+        {
+            "ID": "91963141-1",
+            "DiagnosticID": "RCS1127"
+        },
+        {
+            "ID": "94019750-0",
+            "DiagnosticID": "MethodLengthAnalyzer"
+        },
+        {
+            "ID": "84973007-0",
+            "DiagnosticID": "INTL0003"
+        },
+        {
+            "ID": "40597082-2",
+            "DiagnosticID": "OhNoPubImplicitCastForeach"
+        },
+        {
+            "ID": "43324705-2",
+            "DiagnosticID": "PostIncrement"
+        },
+        {
+            "ID": "90698797-2",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "82298482-1",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "47765632-2",
+            "DiagnosticID": "SA1513"
+        },
+        {
+            "ID": "54054406-1",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "78847150-0",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "8558593-1",
+            "DiagnosticID": "FS0131"
+        },
+        {
+            "ID": "15472797-2",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "41996828-1",
+            "DiagnosticID": "CS0002"
+        },
+        {
+            "ID": "26349004-2",
+            "DiagnosticID": "SS002"
+        },
+        {
+            "ID": "38046303-0",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "36264924-0",
+            "DiagnosticID": "MethodLengthAnalyzer"
+        },
+        {
+            "ID": "37632239-0",
+            "DiagnosticID": "DA4003"
+        },
+        {
+            "ID": "39880720-0",
+            "DiagnosticID": "WS002"
+        },
+        {
+            "ID": "73726805-1",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "52123667-1",
+            "DiagnosticID": "CH0003"
+        },
+        {
+            "ID": "66867332-1",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "56943899-2",
+            "DiagnosticID": "VSD0033"
+        },
+        {
+            "ID": "30768256-3",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "62078406-1",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "5593607-0",
+            "DiagnosticID": "WS002"
+        },
+        {
+            "ID": "91342015-2",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "3677959-0",
+            "DiagnosticID": "SA1513"
+        },
+        {
+            "ID": "70123903-0",
+            "DiagnosticID": "RS0100"
+        },
+        {
+            "ID": "23926628-0",
+            "DiagnosticID": "WS002"
+        },
+        {
+            "ID": "73813913-0",
+            "DiagnosticID": "CH0003"
+        },
+        {
+            "ID": "59240914-3",
+            "DiagnosticID": "PostIncrement"
+        },
+        {
+            "ID": "62121518-0",
+            "DiagnosticID": "WS002"
+        },
+        {
+            "ID": "3695573-0",
+            "DiagnosticID": "WS002"
+        },
+        {
+            "ID": "46123788-0",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "9911374-0",
+            "DiagnosticID": "PostIncrement"
+        },
+        {
+            "ID": "59240914-2",
+            "DiagnosticID": "PostIncrement"
+        },
+        {
+            "ID": "3174392-1",
+            "DiagnosticID": "SA1513"
+        },
+        {
+            "ID": "62078406-0",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "93792527-1",
+            "DiagnosticID": "DA4003"
+        },
+        {
+            "ID": "56943899-3",
+            "DiagnosticID": "VSD0033"
+        },
+        {
+            "ID": "96966425-3",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "30768256-2",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "78363142-0",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "15067245-0",
+            "DiagnosticID": "WS002"
+        },
+        {
+            "ID": "66867332-0",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "26349004-3",
+            "DiagnosticID": "SS002"
+        },
+        {
+            "ID": "38046303-1",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "75179588-0",
+            "DiagnosticID": "SA1519"
+        },
+        {
+            "ID": "22988711-0",
+            "DiagnosticID": "WS002"
+        },
+        {
+            "ID": "73726805-0",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "54014981-0",
+            "DiagnosticID": "WS002"
+        },
+        {
+            "ID": "41996828-0",
+            "DiagnosticID": "CS0002"
+        },
+        {
+            "ID": "93687518-1",
+            "DiagnosticID": "SA1513"
+        },
+        {
+            "ID": "50855612-2",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "25005534-0",
+            "DiagnosticID": "SA1513"
+        },
+        {
+            "ID": "56525976-0",
+            "DiagnosticID": "WS002"
+        },
+        {
+            "ID": "84081283-0",
+            "DiagnosticID": "WS002"
+        },
+        {
+            "ID": "43324705-3",
+            "DiagnosticID": "PostIncrement"
+        },
+        {
+            "ID": "82298482-0",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "36418862-2",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "72445564-0",
+            "DiagnosticID": "CH0003"
+        },
+        {
+            "ID": "8558593-0",
+            "DiagnosticID": "FS0131"
+        },
+        {
+            "ID": "15472797-3",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "12785727-2",
+            "DiagnosticID": "PropertyDiagnosticId"
+        },
+        {
+            "ID": "91963141-0",
+            "DiagnosticID": "RCS1127"
+        },
+        {
+            "ID": "5496832-0",
+            "DiagnosticID": "CH0003"
+        },
+        {
+            "ID": "94499718-1",
+            "DiagnosticID": "MethodLengthAnalyzer"
+        },
+        {
+            "ID": "91017598-1",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "11994967-0",
+            "DiagnosticID": "WS002"
+        },
+        {
+            "ID": "83657458-0",
+            "DiagnosticID": "INTL0003"
+        },
+        {
+            "ID": "38441875-0",
+            "DiagnosticID": "PostIncrement"
+        },
+        {
+            "ID": "14403583-0",
+            "DiagnosticID": "SS002"
+        },
+        {
+            "ID": "11340464-0",
+            "DiagnosticID": "WS002"
+        },
+        {
+            "ID": "20630532-3",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "78265771-0",
+            "DiagnosticID": "SA1513"
+        },
+        {
+            "ID": "98245151-1",
+            "DiagnosticID": "CH0003"
+        },
+        {
+            "ID": "65629430-1",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "86287485-1",
+            "DiagnosticID": "RS0100"
+        },
+        {
+            "ID": "5704579-0",
+            "DiagnosticID": "RS0100"
+        },
+        {
+            "ID": "62117374-1",
+            "DiagnosticID": "FS0131"
+        },
+        {
+            "ID": "53649477-3",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "51640308-3",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "4632534-0",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "82721210-0",
+            "DiagnosticID": "AvoidVar"
+        },
+        {
+            "ID": "18472716-1",
+            "DiagnosticID": "DA4003"
+        },
+        {
+            "ID": "26061761-0",
+            "DiagnosticID": "WS002"
+        },
+        {
+            "ID": "30668030-1",
+            "DiagnosticID": "SA1513"
+        },
+        {
+            "ID": "88435513-2",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "98176948-0",
+            "DiagnosticID": "CA1805"
+        },
+        {
+            "ID": "97876565-0",
+            "DiagnosticID": "RS0100"
+        },
+        {
+            "ID": "97410933-0",
+            "DiagnosticID": "RS0100"
+        },
+        {
+            "ID": "26480964-0",
+            "DiagnosticID": "CH0003"
+        },
+        {
+            "ID": "41834033-0",
+            "DiagnosticID": "WS002"
+        },
+        {
+            "ID": "75971040-0",
+            "DiagnosticID": "CH0003"
+        },
+        {
+            "ID": "92086938-0",
+            "DiagnosticID": "PostIncrement"
+        },
+        {
+            "ID": "34804383-3",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "37368645-0",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "25106771-3",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "63242293-3",
+            "DiagnosticID": "CS0002"
+        },
+        {
+            "ID": "91707536-0",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "76401033-0",
+            "DiagnosticID": "RS0100"
+        },
+        {
+            "ID": "41784336-2",
+            "DiagnosticID": "RCS1212"
+        },
+        {
+            "ID": "93573417-0",
+            "DiagnosticID": "MethodLengthAnalyzer"
+        },
+        {
+            "ID": "92842145-0",
+            "DiagnosticID": "WS002"
+        },
+        {
+            "ID": "66548363-1",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "83083593-2",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "9873093-0",
+            "DiagnosticID": "MethodLengthAnalyzer"
+        },
+        {
+            "ID": "76279071-1",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "19791333-0",
+            "DiagnosticID": "WS002"
+        },
+        {
+            "ID": "98866014-3",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "52671923-1",
+            "DiagnosticID": "SA1513"
+        },
+        {
+            "ID": "12019629-2",
+            "DiagnosticID": "PostIncrement"
+        },
+        {
+            "ID": "48190363-1",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "64014848-1",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "85075055-3",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "40193204-0",
+            "DiagnosticID": "WS002"
+        },
+        {
+            "ID": "27056230-0",
+            "DiagnosticID": "FS0131"
+        },
+        {
+            "ID": "2830451-0",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "66052807-0",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "23706332-1",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "29378093-0",
+            "DiagnosticID": "WS002"
+        },
+        {
+            "ID": "72007757-2",
+            "DiagnosticID": "DA4003"
+        },
+        {
+            "ID": "34231371-0",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "84392651-1",
+            "DiagnosticID": "SA1513"
+        },
+        {
+            "ID": "46095907-0",
+            "DiagnosticID": "CS0002"
+        },
+        {
+            "ID": "5454452-3",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "30820078-0",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "31182521-0",
+            "DiagnosticID": "OhNoPubImplicitCastForeach"
+        },
+        {
+            "ID": "38667271-2",
+            "DiagnosticID": "VSD0033"
+        },
+        {
+            "ID": "80157655-0",
+            "DiagnosticID": "CH0003"
+        },
+        {
+            "ID": "27758150-1",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "39500826-0",
+            "DiagnosticID": "ASYNC0002"
+        },
+        {
+            "ID": "50396260-0",
+            "DiagnosticID": "INTL0003"
+        },
+        {
+            "ID": "71375379-0",
+            "DiagnosticID": "PostIncrement"
+        },
+        {
+            "ID": "20192300-3",
+            "DiagnosticID": "CS0002"
+        },
+        {
+            "ID": "13325230-1",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "30885790-0",
+            "DiagnosticID": "WS002"
+        },
+        {
+            "ID": "96064829-0",
+            "DiagnosticID": "CH0003"
+        },
+        {
+            "ID": "80898130-0",
+            "DiagnosticID": "FS0131"
+        },
+        {
+            "ID": "50933918-0",
+            "DiagnosticID": "PostIncrement"
+        },
+        {
+            "ID": "29645223-0",
+            "DiagnosticID": "CH0003"
+        },
+        {
+            "ID": "81296005-1",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "53676423-0",
+            "DiagnosticID": "PropertyDiagnosticId"
+        },
+        {
+            "ID": "28593204-2",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "56994329-3",
+            "DiagnosticID": "SA1513"
+        },
+        {
+            "ID": "71526747-0",
+            "DiagnosticID": "PropertyDiagnosticId"
+        },
+        {
+            "ID": "5855699-0",
+            "DiagnosticID": "CH0003"
+        },
+        {
+            "ID": "92767115-0",
+            "DiagnosticID": "FS0128"
+        },
+        {
+            "ID": "24646100-2",
+            "DiagnosticID": "SA1513"
+        },
+        {
+            "ID": "91748447-0",
+            "DiagnosticID": "RECS0033"
+        },
+        {
+            "ID": "34649508-0",
+            "DiagnosticID": "FS0131"
+        }
+    ]
+}

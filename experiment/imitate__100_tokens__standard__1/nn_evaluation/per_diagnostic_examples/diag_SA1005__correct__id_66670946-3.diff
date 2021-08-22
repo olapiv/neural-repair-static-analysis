@@ -1,0 +1,13 @@
+id: 66670946-3
+diagnostic: SA1005
+perc_correct_in_test: 0.42857142857142855
+num_datapoints_in_train: 17
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  = strRest.Substring(endIndex);
+              }
+  
+<<<< DIAGNOSTIC: single line comment should begin with a space >>>>
+-             //Console.WriteLine("string is --{0}--, remaining --{1}--", strRet, strRemaining);
++             // Console.WriteLine("string is --{0}--, remaining --{1}--", strRet, strRemaining);
+              return strRet;
+          

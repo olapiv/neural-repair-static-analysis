@@ -1,0 +1,17 @@
+id: 21032272-1
+diagnostic: SA1106
+perc_correct_in_test: 0.5
+num_datapoints_in_train: 9
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+            flags = _flags;
+              idealProcNo = _idealProcNo;
+          }
+<<<< DIAGNOSTIC: code must not contain empty statements >>>>
+-     };
++     }
+  
+      enum PassOneViewType
+      {
+          Thread = 0,
+          AllocHeap = 1,
+    

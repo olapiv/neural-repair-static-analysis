@@ -1,0 +1,25 @@
+id: 1331794-0
+diagnostic: RS0100
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 2
+<<<<<<<< CORRECT >>>>>>>>
+  d)
+              {
++                 if (d < 0)
+<<<< DIAGNOSTIC: statements must be placed on their own line >>>>
+-                 if (d < 0) return 0;
++                     return 0;
++                 if (d > 255)
+<<<< DIAGNOSTIC: statements must be placed on their own line >>>>
+-                 if (d > 255) return 255;
++                     return 255;
+                  return
+<<<<<<<< INFERRED >>>>>>>>
+  d)
+              {
++                                      return foreground;
+<<<< DIAGNOSTIC: statements must be placed on their own line >>>>
+-                 if (d < 0) return 0;
+<<<< DIAGNOSTIC: statements must be placed on their own line >>>>
+-                 if (d > 255) return 255;
+                  return

@@ -1,0 +1,11 @@
+id: 57218398-0
+diagnostic: SA1629
+perc_correct_in_test: 0.3333333333333333
+num_datapoints_in_train: 3
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+      /// The foreground or opposite color. If left null, this will be calculated for you.
+<<<< DIAGNOSTIC: documentation text should end with a period >>>>
+-         /// Calculated by calling ColorAssist.ContrastingForegroundColor()
++         /// Calculated by calling ColorAssist.ContrastingForegroundColor().
+          /// </summary>
+          public Color? ForegroundColor { get; set; 

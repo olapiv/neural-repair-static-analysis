@@ -1,0 +1,22 @@
+id: 13228183-0
+diagnostic: MethodLengthAnalyzer
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 0
+<<<<<<<< CORRECT >>>>>>>>
+  object Value;
+              public int Count;
++         [MethodHasDebt(LineCount = 71, ParameterCount = 5)]
+          }
+<<<< DIAGNOSTIC: method mapdynamic is 71 lines long while it should not be longer than 50 lines. >>>>
+          private static object MapDynamic(StringDictionary source, object boxedDestination, Type destinationType, ResolutionContext context, ProfileMap profileMap)
+          {
+              boxedDestination ?
+<<<<<<<< INFERRED >>>>>>>>
+  object Value;
+              public int Count;
+          }
+<<<< DIAGNOSTIC: method mapdynamic is 71 lines long while it should not be longer than 50 lines. >>>>
+-         private static object MapDynamic(StringDictionary source, object boxedDestination, Type destinationType, ResolutionContext context, ProfileMap profileMap)
++         private static object MapDynamic(int source, object boxedDestination, Type destinationType)
+          {
+              boxedDestination ?

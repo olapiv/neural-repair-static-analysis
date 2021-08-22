@@ -1,0 +1,20 @@
+id: 40597082-0
+diagnostic: OhNoPubImplicitCastForeach
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 0
+<<<<<<<< CORRECT >>>>>>>>
+              where TResult : new()
+          {
+<<<< DIAGNOSTIC: implicit run time cast from 'object' to 'TResult' >>>>
+-             foreach (TResult result in ExecuteQuery(typeof(TResult), query, parameters))
++             foreach (var result in ExecuteQuery(typeof(TResult), query, parameters))
+                  yield return result;
+          }
+<<<<<<<< INFERRED >>>>>>>>
+              where TResult : new()
+          {
+<<<< DIAGNOSTIC: implicit run time cast from 'object' to 'TResult' >>>>
+-             foreach (TResult result in ExecuteQuery(typeof(TResult), query, parameters))
++                     foreach (var query in (IQueryable<TResult>)new((typeof(TResult))
+                  yield return result;
+          }

@@ -1,0 +1,24 @@
+id: 27350899-0
+diagnostic: SA1615
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 0
+<<<<<<<< CORRECT >>>>>>>>
+  / <summary>
+  		/// Gets the selected items which do not have any of their ancestors selected.
++ 		/// <returns></returns>
+  		/// </summary>
+<<<< DIAGNOSTIC: element return value should be documented >>>>
+  		public IEnumerable<SharpTreeNode> GetTopLevelSelection()
+  		{
+  			var selection = this.SelectedItems.OfType<SharpTreeNode>();
+  			var selectionHash = new HashSet<SharpTreeNode
+<<<<<<<< INFERRED >>>>>>>>
+  / <summary>
+  		/// Gets the selected items which do not have any of their ancestors selected.
+  		/// </summary>
+<<<< DIAGNOSTIC: element return value should be documented >>>>
+- 		public IEnumerable<SharpTreeNode> GetTopLevelSelection()
++ 						if (found is null)
+  		{
+  			var selection = this.SelectedItems.OfType<SharpTreeNode>();
+  			var selectionHash = new HashSet<SharpTreeNode

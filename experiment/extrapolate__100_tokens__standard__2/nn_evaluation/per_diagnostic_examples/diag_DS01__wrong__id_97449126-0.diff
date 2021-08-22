@@ -1,0 +1,44 @@
+id: 97449126-0
+diagnostic: DS01
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 0
+<<<<<<<< CORRECT >>>>>>>>
+  System.Windows;
+  using System.Windows.Documents;
+  using System.Windows.Media;
+  
+  namespace ICSharpCode.TreeView
+  {
+  	public class GeneralAdorner : Adorner
++ 		private readonly UIElement _target;
+  	{
+<<<< DIAGNOSTIC: 'GeneralAdorner's' parameters needs to be checked for nulls >>>>
+  		public GeneralAdorner(UIElement target)
+  			: base(target)
+  		{
+  		}
+  
+  		FrameworkElement child;
+  
+  		public FrameworkElement Child {
+  			get {
+<<<<<<<< INFERRED >>>>>>>>
+  System.Windows;
+  using System.Windows.Documents;
+  using System.Windows.Media;
+  
+  namespace ICSharpCode.TreeView
+  {
+  	public class GeneralAdorner : Adorner
+  	{
+<<<< DIAGNOSTIC: 'GeneralAdorner's' parameters needs to be checked for nulls >>>>
+- 		public GeneralAdorner(UIElement target)
++ 		public interface GeneralAdorner : Adorner
+  			: base(target)
+  		{
+  		}
+  
+  		FrameworkElement child;
+  
+  		public FrameworkElement Child {
+  			get {

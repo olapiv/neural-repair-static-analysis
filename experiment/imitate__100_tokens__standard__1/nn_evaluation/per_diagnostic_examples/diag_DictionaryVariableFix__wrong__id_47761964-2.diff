@@ -1,0 +1,22 @@
+id: 47761964-2
+diagnostic: DictionaryVariableFix
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 3
+<<<<<<<< CORRECT >>>>>>>>
+  <IDbCommand, object>)dm.CreateDelegate(typeof(Action<IDbCommand, object>));
+          }
+  
+<<<< DIAGNOSTIC: dictionary 'Dictionary' should be replaced with concurrentdictionary >>>>
+-         private static readonly Dictionary<TypeCode, MethodInfo> toStrings = new[]
++         private static readonly System.Collections.Concurrent.ConcurrentDictionary<TypeCode, MethodInfo> toStrings = new[]
+          {
+              typeof(bool), typeof(sbyte), typeof
+<<<<<<<< INFERRED >>>>>>>>
+  <IDbCommand, object>)dm.CreateDelegate(typeof(Action<IDbCommand, object>));
+          }
+  
+<<<< DIAGNOSTIC: dictionary 'Dictionary' should be replaced with concurrentdictionary >>>>
+-         private static readonly Dictionary<TypeCode, MethodInfo> toStrings = new[]
++                 SqlPart part = Parts[partIndex];
+          {
+              typeof(bool), typeof(sbyte), typeof

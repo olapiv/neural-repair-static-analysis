@@ -1,0 +1,17 @@
+id: 50966331-1
+diagnostic: ASA002
+perc_correct_in_test: 1.0
+num_datapoints_in_train: 9
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+   object DeserializeFromStream(string contentType, Type type, Stream requestStream);
+  
+          StreamDeserializerDelegate GetStreamDeserializer(string contentType);
+  
+<<<< DIAGNOSTIC: method 'GetStreamDeserializerAsync' returns streamdeserializerdelegateasync and so it should rather be called 'GetStreamDeserializer' >>>>
+-         StreamDeserializerDelegateAsync GetStreamDeserializerAsync(string contentType);
++         StreamDeserializerDelegateAsync GetStreamDeserializer(string contentType);
+      }
+      
+      public interface IContentTypeWriter
+      {
+          byte[] SerializeToBytes(

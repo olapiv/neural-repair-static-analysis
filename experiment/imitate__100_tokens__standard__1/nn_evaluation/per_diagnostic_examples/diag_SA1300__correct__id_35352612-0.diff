@@ -1,0 +1,21 @@
+id: 35352612-0
+diagnostic: SA1300
+perc_correct_in_test: 0.6
+num_datapoints_in_train: 8
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  balancing logic the proc switched.
+  
+  using System;
+  using System.Collections.Generic;
+  using System.Text;
+  using System.IO;
+  using System.Linq;
+  
+<<<< DIAGNOSTIC: element 'parse_hb_log' should begin with an uppercase letter >>>>
+- namespace parse_hb_log
++ namespace Parse_hb_log
+  {
+      enum HeapBalanceFlagMask
+      {
+          MutipleProcs = 0xf,
+          EnterDueToProc = 0xf0,

@@ -1,0 +1,20 @@
+id: 6988042-0
+diagnostic: CC0057
+perc_correct_in_test: 0.25
+num_datapoints_in_train: 10
+<<<<<<<< CORRECT >>>>>>>>
+   flags</param>
+          /// <returns>A MemberInfo or null</returns>
+<<<< DIAGNOSTIC: parameter 'bindingFlags' is not used. >>>>
+-         public static MemberInfo GetTableColumnMember(this Type t, string name, BindingFlags bindingFlags)
++         public static MemberInfo GetTableColumnMember(this Type t, string name)
+          {
+              return (from member in t.GetMembers
+<<<<<<<< INFERRED >>>>>>>>
+   flags</param>
+          /// <returns>A MemberInfo or null</returns>
+<<<< DIAGNOSTIC: parameter 'bindingFlags' is not used. >>>>
+-         public static MemberInfo GetTableColumnMember(this Type t, string name, BindingFlags bindingFlags)
++                     t = new Type(t);
+          {
+              return (from member in t.GetMembers

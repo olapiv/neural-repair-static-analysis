@@ -1,0 +1,25 @@
+id: 10123608-0
+diagnostic: SA1111
+perc_correct_in_test: 0.2222222222222222
+num_datapoints_in_train: 0
+<<<<<<<< CORRECT >>>>>>>>
+    Path.Combine(
+-                     context.Request.Url.Segments.Select(s => s.Replace("/", "")).ToArray()
++                     context.Request.Url.Segments.Select(s => s.Replace("/", "")).ToArray()));
+<<<< DIAGNOSTIC: closing parenthesis should be on line of last parameter >>>>
+-                 )
+<<<< DIAGNOSTIC: closing parenthesis should be on line of last parameter >>>>
+-             );
+  
+        
+<<<<<<<< INFERRED >>>>>>>>
+    Path.Combine(
+                      context.Request.Url.Segments.Select(s => s.Replace("/", "")).ToArray()
+<<<< DIAGNOSTIC: closing parenthesis should be on line of last parameter >>>>
+-                 )
+<<<< DIAGNOSTIC: closing parenthesis should be on line of last parameter >>>>
+-             );
++                     context.Request.Url.Segments.Select(s => s.Replace("/", string.Empty))
++                    string.Empty)
+  
+        

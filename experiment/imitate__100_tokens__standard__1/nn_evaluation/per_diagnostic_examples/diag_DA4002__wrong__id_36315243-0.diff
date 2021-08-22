@@ -1,0 +1,33 @@
+id: 36315243-0
+diagnostic: DA4002
+perc_correct_in_test: 0.8571428571428571
+num_datapoints_in_train: 98
+<<<<<<<< CORRECT >>>>>>>>
+  using DbLinq.Data.Linq.Sql;
+  using DbLinq.Data.Linq.Sugar.Expressions;
+  using DbLinq.Util;
+  
+  namespace DbLinq.Data.Linq.Sugar.Implementation
++ 
++     /// <remarks></remarks>
+  {
+<<<< DIAGNOSTIC: type 'QueryBuilder' doesn't have remark in the comment >>>>
+      partial class QueryBuilder
+      {
+          protected class UpsertParameters
+          {
+              public 
+<<<<<<<< INFERRED >>>>>>>>
+  using DbLinq.Data.Linq.Sql;
+  using DbLinq.Data.Linq.Sugar.Expressions;
+  using DbLinq.Util;
+  
+  namespace DbLinq.Data.Linq.Sugar.Implementation
++     /// <remarks></remarks>
+  {
+<<<< DIAGNOSTIC: type 'QueryBuilder' doesn't have remark in the comment >>>>
+      partial class QueryBuilder
+      {
+          protected class UpsertParameters
+          {
+              public 

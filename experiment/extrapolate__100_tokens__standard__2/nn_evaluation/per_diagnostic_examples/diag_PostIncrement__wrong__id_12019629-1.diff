@@ -1,0 +1,15 @@
+id: 12019629-1
+diagnostic: PostIncrement
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 0
+<<<<<<<< CORRECT >>>>>>>>
+           lines.AddRange(Write(expression.Body, "Call", depth));
+<<<< DIAGNOSTIC: the expression 'i++' must be replaced with the one using a pre-increment/decrement operator. >>>>
+-             for (int i = 0; i < expression.Parameters.Count; i++)
++             for (int i = 0; i < expression.Parameters.Count; ++i)
+                  lines.AddRange(Write(expression.Parameters[i], string
+<<<<<<<< INFERRED >>>>>>>>
+           lines.AddRange(Write(expression.Body, "Call", depth));
+<<<< DIAGNOSTIC: the expression 'i++' must be replaced with the one using a pre-increment/decrement operator. >>>>
+              for (int i = 0; i < expression.Parameters.Count; i++)
+-                 lines.AddRange(Write(expression.Parameters[i], string

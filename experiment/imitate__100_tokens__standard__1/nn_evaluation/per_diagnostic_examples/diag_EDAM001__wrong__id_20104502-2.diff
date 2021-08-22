@@ -1,0 +1,30 @@
+id: 20104502-2
+diagnostic: EDAM001
+perc_correct_in_test: 0.08196721311475409
+num_datapoints_in_train: 171
+<<<<<<<< CORRECT >>>>>>>>
+  summary>
+          /// Logs the specified message.
+          /// </summary>
+<<<< DIAGNOSTIC: explicit default access modifiers are just noise. >>>>
+-         private static void Log(object message)
++         static void Log(object message)
+  		{
+  		}
+  
+          public void Debug(object message, Exception exception)
+  		{
+  		}
+<<<<<<<< INFERRED >>>>>>>>
+  summary>
+          /// Logs the specified message.
+          /// </summary>
+<<<< DIAGNOSTIC: explicit default access modifiers are just noise. >>>>
+-         private static void Log(object message)
++         void Log(object message, Exception exception)
+  		{
+  		}
+  
+          public void Debug(object message, Exception exception)
+  		{
+  		}

@@ -1,0 +1,20 @@
+id: 8387259-3
+diagnostic: SA1513
+perc_correct_in_test: 0.3617021276595745
+num_datapoints_in_train: 0
+<<<<<<<< CORRECT >>>>>>>>
+           return s != null ? (UpdateCheck)Enum.Parse(typeof(UpdateCheck), s) : default(UpdateCheck);
++ 
+<<<< DIAGNOSTIC: closing brace should be followed by blank line >>>>
+              }
+              public AutoSync GetAutoSyncAttribute(XmlReader r, string attributeName)
+              {
+   
+<<<<<<<< INFERRED >>>>>>>>
+           return s != null ? (UpdateCheck)Enum.Parse(typeof(UpdateCheck), s) : default(UpdateCheck);
+<<<< DIAGNOSTIC: closing brace should be followed by blank line >>>>
+-             }
++ 
+              public AutoSync GetAutoSyncAttribute(XmlReader r, string attributeName)
+              {
+   

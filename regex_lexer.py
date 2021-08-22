@@ -37,17 +37,19 @@ class LanguageLexer(UnprocessedTokensMixin, RegexLexer):
 
     tokens = {
         'root': [
+            
+            (r"\d", Number),
 
-            # Variable names in string:
+            # Doing this for indexing in diagnostics
             (r'(?<=[\s\n]\')[^\']+(?=\'[\W])', Name),  # Separates the "'"
-            # (r'(?<=[\s\n])\'[^\']+\'(?=[\W])', Name),  # Includes the "'"
 
-            # Words, including ones with apostrophes:
-            (r'\w+(\'\w+)?', Text),
+            # Words:
+            (r'\w+', Text),
 
             # Formatting
             (r'[\n\s\t\r\v]', Text),
-            # Consider not binding punctuation here
+            
+            # Punctuation
             (r'[~!%^&*()+=|\'\]\[:;,.<>/?-]', Punctuation),
 
         ]
@@ -270,9 +272,10 @@ if __name__ == "__main__":
     # with open(c_sharp_filepath, 'r') as file:
     #     original_file = file.read()
 
-    original_file = """class Xyz {
+    code_string = """class Xyz {
     }"""
 
-    # run_only_language_lexer(original_file)
-    # run_pygments_lexer(original_file)
-    run_pygments_lexer_indexed_identifiers(original_file)
+    # run_pygments_lexer(code_string)
+    
+    language_string = """CHANGE class 'eclipseRCPExt' to xyz because EclipseRCPExt is too long."""
+    run_only_language_lexer(language_string)

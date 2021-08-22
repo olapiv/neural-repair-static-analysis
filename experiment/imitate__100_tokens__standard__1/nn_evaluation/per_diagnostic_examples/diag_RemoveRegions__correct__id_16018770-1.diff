@@ -1,0 +1,20 @@
+id: 16018770-1
+diagnostic: RemoveRegions
+perc_correct_in_test: 0.967741935483871
+num_datapoints_in_train: 184
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  , ARISING FROM,
+  // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+  // THE SOFTWARE.
+  // 
+<<<< DIAGNOSTIC: regions are not needed any more >>>>
+- #endregion
+  
+  using System;
+  using System.Collections.Generic;
+  using System.IO;
+  using System.Linq.Expressions;
+  
+  namespace DbLinq.Util
+  {
+      internal static class

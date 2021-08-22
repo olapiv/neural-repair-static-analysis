@@ -1,0 +1,22 @@
+id: 7291659-0
+diagnostic: _MissingConfigureAwait
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 0
+<<<<<<<< CORRECT >>>>>>>>
+   {
+              var result = ThrowDisposed<T>();
+<<<< DIAGNOSTIC: consider using .configureawait(false) on async method 'Yield'. >>>>
+-             await Task.Yield(); // will never hit this - already thrown and handled
++             await Task.Yield().ConfigureAwait(false); // will never hit this - already thrown and handled
+              return result;
+          }
+     
+<<<<<<<< INFERRED >>>>>>>>
+   {
+              var result = ThrowDisposed<T>();
+<<<< DIAGNOSTIC: consider using .configureawait(false) on async method 'Yield'. >>>>
+-             await Task.Yield(); // will never hit this - already thrown and handled
++             T result = ThrowDisposed<T>();
+              return result;
+          }
+     

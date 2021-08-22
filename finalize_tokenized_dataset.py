@@ -5,27 +5,27 @@ import math
 import copy
 import statistics
 from enum import Enum
+from pathlib import Path
 from collections import Counter
 
 random.seed(10)  # For reproducible shuffles
 
-tokenized_dataset_dir = "tokenized_dataset"
-final_dataset_dir = "experiment"
-
-LIMIT_TARGET_TOKENS = 500
-LIMIT_SOURCE_TOKENS = 500
-
 
 class Modes:
+    """
+        Two modes:
+            1. Imitation: Entirely mixed dataset
+            2. Extrapolation: Only new diag messages for test & validation
+    """
 
-    class CopyMode:
-        dataset_dir = "random_mix"
+    class Imitation:
+        label = "imitate"
         train_perc = 0.6
         val_perc = 0.2
         test_perc = 0.2
 
-    class ExtrapolationMode:
-        dataset_dir = "split_by_diagnostics"
+    class Extrapolation:
+        label = "extrapolate"
         train_perc = 0.7
         val_perc = 0.2
         test_perc = 0.1
@@ -71,373 +71,392 @@ metadata_dict = {
 }
 
 
-def initialize_data_files(mode, all_filepaths):
-    data_files = {}
-    for inputOutput in InputOutput:
-        data_files[inputOutput.value] = {}
+class Pipeline:
+
+    def __init__(self, input_dir, mode=Modes.Extrapolation, limit_tgt_tokens=500, limit_src_tokens=500):
+
+        self.mode = mode
+        self.input_dir = input_dir
+
+        input_dir_basename = os.path.basename(os.path.normpath(input_dir))
+        self.output_dir = f"experiment/{mode.label}__{input_dir_basename}"
+        Path(self.output_dir).mkdir(parents=True, exist_ok=True)
+
+        self.limit_tgt_tokens = limit_tgt_tokens
+        self.limit_src_tokens = limit_src_tokens
+
+    def initialize_data_files(self, mode, all_filepaths):
+        data_files = {}
+        for inputOutput in InputOutput:
+            data_files[inputOutput.value] = {}
+            for stage in Stage:
+                data_files[inputOutput.value][stage.value] = {}
+                filepath = f"{self.output_dir}/{inputOutput.value}-{stage.value}.txt"
+                data_files[inputOutput.value][stage.value] = filepath
+                all_filepaths.append(filepath)
+
+        return data_files
+
+    def initialize_metadata(self, mode, all_filepaths):
+        metadata = {}
+        total_metadata = f"{self.output_dir}/metadata-total.json"
+        metadata["total"] = {}
+        metadata["total"]["file"] = total_metadata
+        metadata["total"]["data"] = copy.deepcopy(metadata_dict)
+        all_filepaths.append(total_metadata)
         for stage in Stage:
-            data_files[inputOutput.value][stage.value] = {}
-            filepath = f"{final_dataset_dir}/{mode.dataset_dir}/{inputOutput.value}-{stage.value}.txt"
-            data_files[inputOutput.value][stage.value] = filepath
-            all_filepaths.append(filepath)
+            metadata[stage.value] = {}
+            metadata_filepath = f"{self.output_dir}/metadata-{stage.value}.json"
+            metadata[stage.value]["file"] = metadata_filepath
+            all_filepaths.append(metadata_filepath)
+            metadata[stage.value]["data"] = copy.deepcopy(metadata_dict)
 
-    return data_files
+        return metadata
 
+    def flatten_input_datapoint(self, datapoint_dict):
+        input_list = []
 
-def initialize_metadata(mode, all_filepaths):
-    metadata = {}
-    total_metadata = f"{final_dataset_dir}/{mode.dataset_dir}/metadata-total.json"
-    metadata["total"] = {}
-    metadata["total"]["file"] = total_metadata
-    metadata["total"]["data"] = copy.deepcopy(metadata_dict)
-    all_filepaths.append(total_metadata)
-    for stage in Stage:
-        metadata[stage.value] = {}
-        metadata_filepath = f"{final_dataset_dir}/{mode.dataset_dir}/metadata-{stage.value}.json"
-        metadata[stage.value]["file"] = metadata_filepath
-        all_filepaths.append(metadata_filepath)
-        metadata[stage.value]["data"] = copy.deepcopy(metadata_dict)
+        for diag in datapoint_dict["DiagnosticOccurances"]:
+            input_list.append("LINE")
+            # input_list.extend([int(d) for d in diag["Line"]])
+            # Offset is subtracted anyways
+            input_list.append(str(diag["Line"]))
+            input_list.append("MESSAGE")
+            input_list.extend(diag["TokenizedMessage"])
 
-    return metadata
+        input_list.append("FILE_CONTENT")
+        input_list.extend(datapoint_dict["TokenizedFileContext"])
 
+        return " ".join(input_list) + "\n"
 
-def flatten_input_datapoint(datapoint_dict):
-    input_list = []
+    def flatten_output_datapoint(self, datapoint_dict):
+        output_list = []
 
-    for diag in datapoint_dict["DiagnosticOccurances"]:
-        input_list.append("LINE")
-        # input_list.extend([int(d) for d in diag["Line"]])
-        input_list.append(str(diag["Line"]))  # Offset is subtracted anyways
-        input_list.append("MESSAGE")
-        input_list.extend(diag["TokenizedMessage"])
+        action_type = datapoint_dict["ParsedDiff"]["ActionType"]
+        action = datapoint_dict["ParsedDiff"]["Action"]
 
-    input_list.append("FILE_CONTENT")
-    input_list.extend(datapoint_dict["TokenizedFileContext"])
+        if action_type == "ADD":
 
-    return " ".join(input_list) + "\n"
+            output_list.append("ADD")
+            output_list.append("PREVIOUS_SOURCE_LOCATION")
+            output_list.append(str(action["PreviousSourceLocation"]))
+            output_list.append("TARGET_LINES")
+            output_list.extend(action["TokenizedTargetLines"])
 
+        elif action_type == "REPLACE":
 
-def flatten_output_datapoint(datapoint_dict):
-    output_list = []
+            output_list.append("REPLACE")
+            output_list.append("SOURCE_LOCATION")
+            output_list.extend([str(line_num)
+                                for line_num in action["SourceLocations"]])
+            output_list.append("TARGET_LINES")
+            output_list.extend(action["TokenizedTargetLines"])
 
-    action_type = datapoint_dict["ParsedDiff"]["ActionType"]
-    action = datapoint_dict["ParsedDiff"]["Action"]
+        else:  # REMOVE
 
-    if action_type == "ADD":
+            output_list.append("REMOVE")
+            output_list.append("SOURCE_LOCATION_START")
+            output_list.extend(str(action["SourceLocationStart"]))
+            output_list.append("SOURCE_LOCATION_END")
+            output_list.extend(str(action["SourceLocationEnd"]))
 
-        output_list.append("ADD")
-        output_list.append("PREVIOUS_SOURCE_LOCATION")
-        output_list.append(str(action["PreviousSourceLocation"]))
-        output_list.append("TARGET_LINES")
-        output_list.extend(action["TokenizedTargetLines"])
+        return " ".join(output_list) + "\n"
 
-    elif action_type == "REPLACE":
+    def generate_num_token_statistics(self, metadata):
+        total_src = []
+        total_tgt = []
+        for stage in Stage:
+            metadata[stage.value]["data"]["max-tokens-src"] = max(
+                metadata[stage.value]["data"]["token-num-src"])
+            metadata[stage.value]["data"]["avg-tokens-src"] = statistics.mean(
+                metadata[stage.value]["data"]["token-num-src"])
+            metadata[stage.value]["data"]["std-tokens-src"] = statistics.pstdev(
+                metadata[stage.value]["data"]["token-num-src"])
+            total_src += metadata[stage.value]["data"]["token-num-src"]
 
-        output_list.append("REPLACE")
-        output_list.append("SOURCE_LOCATION")
-        output_list.extend([str(line_num)
-                           for line_num in action["SourceLocations"]])
-        output_list.append("TARGET_LINES")
-        output_list.extend(action["TokenizedTargetLines"])
+            metadata[stage.value]["data"]["max-tokens-tgt"] = max(
+                metadata[stage.value]["data"]["token-num-tgt"])
+            metadata[stage.value]["data"]["avg-tokens-tgt"] = statistics.mean(
+                metadata[stage.value]["data"]["token-num-tgt"])
+            metadata[stage.value]["data"]["std-tokens-tgt"] = statistics.pstdev(
+                metadata[stage.value]["data"]["token-num-tgt"])
+            total_tgt += metadata[stage.value]["data"]["token-num-tgt"]
 
-    else:  # REMOVE
+            metadata[stage.value]["data"].pop("token-num-src", None)
+            metadata[stage.value]["data"].pop("token-num-tgt", None)
 
-        output_list.append("REMOVE")
-        output_list.append("SOURCE_LOCATION_START")
-        output_list.extend(str(action["SourceLocationStart"]))
-        output_list.append("SOURCE_LOCATION_END")
-        output_list.extend(str(action["SourceLocationEnd"]))
+        metadata["total"]["data"]["max-tokens-src"] = max(total_src)
+        metadata["total"]["data"]["avg-tokens-src"] = statistics.mean(
+            total_src)
+        metadata["total"]["data"]["std-tokens-src"] = statistics.pstdev(
+            total_src)
 
-    return " ".join(output_list) + "\n"
+        metadata["total"]["data"]["max-tokens-tgt"] = max(total_tgt)
+        metadata["total"]["data"]["avg-tokens-tgt"] = statistics.mean(
+            total_tgt)
+        metadata["total"]["data"]["std-tokens-tgt"] = statistics.pstdev(
+            total_tgt)
 
+        metadata["total"]["data"].pop("token-num-src", None)
+        metadata["total"]["data"].pop("token-num-tgt", None)
 
-def generate_num_token_statistics(metadata):
-    total_src = []
-    total_tgt = []
-    for stage in Stage:
-        metadata[stage.value]["data"]["max-tokens-src"] = max(
-            metadata[stage.value]["data"]["token-num-src"])
-        metadata[stage.value]["data"]["avg-tokens-src"] = statistics.mean(
-            metadata[stage.value]["data"]["token-num-src"])
-        metadata[stage.value]["data"]["std-tokens-src"] = statistics.pstdev(
-            metadata[stage.value]["data"]["token-num-src"])
-        total_src += metadata[stage.value]["data"]["token-num-src"]
+    def generate_diagnostics_statistics(self, metadata):
 
-        metadata[stage.value]["data"]["max-tokens-tgt"] = max(
-            metadata[stage.value]["data"]["token-num-tgt"])
-        metadata[stage.value]["data"]["avg-tokens-tgt"] = statistics.mean(
-            metadata[stage.value]["data"]["token-num-tgt"])
-        metadata[stage.value]["data"]["std-tokens-tgt"] = statistics.pstdev(
-            metadata[stage.value]["data"]["token-num-tgt"])
-        total_tgt += metadata[stage.value]["data"]["token-num-tgt"]
+        all_diagnostics = Counter({})
+        for stage in Stage:
 
-        metadata[stage.value]["data"].pop("token-num-src", None)
-        metadata[stage.value]["data"].pop("token-num-tgt", None)
+            diagnostics = metadata[stage.value]["data"]["diagnostics"]
 
-    metadata["total"]["data"]["max-tokens-src"] = max(total_src)
-    metadata["total"]["data"]["avg-tokens-src"] = statistics.mean(total_src)
-    metadata["total"]["data"]["std-tokens-src"] = statistics.pstdev(total_src)
+            metadata[stage.value]["data"]["num-unique-diagnostics"] = len(
+                diagnostics)
 
-    metadata["total"]["data"]["max-tokens-tgt"] = max(total_tgt)
-    metadata["total"]["data"]["avg-tokens-tgt"] = statistics.mean(total_tgt)
-    metadata["total"]["data"]["std-tokens-tgt"] = statistics.pstdev(total_tgt)
+            data_points_per_diagnostic = diagnostics.values()
+            metadata[stage.value]["data"]["avg-data-points-per-diagnostic"] = statistics.mean(
+                data_points_per_diagnostic)
+            metadata[stage.value]["data"]["std-data-points-per-diagnostic"] = statistics.pstdev(
+                data_points_per_diagnostic)
 
-    metadata["total"]["data"].pop("token-num-src", None)
-    metadata["total"]["data"].pop("token-num-tgt", None)
+            all_diagnostics += Counter(diagnostics)
 
-
-def generate_diagnostics_statistics(metadata):
-
-    all_diagnostics = Counter({})
-    for stage in Stage:
-
-        diagnostics = metadata[stage.value]["data"]["diagnostics"]
-
-        metadata[stage.value]["data"]["num-unique-diagnostics"] = len(diagnostics)
-
-        data_points_per_diagnostic = diagnostics.values()
-        metadata[stage.value]["data"]["avg-data-points-per-diagnostic"] = statistics.mean(
+        metadata["total"]["data"]["diagnostics"] = all_diagnostics
+        metadata["total"]["data"]["num-unique-diagnostics"] = len(
+            all_diagnostics)
+        data_points_per_diagnostic = all_diagnostics.values()
+        metadata["total"]["data"]["avg-data-points-per-diagnostic"] = statistics.mean(
             data_points_per_diagnostic)
-        metadata[stage.value]["data"]["std-data-points-per-diagnostic"] = statistics.pstdev(
+        metadata["total"]["data"]["std-data-points-per-diagnostic"] = statistics.pstdev(
             data_points_per_diagnostic)
+        metadata["total"]["data"].pop("datapoints", None)
 
-        all_diagnostics += Counter(diagnostics)
+    def filter_useful_datapoints(self, tokenized_files):
 
-    metadata["total"]["data"]["diagnostics"] = all_diagnostics
-    metadata["total"]["data"]["num-unique-diagnostics"] = len(all_diagnostics)
-    data_points_per_diagnostic = all_diagnostics.values()
-    metadata["total"]["data"]["avg-data-points-per-diagnostic"] = statistics.mean(
-        data_points_per_diagnostic)
-    metadata["total"]["data"]["std-data-points-per-diagnostic"] = statistics.pstdev(
-        data_points_per_diagnostic)
-    metadata["total"]["data"].pop("datapoints", None)
+        useful_datapoints = []
+        bad_newline_endings = 0
+        duplications = {}
 
+        seen_src = set()
+        for tokenized_file in tokenized_files:
 
-def filter_useful_datapoints(tokenized_files):
+            print("tokenized_file: ", tokenized_file.name)
 
-    useful_datapoints = []
-    bad_newline_endings = 0
-    duplications = {}
+            with open(tokenized_file) as json_file:
+                tokenized_data_dict = json.load(json_file)
 
-    seen_src = set()
-    for tokenized_file in tokenized_files:
+            src_string = self.flatten_input_datapoint(tokenized_data_dict)
+            target_string = self.flatten_output_datapoint(tokenized_data_dict)
 
-        print("tokenized_file: ", tokenized_file.name)
+            # TODO: Debug this for new dataset
+            if src_string.count("\n") > 1 or target_string.count("\n") > 1:
+                print("Bad newline encoding! tokenized_file: ",
+                      tokenized_file.name)
+                bad_newline_endings += 1
+                if src_string.count("\n") > 1:
+                    print("src_string: ", src_string)
+                if target_string.count("\n") > 1:
+                    print("target_string: ", target_string)
+                continue
 
-        with open(tokenized_file) as json_file:
-            tokenized_data_dict = json.load(json_file)
+            num_src_tokens = len(src_string.split())
+            num_tgt_tokens = len(target_string.split())
 
-        src_string = flatten_input_datapoint(tokenized_data_dict)
-        target_string = flatten_output_datapoint(tokenized_data_dict)
+            if num_src_tokens > self.limit_src_tokens:
+                print("Too many tokens; num_src_tokens: ", num_src_tokens)
+                continue
 
-        # TODO: Debug this for new dataset
-        if src_string.count("\n") > 1 or target_string.count("\n") > 1:
-            print("Bad newline encoding! tokenized_file: ", tokenized_file.name)
-            bad_newline_endings += 1
-            if src_string.count("\n") > 1:
-                print("src_string: ", src_string)
-            if target_string.count("\n") > 1:
-                print("target_string: ", target_string)
-            continue
+            if num_tgt_tokens > self.limit_tgt_tokens:
+                print("Too many tokens; num_tgt_tokens: ", num_tgt_tokens)
+                continue
 
-        num_src_tokens = len(src_string.split())
-        num_tgt_tokens = len(target_string.split())
+            # Can happen since dataset was generated across C# solutions; one project can be included by
+            # multiple solutions and therefore fix duplications may occur
+            if src_string in seen_src:
+                print(f"Duplication in of src_string!")
+                if src_string not in duplications:
+                    duplications[src_string] = 0
+                duplications[src_string] += 1
+                continue
+            else:
+                seen_src.add(src_string)
 
-        if num_src_tokens > LIMIT_SOURCE_TOKENS:
-            print("Too many tokens; num_src_tokens: ", num_src_tokens)
-            continue
+            useful_datapoints.append(tokenized_file)
 
-        if num_tgt_tokens > LIMIT_TARGET_TOKENS:
-            print("Too many tokens; num_tgt_tokens: ", num_tgt_tokens)
-            continue
+        print("bad_newline_endings: ", bad_newline_endings)
+        print("Total initial tokenized files :", len(tokenized_files))
+        print("Total useful tokenized files :", len(useful_datapoints))
+        print("Total src duplications: ", len(tokenized_files) - len(seen_src))
+        print("Unique src duplications: ", len(duplications.keys()))
 
-        # Can happen since dataset was generated across C# solutions; one project can be included by 
-        # multiple solutions and therefore fix duplications may occur
-        if src_string in seen_src:
-            print(f"Duplication in of src_string!")
-            if src_string not in duplications:
-                duplications[src_string] = 0
-            duplications[src_string] += 1
-            continue
-        else:
-            seen_src.add(src_string)
+        return useful_datapoints
 
-        useful_datapoints.append(tokenized_file)
+    def split_dataset_by_diagnostics(self, tokenized_files):
+        """
+            Evaluate NN for EXTRAPOLATION
+            70% diagnostics in train
+            20% diagnostics in validation
+            10% diagnostics in test
+            --> Mix diagnostics randomly
+        """
 
-    print("bad_newline_endings: ", bad_newline_endings)
-    print("Total initial tokenized files :", len(tokenized_files))
-    print("Total useful tokenized files :", len(useful_datapoints))
-    print("Total src duplications: ", len(tokenized_files) - len(seen_src))
-    print("Unique src duplications: ", len(duplications.keys()))
+        # Get and shuffle diagnostics
+        diagnostics = []
+        for tokenized_file in tokenized_files:
+            with open(tokenized_file) as json_file:
+                tokenized_data_dict = json.load(json_file)
+            diagnostics.append(tokenized_data_dict["DiagnosticID"])
 
-    return useful_datapoints
+        diagnostics = list(set(diagnostics))
+        diagnostics.sort()  # To have a reproducible shuffle
+        random.shuffle(diagnostics)
 
+        # Consider checking analyzer_package_details.csv that test diagnostics are unique
 
-def split_dataset_by_diagnostics(tokenized_files):
-    """
-        Evaluate NN for EXTRAPOLATION
-        70% diagnostics in train
-        20% diagnostics in validation
-        10% diagnostics in test
-        --> Mix diagnostics randomly
-    """
+        # Split diagnostics into datasets
+        train_diagnostics = []
+        val_diagnostics = []
+        test_diagnostics = []
+        for diagnostic in diagnostics:
+            if (len(train_diagnostics) / len(diagnostics)) < Modes.Extrapolation.train_perc:
+                train_diagnostics.append(diagnostic)
+            elif (len(val_diagnostics) / len(diagnostics)) < Modes.Extrapolation.val_perc:
+                val_diagnostics.append(diagnostic)
+            else:
+                test_diagnostics.append(diagnostic)
 
-    # Get and shuffle diagnostics
-    diagnostics = []
-    for tokenized_file in tokenized_files:
-        with open(tokenized_file) as json_file:
-            tokenized_data_dict = json.load(json_file)
-        diagnostics.append(tokenized_data_dict["DiagnosticID"])
+        # Assign datapoints to datasets
+        file_to_dataset = {}
+        for tokenized_file in tokenized_files:
 
-    diagnostics = list(set(diagnostics))
-    diagnostics.sort()  # To have a reproducible shuffle
-    random.shuffle(diagnostics)
+            with open(tokenized_file) as json_file:
+                tokenized_data_dict = json.load(json_file)
 
-    # Consider checking analyzer_package_details.csv that test diagnostics are unique
+            diagnostic = tokenized_data_dict["DiagnosticID"]
+            if diagnostic in train_diagnostics:
+                file_to_dataset[tokenized_file.name] = Stage.train.value
+            elif diagnostic in val_diagnostics:
+                file_to_dataset[tokenized_file.name] = Stage.val.value
+            else:
+                file_to_dataset[tokenized_file.name] = Stage.test.value
 
-    # Split diagnostics into datasets
-    train_diagnostics = []
-    val_diagnostics = []
-    test_diagnostics = []
-    for diagnostic in diagnostics:
-        if (len(train_diagnostics) / len(diagnostics)) < Modes.ExtrapolationMode.train_perc:
-            train_diagnostics.append(diagnostic)
-        elif (len(val_diagnostics) / len(diagnostics)) < Modes.ExtrapolationMode.val_perc:
-            val_diagnostics.append(diagnostic)
-        else:
-            test_diagnostics.append(diagnostic)
+        return file_to_dataset
 
-    # Assign datapoints to datasets
-    file_to_dataset = {}
-    for tokenized_file in tokenized_files:
+    def split_dataset_by_datapoints(self, tokenized_files):
+        """
+            Train NN for COPY
+            60% datapoints in train
+            20% datapoints in validation
+            20% datapoints in test
+            --> Mix datapoints randomly
+        """
 
-        with open(tokenized_file) as json_file:
-            tokenized_data_dict = json.load(json_file)
+        # Sort first to have a reproducible shuffle
+        tokenized_files.sort(key=lambda x: x.name)
+        random.shuffle(tokenized_files)
 
-        diagnostic = tokenized_data_dict["DiagnosticID"]
-        if diagnostic in train_diagnostics:
-            file_to_dataset[tokenized_file.name] = Stage.train.value
-        elif diagnostic in val_diagnostics:
-            file_to_dataset[tokenized_file.name] = Stage.val.value
-        else:
-            file_to_dataset[tokenized_file.name] = Stage.test.value
+        file_to_dataset = {}
 
-    return file_to_dataset
+        num_total_datapoints = len(tokenized_files)
+        train_datapoints = 0
+        val_datapoints = 0
+        test_datapoints = 0
 
+        for tokenized_file in tokenized_files:
 
-def split_dataset_by_datapoints(tokenized_files):
-    """
-        Train NN for COPY
-        60% datapoints in train
-        20% datapoints in validation
-        20% datapoints in test
-        --> Mix datapoints randomly
-    """
+            if (train_datapoints / num_total_datapoints) < Modes.Imitation.train_perc:
+                train_datapoints += 1
+                file_to_dataset[tokenized_file.name] = Stage.train.value
+            elif (val_datapoints / num_total_datapoints) < Modes.Imitation.val_perc:
+                val_datapoints += 1
+                file_to_dataset[tokenized_file.name] = Stage.val.value
+            else:
+                test_datapoints += 1
+                file_to_dataset[tokenized_file.name] = Stage.test.value
 
-    random.shuffle(tokenized_files.sort())  # Sort first to have a reproducible shuffle
+        return file_to_dataset
 
-    file_to_dataset = {}
+    def calculate_num_datapoints(self, metadata, file_to_dataset):
 
-    num_total_datapoints = len(tokenized_files)
-    train_datapoints = 0
-    val_datapoints = 0
-    test_datapoints = 0
+        metadata["total"]["data"]["num-datapoints"] = len(file_to_dataset)
+        for stage in Stage:
+            filtered_dict = {k: v for k,
+                             v in file_to_dataset.items() if v == stage.value}
+            metadata[stage.value]["data"]["num-datapoints"] = len(
+                filtered_dict)
 
-    for tokenized_file in tokenized_files:
+    def main(self):
+        all_filepaths = []
 
-        if (train_datapoints / num_total_datapoints) < Modes.CopyMode.train_perc:
-            train_datapoints += 1
-            file_to_dataset[tokenized_file.name] = Stage.train.value
-        elif (val_datapoints / num_total_datapoints) < Modes.CopyMode.val_perc:
-            val_datapoints += 1
-            file_to_dataset[tokenized_file.name] = Stage.val.value
-        else:
-            test_datapoints += 1
-            file_to_dataset[tokenized_file.name] = Stage.test.value
+        metadata = self.initialize_metadata(self.mode, all_filepaths)
+        data_files = self.initialize_data_files(self.mode, all_filepaths)
 
-    return file_to_dataset
+        # Clear content of all files
+        for filepath in all_filepaths:
+            open(filepath, 'w').close()
 
+        tokenized_files = [f for f in os.scandir(
+            self.input_dir) if f.is_file() and f.name.endswith(".json")]
 
-def calculate_num_datapoints(metadata, file_to_dataset):
+        tokenized_files = self.filter_useful_datapoints(tokenized_files)
 
-    metadata["total"]["data"]["num-datapoints"] = len(file_to_dataset)
-    for stage in Stage:
-        filtered_dict = {k: v for k, v in file_to_dataset.items() if v == stage.value}
-        metadata[stage.value]["data"]["num-datapoints"] = len(filtered_dict)
+        if self.mode == Modes.Extrapolation:
+            file_to_dataset = self.split_dataset_by_diagnostics(
+                tokenized_files)
+        elif self.mode == Modes.Imitation:
+            file_to_dataset = self.split_dataset_by_datapoints(tokenized_files)
 
+        self.calculate_num_datapoints(metadata, file_to_dataset)
 
-def main(mode=Modes.ExtrapolationMode, zero_index_vars=False):
-    """
-        Two modes:
-            1. COPY_MODE: copy behaviour learning (Entirely mixed)
-            2. EXTRAP_MODE: extrapolation learning (Only new diag messages for test & validation)
-    """
-    all_filepaths = []
+        for tokenized_file in tokenized_files:
 
-    metadata = initialize_metadata(mode, all_filepaths)
-    data_files = initialize_data_files(mode, all_filepaths)
+            with open(tokenized_file) as json_file:
+                tokenized_data_dict = json.load(json_file)
 
-    # Clear content of all files
-    for filepath in all_filepaths:
-        open(filepath, 'w').close()
+            src_string = self.flatten_input_datapoint(tokenized_data_dict)
+            target_string = self.flatten_output_datapoint(tokenized_data_dict)
 
-    tokenized_files = [f for f in os.scandir(
-        tokenized_dataset_dir) if f.is_file() and f.name.endswith(".json")]
+            num_src_tokens = len(src_string.split())
+            num_tgt_tokens = len(target_string.split())
 
-    tokenized_files = filter_useful_datapoints(tokenized_files)
+            current_stage = file_to_dataset[tokenized_file.name]
 
-    if mode == Modes.ExtrapolationMode:
-        file_to_dataset = split_dataset_by_diagnostics(tokenized_files)
-    elif mode == Modes.CopyMode:
-        file_to_dataset = split_dataset_by_datapoints(tokenized_files)
+            src_filepath = data_files["src"][current_stage]
+            target_filepath = data_files["tgt"][current_stage]
+            metadata[current_stage]["data"]["token-num-src"].append(
+                num_src_tokens)
+            metadata[current_stage]["data"]["token-num-tgt"].append(
+                num_tgt_tokens)
+            diagnostic_id = tokenized_data_dict["DiagnosticID"]
+            metadata[current_stage]["data"]["datapoints"].append({
+                "ID": os.path.splitext(tokenized_file.name)[0],
+                "DiagnosticID": diagnostic_id
+            })
+            if diagnostic_id in metadata[current_stage]["data"]["diagnostics"]:
+                metadata[current_stage]["data"]["diagnostics"][diagnostic_id] += 1
+            else:
+                metadata[current_stage]["data"]["diagnostics"][diagnostic_id] = 1
 
-    calculate_num_datapoints(metadata, file_to_dataset)
+            with open(src_filepath, 'a', encoding='utf-8') as src_file:
+                src_file.write(src_string)
 
-    for tokenized_file in tokenized_files:
+            with open(target_filepath, 'a', encoding='utf-8') as target_file:
+                target_file.write(target_string)
 
-        with open(tokenized_file) as json_file:
-            tokenized_data_dict = json.load(json_file)
+        self.generate_num_token_statistics(metadata)
+        self.generate_diagnostics_statistics(metadata)
 
-        src_string = flatten_input_datapoint(tokenized_data_dict)
-        target_string = flatten_output_datapoint(tokenized_data_dict)
+        for stage in Stage:
+            with open(metadata[stage.value]["file"], 'w') as fout:
+                json_str = json.dumps(metadata[stage.value]["data"], indent=4)
+                print(json_str, file=fout)
 
-        num_src_tokens = len(src_string.split())
-        num_tgt_tokens = len(target_string.split())
-
-        current_stage = file_to_dataset[tokenized_file.name]
-
-        src_filepath = data_files["src"][current_stage]
-        target_filepath = data_files["tgt"][current_stage]
-        metadata[current_stage]["data"]["token-num-src"].append(num_src_tokens)
-        metadata[current_stage]["data"]["token-num-tgt"].append(num_tgt_tokens)
-        diagnostic_id = tokenized_data_dict["DiagnosticID"]
-        metadata[current_stage]["data"]["datapoints"].append({
-            "ID": os.path.splitext(tokenized_file.name)[0],
-            "DiagnosticID": diagnostic_id
-        })
-        if diagnostic_id in metadata[current_stage]["data"]["diagnostics"]:
-            metadata[current_stage]["data"]["diagnostics"][diagnostic_id] += 1
-        else:
-            metadata[current_stage]["data"]["diagnostics"][diagnostic_id] = 1
-
-        with open(src_filepath, 'a', encoding='utf-8') as src_file:
-            src_file.write(src_string)
-
-        with open(target_filepath, 'a', encoding='utf-8') as target_file:
-            target_file.write(target_string)
-
-    generate_num_token_statistics(metadata)
-    generate_diagnostics_statistics(metadata)
-
-    for stage in Stage:
-        with open(metadata[stage.value]["file"], 'w') as fout:
-            json_str = json.dumps(metadata[stage.value]["data"], indent=4)
+        with open(metadata["total"]["file"], 'w') as fout:
+            json_str = json.dumps(metadata["total"]["data"], indent=4)
             print(json_str, file=fout)
-
-    with open(metadata["total"]["file"], 'w') as fout:
-        json_str = json.dumps(metadata["total"]["data"], indent=4)
-        print(json_str, file=fout)
 
 
 if __name__ == '__main__':
-    main(Modes.ExtrapolationMode)
+
+    input_dir = "tokenized_datasets/200_tokens__camelcase__3"
+    mode = Modes.Imitation
+
+    pipeline = Pipeline(input_dir, mode)
+    pipeline.main()
