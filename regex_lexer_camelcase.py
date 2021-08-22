@@ -40,43 +40,30 @@ class LanguageLexer(UnprocessedTokensMixin, RegexLexer):
     tokens = {
         'root': [
 
-
-            # (r'(?:(?<=class\W)|(?<=struct\W))', using(this), ('identifier')),
-
-            # Variable names in string:
-            (r'(?<=[\s\n]\')', using(this), ('identifiers')),  # Separates the "'"
-            # (r'(?<=[\s\n])\'[^\']+\'(?=[\W])', Name),  # Includes the "'"
-
-            # Words, including ones with apostrophes:
-            (r'\w+(\'\w+)?', Text),
+            # Words separated by camelcase:
+            ('[A-Z]+(?=[A-Z][a-z])', Name),
+            ('[A-Z][a-z]+', Name),
+            ('([a-z]+)', Name),
+            ('([A-Z]+)', Name),
+            # ('[A-Z]+(?=[A-Z][a-z])|[A-Z][a-z]+|[a-z]+|[A-Z]+', Name),
 
             # Formatting
             (r'[\n\s\t\r\v]', Text),
-            # Consider not binding punctuation here
+            
+            # Punctuation
             (r'[~!%^&*()+=|\'\]\[:;,.<>/?-]', Punctuation),
 
-        ],
+            (r"\d", Number),
 
-        # Separate identifiers by camelcase
-        'identifiers': [
-        
-                # ('[A-Z]+(?=[A-Z][a-z])|[A-Z][a-z]+|[a-z]+|[A-Z]+', Name),
-                ('[A-Z]+(?=[A-Z][a-z])', Name),
-                ('[A-Z][a-z]+', Name),
-                ('([a-z]+)', Name),
-                ('([A-Z]+)', Name),
-
-                ('\'', Punctuation, '#pop')
-        ],
+        ]
     }
 
 
-class CSharpAndCommentsLexer(UnprocessedTokensMixin, CSharpLexer):
+class CSharpAndCommentsCamelcaseLexer(UnprocessedTokensMixin, CSharpLexer):
     """
     Since it's difficult to inherit "tokens" from CSharpLexer the way
     it's shown in the documentation (https://pygments.org/docs/lexerdevelopment/#modifying-token-streams),
-    this is simply a copy of all the logic in CSharpLexer. Changed are marked
-    as OLD/NEW.
+    this is simply a copy of most of the logic in CSharpLexer.
     """
 
     tokens = {}
@@ -86,91 +73,43 @@ class CSharpAndCommentsLexer(UnprocessedTokensMixin, CSharpLexer):
         tokens[levelname] = {
             'root': [
 
-                ####### OLD: #######
-                # (r'^([ \t]*(?:' + cs_ident + r'(?:\[\])?\s+)+?)'  # return type
-                #  r'(' + cs_ident + ')'                            # method name
-                #  r'(\s*)(\()',                                    # signature start
-                #  bygroups(using(this), Name.Function, Text, Punctuation)),
-                ####### NEW: #######
-                # return type
-                (r'^([ \t]*(?:' + cs_ident + r'(?:\[\])?\s+)+?)'
-                 # method name
-                 r'(' + cs_ident + ')'
-                 # signature start
-                 # r'(\s*\()', bygroups(using(this), Name.Function, using(this))),
-
-                 r'(\s*\()', using(this), ('identifier'), using(this)),
-
-                ####################
-
-                # Avoid bundling too much..
-                ####### OLD: #######
-                # (r'^\s*\[.*?\]', Name.Attribute),
-                ####### NEW: #######
-                # (r'(?<=\[)\w+(?=\])', Name.Attribute),
-
-                (r'(?<=\[)\w+(?=\])', using(this), ('identifier'), using(this)),
-                ####################
-
-                # Stop binding formatting:
-                ####### OLD: #######
-                # (r'[^\S\n]+', Text),
-                ####### NEW: #######
+                # Formatting
                 (r'[^\S\n]', Text),  # Inside [], ^ is a negation
                 # (r'[\s\t\r\v]', Text),  # Being explicit in what to match
-                ####################
 
-                (r'\\\n', Text),  # line continuation
+                # Line continuation
+                (r'\\\n', Text),
 
-                # Parse comments as natural language (with other lexer)
-                ####### OLD: #######
-                # (r'//.*?\n', Comment.Single),
-                # (r'/[*].*?[*]/', Comment.Multiline),
-                ####### NEW: #######
+                # Comments as natural language
                 (r'//', Comment.Single, ('line-comments')),
                 (r'/\*', Comment.Multiline, ('block-comments')),
+
                 ####################
 
                 (r'\n', Text),
 
-                # Binding punctuation
-                ####### OLD: #######
-                # (r'[~!%^&*()+=|\[\]:;,.<>/?-]', Punctuation),
-                ####### NEW: #######
+                # Punctuation
                 # 3 symbols
                 (r'(->\*|>>=|<<=|\.\.\.)', Operator),
                 # 2 symbols
                 (r'(\+\+|\+=|--|-=|->|&&|&=|\|\||\|=|!=|%=|\*=|==|::|\^=|>=|>>|<=|<<|/=|&&|&=|\^=)', Operator),
                 # 1 symbol
                 (r'[~!%^&*()+=|\[\]:;,.<>/?-]', Operator),
-                ####################
 
                 (r'[{}]', Punctuation),
 
-                # Parse string as natural language (with other lexer)
-                ####### OLD: #######
-                # (r'@"(""|[^"])*"', String),
-                # (r'"(\\\\|\\[^\\]|[^"\\\n])*["\n]', String),
-                ####### NEW: #######
+                # String as natural language
                 (r'@"', String, ('verbatim-strings')),
                 (r'"', String, ('other-strings')),
-                ####################
 
-                # No need to change, only one character anyways:
                 (r"'\\.'|'[^\\]'", String.Char),
 
+                # Numbers
                 (r"[0-9](\.[0-9]*)?([eE][+-][0-9]+)?"
                  r"[flFLdD]?|0[xX][0-9a-fA-F]+[Ll]?", Number),
 
-                # Too risky with numbers in pragma or line comments after pragma; simplified
-                ####### OLD: #######
-                # (r'#[ \t]*(if|endif|else|elif|define|undef|'
-                #  r'line|error|warning|region|endregion|pragma)\b.*?\n',
-                #  Comment.Preproc),
-                ####### NEW: #######
                 (r'#[ \t]*(if|endif|else|elif|define|undef|'
                  r'line|error|warning|region|endregion|pragma)', Comment.Preproc),
-                ####################
 
                 (r'\b(extern)(\s+)(alias)\b', bygroups(Keyword, Text,
                  Keyword)),
@@ -191,19 +130,20 @@ class CSharpAndCommentsLexer(UnprocessedTokensMixin, CSharpLexer):
                 (r'(bool|byte|char|decimal|double|dynamic|float|int|long|object|'
                  r'sbyte|short|string|uint|ulong|ushort|var)\b\??', Keyword.Type),
 
-                ####### OLD: #######
-                # (r'(class|struct)(\s+)', bygroups(Keyword, Text), 'class'),  # \s+ is bundled..
-                # (r'(namespace|using)(\s+)', bygroups(Keyword, Text), 'namespace'),
-                ####### NEW: #######
                 (r'\b(class|struct|namespace|using)\b', Keyword),
 
-                # Avoid bundling whitespace
                 (r'(?:(?<=class\W)|(?<=struct\W))', using(this), ('identifier')),
                 (r'(?:(?<=namespace\W)|(?<=using\W))', using(this), ('identifier')),
 
-                ####################
+                # Words separated by camelcase:
+                ('[A-Z]+(?=[A-Z][a-z])', Name),
+                ('[A-Z][a-z]+', Name),
+                ('([a-z]+)', Name),
+                ('([A-Z]+)', Name),
+                # ('[A-Z]+(?=[A-Z][a-z])|[A-Z][a-z]+|[a-z]+|[A-Z]+', Name),
 
                 (cs_ident, Name),
+
             ],
 
             'identifier': [
@@ -211,7 +151,6 @@ class CSharpAndCommentsLexer(UnprocessedTokensMixin, CSharpLexer):
                 default('#pop'),
             ],
 
-            ####### NEW: #######
             'block-comments': [
                 # First group parsed by LanguageLexer, second group parsed by root again
                 (r'(.+?)(\*/)', bygroups(using(LanguageLexer), Comment.Multiline), '#pop'),
@@ -226,9 +165,6 @@ class CSharpAndCommentsLexer(UnprocessedTokensMixin, CSharpLexer):
                 # TODO: Figure out why it is matched a second time
                 (r'((""|[^"])*)(")',
                  bygroups(using(LanguageLexer), None, String), '#pop'),
-
-                # (r'(""|[^"])*', using(LanguageLexer)),
-                # (r'"', String, '#pop'),
             ],
             'other-strings': [
                 # This represents 3 groups; the last char before \" will be matched a second time,
@@ -237,23 +173,7 @@ class CSharpAndCommentsLexer(UnprocessedTokensMixin, CSharpLexer):
                 (r'((\\\\|\\[^\\]|[^"\\\n])*)(["\n])',
                  bygroups(using(LanguageLexer), None, String), '#pop'),
             ]
-            ####################
         }
-
-    @staticmethod
-    def index_identifier_token(token_type, value, index_dict):
-
-        all_name_types = [Name] + [getattr(Name, attribute) for attribute in dir(
-            Name) if not attribute.startswith("_") and not attribute.islower()]
-        if token_type not in all_name_types:
-            return token_type, value
-
-        if value in index_dict:
-            return token_type, index_dict[value]
-
-        new_index_name = f"VAR-{len(index_dict.keys())}"
-        index_dict[value] = new_index_name
-        return token_type, new_index_name
 
 
 def run_only_language_lexer(original_file_string):
@@ -264,19 +184,9 @@ def run_only_language_lexer(original_file_string):
 
 
 def run_pygments_lexer(original_file_string):
-    my_lexer = CSharpAndCommentsLexer()
+    my_lexer = CSharpAndCommentsCamelcaseLexer()
     result = my_lexer.get_tokens(original_file_string)
     for (token_type, value) in result:
-        print(f"token_type: {token_type}, value: {value}")
-
-
-def run_pygments_lexer_indexed_identifiers(original_file_string):
-    index_dict = {}
-    my_lexer = CSharpAndCommentsLexer()
-    result = my_lexer.get_tokens(original_file_string)
-    for (token_type, value) in result:
-        (token_type, value) = CSharpAndCommentsLexer.index_identifier_token(
-            token_type, value, index_dict)
         print(f"token_type: {token_type}, value: {value}")
 
 
@@ -286,9 +196,9 @@ if __name__ == "__main__":
     # with open(c_sharp_filepath, 'r') as file:
     #     original_file = file.read()
 
-    original_file = """class eclipseRCPExt {
+    code_string = """class eclipseRCPExt {
     }"""
+    run_pygments_lexer(code_string)
 
-    # run_only_language_lexer(original_file)
-    run_pygments_lexer(original_file)
-    # run_pygments_lexer_indexed_identifiers(original_file)
+    language_string = """CHANGE class 'eclipseRCPExt' to xyz because EclipseRCPExt is too long."""
+    run_only_language_lexer(language_string)

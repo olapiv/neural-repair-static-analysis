@@ -181,15 +181,23 @@ klll mmklll
     def test_multiline_block_comment(self):
         true_token_list = ["{", "NEWLINE", "/*", "NEWLINE", ["WHITESPACE"]*4, "Change", "WHITESPACE", "'", "eclipseRCPExt", "'",
                            "WHITESPACE", "to", "WHITESPACE", "xyz", ".", "NEWLINE", [
-                               "WHITESPACE"]*4, "It's", "WHITESPACE", "hard", "!", "NEWLINE",
+                               "WHITESPACE"]*4, "It", "'", "s", "WHITESPACE", "hard", "!", "NEWLINE",
                            ["WHITESPACE"]*4, "What", "WHITESPACE", "is", "WHITESPACE", "'", "this", "'", "?", "NEWLINE", "*/", "NEWLINE", "}", "NEWLINE"
                            ]
         self.run_single_test(self.CODE_MULTILINE_BLOCK_COMMENT, true_token_list)
 
+    def test_multiline_block_indexed(self):
+        true_token_list = ["{", "NEWLINE", "/*", "NEWLINE", ["WHITESPACE"]*4, "Change", "WHITESPACE", "'", "VAR-0", "'",
+                           "WHITESPACE", "to", "WHITESPACE", "xyz", ".", "NEWLINE", [
+                               "WHITESPACE"]*4, "It", "'", "s", "WHITESPACE", "hard", "!", "NEWLINE",
+                           ["WHITESPACE"]*4, "What", "WHITESPACE", "is", "WHITESPACE", "'", "VAR-1", "'", "?", "NEWLINE", "*/", "NEWLINE", "}", "NEWLINE"
+                           ]
+        self.run_single_test(self.CODE_MULTILINE_BLOCK_COMMENT, true_token_list, index_vars=True)
+
     def test_multiline_block_comment_camelcase(self):
         true_token_list = ["{", "NEWLINE", "/*", "NEWLINE", ["WHITESPACE"]*4, "Change", "WHITESPACE", "'", "eclipse", "RCP", "Ext", "'",
                            "WHITESPACE", "to", "WHITESPACE", "xyz", ".", "NEWLINE", [
-                               "WHITESPACE"]*4, "It's", "WHITESPACE", "hard", "!", "NEWLINE",
+                               "WHITESPACE"]*4, "It", "'", "s", "WHITESPACE", "hard", "!", "NEWLINE",
                            ["WHITESPACE"]*4, "What", "WHITESPACE", "is", "WHITESPACE", "'", "this", "'", "?", "NEWLINE", "*/", "NEWLINE", "}", "NEWLINE"
                            ]
         self.run_single_test(self.CODE_MULTILINE_BLOCK_COMMENT, true_token_list, camelcase=True)
@@ -209,22 +217,22 @@ klll mmklll
         self.run_single_test(self.CODE_WHITESPACE, true_token_list, camelcase=True)
 
     CODE_ENUMS = """Found = 302,
-Redirect = 302,"""
+RedirectFailed = 302,"""
 
     def test_enums(self):
         true_token_list = ["Found", "WHITESPACE", "=", "WHITESPACE", "3", "0", "2", ",", "NEWLINE",
-                           "Redirect", "WHITESPACE", "=", "WHITESPACE", "3", "0", "2", ",", "NEWLINE"]
+                           "RedirectFailed", "WHITESPACE", "=", "WHITESPACE", "3", "0", "2", ",", "NEWLINE"]
         self.run_single_test(self.CODE_ENUMS, true_token_list)
 
     def test_enums_camelcase(self):
         true_token_list = ["Found", "WHITESPACE", "=", "WHITESPACE", "3", "0", "2", ",", "NEWLINE",
-                           "Redirect", "WHITESPACE", "=", "WHITESPACE", "3", "0", "2", ",", "NEWLINE"]
+                           "Redirect", "Failed", "WHITESPACE", "=", "WHITESPACE", "3", "0", "2", ",", "NEWLINE"]
         self.run_single_test(self.CODE_ENUMS, true_token_list, camelcase=True)
 
     def test_enums_indexed(self):
         true_token_list = ["VAR-0", "WHITESPACE", "=", "WHITESPACE", "3", "0", "2", ",", "NEWLINE",
                            "VAR-1", "WHITESPACE", "=", "WHITESPACE", "3", "0", "2", ",", "NEWLINE"]
-        self.run_single_test(self.CODE_ENUMS, true_token_list, True)
+        self.run_single_test(self.CODE_ENUMS, true_token_list, index_vars=True)
 
     CODE_PRAGMA = """#pragma warning disable 436 // SuppressUnmanagedCodeSecurityAttribute defined in source and mscorlib"""
 
@@ -234,7 +242,7 @@ Redirect = 302,"""
         self.run_single_test(self.CODE_PRAGMA, true_token_list)
 
     def test_pragma_camelcase(self):
-        true_token_list = ["#pragma", "WHITESPACE", "warning", "WHITESPACE", "disable", "WHITESPACE", "4", "3", "6", "WHITESPACE", "//", "WHITESPACE", "Suppress", "Unmanaged", "CodeSecurity", "Attribute", "WHITESPACE",
+        true_token_list = ["#pragma", "WHITESPACE", "warning", "WHITESPACE", "disable", "WHITESPACE", "4", "3", "6", "WHITESPACE", "//", "WHITESPACE", "Suppress", "Unmanaged", "Code", "Security", "Attribute", "WHITESPACE",
                            "defined", "WHITESPACE", "in", "WHITESPACE", "source", "WHITESPACE", "and", "WHITESPACE", "mscorlib", "NEWLINE"]
         self.run_single_test(self.CODE_PRAGMA, true_token_list, camelcase=True)
 
@@ -267,7 +275,7 @@ Redirect = 302,"""
 
     def test_attribute_complex_camelcase(self):
         true_token_list = ["{", "NEWLINE", ["WHITESPACE"]*4, "[", "Com","Import", ",", "WHITESPACE", "Interface", "Type", "(",
-                           "Com","Interface", "Type", ".", "Interface", "Is", "I", "Unknown" ")", ",", "WHITESPACE",
+                           "Com","Interface", "Type", ".", "Interface", "Is", "I", "Unknown", ")", ",", "WHITESPACE",
                            "Guid", "(", "\"", "bla", "\"", ")", ",", "WHITESPACE", "Suppress", "Unmanaged", "Code", "Security", "]",
                            "NEWLINE", ["WHITESPACE"]*4, "internal", "WHITESPACE", "interface", "WHITESPACE", "I", "Sym", "N", "Gen", "Writer", "NEWLINE"]
         self.run_single_test(self.CODE_ATTRIBUTE_COMPLEX, true_token_list, camelcase=True)
