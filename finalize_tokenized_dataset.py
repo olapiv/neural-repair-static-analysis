@@ -349,7 +349,8 @@ class Pipeline:
         """
 
         # Sort first to have a reproducible shuffle
-        random.shuffle(tokenized_files.sort())
+        tokenized_files.sort(key=lambda x: x.name)
+        random.shuffle(tokenized_files)
 
         file_to_dataset = {}
 
@@ -455,7 +456,7 @@ class Pipeline:
 if __name__ == '__main__':
 
     input_dir = "tokenized_datasets/200_tokens__camelcase__3"
-    mode = Modes.Extrapolation
+    mode = Modes.Imitation
 
     pipeline = Pipeline(input_dir, mode)
     pipeline.main()
