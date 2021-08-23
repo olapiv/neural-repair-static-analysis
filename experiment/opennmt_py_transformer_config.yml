@@ -1,0 +1,75 @@
+
+# Specific for GPU server
+save_data: /mnt/data/vplohse/acr_static_analysis_results/imitate__150_tokens__camelcase__3/neural_network_transformer
+
+# Prevent overwriting existing files in the folder
+overwrite: False
+
+# Corpus opts:
+data:
+  corpus_1:
+    path_src: data/src-train.txt
+    path_tgt: data/tgt-train.txt
+  valid:
+    path_src: data/src-val.txt
+    path_tgt: data/tgt-val.txt
+
+## Where the vocab(s) will be written
+src_vocab: data/src-vocab.txt
+tgt_vocab: data/tgt-vocab.txt
+
+# -------------
+# MODEL
+
+# From https://github.com/OpenNMT/OpenNMT-py/blob/master/config/config-transformer-base-1GPU.yml
+# -------------
+
+# General
+save_model: fast_learning_transformer
+save_checkpoint_steps: 2000
+valid_steps: 2000
+# train_steps: 20000  # Relying on early stopping
+
+# Custom
+early_stopping: 4
+src_seq_length: 400  # Includes all datapoints
+tgt_seq_length: 500  # Includes all datapoints
+
+# Batching
+queue_size: 10000  # Default: 40
+bucket_size: 32768  # Default: 2048
+world_size: 1
+gpu_ranks: [0]
+batch_type: "tokens"
+batch_size: 4096  # Default: 64
+valid_batch_size: 8  # Default: 32
+max_generator_batches: 2
+accum_count: [4]
+accum_steps: [0]  # Default
+
+# Optimization
+model_dtype: "fp32"  # Default
+optim: "adam"
+learning_rate: 2
+warmup_steps: 2000  # Default: 4000
+decay_method: "noam"  # Default: None
+adam_beta2: 0.998
+max_grad_norm: 0
+label_smoothing: 0.1
+param_init: 0
+param_init_glorot: true
+normalization: "tokens"
+
+# Model
+encoder_type: transformer
+decoder_type: transformer
+position_encoding: true
+enc_layers: 6
+dec_layers: 6
+heads: 8
+rnn_size: 512
+word_vec_size: 512
+transformer_ff: 2048  # Default
+dropout_steps: [0]  # Default
+dropout: [0.1]
+attention_dropout: [0.1]  # Default
