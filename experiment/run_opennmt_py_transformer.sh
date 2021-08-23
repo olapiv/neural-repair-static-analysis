@@ -22,5 +22,15 @@ rm -f "${NEW_CONFIG_FILE_NAME}.original"
 sed -i'.original' -e "s/INSERT-OUTPUT-DIR/${RELATIVE_OUTPUT_DIR}/" $NEW_CONFIG_FILE_NAME
 rm -f "${NEW_CONFIG_FILE_NAME}.original"
 
-source venv_opennmt_py/bin/activate
+VENV_DIR="venv_opennmt_py"
+echo $VENV_DIR
+if [ ! -d $VENV_DIR ]; then
+    virtualenv $VENV_DIR
+fi
 
+source $VENV_DIR/bin/activate
+pip install --upgrade pip
+pip install -r requirements_opennmt_py.txt
+
+# Sample all data
+onmt_build_vocab -config $NEW_CONFIG_FILE_NAME -n_sample 30000
