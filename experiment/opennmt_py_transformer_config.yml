@@ -14,9 +14,10 @@ data:
     path_src: INSERT-DATA-DIR/src-val.txt
     path_tgt: INSERT-DATA-DIR/tgt-val.txt
 
-## Where the vocab(s) will be written
-src_vocab: INSERT-DATA-DIR/src-vocab.txt
-tgt_vocab: INSERT-DATA-DIR/tgt-vocab.txt
+# Shared vocab path since input & output is same language
+src_vocab: INSERT-DATA-DIR/vocab.txt
+share_vocab: true
+share_embeddings: true
 
 # -------------
 # MODEL

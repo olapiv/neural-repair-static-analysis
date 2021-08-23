@@ -10,5 +10,4 @@ toy-ende
 .vscode
 nuget.exe
 /**/nn_setup/data
-src-vocab.txt
-tgt-vocab.txt
+*vocab.txt
