@@ -9,8 +9,16 @@ data:
   source_vocabulary: data/vocab.txt
   target_vocabulary: data/vocab.txt
 
-  source_tokenization: config/tokenizer.yml
-  target_tokenization: config/tokenizer.yml
+  source_tokenization: 
+    type: SpaceTokenizer
+    # params:
+      # mode: space
+      # segment_case: true  # Does not work with mode: none
+  target_tokenization:
+    type: SpaceTokenizer
+    # params:
+      # mode: space
+      # segment_case: true  # Does not work with mode: none
 
 train:
   maximum_features_length: 150  # avg=125, std=20, max=271

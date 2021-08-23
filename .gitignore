@@ -9,3 +9,4 @@ toy-ende
 *.pyc
 .vscode
 nuget.exe
+/**/nn_setup/data
