@@ -1,13 +1,13 @@
-model_dir: run/
+model_dir: INSERT-DATA-DIR/run/
 
 data:
-  train_features_file: data/src-train.txt
-  train_labels_file: data/tgt-train.txt
-  eval_features_file: data/src-val.txt
-  eval_labels_file: data/tgt-val.txt
+  train_features_file: INSERT-DATA-DIR/src-train.txt
+  train_labels_file: INSERT-DATA-DIR/tgt-train.txt
+  eval_features_file: INSERT-DATA-DIR/src-val.txt
+  eval_labels_file: INSERT-DATA-DIR/tgt-val.txt
 
-  source_vocabulary: data/vocab.txt
-  target_vocabulary: data/vocab.txt
+  source_vocabulary: INSERT-DATA-DIR/vocab.txt
+  target_vocabulary: INSERT-DATA-DIR/vocab.txt
 
   source_tokenization: 
     type: SpaceTokenizer
