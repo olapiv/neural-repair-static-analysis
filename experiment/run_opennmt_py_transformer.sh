@@ -12,19 +12,15 @@ MODEL_NAME="opennmt_py__transformer"
 NEW_CONFIG_FILE_NAME="${DATASET_NAME}__${MODEL_NAME}.yml"
 
 # Create copy of config file
-if [ ! -f $NEW_CONFIG_FILE_NAME ]; then
-    cp opennmt_py_transformer_config.yml $NEW_CONFIG_FILE_NAME
+cp opennmt_py_transformer_config.yml $NEW_CONFIG_FILE_NAME
 
-    RELATIVE_OUTPUT_DIR="${DATASET_NAME}\/${MODEL_NAME}"
+RELATIVE_OUTPUT_DIR="${DATASET_NAME}\/${MODEL_NAME}"
 
-    # Insert correct paths
-    sed -i'.original' -e "s/INSERT-DATA-DIR/${DATASET_NAME}/" $NEW_CONFIG_FILE_NAME
-    rm -f "${NEW_CONFIG_FILE_NAME}.original"
-    sed -i'.original' -e "s/INSERT-OUTPUT-DIR/${RELATIVE_OUTPUT_DIR}/" $NEW_CONFIG_FILE_NAME
-    rm -f "${NEW_CONFIG_FILE_NAME}.original"
-else
-    echo "$NEW_CONFIG_FILE_NAME already exists"
-fi
+# Insert correct paths
+sed -i'.original' -e "s/INSERT-DATA-DIR/${DATASET_NAME}/" $NEW_CONFIG_FILE_NAME
+rm -f "${NEW_CONFIG_FILE_NAME}.original"
+sed -i'.original' -e "s/INSERT-OUTPUT-DIR/${RELATIVE_OUTPUT_DIR}/" $NEW_CONFIG_FILE_NAME
+rm -f "${NEW_CONFIG_FILE_NAME}.original"
 
 VENV_DIR="venv_opennmt_py"
 echo $VENV_DIR
