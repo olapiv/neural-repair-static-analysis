@@ -14,12 +14,19 @@ NEW_CONFIG_FILE_NAME="${DATASET_NAME}__${MODEL_NAME}.yml"
 # Create copy of config file
 cp opennmt_py_transformer_config.yml $NEW_CONFIG_FILE_NAME
 
-RELATIVE_OUTPUT_DIR="${DATASET_NAME}\/${MODEL_NAME}"
+HARDDRIVE_DIR="\/mnt\/data\/vplohse"
+OUTPUT_DIR="${HARDDRIVE_DIR}\/acr_static_analysis_results\/${DATASET_NAME}\/${MODEL_NAME}"
+
+if [ -d $HARDDRIVE_DIR]; then
+    mkdir -p $OUTPUT_DIR
+else
+    echo "HARDDRIVE_DIR doesn't exist: $HARDDRIVE_DIR"
+fi
 
 # Insert correct paths
 sed -i'.original' -e "s/INSERT-DATA-DIR/${DATASET_NAME}/" $NEW_CONFIG_FILE_NAME
 rm -f "${NEW_CONFIG_FILE_NAME}.original"
-sed -i'.original' -e "s/INSERT-OUTPUT-DIR/${RELATIVE_OUTPUT_DIR}/" $NEW_CONFIG_FILE_NAME
+sed -i'.original' -e "s/INSERT-OUTPUT-DIR/${OUTPUT_DIR}/" $NEW_CONFIG_FILE_NAME
 rm -f "${NEW_CONFIG_FILE_NAME}.original"
 
 VENV_DIR="venv_opennmt_py"
@@ -37,7 +44,7 @@ onmt_build_vocab -config $NEW_CONFIG_FILE_NAME -n_sample 30000
 
 onmt_train -config $NEW_CONFIG_FILE_NAME
 
-OUTPUT="${DATASET_NAME}/evaluation_py_transformer/inference-test.txt"
-
-# -model toy-ende/run/model_step_1000.pt
-onmt_translate -config $NEW_CONFIG_FILE_NAME -src "${DATASET_NAME}/src-test.txt" -output $OUTPUT -gpu 0
+EVAL_DIR="${DATASET_NAME}/evaluation_py_transformer"
+mkdir -p $EVAL_DIR
+OUTPUT="${EVAL_DIR}/inference-test.txt"
+onmt_translate -model $OUTPUT_DIR -src "${DATASET_NAME}/src-test.txt" -output $OUTPUT -gpu 0

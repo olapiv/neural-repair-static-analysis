@@ -1,6 +1,6 @@
 
 # Specific for GPU server
-save_data: /mnt/data/vplohse/acr_static_analysis_results/INSERT-OUTPUT-DIR
+save_data: INSERT-OUTPUT-DIR
 
 # Prevent overwriting existing files in the folder
 overwrite: False
