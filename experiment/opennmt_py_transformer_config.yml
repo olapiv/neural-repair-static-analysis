@@ -42,10 +42,10 @@ queue_size: 10000  # Default: 40
 bucket_size: 32768  # Default: 2048
 world_size: 1
 gpu_ranks: [0]
-batch_type: "tokens"
+batch_type: "tokens"  # In contrast to "sents" (sentences)
 batch_size: 4096  # Default: 64
 valid_batch_size: 8  # Default: 32
-max_generator_batches: 2
+max_generator_batches: 2  # Default: 32
 accum_count: [4]
 accum_steps: [0]  # Default
 

@@ -1,10 +1,10 @@
 #!/bin/bash
 
 if [ -z "$1" ]; then
+    echo "Missing dataset name as argument (e.g. imitate__100_tokens__standard__3, imitate__150_tokens__camelcase__3, etc.)"
     exit 1
 fi
 
-# Any of imitate__100_tokens__standard__3, imitate__150_tokens__camelcase__3, etc.
 DATASET_NAME=$1
 
 MODEL_NAME="opennmt_py__transformer"
