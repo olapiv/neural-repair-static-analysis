@@ -178,9 +178,9 @@ class Pipeline:
 
             output_list.append("REMOVE")
             output_list.append("SOURCE_LOCATION_START")
-            output_list.extend(str(action["SourceLocationStart"]))
+            output_list.append(str(action["SourceLocationStart"]))
             output_list.append("SOURCE_LOCATION_END")
-            output_list.extend(str(action["SourceLocationEnd"]))
+            output_list.append(str(action["SourceLocationEnd"]))
 
         return " ".join(output_list) + "\n"
 
