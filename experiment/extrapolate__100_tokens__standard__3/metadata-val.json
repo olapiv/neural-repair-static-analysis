@@ -13,8 +13,8 @@
     "avg-tokens-src": 120.43049867501807,
     "std-tokens-src": 7.350332694331292,
     "max-tokens-tgt": 473,
-    "avg-tokens-tgt": 41.99108648518429,
-    "std-tokens-tgt": 47.14243033299988,
+    "avg-tokens-tgt": 41.98747289809685,
+    "std-tokens-tgt": 47.14520680657949,
     "nugets": {
         "APIDocCodeAnalyzer.1.0.6253.30470": 1432,
         "Roslynator.Analyzers.Unity.2.1.0": 164,

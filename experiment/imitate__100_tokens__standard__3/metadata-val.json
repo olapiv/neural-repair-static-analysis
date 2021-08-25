@@ -13,8 +13,8 @@
     "avg-tokens-src": 121.77061591978719,
     "std-tokens-src": 13.340067823850513,
     "max-tokens-tgt": 473,
-    "avg-tokens-tgt": 41.8804992838142,
-    "std-tokens-tgt": 39.07324768416415,
+    "avg-tokens-tgt": 41.878043789646,
+    "std-tokens-tgt": 39.07553381294033,
     "nugets": {
         "VSDiagnostics.1.10.0": 172,
         "IntelliTect.Analyzers.0.1.8": 73,

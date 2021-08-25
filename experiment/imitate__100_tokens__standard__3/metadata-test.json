@@ -13,8 +13,8 @@
     "avg-tokens-src": 121.6987927153673,
     "std-tokens-src": 12.964280332277205,
     "max-tokens-tgt": 473,
-    "avg-tokens-tgt": 40.06998158379374,
-    "std-tokens-tgt": 36.99842675327953,
+    "avg-tokens-tgt": 40.06773071413956,
+    "std-tokens-tgt": 37.00051869499002,
     "nugets": {
         "Roslynator.Analyzers.3.1.0": 106,
         "Wintellect.Analyzers.WXF.1.0.7.8": 62,

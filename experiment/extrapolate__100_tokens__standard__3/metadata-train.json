@@ -13,8 +13,8 @@
     "avg-tokens-src": 121.34315833639272,
     "std-tokens-src": 12.728065694262368,
     "max-tokens-tgt": 473,
-    "avg-tokens-tgt": 41.1238265065296,
-    "std-tokens-tgt": 35.01550252364185,
+    "avg-tokens-tgt": 41.12220066082761,
+    "std-tokens-tgt": 35.01715653833451,
     "nugets": {
         "StyleCop.Analyzers.1.1.118": 1577,
         "CodeAnalyzer.1.0.0.0": 249,

@@ -13,8 +13,8 @@
     "avg-tokens-src": 121.6865561694291,
     "std-tokens-src": 13.156971018447225,
     "max-tokens-tgt": 473,
-    "avg-tokens-tgt": 40.972457540413345,
-    "std-tokens-tgt": 37.015975769966815,
+    "avg-tokens-tgt": 40.97057499488439,
+    "std-tokens-tgt": 37.017775301768985,
     "nugets": {
         "CodeAnalysis.ParameterWrapper.1.0.0": 900,
         "APIDocCodeAnalyzer.1.0.6253.30470": 2800,
