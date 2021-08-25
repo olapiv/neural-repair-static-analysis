@@ -24,12 +24,12 @@ else
 fi
 
 HARDDRIVE_DIR_ESCAPED="\/mnt\/data\/vplohse"
-OUTPUT_DIR_ESCAPED="${HARDDRIVE_DIR}\/acr_static_analysis_results\/${DATASET_NAME}\/${MODEL_NAME}"
+OUTPUT_DIR_ESCAPED="${HARDDRIVE_DIR_ESCAPED}\/acr_static_analysis_results\/${DATASET_NAME}\/${MODEL_NAME}"
 
 # Insert correct paths
 sed -i'.original' -e "s/INSERT-DATA-DIR/${DATASET_NAME}/" $NEW_CONFIG_FILE_NAME
 rm -f "${NEW_CONFIG_FILE_NAME}.original"
-sed -i'.original' -e "s/INSERT-OUTPUT-DIR/${OUTPUT_DIR}/" $NEW_CONFIG_FILE_NAME
+sed -i'.original' -e "s/INSERT-OUTPUT-DIR/${OUTPUT_DIR_ESCAPED}/" $NEW_CONFIG_FILE_NAME
 rm -f "${NEW_CONFIG_FILE_NAME}.original"
 
 VENV_DIR="venv_opennmt_py"
