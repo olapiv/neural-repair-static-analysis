@@ -14,14 +14,16 @@ from scipy.stats import pearsonr
 
 
 class Experiment(Enum):
-    copy = "random_mix"
-    extrap = "split_by_diagnostics"
+    imitate = "imitate"
+    extrap = "extrapolate"
 
 
-experiment = Experiment.copy
+experiment = Experiment.imitate
 
-final_dataset_dir = f"experiment/{experiment.value}"
-eval_dir = f"{final_dataset_dir}/nn_evaluation"
+final_dataset_dir = f"experiment/{experiment.value}__150_tokens__camelcase__3"
+eval_dir = f"{final_dataset_dir}/evaluation_py_transformer"
+
+
 characteristic_examples_dir = f"{eval_dir}/characteristic_examples"
 examples_per_diagnostic_dir = f"{eval_dir}/per_diagnostic_examples"
 metadata_test_file = f"{final_dataset_dir}/metadata-test.json"
@@ -100,11 +102,17 @@ def recreate_code(tokenized_code):
 
 
 def recreate_diff(diff_string):
-    # REMOVE SOURCE_LOCATION_START 3 SOURCE_LOCATION_END 4
+    # REMOVE SOURCE_LOCATION_START 9 SOURCE_LOCATION_END 11
     # ADD PREVIOUS_SOURCE_LOCATION 1 TARGET_LINES WHITESPACE
-    # REPLACE SOURCE_LOCATION 4 TARGET_LINES WHITESPACE
+    # REPLACE SOURCE_LOCATION 4 5 TARGET_LINES WHITESPACE
 
     recreated_diff = {}
+    if not diff_string:
+        recreated_diff["diff_type"] = "ADD"
+        recreated_diff["previous_source_location"] = 0
+        recreated_diff["target_lines"] = []
+        return recreated_diff
+    
     token_list = diff_string.split()
     diff_type = token_list[0]
     recreated_diff["diff_type"] = diff_type
