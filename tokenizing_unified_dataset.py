@@ -372,7 +372,7 @@ def main(input_dir, num_file_context_tokens, tokenization_type):
 
 if __name__ == '__main__':
 
-    num_file_context_tokens = 150
+    num_file_context_tokens = 115
     tokenization_type = TokenizationType.camelcase
     input_dir = "unified_dataset_3"
 
