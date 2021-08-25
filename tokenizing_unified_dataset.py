@@ -54,7 +54,8 @@ class Pipeline:
 
         return
 
-    def split_tokens_by_line(self, orig_file_tokens):
+    @staticmethod
+    def split_tokens_by_line(orig_file_tokens):
         orig_file_line_tokens = [[]]
         idx = 0
         for (token_type, value) in orig_file_tokens:
@@ -67,7 +68,7 @@ class Pipeline:
 
     def get_required_tokens(self, all_tokens, start_line, end_line):
 
-        line_tokens = self.split_tokens_by_line(all_tokens)
+        line_tokens = Pipeline.split_tokens_by_line(all_tokens)
         required_line_tokens = line_tokens[start_line:end_line + 1]
 
         # Flatten tokens again:
@@ -79,7 +80,7 @@ class Pipeline:
         return required_tokens
 
     def count_tokens_in_lines(self, all_tokens, start_line, num_lines):
-        line_tokens = self.split_tokens_by_line(
+        line_tokens = Pipeline.split_tokens_by_line(
             all_tokens)[start_line:start_line+num_lines]
         num_tokens = 0
         for line in line_tokens:
@@ -234,7 +235,7 @@ class Pipeline:
         del orig_file_tokens[-1]
 
         # Sanity check
-        # line_tokens = self.split_tokens_by_line(orig_file_tokens)
+        # line_tokens = Pipeline.split_tokens_by_line(orig_file_tokens)
         # assert num_lines == len(
         #     line_tokens), f"""num_lines not equal to len(line_tokens); num_lines: {num_lines}; len(
         #     line_tokens): {len(line_tokens)}; file: {unified_data_dict["FileURL"]}"""
