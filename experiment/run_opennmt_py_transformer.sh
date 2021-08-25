@@ -14,14 +14,17 @@ NEW_CONFIG_FILE_NAME="${DATASET_NAME}__${MODEL_NAME}.yml"
 # Create copy of config file
 cp opennmt_py_transformer_config.yml $NEW_CONFIG_FILE_NAME
 
-HARDDRIVE_DIR="\/mnt\/data\/vplohse"
-OUTPUT_DIR="${HARDDRIVE_DIR}\/acr_static_analysis_results\/${DATASET_NAME}\/${MODEL_NAME}"
+HARDDRIVE_DIR="/mnt/data/vplohse"
+OUTPUT_DIR="${HARDDRIVE_DIR}/acr_static_analysis_results/${DATASET_NAME}/${MODEL_NAME}"
 
-if [ -d $HARDDRIVE_DIR]; then
+if [ -d $HARDDRIVE_DIR ]; then
     mkdir -p $OUTPUT_DIR
 else
     echo "HARDDRIVE_DIR doesn't exist: $HARDDRIVE_DIR"
 fi
+
+HARDDRIVE_DIR_ESCAPED="\/mnt\/data\/vplohse"
+OUTPUT_DIR_ESCAPED="${HARDDRIVE_DIR}\/acr_static_analysis_results\/${DATASET_NAME}\/${MODEL_NAME}"
 
 # Insert correct paths
 sed -i'.original' -e "s/INSERT-DATA-DIR/${DATASET_NAME}/" $NEW_CONFIG_FILE_NAME
