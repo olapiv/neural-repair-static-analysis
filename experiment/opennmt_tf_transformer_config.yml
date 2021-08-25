@@ -1,4 +1,4 @@
-model_dir: INSERT-DATA-DIR/run/
+model_dir: INSERT-OUTPUT-DIR
 
 data:
   train_features_file: INSERT-DATA-DIR/src-train.txt
@@ -21,9 +21,12 @@ data:
       # segment_case: true  # Does not work with mode: none
 
 train:
+  maximum_features_length: 200  # For camelcase (115 file tokens), max=362, avg=138, std=14
+  maximum_labels_length: 150   # For camelcase, max=487, avg=43, std=38
+
   # Used by imitate__100_tokens__standard__1:
-  maximum_features_length: 150  # avg=125, std=20, max=271
-  maximum_labels_length: 100   # avg=40, std=30, max=276
+  # maximum_features_length: 150  # avg=125, std=20, max=271
+  # maximum_labels_length: 100   # avg=40, std=30, max=276
 
   # Used by extrapolate__100_tokens__standard__2:
   # maximum_features_length: 350  # avg=122, std=14, max=347

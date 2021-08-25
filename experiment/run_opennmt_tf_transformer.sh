@@ -1,0 +1,66 @@
+#!/bin/bash
+
+if [ -z "$1" ]; then
+    echo "Missing dataset name as argument (e.g. imitate__100_tokens__standard__3, imitate__115_tokens__camelcase__3, etc.)"
+    exit 1
+fi
+
+DATASET_NAME=$1
+
+MODEL_NAME="opennmt_tf__transformer"
+
+NEW_CONFIG_FILE_NAME="${DATASET_NAME}__${MODEL_NAME}.yml"
+
+# Create copy of config file
+cp opennmt_tf_transformer_config.yml $NEW_CONFIG_FILE_NAME
+
+HARDDRIVE_DIR="/mnt/data/vplohse"
+OUTPUT_DIR="${HARDDRIVE_DIR}/acr_static_analysis_results/${DATASET_NAME}/${MODEL_NAME}"
+
+if [ -d $HARDDRIVE_DIR ]; then
+    mkdir -p $OUTPUT_DIR
+else
+    echo "HARDDRIVE_DIR doesn't exist: $HARDDRIVE_DIR"
+fi
+
+HARDDRIVE_DIR_ESCAPED="\/mnt\/data\/vplohse"
+OUTPUT_DIR_ESCAPED="${HARDDRIVE_DIR_ESCAPED}\/acr_static_analysis_results\/${DATASET_NAME}\/${MODEL_NAME}"
+
+# Insert correct paths
+sed -i'.original' -e "s/INSERT-DATA-DIR/${DATASET_NAME}/" $NEW_CONFIG_FILE_NAME
+rm -f "${NEW_CONFIG_FILE_NAME}.original"
+sed -i'.original' -e "s/INSERT-OUTPUT-DIR/${OUTPUT_DIR_ESCAPED}/" $NEW_CONFIG_FILE_NAME
+rm -f "${NEW_CONFIG_FILE_NAME}.original"
+
+VENV_DIR="venv_opennmt_tf"
+echo $VENV_DIR
+if [ ! -d $VENV_DIR ]; then
+    python3 -m venv $VENV_DIR
+fi
+
+source $VENV_DIR/bin/activate
+pip install --upgrade pip
+pip install -r requirements_opennmt_tf.txt
+
+# Sample all data
+if [ -f ${DATASET_NAME}/vocab.txt ]; then
+    rm -f ${DATASET_NAME}/vocab.txt  # Make sure vocab is updated
+fi
+
+# Source and target vocabulary is highly related, so bundle it into one file:
+onmt-build-vocab --size 50000 --save_vocab ${DATASET_NAME}/vocab.txt `
+    ${DATASET_NAME}/src-train.txt `
+    ${DATASET_NAME}/src-test.txt `
+    ${DATASET_NAME}/src-val.txt `
+    ${DATASET_NAME}/tgt-test.txt `
+    ${DATASET_NAME}/tgt-train.txt `
+    ${DATASET_NAME}/tgt-val.txt
+
+
+onmt-main --model_type Transformer --config $NEW_CONFIG_FILE_NAME --auto_config train --with_eval
+
+EVAL_DIR="${DATASET_NAME}/evaluation_tf_transformer"
+mkdir -p $EVAL_DIR
+PREDICTIONS_PATH="${EVAL_DIR}/inference-test.txt"
+
+onmt-main --model_type Transformer --config $NEW_CONFIG_FILE_NAME --auto_config infer --features_file data/src-test.txt --predictions_file $PREDICTIONS_PATH
