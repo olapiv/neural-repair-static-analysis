@@ -1,7 +1,7 @@
 #!/bin/bash
 
 if [ -z "$1" ]; then
-    echo "Missing dataset name as argument (e.g. imitate__100_tokens__standard__3, imitate__150_tokens__camelcase__3, etc.)"
+    echo "Missing dataset name as argument (e.g. imitate__100_tokens__standard__3, imitate__115_tokens__camelcase__3, etc.)"
     exit 1
 fi
 
@@ -43,6 +43,9 @@ pip install --upgrade pip
 pip install -r requirements_opennmt_py.txt
 
 # Sample all data
+if [ -f ${DATASET_NAME}/vocab.txt ]; then
+    rm -f ${DATASET_NAME}/vocab.txt  # Make sure vocab is updated
+fi
 onmt_build_vocab -config $NEW_CONFIG_FILE_NAME -n_sample 30000
 
 onmt_train -config $NEW_CONFIG_FILE_NAME
