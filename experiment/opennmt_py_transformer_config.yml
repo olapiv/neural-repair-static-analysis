@@ -16,8 +16,12 @@ data:
 
 # Shared vocab path since input & output is same language
 src_vocab: INSERT-DATA-DIR/vocab.txt
-share_vocab: true
-share_embeddings: true
+
+save_model: little_data_transformer
+save_checkpoint_steps: 2000
+early_stopping: 3
+valid_steps: 2000
+# train_steps: 20000  # Relying on early stopping
 
 # -------------
 # MODEL
@@ -26,14 +30,9 @@ share_embeddings: true
 # but slightly adjusted for smaller dataset.
 # -------------
 
-# General
-save_model: fast_learning_transformer
-save_checkpoint_steps: 2000
-valid_steps: 2000
-# train_steps: 20000  # Relying on early stopping
-
 # Custom
-early_stopping: 4
+share_vocab: true
+# share_embeddings: true  # May have majorly screwed results
 src_seq_length: 400  # Includes all datapoints
 tgt_seq_length: 500  # Includes all datapoints
 
