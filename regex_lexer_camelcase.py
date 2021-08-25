@@ -45,6 +45,7 @@ class LanguageCamelcaseLexer(UnprocessedTokensMixin, RegexLexer):
             ('[A-Z][a-z]+', Name),
             ('([a-z]+)', Name),
             ('([A-Z]+)', Name),
+            ('(_+)', Name),
             # ('[A-Z]+(?=[A-Z][a-z])|[A-Z][a-z]+|[a-z]+|[A-Z]+', Name),
 
             # Formatting
@@ -140,6 +141,8 @@ class CSharpAndCommentsCamelcaseLexer(UnprocessedTokensMixin, CSharpLexer):
                 ('[A-Z][a-z]+', Name),
                 ('([a-z]+)', Name),
                 ('([A-Z]+)', Name),
+                ('_+', Name),  # TODO: Suboptimal (?)
+                # ('_+(?=[A-Z][a-z])', Name),
                 # ('[A-Z]+(?=[A-Z][a-z])|[A-Z][a-z]+|[a-z]+|[A-Z]+', Name),
 
                 (cs_ident, Name),
@@ -147,7 +150,14 @@ class CSharpAndCommentsCamelcaseLexer(UnprocessedTokensMixin, CSharpLexer):
             ],
 
             'identifier': [
-                (r'[A-Z]+(?=[A-Z][a-z])|[A-Z][a-z]+|[a-z]+|[A-Z]+', Name),
+
+                # Words separated by camelcase:
+                ('[A-Z]+(?=[A-Z][a-z])', Name),
+                ('[A-Z][a-z]+', Name),
+                ('([a-z]+)', Name),
+                ('([A-Z]+)', Name),
+                ('_+', Name),
+                
                 default('#pop'),
             ],
 
@@ -198,7 +208,10 @@ if __name__ == "__main__":
 
     code_string = """class eclipseRCPExt {
     }"""
+    code_string = """public void _addDynamicParametersRepeated() // _S_bytePool _Max_recent_"""
     run_pygments_lexer(code_string)
 
     language_string = """CHANGE class 'eclipseRCPExt' to xyz because EclipseRCPExt is too long."""
-    run_only_language_lexer(language_string)
+    language_string = "Test_AddDynamicParametersRepeatedIfParamTypeIsDbStiringShouldWork _S_bytePool _Max_recent_announcements"
+    # run_only_language_lexer(language_string)
+

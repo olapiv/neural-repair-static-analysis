@@ -3,7 +3,8 @@ import requests
 import json
 from regex_lexer import CSharpAndCommentsLexer
 from regex_lexer_camelcase import CSharpAndCommentsCamelcaseLexer
-from tokenizing_unified_dataset import split_tokens_by_line
+from tokenizing_unified_dataset import Pipeline
+
 
 
 def compare(s, t):
@@ -322,6 +323,13 @@ RedirectFailed = 302,"""
         true_token_list = ["public", "WHITESPACE", "void", "WHITESPACE", "Copy", "To", "NEWLINE", ["WHITESPACE"]*8, "(", "NEWLINE"]
         self.run_single_test(self.CODE_METHODS, true_token_list, camelcase=True)
 
+    CODE_UNDERSCORE_BEFORE_VAR = """public void _addDynamicParametersRepeated() // _S_bytePool _Max_recent_"""
+
+    def test_underscore_before_var_camelcase(self):
+        true_token_list = ["public", "WHITESPACE", "void", "WHITESPACE", "_", "add", "Dynamic", "Parameters", "Repeated", "(", ")", 
+        "WHITESPACE", "//", "WHITESPACE", "_", "S", "_", "byte", "Pool", "WHITESPACE", "_", "Max", "_", "recent", "_", "NEWLINE"]
+        self.run_single_test(self.CODE_UNDERSCORE_BEFORE_VAR, true_token_list, camelcase=True)
+
     def test_count_newlines(self):
         """
         Testing on large files; simply checking whether all NEWLINEs are counted correctly
@@ -354,7 +362,7 @@ RedirectFailed = 302,"""
             # Because lexer always adds NEWLINE at very end
             del orig_file_tokens[-1]
 
-            line_tokens = split_tokens_by_line(orig_file_tokens)
+            line_tokens = Pipeline.split_tokens_by_line(orig_file_tokens)
 
             if len(split_file) != len(line_tokens):
                 for count, line in enumerate(line_tokens):
