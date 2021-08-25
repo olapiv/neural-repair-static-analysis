@@ -31,10 +31,10 @@ valid_steps: 2000
 # -------------
 
 # Custom
+src_seq_length: 200  # For camelcase (115 file tokens), max=362, avg=138, std=14
+tgt_seq_length: 150  # For camelcase, max=487, avg=43, std=38
 share_vocab: true
 # share_embeddings: true  # May have majorly screwed results
-src_seq_length: 400  # Includes all datapoints
-tgt_seq_length: 500  # Includes all datapoints
 
 # Batching
 queue_size: 10000  # Default: 40
