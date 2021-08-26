@@ -34,7 +34,7 @@ class NNModel(Enum):
     transformer_copy_mechanism = "transformer_copy_mech"  # Never used
 
 
-experiment = Experiment.extrap
+experiment = Experiment.imitate
 tokenization = Tokenization.standard
 dataset_version = "3"
 nn_framework = NNFramework.tensorflow
@@ -202,22 +202,28 @@ def create_diff_with_diags(src_dict, tgt_dict):
     changed_file = src_dict["file_context"][:]
 
     diff_type = tgt_dict["diff_type"]
-    if diff_type == "ADD":
-        prev_src_loc = int(tgt_dict["previous_source_location"])
-        changed_file[prev_src_loc:prev_src_loc] = tgt_dict["target_lines"]
+    try:
+        if diff_type == "ADD":
+            prev_src_loc = int(tgt_dict["previous_source_location"])
+            changed_file[prev_src_loc:prev_src_loc] = tgt_dict["target_lines"]
 
-    elif diff_type == "REMOVE":
-        src_start = int(tgt_dict["source_location_start"])
-        src_end = int(tgt_dict["source_location_end"])
-        del changed_file[src_start:src_end + 1]
+        elif diff_type == "REMOVE":
+            src_start = int(tgt_dict["source_location_start"])
+            src_end = int(tgt_dict["source_location_end"])
+            del changed_file[src_start:src_end + 1]
 
-    elif diff_type == "REPLACE":
-        src_start = int(tgt_dict["source_location"][0])
-        src_end = int(tgt_dict["source_location"][-1])
-        del changed_file[src_start:src_end + 1]
-        changed_file[src_start:src_start] = tgt_dict["target_lines"]
+        elif diff_type == "REPLACE":
+            src_start = int(tgt_dict["source_location"][0])
+            src_end = int(tgt_dict["source_location"][-1])
+            del changed_file[src_start:src_end + 1]
+            changed_file[src_start:src_start] = tgt_dict["target_lines"]
 
-    else:  # Nothing useful predicted
+        else:  # Nothing useful predicted
+            return ""
+    except ValueError as e:
+        # In case weird things have been outputted
+        # invalid literal for int() with base 10: '('
+        print(e)
         return ""
 
     # ['  Lalalalala', '  lalala', '- dia', '+ dida', '?   +\n']
@@ -470,6 +476,7 @@ def generate_diff(
 
         # Get first datapoint of given diagnostic
         line_num = diagnostic_result["correct"][0]
+        # print("line_num: ", line_num)
 
         diff_tgt = tgt_test_list[line_num]
 
@@ -481,6 +488,7 @@ def generate_diff(
 
         # Get first datapoint of given diagnostic
         line_num = diagnostic_result["wrong"][0]
+        # print("line_num: ", line_num)
 
         # Show what went wrong
         diff_tgt = tgt_test_list[line_num]
