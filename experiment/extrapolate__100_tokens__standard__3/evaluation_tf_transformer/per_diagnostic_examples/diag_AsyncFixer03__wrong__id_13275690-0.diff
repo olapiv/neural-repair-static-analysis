@@ -1,0 +1,26 @@
+id: 13275690-0
+diagnostic: AsyncFixer03
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 0
+<<<<<<<< CORRECT >>>>>>>>
+   $"Shadowsocks\\{Utilities.ExecutablePath.GetHashCode()}";
+  
+          public event EventHandler<RequestAddUrlEventArgs>? OpenUrlRequested;
+  
+<<<< DIAGNOSTIC: avoid unsupported fire-and-forget async-void methods or delegates. unhandled exceptions will crash the process. >>>>
+-         public async void RunServer()
++         public async System.Threading.Tasks.Task RunServer()
+          {
+              byte[] buf = new byte[4096];
+     
+<<<<<<<< INFERRED >>>>>>>>
+   $"Shadowsocks\\{Utilities.ExecutablePath.GetHashCode()}";
+  
+          public event EventHandler<RequestAddUrlEventArgs>? OpenUrlRequested;
+  
+<<<< DIAGNOSTIC: avoid unsupported fire-and-forget async-void methods or delegates. unhandled exceptions will crash the process. >>>>
+-         public async void RunServer()
++         public event EventHandler<ListChangedEventArgs> ListChanged;
+          {
+              byte[] buf = new byte[4096];
+     

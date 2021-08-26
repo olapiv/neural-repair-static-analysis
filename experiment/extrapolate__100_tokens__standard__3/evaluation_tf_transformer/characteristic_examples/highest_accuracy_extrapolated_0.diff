@@ -1,0 +1,16 @@
+id: 86301685-2
+diagnostic: VSD0001
+perc_correct_in_test: 1.0
+num_datapoints_in_train: 0
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+     }
+          }
+  
+          public ValueTask DisposeAsync() => StopAsync();
+  
+<<<< DIAGNOSTIC: asynchronous method "startcore" does not end with 'Async'. >>>>
+-         private async Task StartCore()
++         private async Task StartCoreAsync()
+          {
+              _listener.Start();
+              

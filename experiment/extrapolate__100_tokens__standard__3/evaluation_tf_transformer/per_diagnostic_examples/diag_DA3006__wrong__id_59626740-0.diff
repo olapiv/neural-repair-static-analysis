@@ -1,0 +1,22 @@
+id: 59626740-0
+diagnostic: DA3006
+perc_correct_in_test: 0.021739130434782608
+num_datapoints_in_train: 0
+<<<<<<<< CORRECT >>>>>>>>
+  
+  		/// Returns false if mod loading should be aborted (e.g. switching to another mod instead).
++ 		/// <returns></returns>
+  		/// </summary>
+<<<< DIAGNOSTIC: method 'BeforeLoad' doesn't have /// returns in comment >>>>
+  		bool BeforeLoad();
+  
+  		/// <summary>Called when the engine expects to connect to a server/replay or load the shellmap.</
+<<<<<<<< INFERRED >>>>>>>>
+  
+  		/// Returns false if mod loading should be aborted (e.g. switching to another mod instead).
++ 		/// <remarks></remarks>
+  		/// </summary>
+<<<< DIAGNOSTIC: method 'BeforeLoad' doesn't have /// returns in comment >>>>
+  		bool BeforeLoad();
+  
+  		/// <summary>Called when the engine expects to connect to a server/replay or load the shellmap.</

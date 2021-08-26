@@ -1,0 +1,28 @@
+id: 25729109-0
+diagnostic: RECS0092
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 0
+<<<<<<<< CORRECT >>>>>>>>
+  Collections.Generic;
+  
+  namespace Shadowsocks.Protocol.Shadowsocks.Crypto
+  {
+      static class CryptoProvider
+      {
+<<<< DIAGNOSTIC: convert field to readonly >>>>
+-         static Dictionary<string, CryptoParameter> parameters = new Dictionary<string, CryptoParameter>
++         static readonly Dictionary<string, CryptoParameter> parameters = new Dictionary<string, CryptoParameter>
+          {
+              ["xchacha20-ietf-poly1305"] = 
+<<<<<<<< INFERRED >>>>>>>>
+  Collections.Generic;
+  
+  namespace Shadowsocks.Protocol.Shadowsocks.Crypto
+  {
+      static class CryptoProvider
+      {
+<<<< DIAGNOSTIC: convert field to readonly >>>>
+-         static Dictionary<string, CryptoParameter> parameters = new Dictionary<string, CryptoParameter>
++         static Dictionary<String, CryptoParameter> parameters = new Dictionary<String, CryptoParameter>
+          {
+              ["xchacha20-ietf-poly1305"] = 

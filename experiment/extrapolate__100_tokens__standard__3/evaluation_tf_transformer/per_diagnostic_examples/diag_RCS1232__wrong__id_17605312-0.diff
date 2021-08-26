@@ -1,0 +1,19 @@
+id: 17605312-0
+diagnostic: RCS1232
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 0
+<<<<<<<< CORRECT >>>>>>>>
+          /// unpacks a raw db type
+          /// </summary>
+<<<< DIAGNOSTIC: order elements in documentation comment. >>>>
+-         /// <param name="rawType"></param>
+          /// <param name="dataType"></param>
+          public static void
+<<<<<<<< INFERRED >>>>>>>>
+          /// unpacks a raw db type
++         /// <param name="dataType">the type.</param>
+          /// </summary>
+<<<< DIAGNOSTIC: order elements in documentation comment. >>>>
+          /// <param name="rawType"></param>
+          /// <param name="dataType"></param>
+          public static void

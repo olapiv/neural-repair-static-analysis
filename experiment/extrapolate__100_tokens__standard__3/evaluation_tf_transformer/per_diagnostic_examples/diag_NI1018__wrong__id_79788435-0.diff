@@ -1,0 +1,19 @@
+id: 79788435-0
+diagnostic: NI1018
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 0
+<<<<<<<< CORRECT >>>>>>>>
+  return SqlStatement.Join(queryContext.DataContext.Vendor.SqlProvider.NewLine,
+<<<< DIAGNOSTIC: do not use linq query syntax; use method syntax instead. >>>>
+-                                (from clause in clauses where clause.ToString() != string.Empty select clause).ToList());
++                                (clauses.Where(clause => clause.ToString() != string.Empty).Select(clause => clause)).ToList());
+          }
+  
+         
+<<<<<<<< INFERRED >>>>>>>>
+  return SqlStatement.Join(queryContext.DataContext.Vendor.SqlProvider.NewLine,
+<<<< DIAGNOSTIC: do not use linq query syntax; use method syntax instead. >>>>
+                                 (from clause in clauses where clause.ToString() != string.Empty select clause).ToList());
+          }
+  
+         

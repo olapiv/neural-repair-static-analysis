@@ -1,0 +1,37 @@
+id: 28874282-0
+diagnostic: RCS1073
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 0
+<<<<<<<< CORRECT >>>>>>>>
+  DbLinq.Schema.Dbml.Database"];
+  
+  			}
+  			return base.GetSerializer (type);
+  		}
+  
+  		public override bool CanSerialize (System.Type type) {
++             return type == typeof(DbLinq.Schema.Dbml.Database);
++         }
+<<<< DIAGNOSTIC: convert 'if' to 'return' statement. >>>>
+- 			if (type == typeof(DbLinq.Schema.Dbml.Database)) return true;
+- 			return false;
+- 		}
+  	}
+  
+  }
+<<<<<<<< INFERRED >>>>>>>>
+  DbLinq.Schema.Dbml.Database"];
+  
+  			}
+  			return base.GetSerializer (type);
+  		}
+  
+  		public override bool CanSerialize (System.Type type) {
+<<<< DIAGNOSTIC: convert 'if' to 'return' statement. >>>>
+- 			if (type == typeof(DbLinq.Schema.Dbml.Database)) return true;
++ 		public override Boolean IsComposable
+  			return false;
+  		}
+  	}
+  
+  }

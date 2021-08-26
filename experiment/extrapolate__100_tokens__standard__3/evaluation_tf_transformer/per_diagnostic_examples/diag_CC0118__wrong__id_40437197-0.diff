@@ -1,0 +1,15 @@
+id: 40437197-0
+diagnostic: CC0118
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 0
+<<<<<<<< CORRECT >>>>>>>>
+             dbParameter = dbCommand.Command.CreateParameter();
+<<<< DIAGNOSTIC: unnecessary '.ToString()' call in string concatenation. >>>>
+-                         dbParameter.ParameterName = DataContext.Vendor.SqlProvider.GetParameterName(parameter.Alias + i.ToString());
++                         dbParameter.ParameterName = DataContext.Vendor.SqlProvider.GetParameterName(parameter.Alias + i);
+                          
+<<<<<<<< INFERRED >>>>>>>>
+             dbParameter = dbCommand.Command.CreateParameter();
+<<<< DIAGNOSTIC: unnecessary '.ToString()' call in string concatenation. >>>>
+                          dbParameter.ParameterName = DataContext.Vendor.SqlProvider.GetParameterName(parameter.Alias + i.ToString());
+                          

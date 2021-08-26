@@ -1,0 +1,26 @@
+id: 58582589-0
+diagnostic: FS0065
+perc_correct_in_test: 0.8
+num_datapoints_in_train: 0
+<<<<<<<< CORRECT >>>>>>>>
+         static readonly Random Random = new Randomizer(DateTimeOffset.Now.Millisecond);
+  
+          readonly WebServer _server;
+<<<< DIAGNOSTIC: remove trailing whitespace >>>>
+-         
++ 
+          public string Url { get; }
+          public string ServerUrl { get; }
+  
+     
+<<<<<<<< INFERRED >>>>>>>>
+         static readonly Random Random = new Randomizer(DateTimeOffset.Now.Millisecond);
+  
+          readonly WebServer _server;
+<<<< DIAGNOSTIC: remove trailing whitespace >>>>
+-         
++         public static readonly WebServer _server;
+          public string Url { get; }
+          public string ServerUrl { get; }
+  
+     

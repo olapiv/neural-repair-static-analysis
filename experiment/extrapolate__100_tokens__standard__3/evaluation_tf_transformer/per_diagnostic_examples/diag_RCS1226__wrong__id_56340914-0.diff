@@ -1,0 +1,22 @@
+id: 56340914-0
+diagnostic: RCS1226
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 0
+<<<<<<<< CORRECT >>>>>>>>
+    Profiler.At("END DataContext(string, MappingSource)");
+          }
+  
++         /// <para>
+          /// <summary>
+<<<< DIAGNOSTIC: add paragraph to documentation comment. >>>>
+          /// Construct DataContext, given a connectionString.
+          /// To determine which DB type to go against, we look
+<<<<<<<< INFERRED >>>>>>>>
+    Profiler.At("END DataContext(string, MappingSource)");
+          }
+  
+          /// <summary>
++         /// <param name="connectionString">the connection string.</param>
+<<<< DIAGNOSTIC: add paragraph to documentation comment. >>>>
+          /// Construct DataContext, given a connectionString.
+          /// To determine which DB type to go against, we look
