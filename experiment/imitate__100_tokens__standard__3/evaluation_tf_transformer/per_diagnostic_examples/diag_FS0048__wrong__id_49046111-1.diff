@@ -1,0 +1,20 @@
+id: 49046111-1
+diagnostic: FS0048
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 13
+<<<<<<<< CORRECT >>>>>>>>
+  Empty);
+                  var literalParameterName =
+<<<< DIAGNOSTIC: use string interpolation >>>>
+-                     queryContext.DataContext.Vendor.SqlProvider.GetParameterName(string.Format("p{0}", parameterIndex));
++                     queryContext.DataContext.Vendor.SqlProvider.GetParameterName($"p{parameterIndex}");
+                  parameters[parameterIndex] = literalParameterName;
+   
+<<<<<<<< INFERRED >>>>>>>>
+  Empty);
+                  var literalParameterName =
+<<<< DIAGNOSTIC: use string interpolation >>>>
+-                     queryContext.DataContext.Vendor.SqlProvider.GetParameterName(string.Format("p{0}", parameterIndex));
++                 fullDbName = $"{dbSchema}.{dbName}";
+                  parameters[parameterIndex] = literalParameterName;
+   

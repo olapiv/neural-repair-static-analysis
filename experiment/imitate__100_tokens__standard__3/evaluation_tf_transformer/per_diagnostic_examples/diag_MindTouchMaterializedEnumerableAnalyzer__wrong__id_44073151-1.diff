@@ -1,0 +1,24 @@
+id: 44073151-1
+diagnostic: MindTouchMaterializedEnumerableAnalyzer
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 11
+<<<<<<<< CORRECT >>>>>>>>
+  <string>)assemblyNamesToScan);
+  
+          public void AddMaps(IEnumerable<Type> typesFromAssembliesContainingMappingDefinitions)
+<<<< DIAGNOSTIC: collection may or may not be materialized >>>>
+-             => AddMapsCore(typesFromAssembliesContainingMappingDefinitions.Select(t => t.GetTypeInfo().Assembly));
++             => AddMapsCore(typesFromAssembliesContainingMappingDefinitions.Select(t => t.GetTypeInfo().Assembly).ToArray());
+  
+          public void AddMaps(params Type[] typesFromAssembliesContainingMappingDefinitions)
+          
+<<<<<<<< INFERRED >>>>>>>>
+  <string>)assemblyNamesToScan);
+  
+          public void AddMaps(IEnumerable<Type> typesFromAssembliesContainingMappingDefinitions)
+<<<< DIAGNOSTIC: collection may or may not be materialized >>>>
+-             => AddMapsCore(typesFromAssembliesContainingMappingDefinitions.Select(t => t.GetTypeInfo().Assembly));
++             => AddMapsCore(assemblyNamesToScan.Select(t => t.Name)).ToArray());
+  
+          public void AddMaps(params Type[] typesFromAssembliesContainingMappingDefinitions)
+          

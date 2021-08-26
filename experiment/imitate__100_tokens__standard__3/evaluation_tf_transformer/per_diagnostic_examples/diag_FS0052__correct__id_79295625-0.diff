@@ -1,0 +1,16 @@
+id: 79295625-0
+diagnostic: FS0052
+perc_correct_in_test: 0.6666666666666666
+num_datapoints_in_train: 3
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+   null)
+                  columnAttribute.Name = memberInfo.Name;
+          }
+  
+<<<< DIAGNOSTIC: make 'columnAttribute' readonly >>>>
+-         private ColumnAttribute columnAttribute;
++         private readonly ColumnAttribute columnAttribute;
+  
+          public override MetaAssociation Association
+          {
+              get { 

@@ -1,0 +1,22 @@
+id: 14724989-0
+diagnostic: DA3005
+perc_correct_in_test: 0.5
+num_datapoints_in_train: 5
+<<<<<<<< CORRECT >>>>>>>>
+   name="error">The error due to which the connection is being stopped.</param>
++         /// <param name="error"></param>
+          /// </summary>
+<<<< DIAGNOSTIC: method 'Stop' doesn't have /// parameter in comment >>>>
+          public void Stop(Exception error)
+          {
+              Stop(error, DefaultAbortTimeout);
+    
+<<<<<<<< INFERRED >>>>>>>>
+   name="error">The error due to which the connection is being stopped.</param>
++         /// <returns></returns>
+          /// </summary>
+<<<< DIAGNOSTIC: method 'Stop' doesn't have /// parameter in comment >>>>
+          public void Stop(Exception error)
+          {
+              Stop(error, DefaultAbortTimeout);
+    

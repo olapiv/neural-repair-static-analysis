@@ -1,0 +1,14 @@
+id: 55969443-0
+diagnostic: DA4006
+perc_correct_in_test: 0.5
+num_datapoints_in_train: 16
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+      /// <summary>
+      /// Specifies how duplicate property names are handled when loading JSON.
++     /// <example></example>
+      /// </summary>
+<<<< DIAGNOSTIC: type 'DuplicatePropertyNameHandling' doesn't have example in the comment >>>>
+      public enum DuplicatePropertyNameHandling
+      {
+          /// <summary>
+          /// Replace the existing value

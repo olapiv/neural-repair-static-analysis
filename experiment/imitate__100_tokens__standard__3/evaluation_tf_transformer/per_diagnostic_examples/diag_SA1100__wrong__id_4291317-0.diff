@@ -1,0 +1,24 @@
+id: 4291317-0
+diagnostic: SA1100
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 1
+<<<<<<<< CORRECT >>>>>>>>
+  protected set; }
+  
+          public ITransactionalCommand GetCommandTransactional(bool createTransaction)
+          {
+<<<< DIAGNOSTIC: do not prefix calls with base unless local implementation exists >>>>
+-             ITransactionalCommand command = base.GetCommand(createTransaction);
++             ITransactionalCommand command = this.GetCommand(createTransaction);
+              foreach (var inputParameter in InputParameters)
+              {
+<<<<<<<< INFERRED >>>>>>>>
+  protected set; }
+  
+          public ITransactionalCommand GetCommandTransactional(bool createTransaction)
+          {
+<<<< DIAGNOSTIC: do not prefix calls with base unless local implementation exists >>>>
+-             ITransactionalCommand command = base.GetCommand(createTransaction);
++             this.GetCommand(createTransaction);
+              foreach (var inputParameter in InputParameters)
+              {

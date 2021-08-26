@@ -1,0 +1,17 @@
+id: 63733183-2
+diagnostic: RCS1139
+perc_correct_in_test: 1.0
+num_datapoints_in_train: 5
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+         this.RaisePropertyChanged("Table");
+              }
+          }
++         /// <summary>
++         /// 
++         /// </summary>
+  
+<<<< DIAGNOSTIC: add summary element to documentation comment. >>>>
+          /// <remarks/>
+          [System.Xml.Serialization.XmlElementAttribute("Function")]
+          public Function[] Function
+     

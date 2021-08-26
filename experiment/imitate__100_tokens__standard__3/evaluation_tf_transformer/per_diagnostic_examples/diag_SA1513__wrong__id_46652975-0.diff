@@ -1,0 +1,28 @@
+id: 46652975-0
+diagnostic: SA1513
+perc_correct_in_test: 0.9666666666666667
+num_datapoints_in_train: 139
+<<<<<<<< CORRECT >>>>>>>>
+        MutipleProcs = 0xf,
+          EnterDueToProc = 0xf0,
+          SetIdeal = 0xf00,
+<<<< DIAGNOSTIC: closing brace should be followed by blank line >>>>
+-     };
++     }
++ 
++ ;
+      struct SampleInfo
+      {
+          // -1 means uninit.
+          public int tid;
+<<<<<<<< INFERRED >>>>>>>>
+        MutipleProcs = 0xf,
+          EnterDueToProc = 0xf0,
+          SetIdeal = 0xf00,
++ 
+<<<< DIAGNOSTIC: closing brace should be followed by blank line >>>>
+      };
+      struct SampleInfo
+      {
+          // -1 means uninit.
+          public int tid;

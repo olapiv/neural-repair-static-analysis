@@ -1,0 +1,18 @@
+id: 65468877-0
+diagnostic: NA03
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 3
+<<<<<<<< CORRECT >>>>>>>>
+               if (deferred && this.deferredSource is IQueryable<TEntity>)
+<<<< DIAGNOSTIC: either check for null or cast to fail on invalid cast rather then null reference >>>>
+-                     return (deferredSource as IQueryable<TEntity>).Expression;
++                     return ((IQueryable<TEntity>)deferredSource).Expression;
+                  else
+                
+<<<<<<<< INFERRED >>>>>>>>
+               if (deferred && this.deferredSource is IQueryable<TEntity>)
+<<<< DIAGNOSTIC: either check for null or cast to fail on invalid cast rather then null reference >>>>
+-                     return (deferredSource as IQueryable<TEntity>).Expression;
++                         ((IQueryable<TEntity>)context.GetOtherTableQuery(nestedQueryPredicate, nestedQueryParam, typeof(TEntity), otherTable);
+                  else
+                

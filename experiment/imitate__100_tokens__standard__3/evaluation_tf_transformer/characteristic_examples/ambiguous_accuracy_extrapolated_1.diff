@@ -1,0 +1,24 @@
+id: 66028177-0
+diagnostic: AADE003
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 0
+<<<<<<<< CORRECT >>>>>>>>
+             }
+              }
+          }
+  
+<<<< DIAGNOSTIC: asynchronous 'void' method 'OnEventWritten' missing 'CancellationToken' parameter >>>>
+-         protected override async void OnEventWritten(EventWrittenEventArgs eventData)
++         protected override async void OnEventWritten(EventWrittenEventArgs eventData, CancellationToken cancellationToken)
+          {
+              var sb = new StringBuilder().Append($"{
+<<<<<<<< INFERRED >>>>>>>>
+             }
+              }
+          }
+  
+<<<< DIAGNOSTIC: asynchronous 'void' method 'OnEventWritten' missing 'CancellationToken' parameter >>>>
+-         protected override async void OnEventWritten(EventWrittenEventArgs eventData)
++         protected override async void OnEventWrittenAsync(EventWrittenEventArgs eventData)
+          {
+              var sb = new StringBuilder().Append($"{

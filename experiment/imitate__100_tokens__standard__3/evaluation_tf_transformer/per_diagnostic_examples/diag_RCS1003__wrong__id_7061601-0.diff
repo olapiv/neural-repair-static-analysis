@@ -1,0 +1,25 @@
+id: 7061601-0
+diagnostic: RCS1003
+perc_correct_in_test: 0.3333333333333333
+num_datapoints_in_train: 11
+<<<<<<<< CORRECT >>>>>>>>
+   + 1;
++                     if (n == 1)
++                     {
+<<<< DIAGNOSTIC: add braces to if-else (when expression spans over multiple lines). >>>>
+-                     if (n == 1) return Rnd(latencies[0]);
++                         return Rnd(latencies[0]);
++                     }
++                     else if (n == N)
++                     {
+-                     else if (n == N) return Rnd(latencies[N - 1]);
++                         return Rnd(latencies[N - 1]);
++                     }
+        
+<<<<<<<< INFERRED >>>>>>>>
+   + 1;
++                         {
+<<<< DIAGNOSTIC: add braces to if-else (when expression spans over multiple lines). >>>>
+                      if (n == 1) return Rnd(latencies[0]);
+                      else if (n == N) return Rnd(latencies[N - 1]);
+        

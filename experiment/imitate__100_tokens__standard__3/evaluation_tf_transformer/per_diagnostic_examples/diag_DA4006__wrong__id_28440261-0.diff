@@ -1,0 +1,24 @@
+id: 28440261-0
+diagnostic: DA4006
+perc_correct_in_test: 0.5
+num_datapoints_in_train: 16
+<<<<<<<< CORRECT >>>>>>>>
+     /// <summary>
+          /// Specifies the state of the reader.
++         /// <example></example>
+          /// </summary>
+<<<< DIAGNOSTIC: type 'State' doesn't have example in the comment >>>>
+          protected internal enum State
+          {
+              /// <summary>
+       
+<<<<<<<< INFERRED >>>>>>>>
+     /// <summary>
+          /// Specifies the state of the reader.
++     /// <example></example>
+          /// </summary>
+<<<< DIAGNOSTIC: type 'State' doesn't have example in the comment >>>>
+          protected internal enum State
+          {
+              /// <summary>
+       

@@ -1,0 +1,10 @@
+id: 31669586-1
+diagnostic: WS1000
+perc_correct_in_test: 0.8636363636363636
+num_datapoints_in_train: 55
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+      // Column has no type; wtf are we supposed to do?
+<<<< DIAGNOSTIC: trailing whitespace detected. >>>>
+-                     // This happens w/ SQLite while processing Northwind.db3 for the 
++                     // This happens w/ SQLite while processing Northwind.db3 for the
+                      // 'CustomerandSuppliersbyCity' view,

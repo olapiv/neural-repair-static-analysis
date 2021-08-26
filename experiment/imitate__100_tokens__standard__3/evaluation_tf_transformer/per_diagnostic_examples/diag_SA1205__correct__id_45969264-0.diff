@@ -1,0 +1,18 @@
+id: 45969264-0
+diagnostic: SA1205
+perc_correct_in_test: 1.0
+num_datapoints_in_train: 12
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+  // THE SOFTWARE.
+  // 
+  #endregion
+  
+  namespace DbLinq.Vendor.Implementation
+  {
+<<<< DIAGNOSTIC: partial elements should declare an access modifier >>>>
+-     partial class Vendor
++     public partial class Vendor
+      {
+          /// <summary>
+          /// holds result of a stored proc call

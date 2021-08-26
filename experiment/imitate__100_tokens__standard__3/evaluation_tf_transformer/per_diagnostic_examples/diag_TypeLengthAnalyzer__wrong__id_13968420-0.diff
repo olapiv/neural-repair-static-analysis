@@ -1,0 +1,40 @@
+id: 13968420-0
+diagnostic: TypeLengthAnalyzer
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 2
+<<<<<<<< CORRECT >>>>>>>>
+  
+  using DbLinq.Util;
+  
+  #if MONO_STRICT
+  namespace System.Data.Linq.Mapping
+  #else
+  namespace DbLinq.Data.Linq.Mapping
+  #endif
++     [TypeHasDebt(LineCount = 1060, FieldCount = 80)]
+  {
+<<<< DIAGNOSTIC: type xmlmappingsource is 1060 lines long while it should not be longer than 1000 lines. >>>>
+      public sealed class XmlMappingSource : System.Data.Linq.Mapping.MappingSource
+      {
+          DbmlDatabase db;
+  
+          XmlMappingSource(XmlReader reader)
+    
+<<<<<<<< INFERRED >>>>>>>>
+  
+  using DbLinq.Util;
+  
+  #if MONO_STRICT
+  namespace System.Data.Linq.Mapping
+  #else
+  namespace DbLinq.Data.Linq.Mapping
+  #endif
++     [MethodHasDebt(LineCount = 68999, ParameterCount = 0)]
+  {
+<<<< DIAGNOSTIC: type xmlmappingsource is 1060 lines long while it should not be longer than 1000 lines. >>>>
+      public sealed class XmlMappingSource : System.Data.Linq.Mapping.MappingSource
+      {
+          DbmlDatabase db;
+  
+          XmlMappingSource(XmlReader reader)
+    

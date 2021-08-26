@@ -1,0 +1,13 @@
+id: 81509287-0
+diagnostic: SA1212
+perc_correct_in_test: 1.0
+num_datapoints_in_train: 1
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+          /// </summary>
+          /// <value>The connection.</value>
+<<<< DIAGNOSTIC: a get accessor appears after a set accessor within a property or indexer >>>>
+-         IDbConnection Connection { set; get; }
++         IDbConnection Connection { get; set; }
+          // 2. create our own
+          /// <summary>
+       

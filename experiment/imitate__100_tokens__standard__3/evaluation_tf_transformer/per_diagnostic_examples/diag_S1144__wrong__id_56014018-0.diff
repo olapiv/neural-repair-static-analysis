@@ -1,0 +1,26 @@
+id: 56014018-0
+diagnostic: S1144
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 4
+<<<<<<<< CORRECT >>>>>>>>
+  ;
+-             }
+<<<< DIAGNOSTIC: remove the unused private set accessor in property 'Log'. >>>>
+-             set 
+-             { 
+-                 log = value; 
+              }
+          }
+  
+       
+<<<<<<<< INFERRED >>>>>>>>
+  ;
+              }
+<<<< DIAGNOSTIC: remove the unused private set accessor in property 'Log'. >>>>
+-             set 
+              { 
+                  log = value; 
+              }
+          }
+  
+       

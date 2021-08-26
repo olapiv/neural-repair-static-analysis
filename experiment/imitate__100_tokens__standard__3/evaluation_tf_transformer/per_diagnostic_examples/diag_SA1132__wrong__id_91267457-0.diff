@@ -1,0 +1,30 @@
+id: 91267457-0
+diagnostic: SA1132
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 3
+<<<<<<<< CORRECT >>>>>>>>
+  the flat list</summary>
+  		internal SharpTreeNode listParent;
+  		/// <summary>Left/right nodes in the flat list</summary>
++ 		SharpTreeNode left;
++ 		/// <summary>Left/right nodes in the flat list</summary>
+<<<< DIAGNOSTIC: each field should be declared on its own line >>>>
+- 		SharpTreeNode left, right;
++ 		SharpTreeNode right;
+  
+  		internal TreeFlattener treeFlattener;
+  
+  		/// <summary>Subtree height in the flat list tree</summary>
+  		byte height = 
+<<<<<<<< INFERRED >>>>>>>>
+  the flat list</summary>
+  		internal SharpTreeNode listParent;
+  		/// <summary>Left/right nodes in the flat list</summary>
+<<<< DIAGNOSTIC: each field should be declared on its own line >>>>
+- 		SharpTreeNode left, right;
++ 		internal sealed class TreeFlattener : IList, INotifyCollectionChanged
+  
+  		internal TreeFlattener treeFlattener;
+  
+  		/// <summary>Subtree height in the flat list tree</summary>
+  		byte height = 

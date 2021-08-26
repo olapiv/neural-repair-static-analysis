@@ -1,0 +1,30 @@
+id: 67429503-0
+diagnostic: AnalyzerFinal2
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 9
+<<<<<<<< CORRECT >>>>>>>>
+  License, Version 2.0. See License.txt in the project root for license information.
+  
+  
+  namespace Microsoft.AspNet.SignalR.Utils
+  {
+<<<< DIAGNOSTIC: type name 'ICommand' contains lowercase letters >>>>
+-     internal interface ICommand
++     internal interface ICOMMAND
+      {
+          string DisplayName { get; }
+          string Help { get; }
+   
+<<<<<<<< INFERRED >>>>>>>>
+  License, Version 2.0. See License.txt in the project root for license information.
+  
+  
+  namespace Microsoft.AspNet.SignalR.Utils
+  {
+<<<< DIAGNOSTIC: type name 'ICommand' contains lowercase letters >>>>
+-     internal interface ICommand
++     internal class GVFLTCALLBACKS
+      {
+          string DisplayName { get; }
+          string Help { get; }
+   

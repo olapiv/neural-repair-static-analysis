@@ -1,0 +1,28 @@
+id: 78897091-0
+diagnostic: RCS1170
+perc_correct_in_test: 0.6875
+num_datapoints_in_train: 26
+<<<<<<<< CORRECT >>>>>>>>
+  : MutableExpression
+      {
+          public const ExpressionType ExpressionType = (ExpressionType)CustomExpressionType.InputParameter;
+  
+<<<< DIAGNOSTIC: use read-only auto-implemented property. >>>>
+-         public Expression Expression { get; private set; }
++         public Expression Expression { get; }
+  
+          public string Alias { get; set; }
+  
+          private readonly
+<<<<<<<< INFERRED >>>>>>>>
+  : MutableExpression
+      {
+          public const ExpressionType ExpressionType = (ExpressionType)CustomExpressionType.InputParameter;
+  
+<<<< DIAGNOSTIC: use read-only auto-implemented property. >>>>
+-         public Expression Expression { get; private set; }
++         public string Alias { get; }
+  
+          public string Alias { get; set; }
+  
+          private readonly

@@ -1,0 +1,32 @@
+id: 90690610-0
+diagnostic: NoSingleSpaceAfterTripleSlash
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 0
+<<<<<<<< CORRECT >>>>>>>>
+      string GetSafeQuery(string sqlString);
+  
+<<<< DIAGNOSTIC: a single white space is needed after '///' >>>>
+-         ///<summary>
++         /// <summary>
+<<<< DIAGNOSTIC: a single white space is needed after '///' >>>>
+-         ///Returns a SqlStatement with a conversion of an expression(value) to a type(newType)
++         /// Returns a SqlStatement with a conversion of an expression(value) to a type(newType)
+<<<< DIAGNOSTIC: a single white space is needed after '///' >>>>
+-         ///</summary>
++         /// </summary>
+          /// <example>
+   
+<<<<<<<< INFERRED >>>>>>>>
+      string GetSafeQuery(string sqlString);
+  
+<<<< DIAGNOSTIC: a single white space is needed after '///' >>>>
+-         ///<summary>
++         // <summary>
+<<<< DIAGNOSTIC: a single white space is needed after '///' >>>>
+-         ///Returns a SqlStatement with a conversion of an expression(value) to a type(newType)
++         // Returns a SqlStatement with a conversion of an expression(value) to a type(newType)
+<<<< DIAGNOSTIC: a single white space is needed after '///' >>>>
+-         ///</summary>
++         /// </summary>
+          /// <example>
+   

@@ -1,0 +1,16 @@
+id: 69076929-2
+diagnostic: SA1411
+perc_correct_in_test: 1.0
+num_datapoints_in_train: 2
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+             }
+          }
+  
+          /// <remarks/>
+<<<< DIAGNOSTIC: attribute constructor should not use unnecessary parenthesis >>>>
+-         [System.Xml.Serialization.XmlAttributeAttribute()]
++         [System.Xml.Serialization.XmlAttributeAttribute]
+          public string EntityNamespace
+          {
+              get
+    

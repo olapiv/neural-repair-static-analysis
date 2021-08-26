@@ -1,0 +1,16 @@
+id: 41318594-2
+diagnostic: mmlajPublicFieldAnalyzer
+perc_correct_in_test: 0.4
+num_datapoints_in_train: 58
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+   Timestamp;
+          public DateTime FirstTimestamp;
+          public Uri RemoteUrl;
+  
+<<<< DIAGNOSTIC: declaration is public. (add static / replace it with private) (mmlaj) >>>>
+-         public List<Change> Changes = new List<Change> ();
++         private List<Change> Changes = new List<Change> ();
+  
+          public string ToMessage ()
+          {
+         

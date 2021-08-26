@@ -1,0 +1,14 @@
+id: 75923248-0
+diagnostic: VSD0007
+perc_correct_in_test: 0.6666666666666666
+num_datapoints_in_train: 9
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+            return ExtractWordsFromCaseAndLanguage(words, dbName);
+              default:
+<<<< DIAGNOSTIC: the variable extraction is used in an argumentexception as string. consider using the nameof operator instead. >>>>
+-                 throw new ArgumentOutOfRangeException("extraction");
++                 throw new ArgumentOutOfRangeException(nameof(extraction));
+              }
+          }
+  
+          /// 

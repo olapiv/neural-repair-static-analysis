@@ -1,0 +1,19 @@
+id: 67816918-0
+diagnostic: GU0073
+perc_correct_in_test: 0.2545454545454545
+num_datapoints_in_train: 135
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  {
+      internal struct Xyz
+      {
+<<<< DIAGNOSTIC: member x of non-public type xyz should be internal. >>>>
+-         public double X { get; }
++         internal double X { get; }
+<<<< DIAGNOSTIC: member y of non-public type xyz should be internal. >>>>
+-         public double Y { get; }
++         internal double Y { get; }
+<<<< DIAGNOSTIC: member z of non-public type xyz should be internal. >>>>
+-         public double Z { get; }
++         internal double Z { get; }
+  
+          public Xyz(double x, double

@@ -1,0 +1,13 @@
+id: 77645711-1
+diagnostic: DTA001
+perc_correct_in_test: 0.631578947368421
+num_datapoints_in_train: 47
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  = new byte [4096];
+                  int bytes_read = 0;
+<<<< DIAGNOSTIC: advertencia! consider replacing with datetimeoffset >>>>
+-                 this.last_ping = DateTime.Now;
++                 this.last_ping = DateTimeOffset.Now;
+  
+                  // Wait for messages
+              

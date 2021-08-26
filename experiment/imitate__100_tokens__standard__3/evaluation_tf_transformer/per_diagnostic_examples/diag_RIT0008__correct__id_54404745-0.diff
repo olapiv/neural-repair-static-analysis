@@ -1,0 +1,13 @@
+id: 54404745-0
+diagnostic: RIT0008
+perc_correct_in_test: 0.45652173913043476
+num_datapoints_in_train: 124
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  IList<Expression> operands)
+              : base(expressionType, type)
+          {
+<<<< DIAGNOSTIC: 'operands null null' check should be written as 'operandsisnull', the == operator could be (incorrectly) overloaded >>>>
+-             if(operands==null)
++             if(operands is null)
+                  operands = new Expression[0];
+              this

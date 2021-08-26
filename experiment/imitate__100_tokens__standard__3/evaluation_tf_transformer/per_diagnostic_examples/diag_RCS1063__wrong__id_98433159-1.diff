@@ -1,0 +1,24 @@
+id: 98433159-1
+diagnostic: RCS1063
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 1
+<<<<<<<< CORRECT >>>>>>>>
+  ;
+              var estSize = 4096;
+              int size;
+<<<< DIAGNOSTIC: use while statement to create an infinite loop. >>>>
+-             do
++             while (true)
+              {
+                  buf = _writer.GetMemory(estSize);
+   
+<<<<<<<< INFERRED >>>>>>>>
+  ;
+              var estSize = 4096;
+              int size;
+<<<< DIAGNOSTIC: use while statement to create an infinite loop. >>>>
+-             do
++                 if (size != null)
+              {
+                  buf = _writer.GetMemory(estSize);
+   

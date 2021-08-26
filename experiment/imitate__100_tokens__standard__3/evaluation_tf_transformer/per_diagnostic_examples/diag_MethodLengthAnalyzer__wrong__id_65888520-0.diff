@@ -1,0 +1,24 @@
+id: 65888520-0
+diagnostic: MethodLengthAnalyzer
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 42
+<<<<<<<< CORRECT >>>>>>>>
+             //  throw new NotImplementedException();
+          }
+  #endif
++         [MethodHasDebt(LineCount = 58, ParameterCount = 2)]
+  
+<<<< DIAGNOSTIC: method readcolumns is 58 lines long while it should not be longer than 50 lines. >>>>
+          protected override IList<IDataTableColumn> ReadColumns(IDbConnection connection, string databaseName)
+          {
+              var db = (DbConnection) connection;
+<<<<<<<< INFERRED >>>>>>>>
+             //  throw new NotImplementedException();
+          }
+  #endif
++         [MethodHasDebt(LineCount = 84, ParameterCount = 2)]
+  
+<<<< DIAGNOSTIC: method readcolumns is 58 lines long while it should not be longer than 50 lines. >>>>
+          protected override IList<IDataTableColumn> ReadColumns(IDbConnection connection, string databaseName)
+          {
+              var db = (DbConnection) connection;

@@ -1,0 +1,13 @@
+id: 92638186-2
+diagnostic: DA3006
+perc_correct_in_test: 0.8695652173913043
+num_datapoints_in_train: 47
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+         /// Create a typed message from a raw MQ Response artefact
++         /// <returns></returns>
+          /// </summary>
+<<<< DIAGNOSTIC: method 'CreateMessage' doesn't have /// returns in comment >>>>
+          IMessage<T> CreateMessage<T>(object mqResponse);
+  
+          /// <summary>
+          /// Create a

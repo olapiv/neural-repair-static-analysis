@@ -1,0 +1,14 @@
+id: 81551704-2
+diagnostic: SA1010
+perc_correct_in_test: 1.0
+num_datapoints_in_train: 5
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  ";
+<<<< DIAGNOSTIC: opening square brackets should not be preceded by a space. >>>>
+<<<< DIAGNOSTIC: opening square brackets should not be preceded by a space. >>>>
+- 		static readonly System.Reflection.MethodInfo toBinHexStringMethod = typeof (XmlConvert).GetMethod ("ToBinHexString", System.Reflection.BindingFlags.Static | System.Reflection.BindingFlags.NonPublic, null, new System.Type [] {typeof (byte [])}, null);
++ 		static readonly System.Reflection.MethodInfo toBinHexStringMethod = typeof (XmlConvert).GetMethod ("ToBinHexString", System.Reflection.BindingFlags.Static | System.Reflection.BindingFlags.NonPublic, null, new System.Type[] {typeof (byte[])}, null);
+<<<< DIAGNOSTIC: opening square brackets should not be preceded by a space. >>>>
+- 		static string ToBinHexString (byte [] input)
++ 		static string ToBinHexString (byte[] input)
+  		{

@@ -1,0 +1,29 @@
+id: 96895251-0
+diagnostic: IDISP004
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 1
+<<<<<<<< CORRECT >>>>>>>>
+  (ssh_config_path))
+                      Directory.CreateDirectory (ssh_config_path);
+  
+<<<< DIAGNOSTIC: don't ignore created idisposable. >>>>
+-                 File.Create (known_hosts_file_path).Close ();
++                 using (File.Create (known_hosts_file_path).Close ())
++                 {
++                 }
+              }
+  
+              string host     
+<<<<<<<< INFERRED >>>>>>>>
+  (ssh_config_path))
+                      Directory.CreateDirectory (ssh_config_path);
+  
+<<<< DIAGNOSTIC: don't ignore created idisposable. >>>>
+-                 File.Create (known_hosts_file_path).Close ();
++             {
++                     {
++                                                  {
++                     }
+              }
+  
+              string host     

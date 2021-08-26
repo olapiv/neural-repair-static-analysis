@@ -1,0 +1,24 @@
+id: 39383092-1
+diagnostic: FS0126
+perc_correct_in_test: 0.4444444444444444
+num_datapoints_in_train: 19
+<<<<<<<< CORRECT >>>>>>>>
+  ProcessMessagesAsync()
+          {
+              await Task.Yield();
+- 
+<<<< DIAGNOSTIC: try catch syntax is discouraged. >>>>
+-             try
+-             {
+                  int i = 0;
+             
+<<<<<<<< INFERRED >>>>>>>>
+  ProcessMessagesAsync()
+          {
+              await Task.Yield();
+- 
+<<<< DIAGNOSTIC: try catch syntax is discouraged. >>>>
+-             try
+              {
+                  int i = 0;
+             

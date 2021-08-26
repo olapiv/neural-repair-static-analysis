@@ -1,0 +1,20 @@
+id: 52158635-0
+diagnostic: SA1025
+perc_correct_in_test: 0.3333333333333333
+num_datapoints_in_train: 28
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  using System.Reflection;
+  using System.Reflection.Emit;
+  
+  #if MONO_STRICT
+  using AttributeMappingSource  = System.Data.Linq.Mapping.AttributeMappingSource;
+  #else
+<<<< DIAGNOSTIC: code should not contain multiple whitespace characters in a row >>>>
+- using AttributeMappingSource  = DbLinq.Data.Linq.Mapping.AttributeMappingSource;
++ using AttributeMappingSource = DbLinq.Data.Linq.Mapping.AttributeMappingSource;
+  #endif
+  
+  using DbLinq;
+  using DbLinq.Data.Linq;
+  using DbLinq.Data.Linq.Database;
+  using DbLinq.Data.Linq.Database.Implementation;

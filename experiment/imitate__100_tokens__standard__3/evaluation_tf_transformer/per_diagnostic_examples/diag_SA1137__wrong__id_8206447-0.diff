@@ -1,0 +1,43 @@
+id: 8206447-0
+diagnostic: SA1137
+perc_correct_in_test: 0.2222222222222222
+num_datapoints_in_train: 26
+<<<<<<<< CORRECT >>>>>>>>
+   InitCallbacks ()
+  		{
+  		}
+  
+  		protected override void InitIDs ()
+  		{
+  		}
+  
+  	}
+  
+  	#if !MONO_STRICT
+<<<< DIAGNOSTIC: elements should have the same indentation >>>>
+-     public
++ 	public
+      #endif
+  	class GeneratedWriter : XmlSerializationWriter
+  	{
+  		const string xmlNamespace = "http://www.w3.org/2000/xmlns/"
+<<<<<<<< INFERRED >>>>>>>>
+   InitCallbacks ()
+  		{
+  		}
+  
+  		protected override void InitIDs ()
+  		{
+  		}
+  
+  	}
+  
+- 	#if !MONO_STRICT
+<<<< DIAGNOSTIC: elements should have the same indentation >>>>
+-     public
++ #endif
++     class GeneratedWriter : XmlSerializationWriter
+      #endif
+  	class GeneratedWriter : XmlSerializationWriter
+  	{
+  		const string xmlNamespace = "http://www.w3.org/2000/xmlns/"

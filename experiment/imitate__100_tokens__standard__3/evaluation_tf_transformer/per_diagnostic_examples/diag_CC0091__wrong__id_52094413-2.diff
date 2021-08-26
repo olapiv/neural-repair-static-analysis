@@ -1,0 +1,26 @@
+id: 52094413-2
+diagnostic: CC0091
+perc_correct_in_test: 0.25
+num_datapoints_in_train: 26
+<<<<<<<< CORRECT >>>>>>>>
+          return this.ToList();
+          }
+  
+          [DbLinqToDo]
+<<<< DIAGNOSTIC: make 'GetOriginalEntityState' method static. >>>>
+-         public TEntity GetOriginalEntityState(TEntity entity)
++         public static TEntity GetOriginalEntityState(TEntity entity)
+          {
+              if (entity == null)
+           
+<<<<<<<< INFERRED >>>>>>>>
+          return this.ToList();
+          }
+  
+          [DbLinqToDo]
+<<<< DIAGNOSTIC: make 'GetOriginalEntityState' method static. >>>>
+-         public TEntity GetOriginalEntityState(TEntity entity)
++         public static class Table<TEntity> entity
+          {
+              if (entity == null)
+           

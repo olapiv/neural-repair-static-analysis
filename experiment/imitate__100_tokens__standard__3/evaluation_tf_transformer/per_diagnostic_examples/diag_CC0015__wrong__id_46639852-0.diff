@@ -1,0 +1,20 @@
+id: 46639852-0
+diagnostic: CC0015
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 5
+<<<<<<<< CORRECT >>>>>>>>
+        DateTime last_poll            = DateTime.Now;
+<<<< DIAGNOSTIC: remove unnecessary parenthesis. >>>>
+-         Timers.Timer remote_timer     = new Timers.Timer () { Interval = 5000 };
++         Timers.Timer remote_timer     = new Timers.Timer  { Interval = 5000 };
+          DisconnectReason last_disconnect_reason = DisconnectReason.None;
+  
+          bool
+<<<<<<<< INFERRED >>>>>>>>
+        DateTime last_poll            = DateTime.Now;
+<<<< DIAGNOSTIC: remove unnecessary parenthesis. >>>>
+-         Timers.Timer remote_timer     = new Timers.Timer () { Interval = 5000 };
++                 Console.WriteLine("{3});
+          DisconnectReason last_disconnect_reason = DisconnectReason.None;
+  
+          bool

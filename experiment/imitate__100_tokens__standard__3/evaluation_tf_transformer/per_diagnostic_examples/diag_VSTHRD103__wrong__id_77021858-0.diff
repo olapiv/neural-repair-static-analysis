@@ -1,0 +1,20 @@
+id: 77021858-0
+diagnostic: VSTHRD103
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 1
+<<<<<<<< CORRECT >>>>>>>>
+  (config.RunMode & RunMode.both) == 0)
+              {
+<<<< DIAGNOSTIC: writeline synchronously blocks. await writelineasync instead. >>>>
+-                 Console.Error.WriteLine("Must specify a valid run mode");
++                 await Console.Error.WriteLineAsync("Must specify a valid run mode");
+                  return ExitCode.CliError;
+          
+<<<<<<<< INFERRED >>>>>>>>
+  (config.RunMode & RunMode.both) == 0)
+              {
+<<<< DIAGNOSTIC: writeline synchronously blocks. await writelineasync instead. >>>>
+-                 Console.Error.WriteLine("Must specify a valid run mode");
++             await string.WhenAll(t1, t2).ConfigureAwait(false);
+                  return ExitCode.CliError;
+          

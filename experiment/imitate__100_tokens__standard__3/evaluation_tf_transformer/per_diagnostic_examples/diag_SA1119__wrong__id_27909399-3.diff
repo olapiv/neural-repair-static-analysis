@@ -1,0 +1,18 @@
+id: 27909399-3
+diagnostic: SA1119
+perc_correct_in_test: 0.25
+num_datapoints_in_train: 17
+<<<<<<<< CORRECT >>>>>>>>
+   == typeof(DbLinq.Schema.Dbml.Return)) {
+<<<< DIAGNOSTIC: statement should not use unnecessary parenthesis >>>>
+- 						WriteObject_Return (((DbLinq.Schema.Dbml.Return) ob.@Items[n30]), "Return", "http://schemas.microsoft.com/linqtosql/dbml/2007", false, false, true);
++ 						WriteObject_Return ((DbLinq.Schema.Dbml.Return) ob.@Items[n30], "Return", "http://schemas.microsoft.com/linqtosql/dbml/2007", false, false, true);
+  					}
+  					else if (
+<<<<<<<< INFERRED >>>>>>>>
+   == typeof(DbLinq.Schema.Dbml.Return)) {
+<<<< DIAGNOSTIC: statement should not use unnecessary parenthesis >>>>
+- 						WriteObject_Return (((DbLinq.Schema.Dbml.Return) ob.@Items[n30]), "Return", "http://schemas.microsoft.com/linqtosql/dbml/2007", false, false, true);
++ 						WriteObject_Return ((DbLinq.Schema.Dbml.Return)ob.@Items[n30], "Return", "http://schemas.microsoft.com/linqtosql/dbml/2007", false, false, true);
+  					}
+  					else if (

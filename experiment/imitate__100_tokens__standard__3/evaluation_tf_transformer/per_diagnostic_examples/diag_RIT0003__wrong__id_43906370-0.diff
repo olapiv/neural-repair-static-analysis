@@ -1,0 +1,35 @@
+id: 43906370-0
+diagnostic: RIT0003
+perc_correct_in_test: 0.2
+num_datapoints_in_train: 21
+<<<<<<<< CORRECT >>>>>>>>
+    event ResultUpdatedEventHandler ResultsUpdated;
+      }
+  
+      public delegate void ResultUpdatedEventHandler(IResultUpdated sender, ResultUpdatedEventArgs e);
+  
+      public class ResultUpdatedEventArgs : EventArgs
+      {
+<<<< DIAGNOSTIC: non private field 'Results' is not alloweded, use auto property instead >>>>
+-         public List<Result> Results;
++         public List<Result> Results { get; set; }
++ 
+<<<< DIAGNOSTIC: non private field 'Query' is not alloweded, use auto property instead >>>>
+-         public Query Query;
++         public Query Query { get; set; }
+      }
+  }
+<<<<<<<< INFERRED >>>>>>>>
+    event ResultUpdatedEventHandler ResultsUpdated;
+      }
+  
+      public delegate void ResultUpdatedEventHandler(IResultUpdated sender, ResultUpdatedEventArgs e);
+  
+      public class ResultUpdatedEventArgs : EventArgs
+      {
+<<<< DIAGNOSTIC: non private field 'Results' is not alloweded, use auto property instead >>>>
+          public List<Result> Results;
+<<<< DIAGNOSTIC: non private field 'Query' is not alloweded, use auto property instead >>>>
+          public Query Query;
+      }
+  }

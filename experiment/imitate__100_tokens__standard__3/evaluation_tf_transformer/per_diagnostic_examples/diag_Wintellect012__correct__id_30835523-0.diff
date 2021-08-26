@@ -1,0 +1,19 @@
+id: 30835523-0
+diagnostic: Wintellect012
+perc_correct_in_test: 0.8918918918918919
+num_datapoints_in_train: 99
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  Generic;
+  using System.Linq.Expressions;
+  
+  using DbLinq.Data.Linq.Sugar.Expressions;
+  
+  namespace DbLinq.Data.Linq.Sugar.ExpressionMutator.Implementation
+  {
+<<<< DIAGNOSTIC: the class 'ParameterExpressionMutator' should be declared sealed if this is a newly written class >>>>
+-     internal class ParameterExpressionMutator : IMutableExpression
++     internal sealed class ParameterExpressionMutator : IMutableExpression
+      {
+          protected ParameterExpression ParameterExpression { get; private set; }
+  
+          public 

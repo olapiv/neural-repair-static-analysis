@@ -1,0 +1,26 @@
+id: 10881539-1
+diagnostic: SA1003
+perc_correct_in_test: 0.625
+num_datapoints_in_train: 18
+<<<<<<<< CORRECT >>>>>>>>
+     {
+              return (int) ExitCode.CliError;
+          }
+  
+<<<< DIAGNOSTIC: operator '(int)' should not be followed by whitespace. >>>>
+-         return (int) await Run(config);
++         return (int)await Run(config);
+      }
+  
+      private static bool TryParseCli(string[] args, [NotNullWhen(true)] out Configuration? config
+<<<<<<<< INFERRED >>>>>>>>
+     {
+              return (int) ExitCode.CliError;
+          }
+  
+<<<< DIAGNOSTIC: operator '(int)' should not be followed by whitespace. >>>>
+-         return (int) await Run(config);
++             return (int)ExitCode.CliError;
+      }
+  
+      private static bool TryParseCli(string[] args, [NotNullWhen(true)] out Configuration? config

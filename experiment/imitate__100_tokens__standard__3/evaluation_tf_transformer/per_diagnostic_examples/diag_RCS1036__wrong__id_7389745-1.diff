@@ -1,0 +1,24 @@
+id: 7389745-1
+diagnostic: RCS1036
+perc_correct_in_test: 0.7368421052631579
+num_datapoints_in_train: 36
+<<<<<<<< CORRECT >>>>>>>>
+          }
+              else
+                  throw new ArgumentException();
+<<<< DIAGNOSTIC: remove redundant empty line. >>>>
+- 
+          }
+  
+          protected virtual Expression AnalyzeToString(MethodInfo method, IList<Expression> parameters, BuilderContext builderContext)
+       
+<<<<<<<< INFERRED >>>>>>>>
+          }
+              else
+                  throw new ArgumentException();
+<<<< DIAGNOSTIC: remove redundant empty line. >>>>
+- 
+-         }
+- 
+-         protected virtual Expression AnalyzeToString(MethodInfo method, IList<Expression> parameters, BuilderContext builderContext)
+-      

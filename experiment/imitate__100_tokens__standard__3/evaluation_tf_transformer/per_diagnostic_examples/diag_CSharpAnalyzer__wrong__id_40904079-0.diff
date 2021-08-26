@@ -1,0 +1,34 @@
+id: 40904079-0
+diagnostic: CSharpAnalyzer
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 11
+<<<<<<<< CORRECT >>>>>>>>
+  
+  using System.Web.UI.WebControls;
+  using System.Web.UI.HtmlControls;
+  using System.Diagnostics;
+  
+  	[Themeable (true)]
+<<<< DIAGNOSTIC: type name 'MyParent' contains lowercase letters >>>>
+- 	public partial class MyParent : System.Web.UI.UserControl
++ 	public partial class MYPARENT : System.Web.UI.UserControl
+  	{
+  		protected override void OnInit (EventArgs e)
+  		{
+  			Debug.WriteLine ("parent.OnInit");
+  		
+<<<<<<<< INFERRED >>>>>>>>
+  
+  using System.Web.UI.WebControls;
+  using System.Web.UI.HtmlControls;
+  using System.Diagnostics;
+  
+  	[Themeable (true)]
+<<<< DIAGNOSTIC: type name 'MyParent' contains lowercase letters >>>>
+- 	public partial class MyParent : System.Web.UI.UserControl
++ 	public class MyParent : System.Web.UI.UserControl
+  	{
+  		protected override void OnInit (EventArgs e)
+  		{
+  			Debug.WriteLine ("parent.OnInit");
+  		

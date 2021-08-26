@@ -1,0 +1,22 @@
+id: 53414074-0
+diagnostic: DA4005
+perc_correct_in_test: 0.7142857142857143
+num_datapoints_in_train: 11
+<<<<<<<< CORRECT >>>>>>>>
+  satisfies the condition,
+      /// then the execution continues. Otherwise, execution is assumed to be halted.
++     /// <remarks></remarks>
+      /// </summary>
+<<<< DIAGNOSTIC: type 'AssertionConditionType' doesn't have remark in the comment >>>>
+      internal enum AssertionConditionType
+      {
+          /// <summary>Marked parameter should be evaluated to true.</summary>
+<<<<<<<< INFERRED >>>>>>>>
+  satisfies the condition,
+      /// then the execution continues. Otherwise, execution is assumed to be halted.
++         /// <remarks></remarks>
+      /// </summary>
+<<<< DIAGNOSTIC: type 'AssertionConditionType' doesn't have remark in the comment >>>>
+      internal enum AssertionConditionType
+      {
+          /// <summary>Marked parameter should be evaluated to true.</summary>

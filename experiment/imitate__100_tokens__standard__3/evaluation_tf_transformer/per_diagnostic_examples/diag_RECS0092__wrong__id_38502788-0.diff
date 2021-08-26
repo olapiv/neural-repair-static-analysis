@@ -1,0 +1,26 @@
+id: 38502788-0
+diagnostic: RECS0092
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 1
+<<<<<<<< CORRECT >>>>>>>>
+  <byte> Data;
+          private readonly int tagLength;
+          private readonly ICrypto aead;
+<<<< DIAGNOSTIC: convert field to readonly >>>>
+-         private Memory<byte> nonce;
++         private readonly Memory<byte> nonce;
+  
+          private int expectedDataLength;
+  
+          public AeadBlockMessage(ICrypto aead, Memory<byte> nonce,
+<<<<<<<< INFERRED >>>>>>>>
+  <byte> Data;
+          private readonly int tagLength;
+          private readonly ICrypto aead;
+<<<< DIAGNOSTIC: convert field to readonly >>>>
+-         private Memory<byte> nonce;
++         private readonly Int32 tagLength;
+  
+          private int expectedDataLength;
+  
+          public AeadBlockMessage(ICrypto aead, Memory<byte> nonce,

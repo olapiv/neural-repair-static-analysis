@@ -1,0 +1,12 @@
+id: 21834541-0
+diagnostic: CA1822
+perc_correct_in_test: 0.3333333333333333
+num_datapoints_in_train: 30
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  .</param>
+          /// <param name="value">The value.</param>
+<<<< DIAGNOSTIC: member 'AppendConnectionString' does not access instance data and can be marked as static >>>>
+-         protected void AppendConnectionString(StringBuilder connectionString, string name, string value)
++         protected static void AppendConnectionString(StringBuilder connectionString, string name, string value)
+          {
+              if (!string.IsNullOrEmpty(value) && !

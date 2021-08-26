@@ -1,0 +1,18 @@
+id: 78629785-0
+diagnostic: SA1012
+perc_correct_in_test: 0.5
+num_datapoints_in_train: 6
+<<<<<<<< CORRECT >>>>>>>>
+        if (string.IsNullOrEmpty(name))
+                  return name;
+<<<< DIAGNOSTIC: opening brace should be preceded by a space >>>>
+-             var quotes = new[]{
++             var quotes = new[] {
+                  new { Start = "[",  End = "]" }
+<<<<<<<< INFERRED >>>>>>>>
+        if (string.IsNullOrEmpty(name))
+                  return name;
+<<<< DIAGNOSTIC: opening brace should be preceded by a space >>>>
+-             var quotes = new[]{
++                     {
+                  new { Start = "[",  End = "]" }

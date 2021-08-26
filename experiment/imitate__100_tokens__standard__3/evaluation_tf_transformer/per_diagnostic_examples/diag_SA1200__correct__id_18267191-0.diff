@@ -1,0 +1,25 @@
+id: 18267191-0
+diagnostic: SA1200
+perc_correct_in_test: 0.17391304347826086
+num_datapoints_in_train: 61
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  .
+  // The .NET Foundation licenses this file to you under the MIT license.
+- 
+<<<< DIAGNOSTIC: using directive should appear within a namespace declaration >>>>
+- using System;
+<<<< DIAGNOSTIC: using directive should appear within a namespace declaration >>>>
+- using System.Linq;
+<<<< DIAGNOSTIC: using directive should appear within a namespace declaration >>>>
+- using System.Runtime.ExceptionServices;
+<<<< DIAGNOSTIC: using directive should appear within a namespace declaration >>>>
+- using System.Threading;
+<<<< DIAGNOSTIC: using directive should appear within a namespace declaration >>>>
+- using System.Threading.Tasks;
+  
+  namespace SslStress.Utils
+  {
+      public static class StressTaskExtensions
+      {
+  
+      

@@ -1,0 +1,12 @@
+id: 37337419-0
+diagnostic: CS0002
+perc_correct_in_test: 0.6666666666666666
+num_datapoints_in_train: 16
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  
+          public static string ToPrettyDate (this DateTime timestamp)
+          {
+<<<< DIAGNOSTIC: use datetime.utcnow instead of datetime.now >>>>
+-             TimeSpan time_diff = DateTime.Now.Subtract (timestamp);
++             TimeSpan time_diff = DateTime.UtcNow.Subtract (timestamp);
+              var day_diff = (int) time_diff.TotalDays;          

@@ -1,0 +1,14 @@
+id: 21959743-3
+diagnostic: SA1515
+perc_correct_in_test: 0.9473684210526315
+num_datapoints_in_train: 77
+<<<<<<<< CORRECT >>>>>>>>
++ 
+                      ExpressionTier tier = ExpressionQualifier.GetTier(toParse);
+<<<< DIAGNOSTIC: single-line comment should be preceded by blank line >>>>
+                      //pibgeus: I would like to call to the expression optimizer since the exception must be thrown if the expression cannot be executed
+<<<<<<<< INFERRED >>>>>>>>
+                      ExpressionTier tier = ExpressionQualifier.GetTier(toParse);
++ 
+<<<< DIAGNOSTIC: single-line comment should be preceded by blank line >>>>
+                      //pibgeus: I would like to call to the expression optimizer since the exception must be thrown if the expression cannot be executed

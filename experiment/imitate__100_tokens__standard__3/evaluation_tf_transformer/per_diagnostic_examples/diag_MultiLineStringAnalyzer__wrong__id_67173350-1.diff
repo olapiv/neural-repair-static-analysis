@@ -1,0 +1,28 @@
+id: 67173350-1
+diagnostic: MultiLineStringAnalyzer
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 4
+<<<<<<<< CORRECT >>>>>>>>
+  '%'));";
+  
+<<<< DIAGNOSTIC: use environment.newline explicitly >>>>
+-             const string both_wildcards = @"
++             const string both_wildcards = ""
+- SELECT * FROM #users16726709
++ + Environment.NewLine + "SELECT * FROM #users16726709"
+- WHERE (first_name LIKE CONCAT('%', @search_term, '%') OR last_name LIKE CONCAT('%', @search_term, '%'));";
++ + Environment.NewLine + "WHERE (first_name LIKE CONCAT('%', @search_term, '%') OR last_name LIKE CONCAT('%', @search_term, '%'));";
+  
+           
+<<<<<<<< INFERRED >>>>>>>>
+  '%'));";
+  
+<<<< DIAGNOSTIC: use environment.newline explicitly >>>>
+-             const string both_wildcards = @"
++             const string end_wildcard = ""
+- SELECT * FROM #users16726709
++ + Environment.NewLine + "SELECT * FROM #users16726709"
+- WHERE (first_name LIKE CONCAT('%', @search_term, '%') OR last_name LIKE CONCAT('%', @search_term, '%'));";
++ + Environment.NewLine + "WHERE (first_name LIKE CONCAT(@search_term, '%') OR last_name LIKE CONCAT(@search_term, '%'));";
+  
+           

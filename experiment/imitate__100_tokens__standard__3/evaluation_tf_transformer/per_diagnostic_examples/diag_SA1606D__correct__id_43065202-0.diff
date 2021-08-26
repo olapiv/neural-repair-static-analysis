@@ -1,0 +1,22 @@
+id: 43065202-0
+diagnostic: SA1606D
+perc_correct_in_test: 0.09090909090909091
+num_datapoints_in_train: 212
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  System;
+  using System.Collections.Generic;
+  using System.Linq;
+  using DbLinq.Schema;
+  using DbLinq.Schema.Dbml;
+  
+  namespace DbLinq.Vendor.Implementation
++     /// <summary>
++     /// schema loader.
++     /// </summary>
+  {
+<<<< DIAGNOSTIC: class documentation: no documentation. >>>>
+      partial class SchemaLoader
+      {
+          /// <summary>
+          /// Gets the primary keys.
+     

@@ -1,0 +1,18 @@
+id: 41861782-1
+diagnostic: CCN0031
+perc_correct_in_test: 0.03571428571428571
+num_datapoints_in_train: 72
+<<<<<<<< CORRECT >>>>>>>>
+  get a cheap key first: false means don't copy the values down
+<<<< DIAGNOSTIC: method calls with 4 or more parameters should have param names >>>>
+-                 var key = new DeserializerKey(hash, startBound, length, returnNullIfFirstMissing, reader, false);
++                 var key = new DeserializerKey(hashCode: hash, startBound: startBound, length: length, returnNullIfFirstMissing: returnNullIfFirstMissing, reader: reader, copyDown: false);
+                  Func<IDataReader, object> deser;
+   
+<<<<<<<< INFERRED >>>>>>>>
+  get a cheap key first: false means don't copy the values down
+<<<< DIAGNOSTIC: method calls with 4 or more parameters should have param names >>>>
+-                 var key = new DeserializerKey(hash, startBound, length, returnNullIfFirstMissing, reader, false);
++                 if (returnNullIfFirstMissing) hash = NESMath.Multiply(hash, -27);
+                  Func<IDataReader, object> deser;
+   

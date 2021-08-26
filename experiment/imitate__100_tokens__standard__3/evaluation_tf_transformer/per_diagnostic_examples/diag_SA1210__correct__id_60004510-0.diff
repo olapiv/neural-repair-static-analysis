@@ -1,0 +1,18 @@
+id: 60004510-0
+diagnostic: SA1210
+perc_correct_in_test: 1.0
+num_datapoints_in_train: 19
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+   .NET Foundation licenses this file to you under the MIT license.
+  
+  using System;
+  using System.IO;
+  using System.Net;
+<<<< DIAGNOSTIC: using directives should be ordered alphabetically by the namespaces >>>>
+- using System.Net.Sockets;
+  using System.Net.Security;
+  using System.Collections.Generic;
+  using System.Linq;
+  using System.Runtime.InteropServices;
+  using System.Threading.Tasks;
+  using System

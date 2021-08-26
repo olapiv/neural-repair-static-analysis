@@ -1,0 +1,26 @@
+id: 17418713-0
+diagnostic: SA1101
+perc_correct_in_test: 0.11627906976744186
+num_datapoints_in_train: 273
+<<<<<<<< CORRECT >>>>>>>>
+   MutableExpression GetTableExpression(MemberInfo memberInfo)
+          {
+              MutableExpression tablePiece;
+<<<< DIAGNOSTIC: prefix local calls with this >>>>
+-             Aliases.TryGetValue(memberInfo, out tablePiece);
++             this.Aliases.TryGetValue(memberInfo, out tablePiece);
+              return tablePiece;
+          }
+  
+          public 
+<<<<<<<< INFERRED >>>>>>>>
+   MutableExpression GetTableExpression(MemberInfo memberInfo)
+          {
+              MutableExpression tablePiece;
+<<<< DIAGNOSTIC: prefix local calls with this >>>>
+-             Aliases.TryGetValue(memberInfo, out tablePiece);
++             this.Aliases = memberInfo;
+              return tablePiece;
+          }
+  
+          public 

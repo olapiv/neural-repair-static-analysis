@@ -1,0 +1,30 @@
+id: 49634207-0
+diagnostic: ParameterWrapperAnalyzer
+perc_correct_in_test: 0.1910828025477707
+num_datapoints_in_train: 569
+<<<<<<<< CORRECT >>>>>>>>
+       /// <param name="elapsed">How long did the Request take</param>
+<<<< DIAGNOSTIC: member 'Log' has suboptimal parameter formatting >>>>
+-         void Log(IRequest request, object requestDto, object response, TimeSpan elapsed);
++         void Log
++                 (
++                     IRequest request,
++                     object requestDto,
++                     object response,
++                     TimeSpan elapsed
++                 );
+  
+          /// <summary>
+          /// View the most recent
+<<<<<<<< INFERRED >>>>>>>>
+       /// <param name="elapsed">How long did the Request take</param>
+<<<< DIAGNOSTIC: member 'Log' has suboptimal parameter formatting >>>>
+-         void Log(IRequest request, object requestDto, object response, TimeSpan elapsed);
++         void Update
++                 (
++                     object requestDto,
++                     IRequest request
++                 );
+  
+          /// <summary>
+          /// View the most recent

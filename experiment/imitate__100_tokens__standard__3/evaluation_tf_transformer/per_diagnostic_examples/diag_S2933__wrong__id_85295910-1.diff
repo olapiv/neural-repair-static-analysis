@@ -1,0 +1,27 @@
+id: 85295910-1
+diagnostic: S2933
+perc_correct_in_test: 0.5
+num_datapoints_in_train: 16
+<<<<<<<< CORRECT >>>>>>>>
+  new NotImplementedException(); }
+  		}
+  
+  		//This function will try to add unknown table types
+<<<< DIAGNOSTIC: make '_Tables' 'readonly'. >>>>
+- 		private IDictionary<Type, MetaTable> _Tables = new Dictionary<Type, MetaTable>();
++ 		private readonly IDictionary<Type, MetaTable> _Tables = new Dictionary<Type, MetaTable>();
+  
+  		/// <summary>
+  		/// Initializes a new instance of the <see cref="AttributedMetaModel"/
+<<<<<<<< INFERRED >>>>>>>>
+  new NotImplementedException(); }
+  		}
+  
+  		//This function will try to add unknown table types
++         //This function will try to add unknown table types
+<<<< DIAGNOSTIC: make '_Tables' 'readonly'. >>>>
+- 		private IDictionary<Type, MetaTable> _Tables = new Dictionary<Type, MetaTable>();
++         private readonly IDictionary<Type, MetaTable> _Tables = new Dictionary<Type, MetaTable>();
+  
+  		/// <summary>
+  		/// Initializes a new instance of the <see cref="AttributedMetaModel"/

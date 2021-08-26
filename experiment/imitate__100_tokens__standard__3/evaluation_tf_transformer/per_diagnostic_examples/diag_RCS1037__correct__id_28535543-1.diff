@@ -1,0 +1,13 @@
+id: 28535543-1
+diagnostic: RCS1037
+perc_correct_in_test: 0.7647058823529411
+num_datapoints_in_train: 53
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  that's too late in the game.
+      ///  </para>
+      ///  <para>
+<<<< DIAGNOSTIC: remove trailing white-space. >>>>
+-     ///   Case in point: for 
++     ///   Case in point: for
+      ///   <c>(from p in people orderby p.LastName select p).Count()</c>
+   

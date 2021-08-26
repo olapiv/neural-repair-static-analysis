@@ -1,0 +1,26 @@
+id: 53174639-0
+diagnostic: CC0021
+perc_correct_in_test: 0.23809523809523808
+num_datapoints_in_train: 85
+<<<<<<<< CORRECT >>>>>>>>
+  modify the information
+  // associated with an assembly.
+  [assembly: AssemblyConfiguration("")]
+  [assembly: AssemblyCompany("Jiri George Moudry")]
+<<<< DIAGNOSTIC: use 'nameof(DbLinq)' instead of specifying the program element name. >>>>
+- [assembly: AssemblyProduct("DbLinq")]
++ [assembly: AssemblyProduct(nameof(DbLinq))]
+  [assembly: AssemblyCopyright("Copyright \u00A9 Jiri George Moudry 2005-2008")]
+  [assembly: AssemblyTrademark("")]
+  [assembly
+<<<<<<<< INFERRED >>>>>>>>
+  modify the information
+  // associated with an assembly.
+  [assembly: AssemblyConfiguration("")]
+  [assembly: AssemblyCompany("Jiri George Moudry")]
+<<<< DIAGNOSTIC: use 'nameof(DbLinq)' instead of specifying the program element name. >>>>
+- [assembly: AssemblyProduct("DbLinq")]
++                 var oldLen = fieldNames.Length;
+  [assembly: AssemblyCopyright("Copyright \u00A9 Jiri George Moudry 2005-2008")]
+  [assembly: AssemblyTrademark("")]
+  [assembly

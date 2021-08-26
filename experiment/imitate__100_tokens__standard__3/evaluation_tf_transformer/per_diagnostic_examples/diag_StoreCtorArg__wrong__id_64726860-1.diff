@@ -1,0 +1,27 @@
+id: 64726860-1
+diagnostic: StoreCtorArg
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 6
+<<<<<<<< CORRECT >>>>>>>>
+     /// </summary>
+          /// <param name="type">The type.</param>
+<<<< DIAGNOSTIC: store constructor argument 'type' in a field >>>>
+-         public TestLogger(Type type) {
++         public TestLogger(Type type)
++         {
++             _type1 = type;
+          }
+  
+          public enum Levels {
+              DEBUG,
+<<<<<<<< INFERRED >>>>>>>>
+     /// </summary>
+          /// <param name="type">The type.</param>
+<<<< DIAGNOSTIC: store constructor argument 'type' in a field >>>>
+-         public TestLogger(Type type) {
++         public TestLogger()
++         {
+          }
+  
+          public enum Levels {
+              DEBUG,

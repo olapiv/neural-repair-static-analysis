@@ -1,0 +1,20 @@
+id: 19400239-0
+diagnostic: SS033
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 0
+<<<<<<<< CORRECT >>>>>>>>
+  (config.RunMode & RunMode.both) == 0)
+              {
+<<<< DIAGNOSTIC: async overload available for textwriter.writeline >>>>
+-                 Console.Error.WriteLine("Must specify a valid run mode");
++                 await Console.Error.WriteLineAsync("Must specify a valid run mode");
+                  return ExitCode.CliError;
+          
+<<<<<<<< INFERRED >>>>>>>>
+  (config.RunMode & RunMode.both) == 0)
+              {
+<<<< DIAGNOSTIC: async overload available for textwriter.writeline >>>>
+-                 Console.Error.WriteLine("Must specify a valid run mode");
++         /// Creates a instance.
+                  return ExitCode.CliError;
+          

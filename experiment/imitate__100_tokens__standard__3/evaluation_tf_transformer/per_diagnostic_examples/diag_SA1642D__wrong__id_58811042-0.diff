@@ -1,0 +1,32 @@
+id: 58811042-0
+diagnostic: SA1642D
+perc_correct_in_test: 0.09090909090909091
+num_datapoints_in_train: 49
+<<<<<<<< CORRECT >>>>>>>>
+     /// </summary>
+      [AttributeUsage(AttributeTargets.Class)]
+      public class SchemaAttribute : AttributeBase
++         /// <summary>
++         /// Initializes a new instance of the <see cref="SchemaAttribute"/> class.
++         /// </summary>
++         /// <param name="name">the name.</param>
+      {
+<<<< DIAGNOSTIC: constructors must be correctly documented. >>>>
+          public SchemaAttribute(string name)
+          {
+              this.Name = name;
+          
+<<<<<<<< INFERRED >>>>>>>>
+     /// </summary>
+      [AttributeUsage(AttributeTargets.Class)]
+      public class SchemaAttribute : AttributeBase
++         /// <summary>
++         /// Initializes a new instance of the <see cref="FallbackRouteAttribute"/> class.
++         /// </summary>
++         /// <param name="name">the name.</param>
+      {
+<<<< DIAGNOSTIC: constructors must be correctly documented. >>>>
+          public SchemaAttribute(string name)
+          {
+              this.Name = name;
+          

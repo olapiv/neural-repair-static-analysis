@@ -1,0 +1,20 @@
+id: 84205068-1
+diagnostic: FS0015
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 2
+<<<<<<<< CORRECT >>>>>>>>
+                  else
+                  {
+<<<< DIAGNOSTIC: remove unnecessary parenthesis. >>>>
+-                     return new SocketsHttpHandler()
++                     return new SocketsHttpHandler
+                      {
+                
+<<<<<<<< INFERRED >>>>>>>>
+                  else
+                  {
+<<<< DIAGNOSTIC: remove unnecessary parenthesis. >>>>
+-                     return new SocketsHttpHandler()
++                         ServerCertificateValidationCallback = () => { return true; }
+                      {
+                

@@ -1,0 +1,20 @@
+id: 44638328-0
+diagnostic: RCS1146
+perc_correct_in_test: 0.3333333333333333
+num_datapoints_in_train: 11
+<<<<<<<< CORRECT >>>>>>>>
+  continue;
+                  Type memberType = info.GetMemberType();
+  
+<<<< DIAGNOSTIC: use conditional access. >>>>
+-                 if (memberType == null || !memberType.IsGenericType ||
++                 if (memberType?.IsGenericType != true ||
+                          memberType.GetGenericTypeDefinition() != typeof
+<<<<<<<< INFERRED >>>>>>>>
+  continue;
+                  Type memberType = info.GetMemberType();
+  
+<<<< DIAGNOSTIC: use conditional access. >>>>
+-                 if (memberType == null || !memberType.IsGenericType ||
++                 if (memberType?.IsGenericType ||
+                          memberType.GetGenericTypeDefinition() != typeof

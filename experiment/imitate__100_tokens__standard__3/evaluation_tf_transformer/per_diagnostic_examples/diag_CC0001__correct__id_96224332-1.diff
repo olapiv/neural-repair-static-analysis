@@ -1,0 +1,12 @@
+id: 96224332-1
+diagnostic: CC0001
+perc_correct_in_test: 0.1590909090909091
+num_datapoints_in_train: 123
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  can only be consumed once");
+  
+                  IsConsumed = true;
+<<<< DIAGNOSTIC: use 'var' instead of specifying the type name. >>>>
+-                 T result = default;
++                 var result = default;
+                  if (await reader.ReadAsync(cancel).ConfigureAwait(false) && reader.FieldCount

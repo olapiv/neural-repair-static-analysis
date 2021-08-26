@@ -1,0 +1,14 @@
+id: 6557195-3
+diagnostic: SA1300
+perc_correct_in_test: 0.6666666666666666
+num_datapoints_in_train: 16
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+     }
+  
+          public static Xyz ToXyz(this Lab lab)
+          {
+<<<< DIAGNOSTIC: element 'lab_xyz' should begin with an uppercase letter >>>>
+-             double lab_xyz(double d)
++             double Lab_xyz(double d)
+              {
+                  if (d > LabConstants.eCubedRoot

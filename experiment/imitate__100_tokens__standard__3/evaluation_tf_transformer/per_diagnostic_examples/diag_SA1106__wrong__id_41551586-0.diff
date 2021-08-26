@@ -1,0 +1,20 @@
+id: 41551586-0
+diagnostic: SA1106
+perc_correct_in_test: 0.8333333333333334
+num_datapoints_in_train: 18
+<<<<<<<< CORRECT >>>>>>>>
+          {
+                  throw new Exception("Proxy request failed");
+<<<< DIAGNOSTIC: code must not contain empty statements >>>>
+-             };
++             }
+              if (_receiveBuffer[0] != 5 || _receiveBuffer[1] != 0)
+         
+<<<<<<<< INFERRED >>>>>>>>
+          {
+                  throw new Exception("Proxy request failed");
+<<<< DIAGNOSTIC: code must not contain empty statements >>>>
+-             };
++             if (unaliasedExpression == null)
+              if (_receiveBuffer[0] != 5 || _receiveBuffer[1] != 0)
+         

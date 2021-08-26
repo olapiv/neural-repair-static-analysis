@@ -1,0 +1,14 @@
+id: 9370066-1
+diagnostic: SA1514
+perc_correct_in_test: 0.875
+num_datapoints_in_train: 37
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+     /// first word all lowercase, next words capitalized
+          /// </summary>
++ 
+          camelCase,
+<<<< DIAGNOSTIC: element documentation header should be preceded by blank line >>>>
+          /// <summary>
+          /// all words capitalized
+          /// </summary>
+      

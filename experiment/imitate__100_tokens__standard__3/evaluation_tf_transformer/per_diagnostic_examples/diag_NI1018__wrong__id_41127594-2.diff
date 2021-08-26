@@ -1,0 +1,18 @@
+id: 41127594-2
+diagnostic: NI1018
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 12
+<<<<<<<< CORRECT >>>>>>>>
+     // now check if we didn't register exactly the same
+<<<< DIAGNOSTIC: do not use linq query syntax; use method syntax instead. >>>>
+-             var existingTable = (from t in builderContext.EnumerateScopeTables() where t.IsEqualTo(otherTableExpression) select t).SingleOrDefault();
++             var existingTable = (builderContext.EnumerateScopeTables().Where(t => t.IsEqualTo(otherTableExpression)).Select(t => t)).SingleOrDefault();
+              if (existingTable != null)
+     
+<<<<<<<< INFERRED >>>>>>>>
+     // now check if we didn't register exactly the same
+<<<< DIAGNOSTIC: do not use linq query syntax; use method syntax instead. >>>>
+-             var existingTable = (from t in builderContext.EnumerateScopeTables() where t.IsEqualTo(otherTableExpression) select t).SingleOrDefault();
++ 
+              if (existingTable != null)
+     

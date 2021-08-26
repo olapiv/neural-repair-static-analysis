@@ -1,0 +1,25 @@
+id: 76090699-2
+diagnostic: NoPrivateUnderscore
+perc_correct_in_test: 0.34782608695652173
+num_datapoints_in_train: 45
+<<<<<<<< CORRECT >>>>>>>>
+              return true;
+              }
+          }
+  
+<<<< DIAGNOSTIC: type name '_otherMember' starts with an underscore >>>>
+-         private MetaDataMember _otherMember;
++         private MetaDataMember otherMember;
+          public override MetaDataMember OtherMember
+          {
+              get { return
+<<<<<<<< INFERRED >>>>>>>>
+              return true;
+              }
+          }
+  
+<<<< DIAGNOSTIC: type name '_otherMember' starts with an underscore >>>>
+          private MetaDataMember _otherMember;
+          public override MetaDataMember OtherMember
+          {
+              get { return

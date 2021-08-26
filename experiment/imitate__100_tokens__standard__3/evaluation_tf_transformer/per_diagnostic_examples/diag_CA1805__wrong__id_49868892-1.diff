@@ -1,0 +1,31 @@
+id: 49868892-1
+diagnostic: CA1805
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 6
+<<<<<<<< CORRECT >>>>>>>>
+          }
+  
+  
+          protected Configuration local_config;
+  
+          string identifier;
+<<<< DIAGNOSTIC: member 'listener' is explicitly initialized to its default value >>>>
+-         BaseListener listener = null;
++         BaseListener listener;
+          Watcher watcher;
+          TimeSpan poll_interval        = PollInterval.Short;
+     
+<<<<<<<< INFERRED >>>>>>>>
+          }
+  
+  
+          protected Configuration local_config;
+  
+          string identifier;
+<<<< DIAGNOSTIC: member 'listener' is explicitly initialized to its default value >>>>
+-         BaseListener listener = null;
++         readonly BaseListener listener = null;
+-         Watcher watcher;
++         readonly Watcher watcher;
+          TimeSpan poll_interval        = PollInterval.Short;
+     

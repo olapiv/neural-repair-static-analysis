@@ -1,0 +1,16 @@
+id: 92599594-0
+diagnostic: SA1629
+perc_correct_in_test: 0.16470588235294117
+num_datapoints_in_train: 260
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+   public
+  #endif
+      abstract partial class SchemaLoader : ISchemaLoader
+      {
+          /// <summary>
+<<<< DIAGNOSTIC: documentation text should end with a period >>>>
+-         /// Underlying vendor
++         /// Underlying vendor.
+          /// </summary>
+          /// <value></value>
+          

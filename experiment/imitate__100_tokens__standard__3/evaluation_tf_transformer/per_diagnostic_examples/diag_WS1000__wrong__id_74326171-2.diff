@@ -1,0 +1,20 @@
+id: 74326171-2
+diagnostic: WS1000
+perc_correct_in_test: 0.8636363636363636
+num_datapoints_in_train: 55
+<<<<<<<< CORRECT >>>>>>>>
+   (day_diff < 62) {
+                  return "a month ago";
+  
+<<<< DIAGNOSTIC: trailing whitespace detected. >>>>
+-             } else { 
++             } else {
+                  return string.Format ("{0} months ago", Math.Ceiling ((double
+<<<<<<<< INFERRED >>>>>>>>
+   (day_diff < 62) {
+                  return "a month ago";
+  
+<<<< DIAGNOSTIC: trailing whitespace detected. >>>>
+-             } else { 
++ 
+                  return string.Format ("{0} months ago", Math.Ceiling ((double

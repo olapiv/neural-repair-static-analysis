@@ -1,0 +1,34 @@
+id: 40018841-2
+diagnostic: SA1600D
+perc_correct_in_test: 0.06493506493506493
+num_datapoints_in_train: 216
+<<<<<<<< CORRECT >>>>>>>>
+  InterfaceType.GenericTypeArguments.Last();
+      }
+      public readonly struct ValueTransformerConfiguration
+      {
++ 
++         /// <summary>
++         /// the transformer expression.
++         /// </summary>
+          public readonly Type ValueType;
+<<<< DIAGNOSTIC: members must be correctly documented. >>>>
+          public readonly LambdaExpression TransformerExpression;
+          public ValueTransformerConfiguration(Type valueType, LambdaExpression transformerExpression)
+          {
+   
+<<<<<<<< INFERRED >>>>>>>>
+  InterfaceType.GenericTypeArguments.Last();
+      }
+      public readonly struct ValueTransformerConfiguration
+      {
++ 
++         /// <summary>
++         /// the source type.
++         /// </summary>
+          public readonly Type ValueType;
+<<<< DIAGNOSTIC: members must be correctly documented. >>>>
+          public readonly LambdaExpression TransformerExpression;
+          public ValueTransformerConfiguration(Type valueType, LambdaExpression transformerExpression)
+          {
+   

@@ -1,0 +1,25 @@
+id: 22233511-0
+diagnostic: SA1502
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 18
+<<<<<<<< CORRECT >>>>>>>>
+  Wox.Plugin.Features using directive, " +
+                "and use Wox.Plugin.Feature.IInstantQuery instead, " +
+                "this method will be removed in v1.4.0")]
+<<<< DIAGNOSTIC: element should not be on a single line >>>>
+-     public interface IInstantQuery { }
++     public interface IInstantQuery
++     {
++     }
+  }
+<<<<<<<< INFERRED >>>>>>>>
+  Wox.Plugin.Features using directive, " +
+                "and use Wox.Plugin.Feature.IInstantQuery instead, " +
+                "this method will be removed in v1.4.0")]
+<<<< DIAGNOSTIC: element should not be on a single line >>>>
+-     public interface IInstantQuery { }
+- }
++         // <summary>
++         {
++             get { return this.deferredLoadingEnabled;
++         }

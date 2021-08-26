@@ -1,0 +1,15 @@
+id: 98193371-1
+diagnostic: SA1400
+perc_correct_in_test: 0.6923076923076923
+num_datapoints_in_train: 37
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  <TKey, TValue>(comparer);
+          }
+  
+          [NonSerialized]
+<<<< DIAGNOSTIC: element 'dictionaryLock' should declare an access modifier >>>>
+-         ReaderWriterLockSlim dictionaryLock = Locks.GetLockInstance(LockRecursionPolicy.NoRecursion); //setup the lock;
++         private ReaderWriterLockSlim dictionaryLock = Locks.GetLockInstance(LockRecursionPolicy.NoRecursion); //setup the lock;
+  
+          /// <summary>
+          /// This is a blind

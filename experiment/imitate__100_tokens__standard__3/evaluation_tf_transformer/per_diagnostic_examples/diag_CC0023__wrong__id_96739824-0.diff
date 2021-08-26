@@ -1,0 +1,32 @@
+id: 96739824-0
+diagnostic: CC0023
+perc_correct_in_test: 0.1111111111111111
+num_datapoints_in_train: 49
+<<<<<<<< CORRECT >>>>>>>>
+  using System;
+  
+  namespace ServiceStack.DataAnnotations
+  {
+      [AttributeUsage(AttributeTargets.Class, AllowMultiple = true)]
+<<<< DIAGNOSTIC: mark 'PreDropTableAttribute' as sealed. >>>>
+-     public class PreDropTableAttribute : AttributeBase
++     public sealed class PreDropTableAttribute : AttributeBase
+      {
+          public string Sql { get; set; }
+  
+          public PreDropTableAttribute(string sql)
+      
+<<<<<<<< INFERRED >>>>>>>>
+  using System;
+  
+  namespace ServiceStack.DataAnnotations
+  {
+      [AttributeUsage(AttributeTargets.Class, AllowMultiple = true)]
+<<<< DIAGNOSTIC: mark 'PreDropTableAttribute' as sealed. >>>>
+-     public class PreDropTableAttribute : AttributeBase
++     public sealed class PostDropTableAttribute : AttributeBase
+      {
+          public string Sql { get; set; }
+  
+          public PreDropTableAttribute(string sql)
+      

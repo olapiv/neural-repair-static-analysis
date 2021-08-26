@@ -1,0 +1,15 @@
+id: 21032272-0
+diagnostic: SA1106
+perc_correct_in_test: 0.8333333333333334
+num_datapoints_in_train: 18
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+        MutipleProcs = 0xf,
+          EnterDueToProc = 0xf0,
+          SetIdeal = 0xf00,
+<<<< DIAGNOSTIC: code must not contain empty statements >>>>
+-     };
++     }
+      struct SampleInfo
+      {
+          // -1 means uninit.
+          public int tid;

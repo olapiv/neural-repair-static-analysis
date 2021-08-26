@@ -1,0 +1,39 @@
+id: 67818619-0
+diagnostic: MaxFieldCount
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 0
+<<<<<<<< CORRECT >>>>>>>>
+  
+  using DbLinq.Util;
+  
+  #if MONO_STRICT
+  namespace System.Data.Linq.Mapping
+  #else
+  namespace DbLinq.Data.Linq.Mapping
+  #endif
++     [TypeHasDebt(LineCount = 1060, FieldCount = 80)]
+  {
+<<<< DIAGNOSTIC: type xmlmappingsource has 80 fields while it should not have more than 50. >>>>
+      public sealed class XmlMappingSource : System.Data.Linq.Mapping.MappingSource
+      {
+          DbmlDatabase db;
+  
+          XmlMappingSource(XmlReader reader)
+    
+<<<<<<<< INFERRED >>>>>>>>
+  
+  using DbLinq.Util;
+  
+  #if MONO_STRICT
+  namespace System.Data.Linq.Mapping
+  #else
+  namespace DbLinq.Data.Linq.Mapping
+  #endif
+  {
+<<<< DIAGNOSTIC: type xmlmappingsource has 80 fields while it should not have more than 50. >>>>
+      public sealed class XmlMappingSource : System.Data.Linq.Mapping.MappingSource
+      {
+          DbmlDatabase db;
+  
+          XmlMappingSource(XmlReader reader)
+    

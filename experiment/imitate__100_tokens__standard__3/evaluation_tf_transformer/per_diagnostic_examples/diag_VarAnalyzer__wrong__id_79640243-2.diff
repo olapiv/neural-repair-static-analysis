@@ -1,0 +1,20 @@
+id: 79640243-2
+diagnostic: VarAnalyzer
+perc_correct_in_test: 0.5277777777777778
+num_datapoints_in_train: 175
+<<<<<<<< CORRECT >>>>>>>>
+  (var rdr = command.ExecuteReader())
+                  {
+<<<< DIAGNOSTIC: var keyword usage is not legit in this context >>>>
+-                     var list = new List<T>();
++                     List<T> list = new List<T>();
+                      while (rdr.Read())
+    
+<<<<<<<< INFERRED >>>>>>>>
+  (var rdr = command.ExecuteReader())
+                  {
+<<<< DIAGNOSTIC: var keyword usage is not legit in this context >>>>
+-                     var list = new List<T>();
++                 using (IDataReader rdr = command.ExecuteReader())
+                      while (rdr.Read())
+    

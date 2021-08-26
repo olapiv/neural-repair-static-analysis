@@ -1,0 +1,30 @@
+id: 80687678-1
+diagnostic: SA1307
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 5
+<<<<<<<< CORRECT >>>>>>>>
+  	internal SharpTreeNode listParent;
+  		/// <summary>Left/right nodes in the flat list</summary>
+  		SharpTreeNode left, right;
+  
+<<<< DIAGNOSTIC: field 'treeFlattener' should begin with upper-case letter >>>>
+- 		internal TreeFlattener treeFlattener;
++ 		internal TreeFlattener TreeFlattener;
+  
+  		/// <summary>Subtree height in the flat list tree</summary>
+  		byte height = 1;
+  
+  		/// <summary
+<<<<<<<< INFERRED >>>>>>>>
+  	internal SharpTreeNode listParent;
+  		/// <summary>Left/right nodes in the flat list</summary>
+  		SharpTreeNode left, right;
+  
+<<<< DIAGNOSTIC: field 'treeFlattener' should begin with upper-case letter >>>>
+- 		internal TreeFlattener treeFlattener;
++ 		internal TreeFlattener _TreeFlattener;
+  
+  		/// <summary>Subtree height in the flat list tree</summary>
+  		byte height = 1;
+  
+  		/// <summary

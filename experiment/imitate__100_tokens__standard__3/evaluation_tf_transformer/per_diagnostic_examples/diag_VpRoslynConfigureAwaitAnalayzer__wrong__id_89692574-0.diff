@@ -1,0 +1,26 @@
+id: 89692574-0
+diagnostic: VpRoslynConfigureAwaitAnalayzer
+perc_correct_in_test: 0.3333333333333333
+num_datapoints_in_train: 13
+<<<<<<<< CORRECT >>>>>>>>
+     {
+              return (int) ExitCode.CliError;
+          }
+  
+<<<< DIAGNOSTIC: not recommended for use async code without configureawait(false) >>>>
+-         return (int) await Run(config);
++         return (int) await Run(config).ConfigureAwait(false);
+      }
+  
+      private static bool TryParseCli(string[] args, [NotNullWhen(true)] out Configuration? config
+<<<<<<<< INFERRED >>>>>>>>
+     {
+              return (int) ExitCode.CliError;
+          }
+  
+<<<< DIAGNOSTIC: not recommended for use async code without configureawait(false) >>>>
+-         return (int) await Run(config);
++             return await TryParseCli(args, config)).ConfigureAwait(false);
+      }
+  
+      private static bool TryParseCli(string[] args, [NotNullWhen(true)] out Configuration? config

@@ -1,0 +1,13 @@
+id: 85356612-2
+diagnostic: Wintellect003
+perc_correct_in_test: 0.9210526315789473
+num_datapoints_in_train: 197
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  Type type)
+          {
+              var metaTable = GetTable(type);
++             {
+<<<< DIAGNOSTIC: 'if' statements must have braces >>>>
+              if (metaTable == null)
+                  return null;
+              return metaTable.RowType;

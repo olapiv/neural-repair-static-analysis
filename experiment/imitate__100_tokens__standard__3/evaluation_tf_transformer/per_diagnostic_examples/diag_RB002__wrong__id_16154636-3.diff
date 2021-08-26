@@ -1,0 +1,27 @@
+id: 16154636-3
+diagnostic: RB002
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 13
+<<<<<<<< CORRECT >>>>>>>>
+   (0, version.Length - 2);
+              }
+          }
+  
+  
+<<<< DIAGNOSTIC: field 'IsFlatpak' is marked static >>>>
+-         public static bool IsFlatpak {
++         public bool IsFlatpak {
+              get {
+                  return Directory.StartsWith ("/
+<<<<<<<< INFERRED >>>>>>>>
+   (0, version.Length - 2);
+              }
+          }
+- 
+- 
+<<<< DIAGNOSTIC: field 'IsFlatpak' is marked static >>>>
+-         public static bool IsFlatpak {
++         public bool IsFlatpak {
++                              return typeof(bool);
+              get {
+                  return Directory.StartsWith ("/

@@ -1,0 +1,23 @@
+id: 3258266-0
+diagnostic: RECS0122
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 3
+<<<<<<<< CORRECT >>>>>>>>
+  [] s_crc_table = new ulong[256];
+  
+      // Flag: has the table been computed? Initially false.
+<<<< DIAGNOSTIC: initializing field by default value is redundant >>>>
+-     private static bool s_crc_table_computed = false;
++     private static bool s_crc_table_computed;
+  
+      // Make the table for a fast CRC.
+      // Derivative work of zlib -- https:/
+<<<<<<<< INFERRED >>>>>>>>
+  [] s_crc_table = new ulong[256];
+  
+      // Flag: has the table been computed? Initially false.
+<<<< DIAGNOSTIC: initializing field by default value is redundant >>>>
+      private static bool s_crc_table_computed = false;
+  
+      // Make the table for a fast CRC.
+      // Derivative work of zlib -- https:/

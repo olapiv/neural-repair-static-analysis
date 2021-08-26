@@ -1,0 +1,17 @@
+id: 19977161-1
+diagnostic: VarAnalyzer
+perc_correct_in_test: 0.5277777777777778
+num_datapoints_in_train: 175
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+     {
+<<<< DIAGNOSTIC: var keyword usage is not legit in this context >>>>
+-             var loggerFactory = endpoints.ServiceProvider.GetService<ILoggerFactory>();
++             ILoggerFactory? loggerFactory = endpoints.ServiceProvider.GetService<ILoggerFactory>();
+<<<< DIAGNOSTIC: var keyword usage is not legit in this context >>>>
+-             var logger = loggerFactory.CreateLogger<StressServer>();
++             ILogger<StressServer>? logger = loggerFactory.CreateLogger<StressServer>();
+<<<< DIAGNOSTIC: var keyword usage is not legit in this context >>>>
+-             var head = new[] { "HEAD" };
++             string[]? head = new[] { "HEAD" };
+  
+       

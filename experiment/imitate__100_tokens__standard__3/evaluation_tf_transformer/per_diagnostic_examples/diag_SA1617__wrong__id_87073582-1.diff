@@ -1,0 +1,21 @@
+id: 87073582-1
+diagnostic: SA1617
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 3
+<<<<<<<< CORRECT >>>>>>>>
+   <param name="sqlStatement"></param>
+          /// <param name="sqlStatements"></param>
+<<<< DIAGNOSTIC: void return value should not be documented >>>>
+-         /// <returns></returns>
+          public void AppendJoin(SqlStatement sqlStatement, IList<SqlStatement> sqlStatements)
+          {
+      
+<<<<<<<< INFERRED >>>>>>>>
+   <param name="sqlStatement"></param>
++         /// <typeparam name="SqlStatement">a type of {SqlStatement}.</typeparam>
+          /// <param name="sqlStatements"></param>
+<<<< DIAGNOSTIC: void return value should not be documented >>>>
+          /// <returns></returns>
+          public void AppendJoin(SqlStatement sqlStatement, IList<SqlStatement> sqlStatements)
+          {
+      

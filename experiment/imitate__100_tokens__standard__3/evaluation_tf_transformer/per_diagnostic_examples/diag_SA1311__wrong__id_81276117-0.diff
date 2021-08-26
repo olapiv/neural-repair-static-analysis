@@ -1,0 +1,26 @@
+id: 81276117-0
+diagnostic: SA1311
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 7
+<<<<<<<< CORRECT >>>>>>>>
+          }
+  
+              return chunk;
+          }
+  
+<<<< DIAGNOSTIC: static readonly fields should begin with upper-case letter >>>>
+-         private static readonly byte[] s_bytePool =
++         private static readonly byte[] S_bytePool =
+              Enumerable
+                  .Range(0, 256
+<<<<<<<< INFERRED >>>>>>>>
+          }
+  
+              return chunk;
+          }
+  
+<<<< DIAGNOSTIC: static readonly fields should begin with upper-case letter >>>>
+-         private static readonly byte[] s_bytePool =
++         private static readonly byte[] bytePool =
+              Enumerable
+                  .Range(0, 256

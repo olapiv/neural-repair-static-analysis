@@ -1,0 +1,14 @@
+id: 82698805-1
+diagnostic: RB001
+perc_correct_in_test: 0.2
+num_datapoints_in_train: 33
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+   InitialCrc = 0xffffffffL;
+  
+          // Flag: has the table been computed? Initially false.
+<<<< DIAGNOSTIC: field 's_crc_table_computed' is marked static >>>>
+-         private static bool s_crc_table_computed = false;
++         private bool s_crc_table_computed = false;
+  
+          // Make the table for a fast CRC.
+          // Derivative work 

@@ -1,0 +1,22 @@
+id: 70417990-2
+diagnostic: CH0001
+perc_correct_in_test: 0.8125
+num_datapoints_in_train: 107
+<<<<<<<< CORRECT >>>>>>>>
+     /// Defaults to 'And'
+          /// </summary>
+          Default = 0,
+<<<< DIAGNOSTIC: remove trailing whitespace. whilst this analyzer includes a code fix provider, it is recommended you install the trailing whitespace visualizer add-in to automatically remove all trailing whitespace. see https://marketplace.visualstudio.com/items?itemname=madskristensen.trailingwhitespacevisualizer. >>>>
+-         
++ 
+          /// <summary>
+          /// Apply filter to query using 'AND' to further filter 
+<<<<<<<< INFERRED >>>>>>>>
+     /// Defaults to 'And'
+          /// </summary>
+          Default = 0,
+<<<< DIAGNOSTIC: remove trailing whitespace. whilst this analyzer includes a code fix provider, it is recommended you install the trailing whitespace visualizer add-in to automatically remove all trailing whitespace. see https://marketplace.visualstudio.com/items?itemname=madskristensen.trailingwhitespacevisualizer. >>>>
+-         
++         /// Merge does a blind remove, and then add.  Basically a blind Upsert.
+          /// <summary>
+          /// Apply filter to query using 'AND' to further filter 

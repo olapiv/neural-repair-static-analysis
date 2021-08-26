@@ -1,0 +1,10 @@
+id: 34301815-3
+diagnostic: SA1122
+perc_correct_in_test: 0.5
+num_datapoints_in_train: 12
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+      string strIncludeAll = (fIncludeAllTime ? "-ia1-" : "-ia0-");
+<<<< DIAGNOSTIC: use string.empty for empty strings >>>>
+-             string strTI = ((strThreadIndices == null) ? "" : strThreadIndices);
++             string strTI = ((strThreadIndices == null) ? string.Empty : strThreadIndices);
+              string strPassOneLog = strLogNameWithoutExtension + "-pass1-n" + 

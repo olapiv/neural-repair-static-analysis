@@ -1,0 +1,11 @@
+id: 67501816-1
+diagnostic: SA1013
+perc_correct_in_test: 1.0
+num_datapoints_in_train: 9
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+         Expression.Convert(parameterColumn, typeof(object)), 
+<<<< DIAGNOSTIC: closing brace should be preceded by a space >>>>
+-                                     Expression.Constant(tk.Member, typeof(MemberInfo)))}));
++                                     Expression.Constant(tk.Member, typeof(MemberInfo))) }));
+                  }
+      

@@ -1,0 +1,28 @@
+id: 53473900-0
+diagnostic: SA1629
+perc_correct_in_test: 0.16470588235294117
+num_datapoints_in_train: 260
+<<<<<<<< CORRECT >>>>>>>>
+  Linq.Sugar
+  {
+      /// <summary>
+      /// Shortcuts to generate exceptions (with formatted strings)
+<<<< DIAGNOSTIC: documentation text should end with a period >>>>
+-     /// This is for internal use only
++     /// This is for internal use only.
+      /// </summary>
+      internal class Error
+      {
+          public static Exception
+<<<<<<<< INFERRED >>>>>>>>
+  Linq.Sugar
+  {
+      /// <summary>
+      /// Shortcuts to generate exceptions (with formatted strings)
+<<<< DIAGNOSTIC: documentation text should end with a period >>>>
+-     /// This is for internal use only
++     /// This class is used by vendors.
+      /// </summary>
+      internal class Error
+      {
+          public static Exception

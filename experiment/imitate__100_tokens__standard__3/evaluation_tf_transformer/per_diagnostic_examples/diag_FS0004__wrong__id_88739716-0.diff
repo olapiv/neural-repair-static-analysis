@@ -1,0 +1,26 @@
+id: 88739716-0
+diagnostic: FS0004
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 1
+<<<<<<<< CORRECT >>>>>>>>
+         await StressTaskExtensions.WhenAllThrowOnFirstException(token, FillPipeAsync, ReadPipeAsync);
+              }
+<<<< DIAGNOSTIC: empty catch block. >>>>
+-             catch (OperationCanceledException) when (token.IsCancellationRequested)
++             catch (Exception ex)
+              {
+  
+              }
+  
+         
+<<<<<<<< INFERRED >>>>>>>>
+         await StressTaskExtensions.WhenAllThrowOnFirstException(token, FillPipeAsync, ReadPipeAsync);
+              }
+<<<< DIAGNOSTIC: empty catch block. >>>>
+-             catch (OperationCanceledException) when (token.IsCancellationRequested)
++                 catch (Exception ex)
+              {
+  
+              }
+  
+         

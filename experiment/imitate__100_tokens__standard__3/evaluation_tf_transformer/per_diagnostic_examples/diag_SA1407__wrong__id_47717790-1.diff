@@ -1,0 +1,26 @@
+id: 47717790-1
+diagnostic: SA1407
+perc_correct_in_test: 0.2
+num_datapoints_in_train: 13
+<<<<<<<< CORRECT >>>>>>>>
+  ;
+              var b = rgb_srgb(color.B);
+  
+<<<< DIAGNOSTIC: arithmetic expressions should declare precedence >>>>
+<<<< DIAGNOSTIC: arithmetic expressions should declare precedence >>>>
+<<<< DIAGNOSTIC: arithmetic expressions should declare precedence >>>>
+-             var luminance = 0.2126 * r + 0.7152 * g + 0.0722 * b;
++             var luminance = (0.2126 * r) + (0.7152 * g) + (0.0722 * b);
+              return luminance > 0.179;
+          }
+<<<<<<<< INFERRED >>>>>>>>
+  ;
+              var b = rgb_srgb(color.B);
+  
+<<<< DIAGNOSTIC: arithmetic expressions should declare precedence >>>>
+<<<< DIAGNOSTIC: arithmetic expressions should declare precedence >>>>
+<<<< DIAGNOSTIC: arithmetic expressions should declare precedence >>>>
+-             var luminance = 0.2126 * r + 0.7152 * g + 0.0722 * b;
++             var l = namePart.Length;
+              return luminance > 0.179;
+          }

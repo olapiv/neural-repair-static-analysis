@@ -1,0 +1,32 @@
+id: 63659247-2
+diagnostic: SA1500
+perc_correct_in_test: 0.125
+num_datapoints_in_train: 13
+<<<<<<<< CORRECT >>>>>>>>
+  .CreateInstance(accessorType, new object[]{ 
+  				Expression.Lambda(Expression.MakeMemberAccess(p, member), p).Compile(),
+<<<< DIAGNOSTIC: braces for multi-line statements should not share line >>>>
+- 				MakeSetter(member, memberType, declaringType) }
++ 				MakeSetter(member, memberType, declaringType)
++             }
+  			);
+  		}
+  	}
+  
+  	class LambdaMetaAccessor<TEntity, TMember> : MetaAccessor<TEntity, TMember>
+  	{
+  		Func<
+<<<<<<<< INFERRED >>>>>>>>
+  .CreateInstance(accessorType, new object[]{ 
+  				Expression.Lambda(Expression.MakeMemberAccess(p, member), p).Compile(),
+<<<< DIAGNOSTIC: braces for multi-line statements should not share line >>>>
+- 				MakeSetter(member, memberType, declaringType) }
++             get
++             {
+  			);
+  		}
+  	}
+  
+  	class LambdaMetaAccessor<TEntity, TMember> : MetaAccessor<TEntity, TMember>
+  	{
+  		Func<

@@ -1,0 +1,12 @@
+id: 25240333-3
+diagnostic: CC0065
+perc_correct_in_test: 0.5128205128205128
+num_datapoints_in_train: 131
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  else if (day_diff < 7) {
+                  return timestamp.ToString ("dddd");
+<<<< DIAGNOSTIC: remove trailing whitespace >>>>
+-             
++ 
+              } else if (day_diff < 31) {
+                 

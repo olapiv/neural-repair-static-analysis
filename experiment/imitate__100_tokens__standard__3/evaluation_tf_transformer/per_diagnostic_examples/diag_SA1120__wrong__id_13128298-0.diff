@@ -1,0 +1,22 @@
+id: 13128298-0
+diagnostic: SA1120
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 3
+<<<<<<<< CORRECT >>>>>>>>
+                                   WordsExtraction extraction, NameFormat nameFormat);
+<<<< DIAGNOSTIC: comments should contain text >>>>
+-         // 
+          /// <summary>
+          /// Reformats a name by adjusting its case.
+      
+<<<<<<<< INFERRED >>>>>>>>
+                                   WordsExtraction extraction, NameFormat nameFormat);
++ 
++     /// <summary> 
++     /// 
++     /// </summary>
+<<<< DIAGNOSTIC: comments should contain text >>>>
+          // 
+          /// <summary>
+          /// Reformats a name by adjusting its case.
+      

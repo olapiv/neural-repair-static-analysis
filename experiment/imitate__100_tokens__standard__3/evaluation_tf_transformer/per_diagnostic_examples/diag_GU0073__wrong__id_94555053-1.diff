@@ -1,0 +1,22 @@
+id: 94555053-1
+diagnostic: GU0073
+perc_correct_in_test: 0.2545454545454545
+num_datapoints_in_train: 135
+<<<<<<<< CORRECT >>>>>>>>
+   int Hash;
+              public readonly Func<IDataReader, object> Func;
+  
+<<<< DIAGNOSTIC: member .ctor of non-public type deserializerstate should be internal. >>>>
+-             public DeserializerState(int hash, Func<IDataReader, object> func)
++             internal DeserializerState(int hash, Func<IDataReader, object> func)
+              {
+                  Hash = 
+<<<<<<<< INFERRED >>>>>>>>
+   int Hash;
+              public readonly Func<IDataReader, object> Func;
+  
+<<<< DIAGNOSTIC: member .ctor of non-public type deserializerstate should be internal. >>>>
+-             public DeserializerState(int hash, Func<IDataReader, object> func)
++             internal readonly int Hash;
+              {
+                  Hash = 

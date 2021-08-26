@@ -1,0 +1,20 @@
+id: 80553797-0
+diagnostic: CA1822
+perc_correct_in_test: 0.3333333333333333
+num_datapoints_in_train: 30
+<<<<<<<< CORRECT >>>>>>>>
+  , "Value"), memberMap, destExpression);
+          public TypePair GetAssociatedTypes(in TypePair initialTypes) => GetAssociatedTypes(initialTypes.SourceType, initialTypes.DestinationType);
+<<<< DIAGNOSTIC: member 'GetAssociatedTypes' does not access instance data and can be marked as static >>>>
+-         TypePair GetAssociatedTypes(Type sourceType, Type destinationType) => new TypePair(Nullable.GetUnderlyingType(sourceType), destinationType);
++         static TypePair GetAssociatedTypes(Type sourceType, Type destinationType) => new TypePair(Nullable.GetUnderlyingType(sourceType), destinationType);
+      }
+  }
+<<<<<<<< INFERRED >>>>>>>>
+  , "Value"), memberMap, destExpression);
+          public TypePair GetAssociatedTypes(in TypePair initialTypes) => GetAssociatedTypes(initialTypes.SourceType, initialTypes.DestinationType);
+<<<< DIAGNOSTIC: member 'GetAssociatedTypes' does not access instance data and can be marked as static >>>>
+-         TypePair GetAssociatedTypes(Type sourceType, Type destinationType) => new TypePair(Nullable.GetUnderlyingType(sourceType), destinationType);
++         static TypePair GetAssociatedTypes(Type sourceType, Type destinationType) => new TypePair(sourceType, Nullable.GetUnderlyingType(destinationType));
+      }
+  }

@@ -1,0 +1,18 @@
+id: 16342071-0
+diagnostic: CC0048
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 19
+<<<<<<<< CORRECT >>>>>>>>
+  
+<<<< DIAGNOSTIC: use string interpolation >>>>
+-                 throw new ArgumentException(string.Format("Found no IVendor class in assembly `{0}' named `{1}' having a default constructor.",
++                 throw new ArgumentException($"Found no IVendor class in assembly `{assy.GetName().Name}' named `{vendorClassToLoad}' having a default constructor.");
+-                     assy.GetName().Name, vendorClassToLoad));
+   
+<<<<<<<< INFERRED >>>>>>>>
+  
+<<<< DIAGNOSTIC: use string interpolation >>>>
+-                 throw new ArgumentException(string.Format("Found no IVendor class in assembly `{0}' named `{1}' having a default constructor.",
++                 throw new ArgumentException($"Corresponding MetaFunction for method '{method}' was not found");
+                      assy.GetName().Name, vendorClassToLoad));
+   

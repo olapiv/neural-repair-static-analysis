@@ -1,0 +1,16 @@
+id: 35179161-2
+diagnostic: CC0105
+perc_correct_in_test: 0.2413793103448276
+num_datapoints_in_train: 84
+<<<<<<<< CORRECT >>>>>>>>
+  // List of where clausole evaluating TRUE (could be ignored and so removed)
+<<<< DIAGNOSTIC: use 'var' instead of specifying the type name. >>>>
+-                 bool falseWhere = false; // true when the full where evaluate to FALSE
++                 var falseWhere = false; // true when the full where evaluate to FALSE
+                  for (int whereIndex = 0; whereIndex
+<<<<<<<< INFERRED >>>>>>>>
+  // List of where clausole evaluating TRUE (could be ignored and so removed)
+<<<< DIAGNOSTIC: use 'var' instead of specifying the type name. >>>>
+-                 bool falseWhere = false; // true when the full where evaluate to FALSE
++                 var whereIndex = 0;
+                  for (int whereIndex = 0; whereIndex

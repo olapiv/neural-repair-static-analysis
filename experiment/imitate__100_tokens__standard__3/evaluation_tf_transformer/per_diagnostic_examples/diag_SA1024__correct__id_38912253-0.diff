@@ -1,0 +1,16 @@
+id: 38912253-0
+diagnostic: SA1024
+perc_correct_in_test: 0.6666666666666666
+num_datapoints_in_train: 12
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  <summary>
+      /// Database connection allows to open a connection if none available
+      /// </summary>
+<<<< DIAGNOSTIC: colon should be preceded by a space. >>>>
+-     internal class DatabaseConnection: IDisposable
++     internal class DatabaseConnection : IDisposable
+      {
+          private readonly IDbConnection _connection;
+          private readonly bool _mustClose;
+  
+     

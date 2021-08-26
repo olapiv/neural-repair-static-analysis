@@ -1,0 +1,24 @@
+id: 42387519-0
+diagnostic: PostIncrement
+perc_correct_in_test: 0.4
+num_datapoints_in_train: 48
+<<<<<<<< CORRECT >>>>>>>>
+           lastThreadMCount, lastThreadPCount, lastThreadICount,
+                  strIdealProc);
+  
+<<<< DIAGNOSTIC: the expression '(aggregatedSampleCount[lastProcIndex])++' must be replaced with the one using a pre-increment/decrement operator. >>>>
+-             (aggregatedSampleCount[lastProcIndex])++;
++             ++(aggregatedSampleCount[lastProcIndex]);
+          }
+  
+          // Aside from writing out a new log this also prints
+<<<<<<<< INFERRED >>>>>>>>
+           lastThreadMCount, lastThreadPCount, lastThreadICount,
+                  strIdealProc);
+  
+<<<< DIAGNOSTIC: the expression '(aggregatedSampleCount[lastProcIndex])++' must be replaced with the one using a pre-increment/decrement operator. >>>>
+-             (aggregatedSampleCount[lastProcIndex])++;
++             for (int charIndex = 0; i < headerCount; ++lastProcIndex)
+          }
+  
+          // Aside from writing out a new log this also prints

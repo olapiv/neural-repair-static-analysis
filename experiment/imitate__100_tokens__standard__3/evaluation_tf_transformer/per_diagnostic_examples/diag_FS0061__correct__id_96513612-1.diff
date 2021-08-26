@@ -1,0 +1,13 @@
+id: 96513612-1
+diagnostic: FS0061
+perc_correct_in_test: 0.6666666666666666
+num_datapoints_in_train: 1
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  
+          protected abstract Task HandleConnection(SslStream sslStream, TcpClient client, CancellationToken token);
+  
+<<<< DIAGNOSTIC: change method name to establishsslstreamasync >>>>
+-         protected virtual async Task<SslStream> EstablishSslStream(Stream networkStream, CancellationToken token)
++         protected virtual async Task<SslStream> EstablishSslStreamAsync(Stream networkStream, CancellationToken token)
+          {
+              var sslStream = new SslStream(networkStream, 

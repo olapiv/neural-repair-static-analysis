@@ -1,0 +1,14 @@
+id: 4832533-2
+diagnostic: SA1513
+perc_correct_in_test: 0.9666666666666667
+num_datapoints_in_train: 139
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+                default:    return defaultValue;
+                  }
++ 
+<<<< DIAGNOSTIC: closing brace should be followed by blank line >>>>
+              }
+              return (bool) v;
+          }
+  
+          private static

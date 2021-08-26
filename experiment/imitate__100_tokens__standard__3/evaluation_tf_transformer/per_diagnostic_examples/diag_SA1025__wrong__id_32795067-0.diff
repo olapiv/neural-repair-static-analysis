@@ -1,0 +1,28 @@
+id: 32795067-0
+diagnostic: SA1025
+perc_correct_in_test: 0.3333333333333333
+num_datapoints_in_train: 28
+<<<<<<<< CORRECT >>>>>>>>
+  Threading.Tasks;
+  
+  namespace RestSharp.Tests.Shared.Fixtures
+  {
+      public class TestHttpServer : IDisposable
+      {
+<<<< DIAGNOSTIC: code should not contain multiple whitespace characters in a row >>>>
+-         readonly HttpListener          _listener;
++         readonly HttpListener _listener;
+          readonly List<TestRequestHandler> _requestHandlers;
+          readonly object         
+<<<<<<<< INFERRED >>>>>>>>
+  Threading.Tasks;
+  
+  namespace RestSharp.Tests.Shared.Fixtures
+  {
+      public class TestHttpServer : IDisposable
+      {
+<<<< DIAGNOSTIC: code should not contain multiple whitespace characters in a row >>>>
+-         readonly HttpListener          _listener;
++         readonly HttpListener _listener = new HttpListener();
+          readonly List<TestRequestHandler> _requestHandlers;
+          readonly object         

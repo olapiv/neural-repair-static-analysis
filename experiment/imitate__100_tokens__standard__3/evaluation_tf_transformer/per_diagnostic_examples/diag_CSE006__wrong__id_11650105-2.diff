@@ -1,0 +1,24 @@
+id: 11650105-2
+diagnostic: CSE006
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 12
+<<<<<<<< CORRECT >>>>>>>>
+         cts.Cancel();
+                  IsCancellationRequested = true;
++                 var m = await task;
+<<<< DIAGNOSTIC: try to simplify expression by extracting method invocation results to separated variables >>>>
+-                 return WithVersionValidation(await task);
++                 return WithVersionValidation(m);
+              }
+              else
+           
+<<<<<<<< INFERRED >>>>>>>>
+         cts.Cancel();
+                  IsCancellationRequested = true;
+<<<< DIAGNOSTIC: try to simplify expression by extracting method invocation results to separated variables >>>>
+-                 return WithVersionValidation(await task);
++                     var m = ((N - 1);
++                                                                                                                                                                                         =      (cts.Token);
+              }
+              else
+           

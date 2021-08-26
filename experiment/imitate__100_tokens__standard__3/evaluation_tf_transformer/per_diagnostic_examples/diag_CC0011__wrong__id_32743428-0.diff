@@ -1,0 +1,18 @@
+id: 32743428-0
+diagnostic: CC0011
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 0
+<<<<<<<< CORRECT >>>>>>>>
+                .GetMethods()
+<<<< DIAGNOSTIC: you can remove 'Where' moving the predicate to 'Single'. >>>>
+-                 .Where(m => m.Name == "Execute" && m.IsGenericMethod)
++ .Single(m => m.Name == "Execute" && m.IsGenericMethod)
+-                 .Single()
+                  .MakeGenericMethod(
+<<<<<<<< INFERRED >>>>>>>>
+                .GetMethods()
+<<<< DIAGNOSTIC: you can remove 'Where' moving the predicate to 'Single'. >>>>
+-                 .Where(m => m.Name == "Execute" && m.IsGenericMethod)
++                 .Single(m => m.Name == "Execute" && m.IsGenericMethod)
+-                 .Single()
+                  .MakeGenericMethod(

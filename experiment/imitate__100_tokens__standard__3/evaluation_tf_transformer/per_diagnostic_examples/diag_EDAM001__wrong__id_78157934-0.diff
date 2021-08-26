@@ -1,0 +1,40 @@
+id: 78157934-0
+diagnostic: EDAM001
+perc_correct_in_test: 0.32222222222222224
+num_datapoints_in_train: 264
+<<<<<<<< CORRECT >>>>>>>>
+  OTHER DEALINGS IN
+  // THE SOFTWARE.
+  // 
+  #endregion
+  
+  using System;
+  
+  namespace DbLinq.Data.Linq.Sugar
+  {
+      [Flags]
+<<<< DIAGNOSTIC: explicit default access modifiers are just noise. >>>>
+-     internal enum ExpressionTier
++     enum ExpressionTier
+      {
+          Sql = 0x0001,
+          Clr = 0x0002,
+         
+<<<<<<<< INFERRED >>>>>>>>
+  OTHER DEALINGS IN
+  // THE SOFTWARE.
+  // 
+  #endregion
+  
+  using System;
+  
+  namespace DbLinq.Data.Linq.Sugar
+  {
+      [Flags]
+<<<< DIAGNOSTIC: explicit default access modifiers are just noise. >>>>
+-     internal enum ExpressionTier
++     enum HeapBalanceFlagMask
+      {
+          Sql = 0x0001,
+          Clr = 0x0002,
+         

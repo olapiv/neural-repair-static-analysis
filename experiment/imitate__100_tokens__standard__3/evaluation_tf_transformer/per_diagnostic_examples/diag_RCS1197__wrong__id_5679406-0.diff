@@ -1,0 +1,20 @@
+id: 5679406-0
+diagnostic: RCS1197
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 1
+<<<<<<<< CORRECT >>>>>>>>
+    if (endIndex >= 0)
+                  {
+<<<< DIAGNOSTIC: optimize stringbuilder.append call. >>>>
+-                     result.Append(text.Substring(index, endIndex - index));
++                     result.Append(text, index, endIndex - index);
+                      result.Append(replace);
+    
+<<<<<<<< INFERRED >>>>>>>>
+    if (endIndex >= 0)
+                  {
+<<<< DIAGNOSTIC: optimize stringbuilder.append call. >>>>
+-                     result.Append(text.Substring(index, endIndex - index));
++                     result.Append(text, index, text.Length - index);
+                      result.Append(replace);
+    

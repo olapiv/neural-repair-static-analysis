@@ -1,0 +1,28 @@
+id: 49866432-0
+diagnostic: FS0061
+perc_correct_in_test: 0.6666666666666666
+num_datapoints_in_train: 1
+<<<<<<<< CORRECT >>>>>>>>
+         listener.Stop();
+              return port;
+          }
+  
+<<<< DIAGNOSTIC: change method name to handlerequestsasync >>>>
+-         async Task HandleRequests()
++         async Task HandleRequestsAsync()
+          {
+              try
+              {
+      
+<<<<<<<< INFERRED >>>>>>>>
+         listener.Stop();
+              return port;
+          }
+  
+<<<< DIAGNOSTIC: change method name to handlerequestsasync >>>>
+-         async Task HandleRequests()
++                 if (HandleRequests()
+          {
+              try
+              {
+      

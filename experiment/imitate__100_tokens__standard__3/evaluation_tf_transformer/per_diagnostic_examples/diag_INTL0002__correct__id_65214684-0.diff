@@ -1,0 +1,18 @@
+id: 65214684-0
+diagnostic: INTL0002
+perc_correct_in_test: 1.0
+num_datapoints_in_train: 6
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  
+  #endif
+  
+  namespace DbLinq.Data.Linq.Sugar
+  {
+      internal class DirectQuery : AbstractQuery
+      {
+<<<< DIAGNOSTIC: property 'parameterValues' should be pascalcase >>>>
+-         public IList<object> parameterValues { get; set; }
++         public IList<object> ParameterValues { get; set; }
+          public IList<string> Parameters { get; private set; }
+  
+         

@@ -1,0 +1,12 @@
+id: 40968023-1
+diagnostic: SA1121
+perc_correct_in_test: 0.3333333333333333
+num_datapoints_in_train: 14
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+   == "http://schemas.microsoft.com/linqtosql/dbml/2007" && !b12) {
+<<<< DIAGNOSTIC: use built-in type alias >>>>
+<<<< DIAGNOSTIC: use built-in type alias >>>>
+- 						o16 = (System.Object[]) EnsureArrayIndex (o16, n15, typeof(System.Object));
++ 						o16 = (object[]) EnsureArrayIndex (o16, n15, typeof(object));
+  						o16[n15] = ReadObject_Return (false, true);
+  						n15++;

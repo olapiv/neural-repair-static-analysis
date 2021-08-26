@@ -1,0 +1,46 @@
+id: 79042108-0
+diagnostic: NA06
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 7
+<<<<<<<< CORRECT >>>>>>>>
+  
+  
+      public class Result : BaseModel
+      {
+          private string _icoPath;
+  
+<<<< DIAGNOSTIC: property title can be changed to view-model property. >>>>
+-         public string Title { get; set; }
++         public string Title
++         {
++             get
++             {
++                 return _title;
++             }
++ 
++             set
++             {
++                 if (_title != value)
++                 {
++                     _title = value;
++                     OnPropertyChanged();
++                 }
++             }
++         }
+  
+          public string SubTitle { get; set; }
+  
+          /// <
+<<<<<<<< INFERRED >>>>>>>>
+  
+  
+      public class Result : BaseModel
+      {
+          private string _icoPath;
+  
+<<<< DIAGNOSTIC: property title can be changed to view-model property. >>>>
+          public string Title { get; set; }
+  
+          public string SubTitle { get; set; }
+  
+          /// <

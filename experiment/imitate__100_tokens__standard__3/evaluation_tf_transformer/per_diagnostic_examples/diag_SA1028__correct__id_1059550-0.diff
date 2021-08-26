@@ -1,0 +1,13 @@
+id: 1059550-0
+diagnostic: SA1028
+perc_correct_in_test: 0.6666666666666666
+num_datapoints_in_train: 40
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  > : IDictionary<TKey, TValue>
+      {
+          /// <summary>
+<<<< DIAGNOSTIC: code should not contain trailing whitespace >>>>
+-         /// Merge is similar to the SQL merge or upsert statement.  
++         /// Merge is similar to the SQL merge or upsert statement.
+          /// </summary>
+          /// <param name="

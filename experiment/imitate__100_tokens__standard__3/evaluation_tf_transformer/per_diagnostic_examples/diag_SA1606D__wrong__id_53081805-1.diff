@@ -1,0 +1,25 @@
+id: 53081805-1
+diagnostic: SA1606D
+perc_correct_in_test: 0.09090909090909091
+num_datapoints_in_train: 212
+<<<<<<<< CORRECT >>>>>>>>
+        public static Type GetSimilarType(Type sourceType, IEnumerable<PropertyDescription> additionalProperties) =>
++         /// <summary>
++         /// property emitter.
++         /// </summary>
+              ProxyTypes.GetOrAdd(new TypeDescription(sourceType, additionalProperties));
+<<<< DIAGNOSTIC: class documentation: no documentation. >>>>
+          class PropertyEmitter
+          {
+              private static readonly MethodInfo 
+<<<<<<<< INFERRED >>>>>>>>
+        public static Type GetSimilarType(Type sourceType, IEnumerable<PropertyDescription> additionalProperties) =>
++ 
++     /// <summary>
++     /// sql mapper.
++     /// </summary>
+              ProxyTypes.GetOrAdd(new TypeDescription(sourceType, additionalProperties));
+<<<< DIAGNOSTIC: class documentation: no documentation. >>>>
+          class PropertyEmitter
+          {
+              private static readonly MethodInfo 

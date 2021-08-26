@@ -1,0 +1,16 @@
+id: 24569505-0
+diagnostic: RIT0003
+perc_correct_in_test: 0.2
+num_datapoints_in_train: 21
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+       }
+  
+              public string EnumName { get; set; }
+  
+<<<< DIAGNOSTIC: non private field 'EnumValues' is not alloweded, use auto property instead >>>>
+-             public IDictionary<string, int> EnumValues;
++             public IDictionary<string, int> EnumValues { get; set; }
+  
+              #region Type overrides - the ones who make sense
+  
+        

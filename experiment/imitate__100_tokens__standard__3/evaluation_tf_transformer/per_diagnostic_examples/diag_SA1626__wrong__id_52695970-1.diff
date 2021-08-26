@@ -1,0 +1,22 @@
+id: 52695970-1
+diagnostic: SA1626
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 2
+<<<<<<<< CORRECT >>>>>>>>
+  );
+                  await stream.FlushAsync(token);
+  
+<<<< DIAGNOSTIC: single-line comments should not use documentation style slashes >>>>
+-                 /// Polls until number of in-flight messages falls below threshold
++                 // Polls until number of in-flight messages falls below threshold
+                  async Task ApplyBackpressure()
+         
+<<<<<<<< INFERRED >>>>>>>>
+  );
+                  await stream.FlushAsync(token);
+  
+<<<< DIAGNOSTIC: single-line comments should not use documentation style slashes >>>>
+-                 /// Polls until number of in-flight messages falls below threshold
++         // Create and populate a segment with random data
+                  async Task ApplyBackpressure()
+         

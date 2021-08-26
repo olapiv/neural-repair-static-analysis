@@ -1,0 +1,16 @@
+id: 96081059-1
+diagnostic: ASYNC0004
+perc_correct_in_test: 0.5
+num_datapoints_in_train: 14
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  
+                  client.Start();
+              }
+  
+<<<< DIAGNOSTIC: use configureawait(false) >>>>
+-             await WaitUntilMaxExecutionTimeElapsedOrKeyboardInterrupt(config.MaxExecutionTime);
++             await WaitUntilMaxExecutionTimeElapsedOrKeyboardInterrupt(config.MaxExecutionTime).ConfigureAwait(false);
+  
+              try
+              {
+            

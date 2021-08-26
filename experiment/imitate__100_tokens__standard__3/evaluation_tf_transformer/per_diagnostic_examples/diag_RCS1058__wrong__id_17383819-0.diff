@@ -1,0 +1,22 @@
+id: 17383819-0
+diagnostic: RCS1058
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 7
+<<<<<<<< CORRECT >>>>>>>>
+         if (name.Length > 0 && name[name.Length - 1] != endQuote)
+<<<< DIAGNOSTIC: use compound assignment. >>>>
+-                 name = name + endQuote;
++                 name += endQuote;
+              return name;
+          }
+  
+          public
+<<<<<<<< INFERRED >>>>>>>>
+         if (name.Length > 0 && name[name.Length - 1] != endQuote)
+<<<< DIAGNOSTIC: use compound assignment. >>>>
+-                 name = name + endQuote;
++                     throw new ArgumentException("errorString is null or empty.", nameof(name));
+              return name;
+          }
+  
+          public

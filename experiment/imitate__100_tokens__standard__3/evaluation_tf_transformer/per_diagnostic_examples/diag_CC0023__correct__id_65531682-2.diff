@@ -1,0 +1,16 @@
+id: 65531682-2
+diagnostic: CC0023
+perc_correct_in_test: 0.1111111111111111
+num_datapoints_in_train: 49
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  : ValidateRequestAttribute
+      {
+          public ValidateIsAuthenticatedAttribute() : base("IsAuthenticated") { }
+      }
+<<<< DIAGNOSTIC: mark 'ValidateIsAdminAttribute' as sealed. >>>>
+-     public class ValidateIsAdminAttribute : ValidateRequestAttribute
++     public sealed class ValidateIsAdminAttribute : ValidateRequestAttribute
+      {
+          public ValidateIsAdminAttribute() : base("IsAdmin") { }
+      }
+      

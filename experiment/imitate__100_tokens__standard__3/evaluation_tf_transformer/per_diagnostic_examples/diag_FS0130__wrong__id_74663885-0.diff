@@ -1,0 +1,18 @@
+id: 74663885-0
+diagnostic: FS0130
+perc_correct_in_test: 0.6666666666666666
+num_datapoints_in_train: 6
+<<<<<<<< CORRECT >>>>>>>>
+      throw new NotImplementedException();
++             {
+              for (int i = 0; i < expr.Parameters.Count; ++i)
+<<<< DIAGNOSTIC: add braces to single statement in this for loop >>>>
+                  map[expr.Parameters[i]] = args[i];
+              return 
+<<<<<<<< INFERRED >>>>>>>>
+      throw new NotImplementedException();
++                 {
+              for (int i = 0; i < expr.Parameters.Count; ++i)
+<<<< DIAGNOSTIC: add braces to single statement in this for loop >>>>
+                  map[expr.Parameters[i]] = args[i];
+              return 

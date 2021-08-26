@@ -1,0 +1,15 @@
+id: 19781488-0
+diagnostic: CH0002
+perc_correct_in_test: 0.6666666666666666
+num_datapoints_in_train: 116
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+<<<< DIAGNOSTIC: move the using directive within the namespace scope. >>>>
+- using System;
+  using System.Linq.Expressions;
+  using AutoMapper.Execution;
+  namespace AutoMapper.Internal.Mappers
+  {
+      public class NullableDestinationMapper : IObjectMapperInfo
+      {
+          public bool IsMatch(in TypePair context) => context.DestinationType.IsNullableType();
+          public Expression MapExpression(IGlobalConfiguration 

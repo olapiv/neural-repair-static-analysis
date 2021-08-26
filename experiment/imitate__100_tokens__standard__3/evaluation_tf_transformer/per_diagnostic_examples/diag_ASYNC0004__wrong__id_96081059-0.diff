@@ -1,0 +1,26 @@
+id: 96081059-0
+diagnostic: ASYNC0004
+perc_correct_in_test: 0.5
+num_datapoints_in_train: 14
+<<<<<<<< CORRECT >>>>>>>>
+              return (int)ExitCode.CliError;
+              }
+  
+<<<< DIAGNOSTIC: use configureawait(false) >>>>
+-             return (int)await Run(config);
++             return (int)await Run(config).ConfigureAwait(false);
+          }
+  
+          private static async Task<ExitCode> Run(Configuration config)
+   
+<<<<<<<< INFERRED >>>>>>>>
+              return (int)ExitCode.CliError;
+              }
+  
+<<<< DIAGNOSTIC: use configureawait(false) >>>>
+-             return (int)await Run(config);
++             await Run(config.MaxExecutionTime).ConfigureAwait(false);
+          }
+  
+          private static async Task<ExitCode> Run(Configuration config)
+   

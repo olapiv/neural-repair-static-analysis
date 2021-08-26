@@ -1,0 +1,22 @@
+id: 2835368-2
+diagnostic: GU0077
+perc_correct_in_test: 0.44
+num_datapoints_in_train: 157
+<<<<<<<< CORRECT >>>>>>>>
+      return this as TMappingExpression;
+          }
+  
+<<<< DIAGNOSTIC: prefer is null. >>>>
+-         private static IEnumerable<PropertyInfo> PropertiesWithAnInaccessibleSetter(Type type) => type.GetRuntimeProperties().Where(p => p.GetSetMethod() == null);
++         private static IEnumerable<PropertyInfo> PropertiesWithAnInaccessibleSetter(Type type) => type.GetRuntimeProperties().Where(p => p.GetSetMethod() is null);
+  
+          public void ConvertUsing(Expression<Func<TSource, TDestination>>
+<<<<<<<< INFERRED >>>>>>>>
+      return this as TMappingExpression;
+          }
+  
+<<<< DIAGNOSTIC: prefer is null. >>>>
+-         private static IEnumerable<PropertyInfo> PropertiesWithAnInaccessibleSetter(Type type) => type.GetRuntimeProperties().Where(p => p.GetSetMethod() == null);
++             if (property is null)
+  
+          public void ConvertUsing(Expression<Func<TSource, TDestination>>

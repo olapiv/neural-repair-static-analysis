@@ -1,0 +1,12 @@
+id: 27015421-3
+diagnostic: Wintellect004
+perc_correct_in_test: 0.22727272727272727
+num_datapoints_in_train: 438
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+       foreach (SingularPlural sp in SingularsPlurals)
+              {
+<<<< DIAGNOSTIC: convert 'string' to the explicit type 'String' >>>>
+-                 string newWord = Try(plural, sp.Plural, sp.Singular);
++                 String newWord = Try(plural, sp.Plural, sp.Singular);
+                  if (newWord != null)
+       

@@ -1,0 +1,14 @@
+id: 96801904-0
+diagnostic: SA1516
+perc_correct_in_test: 1.0
+num_datapoints_in_train: 139
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+       public const ExpressionType ExpressionType = (ExpressionType)CustomExpressionType.ObjectInputParameter;
++ 
+  
+          public string Alias { get; private set; }
+<<<< DIAGNOSTIC: elements should be separated by blank line >>>>
+          public Type ValueType { get; private set; }
+  
+          private readonly Delegate getValueDelegate;
+        

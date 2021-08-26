@@ -1,0 +1,30 @@
+id: 68867332-0
+diagnostic: RECS0085
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 2
+<<<<<<<< CORRECT >>>>>>>>
+  
+  {
+      internal class AttributedMetaAssociation : MetaAssociation
+      {
+  		//Seperator used for key lists
+<<<< DIAGNOSTIC: redundant array creation expression >>>>
+- 		private static readonly char[] STRING_SEPERATOR =  new[] { ',' };
++ 		private static readonly char[] STRING_SEPERATOR =  { ',' };
+  
+  		private static string AttributeNameNullCheck (AssociationAttribute attribute)
+  		{
+  			if ( attribute == null )
+<<<<<<<< INFERRED >>>>>>>>
+  
+  {
+      internal class AttributedMetaAssociation : MetaAssociation
+      {
+  		//Seperator used for key lists
+<<<< DIAGNOSTIC: redundant array creation expression >>>>
+- 		private static readonly char[] STRING_SEPERATOR =  new[] { ',' };
++ 		private static readonly char[] STRING_SEPERATOR = new[] { ',' };
+  
+  		private static string AttributeNameNullCheck (AssociationAttribute attribute)
+  		{
+  			if ( attribute == null )

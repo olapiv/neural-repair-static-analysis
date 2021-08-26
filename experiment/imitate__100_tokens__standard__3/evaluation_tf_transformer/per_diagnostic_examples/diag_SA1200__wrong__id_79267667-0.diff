@@ -1,0 +1,28 @@
+id: 79267667-0
+diagnostic: SA1200
+perc_correct_in_test: 0.17391304347826086
+num_datapoints_in_train: 61
+<<<<<<<< CORRECT >>>>>>>>
+  the .NET Foundation under one or more agreements.
+  // The .NET Foundation licenses this file to you under the MIT license.
+- 
+<<<< DIAGNOSTIC: using directive should appear within a namespace declaration >>>>
+- using System;
+  
+  namespace SslStress.Utils
+  {
+      public static class RandomHelpers
+      {
+          public static Random NextRandom(this Random random
+<<<<<<<< INFERRED >>>>>>>>
+  the .NET Foundation under one or more agreements.
+  // The .NET Foundation licenses this file to you under the MIT license.
+  
+<<<< DIAGNOSTIC: using directive should appear within a namespace declaration >>>>
+- using System;
+  
+  namespace SslStress.Utils
+  {
+      public static class RandomHelpers
+      {
+          public static Random NextRandom(this Random random

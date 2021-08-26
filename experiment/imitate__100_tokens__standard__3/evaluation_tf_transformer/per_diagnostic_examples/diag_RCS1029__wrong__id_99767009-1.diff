@@ -1,0 +1,21 @@
+id: 99767009-1
+diagnostic: RCS1029
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 6
+<<<<<<<< CORRECT >>>>>>>>
+   memberType = info.GetMemberType();
+  
+<<<< DIAGNOSTIC: format binary operator on next line. >>>>
+-                 if (memberType == null || !memberType.IsGenericType ||
++                 if (memberType == null || !memberType.IsGenericType
+-                         memberType.GetGenericTypeDefinition() != typeof(Table<>))
++                         || memberType.GetGenericTypeDefinition() != typeof(Table<>))
+               
+<<<<<<<< INFERRED >>>>>>>>
+   memberType = info.GetMemberType();
+  
+<<<< DIAGNOSTIC: format binary operator on next line. >>>>
+-                 if (memberType == null || !memberType.IsGenericType ||
++                 if (memberType != null || !memberType.IsGenericType ||
+                          memberType.GetGenericTypeDefinition() != typeof(Table<>))
+               

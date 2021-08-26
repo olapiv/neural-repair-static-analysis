@@ -1,0 +1,26 @@
+id: 72267755-3
+diagnostic: ClassDoesNotImplementContractAnalyzer
+perc_correct_in_test: 0.4117647058823529
+num_datapoints_in_train: 177
+<<<<<<<< CORRECT >>>>>>>>
+  }
+  
+          /// <summary>HttpContent that trickles out a byte at a time.</summary>
+<<<< DIAGNOSTIC: class 'ByteAtATimeNoLengthContent' doesn't implement any interfaces from connector contracts. >>>>
+-         private sealed class ByteAtATimeNoLengthContent : HttpContent
++         private sealed class ByteAtATimeNoLengthContent : HttpContent, Tridion.Remoting.Contracts.IValueObject
+          {
+              private readonly byte[] _buffer;
+  
+        
+<<<<<<<< INFERRED >>>>>>>>
+  }
+  
+          /// <summary>HttpContent that trickles out a byte at a time.</summary>
+<<<< DIAGNOSTIC: class 'ByteAtATimeNoLengthContent' doesn't implement any interfaces from connector contracts. >>>>
+-         private sealed class ByteAtATimeNoLengthContent : HttpContent
++         private sealed class ByteAtAtimeNoLengthContent : HttpContent, Tridion.Remoting.Contracts.IValueObject
+          {
+              private readonly byte[] _buffer;
+  
+        

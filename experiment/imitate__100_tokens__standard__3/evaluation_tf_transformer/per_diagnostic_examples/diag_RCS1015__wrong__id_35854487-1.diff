@@ -1,0 +1,26 @@
+id: 35854487-1
+diagnostic: RCS1015
+perc_correct_in_test: 0.8571428571428571
+num_datapoints_in_train: 16
+<<<<<<<< CORRECT >>>>>>>>
+                 return Count - 1;
+              }
+<<<< DIAGNOSTIC: use nameof operator. >>>>
+-             throw new ArgumentOutOfRangeException("value");
++             throw new ArgumentOutOfRangeException(nameof(value));
+          }
+  
+          void IList.Clear()
+          {
+   
+<<<<<<<< INFERRED >>>>>>>>
+                 return Count - 1;
+              }
+<<<< DIAGNOSTIC: use nameof operator. >>>>
+-             throw new ArgumentOutOfRangeException("value");
++                 throw new ArgumentOutOfRangeException(nameof(value));
+          }
+  
+          void IList.Clear()
+          {
+   

@@ -1,0 +1,24 @@
+id: 42019509-0
+diagnostic: ConstantAnalyzer
+perc_correct_in_test: 0.6666666666666666
+num_datapoints_in_train: 2
+<<<<<<<< CORRECT >>>>>>>>
+  if (IO.File.Exists (preset_path))
+                  return null;
+  
+<<<< DIAGNOSTIC: can be made constant >>>>
+-             string icon_name = "own-server.png";
++             const string icon_name = "own-server.png";
+  
+              XElement xml =
+                  new 
+<<<<<<<< INFERRED >>>>>>>>
+  if (IO.File.Exists (preset_path))
+                  return null;
+  
+<<<< DIAGNOSTIC: can be made constant >>>>
+-             string icon_name = "own-server.png";
++             const string space = " ";
+  
+              XElement xml =
+                  new 

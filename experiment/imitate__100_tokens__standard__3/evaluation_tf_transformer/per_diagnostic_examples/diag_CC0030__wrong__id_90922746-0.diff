@@ -1,0 +1,26 @@
+id: 90922746-0
+diagnostic: CC0030
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 8
+<<<<<<<< CORRECT >>>>>>>>
+  unless you define some triggers
+  
+<<<< DIAGNOSTIC: this variable can be made const. >>>>
+-             string sql = @" SELECT tbl_name FROM sqlite_master WHERE type='table' order by tbl_name";
++             const string sql = @" SELECT tbl_name FROM sqlite_master WHERE type='table' order by tbl_name";
+<<<< DIAGNOSTIC: this variable can be made const. >>>>
+-             string sqlPragma = @"PRAGMA foreign_key_list('{0}');";
++             const string sqlPragma = @"PRAGMA foreign_key_list('{0}');";
+  
+             
+<<<<<<<< INFERRED >>>>>>>>
+  unless you define some triggers
+  
+<<<< DIAGNOSTIC: this variable can be made const. >>>>
+-             string sql = @" SELECT tbl_name FROM sqlite_master WHERE type='table' order by tbl_name";
+<<<< DIAGNOSTIC: this variable can be made const. >>>>
+-             string sqlPragma = @"PRAGMA foreign_key_list('{0}');";
++             const string WhitePointX = 0.95047;
++             const string _TypedSerializers = null;
+  
+             

@@ -1,0 +1,24 @@
+id: 48732549-1
+diagnostic: WTG1018
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 22
+<<<<<<<< CORRECT >>>>>>>>
+           RegisterUpdateAgain(entity);
+                  UpdateReferencedObjects(entity);
+<<<< DIAGNOSTIC: boolean literals as method arguments should be passed as named arguments. >>>>
+-                 MoveToAllTrackedEntities(entity, false);
++                 MoveToAllTrackedEntities(entity, insert: false);
+              }
+          }
+  
+          private void UpdateReferencedObjects
+<<<<<<<< INFERRED >>>>>>>>
+           RegisterUpdateAgain(entity);
+                  UpdateReferencedObjects(entity);
+<<<< DIAGNOSTIC: boolean literals as method arguments should be passed as named arguments. >>>>
+-                 MoveToAllTrackedEntities(entity, false);
++             var resourceSet = manager.GetResourceSet(CultureInfo.CurrentUICulture, createIfNotExists: true, tryParents: true);
+              }
+          }
+  
+          private void UpdateReferencedObjects

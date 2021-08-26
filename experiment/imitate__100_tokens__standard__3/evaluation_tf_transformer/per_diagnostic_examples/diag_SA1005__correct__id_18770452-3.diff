@@ -1,0 +1,13 @@
+id: 18770452-3
+diagnostic: SA1005
+perc_correct_in_test: 0.6451612903225806
+num_datapoints_in_train: 87
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+              //case ExpressionType.MemberAccess:
+              //    break;
+<<<< DIAGNOSTIC: single line comment should begin with a space. >>>>
+-             //case ExpressionType.MemberInit:
++             // case ExpressionType.MemberInit:
+              //    break;
+              case ExpressionType.Modulo:
+   

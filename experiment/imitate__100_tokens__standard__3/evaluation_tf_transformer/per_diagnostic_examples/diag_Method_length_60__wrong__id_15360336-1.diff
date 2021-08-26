@@ -1,0 +1,24 @@
+id: 15360336-1
+diagnostic: Method_length_60
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 4
+<<<<<<<< CORRECT >>>>>>>>
+                }
+              }
+          }
+<<<< DIAGNOSTIC: method length should be less than 60 lines. >>>>
+-         private void ApplyInheritedTypeMap(TypeMap inheritedTypeMap)
++         private void ApplyInheritedTypeMap(TYPEMAP inheritedTypeMap)
+          {
+              if (inheritedTypeMap._propertyMaps != null)
+         
+<<<<<<<< INFERRED >>>>>>>>
+                }
+              }
+          }
+<<<< DIAGNOSTIC: method length should be less than 60 lines. >>>>
+-         private void ApplyInheritedTypeMap(TypeMap inheritedTypeMap)
++         private void Remove()
+          {
+              if (inheritedTypeMap._propertyMaps != null)
+         

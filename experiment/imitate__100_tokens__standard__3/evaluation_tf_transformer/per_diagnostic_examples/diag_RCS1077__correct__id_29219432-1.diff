@@ -1,0 +1,12 @@
+id: 29219432-1
+diagnostic: RCS1077
+perc_correct_in_test: 0.5
+num_datapoints_in_train: 10
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+   object EvaluateStatardMemberAccess(string propertyName, ReadOnlyCollection<Expression> operands)
+          {
+<<<< DIAGNOSTIC: optimize linq method call. >>>>
+-             return operands[0].Type.GetProperty(propertyName).GetValue(operands.First().Evaluate(), null);
++             return operands[0].Type.GetProperty(propertyName).GetValue(operands[0].Evaluate(), null);
+          }
+          protected object EvaluateStandardCallInvoke(string methodName, 

@@ -1,0 +1,21 @@
+id: 8926254-0
+diagnostic: SA1127
+perc_correct_in_test: 0.3333333333333333
+num_datapoints_in_train: 8
+<<<<<<<< CORRECT >>>>>>>>
+  ) => update_crc(InitialCrc, text, encoding) ^ InitialCrc;
+  
+<<<< DIAGNOSTIC: generic type constraints should be on their own line >>>>
+-         public static ulong CalculateHeaderCrc<T>(IEnumerable<(string name, T)> headers, Encoding? encoding = null) where T : IEnumerable<string>
++         public static ulong CalculateHeaderCrc<T>(IEnumerable<(string name, T)> headers, Encoding? encoding = null)
++             where T : IEnumerable<string>
+          {
+              ulong
+<<<<<<<< INFERRED >>>>>>>>
+  ) => update_crc(InitialCrc, text, encoding) ^ InitialCrc;
+  
+<<<< DIAGNOSTIC: generic type constraints should be on their own line >>>>
+-         public static ulong CalculateHeaderCrc<T>(IEnumerable<(string name, T)> headers, Encoding? encoding = null) where T : IEnumerable<string>
++         public static ulong CalculateHeaderCrc<T>(IEnumerable<(string name, Encoding encoding = null, (string text, Func<(string, T)> headers, Encoding encoding = null)
+          {
+              ulong

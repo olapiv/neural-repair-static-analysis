@@ -1,0 +1,40 @@
+id: 61142581-2
+diagnostic: FS0052
+perc_correct_in_test: 0.6666666666666666
+num_datapoints_in_train: 3
+<<<<<<<< CORRECT >>>>>>>>
+  
+  
+<<<< DIAGNOSTIC: make 'model' readonly >>>>
+-             XmlMetaModel model;
++             readonly XmlMetaModel model;
+<<<< DIAGNOSTIC: make 't' readonly >>>>
+-             DbmlTable t;
++             readonly DbmlTable t;
+<<<< DIAGNOSTIC: make 'table_member' readonly >>>>
+-             MemberInfo table_member;
++             readonly MemberInfo table_member;
+<<<< DIAGNOSTIC: make 'member_type' readonly >>>>
+-             System.Type member_type;
++             readonly System.Type member_type;
+<<<< DIAGNOSTIC: make 'row_type' readonly >>>>
+-             System.Data.Linq.Mapping.MetaType row_type;
++             readonly System.Data.Linq.Mapping.MetaType row_type;
+  
+    
+<<<<<<<< INFERRED >>>>>>>>
+  
+  
++         readonly Type DbmlItem
+<<<< DIAGNOSTIC: make 'model' readonly >>>>
+-             XmlMetaModel model;
+<<<< DIAGNOSTIC: make 't' readonly >>>>
+-             DbmlTable t;
+<<<< DIAGNOSTIC: make 'table_member' readonly >>>>
+-             MemberInfo table_member;
+<<<< DIAGNOSTIC: make 'member_type' readonly >>>>
+-             System.Type member_type;
+<<<< DIAGNOSTIC: make 'row_type' readonly >>>>
+-             System.Data.Linq.Mapping.MetaType row_type;
+  
+    

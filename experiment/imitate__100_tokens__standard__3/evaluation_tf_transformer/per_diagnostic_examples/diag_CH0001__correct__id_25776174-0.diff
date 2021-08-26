@@ -1,0 +1,16 @@
+id: 25776174-0
+diagnostic: CH0001
+perc_correct_in_test: 0.8125
+num_datapoints_in_train: 107
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  PgSqlTimestampAttribute : CustomFieldAttribute
+      {
+          public PgSqlTimestampAttribute() : base("timestamp[]") { }
+      }
+<<<< DIAGNOSTIC: remove trailing whitespace. whilst this analyzer includes a code fix provider, it is recommended you install the trailing whitespace visualizer add-in to automatically remove all trailing whitespace. see https://marketplace.visualstudio.com/items?itemname=madskristensen.trailingwhitespacevisualizer. >>>>
+-     
++ 
+      [Obsolete("Use [PgSqlTimestampTzArray]")]
+      public class PgSqlTimestampTzAttribute : CustomFieldAttribute
+      {
+          public PgSqlTimestampTzAttribute

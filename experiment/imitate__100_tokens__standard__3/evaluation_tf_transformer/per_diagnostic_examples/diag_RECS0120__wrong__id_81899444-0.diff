@@ -1,0 +1,24 @@
+id: 81899444-0
+diagnostic: RECS0120
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 1
+<<<<<<<< CORRECT >>>>>>>>
+        private readonly Lazy<Task> _serverTask;
+  
+          public EndPoint ServerEndpoint => _listener.LocalEndpoint;
+- 
+<<<< DIAGNOSTIC: constructor in abstract class should not be public >>>>
+-         public SslServerBase(Configuration config)
++ SslServerBase(Configuration config)
+          {
+              if (config.MaxConnections < 1) throw new ArgumentOutOfRangeException(nameof
+<<<<<<<< INFERRED >>>>>>>>
+        private readonly Lazy<Task> _serverTask;
+  
+          public EndPoint ServerEndpoint => _listener.LocalEndpoint;
+  
+<<<< DIAGNOSTIC: constructor in abstract class should not be public >>>>
+-         public SslServerBase(Configuration config)
++         protected SslServerBase(Configuration config)
+          {
+              if (config.MaxConnections < 1) throw new ArgumentOutOfRangeException(nameof

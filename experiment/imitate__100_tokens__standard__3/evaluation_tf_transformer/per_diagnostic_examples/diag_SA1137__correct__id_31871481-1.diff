@@ -1,0 +1,14 @@
+id: 31871481-1
+diagnostic: SA1137
+perc_correct_in_test: 0.2222222222222222
+num_datapoints_in_train: 26
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+     {
+              ListChangedEventHandler handler = ListChanged;
+              deferred = false;
+<<<< DIAGNOSTIC: elements should have the same indentation >>>>
+- 			assignedValues = true;
++             assignedValues = true;
+              if (deferredSource != null && handler != null)
+              {
+   

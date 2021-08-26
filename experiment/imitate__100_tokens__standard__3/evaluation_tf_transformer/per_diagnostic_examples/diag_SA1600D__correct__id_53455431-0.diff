@@ -1,0 +1,22 @@
+id: 53455431-0
+diagnostic: SA1600D
+perc_correct_in_test: 0.06493506493506493
+num_datapoints_in_train: 216
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  {TableExpression.Type}")]
+  #if !MONO_STRICT
+      public
+  #endif
+      class EntitySetExpression : MutableExpression
++ 
++         /// <summary>
++         /// the expression type.
++         /// </summary>
+      {
+<<<< DIAGNOSTIC: members must be correctly documented. >>>>
+          public const ExpressionType ExpressionType = (ExpressionType)CustomExpressionType.EntitySet;
+  
+          TableExpression tableExpression;
+  
+          public TableExpression TableExpression {
+     

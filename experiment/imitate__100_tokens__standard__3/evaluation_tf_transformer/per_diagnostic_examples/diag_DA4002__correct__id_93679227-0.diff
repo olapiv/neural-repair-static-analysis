@@ -1,0 +1,19 @@
+id: 93679227-0
+diagnostic: DA4002
+perc_correct_in_test: 0.8421052631578947
+num_datapoints_in_train: 122
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  ;
+  using System.Collections.ObjectModel;
+  
+  namespace Newtonsoft.Json
+  {
+      /// <summary>
+      /// Represents a collection of <see cref="JsonConverter"/>.
++     /// <remarks></remarks>
+      /// </summary>
+<<<< DIAGNOSTIC: type 'JsonConverterCollection' doesn't have remark in the comment >>>>
+      public class JsonConverterCollection : Collection<JsonConverter>
+      {
+      }
+  }

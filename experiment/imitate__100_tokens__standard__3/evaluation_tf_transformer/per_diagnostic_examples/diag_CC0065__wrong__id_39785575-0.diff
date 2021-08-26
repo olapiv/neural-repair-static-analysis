@@ -1,0 +1,16 @@
+id: 39785575-0
+diagnostic: CC0065
+perc_correct_in_test: 0.5128205128205128
+num_datapoints_in_train: 131
+<<<<<<<< CORRECT >>>>>>>>
+             createDestination = Assign(destination, NewArrayBounds(destinationElementType, ArrayLength(sourceExpression)));
+<<<< DIAGNOSTIC: remove trailing whitespace >>>>
+-                     if (!destinationElementType.IsAssignableFrom(sourceElementType) || 
++                     if (!destinationElementType.IsAssignableFrom(sourceElementType) ||
+                          configurationProvider.FindTypeMapFor(sourceElementType, destinationElementType)
+<<<<<<<< INFERRED >>>>>>>>
+             createDestination = Assign(destination, NewArrayBounds(destinationElementType, ArrayLength(sourceExpression)));
+<<<< DIAGNOSTIC: remove trailing whitespace >>>>
+-                     if (!destinationElementType.IsAssignableFrom(sourceElementType) || 
++                 if (iEnumerableType is null || dynamicallyReadShape)
+                          configurationProvider.FindTypeMapFor(sourceElementType, destinationElementType)

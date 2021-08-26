@@ -1,0 +1,28 @@
+id: 42350747-0
+diagnostic: DA3010
+perc_correct_in_test: 0.46153846153846156
+num_datapoints_in_train: 42
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  option) any later version. For more
+   * information, see COPYING.
+   */
+  #endregion
+  
+  using System;
+  using System.Diagnostics;
+  using System.Linq;
+  
+  namespace OpenRA
++ 
++ 	/// <summary> 
++ 	/// 
++ 	/// </summary>
+  {
+<<<< DIAGNOSTIC: type 'RunStatus' doesn't have /// comments >>>>
+  	public enum RunStatus
+  	{
+  		Error = -1,
+  		Success = 0,
+  		Running = int.MaxValue
+  	}
+  }

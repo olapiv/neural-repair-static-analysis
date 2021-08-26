@@ -1,0 +1,36 @@
+id: 78816722-0
+diagnostic: RCS1169
+perc_correct_in_test: 0.3333333333333333
+num_datapoints_in_train: 20
+<<<<<<<< CORRECT >>>>>>>>
+  		public IDisposable LockUpdates()
+  		{
+  			return new UpdateLock(this);
+  		}
+  
+  		class UpdateLock : IDisposable
+  		{
+<<<< DIAGNOSTIC: make field read-only. >>>>
+- 			SharpTreeView instance;
++ 			readonly SharpTreeView instance;
+  
+  			public UpdateLock(SharpTreeView instance)
+  			{
+  				this.instance = instance;
+  				this.instance.updatesLocked = true;
+<<<<<<<< INFERRED >>>>>>>>
+  		public IDisposable LockUpdates()
+  		{
+  			return new UpdateLock(this);
+  		}
+  
+  		class UpdateLock : IDisposable
+  		{
+<<<< DIAGNOSTIC: make field read-only. >>>>
+- 			SharpTreeView instance;
++ 		readonly class UpdateLock : IDisposable
+  
+  			public UpdateLock(SharpTreeView instance)
+  			{
+  				this.instance = instance;
+  				this.instance.updatesLocked = true;

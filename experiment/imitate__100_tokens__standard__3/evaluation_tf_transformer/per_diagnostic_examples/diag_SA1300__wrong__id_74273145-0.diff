@@ -1,0 +1,32 @@
+id: 74273145-0
+diagnostic: SA1300
+perc_correct_in_test: 0.6666666666666666
+num_datapoints_in_train: 16
+<<<<<<<< CORRECT >>>>>>>>
+   KIND, either express or implied.
+  // See the License for the specific language governing permissions and
+  // limitations under the License.
+  
+<<<< DIAGNOSTIC: element 'chocolatey' should begin with an uppercase letter >>>>
+<<<< DIAGNOSTIC: element 'resources' should begin with an uppercase letter >>>>
+- namespace chocolatey.resources
++ namespace Chocolatey.Resources
+  {
+      public class ChocolateyResourcesAssembly
+      {
+          //this exists only to aid in finding this assembly 
+   
+<<<<<<<< INFERRED >>>>>>>>
+   KIND, either express or implied.
+  // See the License for the specific language governing permissions and
+  // limitations under the License.
+  
+<<<< DIAGNOSTIC: element 'chocolatey' should begin with an uppercase letter >>>>
+<<<< DIAGNOSTIC: element 'resources' should begin with an uppercase letter >>>>
+- namespace chocolatey.resources
++     public class ChocolateyResourcesAssembly
+  {
+      public class ChocolateyResourcesAssembly
+      {
+          //this exists only to aid in finding this assembly 
+   

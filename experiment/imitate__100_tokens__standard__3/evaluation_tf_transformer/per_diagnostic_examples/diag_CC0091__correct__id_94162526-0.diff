@@ -1,0 +1,14 @@
+id: 94162526-0
+diagnostic: CC0091
+perc_correct_in_test: 0.25
+num_datapoints_in_train: 26
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  {0})", SpecialNodeType);
+              }
+          }
+  
+<<<< DIAGNOSTIC: make 'EvaluateMathCallInvoke' method static. >>>>
+-         private object EvaluateMathCallInvoke(SpecialExpressionType SpecialNodeType, ReadOnlyCollection<Expression> operands)
++         private static object EvaluateMathCallInvoke(SpecialExpressionType SpecialNodeType, ReadOnlyCollection<Expression> operands)
+          {
+              return typeof(Math).GetMethod(SpecialNodeType.ToString(),

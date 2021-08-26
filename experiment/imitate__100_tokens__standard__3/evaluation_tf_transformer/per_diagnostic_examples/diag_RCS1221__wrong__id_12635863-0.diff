@@ -1,0 +1,22 @@
+id: 12635863-0
+diagnostic: RCS1221
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 6
+<<<<<<<< CORRECT >>>>>>>>
+  (bool))
+                  return expression;
+<<<< DIAGNOSTIC: use pattern matching instead of combination of 'as' operator and null check. >>>>
+-             var bin = expression as BinaryExpression;
++             if (!(expression is BinaryExpression bin))
+-             if (bin == null)
+                  return expression;
+        
+<<<<<<<< INFERRED >>>>>>>>
+  (bool))
+                  return expression;
+<<<< DIAGNOSTIC: use pattern matching instead of combination of 'as' operator and null check. >>>>
+-             var bin = expression as BinaryExpression;
+-             if (bin == null)
++             if (!(bin is null))
+                  return expression;
+        

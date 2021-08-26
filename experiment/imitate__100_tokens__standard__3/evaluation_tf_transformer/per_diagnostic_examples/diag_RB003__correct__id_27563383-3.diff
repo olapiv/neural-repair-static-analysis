@@ -1,0 +1,12 @@
+id: 27563383-3
+diagnostic: RB003
+perc_correct_in_test: 0.5
+num_datapoints_in_train: 28
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  
+              var msg = message?.ToString() ?? string.Empty;
+<<<< DIAGNOSTIC: lock statement should be avoided in orleans environment >>>>
+-             lock (logs)
+-             {
+                  logs.AppendFormat(msg, args);
+         

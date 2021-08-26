@@ -1,0 +1,22 @@
+id: 10246638-3
+diagnostic: DOC104
+perc_correct_in_test: 0.4
+num_datapoints_in_train: 21
+<<<<<<<< CORRECT >>>>>>>>
+   meta model.</param>
+          /// <returns>
+<<<< DIAGNOSTIC: prefer '<seelangword="keyword"/>' to '<c>keyword</c>' for referencing language keywords >>>>
+<<<< DIAGNOSTIC: prefer '<seelangword="keyword"/>' to '<c>keyword</c>' for referencing language keywords >>>>
+-         /// 	<c>true</c> if the specified raw entity has changed; otherwise, <c>false</c>.
++         /// 	<see langword="true"/> if the specified raw entity has changed; otherwise, <see langword="false"/>.
+          /// </returns>
+          private 
+<<<<<<<< INFERRED >>>>>>>>
+   meta model.</param>
+          /// <returns>
+<<<< DIAGNOSTIC: prefer '<seelangword="keyword"/>' to '<c>keyword</c>' for referencing language keywords >>>>
+<<<< DIAGNOSTIC: prefer '<seelangword="keyword"/>' to '<c>keyword</c>' for referencing language keywords >>>>
+-         /// 	<c>true</c> if the specified raw entity has changed; otherwise, <c>false</c>.
++         /// 	<see langword="true"/> if [contains] [the specified entity]; otherwise, <see langword="false"/>.
+          /// </returns>
+          private 

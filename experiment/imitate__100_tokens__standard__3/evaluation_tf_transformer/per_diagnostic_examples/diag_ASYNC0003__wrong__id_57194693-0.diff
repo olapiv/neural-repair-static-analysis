@@ -1,0 +1,24 @@
+id: 57194693-0
+diagnostic: ASYNC0003
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 0
+<<<<<<<< CORRECT >>>>>>>>
+             }
+              }
+          }
+  
+<<<< DIAGNOSTIC: change the return type of the asyncronous method >>>>
+-         protected override async void OnEventWritten(EventWrittenEventArgs eventData)
++         protected override async Task OnEventWritten(EventWrittenEventArgs eventData)
+          {
+              var sb = new StringBuilder().Append($"{
+<<<<<<<< INFERRED >>>>>>>>
+             }
+              }
+          }
+  
+<<<< DIAGNOSTIC: change the return type of the asyncronous method >>>>
+-         protected override async void OnEventWritten(EventWrittenEventArgs eventData)
++         protected override async void OnEventWrittenAsync(EventWrittenEventArgs eventData)
+          {
+              var sb = new StringBuilder().Append($"{

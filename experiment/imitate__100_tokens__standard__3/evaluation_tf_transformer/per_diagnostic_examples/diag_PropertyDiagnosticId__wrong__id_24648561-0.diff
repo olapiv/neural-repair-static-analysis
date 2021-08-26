@@ -1,0 +1,34 @@
+id: 24648561-0
+diagnostic: PropertyDiagnosticId
+perc_correct_in_test: 0.16666666666666666
+num_datapoints_in_train: 13
+<<<<<<<< CORRECT >>>>>>>>
+  namespace Wox.Plugin
+  {
+      public class PluginPair
+      {
+<<<< DIAGNOSTIC: property should have public get and protected set >>>>
+-         public IPlugin Plugin { get; internal set; }
++         public IPlugin Plugin { get; protected set; }
+<<<< DIAGNOSTIC: property should have public get and protected set >>>>
+-         public PluginMetadata Metadata { get; internal set; }
++         public PluginMetadata Metadata { get; protected set; }
+  
+          
+  
+          public override string
+<<<<<<<< INFERRED >>>>>>>>
+  namespace Wox.Plugin
+  {
+      public class PluginPair
+      {
+<<<< DIAGNOSTIC: property should have public get and protected set >>>>
+-         public IPlugin Plugin { get; internal set; }
+<<<< DIAGNOSTIC: property should have public get and protected set >>>>
+-         public PluginMetadata Metadata { get; internal set; }
++         public override string ToString()
++         {
+  
+          
+  
+          public override string

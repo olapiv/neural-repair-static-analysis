@@ -1,0 +1,22 @@
+id: 9307881-1
+diagnostic: RCS1096
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 0
+<<<<<<<< CORRECT >>>>>>>>
+             }
+  
+              StressClient? client = null;
+<<<< DIAGNOSTIC: convert 'HasFlag' call to bitwise operation. >>>>
+-             if (config.RunMode.HasFlag(RunMode.client))
++             if ((config.RunMode & RunMode.client) != 0)
+              {
+                  // Start the client
+<<<<<<<< INFERRED >>>>>>>>
+             }
+  
+              StressClient? client = null;
+<<<< DIAGNOSTIC: convert 'HasFlag' call to bitwise operation. >>>>
+-             if (config.RunMode.HasFlag(RunMode.client))
++             if (config == null)
+              {
+                  // Start the client

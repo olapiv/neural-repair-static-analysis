@@ -1,0 +1,18 @@
+id: 51919546-0
+diagnostic: RCS1206
+perc_correct_in_test: 0.5
+num_datapoints_in_train: 5
+<<<<<<<< CORRECT >>>>>>>>
+  queryColumnExpression != null)
+                  {
+<<<< DIAGNOSTIC: use conditional access instead of conditional expression. >>>>
+-                     Type storageType = queryColumnExpression.StorageInfo != null ? queryColumnExpression.StorageInfo.GetMemberType() : null;
++                     Type storageType = queryColumnExpression.StorageInfo?.GetMemberType();
+                      if (storageType !=
+<<<<<<<< INFERRED >>>>>>>>
+  queryColumnExpression != null)
+                  {
+<<<< DIAGNOSTIC: use conditional access instead of conditional expression. >>>>
+-                     Type storageType = queryColumnExpression.StorageInfo != null ? queryColumnExpression.StorageInfo.GetMemberType() : null;
++             Type storageType = expression.StorageInfo?.GetMemberType();
+                      if (storageType !=

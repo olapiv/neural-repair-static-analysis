@@ -1,0 +1,10 @@
+id: 89948467-0
+diagnostic: RCS1123
+perc_correct_in_test: 0.2857142857142857
+num_datapoints_in_train: 12
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+                   int N = latencies.Length;
+<<<< DIAGNOSTIC: add parentheses when necessary. >>>>
+-                     double n = (N - 1) * percentile + 1;
++                     double n = ((N - 1) * percentile) + 1;
+                      if (n == 1)

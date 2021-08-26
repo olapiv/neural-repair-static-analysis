@@ -1,0 +1,14 @@
+id: 35761869-0
+diagnostic: _SuperfluousAsync
+perc_correct_in_test: 0.75
+num_datapoints_in_train: 11
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  summary>
+          /// Non blocking get message
+          /// </summary>
+<<<< DIAGNOSTIC: 'GetAsync' is not a tap method but ends with async. >>>>
+-         IMessage<T> GetAsync<T>(string queueName);
++         IMessage<T> Get<T>(string queueName);
+  
+          /// <summary>
+          /// Acknowledge the message has been successfully

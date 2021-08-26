@@ -1,0 +1,17 @@
+id: 77214955-1
+diagnostic: INTL0101
+perc_correct_in_test: 1.0
+num_datapoints_in_train: 3
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+     {
+              Name = name;
+          }
+  
++         [NotNull]
+<<<< DIAGNOSTIC: attributes should be on separate lines >>>>
+-         [NotNull] public string Name { get; private set; }
++         public string Name { get; private set; }
+      }
+  
+      /// <summary>
+      /// Indicates that the function argument 

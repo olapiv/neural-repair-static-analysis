@@ -1,0 +1,21 @@
+id: 39814696-1
+diagnostic: FS0127
+perc_correct_in_test: 0.7777777777777778
+num_datapoints_in_train: 23
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  THE SOFTWARE.
+  // 
+  #endregion
+  using System;
+  using System.Collections.Generic;
+  using System.Data;
+  using System.Linq;
+  using System.Text;
+<<<< DIAGNOSTIC: imported library is not used. >>>>
+- using System.Text.RegularExpressions;
+  
+  namespace DbLinq.Util
+  {
+      /// <summary>
+      /// maintainer: Anton Andreev
+      /// </summary>

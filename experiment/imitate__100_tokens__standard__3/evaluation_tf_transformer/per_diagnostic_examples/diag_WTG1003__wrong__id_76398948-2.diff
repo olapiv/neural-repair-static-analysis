@@ -1,0 +1,20 @@
+id: 76398948-2
+diagnostic: WTG1003
+perc_correct_in_test: 0.9090909090909091
+num_datapoints_in_train: 35
+<<<<<<<< CORRECT >>>>>>>>
+  0];
+              List<ElementInit> members = new List<ElementInit>();
+<<<< DIAGNOSTIC: you have meaningless whitespace on the end of the line, remove it. >>>>
+-             var add = expression.EntitySetType.GetMethod("Add", 
++             var add = expression.EntitySetType.GetMethod("Add",
+                      BindingFlags.NonPublic | BindingFlags.Instance,
+      
+<<<<<<<< INFERRED >>>>>>>>
+  0];
+              List<ElementInit> members = new List<ElementInit>();
+<<<< DIAGNOSTIC: you have meaningless whitespace on the end of the line, remove it. >>>>
+-             var add = expression.EntitySetType.GetMethod("Add", 
++             members.Add(
+                      BindingFlags.NonPublic | BindingFlags.Instance,
+      

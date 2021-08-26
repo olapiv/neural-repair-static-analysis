@@ -1,0 +1,31 @@
+id: 7889334-0
+diagnostic: SA1623D
+perc_correct_in_test: 0.08633093525179857
+num_datapoints_in_train: 435
+<<<<<<<< CORRECT >>>>>>>>
+   if (!object.ReferenceEquals(b, null))
+                  return b.ToArray();
+              return value;
+          }
++         /// <summary>
++         /// Gets or sets the target.
++         /// </summary>
+  
+<<<< DIAGNOSTIC: property documentation: no documentation. >>>>
+          public object Target { get; set; }
+      }
+  }
+<<<<<<<< INFERRED >>>>>>>>
+   if (!object.ReferenceEquals(b, null))
+                  return b.ToArray();
+              return value;
+          }
+  
++         /// <summary>
++         /// Gets a value indicating whether is null.
++         /// </summary>
++ 
+<<<< DIAGNOSTIC: property documentation: no documentation. >>>>
+          public object Target { get; set; }
+      }
+  }

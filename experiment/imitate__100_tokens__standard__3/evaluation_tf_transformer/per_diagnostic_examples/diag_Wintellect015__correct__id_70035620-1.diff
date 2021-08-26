@@ -1,0 +1,16 @@
+id: 70035620-1
+diagnostic: Wintellect015
+perc_correct_in_test: 0.9324324324324325
+num_datapoints_in_train: 206
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  	AttributedMetaType ownedMetaType = metaDataMember.DeclaringType.Model.GetMetaType(otherType) as AttributedMetaType;
+  
+<<<< DIAGNOSTIC: dharmendra - testing new loop in the c# >>>>
+- 			if ( ownedMetaType == null )
++             if (ownedMetaType == null)
++             {
+- 				throw new InvalidOperationException("Key in referenced table is of a different SQL MetaData provider");
++                 throw new InvalidOperationException("Key in referenced table is of a different SQL MetaData provider");
++             }
+  
+  			_otherMember = ownedMetaType.AssociationsLookup[otherType.GetMembers().Where(m => 

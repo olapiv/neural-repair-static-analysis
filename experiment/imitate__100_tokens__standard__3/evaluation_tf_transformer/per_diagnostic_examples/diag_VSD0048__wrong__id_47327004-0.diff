@@ -1,0 +1,30 @@
+id: 47327004-0
+diagnostic: VSD0048
+perc_correct_in_test: 0.45454545454545453
+num_datapoints_in_train: 35
+<<<<<<<< CORRECT >>>>>>>>
+  
+  namespace DbLinq.Data.Linq.Sugar.ExpressionMutator.Implementation
+  {
+      internal class ParameterExpressionMutator : IMutableExpression
+      {
+<<<< DIAGNOSTIC: property parameterexpression its private setter can be omitted. >>>>
+-         protected ParameterExpression ParameterExpression { get; private set; }
++         protected ParameterExpression ParameterExpression { get; }
+  
+          public Expression Mutate(IList<Expression> operands)
+          {
+      
+<<<<<<<< INFERRED >>>>>>>>
+  
+  namespace DbLinq.Data.Linq.Sugar.ExpressionMutator.Implementation
+  {
+      internal class ParameterExpressionMutator : IMutableExpression
+      {
+<<<< DIAGNOSTIC: property parameterexpression its private setter can be omitted. >>>>
+-         protected ParameterExpression ParameterExpression { get; private set; }
++         protected BinaryExpression ParameterExpression { get; }
+  
+          public Expression Mutate(IList<Expression> operands)
+          {
+      

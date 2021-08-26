@@ -1,0 +1,17 @@
+id: 67600576-0
+diagnostic: CH0003
+perc_correct_in_test: 0.5
+num_datapoints_in_train: 44
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+<<<< DIAGNOSTIC: sort using directives in alphabetical order, with system usings first. >>>>
+- using AutoMapper.Internal;
+  using System;
+  using System.Collections.Generic;
+  using System.Linq;
+  using System.Reflection;
+  namespace AutoMapper.Configuration.Conventions
+  {
+      public interface ISourceToDestinationNameMapper
+      {
+          MemberInfo GetMatchingMemberInfo(TypeDetails sourceTypeDetails, Type destType, Type destMemberType, string nameToSearch);
+      }

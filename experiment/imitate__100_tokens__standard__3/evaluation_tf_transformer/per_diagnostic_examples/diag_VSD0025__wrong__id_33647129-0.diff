@@ -1,0 +1,37 @@
+id: 33647129-0
+diagnostic: VSD0025
+perc_correct_in_test: 0.038461538461538464
+num_datapoints_in_train: 91
+<<<<<<<< CORRECT >>>>>>>>
+  
+  #if !MONO_STRICT
+      public
+  #endif
+      partial class Database : object, System.ComponentModel.INotifyPropertyChanged
+      {
+  
+<<<< DIAGNOSTIC: the field connectionfield does not follow naming conventions. should be _connectionfield. >>>>
+-         private Connection connectionField;
++         private Connection _connectionField;
+  
+          private Table[] tableField;
+  
+          private Function[] functionField;
+  
+        
+<<<<<<<< INFERRED >>>>>>>>
+  
+  #if !MONO_STRICT
+      public
+  #endif
+      partial class Database : object, System.ComponentModel.INotifyPropertyChanged
+      {
+  
+<<<< DIAGNOSTIC: the field connectionfield does not follow naming conventions. should be _connectionfield. >>>>
+          private Connection connectionField;
+  
+          private Table[] tableField;
+  
+          private Function[] functionField;
+  
+        

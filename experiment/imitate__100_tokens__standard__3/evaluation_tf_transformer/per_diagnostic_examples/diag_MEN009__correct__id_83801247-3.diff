@@ -1,0 +1,13 @@
+id: 83801247-3
+diagnostic: MEN009
+perc_correct_in_test: 0.625
+num_datapoints_in_train: 31
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+              public override Assembly Assembly
+              {
+<<<< DIAGNOSTIC: use notsupportedexception instead of notimplementedexception. >>>>
+-                 get { throw new NotImplementedException(); }
++                 get { throw new NotSupportedException(); }
+              }
+  
+              public override string AssemblyQualifiedName

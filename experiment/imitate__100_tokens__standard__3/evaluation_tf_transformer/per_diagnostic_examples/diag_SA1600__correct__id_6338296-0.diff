@@ -1,0 +1,20 @@
+id: 6338296-0
+diagnostic: SA1600
+perc_correct_in_test: 1.0
+num_datapoints_in_train: 2
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  HtmlControls;
+  using System.Diagnostics;
+  
+  	[Themeable (true)]
+  	public partial class MyParent : System.Web.UI.UserControl
+  	{
++     /// <inheritdoc/>
+<<<< DIAGNOSTIC: elements should be documented >>>>
+- 		protected override void OnInit (EventArgs e)
++     protected override void OnInit (EventArgs e)
+  		{
+  			Debug.WriteLine ("parent.OnInit");
+  			base.OnInit (e);
+  		}
+  		[Themeable (

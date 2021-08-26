@@ -1,0 +1,14 @@
+id: 12544363-0
+diagnostic: MEN013
+perc_correct_in_test: 0.75
+num_datapoints_in_train: 18
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  void RecordError(Exception exception, string? metadata = null, DateTime? timestamp = null)
+          {
+<<<< DIAGNOSTIC: use utcnow instead of now. >>>>
+-             timestamp ??= DateTime.Now;
++             timestamp ??= DateTime.UtcNow;
+  
+              (Type, string, string)[] key = ClassifyFailure(exception);
+  
+     

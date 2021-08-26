@@ -1,0 +1,14 @@
+id: 64190405-0
+diagnostic: INTL0003
+perc_correct_in_test: 0.75
+num_datapoints_in_train: 4
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+     // Derivative work of zlib -- https://github.com/madler/zlib/blob/master/crc32.c (hint: L108)
+<<<< DIAGNOSTIC: method 'make_crc_table' should be pascalcase >>>>
+-     private static void make_crc_table()
++     private static void Make_crc_table()
+      {
+          ulong c;
+          int n, k;
+  
+         

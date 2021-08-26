@@ -1,0 +1,28 @@
+id: 70939244-1
+diagnostic: CAC001
+perc_correct_in_test: 0.5
+num_datapoints_in_train: 15
+<<<<<<<< CORRECT >>>>>>>>
+   public async ValueTask StopAsync()
+          {
+              _cts.Cancel();
+<<<< DIAGNOSTIC: possibly missing `configureawait(false)` call >>>>
+-             await _clientTask.Value;
++             await _clientTask.Value.ConfigureAwait(false);
+          }
+  
+          public Task Task
+          {
+        
+<<<<<<<< INFERRED >>>>>>>>
+   public async ValueTask StopAsync()
+          {
+              _cts.Cancel();
+<<<< DIAGNOSTIC: possibly missing `configureawait(false)` call >>>>
+-             await _clientTask.Value;
++             await _serverTask.Value.ConfigureAwait(false);
+          }
+  
+          public Task Task
+          {
+        

@@ -1,0 +1,33 @@
+id: 16628607-0
+diagnostic: DA3010
+perc_correct_in_test: 0.46153846153846156
+num_datapoints_in_train: 42
+<<<<<<<< CORRECT >>>>>>>>
+  type">The type.</param>
+          public TestLogger(Type type) {
+          }
+  
++         /// <summary> 
++         /// 
++         /// </summary>
+<<<< DIAGNOSTIC: type 'Levels' doesn't have /// comments >>>>
+-         public enum Levels {
++         public enum Levels
++         {
+              DEBUG,
+              ERROR,
+              
+<<<<<<<< INFERRED >>>>>>>>
+  type">The type.</param>
+          public TestLogger(Type type) {
+          }
++ 
++     /// <summary> 
++     /// 
++     /// </summary>
+  
+<<<< DIAGNOSTIC: type 'Levels' doesn't have /// comments >>>>
+          public enum Levels {
+              DEBUG,
+              ERROR,
+              

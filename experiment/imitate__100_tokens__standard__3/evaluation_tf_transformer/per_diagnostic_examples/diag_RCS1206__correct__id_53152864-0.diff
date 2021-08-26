@@ -1,0 +1,11 @@
+id: 53152864-0
+diagnostic: RCS1206
+perc_correct_in_test: 0.5
+num_datapoints_in_train: 5
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+     protected virtual string GetDatabaseNameAliased(string databaseName, INameAliases nameAliases)
+          {
+<<<< DIAGNOSTIC: use conditional access instead of conditional expression. >>>>
+-             string databaseNameAliased = nameAliases != null ? nameAliases.GetDatabaseNameAlias(databaseName) : null;
++             string databaseNameAliased = nameAliases?.GetDatabaseNameAlias(databaseName);
+              return (databaseNameAliased != null) ? databaseNameAliased : GetDatabaseName(databaseName

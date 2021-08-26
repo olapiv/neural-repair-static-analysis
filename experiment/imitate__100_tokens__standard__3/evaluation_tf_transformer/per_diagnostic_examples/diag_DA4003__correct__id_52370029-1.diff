@@ -1,0 +1,14 @@
+id: 52370029-1
+diagnostic: DA4003
+perc_correct_in_test: 1.0
+num_datapoints_in_train: 45
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+   and can be created as needed.
+          /// </summary>
++         /// <example></example>
+          /// <returns>The mapper instance</returns>
+<<<< DIAGNOSTIC: method 'CreateMapper' doesn't have example the comment >>>>
+          IMapper CreateMapper();
+  
+          /// <summary>
+          /// Create a 

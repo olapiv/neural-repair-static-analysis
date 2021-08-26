@@ -1,0 +1,28 @@
+id: 43613137-0
+diagnostic: CA1836
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 0
+<<<<<<<< CORRECT >>>>>>>>
+  
+          }
+  
+          public void PrintFailureTypes()
+          {
+<<<< DIAGNOSTIC: prefer 'IsEmpty' over 'Count' to determine whether the object contains or not any items >>>>
+-             if (_failureTypes.Count == 0)
++             if (_failureTypes.IsEmpty)
+                  return;
+  
+              Console.ForegroundColor = 
+<<<<<<<< INFERRED >>>>>>>>
+  
+          }
+  
+          public void PrintFailureTypes()
+          {
+<<<< DIAGNOSTIC: prefer 'IsEmpty' over 'Count' to determine whether the object contains or not any items >>>>
+-             if (_failureTypes.Count == 0)
++             if (handler is null)
+                  return;
+  
+              Console.ForegroundColor = 

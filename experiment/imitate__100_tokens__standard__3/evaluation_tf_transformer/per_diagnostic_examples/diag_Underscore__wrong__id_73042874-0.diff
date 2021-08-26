@@ -1,0 +1,20 @@
+id: 73042874-0
+diagnostic: Underscore
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 19
+<<<<<<<< CORRECT >>>>>>>>
+   (Type, string, string)[] key = ClassifyFailure(exn);
+  
+<<<< DIAGNOSTIC: the name '_' is just an underscore, not a discard. >>>>
+-                     StressFailureType failureType = _failureTypes.GetOrAdd(key, _ => new StressFailureType(exn.ToString()));
++                     StressFailureType failureType = _failureTypes.GetOrAdd(key, underscore => new StressFailureType(exn.ToString()));
+  
+                      lock (failureType
+<<<<<<<< INFERRED >>>>>>>>
+   (Type, string, string)[] key = ClassifyFailure(exn);
+  
+<<<< DIAGNOSTIC: the name '_' is just an underscore, not a discard. >>>>
+-                     StressFailureType failureType = _failureTypes.GetOrAdd(key, _ => new StressFailureType(exn.ToString()));
++                     StressFailureType failureType = _failureTypes.GetOrAdd(key, underscore) => new StressFailureType(exn;
+  
+                      lock (failureType

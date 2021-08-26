@@ -1,0 +1,18 @@
+id: 64866249-0
+diagnostic: RCS1123
+perc_correct_in_test: 0.2857142857142857
+num_datapoints_in_train: 12
+<<<<<<<< CORRECT >>>>>>>>
+  var base64string = base64url.Replace('_', '/').Replace('-', '+');
+<<<< DIAGNOSTIC: add parentheses when necessary. >>>>
+-             base64string = base64string.PadRight(base64string.Length + (4 - base64string.Length % 4) % 4, '=');
++             base64string = base64string.PadRight(base64string.Length + ((4 - (base64string.Length % 4)) % 4), '=');
+              return Convert.FromBase64String(base64string);
+      
+<<<<<<<< INFERRED >>>>>>>>
+  var base64string = base64url.Replace('_', '/').Replace('-', '+');
+<<<< DIAGNOSTIC: add parentheses when necessary. >>>>
+-             base64string = base64string.PadRight(base64string.Length + (4 - base64string.Length % 4) % 4, '=');
++             string base64string = base64string.Length + (4 - base64string.Length % 4) % 4;
+              return Convert.FromBase64String(base64string);
+      

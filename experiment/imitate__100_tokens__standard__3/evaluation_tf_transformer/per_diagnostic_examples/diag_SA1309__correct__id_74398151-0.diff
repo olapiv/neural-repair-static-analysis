@@ -1,0 +1,16 @@
+id: 74398151-0
+diagnostic: SA1309
+perc_correct_in_test: 0.25
+num_datapoints_in_train: 32
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+   be returned by the server
+          public const string ExpectedResponseContentLength = "Expected-Response-Content-Length";
+  
+<<<< DIAGNOSTIC: field '_webHost' should not begin with an underscore >>>>
+-         private readonly IWebHost _webHost;
++         private readonly IWebHost webHost;
+  
+          public string ServerUri { get; }
+  
+          public StressServer(Configuration configuration)
+    

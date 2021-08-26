@@ -1,0 +1,14 @@
+id: 95579898-0
+diagnostic: _MissingAsync
+perc_correct_in_test: 1.0
+num_datapoints_in_train: 13
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  {
+      public enum ExitCode { Success = 0, StressError = 1, CliError = 2 };
+  
+<<<< DIAGNOSTIC: 'Main' does not end with async. >>>>
+-     public static async Task<int> Main(string[] args)
++     public static async Task<int> MainAsync(string[] args)
+      {
+          if (!TryParseCli(args, out Configuration? config))
+        

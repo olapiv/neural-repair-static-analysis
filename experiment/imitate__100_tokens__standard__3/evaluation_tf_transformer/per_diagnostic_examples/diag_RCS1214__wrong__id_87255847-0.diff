@@ -1,0 +1,22 @@
+id: 87255847-0
+diagnostic: RCS1214
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 7
+<<<<<<<< CORRECT >>>>>>>>
+  
+  
+                      Console.ForegroundColor = ConsoleColor.Green;
+<<<< DIAGNOSTIC: unnecessary interpolated string. >>>>
+-                     Console.Write($"\tPass: ");
++                     Console.Write("\tPass: ");
+                      Console.ResetColor();
+        
+<<<<<<<< INFERRED >>>>>>>>
+  
+  
+                      Console.ForegroundColor = ConsoleColor.Green;
+<<<< DIAGNOSTIC: unnecessary interpolated string. >>>>
+-                     Console.Write($"\tPass: ");
++                 Console.Write("Fail: ");
+                      Console.ResetColor();
+        

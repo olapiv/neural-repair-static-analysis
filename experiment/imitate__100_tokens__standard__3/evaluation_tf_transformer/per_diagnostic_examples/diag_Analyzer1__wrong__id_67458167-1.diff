@@ -1,0 +1,24 @@
+id: 67458167-1
+diagnostic: Analyzer1
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 8
+<<<<<<<< CORRECT >>>>>>>>
+  
+              => connection != null && ByTypeHelpers.Get(connection.GetType()).TryClearPool(connection);
+  
+<<<< DIAGNOSTIC: type name 'ByTypeHelpers' contains lowercase letters >>>>
+-         private sealed class ByTypeHelpers
++         private sealed class BYTYPEHELPERS
+          {
+              private static readonly ConcurrentDictionary<Type, ByTypeHelpers> s_byType
+      
+<<<<<<<< INFERRED >>>>>>>>
+  
+              => connection != null && ByTypeHelpers.Get(connection.GetType()).TryClearPool(connection);
+  
+<<<< DIAGNOSTIC: type name 'ByTypeHelpers' contains lowercase letters >>>>
+-         private sealed class ByTypeHelpers
++             private static readonly ConcurrentDictionary<Type, ByTypeHelpers> s_byType
+          {
+              private static readonly ConcurrentDictionary<Type, ByTypeHelpers> s_byType
+      

@@ -1,0 +1,24 @@
+id: 99010029-0
+diagnostic: RIT0009
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 0
+<<<<<<<< CORRECT >>>>>>>>
+  .Shared.Rent(length);
+              Length = length;
+          }
+  
+<<<< DIAGNOSTIC: auto property 'Length' in struct must be a field >>>>
+-         public int Length { get; }
++         public readonly int Length;
+          public Memory<byte> AsMemory() => new Memory<byte>(_buffer, 0, Length);
+   
+<<<<<<<< INFERRED >>>>>>>>
+  .Shared.Rent(length);
+              Length = length;
+          }
+  
+<<<< DIAGNOSTIC: auto property 'Length' in struct must be a field >>>>
+-         public int Length { get; }
++         public DataSegment(int length)
+          public Memory<byte> AsMemory() => new Memory<byte>(_buffer, 0, Length);
+   
