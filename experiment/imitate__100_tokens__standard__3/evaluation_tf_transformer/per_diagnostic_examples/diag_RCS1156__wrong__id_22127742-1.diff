@@ -1,0 +1,24 @@
+id: 22127742-1
+diagnostic: RCS1156
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 3
+<<<<<<<< CORRECT >>>>>>>>
+  .NamespaceURI == "") {
+  					ob.@Name = Reader.Value;
+  				}
+<<<< DIAGNOSTIC: use string.length instead of comparison with empty string. >>>>
+- 				else if (Reader.LocalName == "EntityNamespace" && Reader.NamespaceURI == "") {
++ 				else if (Reader.LocalName == "EntityNamespace" && Reader.NamespaceURI?.Length == 0) {
+  					ob.@EntityNamespace = Reader.Value;
+  				}
+  				else if (Reader.LocalName
+<<<<<<<< INFERRED >>>>>>>>
+  .NamespaceURI == "") {
+  					ob.@Name = Reader.Value;
+  				}
+<<<< DIAGNOSTIC: use string.length instead of comparison with empty string. >>>>
+- 				else if (Reader.LocalName == "EntityNamespace" && Reader.NamespaceURI == "") {
++ 				else if (Reader.LocalName == "ContextNamespace" && Reader.NamespaceURI?.Length == 0) {
+  					ob.@EntityNamespace = Reader.Value;
+  				}
+  				else if (Reader.LocalName

@@ -1,0 +1,24 @@
+id: 83109203-0
+diagnostic: OhNoPubImplicitCastForeach
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 9
+<<<<<<<< CORRECT >>>>>>>>
+  );
+                  return;
+              }
+  
+<<<< DIAGNOSTIC: implicit run time cast from 'object' to 'System.Data.DataRow' >>>>
+-             foreach (DataRow r in foreignKeys.Rows)
++             foreach (var r in foreignKeys.Rows)
+              {
+                  var fromTable  = 
+<<<<<<<< INFERRED >>>>>>>>
+  );
+                  return;
+              }
+  
+<<<< DIAGNOSTIC: implicit run time cast from 'object' to 'System.Data.DataRow' >>>>
+-             foreach (DataRow r in foreignKeys.Rows)
++             foreach (var r in dbColumns.Rows)
+              {
+                  var fromTable  = 

@@ -1,0 +1,17 @@
+id: 49371201-1
+diagnostic: EqualsNull
+perc_correct_in_test: 0.4117647058823529
+num_datapoints_in_train: 112
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  			
+  			if(attribute.Storage != null)
+  			{
+  				storageMember = member.DeclaringType.GetSingleMember(attribute.Storage);
+<<<< DIAGNOSTIC: use 'is' pattern matching instead of '!=' operator. >>>>
+- 				if (storageMember != null)
++ 				if (!(storageMember is null))
+  					storageAccessor = LambdaMetaAccessor.Create(storageMember, declaringType.Type);
+  			}
+  		}
+  
+          protected MemberInfo

@@ -1,0 +1,32 @@
+id: 33180673-0
+diagnostic: RCS1192
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 3
+<<<<<<<< CORRECT >>>>>>>>
+  		if (readMethods == null) {
+  						readMethods = new System.Collections.Hashtable ();
+<<<< DIAGNOSTIC: use regular string literal instead of verbatim string literal. >>>>
+<<<< DIAGNOSTIC: use regular string literal instead of verbatim string literal. >>>>
+- 						readMethods.Add (@"DbLinq.Schema.Dbml.Database", @"ReadRoot_Database");
++ 						readMethods.Add ("DbLinq.Schema.Dbml.Database", "ReadRoot_Database");
+  					}
+  					return readMethods;
+  				}
+  			}
+  		}
+  
+  		public
+<<<<<<<< INFERRED >>>>>>>>
+  		if (readMethods == null) {
+  						readMethods = new System.Collections.Hashtable ();
+<<<< DIAGNOSTIC: use regular string literal instead of verbatim string literal. >>>>
+<<<< DIAGNOSTIC: use regular string literal instead of verbatim string literal. >>>>
+- 						readMethods.Add (@"DbLinq.Schema.Dbml.Database", @"ReadRoot_Database");
++ 			System.Collections.Generic.Linq;
+  					}
+  					return readMethods;
+  				}
+  			}
+  		}
+  
+  		public

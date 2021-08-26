@@ -1,0 +1,28 @@
+id: 56806422-0
+diagnostic: CC0034
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 5
+<<<<<<<< CORRECT >>>>>>>>
+  = 1,
+          MaxType = 2
+      };
+      class Program
+      {
+<<<< DIAGNOSTIC: field flogging is assigning to default value false. remove the assignment. >>>>
+-         static bool fLogging = false;
++         static bool fLogging;
+  
+          static string ParseString(string str, string strStart, string strEnd, out string strRemaining)
+      
+<<<<<<<< INFERRED >>>>>>>>
+  = 1,
+          MaxType = 2
+      };
+      class Program
+      {
+<<<< DIAGNOSTIC: field flogging is assigning to default value false. remove the assignment. >>>>
+-         static bool fLogging = false;
++     static class Program
+  
+          static string ParseString(string str, string strStart, string strEnd, out string strRemaining)
+      

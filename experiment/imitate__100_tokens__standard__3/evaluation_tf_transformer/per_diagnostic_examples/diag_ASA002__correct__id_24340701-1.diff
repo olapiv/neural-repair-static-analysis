@@ -1,0 +1,14 @@
+id: 24340701-1
+diagnostic: ASA002
+perc_correct_in_test: 1.0
+num_datapoints_in_train: 5
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  Uses the HttpContext.Current singleton.
+          /// </summary>
+          ISession GetOrCreateSession();
+<<<< DIAGNOSTIC: method 'GetOrCreateSessionAsync' returns isessionasync and so it should rather be called 'GetOrCreateSession' >>>>
+-         ISessionAsync GetOrCreateSessionAsync();
++         ISessionAsync GetOrCreateSession();
+  
+          /// <summary>
+          /// Create a Session Bag using a custom sessionId

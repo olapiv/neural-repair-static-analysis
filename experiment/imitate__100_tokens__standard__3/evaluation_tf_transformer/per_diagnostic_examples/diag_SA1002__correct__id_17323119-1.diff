@@ -1,0 +1,15 @@
+id: 17323119-1
+diagnostic: SA1002
+perc_correct_in_test: 1.0
+num_datapoints_in_train: 6
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+   get; set; }
+  
+          public List<string> ActionKeywords { get; set; }
+  
+<<<< DIAGNOSTIC: semicolons should be followed by a space >>>>
+-         public string IcoPath { get; set;}
++         public string IcoPath { get; set; }
+  
+          // keep plugin raw score by not multiply selected counts
+          public 

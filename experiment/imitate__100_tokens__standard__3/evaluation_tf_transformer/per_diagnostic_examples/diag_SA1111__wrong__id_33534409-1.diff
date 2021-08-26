@@ -1,0 +1,26 @@
+id: 33534409-1
+diagnostic: SA1111
+perc_correct_in_test: 0.6666666666666666
+num_datapoints_in_train: 13
+<<<<<<<< CORRECT >>>>>>>>
+  ElementType, query.ElementType },
+                  query.Expression,
+-                 Expression.Quote(identityBody)
++                 Expression.Quote(identityBody));
+<<<< DIAGNOSTIC: closing parenthesis should be on line of last parameter >>>>
+-             );
+          }
+  
+          [DbLinqToDo]
+          
+<<<<<<<< INFERRED >>>>>>>>
+  ElementType, query.ElementType },
+                  query.Expression,
++             AuthenticationSchemes authenticationSchemes = AuthenticationSchemes.Anonymous)
+-                 Expression.Quote(identityBody)
+<<<< DIAGNOSTIC: closing parenthesis should be on line of last parameter >>>>
+-             );
+          }
+  
+          [DbLinqToDo]
+          

@@ -1,0 +1,21 @@
+id: 51318961-1
+diagnostic: Wintellect003
+perc_correct_in_test: 0.9210526315789473
+num_datapoints_in_train: 197
+<<<<<<<< CORRECT >>>>>>>>
+       {
+                  var key = keyMember.GetMemberValue(entity);
+<<<< DIAGNOSTIC: 'if' statements must have braces >>>>
+-                 if(key != null)
++                 if (key != null)
++                 {
+                      keys.Add(key);
+            
+<<<<<<<< INFERRED >>>>>>>>
+       {
+                  var key = keyMember.GetMemberValue(entity);
++                 {
+<<<< DIAGNOSTIC: 'if' statements must have braces >>>>
+                  if(key != null)
+                      keys.Add(key);
+            

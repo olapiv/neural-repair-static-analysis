@@ -1,0 +1,14 @@
+id: 9867164-0
+diagnostic: FS0131
+perc_correct_in_test: 0.875
+num_datapoints_in_train: 24
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+      public void Unregister(Type implementationType)
+          {
++             {
+              foreach (var entry in Implementations)
+<<<< DIAGNOSTIC: add braces to single statement in this foreach loop >>>>
+                  entry.Value.Remove(implementationType);
+          }
+  
+          /// <summary>

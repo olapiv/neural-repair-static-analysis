@@ -1,0 +1,29 @@
+id: 47631986-0
+diagnostic: _MissingConfigureAwait
+perc_correct_in_test: 0.36363636363636365
+num_datapoints_in_train: 26
+<<<<<<<< CORRECT >>>>>>>>
+  				{
+  					var client = HttpClientFactory.Create();
+  
+<<<< DIAGNOSTIC: consider using .configureawait(false) on async method 'GetAsync'. >>>>
+- 					var httpResponseMessage = await client.GetAsync(playerDatabase.Profile + Fingerprint);
++ 					var httpResponseMessage = await client.GetAsync(playerDatabase.Profile + Fingerprint).ConfigureAwait(false);
+<<<< DIAGNOSTIC: consider using .configureawait(false) on async method 'ReadAsStringAsync'. >>>>
+- 					var result = await httpResponseMessage.Content.ReadAsStringAsync();
++ 					var result = await httpResponseMessage.Content.ReadAsStringAsync().ConfigureAwait(false);
+  
+  					var yaml = MiniYaml.FromString(result).First();
+  		
+<<<<<<<< INFERRED >>>>>>>>
+  				{
+  					var client = HttpClientFactory.Create();
+  
+<<<< DIAGNOSTIC: consider using .configureawait(false) on async method 'GetAsync'. >>>>
+- 					var httpResponseMessage = await client.GetAsync(playerDatabase.Profile + Fingerprint);
++ 						var httpResponseMessage = await client.GetAsync(playerDatabase.Profile + Fingerprint);
+<<<< DIAGNOSTIC: consider using .configureawait(false) on async method 'ReadAsStringAsync'. >>>>
+- 					var result = await httpResponseMessage.Content.ReadAsStringAsync();
+  
+  					var yaml = MiniYaml.FromString(result).First();
+  		

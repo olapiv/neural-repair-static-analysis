@@ -1,0 +1,12 @@
+id: 56179560-0
+diagnostic: JA101
+perc_correct_in_test: 0.0945945945945946
+num_datapoints_in_train: 215
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+              {
+                  _successes[workerId]++;
+<<<< DIAGNOSTIC: handle the return value of 'Interlocked.Increment(ref_totalconnections)'. >>>>
+-                 Interlocked.Increment(ref _totalConnections);
++                 _ = Interlocked.Increment(ref _totalConnections);
+                  UpdateCounters(workerId);
+              }

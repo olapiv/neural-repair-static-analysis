@@ -1,0 +1,13 @@
+id: 65496215-0
+diagnostic: VarUsage
+perc_correct_in_test: 0.16666666666666666
+num_datapoints_in_train: 407
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+        public Task Invoke(string method, params object[] args)
+          {
+<<<< DIAGNOSTIC: 'invocation' variable should not be defined with var. >>>>
+-             var invocation = GetInvocationData(method, args);
++             ClientHubInvocation invocation = GetInvocationData(method, args);
+  
+              var context = new HubOutgoingInvokerContext(Connection, Signal, invocation)
+       

@@ -1,0 +1,23 @@
+id: 39878073-1
+diagnostic: DateTimeOffsetInsteadOfDateTimeAnalyzer
+perc_correct_in_test: 0.5625
+num_datapoints_in_train: 51
+<<<<<<<< CORRECT >>>>>>>>
+       public override SqlStatement GetLiteral(DateTime literal)
+          {
+<<<< DIAGNOSTIC: replace datetime usage with datetimeoffset >>>>
+-             return "'" + literal.ToString("o").Substring(0,23) + "'";
++             return "'" + DateTimeOffset.ToString("o").Substring(0,23) + "'";
+          }
+  
+          public override string GetParameterName(string
+<<<<<<<< INFERRED >>>>>>>>
+       public override SqlStatement GetLiteral(DateTime literal)
+          {
+<<<< DIAGNOSTIC: replace datetime usage with datetimeoffset >>>>
+-             return "'" + literal.ToString("o").Substring(0,23) + "'";
+-         }
++             return DateTimeOffset.Now;
++             ("o");
+  
+          public override string GetParameterName(string

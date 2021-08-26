@@ -1,0 +1,13 @@
+id: 45054670-1
+diagnostic: AvNextRegularExpressionCodeFix
+perc_correct_in_test: 0.896551724137931
+num_datapoints_in_train: 94
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  }
+          public int StatusCode { get; set; }
++         [System.ComponentModel.DataAnnotations.RegularExpression(@"^[a-zA-Z0-9]*$")]//Roslyn auto generated
+          public string StatusDescription { get; set; }
+<<<< DIAGNOSTIC: type name 'HttpMethod' should be decorated with regularexpress attribute >>>>
+          public string HttpMethod { get; set; }
+          public string AbsoluteUri { get; set; }
+    

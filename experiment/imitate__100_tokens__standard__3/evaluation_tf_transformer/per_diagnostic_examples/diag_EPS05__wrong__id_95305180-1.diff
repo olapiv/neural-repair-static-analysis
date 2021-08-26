@@ -1,0 +1,28 @@
+id: 95305180-1
+diagnostic: EPS05
+perc_correct_in_test: 0.4
+num_datapoints_in_train: 20
+<<<<<<<< CORRECT >>>>>>>>
+   RemoveEnd();
+  
+          void Enqueue(T value);
+          T Dequeue();
+<<<< DIAGNOSTIC: use in-modifier for passing readonly struct 'Nullable' >>>>
+-         T BlockingDequeue(TimeSpan? timeOut);
++         T BlockingDequeue(in TimeSpan? timeOut);
+  
+          void Push(T value);
+          T Pop();
+         
+<<<<<<<< INFERRED >>>>>>>>
+   RemoveEnd();
+  
+          void Enqueue(T value);
+          T Dequeue();
+<<<< DIAGNOSTIC: use in-modifier for passing readonly struct 'Nullable' >>>>
+-         T BlockingDequeue(TimeSpan? timeOut);
++         string BlockingDequeue(in TimeSpan? timeOut);
+  
+          void Push(T value);
+          T Pop();
+         

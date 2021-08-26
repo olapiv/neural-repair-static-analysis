@@ -1,0 +1,13 @@
+id: 76398948-1
+diagnostic: WTG1003
+perc_correct_in_test: 0.9090909090909091
+num_datapoints_in_train: 35
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  BuilderContext builderContext)
+          {
+              var bindings = new List<MemberBinding>();
+<<<< DIAGNOSTIC: you have meaningless whitespace on the end of the line, remove it. >>>>
+-             
++ 
+              foreach (ColumnExpression columnExpression in RegisterAllColumns(tableExpression, builderContext))
+              {

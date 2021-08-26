@@ -1,0 +1,16 @@
+id: 41314913-0
+diagnostic: SA1127
+perc_correct_in_test: 0.3333333333333333
+num_datapoints_in_train: 8
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+        }
+              }
+          }
+  
+  
+<<<< DIAGNOSTIC: generic type constraints should be on their own line >>>>
+-         private class StructuralEqualityComparer<T> : IEqualityComparer<T> where T : IStructuralEquatable
++         private class StructuralEqualityComparer<T> : IEqualityComparer<T>
++             where T : IStructuralEquatable
+          {
+              public bool Equals(T? left, 

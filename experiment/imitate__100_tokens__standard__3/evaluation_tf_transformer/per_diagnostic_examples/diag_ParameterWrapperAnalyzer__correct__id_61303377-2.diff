@@ -1,0 +1,18 @@
+id: 61303377-2
+diagnostic: ParameterWrapperAnalyzer
+perc_correct_in_test: 0.1910828025477707
+num_datapoints_in_train: 569
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  => context.SourceType.IsDynamic() && !context.DestinationType.IsDynamic();
+<<<< DIAGNOSTIC: member 'MapExpression' has suboptimal parameter formatting >>>>
+-         public Expression MapExpression(IGlobalConfiguration configurationProvider, ProfileMap profileMap,
+-             MemberMap memberMap, Expression sourceExpression, Expression destExpression) =>
++         public Expression MapExpression
++         (
++             IGlobalConfiguration configurationProvider,
++             ProfileMap profileMap,
++             MemberMap memberMap,
++             Expression sourceExpression,
++             Expression destExpression
++         ) =>
+              Call(MapMethodInfo, sourceExpression, destExpression.ToObject

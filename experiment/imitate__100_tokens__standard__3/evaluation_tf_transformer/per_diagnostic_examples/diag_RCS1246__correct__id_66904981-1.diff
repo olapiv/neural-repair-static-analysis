@@ -1,0 +1,12 @@
+id: 66904981-1
+diagnostic: RCS1246
+perc_correct_in_test: 0.6666666666666666
+num_datapoints_in_train: 2
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+       {
+                  var unaryExpression = (UnaryExpression)expression;
+<<<< DIAGNOSTIC: use element access. >>>>
+-                 var firstOperand = literalOperands.First();
++                 var firstOperand = literalOperands[0];
+                  if (IsConversionRequired(unaryExpression))
+             

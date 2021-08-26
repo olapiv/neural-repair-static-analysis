@@ -1,0 +1,13 @@
+id: 99873786-0
+diagnostic: SA1001
+perc_correct_in_test: 0.5
+num_datapoints_in_train: 6
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  , IList<ObjectInputParameterExpression> inputParameters,
+              IList<ObjectOutputParameterExpression> outputParameters, IList<ObjectInputParameterExpression> primaryKeyParameters)
+<<<< DIAGNOSTIC: commas should be followed by whitespace. >>>>
+-             : base(dataContext, sql,inputParameters)
++             : base(dataContext, sql, inputParameters)
+          {
+              OutputParameters = outputParameters;
+           

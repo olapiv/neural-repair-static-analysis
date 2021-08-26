@@ -1,0 +1,15 @@
+id: 52030853-0
+diagnostic: VSD0048
+perc_correct_in_test: 0.45454545454545453
+num_datapoints_in_train: 35
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  <summary>
+          /// Entity being watched
+          /// </summary>
+<<<< DIAGNOSTIC: property entity its private setter can be omitted. >>>>
+-         public object Entity { get; private set; }
++         public object Entity { get; }
+  
+          /// <summary>
+          /// Current entity key
+      

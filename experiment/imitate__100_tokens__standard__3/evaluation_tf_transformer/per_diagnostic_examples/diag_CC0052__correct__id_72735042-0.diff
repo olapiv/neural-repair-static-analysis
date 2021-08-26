@@ -1,0 +1,19 @@
+id: 72735042-0
+diagnostic: CC0052
+perc_correct_in_test: 0.6
+num_datapoints_in_train: 18
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  = 0;
+          private StreamWriter _log;
+<<<< DIAGNOSTIC: make '_messagesChannel' readonly >>>>
+-         private Channel<string> _messagesChannel = Channel.CreateUnbounded<string>();
++         private readonly Channel<string> _messagesChannel = Channel.CreateUnbounded<string>();
+<<<< DIAGNOSTIC: make '_processMessages' readonly >>>>
+-         private Task _processMessages;
++         private readonly Task _processMessages;
+<<<< DIAGNOSTIC: make '_stopProcessing' readonly >>>>
+-         private CancellationTokenSource _stopProcessing;
++         private readonly CancellationTokenSource _stopProcessing;
+  
+          public LogHttpEventListener()
+        

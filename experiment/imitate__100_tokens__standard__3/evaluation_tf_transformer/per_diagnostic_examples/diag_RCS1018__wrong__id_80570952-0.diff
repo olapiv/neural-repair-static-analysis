@@ -1,0 +1,30 @@
+id: 80570952-0
+diagnostic: RCS1018
+perc_correct_in_test: 0.9166666666666666
+num_datapoints_in_train: 69
+<<<<<<<< CORRECT >>>>>>>>
+  : IDisposable
+      {
+<<<< DIAGNOSTIC: add accessibility modifiers. >>>>
+-         readonly HttpListener          _listener;
++         private readonly HttpListener          _listener;
+<<<< DIAGNOSTIC: add accessibility modifiers. >>>>
+-         readonly List<TestRequestHandler> _requestHandlers;
++         private readonly List<TestRequestHandler> _requestHandlers;
+<<<< DIAGNOSTIC: add accessibility modifiers. >>>>
+-         readonly object                _requestHandlersLock = new object();
++         private readonly object                _requestHandlersLock = new object();
+  
+          public
+<<<<<<<< INFERRED >>>>>>>>
+  : IDisposable
+      {
++         private readonly List<TestRequestHandler> _urlParameterNames = new List<object>();
+<<<< DIAGNOSTIC: add accessibility modifiers. >>>>
+-         readonly HttpListener          _listener;
+<<<< DIAGNOSTIC: add accessibility modifiers. >>>>
+-         readonly List<TestRequestHandler> _requestHandlers;
+<<<< DIAGNOSTIC: add accessibility modifiers. >>>>
+-         readonly object                _requestHandlersLock = new object();
+  
+          public

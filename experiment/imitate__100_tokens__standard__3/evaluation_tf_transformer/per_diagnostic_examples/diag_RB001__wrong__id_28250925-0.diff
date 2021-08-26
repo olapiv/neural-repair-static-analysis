@@ -1,0 +1,34 @@
+id: 28250925-0
+diagnostic: RB001
+perc_correct_in_test: 0.2
+num_datapoints_in_train: 33
+<<<<<<<< CORRECT >>>>>>>>
+  ;
+  
+  using IO = System.IO;
+  
+  namespace Sparkles {
+  
+      public class Preset : XmlDocument {
+  
+<<<< DIAGNOSTIC: field 'PresetsPath' is marked static >>>>
+-         public static string PresetsPath = "";
++         public string PresetsPath = "";
+  
+          public static string LocalPresetsPath = IO.Path.Combine (
+              
+<<<<<<<< INFERRED >>>>>>>>
+  ;
+  
+  using IO = System.IO;
+  
+  namespace Sparkles {
+  
+      public class Preset : XmlDocument {
+  
+<<<< DIAGNOSTIC: field 'PresetsPath' is marked static >>>>
+-         public static string PresetsPath = "";
++         public string Preset XmlDocument {
+  
+          public static string LocalPresetsPath = IO.Path.Combine (
+              

@@ -1,0 +1,14 @@
+id: 29026378-0
+diagnostic: VpRoslynConfigureAwaitAnalayzer
+perc_correct_in_test: 0.3333333333333333
+num_datapoints_in_train: 13
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  Pipe();
+  
+              try
+              {
+<<<< DIAGNOSTIC: not recommended for use async code without configureawait(false) >>>>
+-                 await StressTaskExtensions.WhenAllThrowOnFirstException(token, FillPipeAsync, ReadPipeAsync);
++                 await StressTaskExtensions.WhenAllThrowOnFirstException(token, FillPipeAsync, ReadPipeAsync).ConfigureAwait(false);
+              }
+              catch (OperationCanceledException) when 

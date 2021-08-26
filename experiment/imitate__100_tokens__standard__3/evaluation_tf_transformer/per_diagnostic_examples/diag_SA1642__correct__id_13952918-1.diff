@@ -1,0 +1,15 @@
+id: 13952918-1
+diagnostic: SA1642
+perc_correct_in_test: 1.0
+num_datapoints_in_train: 5
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+       Name = name;
+              JoinID = joinID;
+          }
+  
++         /// Initializes a new instance of the <see cref="TableExpression"/> class.
+<<<< DIAGNOSTIC: constructor summary documentation should begin with standard text >>>>
+          /// <summary>
+          /// Ctor for default table
+          /// </summary>
+          

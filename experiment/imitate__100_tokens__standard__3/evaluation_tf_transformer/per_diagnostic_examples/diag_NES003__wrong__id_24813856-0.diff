@@ -1,0 +1,16 @@
+id: 24813856-0
+diagnostic: NES003
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 8
+<<<<<<<< CORRECT >>>>>>>>
+      int max = length < 0 ? reader.FieldCount : startBound + length;
+<<<< DIAGNOSTIC: use bit-shifting multiplication or nesmath.multiply to multiply two numbers with an algorithm that can be run on the nes cpu >>>>
+-                 int hash = (-37 * startBound) + max;
++                 int hash = (NESMath.Multiply(-37, startBound)) + max;
+                  for (int i = startBound; i < 
+<<<<<<<< INFERRED >>>>>>>>
+      int max = length < 0 ? reader.FieldCount : startBound + length;
+<<<< DIAGNOSTIC: use bit-shifting multiplication or nesmath.multiply to multiply two numbers with an algorithm that can be run on the nes cpu >>>>
+-                 int hash = (-37 * startBound) + max;
++                     int hash = NESMath.Multiply(hash, -27);
+                  for (int i = startBound; i < 

@@ -1,0 +1,22 @@
+id: 96695626-0
+diagnostic: AsyncFixer01
+perc_correct_in_test: 0.5
+num_datapoints_in_train: 5
+<<<<<<<< CORRECT >>>>>>>>
+       _remote.Bind(new IPEndPoint(ListenAddress, 0));
+              }
+  
+<<<< DIAGNOSTIC: the method 'SendAsync' does not need to use async/await. >>>>
+-             public async Task SendAsync(ReadOnlyMemory<byte> data)
++             public Task SendAsync(ReadOnlyMemory<byte> data)
+              {
+                  using ICrypto encryptor 
+<<<<<<<< INFERRED >>>>>>>>
+       _remote.Bind(new IPEndPoint(ListenAddress, 0));
+              }
+  
+<<<< DIAGNOSTIC: the method 'SendAsync' does not need to use async/await. >>>>
+-             public async Task SendAsync(ReadOnlyMemory<byte> data)
++         public Task<int> SendAsync(ReadOnlyMemory<byte> buffer, CancellationToken token = default)
+              {
+                  using ICrypto encryptor 

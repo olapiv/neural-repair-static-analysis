@@ -1,0 +1,20 @@
+id: 82390429-0
+diagnostic: RS0100
+perc_correct_in_test: 0.42857142857142855
+num_datapoints_in_train: 36
+<<<<<<<< CORRECT >>>>>>>>
+                  var result = await client.Input.ReadAsync();
+<<<< DIAGNOSTIC: statements must be placed on their own line >>>>
+-                 if (result.IsCanceled || result.IsCompleted) return;
++                 if (result.IsCanceled || result.IsCompleted)
++                     return;
+  
+                  // TODO compress into one chunk when possible
+<<<<<<<< INFERRED >>>>>>>>
+                  var result = await client.Input.ReadAsync();
+<<<< DIAGNOSTIC: statements must be placed on their own line >>>>
+-                 if (result.IsCanceled || result.IsCompleted) return;
++                 if (result.IsCanceled || result.IsCompleted)
++                             return;
+  
+                  // TODO compress into one chunk when possible

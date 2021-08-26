@@ -1,0 +1,18 @@
+id: 41187976-1
+diagnostic: DateTimeOffsetInsteadOfDateTimeAnalyzer
+perc_correct_in_test: 0.5625
+num_datapoints_in_train: 51
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  ; }
+          DateTime? LockedDate { get; set; }
+  
+<<<< DIAGNOSTIC: replace datetime usage with datetimeoffset >>>>
+-         DateTime CreatedDate { get; set; }
++         DateTimeOffset CreatedDate { get; set; }
+<<<< DIAGNOSTIC: replace datetime usage with datetimeoffset >>>>
+-         DateTime ModifiedDate { get; set; }
++         DateTimeOffset ModifiedDate { get; set; }
+      }
+  
+      public interface IUserAuthDetails : IAuthTokens, IMeta
+      

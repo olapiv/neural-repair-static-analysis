@@ -1,0 +1,12 @@
+id: 97456154-0
+diagnostic: SA1407
+perc_correct_in_test: 0.2
+num_datapoints_in_train: 13
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+       // TEMP..
+              //procsPerNode = 16;
+<<<< DIAGNOSTIC: arithmetic expressions should declare precedence >>>>
+-             int totalTimeUnits = (endTimeMS - startTimeMS) / timeUnitMS + 1;
++             int totalTimeUnits = ((endTimeMS - startTimeMS) / timeUnitMS) + 1;
+              int procStart = procsPerNode * nodeIndexToPrint;
+          

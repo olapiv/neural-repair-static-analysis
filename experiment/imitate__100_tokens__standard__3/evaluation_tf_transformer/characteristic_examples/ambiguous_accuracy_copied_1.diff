@@ -1,0 +1,40 @@
+id: 26371769-0
+diagnostic: CH0003
+perc_correct_in_test: 0.5
+num_datapoints_in_train: 44
+<<<<<<<< CORRECT >>>>>>>>
+  using System;
+  using System.Collections.Generic;
+- using System.Linq;
+<<<< DIAGNOSTIC: sort using directives in alphabetical order, with system usings first. >>>>
+- using System.Text;
+  using System.Diagnostics;
+  using System.IO;
+  
+  namespace DbLinq.Util
+  {
+  #if !MONO_STRICT
+      public
+  #endif
+      static class Profiler
+      {
+          [ThreadStatic]
+          
+<<<<<<<< INFERRED >>>>>>>>
+  using System;
+  using System.Collections.Generic;
+  using System.Linq;
+<<<< DIAGNOSTIC: sort using directives in alphabetical order, with system usings first. >>>>
+- using System.Text;
+- using System.Diagnostics;
+- using System.IO;
+  
+  namespace DbLinq.Util
+  {
+  #if !MONO_STRICT
+      public
+  #endif
+      static class Profiler
+      {
+          [ThreadStatic]
+          

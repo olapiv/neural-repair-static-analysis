@@ -1,0 +1,20 @@
+id: 77147676-1
+diagnostic: EmptyArrayCreation
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 10
+<<<<<<<< CORRECT >>>>>>>>
+  obj = dataRecord.GetValue(index);
+              if (obj == null)
+<<<< DIAGNOSTIC: use 'System.Array.Empty<byte>()' instead of an empty array creation. >>>>
+-                 return new byte[0]; //nullable blob?
++                 return System.Array.Empty<byte>(); //nullable blob?
+              byte[] bytes = obj as byte[];
+       
+<<<<<<<< INFERRED >>>>>>>>
+  obj = dataRecord.GetValue(index);
+              if (obj == null)
+<<<< DIAGNOSTIC: use 'System.Array.Empty<byte>()' instead of an empty array creation. >>>>
+-                 return new byte[0]; //nullable blob?
++                 return System.Array.Empty<byte>();
+              byte[] bytes = obj as byte[];
+       

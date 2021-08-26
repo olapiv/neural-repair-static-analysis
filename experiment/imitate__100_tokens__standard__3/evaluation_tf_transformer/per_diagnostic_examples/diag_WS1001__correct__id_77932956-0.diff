@@ -1,0 +1,14 @@
+id: 77932956-0
+diagnostic: WS1001
+perc_correct_in_test: 0.9878048780487805
+num_datapoints_in_train: 216
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  
+                  type = type.BaseType;
+              }
+          }
+  
+          public static MethodInfo GetStaticMethod(this Type type, string name) => type.GetMethod(name, StaticFlags);
+      }
+<<<< DIAGNOSTIC: missing final newline. >>>>
+  }

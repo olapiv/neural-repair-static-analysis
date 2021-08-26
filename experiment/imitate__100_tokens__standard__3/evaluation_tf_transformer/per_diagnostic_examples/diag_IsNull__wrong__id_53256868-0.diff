@@ -1,0 +1,20 @@
+id: 53256868-0
+diagnostic: IsNull
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 2
+<<<<<<<< CORRECT >>>>>>>>
+   private static S? Select<T, S>(this T? value, Func<T, S> mapper) where T : struct where S : struct
+      {
+<<<< DIAGNOSTIC: use '==' operator instead of 'is' pattern matching. >>>>
+-         return value is null ? null : new S?(mapper(value.Value));
++         return value == null ? null : new S?(mapper(value.Value));
+      }
+  }
+<<<<<<<< INFERRED >>>>>>>>
+   private static S? Select<T, S>(this T? value, Func<T, S> mapper) where T : struct where S : struct
+      {
+<<<< DIAGNOSTIC: use '==' operator instead of 'is' pattern matching. >>>>
+-         return value is null ? null : new S?(mapper(value.Value));
++             where T : struct
+      }
+  }

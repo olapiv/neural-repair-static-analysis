@@ -1,0 +1,20 @@
+id: 28319948-0
+diagnostic: INTL0001
+perc_correct_in_test: 0.025974025974025976
+num_datapoints_in_train: 173
+<<<<<<<< CORRECT >>>>>>>>
+             private sealed class DapperRowTypeDescriptor : ICustomTypeDescriptor
+              {
+<<<< DIAGNOSTIC: field '_row' should be named _pascalcase >>>>
+-                 private readonly DapperRow _row;
++                 private readonly DapperRow _Row;
+                  public DapperRowTypeDescriptor(object instance)
+               
+<<<<<<<< INFERRED >>>>>>>>
+             private sealed class DapperRowTypeDescriptor : ICustomTypeDescriptor
+              {
+<<<< DIAGNOSTIC: field '_row' should be named _pascalcase >>>>
+-                 private readonly DapperRow _row;
++                 private readonly DapperRow _Table;
+                  public DapperRowTypeDescriptor(object instance)
+               

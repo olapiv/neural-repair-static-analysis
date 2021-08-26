@@ -1,0 +1,31 @@
+id: 361274-0
+diagnostic: AvNextPropertyCodeFix
+perc_correct_in_test: 0.9615384615384616
+num_datapoints_in_train: 89
+<<<<<<<< CORRECT >>>>>>>>
+  ServiceStack.DataAnnotations
+  {
+      [AttributeUsage(AttributeTargets.Property)]
+      public class CheckConstraintAttribute : AttributeBase
+      {
++         [System.ComponentModel.DataAnnotations.MaxLength(200)]//Roslyn auto generated
+<<<< DIAGNOSTIC: type name 'Constraint' should be decorated with maxlength attribute >>>>
+-         public string Constraint { get; }
++         public string Constraint { get; set; }
+  
+          public CheckConstraintAttribute(string constraint)
+          {
+              
+<<<<<<<< INFERRED >>>>>>>>
+  ServiceStack.DataAnnotations
+  {
+      [AttributeUsage(AttributeTargets.Property)]
+      public class CheckConstraintAttribute : AttributeBase
++         [System.ComponentModel.DataAnnotations.MaxLength(200)]//Roslyn auto generated
+      {
+<<<< DIAGNOSTIC: type name 'Constraint' should be decorated with maxlength attribute >>>>
+          public string Constraint { get; }
+  
+          public CheckConstraintAttribute(string constraint)
+          {
+              

@@ -1,0 +1,11 @@
+id: 25934036-0
+diagnostic: SpaceBeforeSemicolon
+perc_correct_in_test: 1.0
+num_datapoints_in_train: 6
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+                           HttpProtocols.Http2 :
+<<<< DIAGNOSTIC: a white space is not needed before ';' >>>>
+-                                 HttpProtocols.Http1 ;
++                                 HttpProtocols.Http1;
+                          }
+       

@@ -1,0 +1,16 @@
+id: 95861710-0
+diagnostic: VSD0025
+perc_correct_in_test: 0.038461538461538464
+num_datapoints_in_train: 91
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  { get; set; }
+  
+          [Obsolete("Use Object initializer instead")]
+<<<< DIAGNOSTIC: the parameter title does not follow naming conventions. should be title. >>>>
+<<<< DIAGNOSTIC: the parameter icopath does not follow naming conventions. should be icopath. >>>>
+<<<< DIAGNOSTIC: the parameter subtitle does not follow naming conventions. should be subtitle. >>>>
+-         public Result(string Title, string IcoPath, string SubTitle = null)
++         public Result(string title, string icoPath, string subTitle = null)
+          {
+              this.Title = Title;
+      

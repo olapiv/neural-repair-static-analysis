@@ -1,0 +1,11 @@
+id: 33282473-2
+diagnostic: RCS1090
+perc_correct_in_test: 0.75
+num_datapoints_in_train: 11
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+      while (!token.IsCancellationRequested)
+                  {
+<<<< DIAGNOSTIC: add call to 'ConfigureAwait'. >>>>
+-                     ReadResult result = await pipe.Reader.ReadAsync(token);
++                     ReadResult result = await pipe.Reader.ReadAsync(token).ConfigureAwait(false);
+                      ReadOnlySequence<byte> buffer = result.

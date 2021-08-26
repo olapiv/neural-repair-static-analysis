@@ -1,0 +1,9 @@
+id: 73882061-0
+diagnostic: RCS1213
+perc_correct_in_test: 1.0
+num_datapoints_in_train: 1
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+    public override System.Data.Linq.Mapping.MetaType RowType { get { return row_type; } }
+<<<< DIAGNOSTIC: remove unused property declaration. >>>>
+-             System.Type MemberType { get { return member_type; } }
+              public override string TableName { get { return t.Name; }

@@ -1,0 +1,24 @@
+id: 49546117-0
+diagnostic: DecimalPoints
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 8
+<<<<<<<< CORRECT >>>>>>>>
+   Latitude = latitude;
+              Member = member;
+          }
++         [RegularExpression(@"^[0-9]*(?:\.[0-9]{0,2})?$")]//Roslyn auto generated to restrict decimal points.
+  
+<<<< DIAGNOSTIC: apply restriction on decimal points >>>>
+          public double Longitude { get; set; }
+          public double Latitude { get; set; }
+          public string Member 
+<<<<<<<< INFERRED >>>>>>>>
+   Latitude = latitude;
+              Member = member;
+          }
+  
+<<<< DIAGNOSTIC: apply restriction on decimal points >>>>
+-         public double Longitude { get; set; }
++         [MethodHasDebt(LineCount = 10, ParameterCount = 1)]
+          public double Latitude { get; set; }
+          public string Member 

@@ -1,0 +1,16 @@
+id: 55975778-0
+diagnostic: RCS1057
+perc_correct_in_test: 0.96
+num_datapoints_in_train: 63
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+   queryCacheEnabled; }
+              set { queryCacheEnabled = value; }
+          }
++ 
+  
+<<<< DIAGNOSTIC: add empty line between declarations. >>>>
+          private IEntityTracker currentTransactionEntities;
+          private IEntityTracker CurrentTransactionEntities
+          {
+              get
+       

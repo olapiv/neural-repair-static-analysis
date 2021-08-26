@@ -1,0 +1,16 @@
+id: 4211965-0
+diagnostic: WTG3002
+perc_correct_in_test: 1.0
+num_datapoints_in_train: 7
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  Hue> PrimaryHues { get; }
+  
+          public IList<Hue> AccentHues { get; }
+  
+<<<< DIAGNOSTIC: don't use the any() extension method on a source of type 'System.Collections.Generic.IList<MaterialDesignColors.Hue>', use the 'Count' property instead. >>>>
+-         public bool IsAccented => AccentHues.Any();
++         public bool IsAccented => AccentHues.Count > 0;
+  
+          public override string ToString() => Name;
+  
+          public int 

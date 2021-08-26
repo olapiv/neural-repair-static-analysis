@@ -1,0 +1,12 @@
+id: 16886520-2
+diagnostic: CAC001
+perc_correct_in_test: 0.5
+num_datapoints_in_train: 15
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+        if (client != null) 
+                  {
+<<<< DIAGNOSTIC: possibly missing `configureawait(false)` call >>>>
+-                     await client.StopAsync();
++                     await client.StopAsync().ConfigureAwait(false);
+                      Console.WriteLine("client stopped");
+      

@@ -1,0 +1,15 @@
+id: 55428383-2
+diagnostic: S2933
+perc_correct_in_test: 0.5
+num_datapoints_in_train: 16
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+              return true;
+              }
+          }
+  
+<<<< DIAGNOSTIC: make '_thisMember' 'readonly'. >>>>
+-         private MetaDataMember _thisMember;
++         private readonly MetaDataMember _thisMember;
+          public override MetaDataMember ThisMember
+          {
+              get { return

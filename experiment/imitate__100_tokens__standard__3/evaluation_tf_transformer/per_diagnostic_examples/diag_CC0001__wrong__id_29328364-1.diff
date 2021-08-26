@@ -1,0 +1,23 @@
+id: 29328364-1
+diagnostic: CC0001
+perc_correct_in_test: 0.1590909090909091
+num_datapoints_in_train: 123
+<<<<<<<< CORRECT >>>>>>>>
+   iFromColumn, null));
+  
+<<<< DIAGNOSTIC: use 'var' instead of specifying the type name. >>>>
+-                 string fullFromTable = GetFullDbName(fromTable, fromSchema);
++                 var fullFromTable = GetFullDbName(fromTable, fromSchema);
+<<<< DIAGNOSTIC: use 'var' instead of specifying the type name. >>>>
+-                 DbLinq.Schema.Dbml.Table table = schema.Tables.FirstOrDefault(t => fullFromTable == t.Name);
++                 var table = schema.Tables.FirstOrDefault(t => fullFromTable == t.Name);
+            
+<<<<<<<< INFERRED >>>>>>>>
+   iFromColumn, null));
+  
+<<<< DIAGNOSTIC: use 'var' instead of specifying the type name. >>>>
+-                 string fullFromTable = GetFullDbName(fromTable, fromSchema);
++                 var fullFromTable = GetFullDbName(fromTable, fromSchema);
+<<<< DIAGNOSTIC: use 'var' instead of specifying the type name. >>>>
+-                 DbLinq.Schema.Dbml.Table table = schema.Tables.FirstOrDefault(t => fullFromTable == t.Name);
+            

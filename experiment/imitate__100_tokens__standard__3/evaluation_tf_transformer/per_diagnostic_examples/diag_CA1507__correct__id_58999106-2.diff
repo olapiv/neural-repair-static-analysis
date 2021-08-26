@@ -1,0 +1,13 @@
+id: 58999106-2
+diagnostic: CA1507
+perc_correct_in_test: 0.75
+num_datapoints_in_train: 19
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+    throw new ArgumentNullException("fileOrServerOrConnection");
+              if (mapping == null)
+<<<< DIAGNOSTIC: use nameof in place of string literal 'mapping' >>>>
+-                 throw new ArgumentNullException("mapping");
++                 throw new ArgumentNullException(nameof(mapping));
+  
+              if (File.Exists(fileOrServerOrConnection))
+              

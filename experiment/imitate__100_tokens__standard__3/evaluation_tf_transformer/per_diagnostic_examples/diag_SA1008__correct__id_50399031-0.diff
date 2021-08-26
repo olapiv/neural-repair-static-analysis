@@ -1,0 +1,19 @@
+id: 50399031-0
+diagnostic: SA1008
+perc_correct_in_test: 0.42857142857142855
+num_datapoints_in_train: 12
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+   System.Web.UI.HtmlControls;
+  using System.Diagnostics;
+  
+  	public partial class MyDefault : System.Web.UI.Page
+  	{
+<<<< DIAGNOSTIC: opening parenthesis should not be preceded by a space. >>>>
+- 		protected void Page_Load (object sender, EventArgs e)
++ 		protected void Page_Load(object sender, EventArgs e)
+  		{
+  
+  		}
+  		protected override void OnInit (EventArgs e)
+  		{
+  			Debug.WriteLine ("page.OnInit

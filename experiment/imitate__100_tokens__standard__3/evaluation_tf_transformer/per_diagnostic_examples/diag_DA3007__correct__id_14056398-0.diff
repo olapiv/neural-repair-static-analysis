@@ -1,0 +1,19 @@
+id: 14056398-0
+diagnostic: DA3007
+perc_correct_in_test: 0.6605166051660517
+num_datapoints_in_train: 765
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  using System.IO;
+  
+  namespace ServiceStack
+  {
+      public class UploadFile
++ 
++         /// <summary> 
++         /// 
++         /// </summary>
+      {
+<<<< DIAGNOSTIC: property name 'FileName' doesn't have /// comment >>>>
+          public string FileName { get; set; }
+          public Stream Stream { get; set; }
+          public string FieldName { get; set; 

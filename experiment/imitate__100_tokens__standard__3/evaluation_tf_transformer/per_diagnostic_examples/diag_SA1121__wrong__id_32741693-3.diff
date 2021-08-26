@@ -1,0 +1,18 @@
+id: 32741693-3
+diagnostic: SA1121
+perc_correct_in_test: 0.3333333333333333
+num_datapoints_in_train: 14
+<<<<<<<< CORRECT >>>>>>>>
+          string ns = context_type.Namespace;
+<<<< DIAGNOSTIC: use built-in type alias >>>>
+<<<< DIAGNOSTIC: use built-in type alias >>>>
+-                 string full = !name.Contains('.') && !String.IsNullOrEmpty(ns) ? String.Concat(ns, ".", name) : name;
++                 string full = !name.Contains('.') && !string.IsNullOrEmpty(ns) ? string.Concat(ns, ".", name) : name;
+                  var t
+<<<<<<<< INFERRED >>>>>>>>
+          string ns = context_type.Namespace;
++                 string ns = context_type.Namespace;
+<<<< DIAGNOSTIC: use built-in type alias >>>>
+<<<< DIAGNOSTIC: use built-in type alias >>>>
+                  string full = !name.Contains('.') && !String.IsNullOrEmpty(ns) ? String.Concat(ns, ".", name) : name;
+-                 var t

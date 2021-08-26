@@ -1,0 +1,14 @@
+id: 99377355-0
+diagnostic: ASYNC0001
+perc_correct_in_test: 1.0
+num_datapoints_in_train: 16
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+       Stop();
+              _eventListener?.Dispose();
+          }
+  
+<<<< DIAGNOSTIC: append asynchronous method name with async >>>>
+-         private async Task InitializeClient()
++         private async Task InitializeClientAsync()
+          {
+              Console.WriteLine($"Trying connect to the server {_baseAddress}

@@ -1,0 +1,15 @@
+id: 76090699-3
+diagnostic: NoPrivateUnderscore
+perc_correct_in_test: 0.34782608695652173
+num_datapoints_in_train: 45
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+     {
+              get { return _otherMember.DeclaringType; }
+          }
+  
+<<<< DIAGNOSTIC: type name '_thisKey' starts with an underscore >>>>
+-         private ReadOnlyCollection<MetaDataMember> _thisKey;
++         private ReadOnlyCollection<MetaDataMember> thisKey;
+          public override ReadOnlyCollection<MetaDataMember> ThisKey
+          {
+              

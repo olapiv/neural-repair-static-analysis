@@ -1,0 +1,14 @@
+id: 77698799-0
+diagnostic: EPS05
+perc_correct_in_test: 0.4
+num_datapoints_in_train: 20
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+   ??= new();
+              _afterMapActions.Add(afterMap);
+          }
+<<<< DIAGNOSTIC: use in-modifier for passing readonly struct 'ValueTransformerConfiguration' >>>>
+-         public void AddValueTransformation(ValueTransformerConfiguration valueTransformerConfiguration)
++         public void AddValueTransformation(in ValueTransformerConfiguration valueTransformerConfiguration)
+          {
+              _valueTransformerConfigs ??= new();
+          

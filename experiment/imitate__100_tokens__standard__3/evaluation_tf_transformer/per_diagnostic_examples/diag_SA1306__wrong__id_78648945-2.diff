@@ -1,0 +1,40 @@
+id: 78648945-2
+diagnostic: SA1306
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 10
+<<<<<<<< CORRECT >>>>>>>>
+  
+  		/// </summary>
+  		public override MappingSource MappingSource
+  		{
+  			get { return _MappingSource; }
+  		}
+  
+  
+<<<< DIAGNOSTIC: field '_DatabaseName' should begin with lower-case letter >>>>
+- 		private string _DatabaseName;
++ 		private string _databaseName;
+  
+  		/// <summary>
+  		/// Name of the database.
+  		/// </summary>
+  		/// <remarks>
+  		//
+<<<<<<<< INFERRED >>>>>>>>
+  
+  		/// </summary>
+  		public override MappingSource MappingSource
+  		{
+  			get { return _MappingSource; }
+  		}
+  
+  
+<<<< DIAGNOSTIC: field '_DatabaseName' should begin with lower-case letter >>>>
+- 		private string _DatabaseName;
++ 		private string DatabaseName;
+  
+  		/// <summary>
+  		/// Name of the database.
+  		/// </summary>
+  		/// <remarks>
+  		//

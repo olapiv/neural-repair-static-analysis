@@ -1,0 +1,20 @@
+id: 47401854-3
+diagnostic: MEN013
+perc_correct_in_test: 0.75
+num_datapoints_in_train: 18
+<<<<<<<< CORRECT >>>>>>>>
+                 await Task.Delay(500);
+  
+<<<< DIAGNOSTIC: use utcnow instead of now. >>>>
+-                     if((DateTime.Now - lastWrite) >= TimeSpan.FromSeconds(10))
++                     if((DateTime.UtcNow - lastWrite) >= TimeSpan.FromSeconds(10))
+                      {
+         
+<<<<<<<< INFERRED >>>>>>>>
+                 await Task.Delay(500);
+  
+<<<< DIAGNOSTIC: use utcnow instead of now. >>>>
+-                     if((DateTime.Now - lastWrite) >= TimeSpan.FromSeconds(10))
++                     if((DateTime.UtcNow- lastWrite) >= TimeSpan.FromSeconds(10))
+                      {
+         

@@ -1,0 +1,27 @@
+id: 54395251-0
+diagnostic: CC0022
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 0
+<<<<<<<< CORRECT >>>>>>>>
+  key_file_name + "\"";
+  
+<<<< DIAGNOSTIC: sshcommand should be disposed. >>>>
+-             var ssh_keygen = new SSHCommand ("ssh-keygen", arguments);
++             using (var ssh_keygen = new SSHCommand("ssh-keygen", arguments))
++             {
+-             ssh_keygen.StartInfo.WorkingDirectory = Path;
++                 ssh_keygen.StartInfo.WorkingDirectory = Path;
+-             ssh_keygen.StartAndWaitForExit ();
++                 ssh_keygen.StartAndWaitForExit();
+  
+             
+<<<<<<<< INFERRED >>>>>>>>
+  key_file_name + "\"";
+  
+<<<< DIAGNOSTIC: sshcommand should be disposed. >>>>
+-             var ssh_keygen = new SSHCommand ("ssh-keygen", arguments);
++                 totalAllocMB * 100.0 / totalBudgetMB);
+              ssh_keygen.StartInfo.WorkingDirectory = Path;
+              ssh_keygen.StartAndWaitForExit ();
+  
+             

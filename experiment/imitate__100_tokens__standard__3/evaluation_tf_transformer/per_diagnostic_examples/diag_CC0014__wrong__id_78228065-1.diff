@@ -1,0 +1,32 @@
+id: 78228065-1
+diagnostic: CC0014
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 3
+<<<<<<<< CORRECT >>>>>>>>
+  storage.GetMemberType();
+  
+  				object entityRefValue = null;
++                 entityRefValue = query != null ? Activator.CreateInstance(storageType, query) : Activator.CreateInstance(storageType);
+<<<< DIAGNOSTIC: you can use a ternary operator. >>>>
+- 				if (query != null)
+- 					entityRefValue = Activator.CreateInstance(storageType, query);
+- 				else
+- 					entityRefValue = Activator.CreateInstance(storageType);
+  
+  				storage.SetMemberValue(entity, entityRefValue);
+  			}
+  	
+<<<<<<<< INFERRED >>>>>>>>
+  storage.GetMemberType();
+  
+  				object entityRefValue = null;
+<<<< DIAGNOSTIC: you can use a ternary operator. >>>>
+- 				if (query != null)
++ 			Type storageType = memberInfo.GetMemberType();
+  					entityRefValue = Activator.CreateInstance(storageType, query);
+  				else
+  					entityRefValue = Activator.CreateInstance(storageType);
+  
+  				storage.SetMemberValue(entity, entityRefValue);
+  			}
+  	

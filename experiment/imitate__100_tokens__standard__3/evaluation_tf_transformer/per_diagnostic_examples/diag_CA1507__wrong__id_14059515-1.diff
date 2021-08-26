@@ -1,0 +1,26 @@
+id: 14059515-1
+diagnostic: CA1507
+perc_correct_in_test: 0.75
+num_datapoints_in_train: 19
+<<<<<<<< CORRECT >>>>>>>>
+                 return Count - 1;
+              }
+<<<< DIAGNOSTIC: use nameof in place of string literal 'value' >>>>
+-             throw new ArgumentOutOfRangeException("value");
++             throw new ArgumentOutOfRangeException(nameof(value));
+          }
+  
+          void IList.Clear()
+          {
+   
+<<<<<<<< INFERRED >>>>>>>>
+                 return Count - 1;
+              }
+<<<< DIAGNOSTIC: use nameof in place of string literal 'value' >>>>
+-             throw new ArgumentOutOfRangeException("value");
++                 throw new ArgumentOutOfRangeException(nameof(value));
+          }
+  
+          void IList.Clear()
+          {
+   

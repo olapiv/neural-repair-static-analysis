@@ -1,0 +1,12 @@
+id: 50983529-1
+diagnostic: _MissingConfigureAwait
+perc_correct_in_test: 0.36363636363636365
+num_datapoints_in_train: 26
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+           try
+                  {
+<<<< DIAGNOSTIC: consider using .configureawait(false) on async method 'Run'. >>>>
+-                     await Task.Run(() => task(cts.Token));
++                     await Task.Run(() => task(cts.Token)).ConfigureAwait(false);
+                  }
+              

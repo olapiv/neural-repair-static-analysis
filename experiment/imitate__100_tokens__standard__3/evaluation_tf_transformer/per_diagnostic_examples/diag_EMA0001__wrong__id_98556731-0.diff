@@ -1,0 +1,20 @@
+id: 98556731-0
+diagnostic: EMA0001
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 7
+<<<<<<<< CORRECT >>>>>>>>
+             string is_paused = this.local_config.GetFolderOptionalAttribute (Name, "paused");
+<<<< DIAGNOSTIC: use == operator instead of equals method for built-in types >>>>
+-             if (is_paused != null && is_paused.Equals (bool.TrueString))
++             if (is_paused != null && is_paused == bool.TrueString)
+                  Status = SyncStatus.Paused;
+  
+         
+<<<<<<<< INFERRED >>>>>>>>
+             string is_paused = this.local_config.GetFolderOptionalAttribute (Name, "paused");
+<<<< DIAGNOSTIC: use == operator instead of equals method for built-in types >>>>
+-             if (is_paused != null && is_paused.Equals (bool.TrueString))
++                 if (!task.IsCompleted)
+                  Status = SyncStatus.Paused;
+  
+         

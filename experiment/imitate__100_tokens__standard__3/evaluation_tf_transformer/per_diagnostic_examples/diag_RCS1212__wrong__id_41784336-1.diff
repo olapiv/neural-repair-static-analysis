@@ -1,0 +1,36 @@
+id: 41784336-1
+diagnostic: RCS1212
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 3
+<<<<<<<< CORRECT >>>>>>>>
+  		Reader.MoveToContent();
+  
+  			bool b11=false, b12=false;
+  
+<<<< DIAGNOSTIC: remove redundant assignment. >>>>
+- 			DbLinq.Schema.Dbml.Parameter[] o14;
++ 			DbLinq.Schema.Dbml.Parameter[] o14 = null;
+- 			o14 = null;
+<<<< DIAGNOSTIC: remove redundant assignment. >>>>
+- 			System.Object[] o16;
++ 			System.Object[] o16 = null;
+- 			o16 = null;
+  			int n13=0, n15=0;
+  
+  			while (Reader.NodeType 
+<<<<<<<< INFERRED >>>>>>>>
+  		Reader.MoveToContent();
+  
+  			bool b11=false, b12=false;
+  
++ 			object o16;
+<<<< DIAGNOSTIC: remove redundant assignment. >>>>
+- 			DbLinq.Schema.Dbml.Parameter[] o14;
+- 			o14 = null;
+<<<< DIAGNOSTIC: remove redundant assignment. >>>>
+- 			System.Object[] o16;
++ 			object[] o16;
+- 			o16 = null;
+  			int n13=0, n15=0;
+  
+  			while (Reader.NodeType 

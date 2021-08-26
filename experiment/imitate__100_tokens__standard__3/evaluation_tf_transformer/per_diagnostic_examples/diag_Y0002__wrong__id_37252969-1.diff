@@ -1,0 +1,34 @@
+id: 37252969-1
+diagnostic: Y0002
+perc_correct_in_test: 0.7142857142857143
+num_datapoints_in_train: 153
+<<<<<<<< CORRECT >>>>>>>>
+  info.</param>
+  		/// TODO: better function name
+  		public static Type GetFirstInnerReturnType(this MemberInfo memberInfo)
+  		{
+<<<< DIAGNOSTIC: variable should use explicit type >>>>
+- 			var type = memberInfo.GetMemberType();
++             Type type = memberInfo.GetMemberType();
+  
+  			if (type == null)
+  				return null;
+  
+  			if (type.IsGenericType)
+  			{
+  		
+<<<<<<<< INFERRED >>>>>>>>
+  info.</param>
+  		/// TODO: better function name
+  		public static Type GetFirstInnerReturnType(this MemberInfo memberInfo)
+  		{
+<<<< DIAGNOSTIC: variable should use explicit type >>>>
+- 			var type = memberInfo.GetMemberType();
++ 			Type type = memberInfo.GetMemberType();
+  
+  			if (type == null)
+  				return null;
+  
+  			if (type.IsGenericType)
+  			{
+  		

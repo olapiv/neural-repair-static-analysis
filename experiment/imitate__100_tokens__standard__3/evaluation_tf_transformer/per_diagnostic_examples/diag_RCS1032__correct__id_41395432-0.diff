@@ -1,0 +1,12 @@
+id: 41395432-0
+diagnostic: RCS1032
+perc_correct_in_test: 0.5
+num_datapoints_in_train: 4
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  node {2}: BFR %{3:f2}",
+                  totalGCCount,
+<<<< DIAGNOSTIC: remove redundant parentheses. >>>>
+-                 (totalGCDurationMS / totalGCCount),
++                 totalGCDurationMS / totalGCCount,
+                  nodeIndexToPrint,
+                  (totalAllocMB 

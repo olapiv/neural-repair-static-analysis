@@ -1,0 +1,14 @@
+id: 41740675-1
+diagnostic: AADE002
+perc_correct_in_test: 0.1111111111111111
+num_datapoints_in_train: 25
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  
+              return (int)await Run(config);
+          }
+  
+<<<< DIAGNOSTIC: method 'Run' missing 'CancellationToken' parameter >>>>
+-         private static async Task<ExitCode> Run(Configuration config)
++         private static async Task<ExitCode> Run(Configuration config, System.Threading.CancellationToken cancellationToken)
+          {
+              if ((config.RunMode & RunMode.both) 

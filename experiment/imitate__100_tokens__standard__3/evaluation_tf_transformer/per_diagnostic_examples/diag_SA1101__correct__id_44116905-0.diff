@@ -1,0 +1,16 @@
+id: 44116905-0
+diagnostic: SA1101
+perc_correct_in_test: 0.11627906976744186
+num_datapoints_in_train: 273
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  comparer;
+  
+          public int Compare(T x, T y)
+          {
+<<<< DIAGNOSTIC: prefix local calls with this >>>>
+-             return comparer(x, y);
++             return this.comparer(x, y);
+          }
+  
+          public LambdaComparer(Func<T, T, int> comparer)
+    

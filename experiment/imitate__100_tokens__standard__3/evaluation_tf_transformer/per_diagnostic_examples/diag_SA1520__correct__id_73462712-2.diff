@@ -1,0 +1,14 @@
+id: 73462712-2
+diagnostic: SA1520
+perc_correct_in_test: 1.0
+num_datapoints_in_train: 21
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+       dbParameter.Value = DBNull.Value;
+              }
++             {
+              else
+<<<< DIAGNOSTIC: use braces consistently >>>>
+                  dbParameter.Value = value;
+          }
+  
+          private static DbType? GetDbType(Type type

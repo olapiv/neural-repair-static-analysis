@@ -1,0 +1,24 @@
+id: 85511104-0
+diagnostic: DTA001
+perc_correct_in_test: 0.631578947368421
+num_datapoints_in_train: 47
+<<<<<<<< CORRECT >>>>>>>>
+  dataRecord.GetValue(index);
+              return obj;
+          }
+  
+<<<< DIAGNOSTIC: advertencia! consider replacing with datetimeoffset >>>>
+-         public static DateTime GetAsDateTime(this IDataRecord dataRecord, int index)
++         public static DateTimeOffset GetAsDateTime(this IDataRecord dataRecord, int index)
+          {
+              // Convert an InvalidCastException (thrown for example
+<<<<<<<< INFERRED >>>>>>>>
+  dataRecord.GetValue(index);
+              return obj;
+          }
+  
+<<<< DIAGNOSTIC: advertencia! consider replacing with datetimeoffset >>>>
+-         public static DateTime GetAsDateTime(this IDataRecord dataRecord, int index)
++         public static DateTimeOffset GetAsNullableDateTime(this IDataRecord dataRecord, int index)
+          {
+              // Convert an InvalidCastException (thrown for example

@@ -1,0 +1,36 @@
+id: 96709656-0
+diagnostic: SA1129
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 1
+<<<<<<<< CORRECT >>>>>>>>
+  	if (child != null)
+  			{
+  				child.Measure(constraint);
+  				return child.DesiredSize;
+  			}
+<<<< DIAGNOSTIC: do not use default value type constructor >>>>
+- 			return new Size();
++ 			return default(Size);
+  		}
+  
+  		protected override Size ArrangeOverride(Size finalSize)
+  		{
+  			if (child != null)
+  			{
+  		
+<<<<<<<< INFERRED >>>>>>>>
+  	if (child != null)
+  			{
+  				child.Measure(constraint);
+  				return child.DesiredSize;
+  			}
+<<<< DIAGNOSTIC: do not use default value type constructor >>>>
+- 			return new Size();
++ 			return NodeView;
+  		}
+  
+  		protected override Size ArrangeOverride(Size finalSize)
+  		{
+  			if (child != null)
+  			{
+  		

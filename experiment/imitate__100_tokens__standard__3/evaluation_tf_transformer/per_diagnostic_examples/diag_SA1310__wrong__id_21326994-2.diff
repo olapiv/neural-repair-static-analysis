@@ -1,0 +1,34 @@
+id: 21326994-2
+diagnostic: SA1310
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 3
+<<<<<<<< CORRECT >>>>>>>>
+  ;
+              DbmlTable t;
+<<<< DIAGNOSTIC: field 'table_member' should not contain an underscore >>>>
+-             MemberInfo table_member;
++             MemberInfo tableMember;
+<<<< DIAGNOSTIC: field 'member_type' should not contain an underscore >>>>
+-             System.Type member_type;
++             System.Type memberType;
+<<<< DIAGNOSTIC: field 'row_type' should not contain an underscore >>>>
+-             System.Data.Linq.Mapping.MetaType row_type;
++             System.Data.Linq.Mapping.MetaType rowType;
+  
+              [DbLinqToDo]
+     
+<<<<<<<< INFERRED >>>>>>>>
+  ;
+              DbmlTable t;
+<<<< DIAGNOSTIC: field 'table_member' should not contain an underscore >>>>
+-             MemberInfo table_member;
+<<<< DIAGNOSTIC: field 'member_type' should not contain an underscore >>>>
+-             System.Type member_type;
+<<<< DIAGNOSTIC: field 'row_type' should not contain an underscore >>>>
+-             System.Data.Linq.Mapping.MetaType row_type;
++                 static readonly Type _TableType;
++                    
++             /// </summary>
+  
+              [DbLinqToDo]
+     

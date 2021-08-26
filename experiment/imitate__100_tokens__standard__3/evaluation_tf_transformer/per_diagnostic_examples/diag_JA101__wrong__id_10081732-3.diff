@@ -1,0 +1,22 @@
+id: 10081732-3
+diagnostic: JA101
+perc_correct_in_test: 0.0945945945945946
+num_datapoints_in_train: 215
+<<<<<<<< CORRECT >>>>>>>>
+  entityTrack.EntityState)
+              {
+              case EntityState.ToDelete:
+<<<< DIAGNOSTIC: handle the return value of 'entities.Remove(entityTrack)'. >>>>
+-                 entities.Remove(entityTrack);
++                     _ = entities.Remove(entityTrack);
+                  break;
+              case EntityState.ToInsert:
+<<<<<<<< INFERRED >>>>>>>>
+  entityTrack.EntityState)
+              {
+              case EntityState.ToDelete:
+<<<< DIAGNOSTIC: handle the return value of 'entities.Remove(entityTrack)'. >>>>
+-                 entities.Remove(entityTrack);
++                 _ = entities.Remove(entityTrack);
+                  break;
+              case EntityState.ToInsert:

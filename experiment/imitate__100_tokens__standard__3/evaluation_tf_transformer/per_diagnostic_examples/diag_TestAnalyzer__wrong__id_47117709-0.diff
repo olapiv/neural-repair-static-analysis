@@ -1,0 +1,32 @@
+id: 47117709-0
+diagnostic: TestAnalyzer
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 11
+<<<<<<<< CORRECT >>>>>>>>
+   for license information.
+  
+  using System;
+  using System.Collections.Generic;
+  using System.Globalization;
+  
+  namespace Microsoft.AspNet.SignalR.Utils
+  {
+<<<< DIAGNOSTIC: type name 'InstallPerformanceCountersCommand' contains lowercase letters >>>>
+-     internal class InstallPerformanceCountersCommand : Command
++     internal class INSTALLPERFORMANCECOUNTERSCOMMAND : COMMAND
+      {
+          public InstallPerformanceCountersCommand(Action<string> info, Action<string> success, Action<string> warning, Action
+<<<<<<<< INFERRED >>>>>>>>
+   for license information.
+  
+  using System;
+  using System.Collections.Generic;
+  using System.Globalization;
+  
+  namespace Microsoft.AspNet.SignalR.Utils
+  {
+<<<< DIAGNOSTIC: type name 'InstallPerformanceCountersCommand' contains lowercase letters >>>>
+-     internal class InstallPerformanceCountersCommand : Command
++         internal class PROGRAM
+      {
+          public InstallPerformanceCountersCommand(Action<string> info, Action<string> success, Action<string> warning, Action

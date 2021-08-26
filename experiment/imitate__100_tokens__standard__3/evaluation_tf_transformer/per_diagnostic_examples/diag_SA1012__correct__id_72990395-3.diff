@@ -1,0 +1,15 @@
+id: 72990395-3
+diagnostic: SA1012
+perc_correct_in_test: 0.5
+num_datapoints_in_train: 6
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  )}, null);
+  		static string ToBinHexString (byte [] input)
+  		{
+<<<< DIAGNOSTIC: opening brace should be followed by a space >>>>
+- 			return input == null ? null : (string) toBinHexStringMethod.Invoke (null, new object [] {input});
++ 			return input == null ? null : (string) toBinHexStringMethod.Invoke (null, new object [] { input});
+  		}
+  		public void WriteRoot_Database (object o)
+  		{
+  			WriteStartDocument ()

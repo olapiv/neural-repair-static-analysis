@@ -1,0 +1,11 @@
+id: 46496516-0
+diagnostic: FS0130
+perc_correct_in_test: 0.6666666666666666
+num_datapoints_in_train: 6
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  );
++             {
+              for (int i = 0; i < expression.Arguments.Count; i++)
+<<<< DIAGNOSTIC: add braces to single statement in this for loop >>>>
+                  lines.AddRange(Write(expression.Arguments[i], string.Format("#{0:0##}", i), depth));
+     

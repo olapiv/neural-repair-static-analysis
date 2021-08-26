@@ -1,0 +1,20 @@
+id: 51631953-1
+diagnostic: RCS1171
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 5
+<<<<<<<< CORRECT >>>>>>>>
+            {
+<<<< DIAGNOSTIC: simplify lazy initialization. >>>>
+-                 if (log == null)
+-                     log = Console.Out;
++                 return log ?? (log = Console.Out);
+-                 return log;
+              
+<<<<<<<< INFERRED >>>>>>>>
+            {
++                 return metaTable ?? GetTables().FirstOrDefault();
+<<<< DIAGNOSTIC: simplify lazy initialization. >>>>
+-                 if (log == null)
+-                     log = Console.Out;
+-                 return log;
+              

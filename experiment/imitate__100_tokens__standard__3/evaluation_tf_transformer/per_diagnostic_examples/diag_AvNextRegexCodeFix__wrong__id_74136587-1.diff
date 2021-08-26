@@ -1,0 +1,29 @@
+id: 74136587-1
+diagnostic: AvNextRegexCodeFix
+perc_correct_in_test: 0.96875
+num_datapoints_in_train: 80
+<<<<<<<< CORRECT >>>>>>>>
+   NotImplementedException(); }
+          }
+  
++         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.RegexConverter), @"^[a-zA-Z0-9]*$")]//Roslyn auto generated
++         public string Name { get; set; }
+<<<< DIAGNOSTIC: type name 'Name' should be decorated with regexconverter attribute >>>>
+-         public override string Name
+-         {
+-             get { return methodInfo.Name; }
+-         }
+  
+          public override ReadOnlyCollection<MetaParameter> Parameters
+<<<<<<<< INFERRED >>>>>>>>
+   NotImplementedException(); }
+          }
++                 [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.RegexConverter), @"^[a-zA-Z0-9]*$")]//Roslyn auto generated
+  
+<<<< DIAGNOSTIC: type name 'Name' should be decorated with regexconverter attribute >>>>
+          public override string Name
+          {
+              get { return methodInfo.Name; }
+          }
+  
+          public override ReadOnlyCollection<MetaParameter> Parameters

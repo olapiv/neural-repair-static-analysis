@@ -1,0 +1,18 @@
+id: 96335515-0
+diagnostic: SA1642D
+perc_correct_in_test: 0.09090909090909091
+num_datapoints_in_train: 49
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+   AttributeTargets.Field,
+        AllowMultiple = true)]
+      internal sealed class ValueProviderAttribute : Attribute
++         /// <summary>
++         /// Initializes a new instance of the <see cref="ValueProviderAttribute"/> class.
++         /// </summary>
++         /// <param name="name">the name.</param>
+      {
+<<<< DIAGNOSTIC: constructors must be correctly documented. >>>>
+          public ValueProviderAttribute([NotNull] string name)
+          {
+              Name = name;
+          

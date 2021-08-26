@@ -1,0 +1,36 @@
+id: 39729642-2
+diagnostic: Wintellect012
+perc_correct_in_test: 0.8918918918918919
+num_datapoints_in_train: 99
+<<<<<<<< CORRECT >>>>>>>>
+  		internal void HandleDragLeave(SharpTreeViewItem item, DragEventArgs e)
+  		{
+  			HidePreview();
+  			e.Handled = true;
+  		}
+  
+<<<< DIAGNOSTIC: the class 'DropTarget' should be declared sealed if this is a newly written class >>>>
+- 		class DropTarget
++ 		sealed class DropTarget
+  		{
+  			public SharpTreeViewItem Item;
+  			public DropPlace Place;
+  			public double Y;
+  			public SharpTreeNode Node;
+  			
+<<<<<<<< INFERRED >>>>>>>>
+  		internal void HandleDragLeave(SharpTreeViewItem item, DragEventArgs e)
+  		{
+  			HidePreview();
+  			e.Handled = true;
+  		}
+  
+<<<< DIAGNOSTIC: the class 'DropTarget' should be declared sealed if this is a newly written class >>>>
+- 		class DropTarget
++ 		sealed class DROPTARGET
+  		{
+  			public SharpTreeViewItem Item;
+  			public DropPlace Place;
+  			public double Y;
+  			public SharpTreeNode Node;
+  			

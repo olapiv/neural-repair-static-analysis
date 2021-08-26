@@ -1,0 +1,22 @@
+id: 32589053-0
+diagnostic: VarUsage
+perc_correct_in_test: 0.16666666666666666
+num_datapoints_in_train: 407
+<<<<<<<< CORRECT >>>>>>>>
+   = DateTime.UtcNow - metadata.LastMarked;
+- 
+-             // The threshold for disconnect is the transport threshold + (potential network issues)
+<<<< DIAGNOSTIC: 'threshold' variable should not be defined with var. >>>>
+-             var threshold = metadata.Connection.DisconnectThreshold + _configurationManager.DisconnectTimeout;
++             TimeSpan threshold = metadata.Connection.DisconnectThreshold + _configurationManager.DisconnectTimeout;
+  
+              return
+<<<<<<<< INFERRED >>>>>>>>
+   = DateTime.UtcNow - metadata.LastMarked;
+  
++             IList<MethodDescriptor> methods = primaryHues.ToList();
+-             // The threshold for disconnect is the transport threshold + (potential network issues)
+<<<< DIAGNOSTIC: 'threshold' variable should not be defined with var. >>>>
+-             var threshold = metadata.Connection.DisconnectThreshold + _configurationManager.DisconnectTimeout;
+  
+              return

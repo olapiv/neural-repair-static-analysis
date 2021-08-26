@@ -1,0 +1,32 @@
+id: 51155737-0
+diagnostic: SA1027
+perc_correct_in_test: 0.16666666666666666
+num_datapoints_in_train: 28
+<<<<<<<< CORRECT >>>>>>>>
+    /// </summary>
+      [DebuggerDisplay("MetaModel for {DatabaseName}")]
+      internal class AttributedMetaModel : MetaModel
+<<<< DIAGNOSTIC: tabs and spaces should be used correctly >>>>
+- 	{
++     {
+<<<< DIAGNOSTIC: tabs and spaces should be used correctly >>>>
+- 		private readonly Type _ContextType;
++         private readonly Type _ContextType;
+  
+  		/// <summary>
+  		/// The DataContext (or a derived type) that is used for this model.
+  	
+<<<<<<<< INFERRED >>>>>>>>
+    /// </summary>
+      [DebuggerDisplay("MetaModel for {DatabaseName}")]
+      internal class AttributedMetaModel : MetaModel
+<<<< DIAGNOSTIC: tabs and spaces should be used correctly >>>>
+- 	{
+<<<< DIAGNOSTIC: tabs and spaces should be used correctly >>>>
+- 		private readonly Type _ContextType;
++     internal class AttributedMetaModel : MetaModel
++     {
+  
+  		/// <summary>
+  		/// The DataContext (or a derived type) that is used for this model.
+  	

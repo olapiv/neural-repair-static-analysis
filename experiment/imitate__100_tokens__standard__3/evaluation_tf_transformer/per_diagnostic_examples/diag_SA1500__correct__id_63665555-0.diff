@@ -1,0 +1,14 @@
+id: 63665555-0
+diagnostic: SA1500
+perc_correct_in_test: 0.125
+num_datapoints_in_train: 13
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+     private ReadOnlyCollection<MetaAssociation> _associations;
+          public override ReadOnlyCollection<MetaAssociation> Associations
+          {
+<<<< DIAGNOSTIC: braces for multi-line statements should not share line >>>>
+-             get {
++             get
++             {
+                  if (_associations == null)
+                  

@@ -1,0 +1,36 @@
+id: 23233384-0
+diagnostic: Wintellect002
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 5
+<<<<<<<< CORRECT >>>>>>>>
+  			this.parent = parent;
+  		}
+  
+  		public event NotifyCollectionChangedEventHandler CollectionChanged;
+  
+  		void OnCollectionChanged(NotifyCollectionChangedEventArgs e)
+  		{
+<<<< DIAGNOSTIC: never use the single parameter debug.assert >>>>
+- 			Debug.Assert(!isRaisingEvent);
++ 			Debug.Assert(!isRaisingEvent, "!isRaisingEvent");
+  			isRaisingEvent = true;
+  			try
+  			{
+  				parent.OnChildrenChanged(e);
+  				CollectionChanged?.Invoke(this, 
+<<<<<<<< INFERRED >>>>>>>>
+  			this.parent = parent;
+  		}
+  
+  		public event NotifyCollectionChangedEventHandler CollectionChanged;
+  
+  		void OnCollectionChanged(NotifyCollectionChangedEventArgs e)
+  		{
+<<<< DIAGNOSTIC: never use the single parameter debug.assert >>>>
+- 			Debug.Assert(!isRaisingEvent);
++ 			Debug.Assert(parent.listParent == this);
+  			isRaisingEvent = true;
+  			try
+  			{
+  				parent.OnChildrenChanged(e);
+  				CollectionChanged?.Invoke(this, 

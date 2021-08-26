@@ -1,0 +1,14 @@
+id: 22324922-0
+diagnostic: RCS1018
+perc_correct_in_test: 0.9166666666666666
+num_datapoints_in_train: 69
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+      /// </summary>
+      /// <typeparam name="TEntity">The type of the entity.</typeparam>
+<<<< DIAGNOSTIC: add accessibility modifiers. >>>>
+-     partial class Table<TEntity>
++     public partial class Table<TEntity>
+      {
+          /// <summary>
+          /// Cancels the delete on submit.
+   

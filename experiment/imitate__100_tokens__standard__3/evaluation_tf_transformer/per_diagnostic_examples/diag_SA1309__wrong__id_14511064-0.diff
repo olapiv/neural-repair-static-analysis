@@ -1,0 +1,36 @@
+id: 14511064-0
+diagnostic: SA1309
+perc_correct_in_test: 0.25
+num_datapoints_in_train: 32
+<<<<<<<< CORRECT >>>>>>>>
+  .Threading.Tasks;
+  
+  namespace Shadowsocks.Protocol
+  {
+      public class TcpPipeListener
+      {
+<<<< DIAGNOSTIC: field '_listener' should not begin with an underscore >>>>
+-         private readonly TcpListener _listener;
++         private readonly TcpListener listener;
+<<<< DIAGNOSTIC: field '_services' should not begin with an underscore >>>>
+-         private readonly IEnumerable<IStreamService> _services;
++         private readonly IEnumerable<IStreamService> services;
+  
+          public TcpPipeListener(IPEndPoint localEP)
+          {
+      
+<<<<<<<< INFERRED >>>>>>>>
+  .Threading.Tasks;
+  
+  namespace Shadowsocks.Protocol
+  {
+      public class TcpPipeListener
+      {
+<<<< DIAGNOSTIC: field '_listener' should not begin with an underscore >>>>
+          private readonly TcpListener _listener;
+<<<< DIAGNOSTIC: field '_services' should not begin with an underscore >>>>
+          private readonly IEnumerable<IStreamService> _services;
+  
+          public TcpPipeListener(IPEndPoint localEP)
+          {
+      

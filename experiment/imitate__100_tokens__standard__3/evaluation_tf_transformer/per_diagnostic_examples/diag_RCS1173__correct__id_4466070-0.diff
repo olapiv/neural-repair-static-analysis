@@ -1,0 +1,20 @@
+id: 4466070-0
+diagnostic: RCS1173
+perc_correct_in_test: 1.0
+num_datapoints_in_train: 3
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  .TryGetValue(tableType, out metaTable);
+<<<< DIAGNOSTIC: use coalesce expression instead of if. >>>>
+- 			if (metaTable != null)
+- 			{
+- 				return metaTable;
+- 			}
+- 			return GetTables().FirstOrDefault(t => t.RowType.Type == tableType)
++             return metaTable ?? GetTables().FirstOrDefault(t => t.RowType.Type == tableType)
+- 				?? AddTableType(tableType);
+- 		}
++                 ?? AddTableType(tableType);
++         }
+  
+  		/// <summary>
+  		

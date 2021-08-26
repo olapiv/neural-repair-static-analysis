@@ -1,0 +1,24 @@
+id: 68574153-1
+diagnostic: HLQ005
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 8
+<<<<<<<< CORRECT >>>>>>>>
+  dataMember in parentType.PersistentDataMembers
+  					             where dataMember.Name == keyName
+<<<< DIAGNOSTIC: avoid the use of 'SingleOrDefault'. use 'FirstOrDefault' instead. >>>>
+- 					             select dataMember).SingleOrDefault();
++ 					             select dataMember).FirstOrDefault();
+  
+  					if(key == null)
+  					{
+  						string errorMessage = string.
+<<<<<<<< INFERRED >>>>>>>>
+  dataMember in parentType.PersistentDataMembers
+  					             where dataMember.Name == keyName
+<<<< DIAGNOSTIC: avoid the use of 'SingleOrDefault'. use 'FirstOrDefault' instead. >>>>
+- 					             select dataMember).SingleOrDefault();
++ 					 if(key == null)
+  
+  					if(key == null)
+  					{
+  						string errorMessage = string.

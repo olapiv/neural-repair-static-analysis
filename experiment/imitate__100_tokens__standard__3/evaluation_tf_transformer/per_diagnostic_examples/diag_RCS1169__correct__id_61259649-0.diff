@@ -1,0 +1,15 @@
+id: 61259649-0
+diagnostic: RCS1169
+perc_correct_in_test: 0.3333333333333333
+num_datapoints_in_train: 20
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  <TKey, TValue>
+      {
+          //This is the internal dictionary that we are wrapping
+<<<< DIAGNOSTIC: make field read-only. >>>>
+-         IDictionary<TKey, TValue> dict;
++         readonly IDictionary<TKey, TValue> dict;
+  
+          public ThreadSafeDictionary()
+          {
+              this.dict 

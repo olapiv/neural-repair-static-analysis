@@ -1,0 +1,21 @@
+id: 10186834-0
+diagnostic: SA1633
+perc_correct_in_test: 0.2727272727272727
+num_datapoints_in_train: 67
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
++ // <copyright file="Server.cs" company="PlaceholderCompany">
++ // Copyright (c) PlaceholderCompany. All rights reserved.
++ // </copyright>
+<<<< DIAGNOSTIC: the file header is missing or not located at the top of the file. >>>>
+  using System;
+  using System.Collections.Generic;
+  using System.Diagnostics.CodeAnalysis;
+  using System.Text.Json.Serialization;
+  
+  namespace Shadowsocks.Models
+  {
+      public class Server : IServer
+      {
+          /// <inheritdoc/>
+          [JsonPropertyName("server")]
+      

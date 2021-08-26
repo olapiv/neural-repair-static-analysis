@@ -1,0 +1,14 @@
+id: 44793625-3
+diagnostic: RCS1015
+perc_correct_in_test: 0.8571428571428571
+num_datapoints_in_train: 16
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+            {
+                  this.nameField = value;
+<<<< DIAGNOSTIC: use nameof operator. >>>>
+-                 this.RaisePropertyChanged("Name");
++                 this.RaisePropertyChanged(nameof(Name));
+              }
+          }
+  
+          /// <

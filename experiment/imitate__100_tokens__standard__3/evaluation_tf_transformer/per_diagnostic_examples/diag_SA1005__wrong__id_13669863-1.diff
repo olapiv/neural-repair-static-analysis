@@ -1,0 +1,20 @@
+id: 13669863-1
+diagnostic: SA1005
+perc_correct_in_test: 0.6451612903225806
+num_datapoints_in_train: 87
+<<<<<<<< CORRECT >>>>>>>>
+  nameFormat);
+                  names.AddColumn(columnRow.TableName, columnName);
+  
+<<<< DIAGNOSTIC: single line comment should begin with a space >>>>
+-                 //find which table this column belongs to
++                 // find which table this column belongs to
+                  string fullColumnDbName = GetFullDbName(columnRow.TableName, columnRow.TableSchema);
+<<<<<<<< INFERRED >>>>>>>>
+  nameFormat);
+                  names.AddColumn(columnRow.TableName, columnName);
+  
+<<<< DIAGNOSTIC: single line comment should begin with a space >>>>
+-                 //find which table this column belongs to
++             // The table to which belongs the column.
+                  string fullColumnDbName = GetFullDbName(columnRow.TableName, columnRow.TableSchema);

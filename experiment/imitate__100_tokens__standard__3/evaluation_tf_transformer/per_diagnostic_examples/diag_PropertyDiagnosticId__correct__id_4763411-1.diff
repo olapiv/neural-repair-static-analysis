@@ -1,0 +1,14 @@
+id: 4763411-1
+diagnostic: PropertyDiagnosticId
+perc_correct_in_test: 0.16666666666666666
+num_datapoints_in_train: 13
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+        /// </summary>
+          public const string GlobalPluginWildcardSign = "*";
+  
+<<<< DIAGNOSTIC: property should have public get and protected set >>>>
+-         public string ActionKeyword { get; set; }
++         public string ActionKeyword { get; protected set; }
+  
+          /// <summary>
+          /// Return first search split by space

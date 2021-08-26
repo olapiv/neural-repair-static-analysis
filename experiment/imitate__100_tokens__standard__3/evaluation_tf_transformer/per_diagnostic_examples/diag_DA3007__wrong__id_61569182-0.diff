@@ -1,0 +1,31 @@
+id: 61569182-0
+diagnostic: DA3007
+perc_correct_in_test: 0.6605166051660517
+num_datapoints_in_train: 765
+<<<<<<<< CORRECT >>>>>>>>
+   : MutableExpression
+      {
+          public const ExpressionType ExpressionType = (ExpressionType)CustomExpressionType.OrderBy;
++         /// <summary> 
++         /// 
++         /// </summary>
+  
+<<<< DIAGNOSTIC: property name 'Descending' doesn't have /// comment >>>>
+          public bool Descending { get; set; }
+          public Expression ColumnExpression { get; set; }
+  
+          public OrderByExpression(bool
+<<<<<<<< INFERRED >>>>>>>>
+   : MutableExpression
+      {
+          public const ExpressionType ExpressionType = (ExpressionType)CustomExpressionType.OrderBy;
++ 
++         /// <summary> 
++         /// 
++         /// </summary>
+  
+<<<< DIAGNOSTIC: property name 'Descending' doesn't have /// comment >>>>
+          public bool Descending { get; set; }
+          public Expression ColumnExpression { get; set; }
+  
+          public OrderByExpression(bool

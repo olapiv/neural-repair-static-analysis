@@ -1,0 +1,27 @@
+id: 40352375-2
+diagnostic: AvoidVar
+perc_correct_in_test: 0.5428571428571428
+num_datapoints_in_train: 191
+<<<<<<<< CORRECT >>>>>>>>
+   IList<MemberInfo> modifiedMembers, QueryContext queryContext)
+          {
+<<<< DIAGNOSTIC: use 'Type' instead of 'var' >>>>
+-             var rowType = objectToUpsert.GetType();
++             Type rowType = objectToUpsert.GetType();
+<<<< DIAGNOSTIC: use 'Vendor.ISqlProvider' instead of 'var' >>>>
+-             var sqlProvider = queryContext.DataContext.Vendor.SqlProvider;
++             Vendor.ISqlProvider sqlProvider = queryContext.DataContext.Vendor.SqlProvider;
+              var upsertParameters = new UpsertParameters
+    
+<<<<<<<< INFERRED >>>>>>>>
+   IList<MemberInfo> modifiedMembers, QueryContext queryContext)
+          {
+<<<< DIAGNOSTIC: use 'Type' instead of 'var' >>>>
+-             var rowType = objectToUpsert.GetType();
++             UpsertParameters upsertParameters = GetUpsertParameters(objectToInsert, false, null, queryContext);
+<<<< DIAGNOSTIC: use 'Vendor.ISqlProvider' instead of 'var' >>>>
+-             var sqlProvider = queryContext.DataContext.Vendor.SqlProvider;
++             Vendor.ISqlProvider sqlProvider = queryContext.DataContext.Vendor.SqlProvider;
++             SqlStatement insertSql = sqlProvider.GetInsert(
+              var upsertParameters = new UpsertParameters
+    

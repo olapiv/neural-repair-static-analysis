@@ -1,0 +1,12 @@
+id: 42367435-2
+diagnostic: DDTN0001
+perc_correct_in_test: 1.0
+num_datapoints_in_train: 8
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+      // Only trigger the ProgressChanged event once per second
+<<<< DIAGNOSTIC: call datetime.utcnow rather than datetime.now >>>>
+-             if (DateTime.Compare (this.progress_last_change, DateTime.Now.Subtract (new TimeSpan (0, 0, 0, 1))) >= 0)
++             if (DateTime.Compare (this.progress_last_change, DateTime.UtcNow.Subtract (new TimeSpan (0, 0, 0, 1))) >= 0)
+                  return;
+  
+    

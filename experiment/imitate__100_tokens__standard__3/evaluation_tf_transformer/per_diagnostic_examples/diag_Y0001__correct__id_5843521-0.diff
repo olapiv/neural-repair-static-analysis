@@ -1,0 +1,12 @@
+id: 5843521-0
+diagnostic: Y0001
+perc_correct_in_test: 0.34615384615384615
+num_datapoints_in_train: 79
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+   != other.Expressions.Count)
+                  return false;
+<<<< DIAGNOSTIC: variable should use implicit type >>>>
+-             for (int expressionIndex = 0; expressionIndex < Expressions.Count; expressionIndex++)
++             for (var expressionIndex = 0; expressionIndex < Expressions.Count; expressionIndex++)
+              {
+                  if 

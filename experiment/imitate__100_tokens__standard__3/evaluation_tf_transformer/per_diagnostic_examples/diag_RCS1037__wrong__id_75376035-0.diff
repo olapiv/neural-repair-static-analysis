@@ -1,0 +1,24 @@
+id: 75376035-0
+diagnostic: RCS1037
+perc_correct_in_test: 0.7647058823529411
+num_datapoints_in_train: 53
+<<<<<<<< CORRECT >>>>>>>>
+            private readonly Type tableType;
+              private readonly IList<string> columns;
+<<<< DIAGNOSTIC: remove trailing white-space. >>>>
+- 			private readonly int hash; 
++ 			private readonly int hash;
+  
+              public override bool Equals(object obj)
+              {
+      
+<<<<<<<< INFERRED >>>>>>>>
+            private readonly Type tableType;
+              private readonly IList<string> columns;
+<<<< DIAGNOSTIC: remove trailing white-space. >>>>
+- 			private readonly int hash; 
++ 			private override readonly int hash;
+  
+              public override bool Equals(object obj)
+              {
+      

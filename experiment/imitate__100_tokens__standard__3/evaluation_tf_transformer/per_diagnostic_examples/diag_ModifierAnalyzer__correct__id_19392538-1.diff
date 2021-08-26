@@ -1,0 +1,13 @@
+id: 19392538-1
+diagnostic: ModifierAnalyzer
+perc_correct_in_test: 0.36363636363636365
+num_datapoints_in_train: 280
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  / <param name="text">The text.</param>
+          /// <returns></returns>
++         private
+<<<< DIAGNOSTIC: message format: need to specify access modifier  >>>>
+          IList<string> GetWords(string text);
+  
+          /// <summary>
+          /// Returns true if the required culture is

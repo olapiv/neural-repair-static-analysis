@@ -1,0 +1,14 @@
+id: 59226815-0
+diagnostic: VSD0033
+perc_correct_in_test: 0.5
+num_datapoints_in_train: 15
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+   "urowid":  // oracle type
+              case "tinytext": // mysql type
+<<<< DIAGNOSTIC: use alias string instead of concrete type string. >>>>
+-                 return typeof(String);
++                 return typeof(string);
+  
+              // bool
+              case "bit":
+    

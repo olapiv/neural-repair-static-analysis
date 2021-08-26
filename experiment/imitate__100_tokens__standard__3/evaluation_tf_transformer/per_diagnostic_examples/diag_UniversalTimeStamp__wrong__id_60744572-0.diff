@@ -1,0 +1,22 @@
+id: 60744572-0
+diagnostic: UniversalTimeStamp
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 7
+<<<<<<<< CORRECT >>>>>>>>
+               return;
+              
+<<<< DIAGNOSTIC: use datetime.now.touniversaltime(). >>>>
+<<<< DIAGNOSTIC: use datetime.now.touniversaltime(). >>>>
+-             int time_comparison = DateTime.Compare (this.last_poll, DateTime.Now.Subtract (this.poll_interval));
++             int time_comparison = DateTime.Now.ToUniversalTime(this.last_poll, DateTime.Now.ToUniversalTime(this.poll_interval));
+              
+              if (time_comparison
+<<<<<<<< INFERRED >>>>>>>>
+               return;
+              
+<<<< DIAGNOSTIC: use datetime.now.touniversaltime(). >>>>
+<<<< DIAGNOSTIC: use datetime.now.touniversaltime(). >>>>
+-             int time_comparison = DateTime.Compare (this.last_poll, DateTime.Now.Subtract (this.poll_interval));
++             int time_comparison = DateTime.Compare (this.last_poll, DateTime.Now.ToUniversalTime(this.poll_interval)));
+              
+              if (time_comparison

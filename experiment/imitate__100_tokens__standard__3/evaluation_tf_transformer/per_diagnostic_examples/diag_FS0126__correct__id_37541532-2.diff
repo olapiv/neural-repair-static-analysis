@@ -1,0 +1,12 @@
+id: 37541532-2
+diagnostic: FS0126
+perc_correct_in_test: 0.4444444444444444
+num_datapoints_in_train: 19
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+   static (string scheme, string hostname, int port) ParseServerUri(string serverUri)
+          {
+<<<< DIAGNOSTIC: try catch syntax is discouraged. >>>>
+-             try
+-             {
+                  var uri = new Uri(serverUri);
+        

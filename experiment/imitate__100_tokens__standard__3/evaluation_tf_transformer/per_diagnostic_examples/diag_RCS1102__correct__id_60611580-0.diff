@@ -1,0 +1,16 @@
+id: 60611580-0
+diagnostic: RCS1102
+perc_correct_in_test: 1.0
+num_datapoints_in_train: 4
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+     Thread = 0,
+          AllocHeap = 1,
+          MaxType = 2
+      };
+<<<< DIAGNOSTIC: make class static. >>>>
+-     class Program
++     static class Program
+      {
+          static bool fLogging = false;
+  
+          static string ParseString(string str, string

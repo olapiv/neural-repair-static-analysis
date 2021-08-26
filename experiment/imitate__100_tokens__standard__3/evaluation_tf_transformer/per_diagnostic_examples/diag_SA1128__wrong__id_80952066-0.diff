@@ -1,0 +1,29 @@
+id: 80952066-0
+diagnostic: SA1128
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 6
+<<<<<<<< CORRECT >>>>>>>>
+     .ToArray();
+      }
+  
+      public class DataMismatchException : Exception
+      {
+<<<< DIAGNOSTIC: put constructor initializers on their own line >>>>
+-         public DataMismatchException(string message) : base(message) { }
++         public DataMismatchException(string message)
++             : base(message) { }
+      }
+  
+      // Serializes data segment using the following format: <length>,<checksum>,
+<<<<<<<< INFERRED >>>>>>>>
+     .ToArray();
+      }
+  
+      public class DataMismatchException : Exception
+      {
+<<<< DIAGNOSTIC: put constructor initializers on their own line >>>>
+-         public DataMismatchException(string message) : base(message) { }
++         public DataMismatchException(string message, Exception innerException)
+      }
+  
+      // Serializes data segment using the following format: <length>,<checksum>,

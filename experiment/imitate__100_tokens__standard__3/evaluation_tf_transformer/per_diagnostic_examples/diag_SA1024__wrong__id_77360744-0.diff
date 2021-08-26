@@ -1,0 +1,24 @@
+id: 77360744-0
+diagnostic: SA1024
+perc_correct_in_test: 0.6666666666666666
+num_datapoints_in_train: 12
+<<<<<<<< CORRECT >>>>>>>>
+  / <param name="interactiveDiagnostics">The interactive diagnostics.</param>
+          public InteractiveModule(IInteractiveDiagnostics interactiveDiagnostics)
+<<<< DIAGNOSTIC: colon should be followed by a space >>>>
+-             :base ("/interactive")
++             : base ("/interactive")
+          {
+              this.interactiveDiagnostics = interactiveDiagnostics;
+  
+         
+<<<<<<<< INFERRED >>>>>>>>
+  / <param name="interactiveDiagnostics">The interactive diagnostics.</param>
+          public InteractiveModule(IInteractiveDiagnostics interactiveDiagnostics)
+<<<< DIAGNOSTIC: colon should be followed by a space >>>>
+-             :base ("/interactive")
++             string strTI = ((strThreadIndices is null)
+          {
+              this.interactiveDiagnostics = interactiveDiagnostics;
+  
+         

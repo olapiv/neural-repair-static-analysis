@@ -1,0 +1,26 @@
+id: 70999170-0
+diagnostic: CA1801
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 13
+<<<<<<<< CORRECT >>>>>>>>
+   AnalyzeConstant(expression, builderContext);
+              return expression;
+          }
+  
+<<<< DIAGNOSTIC: parameter buildercontext of method analyzebinaryboolean is never used. remove the parameter or use it in the method body. >>>>
+-         private Expression AnalyzeBinaryBoolean(Expression expression, BuilderContext builderContext)
++         private Expression AnalyzeBinaryBoolean(Expression expression)
+          {
+              if (expression.Type != typeof(bool))
+   
+<<<<<<<< INFERRED >>>>>>>>
+   AnalyzeConstant(expression, builderContext);
+              return expression;
+          }
+  
+<<<< DIAGNOSTIC: parameter buildercontext of method analyzebinaryboolean is never used. remove the parameter or use it in the method body. >>>>
+-         private Expression AnalyzeBinaryBoolean(Expression expression, BuilderContext builderContext)
++         private Expression AnalyzeBinaryBoolean(Expression expression )
+          {
+              if (expression.Type != typeof(bool))
+   

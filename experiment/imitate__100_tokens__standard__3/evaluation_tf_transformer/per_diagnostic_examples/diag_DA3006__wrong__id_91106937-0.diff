@@ -1,0 +1,25 @@
+id: 91106937-0
+diagnostic: DA3006
+perc_correct_in_test: 0.8695652173913043
+num_datapoints_in_train: 47
+<<<<<<<< CORRECT >>>>>>>>
+   high-level typed client API
+          /// </summary>
++         /// <returns></returns>
+          /// <typeparam name="T"></typeparam>
+<<<< DIAGNOSTIC: method 'As' doesn't have /// returns in comment >>>>
+          IRedisTypedClient<T> As<T>();
+  
+          IHasNamed<IRedisList> Lists { get; set; }
+   
+<<<<<<<< INFERRED >>>>>>>>
+   high-level typed client API
+          /// </summary>
++ 
++         /// <returns></returns>
+          /// <typeparam name="T"></typeparam>
+<<<< DIAGNOSTIC: method 'As' doesn't have /// returns in comment >>>>
+          IRedisTypedClient<T> As<T>();
+  
+          IHasNamed<IRedisList> Lists { get; set; }
+   

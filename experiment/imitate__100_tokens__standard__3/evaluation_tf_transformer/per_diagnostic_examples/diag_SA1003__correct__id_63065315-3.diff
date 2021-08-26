@@ -1,0 +1,15 @@
+id: 63065315-3
+diagnostic: SA1003
+perc_correct_in_test: 0.625
+num_datapoints_in_train: 18
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  >
+          /// <returns></returns>
+          public static MemberInfo GetMemberInfo(this Expression<Func<object>> lambdaExpression)
+          {
+<<<< DIAGNOSTIC: operator '(LambdaExpression)' should not be followed by whitespace. >>>>
+-             return GetMemberInfo((LambdaExpression) lambdaExpression);
++             return GetMemberInfo((LambdaExpression)lambdaExpression);
+          }
+      }
+  }

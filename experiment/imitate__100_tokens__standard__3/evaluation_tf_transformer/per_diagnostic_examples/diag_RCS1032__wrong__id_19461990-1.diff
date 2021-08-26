@@ -1,0 +1,14 @@
+id: 19461990-1
+diagnostic: RCS1032
+perc_correct_in_test: 0.5
+num_datapoints_in_train: 4
+<<<<<<<< CORRECT >>>>>>>>
+  
+          {
+              System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+<<<< DIAGNOSTIC: remove redundant parentheses. >>>>
+-             if ((propertyChanged != null))
++             if (propertyChanged != null)
+              {
+                  propertyChanged(this, new System
+<<<<<<<< INFERRED >>>>>>>>

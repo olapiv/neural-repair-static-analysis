@@ -1,0 +1,12 @@
+id: 3875684-1
+diagnostic: AvoidVar
+perc_correct_in_test: 0.5428571428571428
+num_datapoints_in_train: 191
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+      if (memberInfo == null)
+                  return null;
+<<<< DIAGNOSTIC: use 'ColumnExpression' instead of 'var' >>>>
+-             var queryColumn = GetRegisteredColumn(table, name, builderContext);
++             ColumnExpression queryColumn = GetRegisteredColumn(table, name, builderContext);
+              if (queryColumn == null)
+              {

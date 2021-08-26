@@ -1,0 +1,20 @@
+id: 97133071-1
+diagnostic: Comments_analyser
+perc_correct_in_test: 0.08571428571428572
+num_datapoints_in_train: 163
+<<<<<<<< CORRECT >>>>>>>>
+      private bool IsResolveConfigured => (ValueResolverConfig ?? CustomMapFunction ?? CustomMapExpression ?? (object)ValueConverterConfig) != null;
+<<<< DIAGNOSTIC: type name 'Missingsummary' contains lowercase letters >>>>
+-         public void AddValueTransformation(ValueTransformerConfiguration valueTransformerConfiguration)
++         public void AddValueTransformation(VALUETRANSFORMERCONFIGURATION valueTransformerConfiguration)
+          {
+              _valueTransformerConfigs ??= new();
+          
+<<<<<<<< INFERRED >>>>>>>>
+      private bool IsResolveConfigured => (ValueResolverConfig ?? CustomMapFunction ?? CustomMapExpression ?? (object)ValueConverterConfig) != null;
+<<<< DIAGNOSTIC: type name 'Missingsummary' contains lowercase letters >>>>
+-         public void AddValueTransformation(ValueTransformerConfiguration valueTransformerConfiguration)
++         public void AddValueTransformation(in ValueTransformerConfiguration valueTransformerConfiguration)
+          {
+              _valueTransformerConfigs ??= new();
+          

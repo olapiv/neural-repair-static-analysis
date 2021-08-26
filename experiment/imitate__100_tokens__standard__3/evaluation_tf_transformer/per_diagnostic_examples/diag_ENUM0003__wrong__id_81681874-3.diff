@@ -1,0 +1,23 @@
+id: 81681874-3
+diagnostic: ENUM0003
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 3
+<<<<<<<< CORRECT >>>>>>>>
+  
+                  case SpecialExpressionType.Remove:
++                 case SpecialExpressionType.Count:
++                 case SpecialExpressionType.StringLength:
+                      return typeof(string);
+<<<< DIAGNOSTIC: switch statements with equivalent content should be merged >>>>
+                  case SpecialExpressionType.IndexOf:
+                      return typeof(int
+<<<<<<<< INFERRED >>>>>>>>
+  
+                  case SpecialExpressionType.Remove:
+                      return typeof(string);
+<<<< DIAGNOSTIC: switch statements with equivalent content should be merged >>>>
+-                 case SpecialExpressionType.IndexOf:
++                 case SpecialExpressionType.Concat:
+-                     return typeof(int
++                 case SpecialExpressionType.ToUpper:
++                 case SpecialExpressionType.ToLower:

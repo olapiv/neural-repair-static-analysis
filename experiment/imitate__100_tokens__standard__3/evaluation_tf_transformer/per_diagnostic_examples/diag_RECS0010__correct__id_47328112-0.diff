@@ -1,0 +1,10 @@
+id: 47328112-0
+diagnostic: RECS0010
+perc_correct_in_test: 1.0
+num_datapoints_in_train: 2
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+      string strIncludeAll = (fIncludeAllTime ? "-ia1-" : "-ia0-");
+<<<< DIAGNOSTIC: '?:' expression can be converted to '??' expression >>>>
+-             string strTI = ((strThreadIndices == null) ? "" : strThreadIndices);
++             string strTI = (strThreadIndices ?? "");
+              string strPassOneLog = strLogNameWithoutExtension + "-pass1-n" + 

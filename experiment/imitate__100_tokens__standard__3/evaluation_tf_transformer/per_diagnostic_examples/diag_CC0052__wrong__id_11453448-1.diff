@@ -1,0 +1,30 @@
+id: 11453448-1
+diagnostic: CC0052
+perc_correct_in_test: 0.6
+num_datapoints_in_train: 18
+<<<<<<<< CORRECT >>>>>>>>
+       class XmlMetaParameter : System.Data.Linq.Mapping.MetaParameter
+          {
+<<<< DIAGNOSTIC: make 'dbtype' readonly >>>>
+<<<< DIAGNOSTIC: make 'mapped_name' readonly >>>>
+-             string dbtype, mapped_name;
++             readonly string mapped_name;
++             readonly string dbtype;
+<<<< DIAGNOSTIC: make 'pi' readonly >>>>
+-             ParameterInfo pi;
++             readonly ParameterInfo pi;
+  
+              public XmlMetaParameter(DbmlParameter p, ParameterInfo parameterInfo)
+       
+<<<<<<<< INFERRED >>>>>>>>
+       class XmlMetaParameter : System.Data.Linq.Mapping.MetaParameter
+          {
+<<<< DIAGNOSTIC: make 'dbtype' readonly >>>>
+<<<< DIAGNOSTIC: make 'mapped_name' readonly >>>>
+-             string dbtype, mapped_name;
++             string dbtype, mappedName;
+<<<< DIAGNOSTIC: make 'pi' readonly >>>>
+-             ParameterInfo pi;
+  
+              public XmlMetaParameter(DbmlParameter p, ParameterInfo parameterInfo)
+       

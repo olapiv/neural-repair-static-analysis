@@ -1,0 +1,15 @@
+id: 56525976-0
+diagnostic: WS002
+perc_correct_in_test: 1.0
+num_datapoints_in_train: 65
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  .IEnumerable<Expression> Operands
+          {
+              get
+              {
+                  yield return ColumnExpression;
+              }
+          }
+      }
+<<<< DIAGNOSTIC: file does not end with a newline >>>>
+  }

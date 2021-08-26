@@ -1,0 +1,20 @@
+id: 13457952-2
+diagnostic: RIT0008
+perc_correct_in_test: 0.45652173913043476
+num_datapoints_in_train: 124
+<<<<<<<< CORRECT >>>>>>>>
+  current state
+              else
+              {
+<<<< DIAGNOSTIC: 'entityOriginalState object null' check should be written as 'entityOriginalStateisobject', the != operator could be (incorrectly) overloaded >>>>
+-                 if (!rawDataEntities.ContainsKey(entity) && entityOriginalState != null)
++                 if (!rawDataEntities.ContainsKey(entity) && entityOriginalState is object)
+                      rawDataEntities[entity] = GetEntityRawData(entityOriginalState, 
+<<<<<<<< INFERRED >>>>>>>>
+  current state
+              else
+              {
+<<<< DIAGNOSTIC: 'entityOriginalState object null' check should be written as 'entityOriginalStateisobject', the != operator could be (incorrectly) overloaded >>>>
+-                 if (!rawDataEntities.ContainsKey(entity) && entityOriginalState != null)
++                 if (entityOriginalState is object)
+                      rawDataEntities[entity] = GetEntityRawData(entityOriginalState, 

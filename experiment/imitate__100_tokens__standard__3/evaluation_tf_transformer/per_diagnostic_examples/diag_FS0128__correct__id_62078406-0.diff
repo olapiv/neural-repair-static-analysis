@@ -1,0 +1,12 @@
+id: 62078406-0
+diagnostic: FS0128
+perc_correct_in_test: 0.8
+num_datapoints_in_train: 233
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+   null)
+              {
++                 {
+                  if (type.IsNullable())
+<<<< DIAGNOSTIC: add braces to single statement in this if >>>>
+                      dbParameter.Value = TypeConvert.GetDefault(type.GetNullableType());
+                  else 

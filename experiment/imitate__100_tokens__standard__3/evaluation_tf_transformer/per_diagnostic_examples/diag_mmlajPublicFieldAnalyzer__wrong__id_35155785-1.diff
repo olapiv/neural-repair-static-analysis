@@ -1,0 +1,28 @@
+id: 35155785-1
+diagnostic: mmlajPublicFieldAnalyzer
+perc_correct_in_test: 0.4
+num_datapoints_in_train: 58
+<<<<<<<< CORRECT >>>>>>>>
+  {
+          public string Address; // TODO: Uri object
+          public string RemotePath;
+  
+<<<< DIAGNOSTIC: declaration is public. (add static / replace it with private) (mmlaj) >>>>
+-         public string Fingerprint;
++         private string Fingerprint;
+  
+          public string Backend;
+          public string TargetDirectory;
+          public bool 
+<<<<<<<< INFERRED >>>>>>>>
+  {
+          public string Address; // TODO: Uri object
+          public string RemotePath;
+  
+<<<< DIAGNOSTIC: declaration is public. (add static / replace it with private) (mmlaj) >>>>
+-         public string Fingerprint;
++         private string Backend;
+  
+          public string Backend;
+          public string TargetDirectory;
+          public bool 

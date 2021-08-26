@@ -1,0 +1,16 @@
+id: 51285136-0
+diagnostic: VSTHRD200
+perc_correct_in_test: 1.0
+num_datapoints_in_train: 10
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  );
+  
+          RedisText Custom(params object[] cmdWithArgs);
+  
+          void Save();
+<<<< DIAGNOSTIC: avoid "async" suffix in names of methods that do not return an awaitable type. >>>>
+-         void SaveAsync();
++         void Save();
+          void Shutdown();
+          void ShutdownNoSave();
+          void RewriteAppendOnlyFileAsync()

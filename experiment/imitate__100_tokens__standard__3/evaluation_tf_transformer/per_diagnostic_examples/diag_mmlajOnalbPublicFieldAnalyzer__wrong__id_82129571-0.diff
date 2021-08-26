@@ -1,0 +1,24 @@
+id: 82129571-0
+diagnostic: mmlajOnalbPublicFieldAnalyzer
+perc_correct_in_test: 0.6818181818181818
+num_datapoints_in_train: 52
+<<<<<<<< CORRECT >>>>>>>>
+  public event AnnouncementReceivedEventHandler AnnouncementReceived = delegate { };
+          public delegate void AnnouncementReceivedEventHandler (Announcement announcement);
+  
+<<<< DIAGNOSTIC: analyzer format (mmlaj) >>>>
+-         public readonly Uri Server;
++         private readonly Uri Server;
+  
+          public abstract void Connect ();
+          public abstract bool IsConnected { get; 
+<<<<<<<< INFERRED >>>>>>>>
+  public event AnnouncementReceivedEventHandler AnnouncementReceived = delegate { };
+          public delegate void AnnouncementReceivedEventHandler (Announcement announcement);
+  
+<<<< DIAGNOSTIC: analyzer format (mmlaj) >>>>
+-         public readonly Uri Server;
++         private readonly Uri server;
+  
+          public abstract void Connect ();
+          public abstract bool IsConnected { get; 

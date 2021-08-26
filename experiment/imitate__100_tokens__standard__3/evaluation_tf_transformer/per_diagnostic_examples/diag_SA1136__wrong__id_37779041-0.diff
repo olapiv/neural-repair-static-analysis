@@ -1,0 +1,50 @@
+id: 37779041-0
+diagnostic: SA1136
+perc_correct_in_test: 0.5
+num_datapoints_in_train: 3
+<<<<<<<< CORRECT >>>>>>>>
+  }
+  			}
+  		}
+  
+  		SharpTreeNodeView previewNodeView;
+  		InsertMarker insertMarker;
+  		DropPlace previewPlace;
+  
+  		enum DropPlace
+  		{
+<<<< DIAGNOSTIC: enum values should be on separate lines >>>>
+<<<< DIAGNOSTIC: enum values should be on separate lines >>>>
+- 			Before, Inside, After
++ 			Before,
++             Inside,
++             After
+  		}
+  
+  		void ShowPreview(SharpTreeViewItem item, DropPlace place)
+  		{
+  			previewNodeView = item.NodeView;
+  			previewPlace = place
+<<<<<<<< INFERRED >>>>>>>>
+  }
+  			}
+  		}
+  
+  		SharpTreeNodeView previewNodeView;
+  		InsertMarker insertMarker;
+  		DropPlace previewPlace;
+  
+  		enum DropPlace
+  		{
+<<<< DIAGNOSTIC: enum values should be on separate lines >>>>
+<<<< DIAGNOSTIC: enum values should be on separate lines >>>>
+- 			Before, Inside, After
+- 		}
+- 
++             {
++                 (
++                     );
+  		void ShowPreview(SharpTreeViewItem item, DropPlace place)
+  		{
+  			previewNodeView = item.NodeView;
+  			previewPlace = place

@@ -1,0 +1,36 @@
+id: 71881149-0
+diagnostic: DA3002
+perc_correct_in_test: 0.7263157894736842
+num_datapoints_in_train: 284
+<<<<<<<< CORRECT >>>>>>>>
+  ("3.38.0")]
+  [assembly:AssemblyCopyright ("Copyright (c) 2010 Hylke Bons and others")]
+  
+  namespace Sparkles {
+  
++     /// <summary> 
++     /// 
++     /// </summary>
+<<<< DIAGNOSTIC: type 'InstallationInfo' doesn't have /// comments >>>>
+-     public partial class InstallationInfo {
++     public partial class InstallationInfo
++     {
+          public const string Directory = "/usr/local/share/sparkleshare";
+      }
+  }
+<<<<<<<< INFERRED >>>>>>>>
+  ("3.38.0")]
+  [assembly:AssemblyCopyright ("Copyright (c) 2010 Hylke Bons and others")]
+  
+  namespace Sparkles {
+  
+<<<< DIAGNOSTIC: type 'InstallationInfo' doesn't have /// comments >>>>
+-     public partial class InstallationInfo {
++ 
++         /// <summary> 
++         /// 
++         /// </summary>
++         public const string Directory {
+          public const string Directory = "/usr/local/share/sparkleshare";
+      }
+  }

@@ -1,0 +1,17 @@
+id: 56074233-0
+diagnostic: Nopen
+perc_correct_in_test: 0.44871794871794873
+num_datapoints_in_train: 201
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+   => b != (byte)'\n')
+                  .ToArray();
+      }
+  
+<<<< DIAGNOSTIC: class 'DataMismatchException' is implicitly open. classes should be explicitly marked sealed, abstract, or [open]. >>>>
+-     public class DataMismatchException : Exception
++     public sealed class DataMismatchException : Exception
+      {
+          public DataMismatchException(string message) : base(message) { }
+      }
+  
+    

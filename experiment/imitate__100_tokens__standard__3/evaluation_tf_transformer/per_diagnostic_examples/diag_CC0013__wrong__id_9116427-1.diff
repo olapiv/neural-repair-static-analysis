@@ -1,0 +1,24 @@
+id: 9116427-1
+diagnostic: CC0013
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 5
+<<<<<<<< CORRECT >>>>>>>>
+  ;
+  
+<<<< DIAGNOSTIC: you can use a ternary operator. >>>>
+-             if (node != null && !string.IsNullOrEmpty (node.Value))
++             return node != null && !string.IsNullOrEmpty(node.Value) ? node.Value : null;
+-                 return node.Value;
+-             else
+-                 return null;
+      
+<<<<<<<< INFERRED >>>>>>>>
+  ;
+  
++             return node != null && node.InnerText == null;
+<<<< DIAGNOSTIC: you can use a ternary operator. >>>>
+-             if (node != null && !string.IsNullOrEmpty (node.Value))
+-                 return node.Value;
+              else
+                  return null;
+      

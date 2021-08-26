@@ -1,0 +1,14 @@
+id: 48220750-0
+diagnostic: GU0077
+perc_correct_in_test: 0.44
+num_datapoints_in_train: 157
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  		foreach (var memberInfo in type.GetMembers())
+  			{
+  				var association = memberInfo.GetAttribute<AssociationAttribute>();
+<<<< DIAGNOSTIC: prefer is null. >>>>
+- 				if (association == null)
++ 				if (association is null)
+  					continue;
+  				var dataMember = new AttributedAssociationMetaDataMember(memberInfo, association, this);
+  				AssociationsLookup[memberInfo] = 

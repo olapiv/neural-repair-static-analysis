@@ -1,0 +1,25 @@
+id: 94353187-1
+diagnostic: CC0057
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 6
+<<<<<<<< CORRECT >>>>>>>>
+  Context.RegisterUpdate(entity);
+          }
+  
+          [DbLinqToDo]
+<<<< DIAGNOSTIC: parameter 'entities' is not used. >>>>
+<<<< DIAGNOSTIC: parameter 'asModified' is not used. >>>>
+-         public void AttachAll<TSubEntity>(IEnumerable<TSubEntity> entities, bool asModified) where TSubEntity : TEntity
++         public void AttachAll<TSubEntity>() where TSubEntity : TEntity
+          {
+              throw new NotImplementedException();
+<<<<<<<< INFERRED >>>>>>>>
+  Context.RegisterUpdate(entity);
+          }
+  
+          [DbLinqToDo]
+<<<< DIAGNOSTIC: parameter 'entities' is not used. >>>>
+<<<< DIAGNOSTIC: parameter 'asModified' is not used. >>>>
+          public void AttachAll<TSubEntity>(IEnumerable<TSubEntity> entities, bool asModified) where TSubEntity : TEntity
+          {
+              throw new NotImplementedException();

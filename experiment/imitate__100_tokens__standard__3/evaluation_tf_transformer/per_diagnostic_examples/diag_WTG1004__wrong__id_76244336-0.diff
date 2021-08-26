@@ -1,0 +1,36 @@
+id: 76244336-0
+diagnostic: WTG1004
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 7
+<<<<<<<< CORRECT >>>>>>>>
+   System.ComponentModel;
+  using System.Runtime.CompilerServices;
+  using JetBrains.Annotations;
+  
+  namespace Wox.Plugin
+  {
+<<<< DIAGNOSTIC: our coding convention is to use tabs, not spaces, you may need to fix your settings. >>>>
+-     public class BaseModel : INotifyPropertyChanged
++ 	public class BaseModel : INotifyPropertyChanged
+-     {
++ 	{
+-         public event PropertyChangedEventHandler PropertyChanged;
++ 		public event PropertyChangedEventHandler PropertyChanged;
+  
+          [NotifyPropertyChangedInvocator]
+          public void OnPropertyChanged([CallerMemberName] string
+<<<<<<<< INFERRED >>>>>>>>
+   System.ComponentModel;
+  using System.Runtime.CompilerServices;
+  using JetBrains.Annotations;
+  
+  namespace Wox.Plugin
+  {
+<<<< DIAGNOSTIC: our coding convention is to use tabs, not spaces, you may need to fix your settings. >>>>
+-     public class BaseModel : INotifyPropertyChanged
++ 	public class BaseModel : INotifyPropertyChanged
+      {
+          public event PropertyChangedEventHandler PropertyChanged;
+  
+          [NotifyPropertyChangedInvocator]
+          public void OnPropertyChanged([CallerMemberName] string

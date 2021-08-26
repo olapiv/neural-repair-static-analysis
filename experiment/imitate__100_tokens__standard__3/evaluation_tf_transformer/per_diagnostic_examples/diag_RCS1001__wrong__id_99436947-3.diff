@@ -1,0 +1,18 @@
+id: 99436947-3
+diagnostic: RCS1001
+perc_correct_in_test: 0.6666666666666666
+num_datapoints_in_train: 14
+<<<<<<<< CORRECT >>>>>>>>
+        case ExpressionType.OrElse:
++                         {
+                          if (canOptimizeLeft)
+<<<< DIAGNOSTIC: add braces to if statement (when expression spans over multiple lines). >>>>
+                              if ((bool)bin.Left.Evaluate())
+                
+<<<<<<<< INFERRED >>>>>>>>
+        case ExpressionType.OrElse:
++             {
+                          if (canOptimizeLeft)
+<<<< DIAGNOSTIC: add braces to if statement (when expression spans over multiple lines). >>>>
+                              if ((bool)bin.Left.Evaluate())
+                

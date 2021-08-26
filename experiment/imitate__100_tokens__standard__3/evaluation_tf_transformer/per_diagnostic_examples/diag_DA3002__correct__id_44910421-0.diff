@@ -1,0 +1,22 @@
+id: 44910421-0
+diagnostic: DA3002
+perc_correct_in_test: 0.7263157894736842
+num_datapoints_in_train: 284
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  .Linq;
+  using System.Linq.Expressions;
+  
+  using DbLinq.Data.Linq.Sugar.Expressions;
+  
+  namespace DbLinq.Data.Linq.Sugar.ExpressionMutator.Implementation
++ 
++     /// <summary> 
++     /// 
++     /// </summary>
+  {
+<<<< DIAGNOSTIC: type 'LambdaExpressionMutator' doesn't have /// comments >>>>
+      internal class LambdaExpressionMutator : IMutableExpression
+      {
+          protected LambdaExpression LambdaExpression { get; private set; }
+  
+          public

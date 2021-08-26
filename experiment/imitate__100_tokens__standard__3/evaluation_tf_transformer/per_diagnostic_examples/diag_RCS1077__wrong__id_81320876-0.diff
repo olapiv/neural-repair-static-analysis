@@ -1,0 +1,20 @@
+id: 81320876-0
+diagnostic: RCS1077
+perc_correct_in_test: 0.5
+num_datapoints_in_train: 10
+<<<<<<<< CORRECT >>>>>>>>
+                 }
+                  else
+<<<< DIAGNOSTIC: optimize linq method call. >>>>
+-                     return literalOperands.First();
++                     return literalOperands[0];
+              }
+              if (expression.NodeType == ExpressionType
+<<<<<<<< INFERRED >>>>>>>>
+                 }
+                  else
+<<<< DIAGNOSTIC: optimize linq method call. >>>>
+-                     return literalOperands.First();
++                 {
+              }
+              if (expression.NodeType == ExpressionType

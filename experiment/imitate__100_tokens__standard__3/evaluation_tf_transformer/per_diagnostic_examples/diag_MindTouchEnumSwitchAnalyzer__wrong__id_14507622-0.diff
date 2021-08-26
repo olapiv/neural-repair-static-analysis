@@ -1,0 +1,20 @@
+id: 14507622-0
+diagnostic: MindTouchEnumSwitchAnalyzer
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 1
+<<<<<<<< CORRECT >>>>>>>>
+     {
+                  var specialExpressionType = ((SpecialExpression)expression).SpecialNodeType;
+<<<< DIAGNOSTIC: switch on enum 'SpecialExpressionType' is missing the following members: 'Exists' >>>>
+-                 switch (specialExpressionType) // SETuse
++                 switch (specialExpressionType)
+                  {
+                  case SpecialExpressionType
+<<<<<<<< INFERRED >>>>>>>>
+     {
+                  var specialExpressionType = ((SpecialExpression)expression).SpecialNodeType;
+<<<< DIAGNOSTIC: switch on enum 'SpecialExpressionType' is missing the following members: 'Exists' >>>>
+-                 switch (specialExpressionType) // SETuse
++                 SpecialExpressionType specialExpressionType = ((SpecialExpression)expression).SpecialNodeType;
+                  {
+                  case SpecialExpressionType

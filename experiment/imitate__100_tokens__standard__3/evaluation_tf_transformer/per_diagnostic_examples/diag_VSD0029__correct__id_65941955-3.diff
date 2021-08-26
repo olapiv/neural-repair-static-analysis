@@ -1,0 +1,17 @@
+id: 65941955-3
+diagnostic: VSD0029
+perc_correct_in_test: 0.038461538461538464
+num_datapoints_in_train: 79
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+   Table.Model; }
+          }
+  
+-         public override string Name
++         public override string Name => type.Name;
+-         {
+<<<< DIAGNOSTIC: property name can be written using an expression-bodied member >>>>
+-             get { return type.Name; }
+-         }
+  
+          public override MethodInfo OnLoadedMethod
+     

@@ -1,0 +1,13 @@
+id: 17337897-0
+diagnostic: AvNextRegexCodeFix
+perc_correct_in_test: 0.96875
+num_datapoints_in_train: 80
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+      public static Color OrangeA700 { get; } = (Color)ColorConverter.ConvertFromString("#FF6D00");
+- 
++         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.RegexConverter), @"^[a-zA-Z0-9]*$")]//Roslyn auto generated
+<<<< DIAGNOSTIC: type name 'Name' should be decorated with regexconverter attribute >>>>
+-         public string Name { get; } = "Orange";
++         public string Name { get; set; } = "Orange";
+  
+          public IDictionary<MaterialDesignColor, Color> Lookup { get; } = new Dictionary<MaterialDesignColor,

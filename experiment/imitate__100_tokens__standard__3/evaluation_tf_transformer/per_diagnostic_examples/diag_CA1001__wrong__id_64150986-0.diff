@@ -1,0 +1,34 @@
+id: 64150986-0
+diagnostic: CA1001
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 1
+<<<<<<<< CORRECT >>>>>>>>
+  
+      }
+  
+  
+      // A persistent connection to the server that
+      // listens for change notifications
+<<<< DIAGNOSTIC: type 'BaseListener' owns disposable field(s) 'reconnect_timer' but is not disposable >>>>
+-     public abstract class BaseListener {
++     public abstract class BaseListener : IDisposable
++     {
+  
+          public event Action Connected = delegate { };
+  
+          public event DisconnectedEventHandler Disconnected 
+<<<<<<<< INFERRED >>>>>>>>
+  
+      }
+  
+  
+      // A persistent connection to the server that
+      // listens for change notifications
+<<<< DIAGNOSTIC: type 'BaseListener' owns disposable field(s) 'reconnect_timer' but is not disposable >>>>
+-     public abstract class BaseListener {
++     public abstract class BaseListener
++     {
+  
+          public event Action Connected = delegate { };
+  
+          public event DisconnectedEventHandler Disconnected 

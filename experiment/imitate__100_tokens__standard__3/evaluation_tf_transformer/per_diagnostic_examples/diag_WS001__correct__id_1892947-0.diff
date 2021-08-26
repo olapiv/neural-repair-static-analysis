@@ -1,0 +1,17 @@
+id: 1892947-0
+diagnostic: WS001
+perc_correct_in_test: 1.0
+num_datapoints_in_train: 15
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
++ // Licensed to the .NET Foundation under one or more agreements.// Licensed to the .NET Foundation under one or more agreements.// Licensed to the .NET Foundation under one or more agreements.// Licensed to the .NET Foundation under one or more agreements.// Licensed to the .NET Foundation under one or more agreements.using System;
+<<<< DIAGNOSTIC: file starts with whitespace >>>>
+- // Licensed to the .NET Foundation under one or more agreements.
+- // The .NET Foundation licenses this file to you under the MIT license.
+- 
+- using System;
+  using System.Collections.Generic;
+  using System.Diagnostics;
+  using System.IO;
+  using System.Linq;
+  using System.Threading;
+  using SslStress.Utils

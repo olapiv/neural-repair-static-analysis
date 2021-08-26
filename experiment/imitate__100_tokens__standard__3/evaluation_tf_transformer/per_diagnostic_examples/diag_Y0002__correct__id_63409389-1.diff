@@ -1,0 +1,14 @@
+id: 63409389-1
+diagnostic: Y0002
+perc_correct_in_test: 0.7142857142857143
+num_datapoints_in_train: 153
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+   SetValue(IEnumerable value)
+          {
+<<<< DIAGNOSTIC: variable should use explicit type >>>>
+-             var values = value.Cast<string>().ToArray();
++             string[] values = value.Cast<string>().ToArray();
+<<<< DIAGNOSTIC: variable should use explicit type >>>>
+-             var joinedValues = string.Join(",", values);
++             string joinedValues = string.Join(",", values);
+              MemberInfo.SetMemberValue(Owner, 

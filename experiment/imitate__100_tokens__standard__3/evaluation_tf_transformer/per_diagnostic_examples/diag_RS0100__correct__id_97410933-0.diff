@@ -1,0 +1,16 @@
+id: 97410933-0
+diagnostic: RS0100
+perc_correct_in_test: 0.42857142857142855
+num_datapoints_in_train: 36
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  ;
+  
+          public SslServerBase(Configuration config)
+          {
++             if (config.MaxConnections < 1)
+<<<< DIAGNOSTIC: statements must be placed on their own line >>>>
+-             if (config.MaxConnections < 1) throw new ArgumentOutOfRangeException(nameof(config.MaxConnections));
++                 throw new ArgumentOutOfRangeException(nameof(config.MaxConnections));
+  
+              _config = config;
+             

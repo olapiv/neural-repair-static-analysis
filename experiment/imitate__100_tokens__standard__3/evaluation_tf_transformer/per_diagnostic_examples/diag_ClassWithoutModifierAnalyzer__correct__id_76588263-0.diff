@@ -1,0 +1,13 @@
+id: 76588263-0
+diagnostic: ClassWithoutModifierAnalyzer
+perc_correct_in_test: 0.5
+num_datapoints_in_train: 11
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  Type sourceType, IEnumerable<PropertyDescription> additionalProperties) =>
+              ProxyTypes.GetOrAdd(new TypeDescription(sourceType, additionalProperties));
++ 
+<<<< DIAGNOSTIC: your class must have at least one modifier. (public, internal, etc) >>>>
+-         class PropertyEmitter
++         public class PropertyEmitter
+          {
+              private static readonly MethodInfo ProxyBaseNotifyPropertyChanged = typeof(ProxyBase).GetMethod("NotifyPropertyChanged"

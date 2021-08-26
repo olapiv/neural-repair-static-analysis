@@ -1,0 +1,14 @@
+id: 63978913-2
+diagnostic: RIT0004
+perc_correct_in_test: 0.8888888888888888
+num_datapoints_in_train: 37
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  Convert).GetMethod("ToString", new[] { parameterToHandle.Type }));
+          }
+  
+<<<< DIAGNOSTIC: 'FirstIndexOf' does not have an explicit modifier >>>>
+-         static int? FirstIndexOf(Stack<MethodInfo> callStack, string methodName)
++         private static int? FirstIndexOf(Stack<MethodInfo> callStack, string methodName)
+          {
+              int? index = null;
+        

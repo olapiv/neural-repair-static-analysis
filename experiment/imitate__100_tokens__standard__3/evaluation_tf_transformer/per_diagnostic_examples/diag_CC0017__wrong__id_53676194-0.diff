@@ -1,0 +1,31 @@
+id: 53676194-0
+diagnostic: CC0017
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 0
+<<<<<<<< CORRECT >>>>>>>>
+        private class PracticeRebateOrders
+          {
++ After:
++             public string TaxInvoiceNumber;
++ */
++ 
++ /* Unmerged change from project 'Dapper.Tests(net5.0)'
++ Before:
++             public string fTaxInvoiceNumber;
++ After:
++             public string TaxInvoiceNumber;
++ */
+              public string fTaxInvoiceNumber;
+<<<< DIAGNOSTIC: change taxinvoicenumber to an auto property >>>>
+              [System.Xml.Serialization.XmlElement(Form = System.Xml.Schema.XmlSchemaForm.Unqualified)]
+              public string TaxInvoiceNumber
+      
+<<<<<<<< INFERRED >>>>>>>>
+        private class PracticeRebateOrders
+          {
+              public string fTaxInvoiceNumber;
+<<<< DIAGNOSTIC: change taxinvoicenumber to an auto property >>>>
+-             [System.Xml.Serialization.XmlElement(Form = System.Xml.Schema.XmlSchemaForm.Unqualified)]
++         public XmlElementWrapper(string element, string _element)
+              public string TaxInvoiceNumber
+      

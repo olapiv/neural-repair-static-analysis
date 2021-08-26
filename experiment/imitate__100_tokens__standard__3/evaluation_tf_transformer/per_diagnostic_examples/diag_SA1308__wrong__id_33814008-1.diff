@@ -1,0 +1,24 @@
+id: 33814008-1
+diagnostic: SA1308
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 3
+<<<<<<<< CORRECT >>>>>>>>
+  using the following format: <length>,<checksum>,<data>
+      public class DataSegmentSerializer
+      {
+<<<< DIAGNOSTIC: field 's_encoding' should not begin with the prefix 's_' >>>>
+-         private static readonly Encoding s_encoding = Encoding.ASCII;
++         private static readonly Encoding encoding = Encoding.ASCII;
+  
+          private readonly byte[] _buffer = new byte[32];
+          private
+<<<<<<<< INFERRED >>>>>>>>
+  using the following format: <length>,<checksum>,<data>
+      public class DataSegmentSerializer
+      {
+<<<< DIAGNOSTIC: field 's_encoding' should not begin with the prefix 's_' >>>>
+-         private static readonly Encoding s_encoding = Encoding.ASCII;
++         private static readonly Encoding S_encoding = Encoding.ASCII;
+  
+          private readonly byte[] _buffer = new byte[32];
+          private

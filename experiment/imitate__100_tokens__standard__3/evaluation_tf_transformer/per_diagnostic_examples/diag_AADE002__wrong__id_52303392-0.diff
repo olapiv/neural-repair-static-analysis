@@ -1,0 +1,26 @@
+id: 52303392-0
+diagnostic: AADE002
+perc_correct_in_test: 0.1111111111111111
+num_datapoints_in_train: 25
+<<<<<<<< CORRECT >>>>>>>>
+  ObjectDisposedException(nameof(SslClientBase));
+              _ = _clientTask.Value;
+          }
+  
+<<<< DIAGNOSTIC: method 'StopAsync' missing 'CancellationToken' parameter >>>>
+-         public async ValueTask StopAsync()
++         public async ValueTask StopAsync(CancellationToken cancellationToken)
+          {
+              _cts.Cancel();
+              
+<<<<<<<< INFERRED >>>>>>>>
+  ObjectDisposedException(nameof(SslClientBase));
+              _ = _clientTask.Value;
+          }
+  
+<<<< DIAGNOSTIC: method 'StopAsync' missing 'CancellationToken' parameter >>>>
+-         public async ValueTask StopAsync()
++         public async Task StopAsync()
+          {
+              _cts.Cancel();
+              

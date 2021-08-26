@@ -1,0 +1,19 @@
+id: 46504816-0
+diagnostic: mmlajOnalbPublicFieldAnalyzer
+perc_correct_in_test: 0.6818181818181818
+num_datapoints_in_train: 52
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  Deleted,
+          Moved
+      }
+  
+  
+      public class ChangeSet {
+  
+<<<< DIAGNOSTIC: analyzer format (mmlaj) >>>>
+-         public User User = new User ("Unknown", "Unknown");
++         private User User = new User ("Unknown", "Unknown");
+  
+          public SparkleFolder Folder;
+          public string Revision;
+     

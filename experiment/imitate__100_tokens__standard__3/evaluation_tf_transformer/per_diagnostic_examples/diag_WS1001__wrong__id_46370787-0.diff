@@ -1,0 +1,26 @@
+id: 46370787-0
+diagnostic: WS1001
+perc_correct_in_test: 0.9878048780487805
+num_datapoints_in_train: 216
+<<<<<<<< CORRECT >>>>>>>>
+  (AttributeTargets.Property)]
+      public class IgnoreOnUpdateAttribute : AttributeBase { }
+  
+      /// <summary>
+      /// Ignore this property in INSERT statements
+      /// </summary>
+      [AttributeUsage(AttributeTargets.Property)]
+      public class IgnoreOnInsertAttribute : AttributeBase { }
+  }
++ 
+<<<<<<<< INFERRED >>>>>>>>
+  (AttributeTargets.Property)]
+      public class IgnoreOnUpdateAttribute : AttributeBase { }
+  
+      /// <summary>
+      /// Ignore this property in INSERT statements
+      /// </summary>
+      [AttributeUsage(AttributeTargets.Property)]
+      public class IgnoreOnInsertAttribute : AttributeBase { }
+  }
++ }

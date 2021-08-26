@@ -1,0 +1,18 @@
+id: 56973250-0
+diagnostic: RedundantTypedArrayCreation
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 0
+<<<<<<<< CORRECT >>>>>>>>
+         {
+              strThreadIndices = _strThreadIndices;
+<<<< DIAGNOSTIC: replace 'Char[]' with '[]' to use an implicitly-typed array creation. >>>>
+-             string[] fields = strThreadIndices.Split(new Char[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
++             string[] fields = strThreadIndices.Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
+              for (int i = 0; i < fields
+<<<<<<<< INFERRED >>>>>>>>
+         {
+              strThreadIndices = _strThreadIndices;
+<<<< DIAGNOSTIC: replace 'Char[]' with '[]' to use an implicitly-typed array creation. >>>>
+-             string[] fields = strThreadIndices.Split(new Char[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
++                         string[] parts = stringStatement.Split(new[] { literalIndex }, StringSplitOptions.None);
+              for (int i = 0; i < fields

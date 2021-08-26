@@ -1,0 +1,11 @@
+id: 76236310-0
+diagnostic: FS0065
+perc_correct_in_test: 1.0
+num_datapoints_in_train: 17
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  </param>
+          /// <param name="requery">
+<<<< DIAGNOSTIC: remove trailing whitespace >>>>
+-         /// force requery By default, Wox will not fire query if your query is same with existing one. 
++         /// force requery By default, Wox will not fire query if your query is same with existing one.
+          /// Set this to true to force Wox requerying

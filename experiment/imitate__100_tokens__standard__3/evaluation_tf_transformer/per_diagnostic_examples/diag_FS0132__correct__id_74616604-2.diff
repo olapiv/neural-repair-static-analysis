@@ -1,0 +1,14 @@
+id: 74616604-2
+diagnostic: FS0132
+perc_correct_in_test: 1.0
+num_datapoints_in_train: 4
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+     {
+              bool lockAcquired = false;
++             {
+              while (!lockAcquired)
+<<<< DIAGNOSTIC: add braces to single statement in this while loop >>>>
+                  lockAcquired = locks.TryEnterWriteLock(1);
+          }
+          
+          

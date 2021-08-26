@@ -1,0 +1,22 @@
+id: 58739815-0
+diagnostic: USI0001
+perc_correct_in_test: 0.7258064516129032
+num_datapoints_in_train: 168
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+   GNU General Public License
+  //   along with this program. If not, see <http://www.gnu.org/licenses/>.
+  
+  
++ using System.Collections.Generic;
++ using System.Linq;
+<<<< DIAGNOSTIC: missing these usings:
+system.collections.generic
+system.linq >>>>
+  using System;
+  using System.IO;
+  
+  namespace Sparkles {
+      
+      public static class Logger {
+  
+          static StreamWriter log_writer 

@@ -1,0 +1,18 @@
+id: 43652054-1
+diagnostic: SA1623D
+perc_correct_in_test: 0.08633093525179857
+num_datapoints_in_train: 435
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+          }
+              throw new Exception();
+          }
++         /// <summary>
++         /// Gets the operands.
++         /// </summary>
+  
+<<<< DIAGNOSTIC: property documentation: no documentation. >>>>
+          public IEnumerable<Expression> Operands
+          {
+              get 
+              {
+    

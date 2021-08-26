@@ -1,0 +1,16 @@
+id: 16678895-0
+diagnostic: ClassDoesNotImplementContractAnalyzer
+perc_correct_in_test: 0.4117647058823529
+num_datapoints_in_train: 177
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  using System.Collections.Generic;
+  using System.Windows.Media;
+  
+  namespace MaterialDesignColors.Recommended
+  {
+<<<< DIAGNOSTIC: class 'BlueGreySwatch' doesn't implement any interfaces from connector contracts. >>>>
+-     public class BlueGreySwatch : ISwatch
++     public class BlueGreySwatch : ISwatch, Tridion.Remoting.Contracts.IValueObject
+      {
+          public static Color BlueGrey50 { get; } = (Color)ColorConverter.ConvertFromString("#ECEFF1");
+          public static Color 

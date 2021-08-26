@@ -1,0 +1,32 @@
+id: 71327656-0
+diagnostic: FS0057
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 5
+<<<<<<<< CORRECT >>>>>>>>
+  using System;
+  
+  namespace Shadowsocks.Protocol.Shadowsocks.Crypto
+  {
+      class UnsafeNoneCrypto : ICrypto
+      {
+<<<< DIAGNOSTIC: parameter 'parameter' is not used. >>>>
+-         public UnsafeNoneCrypto(CryptoParameter parameter)
++         public UnsafeNoneCrypto()
+          {
+          }
+  
+          public int Decrypt(ReadOnlySpan<byte> nonce, Span<byte>
+<<<<<<<< INFERRED >>>>>>>>
+  using System;
+  
+  namespace Shadowsocks.Protocol.Shadowsocks.Crypto
+  {
+      class UnsafeNoneCrypto : ICrypto
+      {
+<<<< DIAGNOSTIC: parameter 'parameter' is not used. >>>>
+-         public UnsafeNoneCrypto(CryptoParameter parameter)
++     public class UnsafeNoneCrypto : ICrypto
+          {
+          }
+  
+          public int Decrypt(ReadOnlySpan<byte> nonce, Span<byte>

@@ -1,0 +1,34 @@
+id: 21767732-0
+diagnostic: ModifierAnalyzer
+perc_correct_in_test: 0.36363636363636365
+num_datapoints_in_train: 280
+<<<<<<<< CORRECT >>>>>>>>
+  ;
+  using DbLinq.Sqlite.Schema;
+  using DbLinq.Util;
+  using DbLinq.Vendor;
+  using DbLinq.Vendor.Implementation;
+  
+  namespace DbLinq.Sqlite
+  {
+<<<< DIAGNOSTIC: message format: need to specify access modifier  >>>>
+-     partial class SqliteSchemaLoader : SchemaLoader
++     private partial class SqliteSchemaLoader : SchemaLoader
+      {
+          private readonly IVendor vendor = new SqliteVendor();
+          public override 
+<<<<<<<< INFERRED >>>>>>>>
+  ;
+  using DbLinq.Sqlite.Schema;
+  using DbLinq.Util;
+  using DbLinq.Vendor;
+  using DbLinq.Vendor.Implementation;
+  
+  namespace DbLinq.Sqlite
+  {
+<<<< DIAGNOSTIC: message format: need to specify access modifier  >>>>
+-     partial class SqliteSchemaLoader : SchemaLoader
++     private partial class SqliteSchemaLoader
+      {
+          private readonly IVendor vendor = new SqliteVendor();
+          public override 

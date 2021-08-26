@@ -1,0 +1,26 @@
+id: 47761964-0
+diagnostic: DictionaryVariableFix
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 1
+<<<<<<<< CORRECT >>>>>>>>
+            select Tuple.Create(pair.Key, pair.Value);
+          }
+  
++         private static System.Collections.Concurrent.ConcurrentDictionary<Type, DbType> typeMap;//Roslyn auto generated code.
+<<<< DIAGNOSTIC: dictionary 'Dictionary' should be replaced with concurrentdictionary >>>>
+-         private static Dictionary<Type, DbType> typeMap;
+- 
+          static SqlMapper()
+          {
+              typeMap 
+<<<<<<<< INFERRED >>>>>>>>
+            select Tuple.Create(pair.Key, pair.Value);
+          }
+  
+<<<< DIAGNOSTIC: dictionary 'Dictionary' should be replaced with concurrentdictionary >>>>
+-         private static Dictionary<Type, DbType> typeMap;
++         private static Dictionary<Type, DbType> _TypeMap;
+  
+          static SqlMapper()
+          {
+              typeMap 

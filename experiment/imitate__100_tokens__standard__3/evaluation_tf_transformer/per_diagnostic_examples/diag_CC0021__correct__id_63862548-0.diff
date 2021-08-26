@@ -1,0 +1,14 @@
+id: 63862548-0
+diagnostic: CC0021
+perc_correct_in_test: 0.23809523809523808
+num_datapoints_in_train: 85
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+   entity)
+          {
+              if (entity == null)
+<<<< DIAGNOSTIC: use 'nameof(entity)' instead of specifying the program element name. >>>>
+-                 throw new ArgumentNullException("entity");
++                 throw new ArgumentNullException(nameof(entity));
+  
+              if (Source.Contains (entity))
+             

@@ -1,0 +1,12 @@
+id: 73028173-0
+diagnostic: SA1009
+perc_correct_in_test: 0.8947368421052632
+num_datapoints_in_train: 56
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  ,
+                  upsertParameters.OutputValues, upsertParameters.OutputExpressions,
+-                 upsertParameters.InputPKColumns, upsertParameters.InputPKValues
++                 upsertParameters.InputPKColumns, upsertParameters.InputPKValues);
+<<<< DIAGNOSTIC: closing parenthesis should not be preceded by a space. >>>>
+-                 );
+              var insertIdSql = (upsertParameters.OutputValues.Count == 0

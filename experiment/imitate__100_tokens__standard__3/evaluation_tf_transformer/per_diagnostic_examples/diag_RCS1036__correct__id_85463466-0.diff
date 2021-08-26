@@ -1,0 +1,18 @@
+id: 85463466-0
+diagnostic: RCS1036
+perc_correct_in_test: 0.7368421052631579
+num_datapoints_in_train: 36
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  System.Net.Http;
+  using System.Net.Http.Headers;
+  using System.Text;
+  using System.Threading;
+  using System.Threading.Tasks;
+  using System.Web;
+  
+<<<< DIAGNOSTIC: remove redundant empty line. >>>>
+- 
+  namespace HttpStress
+  {
+      [Flags]
+      public enum RunMode { server = 1, client = 2, both = server | client 

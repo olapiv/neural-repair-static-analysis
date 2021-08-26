@@ -1,0 +1,28 @@
+id: 80704557-1
+diagnostic: RCS1090
+perc_correct_in_test: 0.75
+num_datapoints_in_train: 11
+<<<<<<<< CORRECT >>>>>>>>
+   public async ValueTask StopAsync()
+          {
+              _cts.Cancel();
+<<<< DIAGNOSTIC: add call to 'ConfigureAwait'. >>>>
+-             await _clientTask.Value;
++             await _clientTask.Value.ConfigureAwait(false);
+          }
+  
+          public Task Task
+          {
+        
+<<<<<<<< INFERRED >>>>>>>>
+   public async ValueTask StopAsync()
+          {
+              _cts.Cancel();
+<<<< DIAGNOSTIC: add call to 'ConfigureAwait'. >>>>
+-             await _clientTask.Value;
++             await _serverTask.Value.ConfigureAwait(false);
+          }
+  
+          public Task Task
+          {
+        

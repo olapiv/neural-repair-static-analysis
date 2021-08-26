@@ -1,0 +1,16 @@
+id: 42153240-0
+diagnostic: SA1000
+perc_correct_in_test: 0.8
+num_datapoints_in_train: 28
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  memberInfo = member;
+  			memberAccessor = LambdaMetaAccessor.Create(member, declaringType.Type);
+  			this.declaringType = declaringType;
+  			
+<<<< DIAGNOSTIC: the keyword 'if' should be followed by a space. >>>>
+- 			if(attribute.Storage != null)
++ 			if (attribute.Storage != null)
+  			{
+  				storageMember = member.DeclaringType.GetSingleMember(attribute.Storage);
+  				if (storageMember != null)
+  				

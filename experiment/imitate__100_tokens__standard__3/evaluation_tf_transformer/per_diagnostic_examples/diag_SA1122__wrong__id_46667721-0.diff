@@ -1,0 +1,29 @@
+id: 46667721-0
+diagnostic: SA1122
+perc_correct_in_test: 0.5
+num_datapoints_in_train: 12
+<<<<<<<< CORRECT >>>>>>>>
+  true);
+  
+  			Reader.MoveToElement();
+  
+  			while (Reader.MoveToNextAttribute())
+  			{
+<<<< DIAGNOSTIC: use string.empty for empty strings >>>>
+- 				if (Reader.LocalName == "Name" && Reader.NamespaceURI == "") {
++ 				if (Reader.LocalName == "Name" && Reader.NamespaceURI == string.Empty) {
+  					ob.@Name = Reader.Value;
+  				}
+  				else if (Reader.LocalName 
+<<<<<<<< INFERRED >>>>>>>>
+  true);
+  
+  			Reader.MoveToElement();
+  
+  			while (Reader.MoveToNextAttribute())
+  			{
+<<<< DIAGNOSTIC: use string.empty for empty strings >>>>
+  				if (Reader.LocalName == "Name" && Reader.NamespaceURI == "") {
+  					ob.@Name = Reader.Value;
+  				}
+  				else if (Reader.LocalName 

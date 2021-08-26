@@ -1,0 +1,32 @@
+id: 88627002-2
+diagnostic: Y0001
+perc_correct_in_test: 0.34615384615384615
+num_datapoints_in_train: 79
+<<<<<<<< CORRECT >>>>>>>>
+  ;
+  
+  			// merge back together the removed subtrees:
+  			SharpTreeNode removed = removedSubtrees[0];
+<<<< DIAGNOSTIC: variable should use implicit type >>>>
+- 			for (int i = 1; i < removedSubtrees.Count; i++)
++ 			for (var i = 1; i < removedSubtrees.Count; i++)
+  			{
+  				removed = ConcatTrees(removed, removedSubtrees[i]);
+  			}
+  		}
+  
+  	
+<<<<<<<< INFERRED >>>>>>>>
+  ;
+  
+  			// merge back together the removed subtrees:
+  			SharpTreeNode removed = removedSubtrees[0];
+<<<< DIAGNOSTIC: variable should use implicit type >>>>
+- 			for (int i = 1; i < removedSubtrees.Count; i++)
++ 				var i = 0;
+  			{
+  				removed = ConcatTrees(removed, removedSubtrees[i]);
+  			}
+  		}
+  
+  	

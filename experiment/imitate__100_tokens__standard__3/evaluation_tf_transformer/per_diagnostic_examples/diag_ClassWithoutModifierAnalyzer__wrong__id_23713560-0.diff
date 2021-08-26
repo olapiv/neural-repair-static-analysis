@@ -1,0 +1,34 @@
+id: 23713560-0
+diagnostic: ClassWithoutModifierAnalyzer
+perc_correct_in_test: 0.5
+num_datapoints_in_train: 11
+<<<<<<<< CORRECT >>>>>>>>
+  p).Compile(),
+  				MakeSetter(member, memberType, declaringType) }
+  			);
+  		}
+  	}
+  
+<<<< DIAGNOSTIC: your class must have at least one modifier. (public, internal, etc) >>>>
+- 	class LambdaMetaAccessor<TEntity, TMember> : MetaAccessor<TEntity, TMember>
++     public class LambdaMetaAccessor<TEntity, TMember> : MetaAccessor<TEntity, TMember>
+  	{
+  		Func<TEntity, TMember> _Accessor;
+  		Action<TEntity, TMember> _Setter;
+  
+  		public LambdaMetaAccessor(Func<TEntity,
+<<<<<<<< INFERRED >>>>>>>>
+  p).Compile(),
+  				MakeSetter(member, memberType, declaringType) }
+  			);
+  		}
+  	}
+  
+<<<< DIAGNOSTIC: your class must have at least one modifier. (public, internal, etc) >>>>
+- 	class LambdaMetaAccessor<TEntity, TMember> : MetaAccessor<TEntity, TMember>
++     class LambdaMetaAccessor<TEntity, TMember> : MetaAccessor<TEntity, TMember>
+  	{
+  		Func<TEntity, TMember> _Accessor;
+  		Action<TEntity, TMember> _Setter;
+  
+  		public LambdaMetaAccessor(Func<TEntity,

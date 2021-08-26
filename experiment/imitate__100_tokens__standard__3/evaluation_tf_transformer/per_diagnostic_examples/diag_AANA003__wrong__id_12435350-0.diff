@@ -1,0 +1,22 @@
+id: 12435350-0
+diagnostic: AANA003
+perc_correct_in_test: 0.2
+num_datapoints_in_train: 26
+<<<<<<<< CORRECT >>>>>>>>
+        /// Close this Response Output Stream Async
+          /// </summary>
+<<<< DIAGNOSTIC: cancellationtoken parameter 'token' name differs from 'cancellationToken' >>>>
+-         Task CloseAsync(CancellationToken token = default(CancellationToken));
++         Task CloseAsync(CancellationToken cancellationToken = default(CancellationToken));
+  
+          /// <summary>
+          /// Calls Response.End() on ASP
+<<<<<<<< INFERRED >>>>>>>>
+        /// Close this Response Output Stream Async
+          /// </summary>
+<<<< DIAGNOSTIC: cancellationtoken parameter 'token' name differs from 'cancellationToken' >>>>
+-         Task CloseAsync(CancellationToken token = default(CancellationToken));
++         Task RemoveAllAsync(CancellationToken cancellationToken=default);
+  
+          /// <summary>
+          /// Calls Response.End() on ASP

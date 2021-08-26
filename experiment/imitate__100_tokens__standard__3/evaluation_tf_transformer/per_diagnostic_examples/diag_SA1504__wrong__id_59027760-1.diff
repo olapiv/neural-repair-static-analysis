@@ -1,0 +1,32 @@
+id: 59027760-1
+diagnostic: SA1504
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 3
+<<<<<<<< CORRECT >>>>>>>>
+       }
+  
+          public int this[string key]
+          {
++             get
++             {
+<<<< DIAGNOSTIC: all accessors should be single-line or multi-line >>>>
+-             get { return dictionary[key]; }
++                 return dictionary[key];
++             }
+              set
+              {
+           
+<<<<<<<< INFERRED >>>>>>>>
+       }
+  
+          public int this[string key]
+          {
+<<<< DIAGNOSTIC: all accessors should be single-line or multi-line >>>>
+-             get { return dictionary[key]; }
++             get
++             {
++                 return _pluginDirectory;
++             }
+              set
+              {
+           

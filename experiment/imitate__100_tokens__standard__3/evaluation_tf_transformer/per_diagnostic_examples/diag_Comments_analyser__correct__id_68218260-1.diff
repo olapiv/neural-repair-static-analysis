@@ -1,0 +1,11 @@
+id: 68218260-1
+diagnostic: Comments_analyser
+perc_correct_in_test: 0.08571428571428572
+num_datapoints_in_train: 163
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  LetPropertyMaps letPropertyMaps) =>
+              Coalesce(resolvedSource, New(memberMap.DestinationType));
+<<<< DIAGNOSTIC: type name 'Missingsummary' contains lowercase letters >>>>
+-         public bool IsMatch(MemberMap memberMap, TypeMap memberTypeMap, Expression resolvedSource) =>
++         public bool IsMatch(MEMBERMAP memberMap, TYPEMAP memberTypeMap, Expression resolvedSource) =>
+              memberMap.DestinationType.IsValueType && !memberMap.DestinationType.IsNullableType() && resolvedSource.Type

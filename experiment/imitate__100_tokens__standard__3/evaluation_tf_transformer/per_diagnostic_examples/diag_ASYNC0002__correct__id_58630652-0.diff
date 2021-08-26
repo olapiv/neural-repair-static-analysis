@@ -1,0 +1,16 @@
+id: 58630652-0
+diagnostic: ASYNC0002
+perc_correct_in_test: 1.0
+num_datapoints_in_train: 1
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  .AuthenticateAsClientAsync(clientOptions, token);
+              return sslStream;
+          }
+  
+<<<< DIAGNOSTIC: remove async suffix from method name >>>>
+-         public ValueTask DisposeAsync() => StopAsync();
++         public ValueTask Dispose() => StopAsync();
+  
+          public void Start()
+          {
+             

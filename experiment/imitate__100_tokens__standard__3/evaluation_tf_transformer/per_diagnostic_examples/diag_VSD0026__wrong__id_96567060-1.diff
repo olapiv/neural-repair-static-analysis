@@ -1,0 +1,38 @@
+id: 96567060-1
+diagnostic: VSD0026
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 10
+<<<<<<<< CORRECT >>>>>>>>
+     class DbmlTable : DbmlItem
+          {
+<<<< DIAGNOSTIC: field type should be turned into a property. >>>>
+-             public DbmlType Type;
++             public DbmlType Type { get; set; }
++ 
++ 
+<<<< DIAGNOSTIC: field name should be turned into a property. >>>>
+-             public string Name;
++             public string Name { get; set; }
++ 
++ 
+<<<< DIAGNOSTIC: field member should be turned into a property. >>>>
+-             public string Member;
++             public string Member { get; set; }
+  
+              public DbmlTable(XmlReader r)
+<<<<<<<< INFERRED >>>>>>>>
+     class DbmlTable : DbmlItem
+          {
+<<<< DIAGNOSTIC: field type should be turned into a property. >>>>
+-             public DbmlType Type;
+<<<< DIAGNOSTIC: field name should be turned into a property. >>>>
+-             public string Name;
++             public string Name { get; set; }
++ 
+<<<< DIAGNOSTIC: field member should be turned into a property. >>>>
+-             public string Member;
++             public string Member { get; set; }
++ 
++             public string Storage { get; set; }
+  
+              public DbmlTable(XmlReader r)

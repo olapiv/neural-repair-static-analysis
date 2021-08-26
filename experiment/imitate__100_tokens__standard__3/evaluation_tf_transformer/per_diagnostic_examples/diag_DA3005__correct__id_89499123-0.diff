@@ -1,0 +1,12 @@
+id: 89499123-0
+diagnostic: DA3005
+perc_correct_in_test: 0.5
+num_datapoints_in_train: 5
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  >
+          /// <typeparam name="TSourceMember">Source member to supply</typeparam>
+<<<< DIAGNOSTIC: method 'MapFrom' doesn't have /// parameter in comment >>>>
+-         void MapFrom<TValueResolver, TSourceMember>(Expression<Func<TSource, TSourceMember>> sourceMember) 
++         void MapFrom<TValueResolver, TSourceMember>(Expression<Func<TSource, TSourceMember>> sourceMember)
+              where TValueResolver : IMemberValueResolver<TSource, TDestination, TSourceMember, TMember>;
+   

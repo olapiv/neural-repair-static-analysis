@@ -1,0 +1,19 @@
+id: 42311425-2
+diagnostic: SA1027
+perc_correct_in_test: 0.16666666666666666
+num_datapoints_in_train: 28
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+      }
+  
+          private TableAttribute _tableAttribute;
+          private MetaType _metaType;
+<<<< DIAGNOSTIC: tabs and spaces should be used correctly >>>>
+-     	private MetaModel _containingModel;
++         private MetaModel _containingModel;
+<<<< DIAGNOSTIC: tabs and spaces should be used correctly >>>>
+-     	private readonly string _tableName;
++         private readonly string _tableName;
+  
+          public override MethodInfo DeleteMethod
+          {
+            

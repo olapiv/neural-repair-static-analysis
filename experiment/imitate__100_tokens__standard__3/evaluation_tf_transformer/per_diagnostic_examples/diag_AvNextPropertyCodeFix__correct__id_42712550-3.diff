@@ -1,0 +1,19 @@
+id: 42712550-3
+diagnostic: AvNextPropertyCodeFix
+perc_correct_in_test: 0.9615384615384616
+num_datapoints_in_train: 89
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+   contract;
+              ForceFullStates = forceFullStates;
+          }
+  
++         [NotNull]
++         [System.ComponentModel.DataAnnotations.MaxLength(200)]//Roslyn auto generated
+<<<< DIAGNOSTIC: type name 'Contract' should be decorated with maxlength attribute >>>>
+-         [NotNull] public string Contract { get; private set; }
++         public string Contract { get; set; }
+- 
+          public bool ForceFullStates { get; private set; }
+      }
+  
+    

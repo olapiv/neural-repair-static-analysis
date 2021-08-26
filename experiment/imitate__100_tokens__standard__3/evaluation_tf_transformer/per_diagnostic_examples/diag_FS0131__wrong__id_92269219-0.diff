@@ -1,0 +1,26 @@
+id: 92269219-0
+diagnostic: FS0131
+perc_correct_in_test: 0.875
+num_datapoints_in_train: 24
+<<<<<<<< CORRECT >>>>>>>>
+  execution deferred; ignore.
+  						    foreach (var o in ((IEnumerable)entitySetValue))
+<<<< DIAGNOSTIC: add braces to single statement in this foreach loop >>>>
+- 							    children.Enqueue(o);
+- 					    }
++                             {
++                                 children.Enqueue(o);
++                             }
++                         }
+                      }
+               
+<<<<<<<< INFERRED >>>>>>>>
+  execution deferred; ignore.
+  						    foreach (var o in ((IEnumerable)entitySetValue))
+<<<< DIAGNOSTIC: add braces to single statement in this foreach loop >>>>
+- 							    children.Enqueue(o);
++                                                return (IEnumerable)o;
++                     }
+  					    }
+                      }
+               

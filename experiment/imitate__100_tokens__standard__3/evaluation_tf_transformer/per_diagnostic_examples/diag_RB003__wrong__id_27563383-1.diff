@@ -1,0 +1,24 @@
+id: 27563383-1
+diagnostic: RB003
+perc_correct_in_test: 0.5
+num_datapoints_in_train: 28
+<<<<<<<< CORRECT >>>>>>>>
+        public void ClearLogs()
+          {
+<<<< DIAGNOSTIC: lock statement should be avoided in orleans environment >>>>
+-             lock (sb)
+-                 sb.Remove(0, sb.Length - 1);
+          }
+      }
+  
+      public class 
+<<<<<<<< INFERRED >>>>>>>>
+        public void ClearLogs()
+          {
+<<<< DIAGNOSTIC: lock statement should be avoided in orleans environment >>>>
+-             lock (sb)
+-                 sb.Remove(0, sb.Length - 1);
+-         }
+-     }
+  
+      public class 

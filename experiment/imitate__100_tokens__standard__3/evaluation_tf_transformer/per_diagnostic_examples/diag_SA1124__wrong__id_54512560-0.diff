@@ -1,0 +1,23 @@
+id: 54512560-0
+diagnostic: SA1124
+perc_correct_in_test: 0.5
+num_datapoints_in_train: 11
+<<<<<<<< CORRECT >>>>>>>>
+<<<< DIAGNOSTIC: do not use regions >>>>
+- #region License Information (GPL v3)
++ /*
+  
+  /*
+      ShareX - A program that allows you to take screenshots and share any file type
+      Copyright (c) 2007-2020 ShareX Team
+  
+      This program is free software; you can redistribute it and/or
+<<<<<<<< INFERRED >>>>>>>>
+<<<< DIAGNOSTIC: do not use regions >>>>
+- #region License Information (GPL v3)
+  
+  /*
+      ShareX - A program that allows you to take screenshots and share any file type
+      Copyright (c) 2007-2020 ShareX Team
+  
+      This program is free software; you can redistribute it and/or

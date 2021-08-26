@@ -1,0 +1,12 @@
+id: 69472293-0
+diagnostic: SA1519
+perc_correct_in_test: 0.5
+num_datapoints_in_train: 9
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+    Fragment = Name,
+              };
++             {
+              if (!string.IsNullOrEmpty(Plugin))
+<<<< DIAGNOSTIC: braces should not be omitted from multi-line child statement >>>>
+                  if (!string.IsNullOrEmpty(PluginOpts))
+                      uriBuilder.Query 

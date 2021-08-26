@@ -1,0 +1,11 @@
+id: 24857837-0
+diagnostic: CC0105
+perc_correct_in_test: 0.2413793103448276
+num_datapoints_in_train: 84
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+         if (expression.Type.IsArray)
+                  {
+<<<< DIAGNOSTIC: use 'var' instead of specifying the type name. >>>>
+-                     int i = 0;
++                     var i = 0;
+                      List<SqlStatement> inputParameters = new List<SqlStatement>(

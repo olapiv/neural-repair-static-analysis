@@ -1,0 +1,14 @@
+id: 8190900-2
+diagnostic: RIT0002
+perc_correct_in_test: 1.0
+num_datapoints_in_train: 6
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+         return client?.TotalErrorCount == 0 ? ExitCode.Success : ExitCode.StressError;
+      }
+  
+<<<< DIAGNOSTIC: use array.empty<t>() to create an empty array >>>>
+-     private static async Task WaitUntilMaxExecutionTimeElapsedOrKeyboardInterrupt(TimeSpan? maxExecutionTime = null)
++     private static async Task WaitUntilMaxExecutionTimeElapsedOrKeyboardInterruptAsync(TimeSpan? maxExecutionTime = null)
+      {
+          var tcs = new TaskCompletionSource<bool>();
+          

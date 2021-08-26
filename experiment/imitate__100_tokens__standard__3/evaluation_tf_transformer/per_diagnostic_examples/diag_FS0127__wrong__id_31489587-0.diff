@@ -1,0 +1,42 @@
+id: 31489587-0
+diagnostic: FS0127
+perc_correct_in_test: 0.7777777777777778
+num_datapoints_in_train: 23
+<<<<<<<< CORRECT >>>>>>>>
+  
+  #endregion
+  
+  using System.Data;
+  using System.Reflection;
+  using System.Collections.Generic;
+- 
+- #if MONO_STRICT
+- using DataContext = System.Data.Linq.DataContext;
+- using System.Data.Linq;
+- #else
+<<<< DIAGNOSTIC: imported library is not used. >>>>
+- using DataContext = DbLinq.Data.Linq.DataContext;
+  #endif
+  
+  using Data = DbLinq.Data;
+  using DbLinq.Data.Linq;
+  using IExecuteResult 
+<<<<<<<< INFERRED >>>>>>>>
+  
+  #endregion
+  
+  using System.Data;
+  using System.Reflection;
+  using System.Collections.Generic;
+  
+  #if MONO_STRICT
+  using DataContext = System.Data.Linq.DataContext;
+  using System.Data.Linq;
+  #else
+<<<< DIAGNOSTIC: imported library is not used. >>>>
+- using DataContext = DbLinq.Data.Linq.DataContext;
+  #endif
+  
+  using Data = DbLinq.Data;
+  using DbLinq.Data.Linq;
+  using IExecuteResult 

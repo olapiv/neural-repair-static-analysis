@@ -1,0 +1,23 @@
+id: 86956783-0
+diagnostic: SA1136
+perc_correct_in_test: 0.5
+num_datapoints_in_train: 3
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  .
+  
+  using System;
+  using System.Net;
+  
+  namespace SslStress
+  {
+      [Flags]
+<<<< DIAGNOSTIC: enum values should be on separate lines >>>>
+<<<< DIAGNOSTIC: enum values should be on separate lines >>>>
+-     public enum RunMode { server = 1, client = 2, both = server | client };
++     public enum RunMode { server = 1,
++         client = 2,
++         both = server | client };
+  
+      public class Configuration
+      {
+          public IPEndPoint ServerEndpoint 

@@ -1,0 +1,14 @@
+id: 95951452-1
+diagnostic: CRA002
+perc_correct_in_test: 1.0
+num_datapoints_in_train: 15
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  Input.AdvanceTo(result.Buffer.End);
+              }
+          }
+  
+<<<< DIAGNOSTIC: name of asynchronous method 'ConvertDownlink' does not end with async >>>>
+-         public async Task ConvertDownlink(IDuplexPipe client, IDuplexPipe server)
++         public async Task ConvertDownlinkAsync(IDuplexPipe client, IDuplexPipe server)
+          {
+              using var down = cryptoParameter.GetCrypto();

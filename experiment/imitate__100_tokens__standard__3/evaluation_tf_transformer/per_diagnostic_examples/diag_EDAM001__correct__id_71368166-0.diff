@@ -1,0 +1,19 @@
+id: 71368166-0
+diagnostic: EDAM001
+perc_correct_in_test: 0.32222222222222224
+num_datapoints_in_train: 264
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  Linq;
+  using System.Linq.Expressions;
+  
+  using DbLinq.Data.Linq.Sugar.Expressions;
+  
+  namespace DbLinq.Data.Linq.Sugar.ExpressionMutator.Implementation
+  {
+<<<< DIAGNOSTIC: explicit default access modifiers are just noise. >>>>
+-     internal class MemberInitExpressionMutator : IMutableExpression
++     class MemberInitExpressionMutator : IMutableExpression
+      {
+          protected MemberInitExpression MemberInitExpression { get; private set; }
+  
+          public 

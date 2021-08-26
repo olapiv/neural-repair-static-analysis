@@ -1,0 +1,16 @@
+id: 43315917-1
+diagnostic: SA1124
+perc_correct_in_test: 0.5
+num_datapoints_in_train: 11
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+          {
+              throw new NotImplementedException();
+          }
+- 
+<<<< DIAGNOSTIC: do not use regions >>>>
+-         #region Identity management
+  
+          [DBLinqExtended]
+          internal IIdentityReader _GetIdentityReader(Type t)
+          {
+    

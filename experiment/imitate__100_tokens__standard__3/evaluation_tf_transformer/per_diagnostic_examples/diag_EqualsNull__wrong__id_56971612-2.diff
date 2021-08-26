@@ -1,0 +1,36 @@
+id: 56971612-2
+diagnostic: EqualsNull
+perc_correct_in_test: 0.4117647058823529
+num_datapoints_in_train: 112
+<<<<<<<< CORRECT >>>>>>>>
+  ;
+  				if (Template != null)
+  				{
+  					UpdateTemplate();
+  				}
+  			}
+<<<< DIAGNOSTIC: use 'is' pattern matching instead of '!=' operator. >>>>
+- 			if (oldNode != null)
++ 			if (!(oldNode is null))
+  			{
+  				oldNode.PropertyChanged -= Node_PropertyChanged;
+  			}
+  		}
+  
+  		void Node_PropertyChanged(object sender, PropertyChangedEventArgs e)
+<<<<<<<< INFERRED >>>>>>>>
+  ;
+  				if (Template != null)
+  				{
+  					UpdateTemplate();
+  				}
+  			}
+<<<< DIAGNOSTIC: use 'is' pattern matching instead of '!=' operator. >>>>
+- 			if (oldNode != null)
++ 			if (!(Template is null))
+  			{
+  				oldNode.PropertyChanged -= Node_PropertyChanged;
+  			}
+  		}
+  
+  		void Node_PropertyChanged(object sender, PropertyChangedEventArgs e)

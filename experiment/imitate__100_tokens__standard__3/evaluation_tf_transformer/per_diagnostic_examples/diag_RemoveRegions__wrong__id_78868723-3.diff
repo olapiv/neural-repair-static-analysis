@@ -1,0 +1,26 @@
+id: 78868723-3
+diagnostic: RemoveRegions
+perc_correct_in_test: 0.9433962264150944
+num_datapoints_in_train: 136
+<<<<<<<< CORRECT >>>>>>>>
+  , int columnIndex)
+          {
+              if (GetAsObject != null)
+                  GetAsObject(sender, ref value, tableType, columnIndex);
+          }
+- 
+<<<< DIAGNOSTIC: regions are not needed any more >>>>
+-         #endregion
+      }
+  }
+<<<<<<<< INFERRED >>>>>>>>
+  , int columnIndex)
+          {
+              if (GetAsObject != null)
+                  GetAsObject(sender, ref value, tableType, columnIndex);
+          }
+  
+<<<< DIAGNOSTIC: regions are not needed any more >>>>
+-         #endregion
+      }
+  }

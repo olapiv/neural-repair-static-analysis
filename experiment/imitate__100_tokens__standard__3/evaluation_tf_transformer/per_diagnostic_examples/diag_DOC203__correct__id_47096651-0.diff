@@ -1,0 +1,13 @@
+id: 47096651-0
+diagnostic: DOC203
+perc_correct_in_test: 1.0
+num_datapoints_in_train: 3
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  /// so the check for <c>null</c> is necessary before its usage.
+      /// </summary>
+<<<< DIAGNOSTIC: use block elements correctly >>>>
+-     /// <example><code>
++     /// <example><c>
+      /// [CanBeNull] object Test() => null;
+      /// 
+      /// void UseTest()

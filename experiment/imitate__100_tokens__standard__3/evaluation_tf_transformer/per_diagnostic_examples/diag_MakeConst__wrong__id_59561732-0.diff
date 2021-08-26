@@ -1,0 +1,18 @@
+id: 59561732-0
+diagnostic: MakeConst
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 2
+<<<<<<<< CORRECT >>>>>>>>
+   (typeof(DbProviderFactory).IsAssignableFrom(testType))
+                  {
+<<<< DIAGNOSTIC: can be made constant >>>>
+-                     var bindingFlags = BindingFlags.Static | BindingFlags.Public;
++                     const BindingFlags bindingFlags = BindingFlags.Static | BindingFlags.Public;
+                      FieldInfo instanceFieldInfo = testType.GetField("Instance
+<<<<<<<< INFERRED >>>>>>>>
+   (typeof(DbProviderFactory).IsAssignableFrom(testType))
+                  {
+<<<< DIAGNOSTIC: can be made constant >>>>
+-                     var bindingFlags = BindingFlags.Static | BindingFlags.Public;
++                     const System.Reflection.BindingFlags bindingFlags = BindingFlags.Static | BindingFlags.Public;
+                      FieldInfo instanceFieldInfo = testType.GetField("Instance

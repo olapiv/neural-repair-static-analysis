@@ -1,0 +1,14 @@
+id: 72699424-0
+diagnostic: SA1313
+perc_correct_in_test: 1.0
+num_datapoints_in_train: 5
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  {0})", SpecialNodeType);
+              }
+          }
+  
+<<<< DIAGNOSTIC: parameter 'SpecialNodeType' should begin with lower-case letter >>>>
+-         private object EvaluateMathCallInvoke(SpecialExpressionType SpecialNodeType, ReadOnlyCollection<Expression> operands)
++         private object EvaluateMathCallInvoke(SpecialExpressionType specialNodeType, ReadOnlyCollection<Expression> operands)
+          {
+              return typeof(Math).GetMethod(SpecialNodeType.ToString(),

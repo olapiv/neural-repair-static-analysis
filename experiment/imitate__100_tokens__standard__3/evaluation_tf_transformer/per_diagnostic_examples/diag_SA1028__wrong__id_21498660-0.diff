@@ -1,0 +1,23 @@
+id: 21498660-0
+diagnostic: SA1028
+perc_correct_in_test: 0.6666666666666666
+num_datapoints_in_train: 40
+<<<<<<<< CORRECT >>>>>>>>
+  .net/winfx/xaml/colors", "MaterialDesignColors.Wpf")]
+  
+<<<< DIAGNOSTIC: code should not contain trailing whitespace >>>>
+- // Setting ComVisible to false makes the types in this assembly not visible 
++ // Setting ComVisible to false makes the types in this assembly not visible
+<<<< DIAGNOSTIC: code should not contain trailing whitespace >>>>
+- // to COM components.  If you need to access a type in this assembly from 
++ // to COM components.  If you need to access a type in this assembly from
+  // COM, set the ComVisible attribute to true on that
+<<<<<<<< INFERRED >>>>>>>>
+  .net/winfx/xaml/colors", "MaterialDesignColors.Wpf")]
+  
++ 			_AssociationFixupList.Add(new AssociationData {
+<<<< DIAGNOSTIC: code should not contain trailing whitespace >>>>
+- // Setting ComVisible to false makes the types in this assembly not visible 
+<<<< DIAGNOSTIC: code should not contain trailing whitespace >>>>
+- // to COM components.  If you need to access a type in this assembly from 
+  // COM, set the ComVisible attribute to true on that

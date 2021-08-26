@@ -1,0 +1,21 @@
+id: 53486045-1
+diagnostic: RemoveRegions
+perc_correct_in_test: 0.9433962264150944
+num_datapoints_in_train: 136
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  , ARISING FROM,
+  // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+  // THE SOFTWARE.
+  // 
+<<<< DIAGNOSTIC: regions are not needed any more >>>>
+- #endregion
+  
+  using System;
+  
+  namespace DbLinq.Data.Linq.Sugar.Expressions
+  {
+      [Flags]
+  #if !MONO_STRICT
+      public
+  #endif
+      enum TableJoinType

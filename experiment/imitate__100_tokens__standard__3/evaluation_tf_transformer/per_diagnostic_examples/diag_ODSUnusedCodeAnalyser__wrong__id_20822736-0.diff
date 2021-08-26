@@ -1,0 +1,40 @@
+id: 20822736-0
+diagnostic: ODSUnusedCodeAnalyser
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 1
+<<<<<<<< CORRECT >>>>>>>>
+   System.Collections.Generic;
+  using System.Collections.Specialized;
+  using System.Linq;
+  
+  using ICSharpCode.TreeView;
+  
+  namespace ICSharpCode.ILSpy.Analyzers
+  {
+<<<< DIAGNOSTIC: type name 'AnalyzerTreeNode' contains lowercase letters >>>>
+- 	public abstract class AnalyzerTreeNode : SharpTreeNode
++ 	public abstract class AnalyzerTreeNode : SHARPTREENODE
+  	{
+  		private Language language;
+  
+  		public Language Language {
+  			get { return language; }
+  			set {
+<<<<<<<< INFERRED >>>>>>>>
+   System.Collections.Generic;
+  using System.Collections.Specialized;
+  using System.Linq;
+  
+  using ICSharpCode.TreeView;
+  
+  namespace ICSharpCode.ILSpy.Analyzers
+  {
+<<<< DIAGNOSTIC: type name 'AnalyzerTreeNode' contains lowercase letters >>>>
+- 	public abstract class AnalyzerTreeNode : SharpTreeNode
++ 	public class PROGRAM
+  	{
+  		private Language language;
+  
+  		public Language Language {
+  			get { return language; }
+  			set {

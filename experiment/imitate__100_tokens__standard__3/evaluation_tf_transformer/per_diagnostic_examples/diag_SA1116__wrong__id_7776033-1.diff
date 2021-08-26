@@ -1,0 +1,22 @@
+id: 7776033-1
+diagnostic: SA1116
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 35
+<<<<<<<< CORRECT >>>>>>>>
+  ="schema"></param>
+          protected virtual void CheckConstraintsName(Database schema)
+          {
+<<<< DIAGNOSTIC: the parameters should begin on the line after the declaration, whenever the parameter span across multiple lines >>>>
+-             CheckConstraintsName(schema,
++             CheckConstraintsName(
++                 schema,
+                         association => association.ThisKey.Replace(',', '_') + 
+<<<<<<<< INFERRED >>>>>>>>
+  ="schema"></param>
+          protected virtual void CheckConstraintsName(Database schema)
+          {
+<<<< DIAGNOSTIC: the parameters should begin on the line after the declaration, whenever the parameter span across multiple lines >>>>
+-             CheckConstraintsName(schema,
++         protected virtual void LoadConstraints(
++             Database schema,
+                         association => association.ThisKey.Replace(',', '_') + 

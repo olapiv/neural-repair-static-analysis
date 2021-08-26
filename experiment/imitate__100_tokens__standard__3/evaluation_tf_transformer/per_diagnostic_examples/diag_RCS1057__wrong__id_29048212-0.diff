@@ -1,0 +1,22 @@
+id: 29048212-0
+diagnostic: RCS1057
+perc_correct_in_test: 0.96
+num_datapoints_in_train: 63
+<<<<<<<< CORRECT >>>>>>>>
+    /// With this value, the case of a give word is unchanged
+          /// </summary>
++ 
+<<<< DIAGNOSTIC: add empty line between declarations. >>>>
+          Leave,
+          /// <summary>
+          /// first word all lowercase, next words capitalized
+      
+<<<<<<<< INFERRED >>>>>>>>
+    /// With this value, the case of a give word is unchanged
+          /// </summary>
+<<<< DIAGNOSTIC: add empty line between declarations. >>>>
+-         Leave,
++ 
+          /// <summary>
+          /// first word all lowercase, next words capitalized
+      

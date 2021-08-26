@@ -1,0 +1,16 @@
+id: 68212906-1
+diagnostic: CC0037
+perc_correct_in_test: 0.8571428571428571
+num_datapoints_in_train: 39
+<<<<<<<< CORRECT >>>>>>>>
+                )
+                  {
+<<<< DIAGNOSTIC: commented code should be removed. >>>>
+-                     //BuildSelect(builderContext.CurrentSelect, builderContext);
+                      operand0 = new SubSelectExpression(builderContext.CurrentSelect, operand0
+<<<<<<<< INFERRED >>>>>>>>
+                )
+                  {
+<<<< DIAGNOSTIC: commented code should be removed. >>>>
+-                     //BuildSelect(builderContext.CurrentSelect, builderContext);
+-                     operand0 = new SubSelectExpression(builderContext.CurrentSelect, operand0

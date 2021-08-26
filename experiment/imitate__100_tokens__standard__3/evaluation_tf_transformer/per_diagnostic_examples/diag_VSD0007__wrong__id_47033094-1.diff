@@ -1,0 +1,22 @@
+id: 47033094-1
+diagnostic: VSD0007
+perc_correct_in_test: 0.6666666666666666
+num_datapoints_in_train: 9
+<<<<<<<< CORRECT >>>>>>>>
+  Don't know how to convert the SQL type '{0}' into a managed type.", dataTypeL),
+<<<< DIAGNOSTIC: the variable datatype is used in an argumentexception as string. consider using the nameof operator instead. >>>>
+-                     "dataType");
++ nameof(dataType));
+              }
+          }
+  
+          protected class 
+<<<<<<<< INFERRED >>>>>>>>
+  Don't know how to convert the SQL type '{0}' into a managed type.", dataTypeL),
+<<<< DIAGNOSTIC: the variable datatype is used in an argumentexception as string. consider using the nameof operator instead. >>>>
+-                     "dataType");
++                     nameof(dataType));
+              }
+          }
+  
+          protected class 

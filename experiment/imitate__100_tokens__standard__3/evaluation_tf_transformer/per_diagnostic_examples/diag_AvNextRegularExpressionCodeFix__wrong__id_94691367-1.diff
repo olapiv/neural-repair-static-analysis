@@ -1,0 +1,30 @@
+id: 94691367-1
+diagnostic: AvNextRegularExpressionCodeFix
+perc_correct_in_test: 0.896551724137931
+num_datapoints_in_train: 94
+<<<<<<<< CORRECT >>>>>>>>
+   NotImplementedException(); }
+          }
+  
++         [System.ComponentModel.DataAnnotations.RegularExpression(@"^[a-zA-Z0-9]*$")]//Roslyn auto generated
++         public string Name { get; set; }
+<<<< DIAGNOSTIC: type name 'Name' should be decorated with regularexpress attribute >>>>
+-         public override string Name
+-         {
+-             get { return methodInfo.Name; }
+-         }
+  
+          public override ReadOnlyCollection<MetaParameter> Parameters
+<<<<<<<< INFERRED >>>>>>>>
+   NotImplementedException(); }
+          }
+  
+<<<< DIAGNOSTIC: type name 'Name' should be decorated with regularexpress attribute >>>>
+-         public override string Name
++             [System.ComponentModel.DataAnnotations.RegularExpression(@"^[a-zA-Z0-9]*$")]//Roslyn auto generated
++             public string Name { get; set; }
+          {
+              get { return methodInfo.Name; }
+          }
+  
+          public override ReadOnlyCollection<MetaParameter> Parameters

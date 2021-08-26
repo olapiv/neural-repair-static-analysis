@@ -1,0 +1,12 @@
+id: 27604185-0
+diagnostic: DOC100
+perc_correct_in_test: 0.5833333333333334
+num_datapoints_in_train: 26
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+   has access to <see cref="ResolutionContext"/>
+          /// </summary>
+<<<< DIAGNOSTIC: place text in paragraphs >>>>
+-         /// <remarks>Not used for LINQ projection (ProjectTo)</remarks>
++         /// <remarks><para>Not used for LINQ projection (ProjectTo)</para></remarks>
+          /// <param name="resolver">Custom func</param>
+        

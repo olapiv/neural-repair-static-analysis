@@ -1,0 +1,16 @@
+id: 82795504-0
+diagnostic: RCS1118
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 2
+<<<<<<<< CORRECT >>>>>>>>
+           //Working samples in: /Tests/Test_Nunit/ReadTests_Conversions.cs
+<<<< DIAGNOSTIC: mark local variable as const. >>>>
+-                 string message = "Method ToString can only be translated to SQL for primitive types.";
++                 const string message = "Method ToString can only be translated to SQL for primitive types.";
+                  int? select = FirstIndexOf(builderContext.
+<<<<<<<< INFERRED >>>>>>>>
+           //Working samples in: /Tests/Test_Nunit/ReadTests_Conversions.cs
+<<<< DIAGNOSTIC: mark local variable as const. >>>>
+-                 string message = "Method ToString can only be translated to SQL for primitive types.";
++                 const string message = "Method ToString can be translated to SQL for primitive types.";
+                  int? select = FirstIndexOf(builderContext.

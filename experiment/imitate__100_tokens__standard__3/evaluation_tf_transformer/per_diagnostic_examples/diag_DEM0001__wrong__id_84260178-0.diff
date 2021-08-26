@@ -1,0 +1,16 @@
+id: 84260178-0
+diagnostic: DEM0001
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 0
+<<<<<<<< CORRECT >>>>>>>>
+              Console.ForegroundColor = ConsoleColor.DarkRed;
+<<<< DIAGNOSTIC: expression 'e' is an exception that is implicitly converted to a string. convert this to a string using 'ToStringDemystified' instead. >>>>
+-                                 Console.WriteLine($"Server: unhandled exception: {e}");
++                                 Console.WriteLine($"Server: unhandled exception: {e.ToStringDemystified()}");
+                          
+<<<<<<<< INFERRED >>>>>>>>
+              Console.ForegroundColor = ConsoleColor.DarkRed;
+<<<< DIAGNOSTIC: expression 'e' is an exception that is implicitly converted to a string. convert this to a string using 'ToStringDemystified' instead. >>>>
+-                                 Console.WriteLine($"Server: unhandled exception: {e}");
++                                          Directory.CreateDirectory(tempPath);
+                          

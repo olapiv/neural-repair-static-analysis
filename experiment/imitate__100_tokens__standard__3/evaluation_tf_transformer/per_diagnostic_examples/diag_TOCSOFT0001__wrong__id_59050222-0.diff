@@ -1,0 +1,27 @@
+id: 59050222-0
+diagnostic: TOCSOFT0001
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 0
+<<<<<<<< CORRECT >>>>>>>>
+  (duration);
+  
+              long messagesInFlight = 0;
+<<<< DIAGNOSTIC: do not call datetime.now as they are not testable, use an abstraction instead. >>>>
+-             DateTime lastWrite = DateTime.Now;
++             DateTime lastWrite = Tocsoft.DateTimeAbstractions.Clock.Now;
+<<<< DIAGNOSTIC: do not call datetime.now as they are not testable, use an abstraction instead. >>>>
+-             DateTime lastRead = DateTime.Now;
++             DateTime lastRead = Tocsoft.DateTimeAbstractions.Clock.Now;
+  
+              await StressTaskExtensions.WhenAllThrowOnFirstException(token, Sender, Receiver,
+<<<<<<<< INFERRED >>>>>>>>
+  (duration);
+  
+              long messagesInFlight = 0;
++             X509Certificate2 cert = certReq.CreateSelfSigned(Tocsoft.DateTimeAbstractions.ClockOffset.UtcNow.AddMonths(-1), Tocsoft.DateTimeAbstractions.ClockOffset.UtcNow.AddMonths(1));
+<<<< DIAGNOSTIC: do not call datetime.now as they are not testable, use an abstraction instead. >>>>
+-             DateTime lastWrite = DateTime.Now;
+<<<< DIAGNOSTIC: do not call datetime.now as they are not testable, use an abstraction instead. >>>>
+-             DateTime lastRead = DateTime.Now;
+  
+              await StressTaskExtensions.WhenAllThrowOnFirstException(token, Sender, Receiver,

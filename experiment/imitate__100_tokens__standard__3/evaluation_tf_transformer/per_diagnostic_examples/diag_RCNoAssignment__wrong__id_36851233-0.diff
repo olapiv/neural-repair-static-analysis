@@ -1,0 +1,30 @@
+id: 36851233-0
+diagnostic: RCNoAssignment
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 7
+<<<<<<<< CORRECT >>>>>>>>
+  : Name
+      {
+          /// <summary>
+          /// Name to be used from a .NET call
+          /// </summary>
++         /// <summary>Copy Constructor</summary>
++         /// <param name="methodName"><see cref="MethodName"/></param>
++         public ProcedureName(ProcedureName obj)
++         {
++             MethodName = obj.MethodName;
++         }
+<<<< DIAGNOSTIC: there is no assignment to a get-only auto-property 'MethodName'. >>>>
+          public string MethodName { get; set; }
+      }
+  }
+<<<<<<<< INFERRED >>>>>>>>
+  : Name
+      {
+          /// <summary>
+          /// Name to be used from a .NET call
+          /// </summary>
+<<<< DIAGNOSTIC: there is no assignment to a get-only auto-property 'MethodName'. >>>>
+          public string MethodName { get; set; }
+      }
+  }

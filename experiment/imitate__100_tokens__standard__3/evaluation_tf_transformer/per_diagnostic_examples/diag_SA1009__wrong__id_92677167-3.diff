@@ -1,0 +1,16 @@
+id: 92677167-3
+diagnostic: SA1009
+perc_correct_in_test: 0.8947368421052632
+num_datapoints_in_train: 56
+<<<<<<<< CORRECT >>>>>>>>
+            FullType        = sqlType,
+<<<< DIAGNOSTIC: closing parenthesis should not be followed by a space >>>>
+-                     Length          = (long) GetValue<int>(c, iMaxLen, 0),
++                     Length          = (long)GetValue<int>(c, iMaxLen, 0),
+                      ManagedType   
+<<<<<<<< INFERRED >>>>>>>>
+            FullType        = sqlType,
+<<<< DIAGNOSTIC: closing parenthesis should not be followed by a space >>>>
+-                     Length          = (long) GetValue<int>(c, iMaxLen, 0),
++                     Nullable        = GetValue(c, iNullable, defaultValue: false),
+                      ManagedType   

@@ -1,0 +1,16 @@
+id: 15769928-1
+diagnostic: AANA001
+perc_correct_in_test: 1.0
+num_datapoints_in_train: 12
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+                }
+              }
+          }
+  
+<<<< DIAGNOSTIC: method 'StartCore' missing 'Async' suffix >>>>
+-         private async Task StartCore()
++         private async Task StartCoreAsync()
+          {
+              using HttpClient client = CreateHttpClient();
+  
+       
