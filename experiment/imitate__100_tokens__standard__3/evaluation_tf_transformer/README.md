@@ -10,11 +10,13 @@
 * Humanly readable output examples are saved in [characteristic_examples](characteristic_examples) and in [per_diagnostic_examples](per_diagnostic_examples)
 * Pearson Number calculated with [scipy.stats.pearsonr](https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.pearsonr.html)
 
-## Results after 5k steps
+## Results after 10k steps
 
-Convergence after around 3k steps (1h35min); Loss function:
+Best evaluation results after 10k steps (7h12min); Loss function:
 
-![Loss Function](loss_function_20k_steps.png)
+![Loss Function](imitate_loss_function.svg)
+
+All data in [Tensorflow Board](https://tensorboard.dev/experiment/duPJ0ilATYOLvTWnaYY2Ag/#scalars).
 
 ### Influence of Datapoints per Diagnostic on Diagnostics' Accuracy
 

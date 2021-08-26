@@ -773,7 +773,7 @@ def plot_loss_curve(tf_csv_path):
     fig = go.Figure()
     fig.update_xaxes(title_text='Steps')
     fig.update_yaxes(title_text='Loss')
-    markers = dict(size=9, color="rgba(255,0,0,0.8)")
+    markers = dict(size=6, color="rgba(255,0,0,0.65)")
 
     fig.add_trace(
         go.Scatter(
