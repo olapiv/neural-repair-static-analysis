@@ -22,7 +22,7 @@ All data in [Tensorflow Board](https://tensorboard.dev/experiment/duPJ0ilATYOLvT
 
 ![Impact data per Diagnostic on Accuracy](imitate_impact_data_on_accuracy.svg)
 
-pearsonr: (0.10934174253963695, 0.12137157877175254)
+pearsonr: (0.0634902867694032, 0.25447036235119896)
 
 Each datapoint represents a diagnostic. It is hard to decipher a correlation between number of data points a diagnostic requires in train to be successfully predicted in test.
 
