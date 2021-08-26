@@ -2,7 +2,7 @@
 
 ## Experiment Setup
 
-* Hardware: Nvidia GeForce GTX 1080
+* Hardware: Nvidia GeForce RTX 2080 Ti
 * NN was evaluated on inferring/translating the test dataset
 * Input: [src-test.txt](../src-test.txt), correct output: [tgt-test.txt](../tgt-test.txt), predicted output: [inference-test.txt](inference-test.txt)
 * Evaluation was scripted in [evaluate_nn_results.py](/evaluate_nn_results.py)
@@ -11,9 +11,11 @@
 
 ## Results after n steps
 
-Convergence after xk steps (yh zmin); Loss function:
+Convergence after 15k steps (7h 45min); Loss function:
 
-![Loss Function](loss_function_20k_steps.png)
+![Loss Function](extrap_loss_function.svg)
+
+All data in [Tensorflow Board](https://tensorboard.dev/experiment/pjULUBaSRCabCwvNq7GJyQ/#scalars).
 
 ### Influence of Number of **Formatting** Tokens in Source on Success Rate of Predictions
 
