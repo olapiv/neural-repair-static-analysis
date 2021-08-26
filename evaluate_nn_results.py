@@ -43,10 +43,13 @@ nn_model = NNModel.transformer
 final_dataset_dir = f"experiment/{experiment.value}__{tokenization.value}__{dataset_version}"
 eval_dir = f"{final_dataset_dir}/evaluation_{nn_framework.value}_{nn_model.value}"
 
-Path(eval_dir).mkdir(parents=True, exist_ok=True)
-
+# OUTPUT DIRS:
 characteristic_examples_dir = f"{eval_dir}/characteristic_examples"
 examples_per_diagnostic_dir = f"{eval_dir}/per_diagnostic_examples"
+Path(characteristic_examples_dir).mkdir(parents=True, exist_ok=True)
+Path(examples_per_diagnostic_dir).mkdir(parents=True, exist_ok=True)
+
+# INPUT DIRS:
 metadata_test_file = f"{final_dataset_dir}/metadata-test.json"
 metadata_train_file = f"{final_dataset_dir}/metadata-train.json"
 src_test_file = f"{final_dataset_dir}/src-test.txt"
@@ -208,11 +211,14 @@ def create_diff_with_diags(src_dict, tgt_dict):
         src_end = int(tgt_dict["source_location_end"])
         del changed_file[src_start:src_end + 1]
 
-    else:
+    elif diff_type == "REPLACE":
         src_start = int(tgt_dict["source_location"][0])
         src_end = int(tgt_dict["source_location"][-1])
         del changed_file[src_start:src_end + 1]
         changed_file[src_start:src_start] = tgt_dict["target_lines"]
+
+    else:  # Nothing useful predicted
+        return ""
 
     # ['  Lalalalala', '  lalala', '- dia', '+ dida', '?   +\n']
     diff_list = list(difflib.Differ().compare(original_file, changed_file))
