@@ -48,12 +48,12 @@ if [ -f ${DATASET_NAME}/vocab.txt ]; then
 fi
 
 # Source and target vocabulary is highly related, so bundle it into one file:
-onmt-build-vocab --size 50000 --save_vocab ${DATASET_NAME}/vocab.txt `
-    ${DATASET_NAME}/src-train.txt `
-    ${DATASET_NAME}/src-test.txt `
-    ${DATASET_NAME}/src-val.txt `
-    ${DATASET_NAME}/tgt-test.txt `
-    ${DATASET_NAME}/tgt-train.txt `
+onmt-build-vocab --size 50000 --save_vocab ${DATASET_NAME}/vocab.txt \
+    ${DATASET_NAME}/src-train.txt \
+    ${DATASET_NAME}/src-test.txt \
+    ${DATASET_NAME}/src-val.txt \
+    ${DATASET_NAME}/tgt-test.txt \
+    ${DATASET_NAME}/tgt-train.txt \
     ${DATASET_NAME}/tgt-val.txt
 
 
@@ -63,4 +63,4 @@ EVAL_DIR="${DATASET_NAME}/evaluation_tf_transformer"
 mkdir -p $EVAL_DIR
 PREDICTIONS_PATH="${EVAL_DIR}/inference-test.txt"
 
-onmt-main --model_type Transformer --config $NEW_CONFIG_FILE_NAME --auto_config infer --features_file data/src-test.txt --predictions_file $PREDICTIONS_PATH
+onmt-main --model_type Transformer --config $NEW_CONFIG_FILE_NAME --auto_config infer --features_file ${DATASET_NAME}/src-test.txt --predictions_file $PREDICTIONS_PATH
