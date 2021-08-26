@@ -35,7 +35,7 @@ class NNModel(Enum):
     transformer_copy_mechanism = "transformer_copy_mech"  # Never used
 
 
-experiment = Experiment.imitate
+experiment = Experiment.extrap
 tokenization = Tokenization.standard
 dataset_version = "3"
 nn_framework = NNFramework.tensorflow
@@ -767,7 +767,12 @@ def plot_loss_curve(tf_csv_path):
     Only works with Tensorflow data (not Pytorch)
     """
 
-    df = pd.read_csv(tf_csv_path)
+    try:
+        df = pd.read_csv(tf_csv_path)
+    except FileNotFoundError as e:
+        print(e)
+        return
+        
     df = df.loc[df['tag'] == "loss"]
 
     fig = go.Figure()
