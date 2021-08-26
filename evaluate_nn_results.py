@@ -7,6 +7,7 @@ import copy
 import difflib
 import statistics
 from enum import Enum
+from pathlib import Path
 from collections import Counter
 import plotly.graph_objects as go
 import plotly.express as px
@@ -18,11 +19,31 @@ class Experiment(Enum):
     extrap = "extrapolate"
 
 
-experiment = Experiment.imitate
+class Tokenization(Enum):
+    standard = "100_tokens__standard"
+    camelcase = "115_tokens__camelcase"
 
-final_dataset_dir = f"experiment/{experiment.value}__150_tokens__camelcase__3"
-eval_dir = f"{final_dataset_dir}/evaluation_py_transformer"
 
+class NNFramework(Enum):
+    pytorch = "py"
+    tensorflow = "tf"
+
+
+class NNModel(Enum):
+    transformer = "transformer"
+    transformer_copy_mechanism = "transformer_copy_mech"  # Never used
+
+
+experiment = Experiment.extrap
+tokenization = Tokenization.standard
+dataset_version = "3"
+nn_framework = NNFramework.tensorflow
+nn_model = NNModel.transformer
+
+final_dataset_dir = f"experiment/{experiment.value}__{tokenization.value}__{dataset_version}"
+eval_dir = f"{final_dataset_dir}/evaluation_{nn_framework.value}_{nn_model.value}"
+
+Path(eval_dir).mkdir(parents=True, exist_ok=True)
 
 characteristic_examples_dir = f"{eval_dir}/characteristic_examples"
 examples_per_diagnostic_dir = f"{eval_dir}/per_diagnostic_examples"
@@ -331,15 +352,18 @@ def save_num_tokens_vs_success_perc(evaluation_dict, metadata_train, metadata_te
 
     num_datapoints = len(src_test_list)
 
-    evaluation_dict["avg_src_len_correct_result"] = total_src_tokens_correct / \
-        num_correct_datapoints
-    evaluation_dict["avg_tgt_len_correct_result"] = total_tgt_tokens_correct / \
-        num_correct_datapoints
+    if num_correct_datapoints != 0:
+        evaluation_dict["avg_src_len_correct_result"] = total_src_tokens_correct / \
+            num_correct_datapoints
+        evaluation_dict["avg_tgt_len_correct_result"] = total_tgt_tokens_correct / \
+            num_correct_datapoints
 
-    evaluation_dict["avg_src_len_incorrect_result"] = total_src_tokens_incorrect / \
-        (num_datapoints - num_correct_datapoints)
-    evaluation_dict["avg_tgt_len_incorrect_result"] = total_tgt_tokens_incorrect / \
-        (num_datapoints - num_correct_datapoints)
+    num_incorrect_datapoints = num_datapoints - num_correct_datapoints
+    if num_incorrect_datapoints != 0:
+        evaluation_dict["avg_src_len_incorrect_result"] = total_src_tokens_incorrect / \
+            num_incorrect_datapoints
+        evaluation_dict["avg_tgt_len_incorrect_result"] = total_tgt_tokens_incorrect / \
+            num_incorrect_datapoints
 
     success_perc_per_src_len = {}
     for src_len, value in result_per_src_len.items():
