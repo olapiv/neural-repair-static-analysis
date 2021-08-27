@@ -1,0 +1,15 @@
+id: 71002826-3
+diagnostic: VSD0034
+perc_correct_in_test: 0.2777777777777778
+num_datapoints_in_train: 0
+<<<<<<<< CORRECT >>>>>>>>
+    string strIncludeAll = (fIncludeAllTime ? "-ia1-" : "-ia0-");
+<<<< DIAGNOSTIC: empty string literal detected. >>>>
+-             string strTI = ((strThreadIndices == null) ? "" : strThreadIndices);
++             string strTI = ((strThreadIndices == null) ? string.Empty : strThreadIndices);
+              string strPassOneLog = strLogNameWithoutExtension + "-pass1-n"
+<<<<<<<< INFERRED >>>>>>>>
+    string strIncludeAll = (fIncludeAllTime ? "-ia1-" : "-ia0-");
+<<<< DIAGNOSTIC: empty string literal detected. >>>>
+              string strTI = ((strThreadIndices == null) ? "" : strThreadIndices);
+              string strPassOneLog = strLogNameWithoutExtension + "-pass1-n"

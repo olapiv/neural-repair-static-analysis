@@ -1,0 +1,16 @@
+id: 65504238-0
+diagnostic: AvNextPropertyCodeFix
+perc_correct_in_test: 0.007194244604316547
+num_datapoints_in_train: 0
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  )
+          {
+              Unique = unique;
+          }
+-         
+<<<< DIAGNOSTIC: type name 'Name' should be decorated with maxlength attribute >>>>
+-         public string Name { get; set; }
+  
+          public bool Unique { get; set; }
+  
+          public bool Clustered {

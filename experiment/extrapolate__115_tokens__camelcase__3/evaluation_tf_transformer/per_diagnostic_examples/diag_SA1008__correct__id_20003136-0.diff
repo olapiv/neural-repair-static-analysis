@@ -1,0 +1,14 @@
+id: 20003136-0
+diagnostic: SA1008
+perc_correct_in_test: 0.08333333333333333
+num_datapoints_in_train: 0
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+      if (entity == null)
+                  throw new ArgumentNullException("entity");
+  
+<<<< DIAGNOSTIC: opening parenthesis should not be preceded by a space. >>>>
+-             if (Source.Contains (entity))
++             if (Source.Contains(entity))
+                  return;
+              Source.Add(entity);
+         

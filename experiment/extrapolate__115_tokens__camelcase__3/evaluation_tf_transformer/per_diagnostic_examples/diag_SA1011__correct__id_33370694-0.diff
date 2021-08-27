@@ -1,0 +1,13 @@
+id: 33370694-0
+diagnostic: SA1011
+perc_correct_in_test: 0.25
+num_datapoints_in_train: 0
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  , 
+<<<< DIAGNOSTIC: closing square bracket should be followed by a space. >>>>
+-                             new Expression[]{
++                             new Expression[] {
+<<<< DIAGNOSTIC: closing square bracket should be followed by a space. >>>>
+-                                 Expression.New(typeof(KeyValuePair<object, MemberInfo>).GetConstructor(new Type[]{typeof(object), typeof(MemberInfo)}),
++                                 Expression.New(typeof(KeyValuePair<object, MemberInfo>).GetConstructor(new Type[] {typeof(object), typeof(MemberInfo)}),
+     
