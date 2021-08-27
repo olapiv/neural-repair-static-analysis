@@ -12,7 +12,7 @@
 
 ## Results after 10k steps
 
-Best evaluation results after 10k steps (7h12min); Loss function:
+Best evaluation results after 5k steps (3h25min); Loss function:
 
 ![Loss Function](imitate_loss_function.svg)
 

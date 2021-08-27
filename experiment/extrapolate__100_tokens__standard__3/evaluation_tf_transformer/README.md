@@ -11,7 +11,7 @@
 
 ## Results after n steps
 
-Convergence after 15k steps (7h 45min); Loss function:
+Convergence after 10k steps (4h 40min); Loss function:
 
 ![Loss Function](extrap_loss_function.svg)
 
