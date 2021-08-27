@@ -1,0 +1,24 @@
+id: 48832498-0
+diagnostic: RCS1212
+perc_correct_in_test: 0.5
+num_datapoints_in_train: 3
+<<<<<<<< CORRECT >>>>>>>>
+  0)
+                  return "ID";
+<<<< DIAGNOSTIC: remove redundant assignment. >>>>
+-             part = part.Substring(0, 1).ToUpper() + part.Substring(1).ToLower();
++             return part.Substring(0, 1).ToUpper() + part.Substring(1).ToLower();
+-             return part;
+          }
+  
+          /// <summary>
+<<<<<<<< INFERRED >>>>>>>>
+  0)
+                  return "ID";
++             string part.ToLower().Distinct();
+<<<< DIAGNOSTIC: remove redundant assignment. >>>>
+-             part = part.Substring(0, 1).ToUpper() + part.Substring(1).ToLower();
+-             return part;
+          }
+  
+          /// <summary>

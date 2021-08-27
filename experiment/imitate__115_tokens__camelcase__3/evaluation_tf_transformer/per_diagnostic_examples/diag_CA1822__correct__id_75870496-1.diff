@@ -1,0 +1,13 @@
+id: 75870496-1
+diagnostic: CA1822
+perc_correct_in_test: 0.7272727272727273
+num_datapoints_in_train: 24
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+                  typeof(TimeSpan).GetProperty("TotalMilliseconds"));
+          }
+  
+<<<< DIAGNOSTIC: member 'GetDateTimeNowCall' does not access instance data and can be marked as static >>>>
+-         private Expression GetDateTimeNowCall(List<Expression> operands)
++         private static Expression GetDateTimeNowCall(List<Expression> operands)
+          {
+              return Expression.Call(typeof(DateTime).GetProperty("Now").GetGetMethod

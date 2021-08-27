@@ -1,0 +1,16 @@
+id: 78453538-1
+diagnostic: SA1124
+perc_correct_in_test: 0.5
+num_datapoints_in_train: 13
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  ;
+  
+              return new[] { WriteHeader(expression, header, depth) };
+          }
+  
+<<<< DIAGNOSTIC: do not use regions >>>>
+-         #region typed Expression writer
+- 
+          private static IList<string> WriteEx(BinaryExpression expression, string header, int depth)
+          {
+    

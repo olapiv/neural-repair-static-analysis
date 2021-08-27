@@ -1,0 +1,21 @@
+id: 45162795-0
+diagnostic: USI0001
+perc_correct_in_test: 0.6721311475409836
+num_datapoints_in_train: 172
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
++ using System.Collections.Generic;
++ using System.Linq;
+<<<< DIAGNOSTIC: missing these usings:
+system.collections.generic
+system.linq >>>>
+  using System;
+  
+  namespace ServiceStack.Logging
+  {
+      /// <summary>
+      /// Creates a Debug Logger, that logs all messages to: System.Diagnostics.Debug
+      /// 
+      /// Made public so its testable
+      /// </summary>
+  	public class NullLogFactory : ILogFactory
+      

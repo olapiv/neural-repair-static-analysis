@@ -1,0 +1,24 @@
+id: 72216944-0
+diagnostic: TOCSOFT0001
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 2
+<<<<<<<< CORRECT >>>>>>>>
+     public void RecordError(Exception exception, string? metadata = null, DateTime? timestamp = null)
+          {
+<<<< DIAGNOSTIC: do not call datetime.now as they are not testable, use an abstraction instead. >>>>
+-             timestamp ??= DateTime.Now;
++             timestamp ??= Tocsoft.DateTimeAbstractions.Clock.Now;
+  
+              (Type, string, string)[] key = ClassifyFailure(exception);
+  
+           
+<<<<<<<< INFERRED >>>>>>>>
+     public void RecordError(Exception exception, string? metadata = null, DateTime? timestamp = null)
+          {
+<<<< DIAGNOSTIC: do not call datetime.now as they are not testable, use an abstraction instead. >>>>
+-             timestamp ??= DateTime.Now;
++             timestamp ??= DateTime.UtcNow;
+  
+              (Type, string, string)[] key = ClassifyFailure(exception);
+  
+           

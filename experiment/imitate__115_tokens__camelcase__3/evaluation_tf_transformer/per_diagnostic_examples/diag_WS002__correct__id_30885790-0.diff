@@ -1,0 +1,13 @@
+id: 30885790-0
+diagnostic: WS002
+perc_correct_in_test: 1.0
+num_datapoints_in_train: 58
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+         {
+              if (newOperands.Count > 0)
+                  throw Error.BadArgument("S0065: Don't Mutate() a GroupExpression");
+              return this;
+          }
+      }
+<<<< DIAGNOSTIC: file does not end with a newline >>>>
+  }

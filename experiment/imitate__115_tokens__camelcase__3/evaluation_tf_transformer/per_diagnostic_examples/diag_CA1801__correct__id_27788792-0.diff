@@ -1,0 +1,15 @@
+id: 27788792-0
+diagnostic: CA1801
+perc_correct_in_test: 0.5714285714285714
+num_datapoints_in_train: 15
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+    /// Initializes a new instance of the <see cref="DebugLogger"/> class.
+          /// </summary>
+<<<< DIAGNOSTIC: parameter type of method .ctor is never used. remove the parameter or use it in the method body. >>>>
+-         public NullDebugLogger(string type)
++         public NullDebugLogger()
+          {
+          }
+  
+          /// <summary>
+          /// Initializes

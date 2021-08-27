@@ -1,0 +1,12 @@
+id: 85850447-0
+diagnostic: SA1013
+perc_correct_in_test: 0.8333333333333334
+num_datapoints_in_train: 7
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+                  {
+                      File.Delete(filename);
+<<<< DIAGNOSTIC: closing brace should be preceded by a space >>>>
+-                 } catch {}
++                 } catch { }
+              }
+              _log = new StreamWriter("client.log", false) 

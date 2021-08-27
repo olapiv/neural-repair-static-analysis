@@ -1,0 +1,14 @@
+id: 4561502-0
+diagnostic: SA1121
+perc_correct_in_test: 0.6666666666666666
+num_datapoints_in_train: 13
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+        case "urowid":  // oracle type
+              case "tinytext": // mysql type
+<<<< DIAGNOSTIC: use built-in type alias >>>>
+-                 return typeof(String);
++                 return typeof(string);
+  
+              // bool
+              case "bit":
+            

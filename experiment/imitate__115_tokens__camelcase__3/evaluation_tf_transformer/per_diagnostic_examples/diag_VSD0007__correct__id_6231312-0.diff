@@ -1,0 +1,15 @@
+id: 6231312-0
+diagnostic: VSD0007
+perc_correct_in_test: 1.0
+num_datapoints_in_train: 15
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  on it.
+  		/// </summary>
+  		public void FocusNode(SharpTreeNode node)
+  		{
+  			if (node == null)
+<<<< DIAGNOSTIC: the variable node is used in an argumentexception as string. consider using the nameof operator instead. >>>>
+- 				throw new ArgumentNullException("node");
++ 				throw new ArgumentNullException(nameof(node));
+  			ScrollIntoView(node);
+  			// WPF's ScrollIntoView() uses the same if/dispatcher construct, so we call OnFocusItem(

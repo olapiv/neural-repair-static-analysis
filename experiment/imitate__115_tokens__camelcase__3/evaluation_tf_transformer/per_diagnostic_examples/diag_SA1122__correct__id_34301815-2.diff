@@ -1,0 +1,11 @@
+id: 34301815-2
+diagnostic: SA1122
+perc_correct_in_test: 0.25
+num_datapoints_in_train: 16
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+          threadsSeen[tid] += currentSample.countSamples;
+  
+<<<< DIAGNOSTIC: use string.empty for empty strings >>>>
+-                             string strCount = ((currentSample.countSamples > 0) ? FormatCount(currentSample.countSamples) : "");
++                             string strCount = ((currentSample.countSamples > 0) ? FormatCount(currentSample.countSamples) : string.Empty);
+                          

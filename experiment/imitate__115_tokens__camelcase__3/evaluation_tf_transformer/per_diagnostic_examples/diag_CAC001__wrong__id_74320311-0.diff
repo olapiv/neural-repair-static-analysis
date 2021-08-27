@@ -1,0 +1,22 @@
+id: 74320311-0
+diagnostic: CAC001
+perc_correct_in_test: 0.8333333333333334
+num_datapoints_in_train: 14
+<<<<<<<< CORRECT >>>>>>>>
+           {
+                      //get the request
+<<<< DIAGNOSTIC: possibly missing `configureawait(false)` call >>>>
+-                     var context = await _listener.GetContextAsync();
++                     var context = await _listener.GetContextAsync().ConfigureAwait(false);
+  
+                      try
+                  
+<<<<<<<< INFERRED >>>>>>>>
+           {
+                      //get the request
+<<<< DIAGNOSTIC: possibly missing `configureawait(false)` call >>>>
+-                     var context = await _listener.GetContextAsync();
++                     var context = await _listener.GetAsync().ConfigureAwait(false);
+  
+                      try
+                  

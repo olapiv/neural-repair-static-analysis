@@ -1,0 +1,11 @@
+id: 68958132-0
+diagnostic: RCS1246
+perc_correct_in_test: 0.5
+num_datapoints_in_train: 4
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+   sum = operands.Select(op => System.Convert.ToDecimal(op.Evaluate())).Sum();
+<<<< DIAGNOSTIC: use element access. >>>>
+-                         return System.Convert.ChangeType(sum, operands.First().Type);
++                         return System.Convert.ChangeType(sum, operands[0].Type);
+                      }
+               

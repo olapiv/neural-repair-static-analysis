@@ -1,0 +1,40 @@
+id: 46759446-1
+diagnostic: mmlajPublicFieldAnalyzer
+perc_correct_in_test: 0.5789473684210527
+num_datapoints_in_train: 56
+<<<<<<<< CORRECT >>>>>>>>
+    }
+  
+  
+      public class StorageTypeInfo {
+  
+          public readonly StorageType Type;
+  
+<<<< DIAGNOSTIC: declaration is public. (add static / replace it with private) (mmlaj) >>>>
+-         public readonly string Name;
++         private readonly string Name;
+<<<< DIAGNOSTIC: declaration is public. (add static / replace it with private) (mmlaj) >>>>
+-         public readonly string Description;
++         private readonly string Description;
+  
+  
+          public StorageTypeInfo (StorageType storage_type, string name, string description)
+        
+<<<<<<<< INFERRED >>>>>>>>
+    }
+  
+  
+      public class StorageTypeInfo {
+  
+          public readonly StorageType Type;
+  
++         private readonly StorageType Type;
+<<<< DIAGNOSTIC: declaration is public. (add static / replace it with private) (mmlaj) >>>>
+-         public readonly string Name;
++         private readonly string Name;
+<<<< DIAGNOSTIC: declaration is public. (add static / replace it with private) (mmlaj) >>>>
+          public readonly string Description;
+  
+  
+          public StorageTypeInfo (StorageType storage_type, string name, string description)
+        

@@ -1,0 +1,14 @@
+id: 92688145-0
+diagnostic: VSD0048
+perc_correct_in_test: 0.9230769230769231
+num_datapoints_in_train: 30
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  Query : AbstractQuery
+      {
+          public IList<object> parameterValues { get; set; }
+<<<< DIAGNOSTIC: property parameters its private setter can be omitted. >>>>
+-         public IList<string> Parameters { get; private set; }
++         public IList<string> Parameters { get; }
+  
+          public DirectQuery(DataContext dataContext, SqlStatement sql, IList<string> parameters)
+         

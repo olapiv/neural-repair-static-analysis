@@ -1,0 +1,26 @@
+id: 95399109-0
+diagnostic: AsyncFixer01
+perc_correct_in_test: 0.5
+num_datapoints_in_train: 6
+<<<<<<<< CORRECT >>>>>>>>
+       _ => throw new NotSupportedException(),
+              };
+          }
+  
+<<<< DIAGNOSTIC: the method 'SendUdpAssociate' does not need to use async/await. >>>>
+-         private async Task SendUdpAssociate()
++         private Task SendUdpAssociate()
+          {
+              IPEndPoint endPoint = (IPEndPoint)_connection.LocalEndPoint;
+      
+<<<<<<<< INFERRED >>>>>>>>
+       _ => throw new NotSupportedException(),
+              };
+          }
+  
+<<<< DIAGNOSTIC: the method 'SendUdpAssociate' does not need to use async/await. >>>>
+-         private async Task SendUdpAssociate()
++         private async Task SendFragment(IPEndPoint localEP)
+          {
+              IPEndPoint endPoint = (IPEndPoint)_connection.LocalEndPoint;
+      

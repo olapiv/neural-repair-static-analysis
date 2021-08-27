@@ -1,0 +1,14 @@
+id: 89197932-0
+diagnostic: SA1514
+perc_correct_in_test: 1.0
+num_datapoints_in_train: 44
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+             if (onAdd != null)
+                  onAdd(entity);
++ 
+          }
+<<<< DIAGNOSTIC: element documentation header should be preceded by blank line >>>>
+          /// <summary>
+          /// Called when entity is removed
+          /// </summary>
+          

@@ -1,0 +1,12 @@
+id: 90274215-0
+diagnostic: SA1005
+perc_correct_in_test: 0.5925925925925926
+num_datapoints_in_train: 88
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+        case SpecialExpressionType.Concat:
+                      return TranslateConcat(operands);
+<<<< DIAGNOSTIC: single line comment should begin with a space >>>>
+-                 //case SpecialExpressionType.Count:
++                 // case SpecialExpressionType.Count:
+                  //    break;
+                  //case SpecialExpression

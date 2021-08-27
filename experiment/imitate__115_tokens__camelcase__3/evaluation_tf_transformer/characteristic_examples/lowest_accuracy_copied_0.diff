@@ -1,0 +1,36 @@
+id: 29734216-2
+diagnostic: Analyzer1
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 8
+<<<<<<<< CORRECT >>>>>>>>
+  	internal void HandleDragLeave(SharpTreeViewItem item, DragEventArgs e)
+  		{
+  			HidePreview();
+  			e.Handled = true;
+  		}
+  
+<<<< DIAGNOSTIC: type name 'DropTarget' contains lowercase letters >>>>
+- 		class DropTarget
++ 		class DROPTARGET
+  		{
+  			public SharpTreeViewItem Item;
+  			public DropPlace Place;
+  			public double Y;
+  			public SharpTreeNode Node;
+  			public
+<<<<<<<< INFERRED >>>>>>>>
+  	internal void HandleDragLeave(SharpTreeViewItem item, DragEventArgs e)
+  		{
+  			HidePreview();
+  			e.Handled = true;
+  		}
+  
+<<<< DIAGNOSTIC: type name 'DropTarget' contains lowercase letters >>>>
+- 		class DropTarget
++ 		public class DropTarget
+  		{
+  			public SharpTreeViewItem Item;
+  			public DropPlace Place;
+  			public double Y;
+  			public SharpTreeNode Node;
+  			public

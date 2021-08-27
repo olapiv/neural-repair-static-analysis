@@ -1,0 +1,22 @@
+id: 55748471-1
+diagnostic: FS0126
+perc_correct_in_test: 0.6666666666666666
+num_datapoints_in_train: 21
+<<<<<<<< CORRECT >>>>>>>>
+  
+          public static void NewTabInBrowser(this string url, string browserPath)
+          {
+<<<< DIAGNOSTIC: try catch syntax is discouraged. >>>>
+-             try
+-             {
+                  if (!string.IsNullOrEmpty(browserPath))
+              
+<<<<<<<< INFERRED >>>>>>>>
+  
+          public static void NewTabInBrowser(this string url, string browserPath)
+          {
+<<<< DIAGNOSTIC: try catch syntax is discouraged. >>>>
+-             try
+              {
+                  if (!string.IsNullOrEmpty(browserPath))
+              

@@ -1,0 +1,21 @@
+id: 50561072-0
+diagnostic: CSharpAnalyzer
+perc_correct_in_test: 0.16666666666666666
+num_datapoints_in_train: 7
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  http://www.gnu.org/licenses/>.
+  */
+  
+  #endregion License Information (GPL v3)
+  
+  using System.Windows.Forms;
+  
+  namespace ShareX.Steam
+  {
+<<<< DIAGNOSTIC: type name 'Program' contains lowercase letters >>>>
+-     internal static class Program
++     internal static class PROGRAM
+      {
+          private static void Main(string[] args)
+          {
+              Application

@@ -1,0 +1,44 @@
+id: 77104344-0
+diagnostic: DA3002
+perc_correct_in_test: 0.7391304347826086
+num_datapoints_in_train: 274
+<<<<<<<< CORRECT >>>>>>>>
+   System.ComponentModel;
+  using System.Linq;
+  using System.Linq.Expressions;
+  
+  namespace System.Data.Linq.Mapping
+  {
++ 
++     /// <summary> 
++     /// 
++     /// </summary>
+- 	[AttributeUsage (AttributeTargets.Method, AllowMultiple = false)]
++     [AttributeUsage(AttributeTargets.Method, AllowMultiple = false)]
+<<<< DIAGNOSTIC: type 'FunctionAttribute' doesn't have /// comments >>>>
+- 	public sealed class FunctionAttribute : Attribute
++     public sealed class FunctionAttribute : Attribute
+- 	{
++     {
+- 		public bool IsComposable { get; set; }
++         public bool IsComposable { get; set; }
+- 		public string Name { get; set; }
++         public string Name { get; set; }
+- 	}
++     }
+  }
+<<<<<<<< INFERRED >>>>>>>>
+   System.ComponentModel;
+  using System.Linq;
+  using System.Linq.Expressions;
+  
+  namespace System.Data.Linq.Mapping
+  {
+- 	[AttributeUsage (AttributeTargets.Method, AllowMultiple = false)]
+<<<< DIAGNOSTIC: type 'FunctionAttribute' doesn't have /// comments >>>>
+- 	public sealed class FunctionAttribute : Attribute
+- 	{
+- 		public bool IsComposable { get; set; }
+- 		public string Name { get; set; }
+  	}
+  }

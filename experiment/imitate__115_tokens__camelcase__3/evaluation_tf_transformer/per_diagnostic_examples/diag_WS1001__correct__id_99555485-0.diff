@@ -1,0 +1,16 @@
+id: 99555485-0
+diagnostic: WS1001
+perc_correct_in_test: 1.0
+num_datapoints_in_train: 217
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  get; set; }
+      }
+  
+      [CollectionDataContract(ItemName = "Property")]
+      public class Properties : List<Property>
+      {
+          public Properties() { }
+          public Properties(IEnumerable<Property> collection) : base(collection) { }
+      }
+<<<< DIAGNOSTIC: missing final newline. >>>>
+  }

@@ -1,0 +1,16 @@
+id: 64889005-1
+diagnostic: SA1413
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 19
+<<<<<<<< CORRECT >>>>>>>>
+                          {
+<<<< DIAGNOSTIC: use trailing comma in multi-line initializers >>>>
+-                                            Table = queryContext.DataContext.Mapping.GetTable(rowType)
++                                            Table = queryContext.DataContext.Mapping.GetTable(rowType),
+                             
+<<<<<<<< INFERRED >>>>>>>>
+                          {
+<<<< DIAGNOSTIC: use trailing comma in multi-line initializers >>>>
+-                                            Table = queryContext.DataContext.Mapping.GetTable(rowType)
++                                         DataContext queryContext = queryContext.Mapping.GetTable(rowType),
+                             

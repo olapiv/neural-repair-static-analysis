@@ -1,0 +1,22 @@
+id: 66904981-0
+diagnostic: RCS1246
+perc_correct_in_test: 0.5
+num_datapoints_in_train: 4
+<<<<<<<< CORRECT >>>>>>>>
+   literalOperands);
+                  }
+                  else
+<<<< DIAGNOSTIC: use element access. >>>>
+-                     return literalOperands.First();
++                     return literalOperands[0];
+              }
+              if (expression.NodeType == ExpressionType.Convert || 
+<<<<<<<< INFERRED >>>>>>>>
+   literalOperands);
+                  }
+                  else
+<<<< DIAGNOSTIC: use element access. >>>>
+-                     return literalOperands.First();
++             return literalOperands[0];
+              }
+              if (expression.NodeType == ExpressionType.Convert || 

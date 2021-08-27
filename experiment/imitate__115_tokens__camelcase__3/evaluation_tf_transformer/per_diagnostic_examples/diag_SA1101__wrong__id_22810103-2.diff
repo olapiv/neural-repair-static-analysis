@@ -1,0 +1,24 @@
+id: 22810103-2
+diagnostic: SA1101
+perc_correct_in_test: 0.2972972972972973
+num_datapoints_in_train: 289
+<<<<<<<< CORRECT >>>>>>>>
+  table is of a different SQL MetaData provider");
+  
+<<<< DIAGNOSTIC: prefix local calls with this >>>>
+- 			_otherMember = ownedMetaType.AssociationsLookup[otherType.GetMembers().Where(m => (AttributeNameNullCheck(m.GetAttribute<AssociationAttribute>()) == associationName) && (m != member)).Single()];
++ 			this._otherMember = ownedMetaType.AssociationsLookup[otherType.GetMembers().Where(m => (AttributeNameNullCheck(m.GetAttribute<AssociationAttribute>()) == associationName) && (m != member)).Single()];
+          }
+  
+  		/// <summary>
+  		
+<<<<<<<< INFERRED >>>>>>>>
+  table is of a different SQL MetaData provider");
+  
+<<<< DIAGNOSTIC: prefix local calls with this >>>>
+- 			_otherMember = ownedMetaType.AssociationsLookup[otherType.GetMembers().Where(m => (AttributeNameNullCheck(m.GetAttribute<AssociationAttribute>()) == associationName) && (m != member)).Single()];
++             _otherMember = this.ownedMetaType.AssociationsLookup[otherType.GetMembers().Where(m => (AttributeNameNullCheck(m.GetAttribute<AssociationAttribute>()) == associationName) && this.member)).Single()];
+          }
+  
+  		/// <summary>
+  		

@@ -1,0 +1,24 @@
+id: 22239868-3
+diagnostic: DOC201
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 1
+<<<<<<<< CORRECT >>>>>>>>
+  applied per each program state tracked by R# analysis.<br/>
+      /// </syntax>
+      /// <examples><list>
+<<<< DIAGNOSTIC: item should have description >>>>
+-     /// <item><code>
++     /// <item><description><code>
+      /// [ContractAnnotation("=&gt; halt")]
+      /// public void TerminationMethod()
+      /// </code></
+<<<<<<<< INFERRED >>>>>>>>
+  applied per each program state tracked by R# analysis.<br/>
+      /// </syntax>
+      /// <examples><list>
+<<<< DIAGNOSTIC: item should have description >>>>
+-     /// <item><code>
++         /// <c>true</c>
+      /// [ContractAnnotation("=&gt; halt")]
+      /// public void TerminationMethod()
+      /// </code></

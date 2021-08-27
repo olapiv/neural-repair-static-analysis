@@ -1,0 +1,55 @@
+id: 42772990-1
+diagnostic: DA3010
+perc_correct_in_test: 0.4166666666666667
+num_datapoints_in_train: 46
+<<<<<<<< CORRECT >>>>>>>>
+  
+  namespace OpenRA.Server
+  {
+  	public enum ServerState
+  	{
+  		WaitingPlayers = 1,
+  		GameStarted = 2,
+  		ShuttingDown = 3
+  	}
++ 	/// <summary> 
++ 	/// 
++ 	/// </summary>
+  
+<<<< DIAGNOSTIC: type 'ServerType' doesn't have /// comments >>>>
+  	public enum ServerType
+  	{
+  		Local = 0,
+  		Multiplayer = 1,
+  		Dedicated = 2
+  	}
+  
+  	public class Server
+  	{
+  		public readonly string TwoHumans
+<<<<<<<< INFERRED >>>>>>>>
+  
+  namespace OpenRA.Server
+  {
+  	public enum ServerState
+  	{
+  		WaitingPlayers = 1,
+  		GameStarted = 2,
+  		ShuttingDown = 3
+  	}
++ 
++ 	/// <summary> 
++ 	/// 
++ 	/// </summary>
+  
+<<<< DIAGNOSTIC: type 'ServerType' doesn't have /// comments >>>>
+  	public enum ServerType
+  	{
+  		Local = 0,
+  		Multiplayer = 1,
+  		Dedicated = 2
+  	}
+  
+  	public class Server
+  	{
+  		public readonly string TwoHumans

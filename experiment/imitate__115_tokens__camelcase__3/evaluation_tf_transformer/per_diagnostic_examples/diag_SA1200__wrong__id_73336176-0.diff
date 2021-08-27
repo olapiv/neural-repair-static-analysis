@@ -1,0 +1,42 @@
+id: 73336176-0
+diagnostic: SA1200
+perc_correct_in_test: 0.5
+num_datapoints_in_train: 66
+<<<<<<<< CORRECT >>>>>>>>
+  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+  // DEALINGS IN THE SOFTWARE.
+- 
+<<<< DIAGNOSTIC: using directive should appear within a namespace declaration >>>>
+- using System;
+<<<< DIAGNOSTIC: using directive should appear within a namespace declaration >>>>
+- using System.Collections.Generic;
+<<<< DIAGNOSTIC: using directive should appear within a namespace declaration >>>>
+- using System.Collections.Specialized;
+<<<< DIAGNOSTIC: using directive should appear within a namespace declaration >>>>
+- using System.Diagnostics;
+<<<< DIAGNOSTIC: using directive should appear within a namespace declaration >>>>
+- using System.Linq;
+  
+  namespace ICSharpCode.TreeView
+  {
+  	/// <summary>
+  	/// Collection that validates that inserted nodes do not 
+<<<<<<<< INFERRED >>>>>>>>
+  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+  // DEALINGS IN THE SOFTWARE.
+  
+<<<< DIAGNOSTIC: using directive should appear within a namespace declaration >>>>
+- using System;
+<<<< DIAGNOSTIC: using directive should appear within a namespace declaration >>>>
+- using System.Collections.Generic;
+<<<< DIAGNOSTIC: using directive should appear within a namespace declaration >>>>
+- using System.Collections.Specialized;
+<<<< DIAGNOSTIC: using directive should appear within a namespace declaration >>>>
+- using System.Diagnostics;
+<<<< DIAGNOSTIC: using directive should appear within a namespace declaration >>>>
+  using System.Linq;
+  
+  namespace ICSharpCode.TreeView
+  {
+  	/// <summary>
+  	/// Collection that validates that inserted nodes do not 

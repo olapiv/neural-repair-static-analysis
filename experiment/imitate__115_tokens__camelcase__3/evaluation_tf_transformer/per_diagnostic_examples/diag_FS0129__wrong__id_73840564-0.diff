@@ -1,0 +1,24 @@
+id: 73840564-0
+diagnostic: FS0129
+perc_correct_in_test: 0.5714285714285714
+num_datapoints_in_train: 36
+<<<<<<<< CORRECT >>>>>>>>
+         if (l < 0.5) var_2 = l * (1 + s);
++                 else
++                 {
+<<<< DIAGNOSTIC: add braces to single statement in this else >>>>
+-                 else var_2 = (l + s) - (s * l);
++                     var_2 = (l + s) - (s * l);
++                 }
+  
+                  var var_1 = 2 * l - var_2
+<<<<<<<< INFERRED >>>>>>>>
+         if (l < 0.5) var_2 = l * (1 + s);
+<<<< DIAGNOSTIC: add braces to single statement in this else >>>>
+-                 else var_2 = (l + s) - (s * l);
+- 
++                 if (l < 0.5)
++                 {
++                     var_2 = l * (1 + s);
++                 }
+                  var var_1 = 2 * l - var_2

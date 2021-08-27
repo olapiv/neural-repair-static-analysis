@@ -1,0 +1,28 @@
+id: 69670956-0
+diagnostic: VSD0048
+perc_correct_in_test: 0.9230769230769231
+num_datapoints_in_train: 30
+<<<<<<<< CORRECT >>>>>>>>
+  DbLinq.Data.Linq.Sugar.ExpressionMutator.Implementation
+  {
+      internal class MemberListBindingMutator : IMemberBindingMutator
+      {
+<<<< DIAGNOSTIC: property memberlistbinding its private setter can be omitted. >>>>
+-         protected MemberListBinding MemberListBinding { get; private set; }
++         protected MemberListBinding MemberListBinding { get; }
+  
+          public IEnumerable<Expression> Operands
+          {
+              get
+<<<<<<<< INFERRED >>>>>>>>
+  DbLinq.Data.Linq.Sugar.ExpressionMutator.Implementation
+  {
+      internal class MemberListBindingMutator : IMemberBindingMutator
+      {
+<<<< DIAGNOSTIC: property memberlistbinding its private setter can be omitted. >>>>
+-         protected MemberListBinding MemberListBinding { get; private set; }
++         protected MemberListBinding MemberMemberBinding { get; }
+  
+          public IEnumerable<Expression> Operands
+          {
+              get

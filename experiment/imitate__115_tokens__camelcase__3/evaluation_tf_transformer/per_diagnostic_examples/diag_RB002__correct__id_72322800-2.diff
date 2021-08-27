@@ -1,0 +1,16 @@
+id: 72322800-2
+diagnostic: RB002
+perc_correct_in_test: 0.6666666666666666
+num_datapoints_in_train: 8
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  Type { get; set; }
+  
+          public static bool CapturedHasEntityBody { get; set; }
+  
+<<<< DIAGNOSTIC: field 'CapturedEntityBody' is marked static >>>>
+-         public static string CapturedEntityBody { get; set; }
++         public string CapturedEntityBody { get; set; }
+  
+          public static Uri CapturedUrl { get; set; }
+  
+          public static void Capture

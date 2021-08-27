@@ -1,0 +1,17 @@
+id: 57903316-1
+diagnostic: SA1101
+perc_correct_in_test: 0.2972972972972973
+num_datapoints_in_train: 289
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+   </summary>
+      partial class Table
+      {
+          public Table()
+          {
+<<<< DIAGNOSTIC: prefix local calls with this >>>>
+-             Type = new Type();
++             this.Type = new Type();
+              SpecifiedPropertyUpdater.Register(this);
+          }
+  
+          public override string

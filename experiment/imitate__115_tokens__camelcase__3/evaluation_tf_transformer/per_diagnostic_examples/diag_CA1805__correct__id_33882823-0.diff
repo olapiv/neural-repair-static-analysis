@@ -1,0 +1,19 @@
+id: 33882823-0
+diagnostic: CA1805
+perc_correct_in_test: 1.0
+num_datapoints_in_train: 7
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  BaseListener {
+  
+          private Socket socket;
+          private Thread thread;
+<<<< DIAGNOSTIC: member 'is_connected' is explicitly initialized to its default value >>>>
+-         private bool is_connected  = false;
++         private bool is_connected;
+<<<< DIAGNOSTIC: member 'is_connecting' is explicitly initialized to its default value >>>>
+-         private bool is_connecting = false;
++         private bool is_connecting;
+          private DateTime last_ping = DateTime.Now;
+  
+  
+          public

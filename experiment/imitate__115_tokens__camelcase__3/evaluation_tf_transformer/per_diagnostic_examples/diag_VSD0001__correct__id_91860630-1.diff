@@ -1,0 +1,17 @@
+id: 91860630-1
+diagnostic: VSD0001
+perc_correct_in_test: 1.0
+num_datapoints_in_train: 7
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+     }
+                  }
+              }
+          }
+  
+<<<< DIAGNOSTIC: asynchronous method "startcore" does not end with 'Async'. >>>>
+-         private async Task StartCore()
++         private async Task StartCoreAsync()
+          {
+              using HttpClient client = CreateHttpClient();
+  
+           

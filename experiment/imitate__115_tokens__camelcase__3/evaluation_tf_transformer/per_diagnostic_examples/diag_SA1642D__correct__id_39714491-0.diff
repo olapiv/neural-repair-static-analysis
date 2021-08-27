@@ -1,0 +1,19 @@
+id: 39714491-0
+diagnostic: SA1642D
+perc_correct_in_test: 0.25
+num_datapoints_in_train: 43
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+       Feature = feature;
+          }
+      }
+  
+      [AttributeUsage(AttributeTargets.Class | AttributeTargets.Property)]
+      public class ExcludeMetadataAttribute : ExcludeAttribute
++         /// <summary>
++         /// Initializes a new instance of the <see cref="ExcludeMetadataAttribute"/> class.
++         /// </summary>
+      {
+<<<< DIAGNOSTIC: constructors must be correctly documented. >>>>
+          public ExcludeMetadataAttribute() : base(Feature.Metadata | Feature.Soap) {}
+      }
+  }

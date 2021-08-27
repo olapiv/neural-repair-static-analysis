@@ -1,0 +1,39 @@
+id: 14921589-1
+diagnostic: NA06
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 8
+<<<<<<<< CORRECT >>>>>>>>
+  this property will always give you the "real" query part of the query
+          /// </summary>
+<<<< DIAGNOSTIC: property search can be changed to view-model property. >>>>
+-         public string Search { get; internal set; }
++         public string Search
++         {
++             get
++             {
++                 return _search;
++             }
++ 
++             set
++             {
++                 if (_search != value)
++                 {
++                     _search = value;
++                     OnPropertyChanged();
++                 }
++             }
++         }
+  
+          /// <summary>
+          /// The raw query splited into a string array.
+   
+<<<<<<<< INFERRED >>>>>>>>
+  this property will always give you the "real" query part of the query
+          /// </summary>
+<<<< DIAGNOSTIC: property search can be changed to view-model property. >>>>
+-         public string Search { get; internal set; }
++         public string Search { get; set; }
+  
+          /// <summary>
+          /// The raw query splited into a string array.
+   

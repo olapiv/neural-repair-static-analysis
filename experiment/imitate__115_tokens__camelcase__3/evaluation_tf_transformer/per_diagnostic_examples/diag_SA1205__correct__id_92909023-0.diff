@@ -1,0 +1,19 @@
+id: 92909023-0
+diagnostic: SA1205
+perc_correct_in_test: 1.0
+num_datapoints_in_train: 13
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+  // THE SOFTWARE.
+  // 
+  #endregion
+  
+  namespace DbLinq.Data.Linq
+  {
+<<<< DIAGNOSTIC: partial elements should declare an access modifier >>>>
+-     partial interface ITable
++     public partial interface ITable
+      {
+          /// <summary>
+          /// Cancels the delete on submit.
+          //

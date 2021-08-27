@@ -1,0 +1,16 @@
+id: 56085779-2
+diagnostic: RECS0122
+perc_correct_in_test: 1.0
+num_datapoints_in_train: 4
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+         static string strPassZeroLog = "pass-zero.txt";
+<<<< DIAGNOSTIC: initializing field by default value is redundant >>>>
+-         static int totalProcs = 0;
++         static int totalProcs;
+<<<< DIAGNOSTIC: initializing field by default value is redundant >>>>
+-         static int totalNodes = 0;
++         static int totalNodes;
+<<<< DIAGNOSTIC: initializing field by default value is redundant >>>>
+-         static int procsPerNode = 0;
++         static int procsPerNode;
+          // this is qpf / 1000 so we 

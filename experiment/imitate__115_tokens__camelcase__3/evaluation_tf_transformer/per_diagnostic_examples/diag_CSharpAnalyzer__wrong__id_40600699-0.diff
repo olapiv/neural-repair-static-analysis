@@ -1,0 +1,36 @@
+id: 40600699-0
+diagnostic: CSharpAnalyzer
+perc_correct_in_test: 0.16666666666666666
+num_datapoints_in_train: 7
+<<<<<<<< CORRECT >>>>>>>>
+  Windows;
+  using System.Windows.Automation;
+  using System.Windows.Automation.Peers;
+  using System.Windows.Automation.Provider;
+  
+  namespace ICSharpCode.TreeView
+  {
+<<<< DIAGNOSTIC: type name 'SharpTreeViewItemAutomationPeer' contains lowercase letters >>>>
+- 	class SharpTreeViewItemAutomationPeer : FrameworkElementAutomationPeer, IExpandCollapseProvider
++ 	class SHARPTREEVIEWITEMAUTOMATIONPEER : FrameworkElementAutomationPeer, IExpandCollapseProvider
+  	{
+  		internal SharpTreeViewItemAutomationPeer(SharpTreeViewItem owner)
+  			: base(owner)
+  		{
+  			SharpTreeViewItem.DataContext
+<<<<<<<< INFERRED >>>>>>>>
+  Windows;
+  using System.Windows.Automation;
+  using System.Windows.Automation.Peers;
+  using System.Windows.Automation.Provider;
+  
+  namespace ICSharpCode.TreeView
+  {
+<<<< DIAGNOSTIC: type name 'SharpTreeViewItemAutomationPeer' contains lowercase letters >>>>
+- 	class SharpTreeViewItemAutomationPeer : FrameworkElementAutomationPeer, IExpandCollapseProvider
++ 	class SHARPTREEVIEWAUTOMATIONPEER : FrameworkElementAutomationPeer, IExpandCollapseProvider
+  	{
+  		internal SharpTreeViewItemAutomationPeer(SharpTreeViewItem owner)
+  			: base(owner)
+  		{
+  			SharpTreeViewItem.DataContext

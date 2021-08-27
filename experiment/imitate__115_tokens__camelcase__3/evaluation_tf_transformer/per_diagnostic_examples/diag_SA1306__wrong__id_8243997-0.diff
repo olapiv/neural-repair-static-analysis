@@ -1,0 +1,27 @@
+id: 8243997-0
+diagnostic: SA1306
+perc_correct_in_test: 0.25
+num_datapoints_in_train: 13
+<<<<<<<< CORRECT >>>>>>>>
+  => Analyze(e, builderContext));
+          }
+  
+          protected delegate Expression Analyzer(Expression expression);
+  
+<<<< DIAGNOSTIC: field 'Analyzers' should begin with lower-case letter >>>>
+-         protected IEnumerable<Analyzer> Analyzers;
++         protected IEnumerable<Analyzer> analyzers;
+          private readonly object analyzersLock = new object();
+  
+          protected virtual IEnumerable<Analyzer> GetAnalyzers(
+<<<<<<<< INFERRED >>>>>>>>
+  => Analyze(e, builderContext));
+          }
+  
+          protected delegate Expression Analyzer(Expression expression);
+  
+<<<< DIAGNOSTIC: field 'Analyzers' should begin with lower-case letter >>>>
+          protected IEnumerable<Analyzer> Analyzers;
+          private readonly object analyzersLock = new object();
+  
+          protected virtual IEnumerable<Analyzer> GetAnalyzers(

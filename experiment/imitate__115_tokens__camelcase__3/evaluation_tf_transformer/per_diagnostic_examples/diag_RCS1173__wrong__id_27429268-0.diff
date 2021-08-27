@@ -1,0 +1,32 @@
+id: 27429268-0
+diagnostic: RCS1173
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 6
+<<<<<<<< CORRECT >>>>>>>>
+  as Border;
+  			if (Node.IsEditing)
+  			{
+<<<< DIAGNOSTIC: use coalesce expression instead of 'if'. >>>>
+- 				if (CellEditor == null)
+- 					textEditorContainer.Child = new EditTextBox() { Item = ParentItem };
++ 				textEditorContainer.Child = CellEditor ?? (UIElement)new EditTextBox() { Item = ParentItem };
+- 				else
+- 					textEditorContainer.Child = CellEditor;
+  			}
+  			else
+  			{
+  				textEditorContainer
+<<<<<<<< INFERRED >>>>>>>>
+  as Border;
+  			if (Node.IsEditing)
++ 			new EditTextBox TextBox = new TextBox();
+- 			{
+<<<< DIAGNOSTIC: use coalesce expression instead of 'if'. >>>>
+- 				if (CellEditor == null)
+- 					textEditorContainer.Child = new EditTextBox() { Item = ParentItem };
+  				else
+  					textEditorContainer.Child = CellEditor;
+  			}
+  			else
+  			{
+  				textEditorContainer

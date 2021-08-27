@@ -1,0 +1,17 @@
+id: 17735185-1
+diagnostic: _SuperfluousAsync
+perc_correct_in_test: 0.75
+num_datapoints_in_train: 8
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  Stream(string contentType, Type type, Stream requestStream);
+  
+          StreamDeserializerDelegate GetStreamDeserializer(string contentType);
+  
+<<<< DIAGNOSTIC: 'GetStreamDeserializerAsync' is not a tap method but ends with async. >>>>
+-         StreamDeserializerDelegateAsync GetStreamDeserializerAsync(string contentType);
++         StreamDeserializerDelegateAsync GetStreamDeserializer(string contentType);
+      }
+      
+      public interface IContentTypeWriter
+      {
+          byte[] SerializeToBytes

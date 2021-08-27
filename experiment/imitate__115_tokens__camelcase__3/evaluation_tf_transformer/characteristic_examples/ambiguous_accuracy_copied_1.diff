@@ -1,0 +1,32 @@
+id: 80687678-0
+diagnostic: SA1307
+perc_correct_in_test: 0.5
+num_datapoints_in_train: 6
+<<<<<<<< CORRECT >>>>>>>>
+   tree; allowing access by visible index.
+  	partial class SharpTreeNode
+  	{
+  		/// <summary>The parent in the flat list</summary>
+<<<< DIAGNOSTIC: field 'listParent' should begin with upper-case letter >>>>
+- 		internal SharpTreeNode listParent;
++ 		internal SharpTreeNode ListParent;
+  		/// <summary>Left/right nodes in the flat list</summary>
+  		SharpTreeNode left, right;
+  
+  		internal TreeFlattener treeFlattener;
+  
+  	
+<<<<<<<< INFERRED >>>>>>>>
+   tree; allowing access by visible index.
+  	partial class SharpTreeNode
+  	{
+  		/// <summary>The parent in the flat list</summary>
+<<<< DIAGNOSTIC: field 'listParent' should begin with upper-case letter >>>>
+- 		internal SharpTreeNode listParent;
++ 		internal SharpTreeNode Parent;
+  		/// <summary>Left/right nodes in the flat list</summary>
+  		SharpTreeNode left, right;
+  
+  		internal TreeFlattener treeFlattener;
+  
+  	

@@ -1,0 +1,43 @@
+id: 95845306-1
+diagnostic: OphlanAnalyzersOrganizeMembers
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 0
+<<<<<<<< CORRECT >>>>>>>>
+  Of(item.Node) + 1;
+  				}
+  			}
+  		}
+  
+- 		SharpTreeNodeView previewNodeView;
+- 		InsertMarker insertMarker;
+- 		DropPlace previewPlace;
+- 
+<<<< DIAGNOSTIC: type name 'DropPlace' contains contains unorgainzed members >>>>
+- 		enum DropPlace
+- 		{
+- 			Before, Inside, After
+- 		}
+- 
+  		void ShowPreview(SharpTreeViewItem item, DropPlace place)
+  		{
+  			preview
+<<<<<<<< INFERRED >>>>>>>>
+  Of(item.Node) + 1;
+  				}
+  			}
+  		}
+  
+  		SharpTreeNodeView previewNodeView;
+  		InsertMarker insertMarker;
+  		DropPlace previewPlace;
+  
+<<<< DIAGNOSTIC: type name 'DropPlace' contains contains unorgainzed members >>>>
+- 		enum DropPlace
++ 			Before, Inside, After
+  		{
+  			Before, Inside, After
+  		}
+  
+  		void ShowPreview(SharpTreeViewItem item, DropPlace place)
+  		{
+  			preview

@@ -1,0 +1,32 @@
+id: 48368309-0
+diagnostic: Comments_analyser
+perc_correct_in_test: 0.26
+num_datapoints_in_train: 147
+<<<<<<<< CORRECT >>>>>>>>
+  using DbLinq.Util;
+  
+  namespace DbLinq.Data.Linq.Sugar.Implementation
+  {
+      partial class ExpressionDispatcher
+      {
+<<<< DIAGNOSTIC: type name 'Missing summary' contains lowercase letters >>>>
+-         public Expression Analyze(ExpressionChain expressions, Expression parameter, BuilderContext builderContext)
++         public Expression Analyze(EXPRESSIONCHAIN expressions, Expression parameter, BUILDERCONTEXT builderContext)
+          {
+              Expression tableExpression = parameter;
+  
+           
+<<<<<<<< INFERRED >>>>>>>>
+  using DbLinq.Util;
+  
+  namespace DbLinq.Data.Linq.Sugar.Implementation
+  {
+      partial class ExpressionDispatcher
+      {
+<<<< DIAGNOSTIC: type name 'Missing summary' contains lowercase letters >>>>
+-         public Expression Analyze(ExpressionChain expressions, Expression parameter, BuilderContext builderContext)
++         public ExpressionChain(ExpressionChain expressions, Expression parameter builderContext)
+          {
+              Expression tableExpression = parameter;
+  
+           

@@ -1,0 +1,15 @@
+id: 92139961-0
+diagnostic: RECS0014
+perc_correct_in_test: 1.0
+num_datapoints_in_train: 1
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+    /// Shortcuts to generate exceptions (with formatted strings)
+      /// This is for internal use only
+      /// </summary>
+<<<< DIAGNOSTIC: this class is recommended to be defined as static >>>>
+-     internal class Error
++     internal static class Error
+      {
+          public static Exception BadArgument(string format, params object[] parameters)
+          {
+        

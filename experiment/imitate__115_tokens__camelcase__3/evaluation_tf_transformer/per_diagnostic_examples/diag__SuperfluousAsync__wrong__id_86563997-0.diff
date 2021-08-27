@@ -1,0 +1,30 @@
+id: 86563997-0
+diagnostic: _SuperfluousAsync
+perc_correct_in_test: 0.75
+num_datapoints_in_train: 8
+<<<<<<<< CORRECT >>>>>>>>
+  a, 0,
+  				-1, 1, 0, 1
+  			};
+  
+  			shader.SetMatrix("View", view);
+  		}
+  
+<<<< DIAGNOSTIC: 'RenderAsync' is not a tap method but ends with async. >>>>
+- 		public ModelRenderProxy RenderAsync(
++ 		public ModelRenderProxy Render(
+  			WorldRenderer wr, IEnumerable<ModelAnimation> models, in WRot camera, float scale,
+  			float[] groundNormal, in WRot lightSource, 
+<<<<<<<< INFERRED >>>>>>>>
+  a, 0,
+  				-1, 1, 0, 1
+  			};
+  
+  			shader.SetMatrix("View", view);
+  		}
+  
+<<<< DIAGNOSTIC: 'RenderAsync' is not a tap method but ends with async. >>>>
+- 		public ModelRenderProxy RenderAsync(
++ 		public void StopAsync()
+  			WorldRenderer wr, IEnumerable<ModelAnimation> models, in WRot camera, float scale,
+  			float[] groundNormal, in WRot lightSource, 

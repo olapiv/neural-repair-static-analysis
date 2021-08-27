@@ -1,0 +1,16 @@
+id: 82877395-3
+diagnostic: RIT0008
+perc_correct_in_test: 0.6078431372549019
+num_datapoints_in_train: 113
+<<<<<<<< CORRECT >>>>>>>>
+                          let c = m.GetAttribute<ColumnAttribute>()
+<<<< DIAGNOSTIC: 'c object null' check should be written as 'c is object', the != operator could be (incorrectly) overloaded >>>>
+-                          where c != null
++                          where c is object
+                           select (MetaDataMember) new AttributedColumnMetaDataMember(
+<<<<<<<< INFERRED >>>>>>>>
+                          let c = m.GetAttribute<ColumnAttribute>()
+<<<< DIAGNOSTIC: 'c object null' check should be written as 'c is object', the != operator could be (incorrectly) overloaded >>>>
+-                          where c != null
++                     if (m is object)
+                           select (MetaDataMember) new AttributedColumnMetaDataMember(

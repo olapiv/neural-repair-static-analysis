@@ -1,0 +1,11 @@
+id: 7921269-1
+diagnostic: CC0105
+perc_correct_in_test: 0.5483870967741935
+num_datapoints_in_train: 83
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+   {
+                  var memberBindingMutator = MemberBindingMutatorFactory.GetMutator(memberBinding);
+<<<< DIAGNOSTIC: use 'var' instead of specifying the type name. >>>>
+-                 int operandsCount = memberBindingMutator.Operands.Count();
++                 var operandsCount = memberBindingMutator.Operands.Count();
+                  var subOperands = operands.Skip(operandIndex).Take(operandsCount).ToList()

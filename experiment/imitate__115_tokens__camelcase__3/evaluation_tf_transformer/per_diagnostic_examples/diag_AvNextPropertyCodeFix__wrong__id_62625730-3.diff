@@ -1,0 +1,29 @@
+id: 62625730-3
+diagnostic: AvNextPropertyCodeFix
+perc_correct_in_test: 0.8214285714285714
+num_datapoints_in_train: 79
+<<<<<<<< CORRECT >>>>>>>>
+  }
+              }
++ 
++             [System.ComponentModel.DataAnnotations.MaxLength(200)]//Roslyn auto generated
+<<<< DIAGNOSTIC: type name 'MappedName' should be decorated with maxlength attribute >>>>
+-             public override string MappedName { get { return c.Name; } }
++             public string MappedName { get; set; }
+<<<< DIAGNOSTIC: type name 'Name' should be decorated with maxlength attribute >>>>
+-             public override string Name { get { return c.Member ?? c.Name; } }
++ 
++ 
++             [System.ComponentModel.DataAnnotations.MaxLength(200)]//Roslyn auto generated
++             public string Name { get; set; }
+              public override System
+<<<<<<<< INFERRED >>>>>>>>
+  }
+              }
+<<<< DIAGNOSTIC: type name 'MappedName' should be decorated with maxlength attribute >>>>
+-             public override string MappedName { get { return c.Name; } }
+<<<< DIAGNOSTIC: type name 'Name' should be decorated with maxlength attribute >>>>
+-             public override string Name { get { return c.Member ?? c.Name; } }
++         [System.ComponentModel.DataAnnotations.MaxLength(200)]//Roslyn auto generated
++         public string MappedName { get; set; }
+              public override System

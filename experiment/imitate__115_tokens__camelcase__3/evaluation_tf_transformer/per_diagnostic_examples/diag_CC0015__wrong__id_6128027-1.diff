@@ -1,0 +1,18 @@
+id: 6128027-1
+diagnostic: CC0015
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 6
+<<<<<<<< CORRECT >>>>>>>>
+                  var schema = UnquoteSqlName(GetValue<string>(table, iSchema, null));
+<<<< DIAGNOSTIC: remove unnecessary parenthesis. >>>>
+-                 tables.Add(new DataName()
++                 tables.Add(new DataName
+                  {
+                      Name    =
+<<<<<<<< INFERRED >>>>>>>>
+                  var schema = UnquoteSqlName(GetValue<string>(table, iSchema, null));
+<<<< DIAGNOSTIC: remove unnecessary parenthesis. >>>>
+-                 tables.Add(new DataName()
++                     tables = new DataName
+                  {
+                      Name    =

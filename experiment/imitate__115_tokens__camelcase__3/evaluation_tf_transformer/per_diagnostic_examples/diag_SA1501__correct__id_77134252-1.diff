@@ -1,0 +1,15 @@
+id: 77134252-1
+diagnostic: SA1501
+perc_correct_in_test: 0.5
+num_datapoints_in_train: 6
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  			if (checkType) 
+  			{
+  				System.Xml.XmlQualifiedName t = GetXsiType();
+  				if (t == null)
+<<<< DIAGNOSTIC: statement should not be on a single line >>>>
+- 				{ }
++                 {
++                 }
+  				else if (t.Name != "Table" || t.Namespace != "http://schemas.microsoft.com/linqtosql/dbml/2007")
+  					

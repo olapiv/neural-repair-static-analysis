@@ -1,0 +1,39 @@
+id: 11425869-1
+diagnostic: RIT0003
+perc_correct_in_test: 0.25
+num_datapoints_in_train: 20
+<<<<<<<< CORRECT >>>>>>>>
+          class DbmlTable : DbmlItem
+          {
+<<<< DIAGNOSTIC: non private field 'Type' is not alloweded, use auto property instead >>>>
+-             public DbmlType Type;
++             public DbmlType Type { get; set; }
++ 
+<<<< DIAGNOSTIC: non private field 'Name' is not alloweded, use auto property instead >>>>
+-             public string Name;
++             public string Name { get; set; }
++ 
+<<<< DIAGNOSTIC: non private field 'Member' is not alloweded, use auto property instead >>>>
+-             public string Member;
++             public string Member { get; set; }
+  
+              public DbmlTable(XmlReader r)
+       
+<<<<<<<< INFERRED >>>>>>>>
+          class DbmlTable : DbmlItem
+          {
+<<<< DIAGNOSTIC: non private field 'Type' is not alloweded, use auto property instead >>>>
+-             public DbmlType Type;
++             public DbmlType Type { get; set; }
+<<<< DIAGNOSTIC: non private field 'Name' is not alloweded, use auto property instead >>>>
+-             public string Name;
++ 
+<<<< DIAGNOSTIC: non private field 'Member' is not alloweded, use auto property instead >>>>
+-             public string Member;
++             public string Member { get; set; }
++ 
++ 
++             public string Member { get; set; }
+  
+              public DbmlTable(XmlReader r)
+       

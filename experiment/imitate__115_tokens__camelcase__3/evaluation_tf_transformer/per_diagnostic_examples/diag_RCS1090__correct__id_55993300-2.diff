@@ -1,0 +1,14 @@
+id: 55993300-2
+diagnostic: RCS1090
+perc_correct_in_test: 1.0
+num_datapoints_in_train: 15
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  given random instance
+              if (random == null)
+              {
+<<<< DIAGNOSTIC: add call to 'ConfigureAwait'. >>>>
+-                 await stream.WriteAsync(source, token);
++                 await stream.WriteAsync(source, token).ConfigureAwait(false);
+                  return;
+              }
+            

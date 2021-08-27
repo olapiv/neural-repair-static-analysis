@@ -1,0 +1,31 @@
+id: 99767009-0
+diagnostic: RCS1029
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 7
+<<<<<<<< CORRECT >>>>>>>>
+  
+<<<< DIAGNOSTIC: format binary operator on next line. >>>>
+-             const BindingFlags scope = BindingFlags.GetField |
++             const BindingFlags scope = BindingFlags.GetField
+<<<< DIAGNOSTIC: format binary operator on next line. >>>>
+-                 BindingFlags.GetProperty | BindingFlags.Static |
++                 | BindingFlags.GetProperty | BindingFlags.Static
+<<<< DIAGNOSTIC: format binary operator on next line. >>>>
+-                 BindingFlags.Instance | BindingFlags.NonPublic |
++                 | BindingFlags.Instance | BindingFlags.NonPublic
+-                 BindingFlags.Public;
++                 | BindingFlags.Public;
+   
+<<<<<<<< INFERRED >>>>>>>>
+  
+<<<< DIAGNOSTIC: format binary operator on next line. >>>>
+-             const BindingFlags scope = BindingFlags.GetField |
++             const BindingFlags bindingFlags = BindingFlags.GetField(
+<<<< DIAGNOSTIC: format binary operator on next line. >>>>
+-                 BindingFlags.GetProperty | BindingFlags.Static |
+<<<< DIAGNOSTIC: format binary operator on next line. >>>>
+-                 BindingFlags.Instance | BindingFlags.NonPublic |
++                     BindingFlags.Static | BindingFlags.Public | BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance);
++                     BindingFlags.DeclaredOnly;
+                  BindingFlags.Public;
+   

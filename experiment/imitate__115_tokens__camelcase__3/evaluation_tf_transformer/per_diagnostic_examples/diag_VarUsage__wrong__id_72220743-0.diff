@@ -1,0 +1,24 @@
+id: 72220743-0
+diagnostic: VarUsage
+perc_correct_in_test: 0.1527777777777778
+num_datapoints_in_train: 405
+<<<<<<<< CORRECT >>>>>>>>
+  }
+  
+          public IMappingExpression ForMember(string name, Action<IMemberConfigurationExpression> memberOptions)
+          {
+<<<< DIAGNOSTIC: 'member' variable should not be defined with var. >>>>
+-             var member = DestinationType.GetFieldOrProperty(name);
++             MemberInfo member = DestinationType.GetFieldOrProperty(name);
+              ForMember(member, memberOptions);
+              return this
+<<<<<<<< INFERRED >>>>>>>>
+  }
+  
+          public IMappingExpression ForMember(string name, Action<IMemberConfigurationExpression> memberOptions)
+          {
+<<<< DIAGNOSTIC: 'member' variable should not be defined with var. >>>>
+-             var member = DestinationType.GetFieldOrProperty(name);
++             MemberInfo memberInfo = ReflectionUtility.GetField(name);
+              ForMember(member, memberOptions);
+              return this

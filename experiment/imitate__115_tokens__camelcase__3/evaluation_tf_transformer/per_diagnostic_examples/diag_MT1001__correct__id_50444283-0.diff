@@ -1,0 +1,19 @@
+id: 50444283-0
+diagnostic: MT1001
+perc_correct_in_test: 1.0
+num_datapoints_in_train: 5
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  using System;
+  using System.Net;
+  using NUnit.Framework.Internal;
+  
+  namespace RestSharp.Tests.Shared.Fixtures
++     [TestClass]
+  {
+<<<< DIAGNOSTIC: the class 'SimpleServer' should be marked with the [testclass] attribute >>>>
+      public class SimpleServer : IDisposable
+      {
+          static readonly Random Random = new Randomizer(DateTimeOffset.Now.Millisecond);
+  
+          readonly WebServer _server;
+         

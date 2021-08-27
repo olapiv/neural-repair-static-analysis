@@ -1,0 +1,16 @@
+id: 29604547-0
+diagnostic: ClassWithoutModifierAnalyzer
+perc_correct_in_test: 0.5
+num_datapoints_in_train: 13
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  ("Unexpected dbml element '{0}'", r.LocalName));
+              }
+          }
++ 
+<<<< DIAGNOSTIC: your class must have at least one modifier. (public, internal, etc) >>>>
+-         class DbmlDatabase : DbmlItem
++         public class DbmlDatabase : DbmlItem
+          {
+              public string Name;
+              public string Provider;
+   

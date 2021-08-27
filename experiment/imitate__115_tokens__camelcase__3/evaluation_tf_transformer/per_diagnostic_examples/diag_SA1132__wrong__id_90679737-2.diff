@@ -1,0 +1,25 @@
+id: 90679737-2
+diagnostic: SA1132
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 4
+<<<<<<<< CORRECT >>>>>>>>
+              //XmlMetaType owner;
+              DbmlAssociation a;
+<<<< DIAGNOSTIC: each field should be declared on its own line >>>>
+-             ReadOnlyCollection<System.Data.Linq.Mapping.MetaDataMember> these_keys, other_keys;
++             ReadOnlyCollection<System.Data.Linq.Mapping.MetaDataMember> these_keys;
++             ReadOnlyCollection<System.Data.Linq.Mapping.MetaDataMember> other_keys;
+              System.Data.Linq.Mapping.MetaDataMember member;
+  
+            
+<<<<<<<< INFERRED >>>>>>>>
+              //XmlMetaType owner;
+              DbmlAssociation a;
+<<<< DIAGNOSTIC: each field should be declared on its own line >>>>
+-             ReadOnlyCollection<System.Data.Linq.Mapping.MetaDataMember> these_keys, other_keys;
++             ReadOnlyCollection<System.Data.Linq.Mapping.MetaDataMember> otherDataMember;
++             ReadOnlyCollection<System.Data.Linq.Mapping.MetaDataMember> persistentDataMember;
++             System.Data.Linq.Mapping.MetaDataMember otherMember;
+              System.Data.Linq.Mapping.MetaDataMember member;
+  
+            

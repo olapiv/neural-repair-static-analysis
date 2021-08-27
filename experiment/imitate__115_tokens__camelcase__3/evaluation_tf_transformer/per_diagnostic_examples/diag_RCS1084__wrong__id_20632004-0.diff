@@ -1,0 +1,22 @@
+id: 20632004-0
+diagnostic: RCS1084
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 3
+<<<<<<<< CORRECT >>>>>>>>
+     string databaseNameAliased = nameAliases != null ? nameAliases.GetDatabaseNameAlias(databaseName) : null;
+<<<< DIAGNOSTIC: use coalesce expression instead of conditional expression. >>>>
+-             return (databaseNameAliased != null) ? databaseNameAliased : GetDatabaseName(databaseName);
++             return databaseNameAliased ?? GetDatabaseName(databaseName);
+          }
+  
+          /// <summary>
+          /// 
+<<<<<<<< INFERRED >>>>>>>>
+     string databaseNameAliased = nameAliases != null ? nameAliases.GetDatabaseNameAlias(databaseName) : null;
+<<<< DIAGNOSTIC: use coalesce expression instead of conditional expression. >>>>
+-             return (databaseNameAliased != null) ? databaseNameAliased : GetDatabaseName(databaseName);
++             return databaseNameAliased ?? databaseName;
+          }
+  
+          /// <summary>
+          /// 

@@ -1,0 +1,20 @@
+id: 32783885-3
+diagnostic: ASYNC0004
+perc_correct_in_test: 0.8333333333333334
+num_datapoints_in_train: 8
+<<<<<<<< CORRECT >>>>>>>>
+     while (!token.IsCancellationRequested && !connectionLifetimeToken.IsCancellationRequested)
+                  {
+<<<< DIAGNOSTIC: use configureawait(false) >>>>
+-                     await ApplyBackpressure();
++                     await ApplyBackpressure().ConfigureAwait(false);
+  
+                      DataSegment chunk = DataSegment.CreateRandom(random, _config.MaxBufferLength)
+<<<<<<<< INFERRED >>>>>>>>
+     while (!token.IsCancellationRequested && !connectionLifetimeToken.IsCancellationRequested)
+                  {
+<<<< DIAGNOSTIC: use configureawait(false) >>>>
+-                     await ApplyBackpressure();
++                 await InitializeClient().ConfigureAwait(false);
+  
+                      DataSegment chunk = DataSegment.CreateRandom(random, _config.MaxBufferLength)

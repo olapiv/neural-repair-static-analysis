@@ -1,0 +1,13 @@
+id: 76365913-0
+diagnostic: RCS1001
+perc_correct_in_test: 1.0
+num_datapoints_in_train: 14
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  
+              get
+              {
++                 {
+                  if (expressionList == null)
+<<<< DIAGNOSTIC: add braces to if statement (when expression spans over multiple lines). >>>>
+                      if (expressions == null)
+                          expressionList = 

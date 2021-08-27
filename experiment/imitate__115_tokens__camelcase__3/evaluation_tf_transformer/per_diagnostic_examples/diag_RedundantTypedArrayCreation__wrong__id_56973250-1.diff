@@ -1,0 +1,16 @@
+id: 56973250-1
+diagnostic: RedundantTypedArrayCreation
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 1
+<<<<<<<< CORRECT >>>>>>>>
+   //Console.WriteLine("spliting {0}", strAllocLine);
+<<<< DIAGNOSTIC: replace 'Char[]' with '[]' to use an implicitly-typed array creation. >>>>
+-                                 string[] fieldsAlloc = strAllocLine.Split(new Char[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
++                                 string[] fieldsAlloc = strAllocLine.Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
+                         
+<<<<<<<< INFERRED >>>>>>>>
+   //Console.WriteLine("spliting {0}", strAllocLine);
+<<<< DIAGNOSTIC: replace 'Char[]' with '[]' to use an implicitly-typed array creation. >>>>
+-                                 string[] fieldsAlloc = strAllocLine.Split(new Char[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
++             string[] fields = strThreadIndices.Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
+                         

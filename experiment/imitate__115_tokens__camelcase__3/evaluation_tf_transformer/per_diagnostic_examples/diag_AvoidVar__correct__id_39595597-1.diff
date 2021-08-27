@@ -1,0 +1,12 @@
+id: 39595597-1
+diagnostic: AvoidVar
+perc_correct_in_test: 0.5584415584415584
+num_datapoints_in_train: 185
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+           if (entity == null)
+                  return;
+<<<< DIAGNOSTIC: use 'MemberInfo' instead of 'var' >>>>
+-             foreach (var memberInfo in GetColumnMembers(entity.GetType(), metaModel))
++             foreach (MemberInfo memberInfo in GetColumnMembers(entity.GetType(), metaModel))
+              {
+                  var propertyValue = member

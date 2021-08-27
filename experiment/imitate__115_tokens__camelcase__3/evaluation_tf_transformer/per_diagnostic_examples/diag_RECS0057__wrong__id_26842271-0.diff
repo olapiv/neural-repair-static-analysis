@@ -1,0 +1,24 @@
+id: 26842271-0
+diagnostic: RECS0057
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 0
+<<<<<<<< CORRECT >>>>>>>>
+  table is of a different SQL MetaData provider");
+  
+<<<< DIAGNOSTIC: replace with single call to 'Single()' >>>>
+- 			_otherMember = ownedMetaType.AssociationsLookup[otherType.GetMembers().Where(m => (AttributeNameNullCheck(m.GetAttribute<AssociationAttribute>()) == associationName) && (m != member)).Single()];
++ 			_otherMember = ownedMetaType.AssociationsLookup[otherType.GetMembers().Single(m => (AttributeNameNullCheck(m.GetAttribute<AssociationAttribute>()) == associationName) && (m != member))];
+          }
+  
+  		/// <summary>
+  		
+<<<<<<<< INFERRED >>>>>>>>
+  table is of a different SQL MetaData provider");
+  
+<<<< DIAGNOSTIC: replace with single call to 'Single()' >>>>
+- 			_otherMember = ownedMetaType.AssociationsLookup[otherType.GetMembers().Where(m => (AttributeNameNullCheck(m.GetAttribute<AssociationAttribute>()) == associationName) && (m != member)).Single()];
++             _otherMember = ownedMetaType.AssociationsLookup[otherType.GetMembers().Where(m => (AttributeNameNullCheck(m.GetAttribute<AssociationAttribute>()) == associationName) && (m != member)).Single()];
+          }
+  
+  		/// <summary>
+  		

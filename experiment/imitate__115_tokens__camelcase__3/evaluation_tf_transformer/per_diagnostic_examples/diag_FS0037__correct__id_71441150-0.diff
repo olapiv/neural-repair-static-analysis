@@ -1,0 +1,12 @@
+id: 71441150-0
+diagnostic: FS0037
+perc_correct_in_test: 1.0
+num_datapoints_in_train: 2
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+               startIndex += strStart.Length;
+              }
+  
+<<<< DIAGNOSTIC: commented code should be removed. >>>>
+-             //string strRest = str.Substring(startIndex + strStart.Length);
+              string strRest = str.Substring(startIndex);
+              

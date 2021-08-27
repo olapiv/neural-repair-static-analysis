@@ -1,0 +1,23 @@
+id: 45066862-2
+diagnostic: SA1028
+perc_correct_in_test: 0.8571428571428571
+num_datapoints_in_train: 38
+<<<<<<<< CORRECT >>>>>>>>
+  p in people orderby p.LastName select p).Count()</c>
+<<<< DIAGNOSTIC: code should not contain trailing whitespace >>>>
+-     ///   is translated into e.g. 
++     ///   is translated into e.g.
+<<<< DIAGNOSTIC: code should not contain trailing whitespace >>>>
+-     ///   <c>SELECT COUNT(*) FROM People ORDER BY LastName</c>.  However, this 
++     ///   <c>SELECT COUNT(*) FROM People ORDER BY LastName</c>.  However, this
+      ///   is invalid for Microsoft SQL Server (the <c
+<<<<<<<< INFERRED >>>>>>>>
+  p in people orderby p.LastName select p).Count()</c>
+<<<< DIAGNOSTIC: code should not contain trailing whitespace >>>>
+-     ///   is translated into e.g. 
++             /// <summary>
++             /// record the hit.
++             /// </summary>
+<<<< DIAGNOSTIC: code should not contain trailing whitespace >>>>
+      ///   <c>SELECT COUNT(*) FROM People ORDER BY LastName</c>.  However, this 
+      ///   is invalid for Microsoft SQL Server (the <c

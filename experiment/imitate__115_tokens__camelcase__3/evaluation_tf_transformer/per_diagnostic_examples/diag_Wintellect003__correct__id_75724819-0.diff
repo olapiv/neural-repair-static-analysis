@@ -1,0 +1,14 @@
+id: 75724819-0
+diagnostic: Wintellect003
+perc_correct_in_test: 0.9117647058823529
+num_datapoints_in_train: 212
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+   <param name="entity"></param>
+          public void RegisterToInsert(object entity)
+          {
++             {
+<<<< DIAGNOSTIC: 'if' statements must have braces >>>>
+              if (entity == null)
+                  throw new ArgumentNullException("entity");
+  
+              var entityTrack

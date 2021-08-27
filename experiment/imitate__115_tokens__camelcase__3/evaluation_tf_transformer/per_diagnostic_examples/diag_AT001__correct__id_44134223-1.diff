@@ -1,0 +1,12 @@
+id: 44134223-1
+diagnostic: AT001
+perc_correct_in_test: 0.08333333333333333
+num_datapoints_in_train: 138
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  QueryPath>();
+              readonly MemberPath _parentPath;
+<<<< DIAGNOSTIC: readonly field(s) not assigned in constructor: _parentpath. >>>>
+-             public FirstPassLetPropertyMaps(IGlobalConfiguration configurationProvider, MemberPath parentPath, TypePairCount builtProjections) : base(configurationProvider, builtProjections) 
++             public FirstPassLetPropertyMaps(IGlobalConfiguration configurationProvider, MemberPath parentPath, TypePairCount builtProjections) : base(configurationProvider, builtProjections)
+                  => _parentPath = parentPath;
+   

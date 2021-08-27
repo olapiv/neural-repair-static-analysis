@@ -1,0 +1,26 @@
+id: 72806563-3
+diagnostic: CA2016
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 2
+<<<<<<<< CORRECT >>>>>>>>
+   DateTime lastReadTime = DateTime.Now;
+  
+              var serializer = new DataSegmentSerializer();
+  
+<<<< DIAGNOSTIC: forward the 'token' parameter to the 'Run' method or pass in 'CancellationToken.None' explicitly to indicate intentionally not propagating the token >>>>
+-             _ = Task.Run(Monitor);
++             _ = Task.Run(Monitor, token);
+              await sslStream.ReadLinesUsingPipesAsync(Callback, cts.Token, separator: '\n');
+  
+         
+<<<<<<<< INFERRED >>>>>>>>
+   DateTime lastReadTime = DateTime.Now;
+  
+              var serializer = new DataSegmentSerializer();
+  
+<<<< DIAGNOSTIC: forward the 'token' parameter to the 'Run' method or pass in 'CancellationToken.None' explicitly to indicate intentionally not propagating the token >>>>
+-             _ = Task.Run(Monitor);
++                 await InitializeClient();
+              await sslStream.ReadLinesUsingPipesAsync(Callback, cts.Token, separator: '\n');
+  
+         

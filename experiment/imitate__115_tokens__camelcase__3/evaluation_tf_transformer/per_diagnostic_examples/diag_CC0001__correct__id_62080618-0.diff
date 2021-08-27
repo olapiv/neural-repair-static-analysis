@@ -1,0 +1,12 @@
+id: 62080618-0
+diagnostic: CC0001
+perc_correct_in_test: 0.20454545454545456
+num_datapoints_in_train: 140
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+          if (dataRecord.IsDBNull(index))
+                  return null;
+<<<< DIAGNOSTIC: use 'var' instead of specifying the type name. >>>>
+-             object o = dataRecord.GetValue(index);
++             var o = dataRecord.GetValue(index);
+              if (o == null) // this is not supposed to happen
+          

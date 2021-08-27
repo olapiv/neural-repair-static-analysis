@@ -1,0 +1,21 @@
+id: 70867327-0
+diagnostic: RCS1018
+perc_correct_in_test: 0.9310344827586207
+num_datapoints_in_train: 72
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  THE USE OR OTHER DEALINGS IN
+  // THE SOFTWARE.
+  // 
+  #endregion
+  using System.Collections.Generic;
+  using System.Data;
+  
+  namespace DbLinq.Vendor.Implementation
+  {
+<<<< DIAGNOSTIC: add default access modifier. >>>>
+-     partial class SchemaLoader
++     public partial class SchemaLoader
+      {
+          protected abstract IList<IDataTableColumn> ReadColumns(IDbConnection connectionString, string databaseName);
+      }
+  }

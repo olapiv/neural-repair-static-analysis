@@ -1,0 +1,21 @@
+id: 24434842-0
+diagnostic: HLQ005
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 13
+<<<<<<<< CORRECT >>>>>>>>
+   in t.GetMembers()
+<<<< DIAGNOSTIC: avoid the use of 'Single'. use 'First' instead. >>>>
+-                    where (member.GetCustomAttributes(true).OfType<ColumnAttribute>().DefaultIfEmpty(new ColumnAttribute()).Single().Name == name)
++                    where (member.GetCustomAttributes(true).OfType<ColumnAttribute>().DefaultIfEmpty(new ColumnAttribute()).First().Name == name)
+<<<< DIAGNOSTIC: avoid the use of 'SingleOrDefault'. use 'FirstOrDefault' instead. >>>>
+-                     select member).SingleOrDefault();
++                     select member).FirstOrDefault();
+          }
+<<<<<<<< INFERRED >>>>>>>>
+   in t.GetMembers()
+<<<< DIAGNOSTIC: avoid the use of 'Single'. use 'First' instead. >>>>
+-                    where (member.GetCustomAttributes(true).OfType<ColumnAttribute>().DefaultIfEmpty(new ColumnAttribute()).Single().Name == name)
++                   where member.GetCustomAttributes(true).OfType<ColumnAttribute>().DefaultIfEmpty(new ColumnAttribute()).Single().Name == name
+<<<< DIAGNOSTIC: avoid the use of 'SingleOrDefault'. use 'FirstOrDefault' instead. >>>>
+-                     select member).SingleOrDefault();
+          }

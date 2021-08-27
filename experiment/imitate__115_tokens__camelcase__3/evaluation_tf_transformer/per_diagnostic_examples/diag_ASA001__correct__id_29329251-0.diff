@@ -1,0 +1,13 @@
+id: 29329251-0
+diagnostic: ASA001
+perc_correct_in_test: 1.0
+num_datapoints_in_train: 14
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  new Lazy<Task>(Task.Run(StartCore));
+          }
+  
+<<<< DIAGNOSTIC: async method name 'HandleConnection' should end with 'Async' as the method returns task >>>>
+-         protected abstract Task HandleConnection(int workerId, long jobId, SslStream stream, TcpClient client, Random random, TimeSpan duration, CancellationToken token);
++         protected abstract Task HandleConnectionAsync(int workerId, long jobId, SslStream stream, TcpClient client, Random random, TimeSpan duration, CancellationToken token);
+  
+          protected virtual async Task<SslStream> EstablishSslStream(Stream network

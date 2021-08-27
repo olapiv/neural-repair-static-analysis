@@ -1,0 +1,13 @@
+id: 77147676-2
+diagnostic: EmptyArrayCreation
+perc_correct_in_test: 0.5
+num_datapoints_in_train: 9
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  "GetBytes: received unexpected type:" + obj);
+              //return _rdr.GetInt32(index);
+<<<< DIAGNOSTIC: use 'System.Array.Empty<byte>()' instead of an empty array creation. >>>>
+-             return new byte[0];
++             return System.Array.Empty<byte>();
+          }
+  
+          public static System.Data.Linq.Binary GetAsBinary(this IDataRecord dataRecord, int 

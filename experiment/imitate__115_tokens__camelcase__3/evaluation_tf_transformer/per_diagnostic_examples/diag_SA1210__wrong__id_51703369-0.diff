@@ -1,0 +1,42 @@
+id: 51703369-0
+diagnostic: SA1210
+perc_correct_in_test: 0.8888888888888888
+num_datapoints_in_train: 13
+<<<<<<<< CORRECT >>>>>>>>
+  // It is automatically generated
+  using System;
+  using System.Xml;
+  using System.Xml.Schema;
+  using System.Xml.Serialization;
+<<<< DIAGNOSTIC: using directives should be ordered alphabetically by the namespaces. >>>>
+- using System.Text;
+- using System.Collections;
+- using System.Globalization;
+  
+  namespace DbLinq.Schema.Dbml
+  {
+  	#if !MONO_STRICT
+  	public
+  	#endif
+  	class GeneratedReader : XmlSerializationReader
+  	{
+  		static readonly System.Reflection.MethodInfo 
+<<<<<<<< INFERRED >>>>>>>>
+  // It is automatically generated
+  using System;
+  using System.Xml;
+  using System.Xml.Schema;
+  using System.Xml.Serialization;
+<<<< DIAGNOSTIC: using directives should be ordered alphabetically by the namespaces. >>>>
+- using System.Text;
+  using System.Collections;
+  using System.Globalization;
+  
+  namespace DbLinq.Schema.Dbml
+  {
+  	#if !MONO_STRICT
+  	public
+  	#endif
+  	class GeneratedReader : XmlSerializationReader
+  	{
+  		static readonly System.Reflection.MethodInfo 

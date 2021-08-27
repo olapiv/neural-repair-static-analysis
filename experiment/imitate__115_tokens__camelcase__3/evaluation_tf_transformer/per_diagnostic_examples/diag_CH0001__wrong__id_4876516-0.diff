@@ -1,0 +1,18 @@
+id: 4876516-0
+diagnostic: CH0001
+perc_correct_in_test: 0.7272727272727273
+num_datapoints_in_train: 103
+<<<<<<<< CORRECT >>>>>>>>
+  new();
+          public LambdaExpression MapExpression { get; private set; }
+<<<< DIAGNOSTIC: remove trailing whitespace. whilst this analyzer includes a code fix provider, it is recommended you install the trailing whitespace visualizer add-in to automatically remove all trailing whitespace. see https://marketplace.visualstudio.com/items?itemname=madskristensen.trailingwhitespacevisualizer. >>>>
+-         internal bool CanConstructorMap() => Profile.ConstructorMappingEnabled && !DestinationType.IsAbstract && !ConstructDestinationUsingServiceLocator && 
++         internal bool CanConstructorMap() => Profile.ConstructorMappingEnabled && !DestinationType.IsAbstract && !ConstructDestinationUsingServiceLocator &&
+              !CustomConstruction && !HasTypeConverter && DestinationConstructors.Length > 0;
+<<<<<<<< INFERRED >>>>>>>>
+  new();
+          public LambdaExpression MapExpression { get; private set; }
+<<<< DIAGNOSTIC: remove trailing whitespace. whilst this analyzer includes a code fix provider, it is recommended you install the trailing whitespace visualizer add-in to automatically remove all trailing whitespace. see https://marketplace.visualstudio.com/items?itemname=madskristensen.trailingwhitespacevisualizer. >>>>
+-         internal bool CanConstructorMap() => Profile.ConstructorMappingEnabled && !DestinationType.IsAbstract && !ConstructDestinationUsingServiceLocator && 
++ 
+              !CustomConstruction && !HasTypeConverter && DestinationConstructors.Length > 0;

@@ -1,0 +1,12 @@
+id: 73141750-0
+diagnostic: RCS1032
+perc_correct_in_test: 0.2857142857142857
+num_datapoints_in_train: 8
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+       return DateTime.Now;
+                  case SpecialExpressionType.Date:
+<<<< DIAGNOSTIC: remove redundant parentheses. >>>>
+-                     return ((DateTime)operands[0].Evaluate());
++                     return (DateTime)operands[0].Evaluate();
+                  case SpecialExpressionType.DateDiffInMilliseconds:
+             

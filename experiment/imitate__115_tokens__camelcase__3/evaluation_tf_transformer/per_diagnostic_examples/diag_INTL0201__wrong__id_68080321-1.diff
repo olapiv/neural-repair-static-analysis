@@ -1,0 +1,28 @@
+id: 68080321-1
+diagnostic: INTL0201
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 1
+<<<<<<<< CORRECT >>>>>>>>
+     }
+              }
+          }
+  
+          [Fact]
+<<<< DIAGNOSTIC: async methods should not return void. >>>>
+-         public async void Issue457_NullParameterValues_MultiAsync_Named()
++         public async Task Issue457_NullParameterValues_MultiAsync_Named()
+          {
+              const string sql = @"
+  DECLARE @since DATETIME, @customerCode
+<<<<<<<< INFERRED >>>>>>>>
+     }
+              }
+          }
+  
+          [Fact]
+<<<< DIAGNOSTIC: async methods should not return void. >>>>
+-         public async void Issue457_NullParameterValues_MultiAsync_Named()
++         public async void SO35470588_WrongValuePidValues()
+          {
+              const string sql = @"
+  DECLARE @since DATETIME, @customerCode

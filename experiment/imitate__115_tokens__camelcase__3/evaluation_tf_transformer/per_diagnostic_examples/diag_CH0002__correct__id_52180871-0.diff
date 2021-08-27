@@ -1,0 +1,17 @@
+id: 52180871-0
+diagnostic: CH0002
+perc_correct_in_test: 0.8
+num_datapoints_in_train: 132
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+<<<< DIAGNOSTIC: move the using directive within the namespace scope. >>>>
+- using System;
+  
+  namespace ServiceStack
+  {
+      [Flags]
+      public enum Lang
+      {
+          CSharp =     1 << 0,
+          FSharp =     1 << 1,
+          Vb =         1 << 2,
+     

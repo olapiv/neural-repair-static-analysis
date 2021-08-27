@@ -1,0 +1,12 @@
+id: 50838114-0
+diagnostic: RCS1123
+perc_correct_in_test: 0.6
+num_datapoints_in_train: 14
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+         // TEMP..
+              //procsPerNode = 16;
+<<<< DIAGNOSTIC: add parentheses according to operator precedence. >>>>
+-             int totalTimeUnits = (endTimeMS - startTimeMS) / timeUnitMS + 1;
++             int totalTimeUnits = ((endTimeMS - startTimeMS) / timeUnitMS) + 1;
+              int procStart = procsPerNode * nodeIndexToPrint;
+       

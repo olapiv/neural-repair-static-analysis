@@ -1,0 +1,30 @@
+id: 52094413-3
+diagnostic: CC0091
+perc_correct_in_test: 0.5
+num_datapoints_in_train: 30
+<<<<<<<< CORRECT >>>>>>>>
+            throw new NotImplementedException();
+          }
+  
+          [DbLinqToDo]
+<<<< DIAGNOSTIC: make 'GetNewBindingList' method static. >>>>
+-         public IBindingList GetNewBindingList()
++         public static IBindingList GetNewBindingList()
+          {
+              throw new NotImplementedException();
+          }
+  
+     
+<<<<<<<< INFERRED >>>>>>>>
+            throw new NotImplementedException();
+          }
+  
+          [DbLinqToDo]
+<<<< DIAGNOSTIC: make 'GetNewBindingList' method static. >>>>
+-         public IBindingList GetNewBindingList()
++         public static IList<Binding> GetNew(List<Binding> getList)
+          {
+              throw new NotImplementedException();
+          }
+  
+     

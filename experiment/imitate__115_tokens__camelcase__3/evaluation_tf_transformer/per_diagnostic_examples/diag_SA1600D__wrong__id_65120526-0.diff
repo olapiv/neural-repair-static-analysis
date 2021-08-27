@@ -1,0 +1,34 @@
+id: 65120526-0
+diagnostic: SA1600D
+perc_correct_in_test: 0.22784810126582278
+num_datapoints_in_train: 228
+<<<<<<<< CORRECT >>>>>>>>
+  Base : Attribute
+      {
+          public AttributeBase()
+          {
+              this.typeId = Guid.NewGuid();
+          }
++         /// <summary>
++         /// the type id.
++         /// </summary>
+  
+<<<< DIAGNOSTIC: members must be correctly documented. >>>>
+          protected readonly Guid typeId; //Hack required to give Attributes unique identity
+      }
+  }
+<<<<<<<< INFERRED >>>>>>>>
+  Base : Attribute
+      {
+          public AttributeBase()
+          {
+              this.typeId = Guid.NewGuid();
+          }
++         /// <summary>
++         /// the unique type.
++         /// </summary>
+  
+<<<< DIAGNOSTIC: members must be correctly documented. >>>>
+          protected readonly Guid typeId; //Hack required to give Attributes unique identity
+      }
+  }

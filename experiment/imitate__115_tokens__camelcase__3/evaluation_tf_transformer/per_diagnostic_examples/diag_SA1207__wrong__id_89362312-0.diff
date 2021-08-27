@@ -1,0 +1,36 @@
+id: 89362312-0
+diagnostic: SA1207
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 0
+<<<<<<<< CORRECT >>>>>>>>
+  					RaisePropertyChanged(nameof(IsSelected));
+  				}
+  			}
+  		}
+  
+  		#endregion
+  
+  		#region OnChildrenChanged
+<<<< DIAGNOSTIC: the keyword 'protected' should come before 'internal'. >>>>
+- 		internal protected virtual void OnChildrenChanged(NotifyCollectionChangedEventArgs e)
++ 		protected internal virtual void OnChildrenChanged(NotifyCollectionChangedEventArgs e)
+  		{
+  			if (e.OldItems != null)
+  			{
+  				foreach (SharpTreeNode node in e.OldItems)
+<<<<<<<< INFERRED >>>>>>>>
+  					RaisePropertyChanged(nameof(IsSelected));
+  				}
+  			}
+  		}
+  
+  		#endregion
+  
+  		#region OnChildrenChanged
+<<<< DIAGNOSTIC: the keyword 'protected' should come before 'internal'. >>>>
+- 		internal protected virtual void OnChildrenChanged(NotifyCollectionChangedEventArgs e)
++ 		protected virtual void OnChildrenChanged(NotifyCollectionChangedEventArgs e)
+  		{
+  			if (e.OldItems != null)
+  			{
+  				foreach (SharpTreeNode node in e.OldItems)

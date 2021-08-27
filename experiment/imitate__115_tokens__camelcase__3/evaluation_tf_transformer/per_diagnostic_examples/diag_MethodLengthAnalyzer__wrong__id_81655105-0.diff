@@ -1,0 +1,18 @@
+id: 81655105-0
+diagnostic: MethodLengthAnalyzer
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 40
+<<<<<<<< CORRECT >>>>>>>>
+    {
++         [MethodHasDebt(LineCount = 54, ParameterCount = 4)]
+          // Adapted from https://devblogs.microsoft.com/dotnet/system-io-pipelines-high-performance-io-in-net/
+<<<< DIAGNOSTIC: method readlinesusingpipesasync is 54 lines long while it should not be longer than 50 lines. >>>>
+          public static async Task ReadLinesUsingPipesAsync(this Stream stream, Func<ReadOnlySequence<byte>, Task> callback, CancellationToken token = default, char separator = '\n')
+      
+<<<<<<<< INFERRED >>>>>>>>
+    {
++         [MethodHasDebt(LineCount = 51, ParameterCount = 2)]
+          // Adapted from https://devblogs.microsoft.com/dotnet/system-io-pipelines-high-performance-io-in-net/
+<<<< DIAGNOSTIC: method readlinesusingpipesasync is 54 lines long while it should not be longer than 50 lines. >>>>
+          public static async Task ReadLinesUsingPipesAsync(this Stream stream, Func<ReadOnlySequence<byte>, Task> callback, CancellationToken token = default, char separator = '\n')
+      

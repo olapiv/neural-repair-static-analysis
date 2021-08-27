@@ -1,0 +1,38 @@
+id: 55179920-0
+diagnostic: TypeLengthAnalyzer
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 4
+<<<<<<<< CORRECT >>>>>>>>
+  System.Data;
+  using System.Data.Common;
+  using System.Globalization;
+  using System.Linq;
+  using System.Threading;
+  using System.Threading.Tasks;
+  
+  namespace Dapper
++     [TypeHasDebt(LineCount = 1208, FieldCount = 2)]
+  {
+<<<< DIAGNOSTIC: type sqlmapper is 1208 lines long while it should not be longer than 1000 lines. >>>>
+      public static partial class SqlMapper
+      {
+          /// <summary>
+          /// Execute a query asynchronously using Task.
+      
+<<<<<<<< INFERRED >>>>>>>>
+  System.Data;
+  using System.Data.Common;
+  using System.Globalization;
+  using System.Linq;
+  using System.Threading;
+  using System.Threading.Tasks;
+  
+  namespace Dapper
++     [TypeHasDebt(LineCount = 109, FieldCount = 0)]
+  {
+<<<< DIAGNOSTIC: type sqlmapper is 1208 lines long while it should not be longer than 1000 lines. >>>>
+      public static partial class SqlMapper
+      {
+          /// <summary>
+          /// Execute a query asynchronously using Task.
+      

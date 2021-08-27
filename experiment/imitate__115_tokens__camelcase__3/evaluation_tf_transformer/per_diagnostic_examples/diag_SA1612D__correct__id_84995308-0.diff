@@ -1,0 +1,19 @@
+id: 84995308-0
+diagnostic: SA1612D
+perc_correct_in_test: 0.1836734693877551
+num_datapoints_in_train: 567
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+   NewExpressionMutator : IMutableExpression
+      {
+          protected NewExpression NewExpression { get; private set; }
++         /// <summary>
++         /// mutate the operands.
++         /// </summary>
++         /// <param name="operands">the operands.</param>
++         /// <returns>the expression.</returns>
+  
+<<<< DIAGNOSTIC: method documentation: no documentation. >>>>
+          public Expression Mutate(IList<Expression> operands)
+          {
+              if (NewExpression.Members != null)
+             

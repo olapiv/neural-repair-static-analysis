@@ -1,0 +1,24 @@
+id: 67106244-0
+diagnostic: RB002
+perc_correct_in_test: 0.6666666666666666
+num_datapoints_in_train: 8
+<<<<<<<< CORRECT >>>>>>>>
+         return new Configuration (config_path, "projects.xml");
+          });
+  
+<<<< DIAGNOSTIC: field 'DefaultConfiguration' is marked static >>>>
+-         public static Configuration DefaultConfiguration { get { return ConfigLazy.Value; } }
++         public Configuration DefaultConfiguration { get { return ConfigLazy.Value; } }
+          public static bool DebugMode = true;
+  
+          public readonly string DirectoryPath;
+<<<<<<<< INFERRED >>>>>>>>
+         return new Configuration (config_path, "projects.xml");
+          });
+  
+<<<< DIAGNOSTIC: field 'DefaultConfiguration' is marked static >>>>
+-         public static Configuration DefaultConfiguration { get { return ConfigLazy.Value; } }
++         public Configuration DefaultConfiguration = new Lazy<Configuration> { get; }
+          public static bool DebugMode = true;
+  
+          public readonly string DirectoryPath;

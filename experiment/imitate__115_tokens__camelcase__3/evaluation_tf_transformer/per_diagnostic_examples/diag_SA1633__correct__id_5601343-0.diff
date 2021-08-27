@@ -1,0 +1,18 @@
+id: 5601343-0
+diagnostic: SA1633
+perc_correct_in_test: 0.32
+num_datapoints_in_train: 51
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
++ // <copyright file="TealSwatch.cs" company="PlaceholderCompany">
++ // Copyright (c) PlaceholderCompany. All rights reserved.
++ // </copyright>
+<<<< DIAGNOSTIC: the file header is missing or not located at the top of the file. >>>>
+  using System.Collections.Generic;
+  using System.Windows.Media;
+  
+  namespace MaterialDesignColors.Recommended
+  {
+      public class TealSwatch : ISwatch
+      {
+          public static Color Teal50 { get; } = (Color)ColorConverter.ConvertFromString("#E0F2F1");
+          public static Color Teal

@@ -1,0 +1,12 @@
+id: 19208980-3
+diagnostic: CCN0031
+perc_correct_in_test: 0.07407407407407407
+num_datapoints_in_train: 73
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  , int? commandTimeout = null, CommandType? commandType = null)
+          {
+<<<< DIAGNOSTIC: method calls with 4 or more parameters should have param names >>>>
+-             var command = new CommandDefinition(sql, param, transaction, commandTimeout, commandType, CommandFlags.Buffered);
++             var command = new CommandDefinition(commandText: sql, parameters: param, transaction: transaction, commandTimeout: commandTimeout, commandType: commandType, flags: CommandFlags.Buffered);
+              return ExecuteScalarImpl<T>(cnn, ref command);
+      

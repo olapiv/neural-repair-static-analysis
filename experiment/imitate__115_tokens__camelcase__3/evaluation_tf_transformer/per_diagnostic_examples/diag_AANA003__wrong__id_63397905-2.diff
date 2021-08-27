@@ -1,0 +1,20 @@
+id: 63397905-2
+diagnostic: AANA003
+perc_correct_in_test: 0.6666666666666666
+num_datapoints_in_train: 30
+<<<<<<<< CORRECT >>>>>>>>
+        Task<IList<T>> GetByIdsAsync<T>(ICollection ids, CancellationToken token = default);
+  
+<<<< DIAGNOSTIC: cancellationtoken parameter 'token' name differs from 'cancellationToken' >>>>
+-         Task<T> StoreAsync<T>(T entity, CancellationToken token = default);
++         Task<T> StoreAsync<T>(T entity, CancellationToken cancellationToken = default);
+  
+          Task StoreAllAsync<TEntity>(IEnumerable<TEntity> entities, CancellationToken token = default);
+<<<<<<<< INFERRED >>>>>>>>
+        Task<IList<T>> GetByIdsAsync<T>(ICollection ids, CancellationToken token = default);
+  
+<<<< DIAGNOSTIC: cancellationtoken parameter 'token' name differs from 'cancellationToken' >>>>
+-         Task<T> StoreAsync<T>(T entity, CancellationToken token = default);
++         Task<T> StoreAsync(T entity, CancellationToken cancellationToken = default);
+  
+          Task StoreAllAsync<TEntity>(IEnumerable<TEntity> entities, CancellationToken token = default);

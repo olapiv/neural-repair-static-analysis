@@ -1,0 +1,20 @@
+id: 49256514-1
+diagnostic: Wintellect012
+perc_correct_in_test: 0.9393939393939394
+num_datapoints_in_train: 104
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+      }
+                  return _associations;
+              }
+          }
+  
+<<<< DIAGNOSTIC: the class 'AssociationData' should be declared sealed if this is a newly written class >>>>
+- 		private class AssociationData
++ 		private sealed class AssociationData
+  		{
+  			public AssociationAttribute Association;
+  			public MemberInfo Member;
+  			public AttributedAssociationMetaDataMember DataMember;
+  		}
+  
+         

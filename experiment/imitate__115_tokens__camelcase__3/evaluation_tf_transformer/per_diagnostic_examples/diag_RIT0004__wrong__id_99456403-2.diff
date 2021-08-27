@@ -1,0 +1,30 @@
+id: 99456403-2
+diagnostic: RIT0004
+perc_correct_in_test: 0.8571428571428571
+num_datapoints_in_train: 38
+<<<<<<<< CORRECT >>>>>>>>
+  	if (Reader.NodeType != XmlNodeType.None)
+  			Reader.ReadEndElement ();
+  			return res;
+  		}
+  
+<<<< DIAGNOSTIC: 'GetEnumValue_ClassModifier' does not have an explicit modifier >>>>
+- 		DbLinq.Schema.Dbml.ClassModifier GetEnumValue_ClassModifier (string xmlName)
++         private DbLinq.Schema.Dbml.ClassModifier GetEnumValue_ClassModifier (string xmlName)
+  		{
+  			switch (xmlName)
+  			{
+  				case "Sealed": return DbLinq.Schema.Dbml.ClassModifier.Sealed;
+<<<<<<<< INFERRED >>>>>>>>
+  	if (Reader.NodeType != XmlNodeType.None)
+  			Reader.ReadEndElement ();
+  			return res;
+  		}
+  
+<<<< DIAGNOSTIC: 'GetEnumValue_ClassModifier' does not have an explicit modifier >>>>
+- 		DbLinq.Schema.Dbml.ClassModifier GetEnumValue_ClassModifier (string xmlName)
++ 		private DbLinq.Schema.Dbml.ClassModifier GetEnumValue_ClassModifier (string xmlName)
+  		{
+  			switch (xmlName)
+  			{
+  				case "Sealed": return DbLinq.Schema.Dbml.ClassModifier.Sealed;

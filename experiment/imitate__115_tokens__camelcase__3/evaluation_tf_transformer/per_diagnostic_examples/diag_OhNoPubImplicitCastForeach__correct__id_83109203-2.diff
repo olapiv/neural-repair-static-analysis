@@ -1,0 +1,12 @@
+id: 83109203-2
+diagnostic: OhNoPubImplicitCastForeach
+perc_correct_in_test: 0.25
+num_datapoints_in_train: 7
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  "TABLE_SCHEMA");
+              List<IDataName> tables = new List<IDataName>();
+<<<< DIAGNOSTIC: implicit run time cast from 'object' to 'System.Data.DataRow' >>>>
+-             foreach (DataRow table in dbTables.Rows)
++             foreach (var table in dbTables.Rows)
+              {
+                  var schema = UnquoteSqlName(GetValue<string

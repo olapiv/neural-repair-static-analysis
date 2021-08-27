@@ -1,0 +1,24 @@
+id: 75197657-0
+diagnostic: RB001
+perc_correct_in_test: 0.35714285714285715
+num_datapoints_in_train: 24
+<<<<<<<< CORRECT >>>>>>>>
+  class TypeMapPlanBuilder
+      {
+<<<< DIAGNOSTIC: field 'CreateProxyMethod' is marked static >>>>
+-         private static readonly MethodInfo CreateProxyMethod = typeof(ObjectFactory).GetStaticMethod(nameof(ObjectFactory.CreateInterfaceProxy));
++         private readonly MethodInfo CreateProxyMethod = typeof(ObjectFactory).GetStaticMethod(nameof(ObjectFactory.CreateInterfaceProxy));
+<<<< DIAGNOSTIC: field 'MappingError' is marked static >>>>
+-         private static readonly MethodInfo MappingError = typeof(TypeMapPlanBuilder).GetStaticMethod(nameof(MemberMappingError));
++         private readonly MethodInfo MappingError = typeof(TypeMapPlanBuilder).GetStaticMethod(nameof(MemberMappingError));
+          private readonly IGlobal
+<<<<<<<< INFERRED >>>>>>>>
+  class TypeMapPlanBuilder
+      {
+<<<< DIAGNOSTIC: field 'CreateProxyMethod' is marked static >>>>
+-         private static readonly MethodInfo CreateProxyMethod = typeof(ObjectFactory).GetStaticMethod(nameof(ObjectFactory.CreateInterfaceProxy));
+<<<< DIAGNOSTIC: field 'MappingError' is marked static >>>>
+-         private static readonly MethodInfo MappingError = typeof(TypeMapPlanBuilder).GetStaticMethod(nameof(MemberMappingError));
++         private readonly MethodInfo MappingError = typeof(ObjectFactory).GetMethod(nameof(CreateType));
++         private readonly Type _
+          private readonly IGlobal

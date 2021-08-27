@@ -1,0 +1,17 @@
+id: 40849609-1
+diagnostic: DA4005
+perc_correct_in_test: 1.0
+num_datapoints_in_train: 19
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  
+      }
+      
+      /// <summary>
+      /// Type of Value used in the SQL Template
++     /// <remarks></remarks>
+      /// </summary>
+<<<< DIAGNOSTIC: type 'ValueStyle' doesn't have remark in the comment >>>>
+      public enum ValueStyle
+      {
+          /// <summary>
+          /// Standard SQL Condition, e.g: '{

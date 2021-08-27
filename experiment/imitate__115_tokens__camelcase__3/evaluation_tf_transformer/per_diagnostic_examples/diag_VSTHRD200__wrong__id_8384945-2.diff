@@ -1,0 +1,26 @@
+id: 8384945-2
+diagnostic: VSTHRD200
+perc_correct_in_test: 0.8571428571428571
+num_datapoints_in_train: 12
+<<<<<<<< CORRECT >>>>>>>>
+  sessionId
+          /// </summary>
+          /// <param name="sessionId"></param>
+          /// <returns></returns>
+          ISession CreateSession(string sessionId);
+<<<< DIAGNOSTIC: avoid "async" suffix in names of methods that do not return an awaitable type. >>>>
+-         ISessionAsync CreateSessionAsync(string sessionId);
++         ISessionAsync CreateSession(string sessionId);
+      }
+  }
+<<<<<<<< INFERRED >>>>>>>>
+  sessionId
+          /// </summary>
+          /// <param name="sessionId"></param>
+          /// <returns></returns>
+          ISession CreateSession(string sessionId);
+<<<< DIAGNOSTIC: avoid "async" suffix in names of methods that do not return an awaitable type. >>>>
+-         ISessionAsync CreateSessionAsync(string sessionId);
++         ISessionAsync CreateSession(string sessionId)
+      }
+  }

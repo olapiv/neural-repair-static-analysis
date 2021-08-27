@@ -1,0 +1,17 @@
+id: 61334224-1
+diagnostic: VSD0029
+perc_correct_in_test: 0.13793103448275862
+num_datapoints_in_train: 92
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+   { throw new NotImplementedException(); }
+          }
+  
+-         public override bool IsDeferred
++         public override bool IsDeferred => false;
+-         {
+<<<< DIAGNOSTIC: property isdeferred can be written using an expression-bodied member >>>>
+-             get { return false; }
+-         }
+  
+          public override bool IsPersistent
+          {

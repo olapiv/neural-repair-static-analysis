@@ -1,0 +1,26 @@
+id: 12347415-1
+diagnostic: CC0023
+perc_correct_in_test: 0.5
+num_datapoints_in_train: 46
+<<<<<<<< CORRECT >>>>>>>>
+   { get; set; }
+      }
+  
+      [AttributeUsage(AttributeTargets.Property, AllowMultiple = true, Inherited = true)]
+<<<< DIAGNOSTIC: mark 'AutoQueryViewerFieldAttribute' as sealed. >>>>
+-     public class AutoQueryViewerFieldAttribute : AttributeBase
++     public sealed class AutoQueryViewerFieldAttribute : AttributeBase
+      {
+          public string Title { get; set; }
+          public string Description { get;
+<<<<<<<< INFERRED >>>>>>>>
+   { get; set; }
+      }
+  
+      [AttributeUsage(AttributeTargets.Property, AllowMultiple = true, Inherited = true)]
+<<<< DIAGNOSTIC: mark 'AutoQueryViewerFieldAttribute' as sealed. >>>>
+-     public class AutoQueryViewerFieldAttribute : AttributeBase
++     public sealed class AutoQueryViewerAttribute : AttributeBase
+      {
+          public string Title { get; set; }
+          public string Description { get;

@@ -1,0 +1,28 @@
+id: 19199881-0
+diagnostic: SA1128
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 5
+<<<<<<<< CORRECT >>>>>>>>
+   /// Creates a new swatch provider based on standard Material Design colors.
+          /// </summary>
++         public SwatchesProvider()
+<<<< DIAGNOSTIC: put constructor initializers on their own line >>>>
+-         public SwatchesProvider() : this(Assembly.GetExecutingAssembly())
++             : this(Assembly.GetExecutingAssembly())
+          { }
+  
+          public IEnumerable<Swatch> Swatches { get; }
+  
+       
+<<<<<<<< INFERRED >>>>>>>>
+   /// Creates a new swatch provider based on standard Material Design colors.
+          /// </summary>
+<<<< DIAGNOSTIC: put constructor initializers on their own line >>>>
+-         public SwatchesProvider() : this(Assembly.GetExecutingAssembly())
++         public Swatch(this.Provider.GetAssembly()
++             : this(assembly)
+          { }
+  
+          public IEnumerable<Swatch> Swatches { get; }
+  
+       

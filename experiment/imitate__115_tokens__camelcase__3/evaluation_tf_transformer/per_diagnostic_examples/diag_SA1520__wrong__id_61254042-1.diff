@@ -1,0 +1,22 @@
+id: 61254042-1
+diagnostic: SA1520
+perc_correct_in_test: 0.625
+num_datapoints_in_train: 16
+<<<<<<<< CORRECT >>>>>>>>
+   ParameterType.Output;
+                      }
++                     {
+                      else
+<<<< DIAGNOSTIC: use braces consistently >>>>
+                          type = ParameterType.Input;
+                  }
+              
+<<<<<<<< INFERRED >>>>>>>>
+   ParameterType.Output;
+                      }
++                         {
+                      else
+<<<< DIAGNOSTIC: use braces consistently >>>>
+                          type = ParameterType.Input;
+                  }
+              

@@ -1,0 +1,17 @@
+id: 80092620-0
+diagnostic: RIT0004
+perc_correct_in_test: 0.8571428571428571
+num_datapoints_in_train: 38
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+     invoke = Expression.Convert(invoke, columnType);
+              return invoke;
+          }
+      }
+  
+<<<< DIAGNOSTIC: 'ParameterBinder' does not have an explicit modifier >>>>
+-     class ParameterBinder
++     internal class ParameterBinder
+      {
+          Dictionary<Expression, Expression> map;
+  
+          public Expression BindParams(LambdaExpression expr, params Expression[] 

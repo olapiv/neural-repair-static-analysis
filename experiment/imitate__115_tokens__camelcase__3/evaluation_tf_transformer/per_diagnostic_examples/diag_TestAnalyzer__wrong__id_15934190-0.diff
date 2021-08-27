@@ -1,0 +1,30 @@
+id: 15934190-0
+diagnostic: TestAnalyzer
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 13
+<<<<<<<< CORRECT >>>>>>>>
+  using System.Collections.Generic;
+  using System.Net;
+  
+  namespace RestSharp.Tests.Shared.Fixtures
+  {
+<<<< DIAGNOSTIC: type name 'TestHttpServerExtensions' contains lowercase letters >>>>
+-     public static class TestHttpServerExtensions
++     public static class TESTHTTPSERVEREXTENSIONS
+      {
+          static readonly Dictionary<HttpListenerRequest, string> RequestContent = new Dictionary<HttpListenerRequest, string>();
+  
+          internal static void ClearContent(this HttpListener
+<<<<<<<< INFERRED >>>>>>>>
+  using System.Collections.Generic;
+  using System.Net;
+  
+  namespace RestSharp.Tests.Shared.Fixtures
+  {
+<<<< DIAGNOSTIC: type name 'TestHttpServerExtensions' contains lowercase letters >>>>
+-     public static class TestHttpServerExtensions
++     public static class TESTREQUESTHANDLER
+      {
+          static readonly Dictionary<HttpListenerRequest, string> RequestContent = new Dictionary<HttpListenerRequest, string>();
+  
+          internal static void ClearContent(this HttpListener

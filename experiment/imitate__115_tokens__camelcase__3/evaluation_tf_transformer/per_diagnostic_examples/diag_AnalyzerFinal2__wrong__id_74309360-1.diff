@@ -1,0 +1,22 @@
+id: 74309360-1
+diagnostic: AnalyzerFinal2
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 8
+<<<<<<<< CORRECT >>>>>>>>
+            return new KeyValuePair<string, string>(arg.Trim(), null);
+          }
+  
+<<<< DIAGNOSTIC: type name 'JavaScriptGenerator' contains lowercase letters >>>>
+-         public class JavaScriptGenerator : MarshalByRefObject
++         public class JAVASCRIPTGENERATOR : MarshalByRefObject
+          {
+              [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1822
+<<<<<<<< INFERRED >>>>>>>>
+            return new KeyValuePair<string, string>(arg.Trim(), null);
+          }
+  
+<<<< DIAGNOSTIC: type name 'JavaScriptGenerator' contains lowercase letters >>>>
+-         public class JavaScriptGenerator : MarshalByRefObject
++     public class RESOURCES
+          {
+              [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1822

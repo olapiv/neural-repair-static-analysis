@@ -1,0 +1,13 @@
+id: 70123903-0
+diagnostic: RS0100
+perc_correct_in_test: 0.4666666666666667
+num_datapoints_in_train: 37
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+      public (bool success, int length) TryLoad(ReadOnlyMemory<byte> buffer)
+          {
+<<<< DIAGNOSTIC: statements must be placed on their own line >>>>
+-             if (buffer.Length < length) return (false, length);
++             if (buffer.Length < length)
++                 return (false, length);
+              buffer.Slice(0, length).CopyTo(Salt);
+              

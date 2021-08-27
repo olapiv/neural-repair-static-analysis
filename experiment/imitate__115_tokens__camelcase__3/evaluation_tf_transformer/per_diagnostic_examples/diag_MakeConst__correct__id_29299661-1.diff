@@ -1,0 +1,20 @@
+id: 29299661-1
+diagnostic: MakeConst
+perc_correct_in_test: 0.5
+num_datapoints_in_train: 2
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  Reader.Skip ();
+  				return ob;
+  			}
+  
+  			Reader.ReadStartElement();
+  			Reader.MoveToContent();
+  
+<<<< DIAGNOSTIC: can be made constant >>>>
+- 			bool b21=false, b22=false;
++             const bool b21 = false, b22 = false;
+  
+  			System.Object[] o24;
+  			o24 = null;
+  			DbLinq.Schema.Dbml.Type[] o26;
+  		

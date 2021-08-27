@@ -1,0 +1,20 @@
+id: 54813086-0
+diagnostic: SA1519
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 12
+<<<<<<<< CORRECT >>>>>>>>
+  )));
+                      }
++                     {
+                      else
+<<<< DIAGNOSTIC: braces should not be omitted from multi-line child statement >>>>
+                          foreach (int whereIndex in whereToRemove)
+                             
+<<<<<<<< INFERRED >>>>>>>>
+  )));
+                      }
++                         {
+                      else
+<<<< DIAGNOSTIC: braces should not be omitted from multi-line child statement >>>>
+                          foreach (int whereIndex in whereToRemove)
+                             

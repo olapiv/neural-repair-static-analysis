@@ -1,0 +1,23 @@
+id: 46667234-1
+diagnostic: SA1308
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 4
+<<<<<<<< CORRECT >>>>>>>>
+  ] s_crc_table = new ulong[256];
+  
+      // Flag: has the table been computed? Initially false.
+<<<< DIAGNOSTIC: field 's_crc_table_computed' should not begin with the prefix 's_' >>>>
+-     private static bool s_crc_table_computed = false;
++     private static bool crc_table_computed = false;
+  
+      // Make the table for a fast CRC.
+      // Derivative work of zlib -- https://github.com
+<<<<<<<< INFERRED >>>>>>>>
+  ] s_crc_table = new ulong[256];
+  
+      // Flag: has the table been computed? Initially false.
+<<<< DIAGNOSTIC: field 's_crc_table_computed' should not begin with the prefix 's_' >>>>
+      private static bool s_crc_table_computed = false;
+  
+      // Make the table for a fast CRC.
+      // Derivative work of zlib -- https://github.com

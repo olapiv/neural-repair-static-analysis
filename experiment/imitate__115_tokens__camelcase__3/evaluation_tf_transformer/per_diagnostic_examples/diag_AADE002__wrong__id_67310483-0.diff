@@ -1,0 +1,26 @@
+id: 67310483-0
+diagnostic: AADE002
+perc_correct_in_test: 0.125
+num_datapoints_in_train: 24
+<<<<<<<< CORRECT >>>>>>>>
+      object Execute(IRequest request, bool applyFilters);
+  
+          /// <summary>
+          /// Execute Service Gateway Requests
+          /// </summary>
+<<<< DIAGNOSTIC: method 'GatewayExecuteAsync' missing 'CancellationToken' parameter >>>>
+-         Task<object> GatewayExecuteAsync(object requestDto, IRequest req, bool applyFilters);
++         Task<object> GatewayExecuteAsync(object requestDto, IRequest req, bool applyFilters, System.Threading.CancellationToken cancellationToken);
+      }
+  }
+<<<<<<<< INFERRED >>>>>>>>
+      object Execute(IRequest request, bool applyFilters);
+  
+          /// <summary>
+          /// Execute Service Gateway Requests
+          /// </summary>
+<<<< DIAGNOSTIC: method 'GatewayExecuteAsync' missing 'CancellationToken' parameter >>>>
+-         Task<object> GatewayExecuteAsync(object requestDto, IRequest req, bool applyFilters);
++         Task<object> ExecuteAsync(IRequest requestDto, System.Threading.CancellationToken cancellationToken);
+      }
+  }

@@ -1,0 +1,15 @@
+id: 78648945-3
+diagnostic: SA1306
+perc_correct_in_test: 0.25
+num_datapoints_in_train: 13
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  { throw new NotImplementedException(); }
+  		}
+  
+  		//This function will try to add unknown table types
+<<<< DIAGNOSTIC: field '_Tables' should begin with lower-case letter >>>>
+- 		private IDictionary<Type, MetaTable> _Tables = new Dictionary<Type, MetaTable>();
++ 		private IDictionary<Type, MetaTable> _tables = new Dictionary<Type, MetaTable>();
+  
+  		/// <summary>
+  		/// Initializes a new instance of the <see cref="AttributedMetaModel"/> class

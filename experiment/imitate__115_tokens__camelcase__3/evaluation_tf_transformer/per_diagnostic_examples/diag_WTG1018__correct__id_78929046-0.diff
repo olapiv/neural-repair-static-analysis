@@ -1,0 +1,15 @@
+id: 78929046-0
+diagnostic: WTG1018
+perc_correct_in_test: 0.08333333333333333
+num_datapoints_in_train: 21
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  (this Assembly a)
+              where A : Attribute
+          {
+<<<< DIAGNOSTIC: boolean literals as method arguments should be passed as named arguments. >>>>
+-             return GetSingleAttribute<A>(a.GetCustomAttributes(typeof(A), true));
++             return GetSingleAttribute<A>(a.GetCustomAttributes(typeof(A), inherit: true));
+          }
+  
+          /// <summary>
+          /// Returns 

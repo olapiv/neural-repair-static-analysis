@@ -1,0 +1,24 @@
+id: 48635333-0
+diagnostic: SA1025
+perc_correct_in_test: 0.5
+num_datapoints_in_train: 26
+<<<<<<<< CORRECT >>>>>>>>
+  specialExpression)
+          {
+              var operands = specialExpression.Operands.ToList();
+<<<< DIAGNOSTIC: code should not contain multiple whitespace characters in a row. >>>>
+-             switch (specialExpression.SpecialNodeType)  // SETuse
++             switch (specialExpression.SpecialNodeType) // SETuse
+              {
+                  case SpecialExpressionType.IsNull:
+     
+<<<<<<<< INFERRED >>>>>>>>
+  specialExpression)
+          {
+              var operands = specialExpression.Operands.ToList();
+<<<< DIAGNOSTIC: code should not contain multiple whitespace characters in a row. >>>>
+-             switch (specialExpression.SpecialNodeType)  // SETuse
++             switch (specialExpressionType)
+              {
+                  case SpecialExpressionType.IsNull:
+     

@@ -1,0 +1,24 @@
+id: 55610138-0
+diagnostic: RCS1089
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 0
+<<<<<<<< CORRECT >>>>>>>>
+  , double vH)
+              {
+<<<< DIAGNOSTIC: use ++ operator instead of assignment. >>>>
+-                 if (vH < 0) vH += 1;
++                 if (vH < 0) vH++;
+<<<< DIAGNOSTIC: use -- operator instead of assignment. >>>>
+-                 if (vH > 1) vH -= 1;
++                 if (vH > 1) vH--;
+                  if ((6 *
+<<<<<<<< INFERRED >>>>>>>>
+  , double vH)
+              {
+<<<< DIAGNOSTIC: use ++ operator instead of assignment. >>>>
+-                 if (vH < 0) vH += 1;
++                 if ((6 * vH) < 1)
+<<<< DIAGNOSTIC: use -- operator instead of assignment. >>>>
+-                 if (vH > 1) vH -= 1;
++                 if ((6 * vH))
+                  if ((6 *

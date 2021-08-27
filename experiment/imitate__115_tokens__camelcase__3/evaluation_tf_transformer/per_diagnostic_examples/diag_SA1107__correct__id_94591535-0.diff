@@ -1,0 +1,17 @@
+id: 94591535-0
+diagnostic: SA1107
+perc_correct_in_test: 1.0
+num_datapoints_in_train: 10
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  ;
+  
+              }
+              if (memberInfo is MethodInfo)
+<<<< DIAGNOSTIC: code should not contain multiple statements on one line >>>>
+-                 return ((MethodInfo)memberInfo).IsStatic; ;
++                 return ((MethodInfo)memberInfo).IsStatic;
++             ;
+              throw new ArgumentException();
+          }
+  
+          

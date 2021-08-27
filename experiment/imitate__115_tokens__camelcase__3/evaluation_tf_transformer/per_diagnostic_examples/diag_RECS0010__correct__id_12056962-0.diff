@@ -1,0 +1,10 @@
+id: 12056962-0
+diagnostic: RECS0010
+perc_correct_in_test: 0.5
+num_datapoints_in_train: 1
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+           methodCallExpression = memberExpression as MethodCallExpression;
+<<<< DIAGNOSTIC: '?:' expression can be converted to '??' expression >>>>
+-                             memberExpression = (methodCallExpression.Object != null) ? methodCallExpression.Object : methodCallExpression.Arguments[0];
++                             memberExpression = methodCallExpression.Object ?? methodCallExpression.Arguments[0];
+                           

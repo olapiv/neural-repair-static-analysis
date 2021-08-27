@@ -1,0 +1,22 @@
+id: 97137769-0
+diagnostic: SA1209
+perc_correct_in_test: 1.0
+num_datapoints_in_train: 1
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  .Generic;
+  
+  #if MONO_STRICT
+  using DataContext = System.Data.Linq.DataContext;
+  #else
+  using DataContext = DbLinq.Data.Linq.DataContext;
+  #endif
+  
+<<<< DIAGNOSTIC: using alias directives should be placed after all using namespace directives >>>>
+- using Data = DbLinq.Data;
+  using DbLinq.Data.Linq;
+  using IExecuteResult = System.Data.Linq.IExecuteResult;
+  
+  namespace DbLinq.Vendor
+  {
+      /// <summary>
+    

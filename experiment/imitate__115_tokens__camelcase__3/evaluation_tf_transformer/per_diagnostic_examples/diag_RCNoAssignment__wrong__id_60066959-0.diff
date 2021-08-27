@@ -1,0 +1,42 @@
+id: 60066959-0
+diagnostic: RCNoAssignment
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 10
+<<<<<<<< CORRECT >>>>>>>>
+  MONO_STRICT
+      public
+  #endif
+      class ColumnName : Name
+      {
+          /// <summary>
+          /// Name of the public property
+          /// </summary>
++         /// <summary>Copy Constructor</summary>
++         /// <param name="propertyName"><see cref="PropertyName"/></param>
++         public ColumnName(ColumnName obj)
++         {
++             PropertyName = obj.PropertyName;
++         }
+<<<< DIAGNOSTIC: there is no assignment to a get-only auto-property 'PropertyName'. >>>>
+          public string PropertyName { get; set; }
+      }
+  }
+<<<<<<<< INFERRED >>>>>>>>
+  MONO_STRICT
+      public
+  #endif
+      class ColumnName : Name
+      {
+          /// <summary>
+          /// Name of the public property
++         /// <summary>Copy Constructor</summary>
++         /// <param name="propertyName"><see cref="ColumnName"/></param>
++         public SchemaName(ParameterName obj)
++         {
++             PropertyName = obj.Name;
++         }
+          /// </summary>
+<<<< DIAGNOSTIC: there is no assignment to a get-only auto-property 'PropertyName'. >>>>
+          public string PropertyName { get; set; }
+      }
+  }

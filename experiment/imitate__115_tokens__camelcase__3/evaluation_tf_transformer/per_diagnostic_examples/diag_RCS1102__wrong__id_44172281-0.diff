@@ -1,0 +1,40 @@
+id: 44172281-0
+diagnostic: RCS1102
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 5
+<<<<<<<< CORRECT >>>>>>>>
+  .
+  
+  using System;
+  using System.Collections.Generic;
+  using System.Globalization;
+  using System.Linq;
+  using System.Reflection;
+  
+  namespace Microsoft.AspNet.SignalR.Utils
+  {
+<<<< DIAGNOSTIC: make class static. >>>>
+-     class Program
++     static class Program
+      {
+          private static readonly ICommand[] _commands = new ICommand[]
+          {
+         
+<<<<<<<< INFERRED >>>>>>>>
+  .
+  
+  using System;
+  using System.Collections.Generic;
+  using System.Globalization;
+  using System.Linq;
+  using System.Reflection;
+  
+  namespace Microsoft.AspNet.SignalR.Utils
+  {
+<<<< DIAGNOSTIC: make class static. >>>>
+-     class Program
++     class PROGRAM
+      {
+          private static readonly ICommand[] _commands = new ICommand[]
+          {
+         

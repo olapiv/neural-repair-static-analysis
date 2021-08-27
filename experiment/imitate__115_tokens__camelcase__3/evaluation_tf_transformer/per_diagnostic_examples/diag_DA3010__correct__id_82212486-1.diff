@@ -1,0 +1,23 @@
+id: 82212486-1
+diagnostic: DA3010
+perc_correct_in_test: 0.4166666666666667
+num_datapoints_in_train: 46
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  		None = 0,
+  		Shift = 1,
+  		Alt = 2,
+  		Ctrl = 4,
+  		Meta = 8,
+  	}
++ 	/// <summary> 
++ 	/// 
++ 	/// </summary>
+  
+<<<< DIAGNOSTIC: type 'KeyInputEvent' doesn't have /// comments >>>>
+  	public enum KeyInputEvent { Down, Up }
+  	public struct KeyInput
+  	{
+  		public KeyInputEvent Event;
+  		public Keycode Key;
+  		public Modifiers Modifiers;
+  		public int MultiTap

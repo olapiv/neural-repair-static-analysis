@@ -1,0 +1,29 @@
+id: 47717790-0
+diagnostic: SA1407
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 17
+<<<<<<<< CORRECT >>>>>>>>
+     return
+<<<< DIAGNOSTIC: arithmetic expressions should declare precedence >>>>
+-                 0.2126f * Calc(color.R / 255f) +
++                 (0.2126f * Calc(color.R / 255f)) +
+<<<< DIAGNOSTIC: arithmetic expressions should declare precedence >>>>
+-                 0.7152f * Calc(color.G / 255f) +
++                 (0.7152f * Calc(color.G / 255f)) +
+<<<< DIAGNOSTIC: arithmetic expressions should declare precedence >>>>
+-                 0.0722f * Calc(color.B / 255f);
++                 (0.0722f * Calc(color.B / 255f));
+  
+       
+<<<<<<<< INFERRED >>>>>>>>
+     return
++                                                                                           continue;
++                       }
+<<<< DIAGNOSTIC: arithmetic expressions should declare precedence >>>>
+-                 0.2126f * Calc(color.R / 255f) +
+<<<< DIAGNOSTIC: arithmetic expressions should declare precedence >>>>
+-                 0.7152f * Calc(color.G / 255f) +
+<<<< DIAGNOSTIC: arithmetic expressions should declare precedence >>>>
+-                 0.0722f * Calc(color.B / 255f);
+  
+       

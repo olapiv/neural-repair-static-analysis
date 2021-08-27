@@ -1,0 +1,23 @@
+id: 8786279-0
+diagnostic: RCS1123
+perc_correct_in_test: 0.6
+num_datapoints_in_train: 14
+<<<<<<<< CORRECT >>>>>>>>
+  var p = b * (1 - s);
+<<<< DIAGNOSTIC: add parentheses when necessary. >>>>
+-             var q = b * (1 - s * f);
++             var q = b * (1 - (s * f));
+<<<< DIAGNOSTIC: add parentheses when necessary. >>>>
+-             var t = b * (1 - s * (1 - f));
++             var t = b * (1 - (s * (1 - f)));
+  
+              if (i == 
+<<<<<<<< INFERRED >>>>>>>>
+  var p = b * (1 - s);
+<<<< DIAGNOSTIC: add parentheses when necessary. >>>>
+-             var q = b * (1 - s * f);
++                 var p = (NESMath.Multiply(b, s)) * (1 - s);
+<<<< DIAGNOSTIC: add parentheses when necessary. >>>>
+              var t = b * (1 - s * (1 - f));
+  
+              if (i == 

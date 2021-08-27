@@ -1,0 +1,40 @@
+id: 11297686-0
+diagnostic: SA1137
+perc_correct_in_test: 0.46153846153846156
+num_datapoints_in_train: 31
+<<<<<<<< CORRECT >>>>>>>>
+  .Collections.Generic;
+  using System.Linq.Expressions;
+  using System.Reflection;
+  using DbLinq.Util;
+  
+  #if MONO_STRICT
+      namespace System.Data.Linq
+  #else
+<<<< DIAGNOSTIC: elements should have the same indentation >>>>
+-     namespace DbLinq.Data.Linq
++ namespace DbLinq.Data.Linq
+  #endif
+  {
+      /// <summary>
+      /// Allows to specify 
+      /// </summary>
+      public sealed class 
+<<<<<<<< INFERRED >>>>>>>>
+  .Collections.Generic;
+  using System.Linq.Expressions;
+  using System.Reflection;
+  using DbLinq.Util;
+  
+  #if MONO_STRICT
+      namespace System.Data.Linq
+  #else
+<<<< DIAGNOSTIC: elements should have the same indentation >>>>
+-     namespace DbLinq.Data.Linq
++     public sealed class Allows to specify. 
+  #endif
+  {
+      /// <summary>
+      /// Allows to specify 
+      /// </summary>
+      public sealed class 

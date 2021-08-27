@@ -1,0 +1,42 @@
+id: 47886982-0
+diagnostic: RECS0004
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 2
+<<<<<<<< CORRECT >>>>>>>>
+  )
+  				{
+  					child.UpdateIsVisible(showChildren, updateFlattener);
+  				}
+  			}
+  		}
+  
+- 		#region Main
+- 
+<<<< DIAGNOSTIC: empty constructor is redundant >>>>
+- 		public SharpTreeNode()
+- 		{
+- 		}
+- 
+  		public SharpTreeNodeCollection Children {
+  			get {
+  				if (modelChildren == null)
+  					modelChildren = 
+<<<<<<<< INFERRED >>>>>>>>
+  )
+  				{
+  					child.UpdateIsVisible(showChildren, updateFlattener);
+  				}
+  			}
+  		}
+  
+  		#region Main
+  
+<<<< DIAGNOSTIC: empty constructor is redundant >>>>
+- 		public SharpTreeNode()
+  		{
+  		}
+  
+  		public SharpTreeNodeCollection Children {
+  			get {
+  				if (modelChildren == null)
+  					modelChildren = 

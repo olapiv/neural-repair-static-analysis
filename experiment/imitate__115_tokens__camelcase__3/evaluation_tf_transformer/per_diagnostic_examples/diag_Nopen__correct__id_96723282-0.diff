@@ -1,0 +1,14 @@
+id: 96723282-0
+diagnostic: Nopen
+perc_correct_in_test: 0.5897435897435898
+num_datapoints_in_train: 200
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  .MakeGenericMethod(source.ElementType, lambda.ReturnType), source.Expression, Expression.Quote(lambda)));
+          }
+      }
+<<<< DIAGNOSTIC: class 'MemberVisitor' is implicitly open. classes should be explicitly marked sealed, abstract, or [open]. >>>>
+-     public class MemberVisitor : ExpressionVisitor
++     public sealed class MemberVisitor : ExpressionVisitor
+      {
+          private readonly List<MemberInfo> _members = new List<MemberInfo>();
+          public 

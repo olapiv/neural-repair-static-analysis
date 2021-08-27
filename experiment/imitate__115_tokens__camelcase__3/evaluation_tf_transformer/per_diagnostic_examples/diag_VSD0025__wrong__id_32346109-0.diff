@@ -1,0 +1,30 @@
+id: 32346109-0
+diagnostic: VSD0025
+perc_correct_in_test: 0.14705882352941177
+num_datapoints_in_train: 87
+<<<<<<<< CORRECT >>>>>>>>
+   </summary>
+          private readonly IDbTransaction _transaction;
+  
+          private readonly IDbCommand _command;
+  
+<<<< DIAGNOSTIC: the field havehighertransaction does not follow naming conventions. should be _havehighertransaction. >>>>
+-         private readonly bool haveHigherTransaction;
++         private readonly bool _haveHigherTransaction;
+  
+          /// <summary>
+          /// Gets the command.
+          /// </summary
+<<<<<<<< INFERRED >>>>>>>>
+   </summary>
+          private readonly IDbTransaction _transaction;
+  
+          private readonly IDbCommand _command;
+  
+<<<< DIAGNOSTIC: the field havehighertransaction does not follow naming conventions. should be _havehighertransaction. >>>>
+-         private readonly bool haveHigherTransaction;
++         private readonly IDbCommand _command;
+  
+          /// <summary>
+          /// Gets the command.
+          /// </summary

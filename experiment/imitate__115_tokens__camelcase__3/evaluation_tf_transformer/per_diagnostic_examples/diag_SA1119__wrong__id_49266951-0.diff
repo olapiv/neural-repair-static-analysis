@@ -1,0 +1,24 @@
+id: 49266951-0
+diagnostic: SA1119
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 15
+<<<<<<<< CORRECT >>>>>>>>
+  .@BaseType);
+  			WriteAttribute ("Provider", "", ob.@Provider);
+  			if (ob.@ExternalMappingSpecified) {
+<<<< DIAGNOSTIC: statement should not use unnecessary parenthesis >>>>
+- 				WriteAttribute ("ExternalMapping", "", (ob.@ExternalMapping?"true":"false"));
++ 				WriteAttribute ("ExternalMapping", "", ob.@ExternalMapping?"true": "false");
+  			}
+  			if (ob.@SerializationSpecified) {
+  				WriteAttribute ("Serialization", "", GetEnumValue_SerializationMode
+<<<<<<<< INFERRED >>>>>>>>
+  .@BaseType);
+  			WriteAttribute ("Provider", "", ob.@Provider);
+  			if (ob.@ExternalMappingSpecified) {
+<<<< DIAGNOSTIC: statement should not use unnecessary parenthesis >>>>
+- 				WriteAttribute ("ExternalMapping", "", (ob.@ExternalMapping?"true":"false"));
++ 				WriteAttribute ("ExternalMapping", "", ob.@ExternalMapping?"true" : "false"));
+  			}
+  			if (ob.@SerializationSpecified) {
+  				WriteAttribute ("Serialization", "", GetEnumValue_SerializationMode

@@ -1,0 +1,17 @@
+id: 90445901-0
+diagnostic: CA1052
+perc_correct_in_test: 1.0
+num_datapoints_in_train: 2
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  ("Sparkles")]
+  [assembly:AssemblyVersion ("3.38.0")]
+  [assembly:AssemblyCopyright ("Copyright (c) 2010 Hylke Bons and others")]
+  
+  namespace Sparkles {
+  
+<<<< DIAGNOSTIC: type 'InstallationInfo' is a static holder type but is neither static nor notinheritable >>>>
+-     public partial class InstallationInfo {
++     public static partial class InstallationInfo {
+          public const string Directory = "/usr/local/share/sparkleshare";
+      }
+  }

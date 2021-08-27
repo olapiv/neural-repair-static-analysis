@@ -1,0 +1,14 @@
+id: 84906544-0
+diagnostic: PostIncrement
+perc_correct_in_test: 0.4
+num_datapoints_in_train: 38
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+          }
+  
+          if (config.ListOperations)
+          {
+<<<< DIAGNOSTIC: the expression 'i++' must be replaced with the one using a pre-increment/decrement operator. >>>>
+-             for (int i = 0; i < clientOperations.Length; i++)
++             for (int i = 0; i < clientOperations.Length; ++i)
+              {
+                  Console.WriteLine(clientOperations[i

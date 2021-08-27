@@ -1,0 +1,14 @@
+id: 1871546-1
+diagnostic: Wintellect015
+perc_correct_in_test: 0.9130434782608695
+num_datapoints_in_train: 219
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  )
+          {
+              if (type.IsValueType)
++             }
+                  return true;
+<<<< DIAGNOSTIC: dharmendra - testing new loop in the c# >>>>
+              if (type == typeof(string))
+                  return true;
+              return 

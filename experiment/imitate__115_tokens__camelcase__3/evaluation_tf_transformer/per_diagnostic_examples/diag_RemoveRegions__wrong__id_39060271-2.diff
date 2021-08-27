@@ -1,0 +1,22 @@
+id: 39060271-2
+diagnostic: RemoveRegions
+perc_correct_in_test: 0.96
+num_datapoints_in_train: 132
+<<<<<<<< CORRECT >>>>>>>>
+      bool ICollection<KeyValuePair<string, object>>.IsReadOnly => false;
+              #endregion
+  
+<<<< DIAGNOSTIC: regions are not needed any more >>>>
+-             #region Implementation of IDictionary<string,object>
+  
+              bool IDictionary<string, object>.ContainsKey(string key)
+              {
+<<<<<<<< INFERRED >>>>>>>>
+      bool ICollection<KeyValuePair<string, object>>.IsReadOnly => false;
+              #endregion
+  
+<<<< DIAGNOSTIC: regions are not needed any more >>>>
+-             #region Implementation of IDictionary<string,object>
+- 
+-             bool IDictionary<string, object>.ContainsKey(string key)
+              {

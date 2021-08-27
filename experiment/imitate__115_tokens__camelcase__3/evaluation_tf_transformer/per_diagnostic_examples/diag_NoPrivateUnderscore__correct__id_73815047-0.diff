@@ -1,0 +1,17 @@
+id: 73815047-0
+diagnostic: NoPrivateUnderscore
+perc_correct_in_test: 0.6363636363636364
+num_datapoints_in_train: 48
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  Occurrences { get; }
+      }
+  
+      public sealed class ErrorAggregator
+      {
+<<<< DIAGNOSTIC: type name '_failureTypes' starts with an underscore >>>>
+-         private readonly ConcurrentDictionary<(Type exception, string message, string callSite)[], ErrorType> _failureTypes;
++         private readonly ConcurrentDictionary<(Type exception, string message, string callSite)[], ErrorType> failureTypes;
+  
+          public ErrorAggregator()
+          {
+            

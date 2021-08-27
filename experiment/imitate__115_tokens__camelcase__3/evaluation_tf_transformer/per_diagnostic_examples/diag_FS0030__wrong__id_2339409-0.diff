@@ -1,0 +1,36 @@
+id: 2339409-0
+diagnostic: FS0030
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 2
+<<<<<<<< CORRECT >>>>>>>>
+  Reader.Skip ();
+  				return ob;
+  			}
+  
+  			Reader.ReadStartElement();
+  			Reader.MoveToContent();
+  
+<<<< DIAGNOSTIC: this variable can be made const. >>>>
+- 			bool b11=false, b12=false;
++             const bool b11 = false, b12 = false;
+  
+  			DbLinq.Schema.Dbml.Parameter[] o14;
+  			o14 = null;
+  			System.Object[] o16;
+  		
+<<<<<<<< INFERRED >>>>>>>>
+  Reader.Skip ();
+  				return ob;
+  			}
+  
+  			Reader.ReadStartElement();
+  			Reader.MoveToContent();
+  
+<<<< DIAGNOSTIC: this variable can be made const. >>>>
+- 			bool b11=false, b12=false;
++             const bool b11=false, b12=false;
+  
+  			DbLinq.Schema.Dbml.Parameter[] o14;
+  			o14 = null;
+  			System.Object[] o16;
+  		

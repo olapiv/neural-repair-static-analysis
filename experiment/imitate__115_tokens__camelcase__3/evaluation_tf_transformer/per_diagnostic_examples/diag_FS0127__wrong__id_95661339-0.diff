@@ -1,0 +1,46 @@
+id: 95661339-0
+diagnostic: FS0127
+perc_correct_in_test: 0.5454545454545454
+num_datapoints_in_train: 22
+<<<<<<<< CORRECT >>>>>>>>
+  SOFTWARE OR THE USE OR OTHER DEALINGS IN
+  // THE SOFTWARE.
+  // 
+  #endregion
+  
+  using System;
+  using System.Data;
+  
+- #if MONO_STRICT
+- using System.Data.Linq;
+- #endif
+- 
+<<<< DIAGNOSTIC: imported library is not used. >>>>
+- using DbLinq.Data.Linq.Sql;
+- 
+  namespace DbLinq.Data.Linq.Database.Implementation
+  {
+      /// <summary>
+      /// Transactional command
+      //
+<<<<<<<< INFERRED >>>>>>>>
+  SOFTWARE OR THE USE OR OTHER DEALINGS IN
+  // THE SOFTWARE.
+  // 
+  #endregion
+  
+  using System;
+  using System.Data;
+  
+- #if MONO_STRICT
+- using System.Data.Linq;
+- #endif
+- 
+<<<< DIAGNOSTIC: imported library is not used. >>>>
+- using DbLinq.Data.Linq.Sql;
+- 
+  namespace DbLinq.Data.Linq.Database.Implementation
+  {
+      /// <summary>
+      /// Transactional command
+      //

@@ -1,0 +1,13 @@
+id: 4016823-2
+diagnostic: Wintellect004
+perc_correct_in_test: 0.4016393442622951
+num_datapoints_in_train: 442
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  <param name="nameFormat">The name format.</param>
+          /// <returns></returns>
+<<<< DIAGNOSTIC: convert 'string' to the explicit type 'String' >>>>
+-         ParameterName GetParameterName(string dbName, WordsExtraction extraction, NameFormat nameFormat);
++         ParameterName GetParameterName(String dbName, WordsExtraction extraction, NameFormat nameFormat);
+          /// <summary>
+          /// Gets the name of the table.
+   

@@ -1,0 +1,20 @@
+id: 22986476-0
+diagnostic: SA1009
+perc_correct_in_test: 0.8235294117647058
+num_datapoints_in_train: 58
+<<<<<<<< CORRECT >>>>>>>>
+  ;
+              bool valueSet = false;
+<<<< DIAGNOSTIC: closing parenthesis should not be preceded by a space. >>>>
+-             for (IEnumerator<SqlStatement> column = inputColumns.GetEnumerator(), value = inputValues.GetEnumerator(); column.MoveNext() && value.MoveNext(); )
++             for (IEnumerator<SqlStatement> column = inputColumns.GetEnumerator(), value = inputValues.GetEnumerator(); column.MoveNext() && value.MoveNext();)
+              {
+            
+<<<<<<<< INFERRED >>>>>>>>
+  ;
+              bool valueSet = false;
+<<<< DIAGNOSTIC: closing parenthesis should not be preceded by a space. >>>>
+-             for (IEnumerator<SqlStatement> column = inputColumns.GetEnumerator(), value = inputValues.GetEnumerator(); column.MoveNext() && value.MoveNext(); )
++             for (IEnumerator<SqlStatement> column = inputColumns.GetEnumerator(), value = inputValues.GetEnumerator(); column.MoveNext() && value.MoveNext()
+              {
+            

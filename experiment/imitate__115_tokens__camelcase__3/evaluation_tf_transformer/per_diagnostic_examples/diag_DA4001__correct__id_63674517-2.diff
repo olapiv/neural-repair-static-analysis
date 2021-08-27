@@ -1,0 +1,13 @@
+id: 63674517-2
+diagnostic: DA4001
+perc_correct_in_test: 0.9390243902439024
+num_datapoints_in_train: 233
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  / <returns>The same <see cref="IServiceRoutes"/> instance;
++         /// <remarks></remarks>
+          ///		never <see langword="null"/>.</returns>
+<<<< DIAGNOSTIC: method 'Add' doesn't have remark in the comment >>>>
+          IServiceRoutes Add(System.Type requestType, string restPath, string verbs);
+  
+          /// <summary>
+          ///

@@ -1,0 +1,22 @@
+id: 95033155-1
+diagnostic: SA1629
+perc_correct_in_test: 0.13924050632911392
+num_datapoints_in_train: 260
+<<<<<<<< CORRECT >>>>>>>>
+  
+          /// <summary>
+          /// Values coming from outside the request (external parameters)
+<<<< DIAGNOSTIC: documentation text should end with a period >>>>
+-         /// Those parameters are filled at each request
++         /// Those parameters are filled at each request.
+          /// </summary>
+          public IList<InputParameterExpression> Parameters { get; private set;
+<<<<<<<< INFERRED >>>>>>>>
+  
+          /// <summary>
+          /// Values coming from outside the request (external parameters)
+<<<< DIAGNOSTIC: documentation text should end with a period >>>>
+-         /// Those parameters are filled at each request
++         /// Adataper for request.
+          /// </summary>
+          public IList<InputParameterExpression> Parameters { get; private set;

@@ -1,0 +1,11 @@
+id: 94933149-0
+diagnostic: SA1001
+perc_correct_in_test: 0.6666666666666666
+num_datapoints_in_train: 6
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+         var tcs = new TaskCompletionSource<bool>();
+<<<< DIAGNOSTIC: commas should be followed by whitespace. >>>>
+-         Console.CancelKeyPress += (sender,args) => { Console.Error.WriteLine("Keyboard interrupt"); args.Cancel = true; tcs.TrySetResult(false); };
++         Console.CancelKeyPress += (sender, args) => { Console.Error.WriteLine("Keyboard interrupt"); args.Cancel = true; tcs.TrySetResult(false); };
+          if (maxExecutionTime.HasValue)
+         

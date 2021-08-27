@@ -1,0 +1,24 @@
+id: 17714909-1
+diagnostic: SA1129
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 2
+<<<<<<<< CORRECT >>>>>>>>
+  X + previewNodeView.ActualWidth - p.X;
+  
+  				if (secondNodeView != null)
+  				{
+<<<< DIAGNOSTIC: do not use default value type constructor >>>>
+- 					var p2 = secondNodeView.TransformToVisual(this).Transform(new Point());
++ 					var p2 = secondNodeView.TransformToVisual(this).Transform(default(Point));
+  					w = Math.Max(w, p2.X + secondNodeView.ActualWidth - p.X);
+  				
+<<<<<<<< INFERRED >>>>>>>>
+  X + previewNodeView.ActualWidth - p.X;
+  
+  				if (secondNodeView != null)
+  				{
+<<<< DIAGNOSTIC: do not use default value type constructor >>>>
+- 					var p2 = secondNodeView.TransformToVisual(this).Transform(new Point());
++ 					var p2 = previewNodeView.TransformToVisual(this).Transform(default(Point));
+  					w = Math.Max(w, p2.X + secondNodeView.ActualWidth - p.X);
+  				

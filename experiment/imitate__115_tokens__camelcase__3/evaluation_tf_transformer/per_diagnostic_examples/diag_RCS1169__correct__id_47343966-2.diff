@@ -1,0 +1,11 @@
+id: 47343966-2
+diagnostic: RCS1169
+perc_correct_in_test: 0.8
+num_datapoints_in_train: 26
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  static UInt64 qpcStart = 0;
+          static Int32 totalAllocThreads = 0;
+<<<< DIAGNOSTIC: make field read-only. >>>>
+-         static Dictionary<string, int> threadMapping = new Dictionary<string, int>(112);
++         static readonly Dictionary<string, int> threadMapping = new Dictionary<string, int>(112);
+          // We do compress the samples, this stores the aggregated sample counts for all procs

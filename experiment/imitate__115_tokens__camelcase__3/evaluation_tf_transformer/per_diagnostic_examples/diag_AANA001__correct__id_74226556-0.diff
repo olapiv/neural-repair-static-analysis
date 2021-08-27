@@ -1,0 +1,12 @@
+id: 74226556-0
+diagnostic: AANA001
+perc_correct_in_test: 1.0
+num_datapoints_in_train: 13
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  / <param name="tasks"></param>
+          /// <returns></returns>
+<<<< DIAGNOSTIC: method 'WhenAllThrowOnFirstException' missing 'Async' suffix >>>>
+-         public static async Task WhenAllThrowOnFirstException(CancellationToken token, params Func<CancellationToken, Task>[] tasks)
++         public static async Task WhenAllThrowOnFirstExceptionAsync(CancellationToken token, params Func<CancellationToken, Task>[] tasks)
+          {
+              using var cts = CancellationTokenSource.Create

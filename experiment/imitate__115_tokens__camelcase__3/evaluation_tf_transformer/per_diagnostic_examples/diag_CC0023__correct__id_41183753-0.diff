@@ -1,0 +1,18 @@
+id: 41183753-0
+diagnostic: CC0023
+perc_correct_in_test: 0.5
+num_datapoints_in_train: 46
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  .DataAnnotations
+  {
+      /// <summary>
+      /// Primary key attribute.
+      /// use to indicate that property is part of the pk
+      /// </summary>
+      [AttributeUsage(AttributeTargets.Property)]
+<<<< DIAGNOSTIC: mark 'PrimaryKeyAttribute' as sealed. >>>>
+-     public class PrimaryKeyAttribute : AttributeBase
++     public sealed class PrimaryKeyAttribute : AttributeBase
+      {
+      }
+  }

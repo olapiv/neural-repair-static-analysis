@@ -1,0 +1,15 @@
+id: 45066862-3
+diagnostic: SA1028
+perc_correct_in_test: 0.8571428571428571
+num_datapoints_in_train: 38
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+   The <c>ExpressionTranslator</c> type allows vendor code to manipulate
+<<<< DIAGNOSTIC: code should not contain trailing whitespace >>>>
+-     ///   the expression tree <i>before</i> SQL generation, thus allowing 
++     ///   the expression tree <i>before</i> SQL generation, thus allowing
+<<<< DIAGNOSTIC: code should not contain trailing whitespace >>>>
+-     ///   otherwise invalid expressions to be removed prior to the generation 
++     ///   otherwise invalid expressions to be removed prior to the generation
+      ///   phase.
+      ///  </para>
+   

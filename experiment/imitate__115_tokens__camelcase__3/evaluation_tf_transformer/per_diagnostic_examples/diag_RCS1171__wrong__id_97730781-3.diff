@@ -1,0 +1,20 @@
+id: 97730781-3
+diagnostic: RCS1171
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 3
+<<<<<<<< CORRECT >>>>>>>>
+      {
+<<<< DIAGNOSTIC: simplify lazy initialization. >>>>
+-                     if (storage_accessor == null)
+-                         storage_accessor = new XmlMetaAccessor(this, StorageMember);
++                     return storage_accessor ?? (storage_accessor = new XmlMetaAccessor(this, StorageMember));
+-                     return storage_accessor;
+        
+<<<<<<<< INFERRED >>>>>>>>
+      {
+<<<< DIAGNOSTIC: simplify lazy initialization. >>>>
+-                     if (storage_accessor == null)
+-                         storage_accessor = new XmlMetaAccessor(this, StorageMember);
++                     return storage_accessor ?? (storage_accessor = new XmlMetaAccessor(this, Member));
+-                     return storage_accessor;
+        

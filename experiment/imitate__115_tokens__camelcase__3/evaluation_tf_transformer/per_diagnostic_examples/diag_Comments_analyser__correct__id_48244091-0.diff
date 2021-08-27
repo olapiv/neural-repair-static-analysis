@@ -1,0 +1,13 @@
+id: 48244091-0
+diagnostic: Comments_analyser
+perc_correct_in_test: 0.26
+num_datapoints_in_train: 147
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+              pm.Ignored = false;
+              });
+          }
+<<<< DIAGNOSTIC: type name 'Missing summary' contains lowercase letters >>>>
+-         public void Configure(TypeMap typeMap)
++         public void Configure(TYPEMAP typeMap)
+          {
+              var pathMap = typeMap.FindOrCreatePathMapFor(_destinationExpression, MemberPath,

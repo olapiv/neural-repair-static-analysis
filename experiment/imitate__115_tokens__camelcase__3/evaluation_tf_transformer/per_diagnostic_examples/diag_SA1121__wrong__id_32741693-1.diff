@@ -1,0 +1,20 @@
+id: 32741693-1
+diagnostic: SA1121
+perc_correct_in_test: 0.6666666666666666
+num_datapoints_in_train: 13
+<<<<<<<< CORRECT >>>>>>>>
+  .Name);
+                  if (t == null)
+<<<< DIAGNOSTIC: use built-in type alias >>>>
+-                     throw new ArgumentException(String.Format("type '{0}' not found", dt.Name));
++                     throw new ArgumentException(string.Format("type '{0}' not found", dt.Name));
+                  if (types.ContainsKey(t))
+     
+<<<<<<<< INFERRED >>>>>>>>
+  .Name);
+                  if (t == null)
+<<<< DIAGNOSTIC: use built-in type alias >>>>
+-                     throw new ArgumentException(String.Format("type '{0}' not found", dt.Name));
++                 throw new ArgumentException(string.Format("Unexpected dbml element '{0}'", t.Name));
+                  if (types.ContainsKey(t))
+     

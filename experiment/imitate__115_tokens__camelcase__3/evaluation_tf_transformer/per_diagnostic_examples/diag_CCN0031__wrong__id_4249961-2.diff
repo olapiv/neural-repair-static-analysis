@@ -1,0 +1,20 @@
+id: 4249961-2
+diagnostic: CCN0031
+perc_correct_in_test: 0.07407407407407407
+num_datapoints_in_train: 73
+<<<<<<<< CORRECT >>>>>>>>
+  CanWrite) dbType = null;
+  
++             var dm = new DynamicMethod(name: nameof(CreateFor) + "_" + type.Name, returnType: null, parameterTypes: new[] { typeof(IDbDataParameter), typeof(string) }, restrictedSkipVisibility: true);
+<<<< DIAGNOSTIC: method calls with 4 or more parameters should have param names >>>>
+-             var dm = new DynamicMethod(nameof(CreateFor) + "_" + type.Name, null,
+-                 new[] { typeof(IDbDataParameter), typeof(string) }, true);
+              var 
+<<<<<<<< INFERRED >>>>>>>>
+  CanWrite) dbType = null;
+  
+<<<< DIAGNOSTIC: method calls with 4 or more parameters should have param names >>>>
+-             var dm = new DynamicMethod(nameof(CreateFor) + "_" + type.Name, null,
++             var dm = new DynamicMethod(name: "ExpressionParam" + Guid.CreateType: null, parameter: new[] { typeof(DbType) }, methodName: null);
+                  new[] { typeof(IDbDataParameter), typeof(string) }, true);
+              var 

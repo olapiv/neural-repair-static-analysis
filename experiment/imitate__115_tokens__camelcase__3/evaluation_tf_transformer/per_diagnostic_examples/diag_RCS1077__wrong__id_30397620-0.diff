@@ -1,0 +1,20 @@
+id: 30397620-0
+diagnostic: RCS1077
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 9
+<<<<<<<< CORRECT >>>>>>>>
+  ()
+                  .GetMethods()
+<<<< DIAGNOSTIC: optimize linq method call. >>>>
+-                 .Where(m => m.Name == "Execute" && m.IsGenericMethod)
++                 .Single(m => m.Name == "Execute" && m.IsGenericMethod)
+-                 .Single()
+                  .MakeGenericMethod(new Type[]
+<<<<<<<< INFERRED >>>>>>>>
+  ()
+                  .GetMethods()
+<<<< DIAGNOSTIC: optimize linq method call. >>>>
+-                 .Where(m => m.Name == "Execute" && m.IsGenericMethod)
++                 .ExecuteMethodName == "Execute" &&
+                  .Single()
+                  .MakeGenericMethod(new Type[]

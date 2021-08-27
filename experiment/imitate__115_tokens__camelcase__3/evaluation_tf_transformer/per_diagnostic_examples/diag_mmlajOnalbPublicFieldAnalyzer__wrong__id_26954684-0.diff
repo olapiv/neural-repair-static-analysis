@@ -1,0 +1,35 @@
+id: 26954684-0
+diagnostic: mmlajOnalbPublicFieldAnalyzer
+perc_correct_in_test: 0.9333333333333333
+num_datapoints_in_train: 54
+<<<<<<<< CORRECT >>>>>>>>
+  = expression;
+              MemberInfo = memberInfo;
+              Target = target;
+          }
+<<<< DIAGNOSTIC: analyzer format (mmlaj) >>>>
+-         public readonly Expression Expression;
++         private readonly Expression Expression;
+<<<< DIAGNOSTIC: analyzer format (mmlaj) >>>>
+-         public readonly MemberInfo MemberInfo;
++         private readonly MemberInfo MemberInfo;
+<<<< DIAGNOSTIC: analyzer format (mmlaj) >>>>
+-         public readonly Expression Target;
++         private readonly Expression Target;
+      }
+  }
+<<<<<<<< INFERRED >>>>>>>>
+  = expression;
+              MemberInfo = memberInfo;
+              Target = target;
+          }
+<<<< DIAGNOSTIC: analyzer format (mmlaj) >>>>
+-         public readonly Expression Expression;
++         private readonly Expression Expression;
+<<<< DIAGNOSTIC: analyzer format (mmlaj) >>>>
+-         public readonly MemberInfo MemberInfo;
++         private readonly MemberInfo memberInfo;
+<<<< DIAGNOSTIC: analyzer format (mmlaj) >>>>
+-         public readonly Expression Target;
+      }
+  }

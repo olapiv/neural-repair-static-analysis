@@ -1,0 +1,38 @@
+id: 11866910-0
+diagnostic: SA1642D
+perc_correct_in_test: 0.25
+num_datapoints_in_train: 43
+<<<<<<<< CORRECT >>>>>>>>
+  sql;
+          }
+      }
+  
+      public class PgSqlJsonAttribute : CustomFieldAttribute
++         /// <summary>
++         /// Initializes a new instance of the <see cref="PgSqlJsonAttribute"/> class.
++         /// </summary>
+      {
+<<<< DIAGNOSTIC: constructors must be correctly documented. >>>>
+          public PgSqlJsonAttribute() : base("json") { }
+      }
+  
+      public class PgSqlJsonBAttribute : CustomFieldAttribute
+      {
+         
+<<<<<<<< INFERRED >>>>>>>>
+  sql;
+          }
+      }
+  
+      public class PgSqlJsonAttribute : CustomFieldAttribute
++         /// <summary>
++         /// Initializes a new instance of the <see cref="PgSqlJsonBAttribute"/> class.
++         /// </summary>
+      {
+<<<< DIAGNOSTIC: constructors must be correctly documented. >>>>
+          public PgSqlJsonAttribute() : base("json") { }
+      }
+  
+      public class PgSqlJsonBAttribute : CustomFieldAttribute
+      {
+         

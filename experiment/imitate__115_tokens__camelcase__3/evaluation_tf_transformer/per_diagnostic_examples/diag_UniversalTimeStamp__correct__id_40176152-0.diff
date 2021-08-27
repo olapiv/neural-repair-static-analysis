@@ -1,0 +1,13 @@
+id: 40176152-0
+diagnostic: UniversalTimeStamp
+perc_correct_in_test: 1.0
+num_datapoints_in_train: 9
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+      public static void LogInfo (string type, string message, Exception exception)
+          {
+<<<< DIAGNOSTIC: use datetime.now.touniversaltime(). >>>>
+-             string timestamp = DateTime.Now.ToString ("HH:mm:ss");
++             string timestamp = DateTime.Now.ToUniversalTime("HH:mm:ss");
+              string line;
+  
+              if (string.IsNullOrEmpty

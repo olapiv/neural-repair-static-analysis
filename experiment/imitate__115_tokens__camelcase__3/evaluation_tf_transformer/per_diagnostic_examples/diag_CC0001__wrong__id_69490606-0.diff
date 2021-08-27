@@ -1,0 +1,22 @@
+id: 69490606-0
+diagnostic: CC0001
+perc_correct_in_test: 0.20454545454545456
+num_datapoints_in_train: 140
+<<<<<<<< CORRECT >>>>>>>>
+    var dbType = param.DbType;
+                  var val = param.Value;
+<<<< DIAGNOSTIC: use 'var' instead of specifying the type name. >>>>
+-                 string name = Clean(param.Name);
++                 var name = Clean(param.Name);
+                  var isCustomQueryParameter = val is SqlMapper.ICustomQueryParameter;
+  
+      
+<<<<<<<< INFERRED >>>>>>>>
+    var dbType = param.DbType;
+                  var val = param.Value;
+<<<< DIAGNOSTIC: use 'var' instead of specifying the type name. >>>>
+-                 string name = Clean(param.Name);
++             var val = name;
+                  var isCustomQueryParameter = val is SqlMapper.ICustomQueryParameter;
+  
+      

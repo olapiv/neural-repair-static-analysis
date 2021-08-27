@@ -1,0 +1,22 @@
+id: 91748447-0
+diagnostic: RECS0033
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 4
+<<<<<<<< CORRECT >>>>>>>>
+  {
+                  members.Add(sourceKey.Member);
+<<<< DIAGNOSTIC: replace with '|=' >>>>
+-                 if (sourceKey.CanBeNull)
++                 hasNullableKeys |= sourceKey.CanBeNull;
+-                     hasNullableKeys = true;
+              }
+              return members;
+<<<<<<<< INFERRED >>>>>>>>
+  {
+                  members.Add(sourceKey.Member);
+<<<< DIAGNOSTIC: replace with '|=' >>>>
+-                 if (sourceKey.CanBeNull)
++                 canNullable = true;
+                      hasNullableKeys = true;
+              }
+              return members;

@@ -1,0 +1,12 @@
+id: 18191510-1
+diagnostic: DateTimeOffsetInsteadOfDateTimeAnalyzer
+perc_correct_in_test: 0.9444444444444444
+num_datapoints_in_train: 56
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  Invoke("IndexOf", operands);
+                  case SpecialExpressionType.Year:
+<<<< DIAGNOSTIC: replace datetime usage with datetimeoffset >>>>
+-                     return ((DateTime)operands[0].Evaluate()).Year;
++                     return ((DateTimeOffset)operands[0].Evaluate()).Year;
+                  case SpecialExpressionType.Month:
+               

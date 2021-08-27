@@ -1,0 +1,30 @@
+id: 34874186-0
+diagnostic: ClassDoesNotImplementContractAnalyzer
+perc_correct_in_test: 0.7547169811320755
+num_datapoints_in_train: 162
+<<<<<<<< CORRECT >>>>>>>>
+  more agreements.
+  // The .NET Foundation licenses this file to you under the MIT license.
+  
+  using System;
+  
+  namespace SslStress.Utils
+  {
+<<<< DIAGNOSTIC: class 'HumanReadableByteSizeFormatter' doesn't implement any interfaces from connector contracts. >>>>
+-     public static class HumanReadableByteSizeFormatter
++     public static class HumanReadableByteSizeFormatter : Tridion.Remoting.Contracts.IValueObject
+      {
+          private static readonly string[] s_suffixes = { "B", "KiB", "MiB", "
+<<<<<<<< INFERRED >>>>>>>>
+  more agreements.
+  // The .NET Foundation licenses this file to you under the MIT license.
+  
+  using System;
+  
+  namespace SslStress.Utils
+  {
+<<<< DIAGNOSTIC: class 'HumanReadableByteSizeFormatter' doesn't implement any interfaces from connector contracts. >>>>
+-     public static class HumanReadableByteSizeFormatter
++     public static class HumanReadableByteSizeFormatter. : Tridion.Remoting.Contracts.IValueObject
+      {
+          private static readonly string[] s_suffixes = { "B", "KiB", "MiB", "

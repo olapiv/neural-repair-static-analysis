@@ -1,0 +1,24 @@
+id: 76003992-0
+diagnostic: SA1010
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 5
+<<<<<<<< CORRECT >>>>>>>>
+  
+  	{
+<<<< DIAGNOSTIC: opening square brackets should not be preceded by a space >>>>
+- 		static readonly System.Reflection.MethodInfo fromBinHexStringMethod = typeof (XmlConvert).GetMethod ("FromBinHexString", System.Reflection.BindingFlags.Static | System.Reflection.BindingFlags.NonPublic, null, new System.Type [] {typeof (string)}, null);
++ 		static readonly System.Reflection.MethodInfo fromBinHexStringMethod = typeof (XmlConvert).GetMethod ("FromBinHexString", System.Reflection.BindingFlags.Static | System.Reflection.BindingFlags.NonPublic, null, new System.Type[] {typeof (string)}, null);
+<<<< DIAGNOSTIC: opening square brackets should not be preceded by a space >>>>
+- 		static byte [] FromBinHexString (string input)
++ 		static byte[] FromBinHexString (string input)
+  		{
+<<<<<<<< INFERRED >>>>>>>>
+  
+  	{
+<<<< DIAGNOSTIC: opening square brackets should not be preceded by a space >>>>
+- 		static readonly System.Reflection.MethodInfo fromBinHexStringMethod = typeof (XmlConvert).GetMethod ("FromBinHexString", System.Reflection.BindingFlags.Static | System.Reflection.BindingFlags.NonPublic, null, new System.Type [] {typeof (string)}, null);
++ 		static readonly System.Reflection.MethodInfo fromBinHexStringMethod = typeof (XmlConvert).GetMethod ("FromBinHexString", System.Reflection.BindingFlags.Static | System.Reflection.BindingFlags.NonPublic, null, new System.Type[] {typeof (string)}, null);
+<<<< DIAGNOSTIC: opening square brackets should not be preceded by a space >>>>
+- 		static byte [] FromBinHexString (string input)
++ 			static string FromBinHexString (byte[] input)
+  		{

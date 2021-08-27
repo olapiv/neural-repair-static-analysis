@@ -1,0 +1,26 @@
+id: 65974705-2
+diagnostic: RCS1018
+perc_correct_in_test: 0.9310344827586207
+num_datapoints_in_train: 72
+<<<<<<<< CORRECT >>>>>>>>
+        
+          public string Url { get; }
+          public string ServerUrl { get; }
+  
+<<<< DIAGNOSTIC: add accessibility modifiers. >>>>
+-         SimpleServer(
++         private SimpleServer(
+              int port,
+              Action<HttpListenerContext> handler = null,
+           
+<<<<<<<< INFERRED >>>>>>>>
+        
+          public string Url { get; }
+          public string ServerUrl { get; }
+  
+<<<< DIAGNOSTIC: add accessibility modifiers. >>>>
+-         SimpleServer(
++         private SimpleServer(string port, int port, int port)
+              int port,
+              Action<HttpListenerContext> handler = null,
+           

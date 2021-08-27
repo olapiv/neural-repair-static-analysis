@@ -1,0 +1,24 @@
+id: 61782129-0
+diagnostic: MakeConst
+perc_correct_in_test: 0.5
+num_datapoints_in_train: 2
+<<<<<<<< CORRECT >>>>>>>>
+   }
+  
+          [Fact]
+          public void TestNullableUniqueIdentifierNull()
+          {
+<<<< DIAGNOSTIC: can be made constant >>>>
+-             Guid? guid = null;
++             const Guid? guid = null;
+              var result = connection.Query<Guid?>("declare @foo uniqueidentifier set @foo = @guid select @
+<<<<<<<< INFERRED >>>>>>>>
+   }
+  
+          [Fact]
+          public void TestNullableUniqueIdentifierNull()
+          {
+<<<< DIAGNOSTIC: can be made constant >>>>
+-             Guid? guid = null;
++             {
+              var result = connection.Query<Guid?>("declare @foo uniqueidentifier set @foo = @guid select @

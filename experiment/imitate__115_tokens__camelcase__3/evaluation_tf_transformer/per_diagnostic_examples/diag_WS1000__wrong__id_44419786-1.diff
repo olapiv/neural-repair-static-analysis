@@ -1,0 +1,22 @@
+id: 44419786-1
+diagnostic: WS1000
+perc_correct_in_test: 0.8387096774193549
+num_datapoints_in_train: 58
+<<<<<<<< CORRECT >>>>>>>>
+  >).MakeGenericType(declaringType, memberType);
+  			
+  			ParameterExpression p = Expression.Parameter(declaringType, "e");
+<<<< DIAGNOSTIC: trailing whitespace detected. >>>>
+- 			return (MetaAccessor)Activator.CreateInstance(accessorType, new object[]{ 
++ 			return (MetaAccessor)Activator.CreateInstance(accessorType, new object[]{
+  				Expression.Lambda(Expression.MakeMemberAccess(p, member), p).Compile(),
+  				MakeSetter(member, memberType, declaringType
+<<<<<<<< INFERRED >>>>>>>>
+  >).MakeGenericType(declaringType, memberType);
+  			
+  			ParameterExpression p = Expression.Parameter(declaringType, "e");
+<<<< DIAGNOSTIC: trailing whitespace detected. >>>>
+- 			return (MetaAccessor)Activator.CreateInstance(accessorType, new object[]{ 
++ 
+  				Expression.Lambda(Expression.MakeMemberAccess(p, member), p).Compile(),
+  				MakeSetter(member, memberType, declaringType

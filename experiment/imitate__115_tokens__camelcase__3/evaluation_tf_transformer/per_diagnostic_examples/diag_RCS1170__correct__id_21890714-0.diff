@@ -1,0 +1,17 @@
+id: 21890714-0
+diagnostic: RCS1170
+perc_correct_in_test: 0.75
+num_datapoints_in_train: 28
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  
+  namespace DbLinq.Data.Linq.Sugar.ExpressionMutator.Implementation
+  {
+      internal class LambdaExpressionMutator : IMutableExpression
+      {
+<<<< DIAGNOSTIC: use read-only auto-implemented property. >>>>
+-         protected LambdaExpression LambdaExpression { get; private set; }
++         protected LambdaExpression LambdaExpression { get; }
+  
+          public Expression Mutate(IList<Expression> operands)
+          {
+            

@@ -1,0 +1,16 @@
+id: 61706122-0
+diagnostic: EqualsNull
+perc_correct_in_test: 0.53125
+num_datapoints_in_train: 111
+<<<<<<<< CORRECT >>>>>>>>
+                          let c = m.GetAttribute<ColumnAttribute>()
+<<<< DIAGNOSTIC: use 'is' pattern matching instead of '!=' operator. >>>>
+-                          where c != null
++                          where !(c is null)
+                           select (MetaDataMember) new AttributedColumnMetaDataMember(
+<<<<<<<< INFERRED >>>>>>>>
+                          let c = m.GetAttribute<ColumnAttribute>()
+<<<< DIAGNOSTIC: use 'is' pattern matching instead of '!=' operator. >>>>
+-                          where c != null
++                     if (!(c is null))
+                           select (MetaDataMember) new AttributedColumnMetaDataMember(

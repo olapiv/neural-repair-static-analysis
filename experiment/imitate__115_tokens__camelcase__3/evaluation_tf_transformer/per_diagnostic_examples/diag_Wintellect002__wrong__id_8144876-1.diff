@@ -1,0 +1,26 @@
+id: 8144876-1
+diagnostic: Wintellect002
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 5
+<<<<<<<< CORRECT >>>>>>>>
+  Pos = modelChildren[e.NewStartingIndex - 1];
+  
+  				foreach (SharpTreeNode node in e.NewItems)
+  				{
+<<<< DIAGNOSTIC: never use the single parameter debug.assert >>>>
+- 					Debug.Assert(node.modelParent == null);
++ 					Debug.Assert(node.modelParent == null, "node.modelParent == null");
+  					node.modelParent = this;
+  					node.UpdateIsVisible(isVisible && isExpanded, false);
+  					//Debug.Write
+<<<<<<<< INFERRED >>>>>>>>
+  Pos = modelChildren[e.NewStartingIndex - 1];
+  
+  				foreach (SharpTreeNode node in e.NewItems)
+  				{
+<<<< DIAGNOSTIC: never use the single parameter debug.assert >>>>
+- 					Debug.Assert(node.modelParent == null);
++ 					Debug.Assert(node.modelParent == null ? node.modelParent : this, "node.modelParent = null);
+  					node.modelParent = this;
+  					node.UpdateIsVisible(isVisible && isExpanded, false);
+  					//Debug.Write

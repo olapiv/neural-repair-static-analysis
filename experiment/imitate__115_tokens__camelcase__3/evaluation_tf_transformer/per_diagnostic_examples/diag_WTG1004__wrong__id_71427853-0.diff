@@ -1,0 +1,26 @@
+id: 71427853-0
+diagnostic: WTG1004
+perc_correct_in_test: 0.16666666666666666
+num_datapoints_in_train: 13
+<<<<<<<< CORRECT >>>>>>>>
+<<<< DIAGNOSTIC: our coding convention is to use tabs, not spaces, you may need to fix your settings. >>>>
+-     [Obsolete("Delete Wox.Plugin.Features using directive, " +
++ 	[Obsolete("Delete Wox.Plugin.Features using directive, " +
+-               "and use Wox.Plugin.Feature.IInstantQuery instead, " +
++ 			  "and use Wox.Plugin.Feature.IInstantQuery instead, " +
+-               "this method will be removed in v1.4.0")]
++ 			  "this method will be removed in v1.4.0")]
+-     public interface IInstantQuery { }
++ 	public interface IInstantQuery { }
+  }
+<<<<<<<< INFERRED >>>>>>>>
+<<<< DIAGNOSTIC: our coding convention is to use tabs, not spaces, you may need to fix your settings. >>>>
+-     [Obsolete("Delete Wox.Plugin.Features using directive, " +
++ 	[Obsolete("Delete Wox.Plugin.Features using directive, " +
+-               "and use Wox.Plugin.Feature.IInstantQuery instead, " +
++ 			  "and use Wox.Plugin.Feature.IInstantQuery instead, " +
+-               "this method will be removed in v1.4.0")]
++ 			  "this method will be removed in v1.4.0")]
+-     public interface IInstantQuery { }
++ 	public interface IExclusiveQuery { }
+  }

@@ -1,0 +1,13 @@
+id: 14023028-1
+diagnostic: SA1009
+perc_correct_in_test: 0.8235294117647058
+num_datapoints_in_train: 58
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+           assy.GetName().Name, vendorClassToLoad));
+              }
+<<<< DIAGNOSTIC: closing parenthesis should not be followed by a space. >>>>
+-             return (IVendor) Activator.CreateInstance(types.First());
++             return (IVendor)Activator.CreateInstance(types.First());
+          }
+  
+          private void GetVendorInfo(ref string connectionString, out Assembly assembly, 

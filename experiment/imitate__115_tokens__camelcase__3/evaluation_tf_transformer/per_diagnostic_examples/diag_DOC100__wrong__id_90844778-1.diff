@@ -1,0 +1,18 @@
+id: 90844778-1
+diagnostic: DOC100
+perc_correct_in_test: 0.35714285714285715
+num_datapoints_in_train: 25
+<<<<<<<< CORRECT >>>>>>>>
+  dynamic object.
+              /// </summary>
+<<<< DIAGNOSTIC: place text in paragraphs >>>>
+-             /// <remarks>Note: the row can be accessed via "dynamic", or by casting to an IDictionary&lt;string,object&gt;</remarks>
++             /// <remarks><para>Note: the row can be accessed via "dynamic", or by casting to an IDictionary&lt;string,object&gt;</para></remarks>
+              public dynamic ReadFirst() => ReadRow
+<<<<<<<< INFERRED >>>>>>>>
+  dynamic object.
+              /// </summary>
+<<<< DIAGNOSTIC: place text in paragraphs >>>>
+-             /// <remarks>Note: the row can be accessed via "dynamic", or by casting to an IDictionary&lt;string,object&gt;</remarks>
++         /// <remarks><para>Note: each row can be accessed via "dynamic", or by casting to an IDictionary&lt;string,object&gt;</para></remarks>
+              public dynamic ReadFirst() => ReadRow

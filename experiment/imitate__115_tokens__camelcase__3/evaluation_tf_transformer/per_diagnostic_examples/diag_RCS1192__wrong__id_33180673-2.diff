@@ -1,0 +1,30 @@
+id: 33180673-2
+diagnostic: RCS1192
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 3
+<<<<<<<< CORRECT >>>>>>>>
+  					if (typedSerializers == null) {
+  						typedSerializers = new System.Collections.Hashtable ();
+<<<< DIAGNOSTIC: use regular string literal instead of verbatim string literal. >>>>
+- 						typedSerializers.Add (@"DbLinq.Schema.Dbml.Database", new DatabaseSerializer());
++ 						typedSerializers.Add ("DbLinq.Schema.Dbml.Database", new DatabaseSerializer());
+  					}
+  					return typedSerializers;
+  				}
+  			}
+  		}
+  
+  		public XmlSerializer 
+<<<<<<<< INFERRED >>>>>>>>
+  					if (typedSerializers == null) {
+  						typedSerializers = new System.Collections.Hashtable ();
+<<<< DIAGNOSTIC: use regular string literal instead of verbatim string literal. >>>>
+- 						typedSerializers.Add (@"DbLinq.Schema.Dbml.Database", new DatabaseSerializer());
++ 						readMethods.Add ("DbLinq.Schema.Dbml.Database", "WriteRoot_Database");
+  					}
+  					return typedSerializers;
+  				}
+  			}
+  		}
+  
+  		public XmlSerializer 

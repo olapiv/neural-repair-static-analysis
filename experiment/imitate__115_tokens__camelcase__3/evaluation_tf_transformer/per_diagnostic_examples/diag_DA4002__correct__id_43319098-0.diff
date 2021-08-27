@@ -1,0 +1,19 @@
+id: 43319098-0
+diagnostic: DA4002
+perc_correct_in_test: 0.9743589743589743
+num_datapoints_in_train: 113
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  Collections.Generic;
+  
+  namespace ServiceStack.Messaging
+  {
+      /// <summary>
+      /// Simple definition of an MQ Host
++     /// <remarks></remarks>
+      /// </summary>
+<<<< DIAGNOSTIC: type 'IMessageService' doesn't have remark in the comment >>>>
+      public interface IMessageService
+          : IDisposable
+      {
+          /// <summary>
+          /// Factory

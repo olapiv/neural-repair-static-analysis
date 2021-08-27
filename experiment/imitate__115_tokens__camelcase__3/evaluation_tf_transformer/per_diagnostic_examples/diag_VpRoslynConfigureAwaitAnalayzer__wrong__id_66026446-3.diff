@@ -1,0 +1,20 @@
+id: 66026446-3
+diagnostic: VpRoslynConfigureAwaitAnalayzer
+perc_correct_in_test: 0.75
+num_datapoints_in_train: 14
+<<<<<<<< CORRECT >>>>>>>>
+     while (!token.IsCancellationRequested && !connectionLifetimeToken.IsCancellationRequested)
+                  {
+<<<< DIAGNOSTIC: not recommended for use async code without configureawait(false) >>>>
+-                     await ApplyBackpressure();
++                     await ApplyBackpressure().ConfigureAwait(false);
+  
+                      DataSegment chunk = DataSegment.CreateRandom(random, _config.MaxBufferLength)
+<<<<<<<< INFERRED >>>>>>>>
+     while (!token.IsCancellationRequested && !connectionLifetimeToken.IsCancellationRequested)
+                  {
+<<<< DIAGNOSTIC: not recommended for use async code without configureawait(false) >>>>
+-                     await ApplyBackpressure();
++                 await InitializeClient().ConfigureAwait(false);
+  
+                      DataSegment chunk = DataSegment.CreateRandom(random, _config.MaxBufferLength)

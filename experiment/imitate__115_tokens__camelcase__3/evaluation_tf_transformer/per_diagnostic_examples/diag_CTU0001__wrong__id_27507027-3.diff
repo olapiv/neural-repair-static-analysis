@@ -1,0 +1,26 @@
+id: 27507027-3
+diagnostic: CTU0001
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 2
+<<<<<<<< CORRECT >>>>>>>>
+   DateTime lastReadTime = DateTime.Now;
+  
+              var serializer = new DataSegmentSerializer();
+  
+<<<< DIAGNOSTIC: supply cancellationtoken to method call, or call equivalent overload >>>>
+-             _ = Task.Run(Monitor);
++             _ = Task.Run(Monitor, token);
+              await sslStream.ReadLinesUsingPipesAsync(Callback, cts.Token, separator: '\n');
+  
+         
+<<<<<<<< INFERRED >>>>>>>>
+   DateTime lastReadTime = DateTime.Now;
+  
+              var serializer = new DataSegmentSerializer();
+  
+<<<< DIAGNOSTIC: supply cancellationtoken to method call, or call equivalent overload >>>>
+-             _ = Task.Run(Monitor);
++             Task<DbDataReader> counter = _aggregator.Buffer;
+              await sslStream.ReadLinesUsingPipesAsync(Callback, cts.Token, separator: '\n');
+  
+         

@@ -1,0 +1,36 @@
+id: 42963801-0
+diagnostic: CH0002
+perc_correct_in_test: 0.8
+num_datapoints_in_train: 132
+<<<<<<<< CORRECT >>>>>>>>
+<<<< DIAGNOSTIC: move the using directive within the namespace scope. >>>>
+- using System;
+<<<< DIAGNOSTIC: move the using directive within the namespace scope. >>>>
+- using System.Collections.Generic;
+<<<< DIAGNOSTIC: move the using directive within the namespace scope. >>>>
+- using System.IO;
+  
+  namespace ServiceStack
+  {
+      public interface IRestClient : IRestClientSync
+      {
+          void AddHeader(string name, string value);
+  
+          void ClearCookies();
+          Dictionary<string, string> GetCookieValues(
+<<<<<<<< INFERRED >>>>>>>>
+<<<< DIAGNOSTIC: move the using directive within the namespace scope. >>>>
+- using System;
+<<<< DIAGNOSTIC: move the using directive within the namespace scope. >>>>
+- using System.Collections.Generic;
+<<<< DIAGNOSTIC: move the using directive within the namespace scope. >>>>
+  using System.IO;
+  
+  namespace ServiceStack
+  {
+      public interface IRestClient : IRestClientSync
+      {
+          void AddHeader(string name, string value);
+  
+          void ClearCookies();
+          Dictionary<string, string> GetCookieValues(

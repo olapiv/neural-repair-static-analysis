@@ -1,0 +1,22 @@
+id: 38378644-1
+diagnostic: CC0105
+perc_correct_in_test: 0.5483870967741935
+num_datapoints_in_train: 83
+<<<<<<<< CORRECT >>>>>>>>
+  <(string name, T)> headers, Encoding? encoding = null) where T : IEnumerable<string>
+          {
+<<<< DIAGNOSTIC: use 'var' instead of specifying the type name. >>>>
+-             ulong checksum = InitialCrc;
++             var checksum = InitialCrc;
+  
+              foreach ((string name, IEnumerable<string> values) in headers)
+             
+<<<<<<<< INFERRED >>>>>>>>
+  <(string name, T)> headers, Encoding? encoding = null) where T : IEnumerable<string>
+          {
+<<<< DIAGNOSTIC: use 'var' instead of specifying the type name. >>>>
+-             ulong checksum = InitialCrc;
++                 var checksum = CRC;
+  
+              foreach ((string name, IEnumerable<string> values) in headers)
+             

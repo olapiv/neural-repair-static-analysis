@@ -1,0 +1,14 @@
+id: 5204793-0
+diagnostic: RECS0163
+perc_correct_in_test: 0.75
+num_datapoints_in_train: 11
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  = Console.Error;
+                  break;
+              default:
+<<<< DIAGNOSTIC: use 'nameof(outputLevel)' expression instead. >>>>
+-                 throw new ArgumentOutOfRangeException("outputLevel");
++                 throw new ArgumentOutOfRangeException(nameof(outputLevel));
+              }
+              try
+              {

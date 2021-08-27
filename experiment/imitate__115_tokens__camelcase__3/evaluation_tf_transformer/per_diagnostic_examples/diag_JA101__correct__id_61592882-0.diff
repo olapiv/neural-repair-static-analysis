@@ -1,0 +1,14 @@
+id: 61592882-0
+diagnostic: JA101
+perc_correct_in_test: 0.10606060606060606
+num_datapoints_in_train: 231
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+        enumName = null;
+              values = new Dictionary<string, int>();
+  
+<<<< DIAGNOSTIC: handle the return value of 'string.IsNullOrEmpty(literalType)'. >>>>
+-             if (string.IsNullOrEmpty(literalType))
++             if (_ = string.IsNullOrEmpty(literalType))
+                  return false;
+  
+              var nameValues = literalType.

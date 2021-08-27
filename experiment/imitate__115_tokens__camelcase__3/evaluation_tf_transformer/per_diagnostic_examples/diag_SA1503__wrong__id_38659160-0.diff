@@ -1,0 +1,30 @@
+id: 38659160-0
+diagnostic: SA1503
+perc_correct_in_test: 0.9
+num_datapoints_in_train: 206
+<<<<<<<< CORRECT >>>>>>>>
+  .LocalName != "Database" || Reader.NamespaceURI != "http://schemas.microsoft.com/linqtosql/dbml/2007")
++             {
+<<<< DIAGNOSTIC: braces should not be omitted >>>>
+- 				throw CreateUnknownNodeException();
++                 throw CreateUnknownNodeException();
++             }
++ 
+- 			return ReadObject_Database (false, true);
++             return ReadObject_Database (false, true);
+  		}
+  
+  		public DbLinq.Schema.Dbml.Database ReadObject_Database (bool isNullable, bool checkType)
+  		{
+  		
+<<<<<<<< INFERRED >>>>>>>>
+  .LocalName != "Database" || Reader.NamespaceURI != "http://schemas.microsoft.com/linqtosql/dbml/2007")
++             {
+<<<< DIAGNOSTIC: braces should not be omitted >>>>
+  				throw CreateUnknownNodeException();
+  			return ReadObject_Database (false, true);
+  		}
+  
+  		public DbLinq.Schema.Dbml.Database ReadObject_Database (bool isNullable, bool checkType)
+  		{
+  		

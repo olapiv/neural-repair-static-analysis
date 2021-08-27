@@ -1,0 +1,16 @@
+id: 55531150-0
+diagnostic: CA1836
+perc_correct_in_test: 1.0
+num_datapoints_in_train: 1
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+     }
+          }
+  
+          public void PrintFailureTypes()
+          {
+<<<< DIAGNOSTIC: prefer 'IsEmpty' over 'Count' to determine whether the object is empty >>>>
+-             if (_failureTypes.Count == 0)
++             if (_failureTypes.IsEmpty)
+                  return;
+  
+              Console.ForegroundColor = ConsoleColor.Red;

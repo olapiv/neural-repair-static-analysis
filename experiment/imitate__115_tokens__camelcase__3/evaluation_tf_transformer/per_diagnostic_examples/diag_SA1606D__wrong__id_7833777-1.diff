@@ -1,0 +1,26 @@
+id: 7833777-1
+diagnostic: SA1606D
+perc_correct_in_test: 0.22972972972972974
+num_datapoints_in_train: 222
+<<<<<<<< CORRECT >>>>>>>>
+    [TypeDescriptionProvider(typeof(DapperRowTypeDescriptionProvider))]
+          private sealed partial class DapperRow
++             /// <summary>
++             /// dapper row type description provider.
++             /// </summary>
+          {
+<<<< DIAGNOSTIC: class documentation: no documentation. >>>>
+              private sealed class DapperRowTypeDescriptionProvider : TypeDescriptionProvider
+              {
+                  public override ICustomTypeDescriptor
+<<<<<<<< INFERRED >>>>>>>>
+    [TypeDescriptionProvider(typeof(DapperRowTypeDescriptionProvider))]
+          private sealed partial class DapperRow
++     /// <summary>
++     /// sql mapper.
++     /// </summary>
+          {
+<<<< DIAGNOSTIC: class documentation: no documentation. >>>>
+              private sealed class DapperRowTypeDescriptionProvider : TypeDescriptionProvider
+              {
+                  public override ICustomTypeDescriptor

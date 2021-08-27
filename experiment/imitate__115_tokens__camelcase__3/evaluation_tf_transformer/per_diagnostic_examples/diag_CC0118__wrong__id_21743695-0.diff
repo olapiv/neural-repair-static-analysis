@@ -1,0 +1,17 @@
+id: 21743695-0
+diagnostic: CC0118
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 2
+<<<<<<<< CORRECT >>>>>>>>
+         }
+                          }
+<<<< DIAGNOSTIC: unnecessary '.ToString()' call in string concatenation. >>>>
+-                         var nextName = namePrefix + count.ToString();
++                         var nextName = namePrefix + count;
+                          if (isDbString && item is
+<<<<<<<< INFERRED >>>>>>>>
+         }
+                          }
+<<<< DIAGNOSTIC: unnecessary '.ToString()' call in string concatenation. >>>>
+                          var nextName = namePrefix + count.ToString();
+                          if (isDbString && item is

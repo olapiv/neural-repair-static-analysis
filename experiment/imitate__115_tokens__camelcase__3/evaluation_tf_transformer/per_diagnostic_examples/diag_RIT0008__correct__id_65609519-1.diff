@@ -1,0 +1,14 @@
+id: 65609519-1
+diagnostic: RIT0008
+perc_correct_in_test: 0.6078431372549019
+num_datapoints_in_train: 113
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  ExecutionTimeElapsedOrKeyboardInterrupt(config.MaxExecutionTime);
+  
+              try
+              {
+<<<< DIAGNOSTIC: 'client object null' check should be written as 'client is object', the != operator could be (incorrectly) overloaded >>>>
+-                 if (client != null) 
++                 if (client is object) 
+                  {
+                      await client.StopAsync

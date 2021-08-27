@@ -1,0 +1,26 @@
+id: 46195236-3
+diagnostic: PropertyDiagnosticId
+perc_correct_in_test: 0.16666666666666666
+num_datapoints_in_train: 16
+<<<<<<<< CORRECT >>>>>>>>
+  variables.
+          /// </summary>
+          [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+<<<< DIAGNOSTIC: property should have public get and protected set >>>>
+-         public string? PluginOpts { get; set; }
++         public string? PluginOpts { get; protected set; }
+  
+          /// <summary>
+          /// Gets or sets the server name.
+       
+<<<<<<<< INFERRED >>>>>>>>
+  variables.
+          /// </summary>
+          [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+<<<< DIAGNOSTIC: property should have public get and protected set >>>>
+-         public string? PluginOpts { get; set; }
++         public string? Plugin { get; protected set; }
+  
+          /// <summary>
+          /// Gets or sets the server name.
+       

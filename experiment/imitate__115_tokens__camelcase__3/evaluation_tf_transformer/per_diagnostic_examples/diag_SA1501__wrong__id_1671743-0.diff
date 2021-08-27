@@ -1,0 +1,24 @@
+id: 1671743-0
+diagnostic: SA1501
+perc_correct_in_test: 0.5
+num_datapoints_in_train: 6
+<<<<<<<< CORRECT >>>>>>>>
+              Stopwatch sw = Stopwatch.StartNew();
++                     do
++                     {
++                         Thread.SpinWait(10);
++                     }
+<<<< DIAGNOSTIC: statement should not be on a single line >>>>
+-                     do { Thread.SpinWait(10); } while (!task.IsCompleted && sw.Elapsed.TotalMilliseconds < spinTimeMs);
++                     while (!task.IsCompleted && sw.Elapsed.TotalMilliseconds < spinTimeMs);
+                  }
+           
+<<<<<<<< INFERRED >>>>>>>>
+              Stopwatch sw = Stopwatch.StartNew();
+<<<< DIAGNOSTIC: statement should not be on a single line >>>>
+-                     do { Thread.SpinWait(10); } while (!task.IsCompleted && sw.Elapsed.TotalMilliseconds < spinTimeMs);
++                     lock (Task)
++                        {
++                                              || task.Elapsed)
+                  }
+           

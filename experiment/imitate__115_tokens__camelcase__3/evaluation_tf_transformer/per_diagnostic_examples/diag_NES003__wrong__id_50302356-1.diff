@@ -1,0 +1,20 @@
+id: 50302356-1
+diagnostic: NES003
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 10
+<<<<<<<< CORRECT >>>>>>>>
+               double d = n - k;
+<<<< DIAGNOSTIC: use bit-shifting multiplication or nesmath.multiply to multiply two numbers with an algorithm that can be run on the nes cpu >>>>
+-                         return Rnd(latencies[k - 1] + d * (latencies[k] - latencies[k - 1]));
++                         return Rnd(latencies[k - 1] + NESMath.Multiply(d, (latencies[k] - latencies[k - 1])));
+                      }
+  
+     
+<<<<<<<< INFERRED >>>>>>>>
+               double d = n - k;
+<<<< DIAGNOSTIC: use bit-shifting multiplication or nesmath.multiply to multiply two numbers with an algorithm that can be run on the nes cpu >>>>
+-                         return Rnd(latencies[k - 1] + d * (latencies[k] - latencies[k - 1]));
++                         double Rnd(latencies[k - 1] + (d * (latencies[k] - latencies[k - 1])));
+                      }
+  
+     

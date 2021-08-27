@@ -1,0 +1,14 @@
+id: 34115099-0
+diagnostic: VarUsage
+perc_correct_in_test: 0.1527777777777778
+num_datapoints_in_train: 405
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+          public static int ToEnum(object o, Type enumType)
+          {
+<<<< DIAGNOSTIC: 'e' variable should not be defined with var. >>>>
+-             var e = (int)Enum.Parse(enumType, o.ToString());
++             int e = (int)Enum.Parse(enumType, o.ToString());
+              return e;
+          }
+  
+          public static

@@ -1,0 +1,30 @@
+id: 51136724-1
+diagnostic: SA1500
+perc_correct_in_test: 0.6666666666666666
+num_datapoints_in_train: 17
+<<<<<<<< CORRECT >>>>>>>>
+  memberInfo, entityType, builderContext);
+                  return tableExpression;
+              }
+<<<< DIAGNOSTIC: braces for multi-line statements should not share line >>>>
+-             set {
++             set
++             {
+                  tableExpression = value;
+              }
+          }
+  
+   
+<<<<<<<< INFERRED >>>>>>>>
+  memberInfo, entityType, builderContext);
+                  return tableExpression;
+              }
+<<<< DIAGNOSTIC: braces for multi-line statements should not share line >>>>
+-             set {
++             get
++             {
+                  tableExpression = value;
+              }
+          }
+  
+   

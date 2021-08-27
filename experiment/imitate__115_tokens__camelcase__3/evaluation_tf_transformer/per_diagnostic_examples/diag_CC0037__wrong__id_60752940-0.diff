@@ -1,0 +1,26 @@
+id: 60752940-0
+diagnostic: CC0037
+perc_correct_in_test: 0.7647058823529411
+num_datapoints_in_train: 39
+<<<<<<<< CORRECT >>>>>>>>
+          }
+  
+          private MethodInfo methodInfo;
+          private readonly FunctionAttribute functionAttribute;
+  
+<<<< DIAGNOSTIC: commented code should be removed. >>>>
+-         //private bool hasMultipleResults;
+          public override bool HasMultipleResults
+          {
+              get { throw new Not
+<<<<<<<< INFERRED >>>>>>>>
+          }
+  
+          private MethodInfo methodInfo;
+          private readonly FunctionAttribute functionAttribute;
+  
+<<<< DIAGNOSTIC: commented code should be removed. >>>>
+          //private bool hasMultipleResults;
+          public override bool HasMultipleResults
+          {
+              get { throw new Not

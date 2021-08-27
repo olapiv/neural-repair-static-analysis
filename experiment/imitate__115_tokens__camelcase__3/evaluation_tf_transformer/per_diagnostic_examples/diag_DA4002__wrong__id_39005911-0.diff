@@ -1,0 +1,24 @@
+id: 39005911-0
+diagnostic: DA4002
+perc_correct_in_test: 0.9743589743589743
+num_datapoints_in_train: 113
+<<<<<<<< CORRECT >>>>>>>>
+  <summary>
+          /// Implement this interface to perform custom type-based parameter handling and value parsing
++         /// <remarks></remarks>
+          /// </summary>
+<<<< DIAGNOSTIC: type 'ITypeHandler' doesn't have remark in the comment >>>>
+          public interface ITypeHandler
+          {
+              /// <summary>
+              //
+<<<<<<<< INFERRED >>>>>>>>
+  <summary>
+          /// Implement this interface to perform custom type-based parameter handling and value parsing
++     /// <remarks></remarks>
+          /// </summary>
+<<<< DIAGNOSTIC: type 'ITypeHandler' doesn't have remark in the comment >>>>
+          public interface ITypeHandler
+          {
+              /// <summary>
+              //

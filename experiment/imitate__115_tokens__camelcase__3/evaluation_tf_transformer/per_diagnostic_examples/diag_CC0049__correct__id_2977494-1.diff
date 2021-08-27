@@ -1,0 +1,14 @@
+id: 2977494-1
+diagnostic: CC0049
+perc_correct_in_test: 1.0
+num_datapoints_in_train: 2
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  get => CanShowTo(RequestAttributes.Localhost);
+              set
+              {
+<<<< DIAGNOSTIC: you can remove this comparison. >>>>
+-                 if (value == false)
++                 if (!value)
+                      throw new Exception("Only true allowed");
+  
+          

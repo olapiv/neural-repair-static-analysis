@@ -1,0 +1,20 @@
+id: 78546740-1
+diagnostic: SA1005
+perc_correct_in_test: 0.5925925925925926
+num_datapoints_in_train: 88
+<<<<<<<< CORRECT >>>>>>>>
+            //case SpecialExpressionType.Count:
+                  //    break;
+<<<< DIAGNOSTIC: single line comment should begin with a space. >>>>
+-                 //case SpecialExpressionType.Like:
++                 // case SpecialExpressionType.Like:
+                  //    break;
+                  //case SpecialExpression
+<<<<<<<< INFERRED >>>>>>>>
+            //case SpecialExpressionType.Count:
+                  //    break;
+<<<< DIAGNOSTIC: single line comment should begin with a space. >>>>
+-                 //case SpecialExpressionType.Like:
++                 // case SpecialExpressionType.SpecialExpressionType;
+                  //    break;
+                  //case SpecialExpression

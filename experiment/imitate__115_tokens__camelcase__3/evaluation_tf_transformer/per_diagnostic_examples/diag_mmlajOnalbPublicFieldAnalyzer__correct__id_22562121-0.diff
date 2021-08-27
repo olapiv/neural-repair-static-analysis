@@ -1,0 +1,13 @@
+id: 22562121-0
+diagnostic: mmlajOnalbPublicFieldAnalyzer
+perc_correct_in_test: 0.9333333333333333
+num_datapoints_in_train: 54
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  of all 8-bit messages.
+          private static ulong[] s_crc_table = new ulong[256];
+<<<< DIAGNOSTIC: analyzer format (mmlaj) >>>>
+-         public const ulong InitialCrc = 0xffffffffL;
++         private const ulong InitialCrc = 0xffffffffL;
+  
+          // Flag: has the table been computed? Initially false.
+          private static bool s_

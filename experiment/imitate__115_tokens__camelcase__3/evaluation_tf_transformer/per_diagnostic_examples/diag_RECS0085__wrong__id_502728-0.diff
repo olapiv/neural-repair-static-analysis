@@ -1,0 +1,32 @@
+id: 502728-0
+diagnostic: RECS0085
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 2
+<<<<<<<< CORRECT >>>>>>>>
+  
+  using System.Reflection;
+  
+  namespace Microsoft.AspNet.SignalR.Utils
+  {
+      class Program
+      {
+<<<< DIAGNOSTIC: redundant array creation expression >>>>
+-         private static readonly ICommand[] _commands = new ICommand[]
++         private static readonly ICommand[] _commands = {
+-         {
+              new InstallPerformanceCountersCommand(PrintInfo, PrintSuccess, PrintWarning, PrintError),
+   
+<<<<<<<< INFERRED >>>>>>>>
+  
+  using System.Reflection;
+  
+  namespace Microsoft.AspNet.SignalR.Utils
+  {
+      class Program
+      {
+<<<< DIAGNOSTIC: redundant array creation expression >>>>
+-         private static readonly ICommand[] _commands = new ICommand[]
++     static class Program
+          {
+              new InstallPerformanceCountersCommand(PrintInfo, PrintSuccess, PrintWarning, PrintError),
+   

@@ -1,0 +1,32 @@
+id: 14422413-0
+diagnostic: EPS01
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 5
+<<<<<<<< CORRECT >>>>>>>>
+  using System;
+  
+  namespace MaterialDesignColors.ColorManipulation
+  {
+<<<< DIAGNOSTIC: struct 'Lab' can be made readonly >>>>
+-     internal struct Lab
++     internal readonly struct Lab
+      {
+          public double L { get; }
+          public double A { get; }
+          public double B { get; }
+  
+          public Lab(double l, double
+<<<<<<<< INFERRED >>>>>>>>
+  using System;
+  
+  namespace MaterialDesignColors.ColorManipulation
+  {
+<<<< DIAGNOSTIC: struct 'Lab' can be made readonly >>>>
+-     internal struct Lab
++         public readonly double L { get; }
+      {
+          public double L { get; }
+          public double A { get; }
+          public double B { get; }
+  
+          public Lab(double l, double

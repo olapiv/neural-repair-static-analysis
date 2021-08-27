@@ -1,0 +1,14 @@
+id: 36788500-0
+diagnostic: GU0077
+perc_correct_in_test: 0.6382978723404256
+num_datapoints_in_train: 160
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  QueryCache QueryCache
+          {
+              get
+              {
+<<<< DIAGNOSTIC: prefer is null. >>>>
+-                 if (queryCache == null)
++                 if (queryCache is null)
+                      queryCache = ObjectFactory.Get<IQueryCache>();
+        

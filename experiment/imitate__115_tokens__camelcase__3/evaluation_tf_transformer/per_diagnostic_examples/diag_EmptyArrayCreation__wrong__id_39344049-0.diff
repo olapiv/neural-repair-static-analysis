@@ -1,0 +1,28 @@
+id: 39344049-0
+diagnostic: EmptyArrayCreation
+perc_correct_in_test: 0.5
+num_datapoints_in_train: 9
+<<<<<<<< CORRECT >>>>>>>>
+             return objectGetHashCode;
+              }
+          }
+  
+<<<< DIAGNOSTIC: use 'System.Array.Empty<object>()' instead of an empty array creation. >>>>
+-         private object[] noArgs = new object[0];
++         private object[] noArgs = System.Array.Empty<object>();
+  
+          public bool Equals(T x, T y)
+          {
+           
+<<<<<<<< INFERRED >>>>>>>>
+             return objectGetHashCode;
+              }
+          }
+  
+<<<< DIAGNOSTIC: use 'System.Array.Empty<object>()' instead of an empty array creation. >>>>
+-         private object[] noArgs = new object[0];
++             private object[] noArgs = System.Array.Empty<T>();
+  
+          public bool Equals(T x, T y)
+          {
+           

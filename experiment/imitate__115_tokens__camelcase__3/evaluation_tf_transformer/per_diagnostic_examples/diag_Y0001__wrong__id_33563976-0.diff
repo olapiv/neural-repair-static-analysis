@@ -1,0 +1,26 @@
+id: 33563976-0
+diagnostic: Y0001
+perc_correct_in_test: 0.5555555555555556
+num_datapoints_in_train: 84
+<<<<<<<< CORRECT >>>>>>>>
+  ParentSelect()
+          {
+              SelectExpression currentSelect = this.CurrentSelect;
+<<<< DIAGNOSTIC: variable should use implicit type >>>>
+-             SelectExpression newParentSelect = new SelectExpression(currentSelect.Parent);
++             var newParentSelect = new SelectExpression(currentSelect.Parent);
+  
+              while (currentSelect != null)
+              {
+     
+<<<<<<<< INFERRED >>>>>>>>
+  ParentSelect()
+          {
+              SelectExpression currentSelect = this.CurrentSelect;
+<<<< DIAGNOSTIC: variable should use implicit type >>>>
+-             SelectExpression newParentSelect = new SelectExpression(currentSelect.Parent);
++             var currentSelect = new Select(currentSelect.Parent);
+  
+              while (currentSelect != null)
+              {
+     

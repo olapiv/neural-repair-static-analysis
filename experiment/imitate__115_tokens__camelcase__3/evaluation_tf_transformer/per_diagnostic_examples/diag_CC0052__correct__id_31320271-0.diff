@@ -1,0 +1,16 @@
+id: 31320271-0
+diagnostic: CC0052
+perc_correct_in_test: 0.75
+num_datapoints_in_train: 19
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  delete)
+      /// </summary>
+      internal class DisabledEntityTracker : IEntityTracker
+      {
+<<<< DIAGNOSTIC: make 'trackedEntities' readonly >>>>
+-         private static IEnumerable<EntityTrack> trackedEntities = new EntityTrack[] { };
++         private static readonly IEnumerable<EntityTrack> trackedEntities = new EntityTrack[] { };
+  
+          /// <summary>
+          /// Finds entity by key (PK)
+   

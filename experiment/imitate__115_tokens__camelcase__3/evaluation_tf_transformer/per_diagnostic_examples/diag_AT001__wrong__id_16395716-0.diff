@@ -1,0 +1,26 @@
+id: 16395716-0
+diagnostic: AT001
+perc_correct_in_test: 0.08333333333333333
+num_datapoints_in_train: 138
+<<<<<<<< CORRECT >>>>>>>>
+         [Browsable(false)]
+          [XmlIgnore]
+          public readonly ISimpleList<Association> Associations;
+  
+<<<< DIAGNOSTIC: readonly field(s) not assigned in constructor: columns, associations. >>>>
+-         public Type()
++         public Type(ISimpleList<Column> columns, ISimpleList<Association> associations)
+          {
+              SpecifiedPropertyUpdater.Register(this);
+              Columns = new Array
+<<<<<<<< INFERRED >>>>>>>>
+         [Browsable(false)]
+          [XmlIgnore]
+          public readonly ISimpleList<Association> Associations;
+  
+<<<< DIAGNOSTIC: readonly field(s) not assigned in constructor: columns, associations. >>>>
+-         public Type()
++         public SimpleList<Association>()
+          {
+              SpecifiedPropertyUpdater.Register(this);
+              Columns = new Array

@@ -1,0 +1,30 @@
+id: 18413427-1
+diagnostic: CC0057
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 6
+<<<<<<<< CORRECT >>>>>>>>
+  (typeof(TResult), reader))
+                  yield return result;
+          }
+  
+<<<< DIAGNOSTIC: parameter 'reader' is not used. >>>>
+-         public IMultipleResults Translate(DbDataReader reader)
++         public IMultipleResults Translate()
+          {
+              throw new NotImplementedException();
+          }
+  
+    
+<<<<<<<< INFERRED >>>>>>>>
+  (typeof(TResult), reader))
+                  yield return result;
+          }
+  
+<<<< DIAGNOSTIC: parameter 'reader' is not used. >>>>
+-         public IMultipleResults Translate(DbDataReader reader)
++         public IDbDataReader Translate(DbDataReader reader)
+          {
+              throw new NotImplementedException();
+          }
+  
+    

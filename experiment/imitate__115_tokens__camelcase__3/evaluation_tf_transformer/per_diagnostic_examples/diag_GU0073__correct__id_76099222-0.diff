@@ -1,0 +1,15 @@
+id: 76099222-0
+diagnostic: GU0073
+perc_correct_in_test: 0.5609756097560976
+num_datapoints_in_train: 157
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  /// <summary>
+          /// Current state of the entity
+          /// </summary>
+<<<< DIAGNOSTIC: member entitystate of non-public type entitytrack should be internal. >>>>
+-         public EntityState EntityState { get; set; }
++         internal EntityState EntityState { get; set; }
+  
+          /// <summary>
+          /// Entity being watched
+          /// <

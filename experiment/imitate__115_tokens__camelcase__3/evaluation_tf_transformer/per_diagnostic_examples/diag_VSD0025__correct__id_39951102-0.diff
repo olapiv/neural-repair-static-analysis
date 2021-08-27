@@ -1,0 +1,18 @@
+id: 39951102-0
+diagnostic: VSD0025
+perc_correct_in_test: 0.14705882352941177
+num_datapoints_in_train: 87
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  
+  using System.Reflection;
+  
+  namespace DbLinq.Util
+  {
+      internal class ReferenceEqualityComparer<T> : IEqualityComparer<T>
+      {
+<<<< DIAGNOSTIC: the field objectgethashcode does not follow naming conventions. should be _objectgethashcode. >>>>
+-         private MethodInfo objectGetHashCode;
++         private MethodInfo _objectGetHashCode;
+          /// <summary>
+          /// This is the raw GetHashCode, not inherited
+       

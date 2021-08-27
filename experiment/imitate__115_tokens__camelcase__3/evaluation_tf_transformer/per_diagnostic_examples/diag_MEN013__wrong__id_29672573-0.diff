@@ -1,0 +1,18 @@
+id: 29672573-0
+diagnostic: MEN013
+perc_correct_in_test: 0.8
+num_datapoints_in_train: 18
+<<<<<<<< CORRECT >>>>>>>>
+       Watcher watcher;
+          TimeSpan poll_interval        = PollInterval.Short;
+<<<< DIAGNOSTIC: use utcnow instead of now. >>>>
+-         DateTime last_poll            = DateTime.Now;
++         DateTime last_poll            = DateTime.UtcNow;
+          Timers.Timer remote_timer     = new Timers.Timer () { Interval = 5000
+<<<<<<<< INFERRED >>>>>>>>
+       Watcher watcher;
+          TimeSpan poll_interval        = PollInterval.Short;
+<<<< DIAGNOSTIC: use utcnow instead of now. >>>>
+-         DateTime last_poll            = DateTime.Now;
++         DateTime last_poll             = DateTime.UtcNow;
+          Timers.Timer remote_timer     = new Timers.Timer () { Interval = 5000

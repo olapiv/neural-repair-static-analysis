@@ -1,0 +1,14 @@
+id: 99127980-2
+diagnostic: SA1025
+perc_correct_in_test: 0.5
+num_datapoints_in_train: 26
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+        else
+              {
+<<<< DIAGNOSTIC: code should not contain multiple whitespace characters in a row. >>>>
+-                 var match    = reProvider.Match(connectionString);
++                 var match = reProvider.Match(connectionString);
+<<<< DIAGNOSTIC: code should not contain multiple whitespace characters in a row. >>>>
+-                 vendor       = match.Groups[1].Value;
++                 vendor = match.Groups[1].Value;
+                  assemblyName = "

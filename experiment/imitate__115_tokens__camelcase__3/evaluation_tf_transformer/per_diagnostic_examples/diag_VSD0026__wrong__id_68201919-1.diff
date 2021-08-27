@@ -1,0 +1,28 @@
+id: 68201919-1
+diagnostic: VSD0026
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 18
+<<<<<<<< CORRECT >>>>>>>>
+    /// <summary>
+              /// Plural ending
+              /// </summary>
+<<<< DIAGNOSTIC: field plural should be turned into a property. >>>>
+-             public string Plural;
++             public string Plural { get; set; }
+          }
+  
+          /// <summary>
+          /// Singulars and plurals ends
+     
+<<<<<<<< INFERRED >>>>>>>>
+    /// <summary>
+              /// Plural ending
+              /// </summary>
+<<<< DIAGNOSTIC: field plural should be turned into a property. >>>>
+-             public string Plural;
++             public string Plural { get; set; }
+          }
+  
+          /// <summary>
+          /// Singulars and plurals ends
+     

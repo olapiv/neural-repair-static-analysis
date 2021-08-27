@@ -1,0 +1,23 @@
+id: 25621667-0
+diagnostic: SA1127
+perc_correct_in_test: 0.3333333333333333
+num_datapoints_in_train: 9
+<<<<<<<< CORRECT >>>>>>>>
+         }
+  
+          [Obsolete("Please use the other GetTable() methods")]
+<<<< DIAGNOSTIC: generic type constraints should be on their own line >>>>
+-         public Table<T> GetTable<T>(string tableName) where T : class
++         public Table<T> GetTable<T>(string tableName)
++             where T : class
+          {
+              return GetTable(typeof(T)) as Table<T>;
+<<<<<<<< INFERRED >>>>>>>>
+         }
+  
+          [Obsolete("Please use the other GetTable() methods")]
+<<<< DIAGNOSTIC: generic type constraints should be on their own line >>>>
+-         public Table<T> GetTable<T>(string tableName) where T : class
++         public Table<T> GetTable<T>()
+          {
+              return GetTable(typeof(T)) as Table<T>;

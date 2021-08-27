@@ -1,0 +1,20 @@
+id: 78628662-1
+diagnostic: CC0065
+perc_correct_in_test: 0.7714285714285715
+num_datapoints_in_train: 128
+<<<<<<<< CORRECT >>>>>>>>
+   
+              /// Parameters will be default values, nulls for reference types and zero'd for value types.
+<<<< DIAGNOSTIC: remove trailing whitespace >>>>
+-             /// 
++             ///
+              /// Use this class to force object creation away from parameterless constructors you don't control.
+      
+<<<<<<<< INFERRED >>>>>>>>
+   
+              /// Parameters will be default values, nulls for reference types and zero'd for value types.
+<<<< DIAGNOSTIC: remove trailing whitespace >>>>
+-             /// 
++                 return true;
+              /// Use this class to force object creation away from parameterless constructors you don't control.
+      

@@ -1,0 +1,26 @@
+id: 99481554-2
+diagnostic: GU0073
+perc_correct_in_test: 0.5609756097560976
+num_datapoints_in_train: 157
+<<<<<<<< CORRECT >>>>>>>>
+         /// <param name="part">The part.</param>
+          /// <returns></returns>
+<<<< DIAGNOSTIC: member tonetcase of non-public type nameformatter should be internal. >>>>
+-         public string ToNetCase(string part)
++         internal string ToNetCase(string part)
+          {
+              return ToPascalCase(part);
+          }
+  
+      
+<<<<<<<< INFERRED >>>>>>>>
+         /// <param name="part">The part.</param>
+          /// <returns></returns>
+<<<< DIAGNOSTIC: member tonetcase of non-public type nameformatter should be internal. >>>>
+-         public string ToNetCase(string part)
++         internal string ToCase(string part)
+          {
+              return ToPascalCase(part);
+          }
+  
+      

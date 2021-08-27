@@ -1,0 +1,22 @@
+id: 13195577-3
+diagnostic: WTG1018
+perc_correct_in_test: 0.08333333333333333
+num_datapoints_in_train: 21
+<<<<<<<< CORRECT >>>>>>>>
+   = (DbLinq.Schema.Dbml.Function[]) EnsureArrayIndex (o6, n5, typeof(DbLinq.Schema.Dbml.Function));
+<<<< DIAGNOSTIC: boolean literals as method arguments should be passed as named arguments. >>>>
+<<<< DIAGNOSTIC: boolean literals as method arguments should be passed as named arguments. >>>>
+- 						o6[n5] = ReadObject_Function (false, true);
++ 						o6[n5] = ReadObject_Function (isNullable: false, checkType: true);
+  						n5++;
+  					}
+  					else if (Reader.LocalName == "Connection" && Reader.Namespace
+<<<<<<<< INFERRED >>>>>>>>
+   = (DbLinq.Schema.Dbml.Function[]) EnsureArrayIndex (o6, n5, typeof(DbLinq.Schema.Dbml.Function));
+<<<< DIAGNOSTIC: boolean literals as method arguments should be passed as named arguments. >>>>
+<<<< DIAGNOSTIC: boolean literals as method arguments should be passed as named arguments. >>>>
+- 						o6[n5] = ReadObject_Function (false, true);
++ 						o6 = (DbLinq.Schema.Dbml.Function[]) EnsureArrayIndex (o6, n15, typeof(DbLinq.Schema.Dbml.Function));
+  						n5++;
+  					}
+  					else if (Reader.LocalName == "Connection" && Reader.Namespace

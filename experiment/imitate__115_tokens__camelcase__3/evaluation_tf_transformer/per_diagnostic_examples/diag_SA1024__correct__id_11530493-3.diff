@@ -1,0 +1,15 @@
+id: 11530493-3
+diagnostic: SA1024
+perc_correct_in_test: 0.2
+num_datapoints_in_train: 10
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  @Name);
+  			WriteAttribute ("InheritanceCode", "", ob.@InheritanceCode);
+  			if (ob.@IsInheritanceDefaultSpecified) {
+<<<< DIAGNOSTIC: colon should be preceded by a space. >>>>
+<<<< DIAGNOSTIC: colon should be followed by a space. >>>>
+- 				WriteAttribute ("IsInheritanceDefault", "", (ob.@IsInheritanceDefault?"true":"false"));
++ 				WriteAttribute ("IsInheritanceDefault", "", (ob.@IsInheritanceDefault?"true" : "false"));
+  			}
+  			if (ob.@AccessModifierSpecified) {
+  				WriteAttribute ("AccessModifier", "", GetEnumValue_

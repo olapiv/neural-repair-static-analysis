@@ -1,0 +1,24 @@
+id: 56469608-0
+diagnostic: VSTHRD103
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 2
+<<<<<<<< CORRECT >>>>>>>>
+  ArgumentNullException(nameof(task));
+  
+              if (task.Status == TaskStatus.RanToCompletion)
+<<<< DIAGNOSTIC: result synchronously blocks. use await instead. >>>>
+-                 return Task.FromResult((TTo)task.Result);
++                 return (TTo)await task;
+  
+              var source = new TaskCompletionSource<TTo>();
+           
+<<<<<<<< INFERRED >>>>>>>>
+  ArgumentNullException(nameof(task));
+  
+              if (task.Status == TaskStatus.RanToCompletion)
+<<<< DIAGNOSTIC: result synchronously blocks. use await instead. >>>>
+-                 return Task.FromResult((TTo)task.Result);
++                 return Task.FromResult((TTo)await task);
+  
+              var source = new TaskCompletionSource<TTo>();
+           

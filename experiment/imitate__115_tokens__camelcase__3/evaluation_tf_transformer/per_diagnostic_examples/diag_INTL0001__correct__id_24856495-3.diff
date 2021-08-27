@@ -1,0 +1,16 @@
+id: 24856495-3
+diagnostic: INTL0001
+perc_correct_in_test: 0.25
+num_datapoints_in_train: 191
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+   abstract List<ChangeSet> GetChangeSets (string path);
+  
+          protected StorageType StorageType = StorageType.Plain;
+  
+<<<< DIAGNOSTIC: field 'UseCustomWatcher' should be named _pascalcase >>>>
+-         public static bool UseCustomWatcher = false;
++         public static bool _UseCustomWatcher = false;
+  
+  
+          public event SyncStatusChangedEventHandler SyncStatusChanged = delegate { };
+          public delegate void

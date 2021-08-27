@@ -1,0 +1,48 @@
+id: 72389528-0
+diagnostic: INTL0001
+perc_correct_in_test: 0.25
+num_datapoints_in_train: 191
+<<<<<<<< CORRECT >>>>>>>>
+  .AutomationPeer OnCreateAutomationPeer()
+  		{
+  			return new SharpTreeViewItemAutomationPeer(this);
+  		}
+  
+  		#region Mouse
+  
+<<<< DIAGNOSTIC: field 'startPoint' should be named _pascalcase >>>>
+- 		Point startPoint;
++ 		Point _StartPoint;
+<<<< DIAGNOSTIC: field 'wasSelected' should be named _pascalcase >>>>
+- 		bool wasSelected;
++ 		bool _WasSelected;
+<<<< DIAGNOSTIC: field 'wasDoubleClick' should be named _pascalcase >>>>
+- 		bool wasDoubleClick;
++ 		bool _WasDoubleClick;
+  
+  		protected override void OnMouseLeftButtonDown(MouseButtonEventArgs e)
+  		{
+  			wasSelected = IsSelected;
+  			if (
+<<<<<<<< INFERRED >>>>>>>>
+  .AutomationPeer OnCreateAutomationPeer()
+  		{
+  			return new SharpTreeViewItemAutomationPeer(this);
+  		}
+  
+  		#region Mouse
+  
+<<<< DIAGNOSTIC: field 'startPoint' should be named _pascalcase >>>>
+- 		Point startPoint;
+<<<< DIAGNOSTIC: field 'wasSelected' should be named _pascalcase >>>>
+- 		bool wasSelected;
+<<<< DIAGNOSTIC: field 'wasDoubleClick' should be named _pascalcase >>>>
+- 		bool wasDoubleClick;
++ 		private SharpTreeViewItemAutomationPeer(SharpTreeView _Item);
++ 			SharpTreeNode _Place;
++ 			bool _IsRaisingEvent;
+  
+  		protected override void OnMouseLeftButtonDown(MouseButtonEventArgs e)
+  		{
+  			wasSelected = IsSelected;
+  			if (

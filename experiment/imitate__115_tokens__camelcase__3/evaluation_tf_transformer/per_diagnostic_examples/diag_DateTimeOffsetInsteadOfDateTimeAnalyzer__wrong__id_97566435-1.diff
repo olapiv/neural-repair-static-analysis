@@ -1,0 +1,18 @@
+id: 97566435-1
+diagnostic: DateTimeOffsetInsteadOfDateTimeAnalyzer
+perc_correct_in_test: 0.9444444444444444
+num_datapoints_in_train: 56
+<<<<<<<< CORRECT >>>>>>>>
+  if (simpleReturnType == typeof(DateTime))
+              {
+<<<< DIAGNOSTIC: replace datetime usage with datetimeoffset >>>>
+-                 return (Expression<Func<IDataRecord, MappingContext, int, DateTime?>>)((dataRecord, mappingContext, valueIndex)
++                 return (Expression<Func<IDataRecord, MappingContext, int, DateTimeOffset?>>)((dataRecord, mappingContext, valueIndex)
+                                 
+<<<<<<<< INFERRED >>>>>>>>
+  if (simpleReturnType == typeof(DateTime))
+              {
+<<<< DIAGNOSTIC: replace datetime usage with datetimeoffset >>>>
+-                 return (Expression<Func<IDataRecord, MappingContext, int, DateTime?>>)((dataRecord, mappingContext, valueIndex)
++             return (Expression<Func<IDataRecord, object>>)((dataRecord, mappingContext, mappingContext, mappingContext, mappingContextParameter, valueIndex)
+                                 

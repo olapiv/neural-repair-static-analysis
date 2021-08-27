@@ -1,0 +1,20 @@
+id: 2544330-0
+diagnostic: RCS1214
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 6
+<<<<<<<< CORRECT >>>>>>>>
+        {
+                  // Start the SSL web server in-proc.
+<<<< DIAGNOSTIC: unnecessary interpolated string. >>>>
+-                 Console.WriteLine($"Starting SSL server.");
++                 Console.WriteLine("Starting SSL server.");
+                  server = new StressServer(config);
+              
+<<<<<<<< INFERRED >>>>>>>>
+        {
+                  // Start the SSL web server in-proc.
+<<<< DIAGNOSTIC: unnecessary interpolated string. >>>>
+-                 Console.WriteLine($"Starting SSL server.");
++             Console.WriteLine("Server: ");
+                  server = new StressServer(config);
+              

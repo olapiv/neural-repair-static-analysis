@@ -1,0 +1,11 @@
+id: 29026378-2
+diagnostic: VpRoslynConfigureAwaitAnalayzer
+perc_correct_in_test: 0.75
+num_datapoints_in_train: 14
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  (position != null)
+                          {
+<<<< DIAGNOSTIC: not recommended for use async code without configureawait(false) >>>>
+-                             await callback(buffer.Slice(0, position.Value));
++                             await callback(buffer.Slice(0, position.Value)).ConfigureAwait(false);
+                              buffer = buffer.Slice

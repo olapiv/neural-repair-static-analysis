@@ -1,0 +1,16 @@
+id: 68452957-0
+diagnostic: CC0060
+perc_correct_in_test: 1.0
+num_datapoints_in_train: 4
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+   abstract class BaseLock : IDisposable
+      {
+          protected ReaderWriterLockSlim _Locks;
+          
+<<<< DIAGNOSTIC: constructor should not be public. >>>>
+-         public BaseLock(ReaderWriterLockSlim locks)
++         protected BaseLock(ReaderWriterLockSlim locks)
+          {
+              _Locks = locks;
+          }
+         

@@ -1,0 +1,17 @@
+id: 87037711-2
+diagnostic: VSTHRD200
+perc_correct_in_test: 0.8571428571428571
+num_datapoints_in_train: 12
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  req, object response);
+  
+          Task SerializeToStreamAsync(IRequest requestContext, object response, Stream toStream);
+  
+<<<< DIAGNOSTIC: avoid "async" suffix in names of methods that do not return an awaitable type. >>>>
+-         StreamSerializerDelegateAsync GetStreamSerializerAsync(string contentType);
++         StreamSerializerDelegateAsync GetStreamSerializer(string contentType);
+      }
+  
+      public delegate string TextSerializerDelegate(object dto);
+  
+      public delegate void StreamSerializerDelegate(IRequest 

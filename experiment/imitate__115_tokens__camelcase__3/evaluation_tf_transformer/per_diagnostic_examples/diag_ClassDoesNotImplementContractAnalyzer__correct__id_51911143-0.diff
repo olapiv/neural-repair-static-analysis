@@ -1,0 +1,20 @@
+id: 51911143-0
+diagnostic: ClassDoesNotImplementContractAnalyzer
+perc_correct_in_test: 0.7547169811320755
+num_datapoints_in_train: 162
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  using System;
+  using System.Collections.Generic;
+  using System.Linq;
+  
+  namespace Wox.Plugin
+  {
+<<<< DIAGNOSTIC: class 'Query' doesn't implement any interfaces from connector contracts. >>>>
+-     public class Query
++     public class Query : Tridion.Remoting.Contracts.IValueObject
+      {
+          internal Query() { }
+  
+          /// <summary>
+          /// to allow unit tests for plug ins
+          ///

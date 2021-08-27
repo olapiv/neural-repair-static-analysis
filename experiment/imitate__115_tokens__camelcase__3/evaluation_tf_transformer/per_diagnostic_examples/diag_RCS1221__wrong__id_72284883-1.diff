@@ -1,0 +1,24 @@
+id: 72284883-1
+diagnostic: RCS1221
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 10
+<<<<<<<< CORRECT >>>>>>>>
+       public DbCommand GetCommand(IQueryable query)
+          {
++             if (!(GetIDbCommand(query) is DbCommand dbCommand))
+<<<< DIAGNOSTIC: use pattern matching instead of combination of 'as' operator and null check. >>>>
+-             DbCommand dbCommand = GetIDbCommand(query) as DbCommand;
+-             if (dbCommand == null)
+                  throw new InvalidOperationException();
+  
+   
+<<<<<<<< INFERRED >>>>>>>>
+       public DbCommand GetCommand(IQueryable query)
+          {
++             if (!(query is IDbCommand dbCommand))
+<<<< DIAGNOSTIC: use pattern matching instead of combination of 'as' operator and null check. >>>>
+-             DbCommand dbCommand = GetIDbCommand(query) as DbCommand;
+-             if (dbCommand == null)
+                  throw new InvalidOperationException();
+  
+   

@@ -1,0 +1,12 @@
+id: 99589113-0
+diagnostic: ConstantAnalyzer
+perc_correct_in_test: 1.0
+num_datapoints_in_train: 2
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+            if (joins.Length == 0)
+                  return SqlStatement.Empty;
+<<<< DIAGNOSTIC: can be made constant >>>>
+-             var space = " ";
++             const string space = " ";
+              return space + SqlStatement.Join(NewLine + space, joins);
+          }

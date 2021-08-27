@@ -1,0 +1,28 @@
+id: 81313242-1
+diagnostic: ModifierAnalyzer
+perc_correct_in_test: 0.42424242424242425
+num_datapoints_in_train: 263
+<<<<<<<< CORRECT >>>>>>>>
+     //Custom reference data
+          int? RefId { get; set; }
+<<<< DIAGNOSTIC: message format: need to specify access modifier  >>>>
+-         string RefIdStr { get; set; }
++         private string RefIdStr { get; set; }
+- 
+<<<< DIAGNOSTIC: message format: need to specify access modifier  >>>>
+-         int InvalidLoginAttempts { get; set; }
++         private int InvalidLoginAttempts { get; set; }
+          DateTime? LastLoginAttempt { get; set; }
+         
+<<<<<<<< INFERRED >>>>>>>>
+     //Custom reference data
+          int? RefId { get; set; }
+<<<< DIAGNOSTIC: message format: need to specify access modifier  >>>>
+-         string RefIdStr { get; set; }
++         private string Id { get; set; }
++         private int RetryAttempts { get; set; }
+- 
+<<<< DIAGNOSTIC: message format: need to specify access modifier  >>>>
+-         int InvalidLoginAttempts { get; set; }
+          DateTime? LastLoginAttempt { get; set; }
+         

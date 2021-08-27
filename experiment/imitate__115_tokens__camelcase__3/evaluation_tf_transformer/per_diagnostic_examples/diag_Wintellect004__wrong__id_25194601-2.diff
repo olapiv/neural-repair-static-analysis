@@ -1,0 +1,22 @@
+id: 25194601-2
+diagnostic: Wintellect004
+perc_correct_in_test: 0.4016393442622951
+num_datapoints_in_train: 442
+<<<<<<<< CORRECT >>>>>>>>
+  5Length = 16;
+              var pwMaxSize = Encoding.UTF8.GetMaxByteCount(password.Length);
+<<<< DIAGNOSTIC: convert 'byte' to the explicit type 'Byte' >>>>
+-             var key = new byte[keylen];
++             var key = new Byte[keylen];
+  
+              var pwBuffer = ArrayPool<byte>.Shared.Rent(pwMaxSize);
+           
+<<<<<<<< INFERRED >>>>>>>>
+  5Length = 16;
+              var pwMaxSize = Encoding.UTF8.GetMaxByteCount(password.Length);
+<<<< DIAGNOSTIC: convert 'byte' to the explicit type 'Byte' >>>>
+-             var key = new byte[keylen];
++             var key = new Byte[];
+  
+              var pwBuffer = ArrayPool<byte>.Shared.Rent(pwMaxSize);
+           

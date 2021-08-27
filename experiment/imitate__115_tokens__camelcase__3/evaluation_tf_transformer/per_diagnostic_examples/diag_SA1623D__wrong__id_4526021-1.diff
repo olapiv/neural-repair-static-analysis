@@ -1,0 +1,29 @@
+id: 4526021-1
+diagnostic: SA1623D
+perc_correct_in_test: 0.36075949367088606
+num_datapoints_in_train: 407
+<<<<<<<< CORRECT >>>>>>>>
+     /// </summary>
+          int IGlobalConfigurationExpression.RecursiveQueriesMaxDepth { get; set; }
++         /// <summary>
++         /// Gets the profiles.
++         /// </summary>
+  
+<<<< DIAGNOSTIC: property documentation: no documentation. >>>>
+          IReadOnlyCollection<IProfileConfiguration> IGlobalConfigurationExpression.Profiles => _profiles;
+          Func<Type, object> IGlobalConfigurationExpression.ServiceCtor => _serviceCtor;
+  
+          
+<<<<<<<< INFERRED >>>>>>>>
+     /// </summary>
+          int IGlobalConfigurationExpression.RecursiveQueriesMaxDepth { get; set; }
++ 
++         /// <summary>
++         /// Gets the service ctor.
++         /// </summary>
+  
+<<<< DIAGNOSTIC: property documentation: no documentation. >>>>
+          IReadOnlyCollection<IProfileConfiguration> IGlobalConfigurationExpression.Profiles => _profiles;
+          Func<Type, object> IGlobalConfigurationExpression.ServiceCtor => _serviceCtor;
+  
+          

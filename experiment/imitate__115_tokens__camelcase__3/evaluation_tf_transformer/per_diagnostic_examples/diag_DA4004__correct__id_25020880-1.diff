@@ -1,0 +1,14 @@
+id: 25020880-1
+diagnostic: DA4004
+perc_correct_in_test: 1.0
+num_datapoints_in_train: 91
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+   by an attribute
+      /// which adds an response filter for the specific response DTO the attribute marked.
++     /// <example></example>
+      /// </summary>
+<<<< DIAGNOSTIC: type 'IHasResponseFilterAsync' doesn't have example in the comment >>>>
+      public interface IHasResponseFilterAsync : IResponseFilterBase
+      {
+          /// <summary>
+          /// The response filter is executed

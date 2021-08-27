@@ -1,0 +1,16 @@
+id: 55056403-0
+diagnostic: SA1001
+perc_correct_in_test: 0.6666666666666666
+num_datapoints_in_train: 6
+<<<<<<<< CORRECT >>>>>>>>
+                       .Zip(actualContent, expectedContent)
+<<<< DIAGNOSTIC: commas should be followed by whitespace >>>>
+-                         .Select((x,i) => (x.First, x.Second, i))
++                         .Select((x, i) => (x.First, x.Second, i))
+                          .Where(x => 
+<<<<<<<< INFERRED >>>>>>>>
+                       .Zip(actualContent, expectedContent)
+<<<< DIAGNOSTIC: commas should be followed by whitespace >>>>
+-                         .Select((x,i) => (x.First, x.Second, i))
++                         .Select(x => x.First(), x.First(), iConst)
+                          .Where(x => 

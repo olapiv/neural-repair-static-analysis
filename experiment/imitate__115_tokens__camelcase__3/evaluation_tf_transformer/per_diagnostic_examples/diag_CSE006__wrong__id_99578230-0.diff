@@ -1,0 +1,24 @@
+id: 99578230-0
+diagnostic: CSE006
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 11
+<<<<<<<< CORRECT >>>>>>>>
+  Time.Now}]");
+                  Console.ResetColor();
+<<<< DIAGNOSTIC: try to simplify expression by extracting method invocation results to separated variables >>>>
+-                 Console.WriteLine(" Elapsed: " + elapsed.ToString(@"hh\:mm\:ss"));
++                 var value = " Elapsed: " + elapsed.ToString(@"hh\:mm\:ss");
++                 Console.WriteLine(value);
+                  Console.ResetColor();
+  
+           
+<<<<<<<< INFERRED >>>>>>>>
+  Time.Now}]");
+                  Console.ResetColor();
+<<<< DIAGNOSTIC: try to simplify expression by extracting method invocation results to separated variables >>>>
+-                 Console.WriteLine(" Elapsed: " + elapsed.ToString(@"hh\:mm\:ss"));
++                 var m = $" Runtime: " + runtime.ToString(@"hh\:mm\:ss");
++                 Console.WriteLine(value);
+                  Console.ResetColor();
+  
+           

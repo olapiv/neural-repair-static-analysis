@@ -1,0 +1,33 @@
+id: 96494391-0
+diagnostic: DA3001
+perc_correct_in_test: 0.4
+num_datapoints_in_train: 7
+<<<<<<<< CORRECT >>>>>>>>
+  s_bcpFactory
+              = new ConcurrentDictionary<Type, Func<DbConnection, object>?>();
++         /// <summary> 
++         /// 
++         /// </summary>
++         /// <param name="connectionType"></param>
++         /// <returns></returns>
+  
+<<<< DIAGNOSTIC: method 'CreateBcpFactory' doesn't have /// comment for documentation >>>>
+          internal static Func<DbConnection, object>? CreateBcpFactory(Type connectionType)
+          {
+              try
+              {
+     
+<<<<<<<< INFERRED >>>>>>>>
+  s_bcpFactory
+              = new ConcurrentDictionary<Type, Func<DbConnection, object>?>();
++ 
++         /// <summary> 
++         /// 
++         /// </summary>
+  
+<<<< DIAGNOSTIC: method 'CreateBcpFactory' doesn't have /// comment for documentation >>>>
+          internal static Func<DbConnection, object>? CreateBcpFactory(Type connectionType)
+          {
+              try
+              {
+     

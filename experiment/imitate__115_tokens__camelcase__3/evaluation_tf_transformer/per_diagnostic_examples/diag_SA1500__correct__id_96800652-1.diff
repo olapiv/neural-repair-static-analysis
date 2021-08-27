@@ -1,0 +1,15 @@
+id: 96800652-1
+diagnostic: SA1500
+perc_correct_in_test: 0.6666666666666666
+num_datapoints_in_train: 17
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  " && Reader.NamespaceURI == "") {
+  					ob.@Name = Reader.Value;
+  				}
+<<<< DIAGNOSTIC: braces for multi-line statements should not share line >>>>
+- 				else if (Reader.LocalName == "EntityNamespace" && Reader.NamespaceURI == "") {
++ 				else if (Reader.LocalName == "EntityNamespace" && Reader.NamespaceURI == "")
++                 {
+  					ob.@EntityNamespace = Reader.Value;
+  				}
+  				else if (Reader.LocalName == "Context

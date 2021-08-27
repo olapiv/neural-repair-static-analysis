@@ -1,0 +1,18 @@
+id: 51404552-1
+diagnostic: MEN009
+perc_correct_in_test: 1.0
+num_datapoints_in_train: 34
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+   }
+          }
+  
+          public override MetaAccessor DeferredValueAccessor
+          {
+<<<< DIAGNOSTIC: use notsupportedexception instead of notimplementedexception. >>>>
+-             get { throw new NotImplementedException(); }
++             get { throw new NotSupportedException(); }
+          }
+  
+          public override bool IsDeferred
+          {
+       

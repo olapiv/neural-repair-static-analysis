@@ -1,0 +1,20 @@
+id: 29188573-0
+diagnostic: CA1801
+perc_correct_in_test: 0.5714285714285714
+num_datapoints_in_train: 15
+<<<<<<<< CORRECT >>>>>>>>
+  Flags">Binding flags</param>
+          /// <returns>A MemberInfo or null</returns>
+<<<< DIAGNOSTIC: parameter bindingflags of method gettablecolumnmember is never used. remove the parameter or use it in the method body. >>>>
+-         public static MemberInfo GetTableColumnMember(this Type t, string name, BindingFlags bindingFlags)
++         public static MemberInfo GetTableColumnMember(this Type t, string name)
+          {
+              return (from member in t.GetMembers()
+<<<<<<<< INFERRED >>>>>>>>
+  Flags">Binding flags</param>
+          /// <returns>A MemberInfo or null</returns>
+<<<< DIAGNOSTIC: parameter bindingflags of method gettablecolumnmember is never used. remove the parameter or use it in the method body. >>>>
+-         public static MemberInfo GetTableColumnMember(this Type t, string name, BindingFlags bindingFlags)
++         public static MemberInfo GetTableColumnMember(this Type t, MemberInfo name)
+          {
+              return (from member in t.GetMembers()

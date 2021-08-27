@@ -1,0 +1,26 @@
+id: 48062981-1
+diagnostic: NoPrivateUnderscore
+perc_correct_in_test: 0.6363636363636364
+num_datapoints_in_train: 48
+<<<<<<<< CORRECT >>>>>>>>
+           private readonly Func<DbConnection, Guid>? _getClientConnectionId;
+  
+<<<< DIAGNOSTIC: type name '_clearPool' starts with an underscore >>>>
+-             private readonly Action<DbConnection>? _clearPool;
++             private readonly Action<DbConnection>? clearPool;
+<<<< DIAGNOSTIC: type name '_clearAllPools' starts with an underscore >>>>
+-             private readonly Action? _clearAllPools;
++             private readonly Action? clearAllPools;
+  
+              public bool TryGetClientConnectionId(DbConnection connection, out 
+<<<<<<<< INFERRED >>>>>>>>
+           private readonly Func<DbConnection, Guid>? _getClientConnectionId;
+  
++             private readonly DbConnection? connection;
+<<<< DIAGNOSTIC: type name '_clearPool' starts with an underscore >>>>
+-             private readonly Action<DbConnection>? _clearPool;
++             private readonly Action<DbConnection>? aggregator;
+<<<< DIAGNOSTIC: type name '_clearAllPools' starts with an underscore >>>>
+-             private readonly Action? _clearAllPools;
+  
+              public bool TryGetClientConnectionId(DbConnection connection, out 

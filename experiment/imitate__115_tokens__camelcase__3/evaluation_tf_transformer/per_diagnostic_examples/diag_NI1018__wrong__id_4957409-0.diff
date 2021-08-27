@@ -1,0 +1,22 @@
+id: 4957409-0
+diagnostic: NI1018
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 8
+<<<<<<<< CORRECT >>>>>>>>
+  );
+<<<< DIAGNOSTIC: do not use linq query syntax; use method syntax instead. >>>>
+-             expressions.AddRange((from t in builderContext.EnumerateAllTables() where t.Alias == name select (Expression)t).Distinct());
++             expressions.AddRange((builderContext.EnumerateAllTables().Where(t => t.Alias == name).Select(t => (Expression)t)).Distinct());
+<<<< DIAGNOSTIC: do not use linq query syntax; use method syntax instead. >>>>
+-             expressions.AddRange(from c in builderContext.EnumerateScopeColumns() where c.Alias == name select (Expression)c);
++             expressions.AddRange(builderContext.EnumerateScopeColumns().Where(c => c.Alias == name).Select(c => (Expression)c));
+      
+<<<<<<<< INFERRED >>>>>>>>
+  );
+<<<< DIAGNOSTIC: do not use linq query syntax; use method syntax instead. >>>>
+-             expressions.AddRange((from t in builderContext.EnumerateAllTables() where t.Alias == name select (Expression)t).Distinct());
+<<<< DIAGNOSTIC: do not use linq query syntax; use method syntax instead. >>>>
+-             expressions.AddRange(from c in builderContext.EnumerateScopeColumns() where c.Alias == name select (Expression)c);
++             return (builderContext.EnumerateAllTables().Where(t => t.Alias == name).Select(t => t).Single();
++                             .Where(c => t.Alias == name).Select(t => t).Distinct();
+      

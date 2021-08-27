@@ -1,0 +1,14 @@
+id: 14403583-0
+diagnostic: SS002
+perc_correct_in_test: 1.0
+num_datapoints_in_train: 5
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+     public void RecordError(Exception exception, string? metadata = null, DateTime? timestamp = null)
+          {
+<<<< DIAGNOSTIC: use datetime.utcnow to get a consistent value >>>>
+-             timestamp ??= DateTime.Now;
++             timestamp ??= DateTime.UtcNow;
+  
+              (Type, string, string)[] key = ClassifyFailure(exception);
+  
+           

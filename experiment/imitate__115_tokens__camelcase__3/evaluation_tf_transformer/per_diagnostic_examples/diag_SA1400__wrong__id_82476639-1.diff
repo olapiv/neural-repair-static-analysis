@@ -1,0 +1,32 @@
+id: 82476639-1
+diagnostic: SA1400
+perc_correct_in_test: 0.6428571428571429
+num_datapoints_in_train: 34
+<<<<<<<< CORRECT >>>>>>>>
+  .Fixtures
+  {
+      public class TestRequestHandler
+      {
+          readonly Regex _comparisonRegex;
+  
+<<<< DIAGNOSTIC: element '_urlParameterNames' should declare an access modifier >>>>
+-         readonly List<string> _urlParameterNames = new List<string>();
++         private readonly List<string> _urlParameterNames = new List<string>();
+  
+          public TestRequestHandler(
+              string url,
+           
+<<<<<<<< INFERRED >>>>>>>>
+  .Fixtures
+  {
+      public class TestRequestHandler
+      {
+          readonly Regex _comparisonRegex;
+  
+<<<< DIAGNOSTIC: element '_urlParameterNames' should declare an access modifier >>>>
+-         readonly List<string> _urlParameterNames = new List<string>();
++         private readonly List<TestParameter> _urlNames = new List<TestParameter>();
+  
+          public TestRequestHandler(
+              string url,
+           

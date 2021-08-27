@@ -1,0 +1,28 @@
+id: 64346378-0
+diagnostic: S1172
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 4
+<<<<<<<< CORRECT >>>>>>>>
+  
+  			}
+  			if (writeWrappingElem) WriteEndElement (ob);
+  		}
+  
+<<<< DIAGNOSTIC: remove this unused method parameter 'isNullable'. >>>>
+- 		void WriteObject_AccessModifier (DbLinq.Schema.Dbml.AccessModifier ob, string element, string namesp, bool isNullable, bool needType, bool writeWrappingElem)
++ 		void WriteObject_AccessModifier (DbLinq.Schema.Dbml.AccessModifier ob, string element, string namesp , bool needType, bool writeWrappingElem)
+  		{
+  			System.Type type = ob.GetType ();
+  			if (type
+<<<<<<<< INFERRED >>>>>>>>
+  
+  			}
+  			if (writeWrappingElem) WriteEndElement (ob);
+  		}
+  
+<<<< DIAGNOSTIC: remove this unused method parameter 'isNullable'. >>>>
+- 		void WriteObject_AccessModifier (DbLinq.Schema.Dbml.AccessModifier ob, string element, string namesp, bool isNullable, bool needType, bool writeWrappingElem)
++ 		void WriteObject_ClassModifier (DbLinq.Schema.Dbml.AccessModifier ob, string element, string namesp , bool needType, bool writeWrappingElem)
+  		{
+  			System.Type type = ob.GetType ();
+  			if (type

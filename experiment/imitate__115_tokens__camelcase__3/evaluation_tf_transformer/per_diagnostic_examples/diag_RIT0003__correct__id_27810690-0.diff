@@ -1,0 +1,18 @@
+id: 27810690-0
+diagnostic: RIT0003
+perc_correct_in_test: 0.25
+num_datapoints_in_train: 20
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  
+          public string IcoPath { get; set; }
+  
+          public delegate ImageSource IconDelegate();
+  
+<<<< DIAGNOSTIC: non private field 'Icon' is not alloweded, use auto property instead >>>>
+-         public IconDelegate Icon;
++         public IconDelegate Icon { get; set; }
+  
+  
+          /// <summary>
+          /// return true to hide wox after select result
+        

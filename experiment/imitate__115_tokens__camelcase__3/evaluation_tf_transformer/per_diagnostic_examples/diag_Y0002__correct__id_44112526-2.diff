@@ -1,0 +1,14 @@
+id: 44112526-2
+diagnostic: Y0002
+perc_correct_in_test: 0.6274509803921569
+num_datapoints_in_train: 146
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+        private void VerifyMemberAccessCycles(MemberInfo member)
+          {
+<<<< DIAGNOSTIC: variable should use explicit type >>>>
+-             var mt = GetMemberEntityType (member);
++             Type mt = GetMemberEntityType (member);
+<<<< DIAGNOSTIC: variable should use explicit type >>>>
+-             var d = member.DeclaringType;
++             Type d = member.DeclaringType;
+              foreach (KeyValuePair<MemberInfo, bool> m in eagerLoading

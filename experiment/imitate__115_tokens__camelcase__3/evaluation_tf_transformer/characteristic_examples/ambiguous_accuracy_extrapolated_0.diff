@@ -1,0 +1,21 @@
+id: 9307881-0
+diagnostic: RCS1096
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 0
+<<<<<<<< CORRECT >>>>>>>>
+            Console.WriteLine();
+  
+              StressServer? server = null;
+<<<< DIAGNOSTIC: convert 'HasFlag' call to bitwise operation. >>>>
+-             if (config.RunMode.HasFlag(RunMode.server))
++             if ((config.RunMode & RunMode.server) != 0)
+              {
+                  // Start the SSL web server in
+<<<<<<<< INFERRED >>>>>>>>
+            Console.WriteLine();
+  
+              StressServer? server = null;
+<<<< DIAGNOSTIC: convert 'HasFlag' call to bitwise operation. >>>>
+              if (config.RunMode.HasFlag(RunMode.server))
+              {
+                  // Start the SSL web server in

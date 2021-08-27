@@ -1,0 +1,21 @@
+id: 13325230-3
+diagnostic: FS0128
+perc_correct_in_test: 0.896551724137931
+num_datapoints_in_train: 207
+<<<<<<<< CORRECT >>>>>>>>
+          expectedDataLength = m.Span[0] * 256 + m.Span[1];
+<<<< DIAGNOSTIC: add braces to single statement in this if >>>>
+-                 if (expectedDataLength > 0x3fff) return (false, 0);
++                 if (expectedDataLength > 0x3fff)
++                 {
++                     return (false, 0);
++                 }
+              }
+              var totalLength = expectedDataLength 
+<<<<<<<< INFERRED >>>>>>>>
+          expectedDataLength = m.Span[0] * 256 + m.Span[1];
++                     {
+<<<< DIAGNOSTIC: add braces to single statement in this if >>>>
+                  if (expectedDataLength > 0x3fff) return (false, 0);
+              }
+              var totalLength = expectedDataLength 

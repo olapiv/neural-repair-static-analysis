@@ -1,0 +1,22 @@
+id: 96563625-0
+diagnostic: VarAnalyzer
+perc_correct_in_test: 0.5666666666666667
+num_datapoints_in_train: 179
+<<<<<<<< CORRECT >>>>>>>>
+   pageSize)
+          {
+              using (Context.DatabaseContext.OpenConnection())
+<<<< DIAGNOSTIC: var keyword usage is not legit in this context >>>>
+-             using (var transaction = Context.DatabaseContext.CreateTransaction())
++             using (IDbTransaction transaction = Context.DatabaseContext.CreateTransaction())
+              {
+                  Context.Vendor.BulkInsert(this, entities.
+<<<<<<<< INFERRED >>>>>>>>
+   pageSize)
+          {
+              using (Context.DatabaseContext.OpenConnection())
+<<<< DIAGNOSTIC: var keyword usage is not legit in this context >>>>
+-             using (var transaction = Context.DatabaseContext.CreateTransaction())
++             using (System.Data.IDbTransaction transaction = Context.DatabaseContext.CreateTransaction())
+              {
+                  Context.Vendor.BulkInsert(this, entities.

@@ -1,0 +1,22 @@
+id: 38381350-0
+diagnostic: WTG3002
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 7
+<<<<<<<< CORRECT >>>>>>>>
+   literalOperands);
+                  }
+                  else
+<<<< DIAGNOSTIC: don't use the first() extension method on a source of type 'System.Collections.Generic.List<DbLinq.Data.Linq.Sql.SqlStatement>', use the indexer instead. >>>>
+-                     return literalOperands.First();
++                     return literalOperands[0];
+              }
+              if (expression.NodeType == ExpressionType.Convert || 
+<<<<<<<< INFERRED >>>>>>>>
+   literalOperands);
+                  }
+                  else
+<<<< DIAGNOSTIC: don't use the first() extension method on a source of type 'System.Collections.Generic.List<DbLinq.Data.Linq.Sql.SqlStatement>', use the indexer instead. >>>>
+-                     return literalOperands.First();
++             Expression firstType = literalOperands[0];
+              }
+              if (expression.NodeType == ExpressionType.Convert || 

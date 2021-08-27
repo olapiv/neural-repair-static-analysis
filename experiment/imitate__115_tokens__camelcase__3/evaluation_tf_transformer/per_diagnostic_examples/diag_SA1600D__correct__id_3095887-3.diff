@@ -1,0 +1,16 @@
+id: 3095887-3
+diagnostic: SA1600D
+perc_correct_in_test: 0.22784810126582278
+num_datapoints_in_train: 228
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  _sourceMembers = Array.Empty<MemberInfo>();
+          private List<ValueTransformerConfiguration> _valueTransformerConfigs;
++ 
++         /// <summary>
++         /// the source type.
++         /// </summary>
+          private bool? _canResolveValue;
+<<<< DIAGNOSTIC: members must be correctly documented. >>>>
+          private Type _sourceType;
+          public PropertyMap(MemberInfo destinationMember, Type destinationMemberType, TypeMap typeMap)
+        

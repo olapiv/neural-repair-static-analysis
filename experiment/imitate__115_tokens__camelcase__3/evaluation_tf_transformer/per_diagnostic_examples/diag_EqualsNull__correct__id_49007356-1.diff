@@ -1,0 +1,11 @@
+id: 49007356-1
+diagnostic: EqualsNull
+perc_correct_in_test: 0.53125
+num_datapoints_in_train: 111
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+                 var s = r.GetAttribute(attributeName);
+<<<< DIAGNOSTIC: use 'is' pattern matching instead of '!=' operator. >>>>
+-                 return s != null ? (AutoSync)Enum.Parse(typeof(AutoSync), s) : default(AutoSync);
++                 return !(s is null) ? (AutoSync)Enum.Parse(typeof(AutoSync), s) : default(AutoSync);
+              }
+              public T Get

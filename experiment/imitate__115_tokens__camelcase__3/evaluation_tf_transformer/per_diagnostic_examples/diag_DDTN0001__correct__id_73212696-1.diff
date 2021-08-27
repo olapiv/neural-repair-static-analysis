@@ -1,0 +1,11 @@
+id: 73212696-1
+diagnostic: DDTN0001
+perc_correct_in_test: 1.0
+num_datapoints_in_train: 13
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+                           i = 0;
+<<<< DIAGNOSTIC: call datetime.utcnow rather than datetime.now >>>>
+-                                     this.last_ping = DateTime.Now;
++                                     this.last_ping = DateTime.UtcNow;
+  
+                                  

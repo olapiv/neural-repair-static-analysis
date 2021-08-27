@@ -1,0 +1,11 @@
+id: 14755899-0
+diagnostic: SA1000
+perc_correct_in_test: 1.0
+num_datapoints_in_train: 36
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+                        int port = int.Parse(match.Groups[2].Value);
+<<<< DIAGNOSTIC: the keyword 'switch' should be followed by a space. >>>>
+-                         switch(hostname)
++                         switch (hostname)
+                          {
+                   

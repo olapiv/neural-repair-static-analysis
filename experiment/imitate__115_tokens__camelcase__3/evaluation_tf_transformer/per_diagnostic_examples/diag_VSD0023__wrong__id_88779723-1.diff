@@ -1,0 +1,23 @@
+id: 88779723-1
+diagnostic: VSD0023
+perc_correct_in_test: 0.9272727272727272
+num_datapoints_in_train: 198
+<<<<<<<< CORRECT >>>>>>>>
+            {
+                  var key = keyMember.GetMemberValue(entity);
++                 {
+<<<< DIAGNOSTIC: an if statement should be written with braces >>>>
+                  if(key != null)
+                      keys.Add(key);
+              }
+     
+<<<<<<<< INFERRED >>>>>>>>
+            {
+                  var key = keyMember.GetMemberValue(entity);
+<<<< DIAGNOSTIC: an if statement should be written with braces >>>>
+-                 if(key != null)
++                 if (key != null)
++                 {
+                      keys.Add(key);
+              }
+     

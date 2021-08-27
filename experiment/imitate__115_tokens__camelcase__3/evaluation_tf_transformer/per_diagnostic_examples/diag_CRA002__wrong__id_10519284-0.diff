@@ -1,0 +1,24 @@
+id: 10519284-0
+diagnostic: CRA002
+perc_correct_in_test: 0.6
+num_datapoints_in_train: 16
+<<<<<<<< CORRECT >>>>>>>>
+   converter
+              Task.WhenAll(ConvertUplink(client, server), ConvertDownlink(client, server));
+  
+<<<< DIAGNOSTIC: name of asynchronous method 'ConvertUplink' does not end with async >>>>
+-         public async Task ConvertUplink(IDuplexPipe client, IDuplexPipe server)
++         public async Task ConvertUplinkAsync(IDuplexPipe client, IDuplexPipe server)
+          {
+              using var up = parameter.GetCrypto();
+      
+<<<<<<<< INFERRED >>>>>>>>
+   converter
+              Task.WhenAll(ConvertUplink(client, server), ConvertDownlink(client, server));
+  
+<<<< DIAGNOSTIC: name of asynchronous method 'ConvertUplink' does not end with async >>>>
+-         public async Task ConvertUplink(IDuplexPipe client, IDuplexPipe server)
++         public async Task ConvertDownlinkAsync(IDuplexPipe client, IDuplexPipe server)
+          {
+              using var up = parameter.GetCrypto();
+      

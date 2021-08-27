@@ -1,0 +1,33 @@
+id: 59027760-0
+diagnostic: SA1504
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 2
+<<<<<<<< CORRECT >>>>>>>>
+  
+      {
+          private string name;
+          public string Name
+          {
++             get
++             {
+<<<< DIAGNOSTIC: all accessors should be single-line or multi-line >>>>
+-             get { return name; }
++                 return name;
++             }
+              set
+              {
+                  name 
+<<<<<<<< INFERRED >>>>>>>>
+  
+      {
+          private string name;
+          public string Name
+          {
++             get
++             {
+<<<< DIAGNOSTIC: all accessors should be single-line or multi-line >>>>
+-             get { return name; }
++                 return name; }
+              set
+              {
+                  name 

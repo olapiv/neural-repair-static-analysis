@@ -1,0 +1,22 @@
+id: 15165554-0
+diagnostic: SA1116
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 30
+<<<<<<<< CORRECT >>>>>>>>
+  
+          /// <param name="builderContext"></param>
+          /// <returns></returns>
+<<<< DIAGNOSTIC: the parameters should begin on the line after the declaration, whenever the parameter span across multiple lines >>>>
+-         public ColumnExpression RegisterColumn(TableExpression table,
++         public ColumnExpression RegisterColumn(
++             TableExpression table,
+                                                 
+<<<<<<<< INFERRED >>>>>>>>
+  
+          /// <param name="builderContext"></param>
+          /// <returns></returns>
+<<<< DIAGNOSTIC: the parameters should begin on the line after the declaration, whenever the parameter span across multiple lines >>>>
+-         public ColumnExpression RegisterColumn(TableExpression table,
++         public TableExpression RegisterColumn(
++             TableExpression table,
+                                                 

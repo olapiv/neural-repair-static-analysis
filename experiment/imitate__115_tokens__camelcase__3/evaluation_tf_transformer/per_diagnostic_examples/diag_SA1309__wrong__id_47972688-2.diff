@@ -1,0 +1,40 @@
+id: 47972688-2
+diagnostic: SA1309
+perc_correct_in_test: 0.7142857142857143
+num_datapoints_in_train: 38
+<<<<<<<< CORRECT >>>>>>>>
+  ;
+  
+<<<< DIAGNOSTIC: field '_totalRequests' should not begin with an underscore >>>>
+-             private long _totalRequests = 0;
++             private long totalRequests = 0;
+<<<< DIAGNOSTIC: field '_successes' should not begin with an underscore >>>>
+<<<< DIAGNOSTIC: field '_cancellations' should not begin with an underscore >>>>
+<<<< DIAGNOSTIC: field '_failures' should not begin with an underscore >>>>
+-             private readonly long[] _successes, _cancellations, _failures;
++             private readonly long[] successes, cancellations, failures;
+<<<< DIAGNOSTIC: field '_reuseAddressFailures' should not begin with an underscore >>>>
+-             private long _reuseAddressFailures = 0;
++             private long reuseAddressFailures = 0;
+<<<< DIAGNOSTIC: field '_lastTotal' should not begin with an underscore >>>>
+-             private long _lastTotal = -1;
++             private long lastTotal = -1;
+  
+    
+<<<<<<<< INFERRED >>>>>>>>
+  ;
+  
+<<<< DIAGNOSTIC: field '_totalRequests' should not begin with an underscore >>>>
+-             private long _totalRequests = 0;
+<<<< DIAGNOSTIC: field '_successes' should not begin with an underscore >>>>
+<<<< DIAGNOSTIC: field '_cancellations' should not begin with an underscore >>>>
+<<<< DIAGNOSTIC: field '_failures' should not begin with an underscore >>>>
+-             private readonly long[] _successes, _cancellations, _failures;
++                 long value;
++                                long persistentMembers;
+<<<< DIAGNOSTIC: field '_reuseAddressFailures' should not begin with an underscore >>>>
+              private long _reuseAddressFailures = 0;
+<<<< DIAGNOSTIC: field '_lastTotal' should not begin with an underscore >>>>
+              private long _lastTotal = -1;
+  
+    

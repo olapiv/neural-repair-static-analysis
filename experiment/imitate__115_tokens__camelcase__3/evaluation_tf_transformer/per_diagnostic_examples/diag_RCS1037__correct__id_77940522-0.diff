@@ -1,0 +1,13 @@
+id: 77940522-0
+diagnostic: RCS1037
+perc_correct_in_test: 0.6666666666666666
+num_datapoints_in_train: 40
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+      }
+                  // if we fail to evaluate the expression, then just return it
+<<<< DIAGNOSTIC: remove trailing white-space. >>>>
+-             catch (ArgumentException) 
++             catch (ArgumentException)
+              {
+                  return expression;
+              }

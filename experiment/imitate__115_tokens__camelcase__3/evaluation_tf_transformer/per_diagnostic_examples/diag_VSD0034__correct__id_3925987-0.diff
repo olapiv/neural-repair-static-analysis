@@ -1,0 +1,11 @@
+id: 3925987-0
+diagnostic: VSD0034
+perc_correct_in_test: 0.3333333333333333
+num_datapoints_in_train: 12
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+               {
+<<<< DIAGNOSTIC: empty string literal detected. >>>>
+<<<< DIAGNOSTIC: empty string literal detected. >>>>
+-                             acc.Add((e.GetType(), e.Message ?? "", new StackTrace(e, true).GetFrame(0)?.ToString() ?? ""));
++                             acc.Add((e.GetType(), e.Message ?? string.Empty, new StackTrace(e, true).GetFrame(0)?.ToString() ?? string.Empty));
+                  

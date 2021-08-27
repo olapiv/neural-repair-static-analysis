@@ -1,0 +1,18 @@
+id: 75801010-3
+diagnostic: RB003
+perc_correct_in_test: 0.8
+num_datapoints_in_train: 28
+<<<<<<<< CORRECT >>>>>>>>
+  _failureTypes.GetOrAdd(key, _ => new StressFailureType(exn.ToString()));
+- 
+<<<< DIAGNOSTIC: lock statement should be avoided in orleans environment >>>>
+-                     lock (failureType)
+-                     {
+                          if(!failureType.Failures.Try
+<<<<<<<< INFERRED >>>>>>>>
+  _failureTypes.GetOrAdd(key, _ => new StressFailureType(exn.ToString()));
+  
+<<<< DIAGNOSTIC: lock statement should be avoided in orleans environment >>>>
+-                     lock (failureType)
+-                     {
+                          if(!failureType.Failures.Try

@@ -1,0 +1,24 @@
+id: 24902223-0
+diagnostic: Wintellect012
+perc_correct_in_test: 0.9393939393939394
+num_datapoints_in_train: 104
+<<<<<<<< CORRECT >>>>>>>>
+   generic version
+      /// </summary>
+      /// <typeparam name="T"></typeparam>
+<<<< DIAGNOSTIC: the class 'QueryProvider' should be declared sealed if this is a newly written class >>>>
+-     internal class QueryProvider<T> : QueryProvider, IQueryProvider, IQueryable<T>, IOrderedQueryable<T>
++     internal sealed class QueryProvider<T> : QueryProvider, IQueryProvider, IQueryable<T>, IOrderedQueryable<T>
+      {
+          /// <summary>
+          /// Holder current datancontext
+<<<<<<<< INFERRED >>>>>>>>
+   generic version
+      /// </summary>
+      /// <typeparam name="T"></typeparam>
+<<<< DIAGNOSTIC: the class 'QueryProvider' should be declared sealed if this is a newly written class >>>>
+-     internal class QueryProvider<T> : QueryProvider, IQueryProvider, IQueryable<T>, IOrderedQueryable<T>
++     internal sealed class QueryProvider<T> : IQueryProvider<T>
+      {
+          /// <summary>
+          /// Holder current datancontext

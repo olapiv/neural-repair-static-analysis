@@ -1,0 +1,28 @@
+id: 49238574-0
+diagnostic: RCS1234
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 0
+<<<<<<<< CORRECT >>>>>>>>
+     /// <summary>
+          /// Inner join, default case for joins
+          /// </summary>
+<<<< DIAGNOSTIC: duplicate enum value. >>>>
+-         Inner = 0,
++         Inner = Default,
+  
+          /// <summary>
+          /// Left outer join
+          /// </summary>
+   
+<<<<<<<< INFERRED >>>>>>>>
+     /// <summary>
+          /// Inner join, default case for joins
+          /// </summary>
+<<<< DIAGNOSTIC: duplicate enum value. >>>>
+-         Inner = 0,
++         Type duplicate;
+  
+          /// <summary>
+          /// Left outer join
+          /// </summary>
+   

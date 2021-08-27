@@ -1,0 +1,13 @@
+id: 16986877-0
+diagnostic: RCS1057
+perc_correct_in_test: 1.0
+num_datapoints_in_train: 62
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  <param name="nameFormat">The name format.</param>
+          /// <returns></returns>
++ 
+<<<< DIAGNOSTIC: add empty line between declarations. >>>>
+          SchemaName GetSchemaName(string dbName, WordsExtraction extraction, NameFormat nameFormat);
+          /// <summary>
+          /// Gets the name of the procedure.
+   

@@ -1,0 +1,37 @@
+id: 93574575-0
+diagnostic: LowerChar
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 5
+<<<<<<<< CORRECT >>>>>>>>
+   System;
+  using System.Globalization;
+  using System.Windows;
+  using System.Windows.Data;
+  using System.Windows.Markup;
+  
+  namespace ICSharpCode.TreeView
+  {
+<<<< DIAGNOSTIC: type name 'CollapsedWhenFalse' contains lowercase letters >>>>
+- 	public class CollapsedWhenFalse : MarkupExtension, IValueConverter
++ 	public class COLLAPSEDWHENFALSE : MarkupExtension, IValueConverter
+  	{
+  		public static CollapsedWhenFalse Instance = new CollapsedWhenFalse();
+  
+  		public override object ProvideValue(IServiceProvider serviceProvider)
+  		
+<<<<<<<< INFERRED >>>>>>>>
+   System;
+  using System.Globalization;
+  using System.Windows;
+  using System.Windows.Data;
+  using System.Windows.Markup;
+  
+  namespace ICSharpCode.TreeView
+  {
+<<<< DIAGNOSTIC: type name 'CollapsedWhenFalse' contains lowercase letters >>>>
+  	public class CollapsedWhenFalse : MarkupExtension, IValueConverter
+  	{
+  		public static CollapsedWhenFalse Instance = new CollapsedWhenFalse();
+  
+  		public override object ProvideValue(IServiceProvider serviceProvider)
+  		

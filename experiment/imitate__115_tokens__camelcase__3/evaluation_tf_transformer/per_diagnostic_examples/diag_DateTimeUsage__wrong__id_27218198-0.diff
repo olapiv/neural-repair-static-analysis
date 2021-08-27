@@ -1,0 +1,28 @@
+id: 27218198-0
+diagnostic: DateTimeUsage
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 2
+<<<<<<<< CORRECT >>>>>>>>
+  TokenSource(duration);
+  
+              long messagesInFlight = 0;
+<<<< DIAGNOSTIC: the use of datetime.now is not allowed, use systemtime instead >>>>
+-             DateTime lastWrite = DateTime.Now;
++             DateTime lastWrite = SystemTime.Now();
+<<<< DIAGNOSTIC: the use of datetime.now is not allowed, use systemtime instead >>>>
+-             DateTime lastRead = DateTime.Now;
++             DateTime lastRead = SystemTime.Now();
+  
+              await StressTaskExtensions.WhenAllThrowOnFirstException(token, Sender, 
+<<<<<<<< INFERRED >>>>>>>>
+  TokenSource(duration);
+  
+              long messagesInFlight = 0;
+<<<< DIAGNOSTIC: the use of datetime.now is not allowed, use systemtime instead >>>>
+-             DateTime lastWrite = DateTime.Now;
++             DateTime lastWrite = System.Now;
+<<<< DIAGNOSTIC: the use of datetime.now is not allowed, use systemtime instead >>>>
+-             DateTime lastRead = DateTime.Now;
++             DateTime lastRead = System.Now;
+  
+              await StressTaskExtensions.WhenAllThrowOnFirstException(token, Sender, 

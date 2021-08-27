@@ -1,0 +1,22 @@
+id: 86591989-2
+diagnostic: EDAM001
+perc_correct_in_test: 0.6091954022988506
+num_datapoints_in_train: 274
+<<<<<<<< CORRECT >>>>>>>>
+   ??= PossibleNames();
+              return _nameToMember.GetOrDefault(name);
+          }
+<<<< DIAGNOSTIC: explicit default access modifiers are just noise. >>>>
+-         private SourceMembers PossibleNames()
++         SourceMembers PossibleNames()
+          {
+              var nameToMember = new SourceMembers(ReadAccessors.Length, StringComparer.OrdinalIgnoreCase);
+<<<<<<<< INFERRED >>>>>>>>
+   ??= PossibleNames();
+              return _nameToMember.GetOrDefault(name);
+          }
+<<<< DIAGNOSTIC: explicit default access modifiers are just noise. >>>>
+-         private SourceMembers PossibleNames()
++         SourceMembersNames()
+          {
+              var nameToMember = new SourceMembers(ReadAccessors.Length, StringComparer.OrdinalIgnoreCase);

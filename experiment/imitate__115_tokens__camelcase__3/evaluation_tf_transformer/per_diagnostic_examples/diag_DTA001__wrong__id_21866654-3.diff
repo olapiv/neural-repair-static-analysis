@@ -1,0 +1,22 @@
+id: 21866654-3
+diagnostic: DTA001
+perc_correct_in_test: 0.5454545454545454
+num_datapoints_in_train: 56
+<<<<<<<< CORRECT >>>>>>>>
+                  return;
+              
+<<<< DIAGNOSTIC: advertencia! consider replacing with datetimeoffset >>>>
+<<<< DIAGNOSTIC: advertencia! consider replacing with datetimeoffset >>>>
+-             int time_comparison = DateTime.Compare (this.last_poll, DateTime.Now.Subtract (this.poll_interval));
++             int time_comparison = DateTimeOffset.Compare (this.last_poll, DateTimeOffset.Now.Subtract (this.poll_interval));
+              
+              if (time_comparison <
+<<<<<<<< INFERRED >>>>>>>>
+                  return;
+              
+<<<< DIAGNOSTIC: advertencia! consider replacing with datetimeoffset >>>>
+<<<< DIAGNOSTIC: advertencia! consider replacing with datetimeoffset >>>>
+-             int time_comparison = DateTime.Compare (this.last_poll, DateTime.Now.Subtract (this.poll_interval));
++             int time_comparison = DateTimeOffset.Compare (this.last_poll, DateTimeOffset.Now.Subtract (this.poll_interval));
+-             
+              if (time_comparison <

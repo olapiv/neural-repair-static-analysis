@@ -1,0 +1,33 @@
+id: 39601219-2
+diagnostic: AvNextRegexCodeFix
+perc_correct_in_test: 0.84375
+num_datapoints_in_train: 82
+<<<<<<<< CORRECT >>>>>>>>
+         {
+              ParameterName = parameterName;
+          }
+  
++         [CanBeNull]
++         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.RegexConverter), @"^[a-zA-Z0-9]*$")]//Roslyn auto generated
+<<<< DIAGNOSTIC: type name 'ParameterName' should be decorated with regexconverter attribute >>>>
+-         [CanBeNull] public string ParameterName { get; private set; }
++         public string ParameterName { get; set; }
+      }
+  
+      /// <summary>
+      /// Describes dependency between method input and output.
+   
+<<<<<<<< INFERRED >>>>>>>>
+         {
+              ParameterName = parameterName;
+          }
+  
++         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.RegexConverter), @"^[a-zA-Z0-9]*$")]//Roslyn auto generated
+<<<< DIAGNOSTIC: type name 'ParameterName' should be decorated with regexconverter attribute >>>>
+-         [CanBeNull] public string ParameterName { get; private set; }
++         public string ParameterName { get; set; }
+      }
+  
+      /// <summary>
+      /// Describes dependency between method input and output.
+   

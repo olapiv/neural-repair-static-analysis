@@ -1,0 +1,12 @@
+id: 25868007-0
+diagnostic: FS0126
+perc_correct_in_test: 0.6666666666666666
+num_datapoints_in_train: 21
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+      protected virtual void Parse(Assembly assembly, IDictionary<Type, IList<Type>> interfaceImplementations)
+          {
+<<<< DIAGNOSTIC: try catch syntax is discouraged. >>>>
+-             try
+-             {
+                  var assemblyTypes = assembly.GetTypes();
+               

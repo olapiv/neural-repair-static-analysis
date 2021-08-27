@@ -1,0 +1,12 @@
+id: 62084174-0
+diagnostic: RCS1146
+perc_correct_in_test: 0.5
+num_datapoints_in_train: 10
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  columnExpression.MemberInfo;
+                  PropertyInfo propertyInfo = memberInfo as PropertyInfo;
+<<<< DIAGNOSTIC: use conditional access. >>>>
+-                 if (propertyInfo == null || propertyInfo.CanWrite)
++                 if (propertyInfo?.CanWrite != false)
+                  {
+                      var 

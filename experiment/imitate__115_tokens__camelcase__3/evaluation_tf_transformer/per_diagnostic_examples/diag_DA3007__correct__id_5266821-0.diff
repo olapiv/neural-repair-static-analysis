@@ -1,0 +1,18 @@
+id: 5266821-0
+diagnostic: DA3007
+perc_correct_in_test: 0.7559055118110236
+num_datapoints_in_train: 819
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+   type)
+              : base(expressionType, type)
+          {
+          }
++         /// <summary> 
++         /// 
++         /// </summary>
+  
+<<<< DIAGNOSTIC: property name 'Operands' doesn't have /// comment >>>>
+          public virtual IEnumerable<Expression> Operands
+          {
+              get { return new Expression[0]; }
+          }

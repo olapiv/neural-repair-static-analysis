@@ -1,0 +1,20 @@
+id: 58304962-1
+diagnostic: DOC101
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 4
+<<<<<<<< CORRECT >>>>>>>>
+   ::= true | false | null | notnull | canbenull</item>
+      /// </list>
+<<<< DIAGNOSTIC: use child blocks consistently >>>>
+-     /// If method has single input parameter, it's name could be omitted.<br/>
++     /// <para>If method has single input parameter, it's name could be omitted.<br/>
+      /// Using <c>halt</c> (or <c>void</c>/<c>nothing</c>,
+<<<<<<<< INFERRED >>>>>>>>
+   ::= true | false | null | notnull | canbenull</item>
+      /// </list>
+<<<< DIAGNOSTIC: use child blocks consistently >>>>
+-     /// If method has single input parameter, it's name could be omitted.<br/>
+-     /// Using <c>halt</c> (or <c>void</c>/<c>nothing</c>,
++         /// <param name="input"><see cref="EmitCode"/> class.</para>
++         /// <param name="c"></param>
++         /// <returns><para>

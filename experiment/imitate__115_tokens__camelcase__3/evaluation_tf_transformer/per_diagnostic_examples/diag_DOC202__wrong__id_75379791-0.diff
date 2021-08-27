@@ -1,0 +1,27 @@
+id: 75379791-0
+diagnostic: DOC202
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 2
+<<<<<<<< CORRECT >>>>>>>>
+  can be considered as an EntitySet<>
+          /// </summary>
+<<<< DIAGNOSTIC: use section elements correctly >>>>
+-         /// <param name="memberType"></param>
++         /// <paramref name="memberType"></paramref>
+<<<< DIAGNOSTIC: use section elements correctly >>>>
+-         /// <param name="entityType"></param>
++         /// <paramref name="entityType"></paramref>
+          /// <returns></returns>
+          protected virtual bool
+<<<<<<<< INFERRED >>>>>>>>
+  can be considered as an EntitySet<>
+          /// </summary>
+<<<< DIAGNOSTIC: use section elements correctly >>>>
+-         /// <param name="memberType"></param>
+<<<< DIAGNOSTIC: use section elements correctly >>>>
+-         /// <param name="entityType"></param>
++         /// <paramref name="entityType"></paramref>
++         /// <paramref name="entityType"></paramref>
++         /// <paramref name="entityType"></paramref>
+          /// <returns></returns>
+          protected virtual bool

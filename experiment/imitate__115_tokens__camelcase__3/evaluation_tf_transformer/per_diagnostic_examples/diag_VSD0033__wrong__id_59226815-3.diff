@@ -1,0 +1,20 @@
+id: 59226815-3
+diagnostic: VSD0033
+perc_correct_in_test: 0.625
+num_datapoints_in_train: 10
+<<<<<<<< CORRECT >>>>>>>>
+   but we can have explicit sign
+                  if (dataType.Unsigned ?? false)
+<<<< DIAGNOSTIC: use alias byte instead of concrete type byte. >>>>
+-                     return typeof(Byte);
++                     return typeof(byte);
+                  // default case, unsigned
+                  return typeof
+<<<<<<<< INFERRED >>>>>>>>
+   but we can have explicit sign
+                  if (dataType.Unsigned ?? false)
+<<<< DIAGNOSTIC: use alias byte instead of concrete type byte. >>>>
+-                     return typeof(Byte);
++             return typeof(byte?);
+                  // default case, unsigned
+                  return typeof

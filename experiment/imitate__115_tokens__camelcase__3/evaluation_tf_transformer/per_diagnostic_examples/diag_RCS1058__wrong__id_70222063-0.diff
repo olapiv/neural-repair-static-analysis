@@ -1,0 +1,22 @@
+id: 70222063-0
+diagnostic: RCS1058
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 3
+<<<<<<<< CORRECT >>>>>>>>
+  nameAliases, nameFormat);
+              if (columnName.PropertyName == tableName.ClassName)
+<<<< DIAGNOSTIC: use compound assignment. >>>>
+-                 columnName.PropertyName = columnName.PropertyName + "1";
++                 columnName.PropertyName += "1";
+  
+              if (startsWithNumber.IsMatch(columnName.PropertyName))
+          
+<<<<<<<< INFERRED >>>>>>>>
+  nameAliases, nameFormat);
+              if (columnName.PropertyName == tableName.ClassName)
+<<<< DIAGNOSTIC: use compound assignment. >>>>
+-                 columnName.PropertyName = columnName.PropertyName + "1";
++             if (columnName == null )
+  
+              if (startsWithNumber.IsMatch(columnName.PropertyName))
+          

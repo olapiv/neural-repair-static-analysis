@@ -1,0 +1,17 @@
+id: 99377355-1
+diagnostic: ASYNC0001
+perc_correct_in_test: 0.6
+num_datapoints_in_train: 16
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+     }
+                  }
+              }
+          }
+  
+<<<< DIAGNOSTIC: append asynchronous method name with async >>>>
+-         private async Task StartCore()
++         private async Task StartCoreAsync()
+          {
+              using HttpClient client = CreateHttpClient();
+  
+           

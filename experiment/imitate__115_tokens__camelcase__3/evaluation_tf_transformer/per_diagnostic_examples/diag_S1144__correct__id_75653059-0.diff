@@ -1,0 +1,15 @@
+id: 75653059-0
+diagnostic: S1144
+perc_correct_in_test: 0.5
+num_datapoints_in_train: 3
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+          //}
+          }
+  
+<<<< DIAGNOSTIC: remove the unused private method 'GetAdjustedProcIndex'. >>>>
+-         static int GetAdjustedProcIndex(int pIndex)
+-         {
+-             return (pIndex % procsPerNode);
+-         }
+- 
+          static void ParseThreadIndices(string _strThreadIndices)

@@ -1,0 +1,35 @@
+id: 74134658-0
+diagnostic: CC0014
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 7
+<<<<<<<< CORRECT >>>>>>>>
+  model;
+  
+- 			//If the attribute doesn't specify a table name the name of the table class is used
++             //If the attribute doesn't specify a table name the name of the table class is used
++             _tableName = attribute.Name != null ? attribute.Name : type.Name;
+<<<< DIAGNOSTIC: you can use a ternary operator. >>>>
+- 			if(attribute.Name != null)
+- 			{
+- 				_tableName = attribute.Name;
+- 			}
+- 			else
+- 			{
+- 				_tableName = type.Name;
+- 			}
+      
+<<<<<<<< INFERRED >>>>>>>>
+  model;
+  
+  			//If the attribute doesn't specify a table name the name of the table class is used
++             var attribute = attribute.Name ? null : attribute.Name;
+<<<< DIAGNOSTIC: you can use a ternary operator. >>>>
+- 			if(attribute.Name != null)
+- 			{
+- 				_tableName = attribute.Name;
+- 			}
+  			else
+  			{
+  				_tableName = type.Name;
+  			}
+      

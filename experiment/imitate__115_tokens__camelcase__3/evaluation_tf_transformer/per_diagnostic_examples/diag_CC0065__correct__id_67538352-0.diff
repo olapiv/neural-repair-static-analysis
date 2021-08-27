@@ -1,0 +1,16 @@
+id: 67538352-0
+diagnostic: CC0065
+perc_correct_in_test: 0.7714285714285715
+num_datapoints_in_train: 128
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+   { }
+      public interface IStream : IVerb { }
+  
+      /// <summary>
+<<<< DIAGNOSTIC: remove trailing whitespace >>>>
+-     /// Marker interface to enforce recommended method signature on ServiceStack Services: object Any(T request)   
++     /// Marker interface to enforce recommended method signature on ServiceStack Services: object Any(T request)
+      /// </summary>
+      public interface IAny<T>
+      {
+       

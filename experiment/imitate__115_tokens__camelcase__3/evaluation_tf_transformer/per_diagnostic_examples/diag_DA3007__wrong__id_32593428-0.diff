@@ -1,0 +1,35 @@
+id: 32593428-0
+diagnostic: DA3007
+perc_correct_in_test: 0.7559055118110236
+num_datapoints_in_train: 819
+<<<<<<<< CORRECT >>>>>>>>
+         {
+              get;
+              set;
+          }
++         /// <summary> 
++         /// 
++         /// </summary>
+  
+<<<< DIAGNOSTIC: property name 'DisconnectTimeout' doesn't have /// comment >>>>
+          public TimeSpan DisconnectTimeout
+          {
+              get
+              {
+             
+<<<<<<<< INFERRED >>>>>>>>
+         {
+              get;
+              set;
+          }
++ 
++         /// <summary> 
++         /// 
++         /// </summary>
+  
+<<<< DIAGNOSTIC: property name 'DisconnectTimeout' doesn't have /// comment >>>>
+          public TimeSpan DisconnectTimeout
+          {
+              get
+              {
+             

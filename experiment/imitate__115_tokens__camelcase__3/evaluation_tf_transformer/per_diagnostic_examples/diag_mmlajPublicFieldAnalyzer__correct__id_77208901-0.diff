@@ -1,0 +1,16 @@
+id: 77208901-0
+diagnostic: mmlajPublicFieldAnalyzer
+perc_correct_in_test: 0.5789473684210527
+num_datapoints_in_train: 56
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+        }
+  
+  
+          abstract class DbmlItem
+          {
+<<<< DIAGNOSTIC: declaration is public. (add static / replace it with private) (mmlaj) >>>>
+-             public const string DbmlNamespace = "http://schemas.microsoft.com/linqtosql/mapping/2007";
++             private const string DbmlNamespace = "http://schemas.microsoft.com/linqtosql/mapping/2007";
+  
+              public void ReadEmptyContent(XmlReader r, string name)
+     

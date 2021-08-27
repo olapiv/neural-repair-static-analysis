@@ -1,0 +1,24 @@
+id: 37302817-0
+diagnostic: S2933
+perc_correct_in_test: 0.6
+num_datapoints_in_train: 14
+<<<<<<<< CORRECT >>>>>>>>
+          private readonly CancellationTokenSource _cts = new CancellationTokenSource();
+          private Task? _clientTask;
+<<<< DIAGNOSTIC: make '_eventListener' 'readonly'. >>>>
+-         private EventListener? _eventListener;
++         private readonly EventListener? _eventListener;
+  
+          public long TotalErrorCount => _aggregator.TotalErrorCount;
+  
+          public StressClient((string name, 
+<<<<<<<< INFERRED >>>>>>>>
+          private readonly CancellationTokenSource _cts = new CancellationTokenSource();
+          private Task? _clientTask;
+<<<< DIAGNOSTIC: make '_eventListener' 'readonly'. >>>>
+-         private EventListener? _eventListener;
++         private readonly EventListener _eventListener;
+  
+          public long TotalErrorCount => _aggregator.TotalErrorCount;
+  
+          public StressClient((string name, 

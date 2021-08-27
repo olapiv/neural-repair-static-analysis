@@ -1,0 +1,30 @@
+id: 83075739-1
+diagnostic: CLASS0001
+perc_correct_in_test: 0.96875
+num_datapoints_in_train: 95
+<<<<<<<< CORRECT >>>>>>>>
+  .Serialization.XmlTypeAttribute(Namespace = "http://schemas.microsoft.com/linqtosql/dbml/2007")]
+  #if !MONO_STRICT
+-     public
+- #endif
+<<<< DIAGNOSTIC: seal classes that do not have any virtual or abstract methods, properties, events, or indexers >>>>
+-     partial class Connection : object, System.ComponentModel.INotifyPropertyChanged
++     public sealed class Connection : object, System.ComponentModel.INotifyPropertyChanged
+      {
+  
+          private string providerField;
+  
+          private ConnectionMode modeField;
+<<<<<<<< INFERRED >>>>>>>>
+  .Serialization.XmlTypeAttribute(Namespace = "http://schemas.microsoft.com/linqtosql/dbml/2007")]
+  #if !MONO_STRICT
+-     public
+- #endif
+<<<< DIAGNOSTIC: seal classes that do not have any virtual or abstract methods, properties, events, or indexers >>>>
+-     partial class Connection : object, System.ComponentModel.INotifyPropertyChanged
++     public sealed class SslConnection : object, System.ComponentModel.INotifyPropertyChanged
+      {
+  
+          private string providerField;
+  
+          private ConnectionMode modeField;

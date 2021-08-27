@@ -1,0 +1,19 @@
+id: 45703183-1
+diagnostic: SA1008
+perc_correct_in_test: 0.16666666666666666
+num_datapoints_in_train: 15
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  .UI.HtmlControls;
+  using System.Diagnostics;
+  
+  	[Themeable (true)]
+  	public partial class MyChild : System.Web.UI.UserControl
+  	{
+<<<< DIAGNOSTIC: opening parenthesis should not be preceded by a space. >>>>
+- 		protected override void OnInit (EventArgs e)
++ 		protected override void OnInit(EventArgs e)
+  		{
+  			Debug.WriteLine ("child.OnInit");
+  			base.OnInit (e);
+  		}
+  		[Themeable (true)]

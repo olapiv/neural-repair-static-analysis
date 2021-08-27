@@ -1,0 +1,20 @@
+id: 90919212-3
+diagnostic: ParameterWrapperAnalyzer
+perc_correct_in_test: 0.3433734939759036
+num_datapoints_in_train: 565
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+   relativeOrAbsoluteUrl);
+  
+          TResponse Post<TResponse>(string relativeOrAbsoluteUrl, object request);
+  
+<<<< DIAGNOSTIC: member 'Put' has suboptimal parameter formatting >>>>
+-         TResponse Put<TResponse>(string relativeOrAbsoluteUrl, object requestDto);
++         TResponse Put<TResponse>
++         (
++             string relativeOrAbsoluteUrl,
++             object requestDto
++         );
+  
+          TResponse Patch<TResponse>(string relativeOrAbsoluteUrl, object requestDto);
+  
+          

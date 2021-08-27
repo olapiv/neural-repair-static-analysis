@@ -1,0 +1,33 @@
+id: 15769174-2
+diagnostic: SA1027
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 29
+<<<<<<<< CORRECT >>>>>>>>
+  IEnumerable<MetaAssociation> GetAssociations()
+          {
+<<<< DIAGNOSTIC: tabs and spaces should be used correctly >>>>
+- 			//We can clear our fixup list as we're now going to convert it to the association list
++             //We can clear our fixup list as we're now going to convert it to the association list
+<<<< DIAGNOSTIC: tabs and spaces should be used correctly >>>>
+- 			var associationFixupList = _AssociationFixupList;
++             var associationFixupList = _AssociationFixupList;
+<<<< DIAGNOSTIC: tabs and spaces should be used correctly >>>>
+- 			_AssociationFixupList = null;
++             _AssociationFixupList = null;
+  
+  			foreach (AssociationData data in associationFixupList)
+  			{
+<<<<<<<< INFERRED >>>>>>>>
+  IEnumerable<MetaAssociation> GetAssociations()
+          {
++             System.Collections.Concurrent.ConcurrentDictionary<string, List> associationFixupList = new List<AssociationData>();
++             }
+<<<< DIAGNOSTIC: tabs and spaces should be used correctly >>>>
+- 			//We can clear our fixup list as we're now going to convert it to the association list
+<<<< DIAGNOSTIC: tabs and spaces should be used correctly >>>>
+- 			var associationFixupList = _AssociationFixupList;
+<<<< DIAGNOSTIC: tabs and spaces should be used correctly >>>>
+- 			_AssociationFixupList = null;
+  
+  			foreach (AssociationData data in associationFixupList)
+  			{

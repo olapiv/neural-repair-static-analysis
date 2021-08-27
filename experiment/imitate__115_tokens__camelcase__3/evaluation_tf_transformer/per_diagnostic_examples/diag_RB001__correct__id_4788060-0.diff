@@ -1,0 +1,12 @@
+id: 4788060-0
+diagnostic: RB001
+perc_correct_in_test: 0.35714285714285715
+num_datapoints_in_train: 24
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+     using static Expression;
+      public class ToStringDictionaryMapper : IObjectMapper
+      {
+<<<< DIAGNOSTIC: field 'MembersDictionaryMethodInfo' is marked static >>>>
+-         private static readonly MethodInfo MembersDictionaryMethodInfo = typeof(ToStringDictionaryMapper).GetStaticMethod(nameof(MembersDictionary));
++         private readonly MethodInfo MembersDictionaryMethodInfo = typeof(ToStringDictionaryMapper).GetStaticMethod(nameof(MembersDictionary));
+          public bool IsMatch(in TypePair context) => typeof(IDictionary<string, object>

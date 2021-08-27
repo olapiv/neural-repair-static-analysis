@@ -1,0 +1,14 @@
+id: 2828372-0
+diagnostic: DTA001
+perc_correct_in_test: 0.5454545454545454
+num_datapoints_in_train: 56
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  ": //reported by twain_bu...@msn.com,
+              case "time with time zone":
+<<<< DIAGNOSTIC: advertencia! consider replacing with datetimeoffset >>>>
+-                 return typeof(DateTime);
++                 return typeof(DateTimeOffset);
+  
+              // byte[]
+              case "binary":
+         

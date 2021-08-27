@@ -1,0 +1,14 @@
+id: 54083585-0
+diagnostic: RCS1015
+perc_correct_in_test: 1.0
+num_datapoints_in_train: 17
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  = Console.Error;
+                  break;
+              default:
+<<<< DIAGNOSTIC: use nameof operator. >>>>
+-                 throw new ArgumentOutOfRangeException("outputLevel");
++                 throw new ArgumentOutOfRangeException(nameof(outputLevel));
+              }
+              try
+              {

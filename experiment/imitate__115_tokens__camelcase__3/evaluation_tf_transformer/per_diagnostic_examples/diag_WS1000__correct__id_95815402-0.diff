@@ -1,0 +1,15 @@
+id: 95815402-0
+diagnostic: WS1000
+perc_correct_in_test: 0.8387096774193549
+num_datapoints_in_train: 58
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  (nameof(StatusCode)), StatusCode));
+              return to;
+          }
+      }
+<<<< DIAGNOSTIC: trailing whitespace detected. >>>>
+-     //Default ITypeValidator defined in ValidateScripts 
++     //Default ITypeValidator defined in ValidateScripts
+      public class ValidateIsAuthenticatedAttribute : ValidateRequestAttribute
+      {
+          public ValidateIsAuthenticatedAttribute() : base("Is

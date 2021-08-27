@@ -1,0 +1,26 @@
+id: 20784298-3
+diagnostic: ClassWithoutModifierAnalyzer
+perc_correct_in_test: 0.5
+num_datapoints_in_train: 13
+<<<<<<<< CORRECT >>>>>>>>
+   null ? Property(Constant(_parameters), matchingMember) : null;
+              }
+          }
++ 
+<<<< DIAGNOSTIC: your class must have at least one modifier. (public, internal, etc) >>>>
+-         class ConstantExpressionReplacementVisitor : ParameterExpressionVisitor
++         public class ConstantExpressionReplacementVisitor : ParameterExpressionVisitor
+          {
+              private readonly ParameterBag _paramValues;
+              public
+<<<<<<<< INFERRED >>>>>>>>
+   null ? Property(Constant(_parameters), matchingMember) : null;
+              }
+          }
++ 
+<<<< DIAGNOSTIC: your class must have at least one modifier. (public, internal, etc) >>>>
+-         class ConstantExpressionReplacementVisitor : ParameterExpressionVisitor
++         public class ParameterExpressionReplacementVisitor : ParameterExpressionVisitor
+          {
+              private readonly ParameterBag _paramValues;
+              public

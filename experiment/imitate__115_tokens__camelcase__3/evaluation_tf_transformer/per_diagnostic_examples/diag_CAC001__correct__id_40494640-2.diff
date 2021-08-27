@@ -1,0 +1,15 @@
+id: 40494640-2
+diagnostic: CAC001
+perc_correct_in_test: 0.8333333333333334
+num_datapoints_in_train: 14
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  .Select(_ => RunSingleWorker());
+              try
+              {
+<<<< DIAGNOSTIC: possibly missing `configureawait(false)` call >>>>
+-                 await Task.WhenAll(workers);
++                 await Task.WhenAll(workers).ConfigureAwait(false);
+              }
+              finally
+              {
+    

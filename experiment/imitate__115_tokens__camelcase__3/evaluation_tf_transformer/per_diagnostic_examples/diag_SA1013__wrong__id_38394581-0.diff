@@ -1,0 +1,24 @@
+id: 38394581-0
+diagnostic: SA1013
+perc_correct_in_test: 0.8333333333333334
+num_datapoints_in_train: 7
+<<<<<<<< CORRECT >>>>>>>>
+   : MutableExpression
+      {
+          public const ExpressionType ExpressionType = (ExpressionType)CustomExpressionType.StartIndexOffset;
+<<<< DIAGNOSTIC: closing brace should be preceded by a space >>>>
+-         public bool StartsAtOne{get; private set;}
++         public bool StartsAtOne{get; private set; }
+          public Expression InnerExpression { get; private set; }
+  
+          public StartIndexOffsetExpression(bool 
+<<<<<<<< INFERRED >>>>>>>>
+   : MutableExpression
+      {
+          public const ExpressionType ExpressionType = (ExpressionType)CustomExpressionType.StartIndexOffset;
+<<<< DIAGNOSTIC: closing brace should be preceded by a space >>>>
+-         public bool StartsAtOne{get; private set;}
++ 
+          public Expression InnerExpression { get; private set; }
+  
+          public StartIndexOffsetExpression(bool 

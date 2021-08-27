@@ -1,0 +1,13 @@
+id: 75096102-2
+diagnostic: CC0037
+perc_correct_in_test: 0.7647058823529411
+num_datapoints_in_train: 39
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  ()) {
+                      HasUnsyncedChanges = false;
+  
+<<<< DIAGNOSTIC: commented code should be removed. >>>>
+-                     // this.listener.Announce (new Announcement (Identifier, CurrentRevision));
+  
+                      Status = SyncStatus.Idle;
+       

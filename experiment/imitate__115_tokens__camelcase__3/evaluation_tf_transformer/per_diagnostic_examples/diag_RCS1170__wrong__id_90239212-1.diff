@@ -1,0 +1,24 @@
+id: 90239212-1
+diagnostic: RCS1170
+perc_correct_in_test: 0.75
+num_datapoints_in_train: 28
+<<<<<<<< CORRECT >>>>>>>>
+   /// Use GetRowObjectCreator() to access the object with type safety
+          /// </summary>
+<<<< DIAGNOSTIC: use read-only auto-implemented property. >>>>
+-         internal Delegate RowObjectCreator { get; private set; }
++         internal Delegate RowObjectCreator { get; }
+  
+          /// <summary>
+          /// Returns the row object creator, strongly typed
+    
+<<<<<<<< INFERRED >>>>>>>>
+   /// Use GetRowObjectCreator() to access the object with type safety
+          /// </summary>
+<<<< DIAGNOSTIC: use read-only auto-implemented property. >>>>
+-         internal Delegate RowObjectCreator { get; private set; }
++         internal ObjectCreator RowObjectCreator { get; }
+  
+          /// <summary>
+          /// Returns the row object creator, strongly typed
+    

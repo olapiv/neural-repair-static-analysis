@@ -1,0 +1,24 @@
+id: 19888993-2
+diagnostic: GU0077
+perc_correct_in_test: 0.6382978723404256
+num_datapoints_in_train: 160
+<<<<<<<< CORRECT >>>>>>>>
+    if (x == null && y != null)
+                  return false;
+  
+<<<< DIAGNOSTIC: prefer is null. >>>>
+-             if (x != null && y == null)
++             if (x != null && y is null)
+                  return false;
+  
+              // first thing: check 
+<<<<<<<< INFERRED >>>>>>>>
+    if (x == null && y != null)
+                  return false;
+  
+<<<< DIAGNOSTIC: prefer is null. >>>>
+-             if (x != null && y == null)
++             if (x is null && y != null)
+                  return false;
+  
+              // first thing: check 

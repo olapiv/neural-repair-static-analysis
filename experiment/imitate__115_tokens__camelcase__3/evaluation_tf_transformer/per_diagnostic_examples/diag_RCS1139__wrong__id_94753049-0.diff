@@ -1,0 +1,24 @@
+id: 94753049-0
+diagnostic: RCS1139
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 5
+<<<<<<<< CORRECT >>>>>>>>
+  CRC(AsSpan());
+          public void Return() => ArrayPool<byte>.Shared.Return(_buffer);
++         /// <summary>
+  
+<<<< DIAGNOSTIC: add summary element to documentation comment. >>>>
+          /// Create and populate a segment with random data
+          public static DataSegment CreateRandom(Random random, int maxLength)
+          {
+       
+<<<<<<<< INFERRED >>>>>>>>
+  CRC(AsSpan());
+          public void Return() => ArrayPool<byte>.Shared.Return(_buffer);
++ 
+  
+<<<< DIAGNOSTIC: add summary element to documentation comment. >>>>
+          /// Create and populate a segment with random data
+          public static DataSegment CreateRandom(Random random, int maxLength)
+          {
+       

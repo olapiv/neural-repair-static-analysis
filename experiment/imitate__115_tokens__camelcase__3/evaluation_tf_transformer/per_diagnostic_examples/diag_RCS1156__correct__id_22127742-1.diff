@@ -1,0 +1,14 @@
+id: 22127742-1
+diagnostic: RCS1156
+perc_correct_in_test: 1.0
+num_datapoints_in_train: 4
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  " && Reader.NamespaceURI == "") {
+  					ob.@Name = Reader.Value;
+  				}
+<<<< DIAGNOSTIC: use string.length instead of comparison with empty string. >>>>
+- 				else if (Reader.LocalName == "EntityNamespace" && Reader.NamespaceURI == "") {
++ 				else if (Reader.LocalName == "EntityNamespace" && Reader.NamespaceURI?.Length == 0) {
+  					ob.@EntityNamespace = Reader.Value;
+  				}
+  				else if (Reader.LocalName == "Context

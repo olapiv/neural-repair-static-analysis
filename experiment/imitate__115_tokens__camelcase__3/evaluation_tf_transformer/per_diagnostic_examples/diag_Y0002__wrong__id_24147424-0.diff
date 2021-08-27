@@ -1,0 +1,22 @@
+id: 24147424-0
+diagnostic: Y0002
+perc_correct_in_test: 0.6274509803921569
+num_datapoints_in_train: 146
+<<<<<<<< CORRECT >>>>>>>>
+   (int parameterIndex = 0; parameterIndex < Parameters.Count; parameterIndex++)
+              {
+<<<< DIAGNOSTIC: variable should use explicit type >>>>
+-                 var dbParameter = dbCommand.CreateParameter();
++                 IDbDataParameter dbParameter = dbCommand.CreateParameter();
+                  dbParameter.ParameterName = Parameters[parameterIndex];
+  
+            
+<<<<<<<< INFERRED >>>>>>>>
+   (int parameterIndex = 0; parameterIndex < Parameters.Count; parameterIndex++)
+              {
+<<<< DIAGNOSTIC: variable should use explicit type >>>>
+-                 var dbParameter = dbCommand.CreateParameter();
++                 System.Data.IDbDataParameter dbParameter = dbCommand.Command.CreateParameter();
+                  dbParameter.ParameterName = Parameters[parameterIndex];
+  
+            

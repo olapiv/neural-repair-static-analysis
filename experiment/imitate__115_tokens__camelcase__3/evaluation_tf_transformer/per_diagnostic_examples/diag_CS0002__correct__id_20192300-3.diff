@@ -1,0 +1,15 @@
+id: 20192300-3
+diagnostic: CS0002
+perc_correct_in_test: 1.0
+num_datapoints_in_train: 11
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+              if (percentage == 100.0)
+                  percentage = 99.0;
+  
+<<<< DIAGNOSTIC: use datetime.utcnow instead of datetime.now >>>>
+- 			progress_last_change = DateTime.Now;
++ 			progress_last_change = DateTime.UtcNow;
+  
+              ProgressPercentage = percentage;
+              ProgressSpeed = speed;
+          

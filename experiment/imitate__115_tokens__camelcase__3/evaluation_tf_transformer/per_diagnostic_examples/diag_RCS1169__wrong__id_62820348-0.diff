@@ -1,0 +1,41 @@
+id: 62820348-0
+diagnostic: RCS1169
+perc_correct_in_test: 0.8
+num_datapoints_in_train: 26
+<<<<<<<< CORRECT >>>>>>>>
+  
+  				_tableName = type.Name;
+  			}
+          }
+  
+<<<< DIAGNOSTIC: make field read-only. >>>>
+-         private TableAttribute _tableAttribute;
++         private readonly TableAttribute _tableAttribute;
+<<<< DIAGNOSTIC: make field read-only. >>>>
+-         private MetaType _metaType;
++         private readonly MetaType _metaType;
+<<<< DIAGNOSTIC: make field read-only. >>>>
+-     	private MetaModel _containingModel;
++     	private readonly MetaModel _containingModel;
+      	private readonly string _tableName;
+  
+          public override MethodInfo 
+<<<<<<<< INFERRED >>>>>>>>
+  
+  				_tableName = type.Name;
+  			}
+          }
+  
+<<<< DIAGNOSTIC: make field read-only. >>>>
+-         private TableAttribute _tableAttribute;
++         private readonly TableAttribute _tableAttribute;
+<<<< DIAGNOSTIC: make field read-only. >>>>
+-         private MetaType _metaType;
++         private readonly MetaType _metaType;
+<<<< DIAGNOSTIC: make field read-only. >>>>
+-     	private MetaModel _containingModel;
++         private readonly MetaModel _containingModel;
++         private readonly string _tableName;
+      	private readonly string _tableName;
+  
+          public override MethodInfo 

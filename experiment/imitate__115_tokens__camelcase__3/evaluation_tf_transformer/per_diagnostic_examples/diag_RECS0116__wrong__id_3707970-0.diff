@@ -1,0 +1,18 @@
+id: 3707970-0
+diagnostic: RECS0116
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 0
+<<<<<<<< CORRECT >>>>>>>>
+      builderContext.CurrentSelect.NextSelectExpression != null 
++                     ||  builderContext.CurrentSelect.Operands.Any()                    ||  builderContext.CurrentSelect.Group.Count > 0
+<<<< DIAGNOSTIC: use 'Any()' for increased performance >>>>
+-                     ||  builderContext.CurrentSelect.Operands.Count() > 0
+-                     ||  builderContext.CurrentSelect.Group.Count > 0
+                     )
+<<<<<<<< INFERRED >>>>>>>>
+      builderContext.CurrentSelect.NextSelectExpression != null 
+<<<< DIAGNOSTIC: use 'Any()' for increased performance >>>>
+-                     ||  builderContext.CurrentSelect.Operands.Count() > 0
++                     || builderContext.CurrentSelect.Operands.Any()
+-                     ||  builderContext.CurrentSelect.Group.Count > 0
+                     )

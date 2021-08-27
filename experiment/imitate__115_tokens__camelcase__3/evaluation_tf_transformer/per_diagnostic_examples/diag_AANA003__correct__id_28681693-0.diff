@@ -1,0 +1,14 @@
+id: 28681693-0
+diagnostic: AANA003
+perc_correct_in_test: 0.6666666666666666
+num_datapoints_in_train: 30
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+   <param name="key"></param>
+          /// <param name="value"></param>
+<<<< DIAGNOSTIC: cancellationtoken parameter 'token' name differs from 'cancellationToken' >>>>
+-         Task SetAsync<T>(string key, T value, CancellationToken token=default);
++         Task SetAsync<T>(string key, T value, CancellationToken cancellationToken=default);
+  
+          /// <summary>
+          /// Get a typed value at key
+   

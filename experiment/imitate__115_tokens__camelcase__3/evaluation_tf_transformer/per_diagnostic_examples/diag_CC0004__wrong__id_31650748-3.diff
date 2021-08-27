@@ -1,0 +1,23 @@
+id: 31650748-3
+diagnostic: CC0004
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 5
+<<<<<<<< CORRECT >>>>>>>>
+            try { hasFields = reader != null && reader.FieldCount != 0; }
+<<<< DIAGNOSTIC: empty catch block. >>>>
+-             catch { /* don't throw when trying to throw */ }
++             catch (Exception ex)
++             {
++                 throw;
++             }
+              if (hasFields)
+              {
+         
+<<<<<<<< INFERRED >>>>>>>>
+            try { hasFields = reader != null && reader.FieldCount != 0; }
+<<<< DIAGNOSTIC: empty catch block. >>>>
+-             catch { /* don't throw when trying to throw */ }
++                     if (Exception ex)
+              if (hasFields)
+              {
+         

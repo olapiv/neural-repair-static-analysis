@@ -1,0 +1,32 @@
+id: 7571988-0
+diagnostic: SA1106
+perc_correct_in_test: 0.7142857142857143
+num_datapoints_in_train: 18
+<<<<<<<< CORRECT >>>>>>>>
+  ;
+  using SslStress.Utils;
+  
+  namespace SslStress
+  {
+      public static class Program
+      {
+<<<< DIAGNOSTIC: code must not contain empty statements >>>>
+-         public enum ExitCode { Success = 0, StressError = 1, CliError = 2 };
++         public enum ExitCode { Success = 0, StressError = 1, CliError = 2 }
+  
+          public static async Task<int> Main(string[] args)
+          
+<<<<<<<< INFERRED >>>>>>>>
+  ;
+  using SslStress.Utils;
+  
+  namespace SslStress
+  {
+      public static class Program
+      {
+<<<< DIAGNOSTIC: code must not contain empty statements >>>>
+-         public enum ExitCode { Success = 0, StressError = 1, CliError = 2 };
++     public enum ExitCode { Success = 0, StressError = 1, CliError = 2 }
+  
+          public static async Task<int> Main(string[] args)
+          

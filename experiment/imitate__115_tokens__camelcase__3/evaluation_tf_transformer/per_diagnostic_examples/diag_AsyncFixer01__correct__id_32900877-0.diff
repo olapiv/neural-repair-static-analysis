@@ -1,0 +1,14 @@
+id: 32900877-0
+diagnostic: AsyncFixer01
+perc_correct_in_test: 0.5
+num_datapoints_in_train: 6
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  Exception("Proxy request failed");
+              }
+          }
+  
+<<<< DIAGNOSTIC: the method 'SendAsync' does not need to use async/await. >>>>
+-         public async Task<int> SendAsync(ReadOnlyMemory<byte> buffer, CancellationToken token = default)
++         public Task<int> SendAsync(ReadOnlyMemory<byte> buffer, CancellationToken token = default)
+          {
+              return await _remote.SendAsync(buffer, SocketFlags.

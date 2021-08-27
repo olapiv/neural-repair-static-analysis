@@ -1,0 +1,15 @@
+id: 75438987-3
+diagnostic: EDAM001
+perc_correct_in_test: 0.6091954022988506
+num_datapoints_in_train: 274
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+         private static readonly Encoding s_encoding = Encoding.ASCII;
+  
+<<<< DIAGNOSTIC: explicit default access modifiers are just noise. >>>>
+-         private readonly byte[] _buffer = new byte[32];
++         readonly byte[] _buffer = new byte[32];
+<<<< DIAGNOSTIC: explicit default access modifiers are just noise. >>>>
+-         private readonly char[] _charBuffer = new char[32];
++         readonly char[] _charBuffer = new char[32];
+  
+          public async Task SerializeAsync(Stream stream, DataSegment segment

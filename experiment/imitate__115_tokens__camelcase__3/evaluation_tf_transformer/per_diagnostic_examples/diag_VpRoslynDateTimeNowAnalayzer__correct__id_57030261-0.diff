@@ -1,0 +1,13 @@
+id: 57030261-0
+diagnostic: VpRoslynDateTimeNowAnalayzer
+perc_correct_in_test: 1.0
+num_datapoints_in_train: 4
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+   = GetCounterView();
+  
+                  Console.ForegroundColor = ConsoleColor.Cyan;
+<<<< DIAGNOSTIC: datetime used now >>>>
+-                 Console.Write($"[{DateTime.Now}]");
++                 Console.Write($"[{DateTime.UtcNow}]");
+                  Console.ResetColor();
+                  Console

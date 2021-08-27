@@ -1,0 +1,26 @@
+id: 3008662-0
+diagnostic: VSD0034
+perc_correct_in_test: 0.3333333333333333
+num_datapoints_in_train: 12
+<<<<<<<< CORRECT >>>>>>>>
+            return new HttpServerFixture(server);
+          }
+  
+<<<< DIAGNOSTIC: empty string literal detected. >>>>
+-         public static HttpServerFixture StartServer(Action<HttpListenerRequest, HttpListenerResponse> handle) => StartServer("", handle);
++         public static HttpServerFixture StartServer(Action<HttpListenerRequest, HttpListenerResponse> handle) => StartServer(string.Empty, handle);
+  
+          HttpServerFixture(TestHttpServer server)
+          {
+      
+<<<<<<<< INFERRED >>>>>>>>
+            return new HttpServerFixture(server);
+          }
+  
+<<<< DIAGNOSTIC: empty string literal detected. >>>>
+-         public static HttpServerFixture StartServer(Action<HttpListenerRequest, HttpListenerResponse> handle) => StartServer("", handle);
++         public HttpServerFixture(TestHttpServer server) => StartCore("Server", HttpServer server);
+  
+          HttpServerFixture(TestHttpServer server)
+          {
+      

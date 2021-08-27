@@ -1,0 +1,22 @@
+id: 41796694-0
+diagnostic: ASYNC0001
+perc_correct_in_test: 0.6
+num_datapoints_in_train: 16
+<<<<<<<< CORRECT >>>>>>>>
+  >
+          /// <param name="cancellationToken">The <see cref="CancellationToken"/> instance</param>
+<<<< DIAGNOSTIC: append asynchronous method name with async >>>>
+-         public async Task Invoke(NancyContext context, CancellationToken cancellationToken)
++         public async Task InvokeAsync(NancyContext context, CancellationToken cancellationToken)
+          {
+              foreach (var pipelineDelegate in this.PipelineDelegates)
+       
+<<<<<<<< INFERRED >>>>>>>>
+  >
+          /// <param name="cancellationToken">The <see cref="CancellationToken"/> instance</param>
+<<<< DIAGNOSTIC: append asynchronous method name with async >>>>
+-         public async Task Invoke(NancyContext context, CancellationToken cancellationToken)
++         public async Task<NancyContext> InvokeAsync(NancyContext context, CancellationToken cancellationToken)
+          {
+              foreach (var pipelineDelegate in this.PipelineDelegates)
+       

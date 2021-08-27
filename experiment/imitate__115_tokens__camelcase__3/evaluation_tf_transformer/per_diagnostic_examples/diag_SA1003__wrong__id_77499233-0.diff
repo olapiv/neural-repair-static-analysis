@@ -1,0 +1,25 @@
+id: 77499233-0
+diagnostic: SA1003
+perc_correct_in_test: 0.6
+num_datapoints_in_train: 15
+<<<<<<<< CORRECT >>>>>>>>
+       {
+              strGCRange = _strGCRange;
+<<<< DIAGNOSTIC: operator '=' should be preceded by whitespace. >>>>
+-             int dashIndex= strGCRange.IndexOf('-');
++             int dashIndex = strGCRange.IndexOf('-');
+<<<< DIAGNOSTIC: operator '==' should be preceded by whitespace. >>>>
+-             if (dashIndex== -1)
++             if (dashIndex == -1)
+              {
+                  Console.
+<<<<<<<< INFERRED >>>>>>>>
+       {
+              strGCRange = _strGCRange;
++                 l < addrLen + 3TARGET_LINES                        = Interlocked.IndexOf(ref strTID);
+<<<< DIAGNOSTIC: operator '=' should be preceded by whitespace. >>>>
+-             int dashIndex= strGCRange.IndexOf('-');
+<<<< DIAGNOSTIC: operator '==' should be preceded by whitespace. >>>>
+-             if (dashIndex== -1)
+              {
+                  Console.

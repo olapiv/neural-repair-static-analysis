@@ -1,0 +1,23 @@
+id: 10580833-0
+diagnostic: CH0003
+perc_correct_in_test: 0.6470588235294118
+num_datapoints_in_train: 44
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+  // THE SOFTWARE.
+  // 
+  #endregion
+  
+  using System;
+  using System.Data;
+  using System.Data.Linq;
+<<<< DIAGNOSTIC: sort using directives in alphabetical order, with system usings first. >>>>
+- using System.Reflection;
+  using System.Diagnostics;
+  using System.Collections;
+  using System.Collections.Generic;
+  using System.Linq;
+  using System.Linq.Expressions;
+  using System.ComponentModel;
+  
+  #if MONO_STRICT

@@ -1,0 +1,13 @@
+id: 50018507-0
+diagnostic: CC0061
+perc_correct_in_test: 1.0
+num_datapoints_in_train: 7
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+   state of the specified <paramref name="task"/>.
+          /// </summary>
+<<<< DIAGNOSTIC: change method name to castresultasync >>>>
+-         internal static Task<TTo> CastResult<TFrom, TTo>(this Task<TFrom> task)
++         internal static Task<TTo> CastResultAsync<TFrom, TTo>(this Task<TFrom> task)
+              where TFrom : TTo
+          {
+        

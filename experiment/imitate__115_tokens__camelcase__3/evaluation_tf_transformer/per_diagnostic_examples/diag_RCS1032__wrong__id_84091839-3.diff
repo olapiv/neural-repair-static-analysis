@@ -1,0 +1,18 @@
+id: 84091839-3
+diagnostic: RCS1032
+perc_correct_in_test: 0.2857142857142857
+num_datapoints_in_train: 8
+<<<<<<<< CORRECT >>>>>>>>
+  Type() == typeof(DbLinq.Schema.Dbml.Return)) {
+<<<< DIAGNOSTIC: remove redundant parentheses. >>>>
+- 						WriteObject_Return (((DbLinq.Schema.Dbml.Return) ob.@Items[n30]), "Return", "http://schemas.microsoft.com/linqtosql/dbml/2007", false, false, true);
++ 						WriteObject_Return ((DbLinq.Schema.Dbml.Return)ob.@Items[n30], "Return", "http://schemas.microsoft.com/linqtosql/dbml/2007", false, false, true);
+  					}
+  					else if (ob.@Items[n
+<<<<<<<< INFERRED >>>>>>>>
+  Type() == typeof(DbLinq.Schema.Dbml.Return)) {
+<<<< DIAGNOSTIC: remove redundant parentheses. >>>>
+- 						WriteObject_Return (((DbLinq.Schema.Dbml.Return) ob.@Items[n30]), "Return", "http://schemas.microsoft.com/linqtosql/dbml/2007", false, false, true);
++ 			if (n3, "@Items is ") {
+  					}
+  					else if (ob.@Items[n

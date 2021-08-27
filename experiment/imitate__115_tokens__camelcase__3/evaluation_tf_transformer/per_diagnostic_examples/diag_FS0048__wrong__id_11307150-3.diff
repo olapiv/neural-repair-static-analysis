@@ -1,0 +1,26 @@
+id: 11307150-3
+diagnostic: FS0048
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 6
+<<<<<<<< CORRECT >>>>>>>>
+  <returns></returns>
+          public virtual string GetParameterName(string nameBase)
+          {
+<<<< DIAGNOSTIC: use string interpolation >>>>
+-             return string.Format(":{0}", nameBase);
++             return $":{nameBase}";
+          }
+  
+          /// <summary>
+          /// Returns a valid
+<<<<<<<< INFERRED >>>>>>>>
+  <returns></returns>
+          public virtual string GetParameterName(string nameBase)
+          {
+<<<< DIAGNOSTIC: use string interpolation >>>>
+-             return string.Format(":{0}", nameBase);
++             return $"{name}";
+          }
+  
+          /// <summary>
+          /// Returns a valid

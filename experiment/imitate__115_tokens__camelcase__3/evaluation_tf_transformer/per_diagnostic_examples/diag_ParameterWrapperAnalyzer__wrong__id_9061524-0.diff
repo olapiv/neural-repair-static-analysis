@@ -1,0 +1,30 @@
+id: 9061524-0
+diagnostic: ParameterWrapperAnalyzer
+perc_correct_in_test: 0.3433734939759036
+num_datapoints_in_train: 565
+<<<<<<<< CORRECT >>>>>>>>
+       /// true if the specified objects are equal; otherwise, false.
+          /// </returns>
+<<<< DIAGNOSTIC: member 'Equals' has suboptimal parameter formatting >>>>
+-         public bool Equals(Expression x, Expression y)
++         public bool Equals
++                 (
++                     Expression x,
++                     Expression y
++                 )
+          {
+              // both nulls? comparison is OK
+             
+<<<<<<<< INFERRED >>>>>>>>
+       /// true if the specified objects are equal; otherwise, false.
+          /// </returns>
+<<<< DIAGNOSTIC: member 'Equals' has suboptimal parameter formatting >>>>
+-         public bool Equals(Expression x, Expression y)
++         public bool Equals
++         (
++             Expression x,
++             Expression y
++         )
+          {
+              // both nulls? comparison is OK
+             

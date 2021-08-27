@@ -1,0 +1,15 @@
+id: 67435678-2
+diagnostic: WTG1003
+perc_correct_in_test: 0.6153846153846154
+num_datapoints_in_train: 25
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  cg.Emit(OpCodes.Ldarg_1);
+  						cg.Emit(OpCodes.Stfld, (FieldInfo)member);
+  						cg.Emit(OpCodes.Ret);
+<<<< DIAGNOSTIC: you have meaningless whitespace on the end of the line, remove it. >>>>
+- 					
++ 
+  						return m.CreateDelegate(delegateType);
+  					}
+  				case MemberTypes.Method:
+  					 return Delegate.CreateDelegate(delegateType, (

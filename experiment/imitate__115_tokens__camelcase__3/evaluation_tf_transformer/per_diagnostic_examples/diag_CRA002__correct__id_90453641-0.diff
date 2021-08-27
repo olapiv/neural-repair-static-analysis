@@ -1,0 +1,15 @@
+id: 90453641-0
+diagnostic: CRA002
+perc_correct_in_test: 0.6
+num_datapoints_in_train: 16
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  
+  {
+      // shadowsocks payload protocol client
+      class PayloadProtocolClient : IStreamClient
+      {
+<<<< DIAGNOSTIC: name of asynchronous method 'Connect' does not end with async >>>>
+-         public async Task Connect(EndPoint destination, IDuplexPipe client, IDuplexPipe server)
++         public async Task ConnectAsync(EndPoint destination, IDuplexPipe client, IDuplexPipe server)
+          {
+              var addrMem = server.Output.GetMemory(512)

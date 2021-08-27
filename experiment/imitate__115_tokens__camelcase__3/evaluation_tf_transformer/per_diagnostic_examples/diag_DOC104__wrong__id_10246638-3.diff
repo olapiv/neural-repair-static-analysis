@@ -1,0 +1,22 @@
+id: 10246638-3
+diagnostic: DOC104
+perc_correct_in_test: 0.4166666666666667
+num_datapoints_in_train: 17
+<<<<<<<< CORRECT >>>>>>>>
+  name="metaModel">The meta model.</param>
+          /// <returns>
+<<<< DIAGNOSTIC: prefer '<see langword="keyword"/>' to '<c>keyword</c>' for referencing language keywords >>>>
+<<<< DIAGNOSTIC: prefer '<see langword="keyword"/>' to '<c>keyword</c>' for referencing language keywords >>>>
+-         /// 	<c>true</c> if the specified raw entity has changed; otherwise, <c>false</c>.
++         /// 	<see langword="true"/> if the specified raw entity has changed; otherwise, <see langword="false"/>.
+          /// </returns>
+          private bool IsRawModified(object
+<<<<<<<< INFERRED >>>>>>>>
+  name="metaModel">The meta model.</param>
+          /// <returns>
+<<<< DIAGNOSTIC: prefer '<see langword="keyword"/>' to '<c>keyword</c>' for referencing language keywords >>>>
+<<<< DIAGNOSTIC: prefer '<see langword="keyword"/>' to '<c>keyword</c>' for referencing language keywords >>>>
+-         /// 	<c>true</c> if the specified raw entity has changed; otherwise, <c>false</c>.
++         /// 	<see langword="true"/> if the meta model.
+          /// </returns>
+          private bool IsRawModified(object

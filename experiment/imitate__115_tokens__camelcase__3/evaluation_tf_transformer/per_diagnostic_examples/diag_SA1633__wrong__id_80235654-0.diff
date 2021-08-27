@@ -1,0 +1,32 @@
+id: 80235654-0
+diagnostic: SA1633
+perc_correct_in_test: 0.32
+num_datapoints_in_train: 51
+<<<<<<<< CORRECT >>>>>>>>
++ // <copyright file="ICrypto.cs" company="PlaceholderCompany">
++ // Copyright (c) PlaceholderCompany. All rights reserved.
++ // </copyright>
+<<<< DIAGNOSTIC: the file header is missing or not located at the top of the file. >>>>
+  using System;
+  
+  namespace Shadowsocks.Protocol.Shadowsocks
+  {
+      // stream cipher simply ignore nonce
+      public interface ICrypto : IDisposable
+      {
+          void Init(byte[] key, byte[] iv);
+          int Encrypt(ReadOnlySpan<byte> nonce, ReadOnlySpan<byte> plain, Span<
+<<<<<<<< INFERRED >>>>>>>>
++ // <copyright file="Crypto.cs" company="PlaceholderCompany">
++ // Copyright (c) PlaceholderCompany. All rights reserved.
++ // </copyright>
+<<<< DIAGNOSTIC: the file header is missing or not located at the top of the file. >>>>
+  using System;
+  
+  namespace Shadowsocks.Protocol.Shadowsocks
+  {
+      // stream cipher simply ignore nonce
+      public interface ICrypto : IDisposable
+      {
+          void Init(byte[] key, byte[] iv);
+          int Encrypt(ReadOnlySpan<byte> nonce, ReadOnlySpan<byte> plain, Span<

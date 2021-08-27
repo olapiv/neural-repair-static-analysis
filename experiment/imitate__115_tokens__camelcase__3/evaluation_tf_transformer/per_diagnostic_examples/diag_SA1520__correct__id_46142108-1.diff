@@ -1,0 +1,12 @@
+id: 46142108-1
+diagnostic: SA1520
+perc_correct_in_test: 0.625
+num_datapoints_in_train: 16
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+                     }
++                     {
+                      else // no match found? add the raw statement
+<<<< DIAGNOSTIC: use braces consistently >>>>
+                          newStatements.Add(statement);
+                  }
+      

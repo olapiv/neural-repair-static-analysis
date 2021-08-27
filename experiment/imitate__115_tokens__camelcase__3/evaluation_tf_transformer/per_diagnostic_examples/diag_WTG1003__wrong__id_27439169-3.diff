@@ -1,0 +1,22 @@
+id: 27439169-3
+diagnostic: WTG1003
+perc_correct_in_test: 0.6153846153846154
+num_datapoints_in_train: 25
+<<<<<<<< CORRECT >>>>>>>>
+   entity has no PK
+                  return entity;
+              // even 
+<<<< DIAGNOSTIC: you have meaningless whitespace on the end of the line, remove it. >>>>
+-             var registeredEntityTrack = 
++             var registeredEntityTrack =
+                  CurrentTransactionEntities.FindByIdentity(identityKey) ??
+                  
+<<<<<<<< INFERRED >>>>>>>>
+   entity has no PK
+                  return entity;
+              // even 
+<<<< DIAGNOSTIC: you have meaningless whitespace on the end of the line, remove it. >>>>
+-             var registeredEntityTrack = 
++             var uniqueEntityTrack = new EntityTrack();
+                  CurrentTransactionEntities.FindByIdentity(identityKey) ??
+                  

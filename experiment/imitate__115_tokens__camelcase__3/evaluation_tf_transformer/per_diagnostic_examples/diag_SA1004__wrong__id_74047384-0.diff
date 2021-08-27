@@ -1,0 +1,28 @@
+id: 74047384-0
+diagnostic: SA1004
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 2
+<<<<<<<< CORRECT >>>>>>>>
+  </summary>
+          public Type EnvironmentConfigurator { get; set; }
+  
+          /// <summary>
+<<<< DIAGNOSTIC: documentation line should begin with a space >>>>
+-         ///Gets or sets the environment factory
++         /// Gets or sets the environment factory
+          /// </summary>
+          public Type EnvironmentFactory { get; set; }
+  
+       
+<<<<<<<< INFERRED >>>>>>>>
+  </summary>
+          public Type EnvironmentConfigurator { get; set; }
+  
+          /// <summary>
+<<<< DIAGNOSTIC: documentation line should begin with a space >>>>
+-         ///Gets or sets the environment factory
++         /// Gets or sets the factory.
+          /// </summary>
+          public Type EnvironmentFactory { get; set; }
+  
+       

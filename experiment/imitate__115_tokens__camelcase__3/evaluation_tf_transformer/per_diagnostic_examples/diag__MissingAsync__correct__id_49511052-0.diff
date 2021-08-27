@@ -1,0 +1,14 @@
+id: 49511052-0
+diagnostic: _MissingAsync
+perc_correct_in_test: 1.0
+num_datapoints_in_train: 14
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+            Stop();
+              _eventListener?.Dispose();
+          }
+  
+<<<< DIAGNOSTIC: 'InitializeClient' does not end with async. >>>>
+-         private async Task InitializeClient()
++         private async Task InitializeClientAsync()
+          {
+              Console.WriteLine($"Trying connect to the server {_baseAddress}.");

@@ -1,0 +1,15 @@
+id: 98556512-1
+diagnostic: SA1629
+perc_correct_in_test: 0.13924050632911392
+num_datapoints_in_train: 260
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  
+      /// </summary>
+      public sealed class ChangeSet
+      {
+          /// <summary>
+<<<< DIAGNOSTIC: documentation text should end with a period >>>>
+-         /// All items to be inserted
++         /// All items to be inserted.
+          /// </summary>
+          public IList<object> Inserts { get; private set; }

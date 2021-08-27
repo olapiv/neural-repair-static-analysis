@@ -1,0 +1,13 @@
+id: 35497473-2
+diagnostic: CC0091
+perc_correct_in_test: 0.5
+num_datapoints_in_train: 30
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+        return Expression.Call(typeof(DateTime).GetProperty("Now").GetGetMethod());
+          }
+  
+<<<< DIAGNOSTIC: make 'TranslateStringLength' method static. >>>>
+-         private Expression TranslateStringLength(List<Expression> operands)
++         private static Expression TranslateStringLength(List<Expression> operands)
+          {
+              return Expression.MakeMemberAccess(operands[0], typeof(string).GetProperty("Length

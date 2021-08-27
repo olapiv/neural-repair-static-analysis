@@ -1,0 +1,28 @@
+id: 34446085-2
+diagnostic: SA1124
+perc_correct_in_test: 0.5
+num_datapoints_in_train: 13
+<<<<<<<< CORRECT >>>>>>>>
+              return otherTable.Provider.CreateQuery(call);
+          }
+  
+          #endregion
+  
+<<<< DIAGNOSTIC: do not use regions >>>>
+-         #region Insert/Update/Delete management
+  
+          /// <summary>
+          /// Registers an entity for insert
+          /// <
+<<<<<<<< INFERRED >>>>>>>>
+              return otherTable.Provider.CreateQuery(call);
+          }
+  
+          #endregion
+  
+<<<< DIAGNOSTIC: do not use regions >>>>
+-         #region Insert/Update/Delete management
+- 
+          /// <summary>
+          /// Registers an entity for insert
+          /// <

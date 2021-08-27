@@ -1,0 +1,10 @@
+id: 68568353-0
+diagnostic: VSD0023
+perc_correct_in_test: 0.9272727272727272
+num_datapoints_in_train: 198
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+                              {
++                                     {
+<<<< DIAGNOSTIC: a foreach statement should be written with braces >>>>
+                                      foreach (var vendorProviderType in vendorAttribute.ProviderTypes)
+                                 

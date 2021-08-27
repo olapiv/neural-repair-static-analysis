@@ -1,0 +1,13 @@
+id: 31426382-2
+diagnostic: FS0129
+perc_correct_in_test: 0.5714285714285714
+num_datapoints_in_train: 36
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+                      column.Type = columnTypeAlias;
++                 {
+                  else
+<<<< DIAGNOSTIC: add braces to single statement in this else >>>>
+                      column.Type = columnType.ToString();
+  
+                  tableSchema.Type.Columns.Add(column);
+   

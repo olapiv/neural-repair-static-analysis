@@ -1,0 +1,10 @@
+id: 96715552-2
+diagnostic: Y0001
+perc_correct_in_test: 0.5555555555555556
+num_datapoints_in_train: 84
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  ,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+<<<< DIAGNOSTIC: variable should use implicit type >>>>
+-                             int totalNodesRead = 0;
++                             var totalNodesRead = 0;
+                              while ((s = sr.

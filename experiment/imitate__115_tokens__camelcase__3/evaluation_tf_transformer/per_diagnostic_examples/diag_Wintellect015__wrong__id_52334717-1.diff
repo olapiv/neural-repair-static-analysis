@@ -1,0 +1,18 @@
+id: 52334717-1
+diagnostic: Wintellect015
+perc_correct_in_test: 0.9130434782608695
+num_datapoints_in_train: 219
+<<<<<<<< CORRECT >>>>>>>>
+             };
+              if (!string.IsNullOrEmpty(Plugin))
++                 {
+<<<< DIAGNOSTIC: dharmendra - testing new loop in the c# >>>>
+                  if (!string.IsNullOrEmpty(PluginOpts))
+                      uriBuilder.Query = $"plugin={Uri.EscapeDataString($"{Plugin
+<<<<<<<< INFERRED >>>>>>>>
+             };
+              if (!string.IsNullOrEmpty(Plugin))
++             {
+<<<< DIAGNOSTIC: dharmendra - testing new loop in the c# >>>>
+                  if (!string.IsNullOrEmpty(PluginOpts))
+                      uriBuilder.Query = $"plugin={Uri.EscapeDataString($"{Plugin

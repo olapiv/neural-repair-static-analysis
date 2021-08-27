@@ -1,0 +1,12 @@
+id: 59267435-2
+diagnostic: VSD0033
+perc_correct_in_test: 0.625
+num_datapoints_in_train: 10
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+                          return f;
+<<<< DIAGNOSTIC: use alias string instead of concrete type string. >>>>
+-                 throw new ArgumentException(String.Format("Corresponding MetaFunction for method '{0}' was not found", method));
++                 throw new ArgumentException(string.Format("Corresponding MetaFunction for method '{0}' was not found", method));
+              }
+  
+              public override

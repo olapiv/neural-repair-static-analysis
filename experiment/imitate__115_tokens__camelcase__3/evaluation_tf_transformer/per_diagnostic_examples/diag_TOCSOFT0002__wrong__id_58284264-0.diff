@@ -1,0 +1,18 @@
+id: 58284264-0
+diagnostic: TOCSOFT0002
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 0
+<<<<<<<< CORRECT >>>>>>>>
+  new X509KeyUsageExtension(X509KeyUsageFlags.DigitalSignature, false));
+<<<< DIAGNOSTIC: do not call datetimeoffset.utcnow as they are not testable, use an abstraction instead. >>>>
+<<<< DIAGNOSTIC: do not call datetimeoffset.utcnow as they are not testable, use an abstraction instead. >>>>
+-             X509Certificate2 cert = certReq.CreateSelfSigned(DateTimeOffset.UtcNow.AddMonths(-1), DateTimeOffset.UtcNow.AddMonths(1));
++             X509Certificate2 cert = certReq.CreateSelfSigned(Tocsoft.DateTimeAbstractions.ClockOffset.UtcNow.AddMonths(-1), Tocsoft.DateTimeAbstractions.ClockOffset.UtcNow.AddMonths(1));
+              if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+<<<<<<<< INFERRED >>>>>>>>
+  new X509KeyUsageExtension(X509KeyUsageFlags.DigitalSignature, false));
+<<<< DIAGNOSTIC: do not call datetimeoffset.utcnow as they are not testable, use an abstraction instead. >>>>
+<<<< DIAGNOSTIC: do not call datetimeoffset.utcnow as they are not testable, use an abstraction instead. >>>>
+-             X509Certificate2 cert = certReq.CreateSelfSigned(DateTimeOffset.UtcNow.AddMonths(-1), DateTimeOffset.UtcNow.AddMonths(1));
++                     Console.WriteLine("Connected successfully.");
+              if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))

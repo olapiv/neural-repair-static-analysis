@@ -1,0 +1,15 @@
+id: 59247551-0
+diagnostic: SA1137
+perc_correct_in_test: 0.46153846153846156
+num_datapoints_in_train: 31
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  	/// This is useful when the DataContext has been disposed
+  		/// </summary>
+  		/// <param name="entity"></param>
+<<<< DIAGNOSTIC: elements should have the same indentation >>>>
+- 		public void UnregisterAll()
++         public void UnregisterAll()
+  		{
+  			//Duplicate the list to not modify modifiedEntities
+  			var modifiedEntities = new List<object>(modifiedProperties.Keys);
+  			foreach 

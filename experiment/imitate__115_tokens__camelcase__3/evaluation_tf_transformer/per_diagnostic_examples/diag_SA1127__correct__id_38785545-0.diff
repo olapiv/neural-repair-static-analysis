@@ -1,0 +1,14 @@
+id: 38785545-0
+diagnostic: SA1127
+perc_correct_in_test: 0.3333333333333333
+num_datapoints_in_train: 9
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  IReadOnlyCollection<(DateTime timestamp, string? metadata)> Occurrences => OccurrencesQueue;
+          }
+  
+<<<< DIAGNOSTIC: generic type constraints should be on their own line >>>>
+-         private class StructuralEqualityComparer<T> : IEqualityComparer<T> where T : IStructuralEquatable
++         private class StructuralEqualityComparer<T> : IEqualityComparer<T>
++             where T : IStructuralEquatable
+          {
+              public bool Equals(T? left, T? right)

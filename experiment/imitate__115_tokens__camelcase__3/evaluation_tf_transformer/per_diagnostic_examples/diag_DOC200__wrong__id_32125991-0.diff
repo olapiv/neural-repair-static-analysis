@@ -1,0 +1,24 @@
+id: 32125991-0
+diagnostic: DOC200
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 0
+<<<<<<<< CORRECT >>>>>>>>
+  
+      /// Describes dependency between method input and output.
+      /// </summary>
+      /// <syntax>
+<<<< DIAGNOSTIC: use xml documentation syntax >>>>
+-     /// <p>Function Definition Table syntax:</p>
++     /// <para>Function Definition Table syntax:</para>
+      /// <list>
+      /// <item>FDT      ::= FDTRow [;FDTRow]*</item>
+<<<<<<<< INFERRED >>>>>>>>
+  
+      /// Describes dependency between method input and output.
+      /// </summary>
++         /// <param name="p">the types.</param>
+      /// <syntax>
+<<<< DIAGNOSTIC: use xml documentation syntax >>>>
+      /// <p>Function Definition Table syntax:</p>
+      /// <list>
+      /// <item>FDT      ::= FDTRow [;FDTRow]*</item>

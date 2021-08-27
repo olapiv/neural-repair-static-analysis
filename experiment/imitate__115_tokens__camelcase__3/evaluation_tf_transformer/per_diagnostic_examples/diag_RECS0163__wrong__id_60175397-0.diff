@@ -1,0 +1,22 @@
+id: 60175397-0
+diagnostic: RECS0163
+perc_correct_in_test: 0.75
+num_datapoints_in_train: 11
+<<<<<<<< CORRECT >>>>>>>>
+  DbLinqConnectionType `{0}'.",
+                          connTypeVal),
+<<<< DIAGNOSTIC: use 'nameof(connectionString)' expression instead. >>>>
+-                     "connectionString");
++ nameof(connectionString));
+              return (IDbConnection)Activator.CreateInstance(connType, connectionString);
+          }
+   
+<<<<<<<< INFERRED >>>>>>>>
+  DbLinqConnectionType `{0}'.",
+                          connTypeVal),
+<<<< DIAGNOSTIC: use 'nameof(connectionString)' expression instead. >>>>
+-                     "connectionString");
++                     nameof(connectionString));
+              return (IDbConnection)Activator.CreateInstance(connType, connectionString);
+          }
+   

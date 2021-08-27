@@ -1,0 +1,40 @@
+id: 49498456-0
+diagnostic: RCS1037
+perc_correct_in_test: 0.6666666666666666
+num_datapoints_in_train: 40
+<<<<<<<< CORRECT >>>>>>>>
+  
+  
+  #if MONO_STRICT
+      namespace System.Data.Linq
+  #else
+      namespace DbLinq.Data.Linq
+  #endif
+  {
+      /// <summary>
+<<<< DIAGNOSTIC: remove trailing white-space. >>>>
+-     /// Allows to specify 
++     /// Allows to specify
+      /// </summary>
+      public sealed class DataLoadOptions
+      {
+          /// <summary>
+      
+<<<<<<<< INFERRED >>>>>>>>
+  
+  
+  #if MONO_STRICT
+      namespace System.Data.Linq
+  #else
+      namespace DbLinq.Data.Linq
+  #endif
+  {
+      /// <summary>
+<<<< DIAGNOSTIC: remove trailing white-space. >>>>
+-     /// Allows to specify 
++     /// Allows to specify. 
+      /// </summary>
+      public sealed class DataLoadOptions
+      {
+          /// <summary>
+      

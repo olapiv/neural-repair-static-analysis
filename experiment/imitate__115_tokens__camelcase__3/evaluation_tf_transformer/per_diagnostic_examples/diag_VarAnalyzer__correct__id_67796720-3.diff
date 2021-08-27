@@ -1,0 +1,12 @@
+id: 67796720-3
+diagnostic: VarAnalyzer
+perc_correct_in_test: 0.5666666666666667
+num_datapoints_in_train: 179
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+   var foreignKeys = mappingType.Associations.Where(a => a.IsForeignKey && a.OtherType.Type == sourceTable.Type);
+  
+<<<< DIAGNOSTIC: var keyword usage is not legit in this context >>>>
+-             foreach (var fk in foreignKeys)
++             foreach (MetaAssociation fk in foreignKeys)
+              {
+                  var oke = fk.OtherKey.GetEnumerator()

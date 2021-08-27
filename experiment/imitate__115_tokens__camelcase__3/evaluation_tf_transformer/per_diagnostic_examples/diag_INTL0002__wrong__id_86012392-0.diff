@@ -1,0 +1,24 @@
+id: 86012392-0
+diagnostic: INTL0002
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 6
+<<<<<<<< CORRECT >>>>>>>>
+  protected DbConnection GetClosedConnection() => Provider.GetClosedConnection();
+          protected DbConnection _connection;
+<<<< DIAGNOSTIC: property 'connection' should be pascalcase >>>>
+-         protected DbConnection connection => _connection ??= Provider.GetOpenConnection();
++         protected DbConnection Connection => _connection ??= Provider.GetOpenConnection();
+  
+          public TProvider Provider { get; } = DatabaseProvider<TProvider>.Instance;
+  
+       
+<<<<<<<< INFERRED >>>>>>>>
+  protected DbConnection GetClosedConnection() => Provider.GetClosedConnection();
+          protected DbConnection _connection;
+<<<< DIAGNOSTIC: property 'connection' should be pascalcase >>>>
+-         protected DbConnection connection => _connection ??= Provider.GetOpenConnection();
++         protected DbConnection connection?= _connection?.GetProvider();
+  
+          public TProvider Provider { get; } = DatabaseProvider<TProvider>.Instance;
+  
+       

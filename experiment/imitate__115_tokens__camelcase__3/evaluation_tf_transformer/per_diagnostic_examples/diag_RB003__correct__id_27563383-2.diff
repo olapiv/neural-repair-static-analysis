@@ -1,0 +1,14 @@
+id: 27563383-2
+diagnostic: RB003
+perc_correct_in_test: 0.8
+num_datapoints_in_train: 28
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+     msg += ", Exception: " + exception.Message;
+              }
+<<<< DIAGNOSTIC: lock statement should be avoided in orleans environment >>>>
+-             lock (logs)
+-                 logs.AppendLine(msg);
+          }
+  
+          /// <summary>
+          ///

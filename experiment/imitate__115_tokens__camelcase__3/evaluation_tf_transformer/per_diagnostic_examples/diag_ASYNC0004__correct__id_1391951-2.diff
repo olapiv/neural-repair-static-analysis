@@ -1,0 +1,14 @@
+id: 1391951-2
+diagnostic: ASYNC0004
+perc_correct_in_test: 0.8333333333333334
+num_datapoints_in_train: 8
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  );
+<<<< DIAGNOSTIC: use configureawait(false) >>>>
+-                         using SslStream sslStream = await EstablishSslStream(stream, random, cts.Token);
++                         using SslStream sslStream = await EstablishSslStream(stream, random, cts.Token).ConfigureAwait(false);
+<<<< DIAGNOSTIC: use configureawait(false) >>>>
+-                         await HandleConnection(workerId, jobId, sslStream, client, random, connectionLifetime, cts.Token);
++                         await HandleConnection(workerId, jobId, sslStream, client, random, connectionLifetime, cts.Token).ConfigureAwait(false);
+  
+    

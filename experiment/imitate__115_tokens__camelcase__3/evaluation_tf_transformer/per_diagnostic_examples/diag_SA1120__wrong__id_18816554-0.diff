@@ -1,0 +1,15 @@
+id: 18816554-0
+diagnostic: SA1120
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 4
+<<<<<<<< CORRECT >>>>>>>>
+                   // count for m/p/i observed during this unit of time.
+<<<< DIAGNOSTIC: comments should contain text >>>>
+-                             //
+                              strTemp = ParseString(s, "]",
+<<<<<<<< INFERRED >>>>>>>>
+                   // count for m/p/i observed during this unit of time.
+<<<< DIAGNOSTIC: comments should contain text >>>>
+-                             //
++                                                                                      = strTID;
+                              strTemp = ParseString(s, "]",

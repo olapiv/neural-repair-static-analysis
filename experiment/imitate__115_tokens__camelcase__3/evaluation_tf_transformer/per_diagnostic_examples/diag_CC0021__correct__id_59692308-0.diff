@@ -1,0 +1,15 @@
+id: 59692308-0
+diagnostic: CC0021
+perc_correct_in_test: 0.3448275862068966
+num_datapoints_in_train: 81
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+      {
+              if (context == null)
+              {
+<<<< DIAGNOSTIC: use 'nameof(context)' instead of specifying the program element name. >>>>
+-                 throw new ArgumentNullException("context");
++                 throw new ArgumentNullException(nameof(context));
+              }
+  
+              this.NegotiationContext = context.NegotiationContext;
+     

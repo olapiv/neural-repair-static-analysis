@@ -1,0 +1,22 @@
+id: 7865765-2
+diagnostic: EMA0001
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 4
+<<<<<<<< CORRECT >>>>>>>>
+  Int32.Parse(currentArgValue) == 1);
+                  }
+<<<< DIAGNOSTIC: use == operator instead of equals method for built-in types >>>>
+<<<< DIAGNOSTIC: use == operator instead of equals method for built-in types >>>>
+-                 else if (currentArg.Equals("-ti") || currentArg.Equals("-ThreadIndices"))
++                 else if (currentArg == "-ti" || currentArg == "-ThreadIndices")
+                  {
+                  
+<<<<<<<< INFERRED >>>>>>>>
+  Int32.Parse(currentArgValue) == 1);
+                  }
++                 else if (currentArg == "-gr" || currentArg == "-GCRange")
+<<<< DIAGNOSTIC: use == operator instead of equals method for built-in types >>>>
+<<<< DIAGNOSTIC: use == operator instead of equals method for built-in types >>>>
+-                 else if (currentArg.Equals("-ti") || currentArg.Equals("-ThreadIndices"))
+-                 {
+                  

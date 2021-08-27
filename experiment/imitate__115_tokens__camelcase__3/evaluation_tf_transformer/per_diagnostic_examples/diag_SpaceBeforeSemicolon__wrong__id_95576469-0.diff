@@ -1,0 +1,20 @@
+id: 95576469-0
+diagnostic: SpaceBeforeSemicolon
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 3
+<<<<<<<< CORRECT >>>>>>>>
+   2, etc.
+                          var appendValue = 0;
+<<<< DIAGNOSTIC: a white space is not needed before ';' >>>>
+-                         for (; ; )
++                         for (;; )
+                          {
+                 
+<<<<<<<< INFERRED >>>>>>>>
+   2, etc.
+                          var appendValue = 0;
+<<<< DIAGNOSTIC: a white space is not needed before ';' >>>>
+-                         for (; ; )
++                         for (; ;)
+                          {
+                 

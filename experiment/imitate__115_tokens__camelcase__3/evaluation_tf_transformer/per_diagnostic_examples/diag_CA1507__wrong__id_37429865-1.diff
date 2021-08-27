@@ -1,0 +1,22 @@
+id: 37429865-1
+diagnostic: CA1507
+perc_correct_in_test: 0.75
+num_datapoints_in_train: 18
+<<<<<<<< CORRECT >>>>>>>>
+  Format("Don't know how to convert the SQL type '{0}' into a managed type.", dataTypeL),
+<<<< DIAGNOSTIC: use nameof in place of string literal 'dataType' >>>>
+-                     "dataType");
++                     nameof(dataType));
+              }
+          }
+  
+          protected class EnumType : Type
+<<<<<<<< INFERRED >>>>>>>>
+  Format("Don't know how to convert the SQL type '{0}' into a managed type.", dataTypeL),
+<<<< DIAGNOSTIC: use nameof in place of string literal 'dataType' >>>>
+-                     "dataType");
++ nameof(dataType));
+              }
+          }
+  
+          protected class EnumType : Type

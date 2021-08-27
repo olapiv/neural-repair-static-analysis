@@ -1,0 +1,19 @@
+id: 28184156-0
+diagnostic: DA3002
+perc_correct_in_test: 0.7391304347826086
+num_datapoints_in_train: 274
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  using System.Collections.Generic;
+  using System.Windows.Media;
+  
+  namespace MaterialDesignColors.Recommended
++ 
++     /// <summary> 
++     /// 
++     /// </summary>
+  {
+<<<< DIAGNOSTIC: type 'BlueGreySwatch' doesn't have /// comments >>>>
+      public class BlueGreySwatch : ISwatch
+      {
+          public static Color BlueGrey50 { get; } = (Color)ColorConverter.ConvertFromString("#ECEFF1");
+          public static Color BlueGrey1

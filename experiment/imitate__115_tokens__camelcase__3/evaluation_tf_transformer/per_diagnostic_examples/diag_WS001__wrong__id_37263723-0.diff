@@ -1,0 +1,44 @@
+id: 37263723-0
+diagnostic: WS001
+perc_correct_in_test: 0.6
+num_datapoints_in_train: 12
+<<<<<<<< CORRECT >>>>>>>>
++ // It is automatically generated// It is automatically generatedusing System;
+<<<< DIAGNOSTIC: file starts with whitespace >>>>
+- // It is automatically generated
+- using System;
+  using System.Xml;
+  using System.Xml.Schema;
+  using System.Xml.Serialization;
+  using System.Text;
+  using System.Collections;
+  using System.Globalization;
+  
+  namespace DbLinq.Schema.Dbml
+  {
+  	#if !MONO_STRICT
+  	public
+  	#endif
+  	class GeneratedReader : XmlSerializationReader
+  	{
+  		static readonly System.Reflection.MethodInfo 
+<<<<<<<< INFERRED >>>>>>>>
++ 	public class GeneratedReader : XmlSerializationReader
+<<<< DIAGNOSTIC: file starts with whitespace >>>>
+- // It is automatically generated
+- using System;
+- using System.Xml;
+- using System.Xml.Schema;
+  using System.Xml.Serialization;
+  using System.Text;
+  using System.Collections;
+  using System.Globalization;
+  
+  namespace DbLinq.Schema.Dbml
+  {
+  	#if !MONO_STRICT
+  	public
+  	#endif
+  	class GeneratedReader : XmlSerializationReader
+  	{
+  		static readonly System.Reflection.MethodInfo 

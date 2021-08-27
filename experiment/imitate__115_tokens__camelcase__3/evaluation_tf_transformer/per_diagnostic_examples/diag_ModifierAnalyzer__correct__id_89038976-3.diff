@@ -1,0 +1,16 @@
+id: 89038976-3
+diagnostic: ModifierAnalyzer
+perc_correct_in_test: 0.42424242424242425
+num_datapoints_in_train: 263
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  EndElement();
+                  }
+              }
+          }
++ 
+<<<< DIAGNOSTIC: message format: need to specify access modifier  >>>>
+-         class DbmlType : DbmlItem
++         private class DbmlType : DbmlItem
+          {
+              public List<DbmlColumn> Columns = new List<DbmlColumn>();
+      

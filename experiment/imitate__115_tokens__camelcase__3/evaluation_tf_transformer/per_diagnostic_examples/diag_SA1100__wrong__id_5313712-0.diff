@@ -1,0 +1,30 @@
+id: 5313712-0
+diagnostic: SA1100
+perc_correct_in_test: 0.6666666666666666
+num_datapoints_in_train: 1
+<<<<<<<< CORRECT >>>>>>>>
+  		if (node == null)
+  				return;
+  
+  			node.PropertyChanged += OnPropertyChanged;
+  		}
+<<<< DIAGNOSTIC: do not prefix calls with base unless local implementation exists >>>>
+- 		private SharpTreeViewItem SharpTreeViewItem { get { return (SharpTreeViewItem)base.Owner; } }
++ 		private SharpTreeViewItem SharpTreeViewItem { get { return (SharpTreeViewItem)this.Owner; } }
+  		protected override AutomationControlType GetAutomationControlTypeCore()
+  		{
+  			return AutomationControlType.TreeItem;
+  		}
+<<<<<<<< INFERRED >>>>>>>>
+  		if (node == null)
+  				return;
+  
+  			node.PropertyChanged += OnPropertyChanged;
+  		}
+<<<< DIAGNOSTIC: do not prefix calls with base unless local implementation exists >>>>
+- 		private SharpTreeViewItem SharpTreeViewItem { get { return (SharpTreeViewItem)base.Owner; } }
++ 			get { return this.SharpTreeViewItem; }
+  		protected override AutomationControlType GetAutomationControlTypeCore()
+  		{
+  			return AutomationControlType.TreeItem;
+  		}

@@ -1,0 +1,28 @@
+id: 83881130-0
+diagnostic: SA1313
+perc_correct_in_test: 0.25
+num_datapoints_in_train: 1
+<<<<<<<< CORRECT >>>>>>>>
+  <Result> ContextMenu { get; set; }
+  
+          [Obsolete("Use Object initializer instead")]
+<<<< DIAGNOSTIC: parameter 'Title' should begin with lower-case letter >>>>
+<<<< DIAGNOSTIC: parameter 'IcoPath' should begin with lower-case letter >>>>
+<<<< DIAGNOSTIC: parameter 'SubTitle' should begin with lower-case letter >>>>
+-         public Result(string Title, string IcoPath, string SubTitle = null)
++         public Result(string title, string icoPath, string subTitle = null)
+          {
+              this.Title = Title;
+            
+<<<<<<<< INFERRED >>>>>>>>
+  <Result> ContextMenu { get; set; }
+  
+          [Obsolete("Use Object initializer instead")]
+<<<< DIAGNOSTIC: parameter 'Title' should begin with lower-case letter >>>>
+<<<< DIAGNOSTIC: parameter 'IcoPath' should begin with lower-case letter >>>>
+<<<< DIAGNOSTIC: parameter 'SubTitle' should begin with lower-case letter >>>>
+-         public Result(string Title, string IcoPath, string SubTitle = null)
++         public void ContextMenu { get; set; }
+          {
+              this.Title = Title;
+            

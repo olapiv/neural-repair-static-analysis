@@ -1,0 +1,17 @@
+id: 43493748-1
+diagnostic: SA1400
+perc_correct_in_test: 0.6428571428571429
+num_datapoints_in_train: 34
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  
+  using System.Collections.Generic;
+  
+  namespace Shadowsocks.Protocol.Shadowsocks.Crypto
+  {
+      static class CryptoProvider
+      {
+<<<< DIAGNOSTIC: element 'parameters' should declare an access modifier >>>>
+-         static Dictionary<string, CryptoParameter> parameters = new Dictionary<string, CryptoParameter>
++         private static Dictionary<string, CryptoParameter> parameters = new Dictionary<string, CryptoParameter>
+          {
+              ["xchacha20-ietf-poly1305"] = new

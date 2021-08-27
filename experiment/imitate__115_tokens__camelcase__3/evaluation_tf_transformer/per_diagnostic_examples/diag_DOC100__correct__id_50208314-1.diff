@@ -1,0 +1,12 @@
+id: 50208314-1
+diagnostic: DOC100
+perc_correct_in_test: 0.35714285714285715
+num_datapoints_in_train: 25
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+   member using a custom member value resolver supplied with a source member
+          /// </summary>
+<<<< DIAGNOSTIC: place text in paragraphs >>>>
+-         /// <remarks>Not used for LINQ projection (ProjectTo)</remarks>
++         /// <remarks><para>Not used for LINQ projection (ProjectTo)</para></remarks>
+          /// <typeparam name="TValueResolver">Value resolver type</typeparam>
+          //

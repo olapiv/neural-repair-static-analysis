@@ -1,0 +1,23 @@
+id: 18957398-1
+diagnostic: RCS1036
+perc_correct_in_test: 1.0
+num_datapoints_in_train: 46
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  (long) val, typeof (DbLinq.Schema.Dbml.Version).FullName);
+  			}
+  		}
+  
+  		protected override void InitCallbacks ()
+  		{
+  		}
+<<<< DIAGNOSTIC: remove redundant empty line. >>>>
+- 
+  	}
+  
+  
+  	#if !MONO_STRICT
+      public
+        #endif
+  	class BaseXmlSerializer : System.Xml.Serialization.XmlSerializer
+  	{
+  		protected override System.Xml

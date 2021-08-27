@@ -1,0 +1,22 @@
+id: 42651239-0
+diagnostic: RECS0010
+perc_correct_in_test: 0.5
+num_datapoints_in_train: 1
+<<<<<<<< CORRECT >>>>>>>>
+     string databaseNameAliased = nameAliases != null ? nameAliases.GetDatabaseNameAlias(databaseName) : null;
+<<<< DIAGNOSTIC: '?:' expression can be converted to '??' expression >>>>
+-             return (databaseNameAliased != null) ? databaseNameAliased : GetDatabaseName(databaseName);
++             return databaseNameAliased ?? GetDatabaseName(databaseName);
+          }
+  
+          /// <summary>
+          /// 
+<<<<<<<< INFERRED >>>>>>>>
+     string databaseNameAliased = nameAliases != null ? nameAliases.GetDatabaseNameAlias(databaseName) : null;
+<<<< DIAGNOSTIC: '?:' expression can be converted to '??' expression >>>>
+-             return (databaseNameAliased != null) ? databaseNameAliased : GetDatabaseName(databaseName);
++             return databaseNameAliased ?? databaseName;
+          }
+  
+          /// <summary>
+          /// 

@@ -1,0 +1,16 @@
+id: 37998072-0
+diagnostic: CA2101
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 1
+<<<<<<<< CORRECT >>>>>>>>
+  static extern bool EnumThreadWindows(uint threadId, EnumThreadDelegate lpfn, IntPtr lParam);
+<<<< DIAGNOSTIC: specify marshaling for p/invoke string arguments >>>>
+-         [DllImport("user32.dll")] static extern int GetWindowText(IntPtr hwnd, StringBuilder lpString, int nMaxCount);
++         [DllImport("user32.dll", CharSet = CharSet.Unicode)] static extern int GetWindowText(IntPtr hwnd, StringBuilder lpString, int nMaxCount);
+          [DllImport("user32.dll")] static extern int GetWindowText
+<<<<<<<< INFERRED >>>>>>>>
+  static extern bool EnumThreadWindows(uint threadId, EnumThreadDelegate lpfn, IntPtr lParam);
+<<<< DIAGNOSTIC: specify marshaling for p/invoke string arguments >>>>
+-         [DllImport("user32.dll")] static extern int GetWindowText(IntPtr hwnd, StringBuilder lpString, int nMaxCount);
++         [DllImport("kernel32.dll", CharSet = CharSet.Unicode)]
+          [DllImport("user32.dll")] static extern int GetWindowText

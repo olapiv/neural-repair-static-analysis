@@ -1,0 +1,18 @@
+id: 96178738-0
+diagnostic: RCS1146
+perc_correct_in_test: 0.5
+num_datapoints_in_train: 10
+<<<<<<<< CORRECT >>>>>>>>
+                  // caution: this makes the cache harder to maintain
+<<<< DIAGNOSTIC: use conditional access. >>>>
+-                     else if (modifiedMembers == null || modifiedMembers.Contains(memberInfo))
++                     else if (modifiedMembers?.Contains(memberInfo) != false)
+                      {
+                
+<<<<<<<< INFERRED >>>>>>>>
+                  // caution: this makes the cache harder to maintain
+<<<< DIAGNOSTIC: use conditional access. >>>>
+-                     else if (modifiedMembers == null || modifiedMembers.Contains(memberInfo))
++                     else if (modifiedMembers.Contains(memberInfo))
+                      {
+                

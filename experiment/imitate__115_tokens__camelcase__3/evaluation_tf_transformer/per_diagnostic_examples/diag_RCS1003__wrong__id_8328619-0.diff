@@ -1,0 +1,22 @@
+id: 8328619-0
+diagnostic: RCS1003
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 10
+<<<<<<<< CORRECT >>>>>>>>
+   BuilderContext builderContext)
+          {
+              var previousLimit = builderContext.CurrentSelect.Limit;
++             {
+<<<< DIAGNOSTIC: add braces to if-else (when expression spans over multiple lines). >>>>
+              if (previousLimit != null)
+                  builderContext.CurrentSelect.Limit = Expression.Condition(Expression.LessThan(previousLimit, limit),
+     
+<<<<<<<< INFERRED >>>>>>>>
+   BuilderContext builderContext)
+          {
++                 {
+              var previousLimit = builderContext.CurrentSelect.Limit;
+<<<< DIAGNOSTIC: add braces to if-else (when expression spans over multiple lines). >>>>
+              if (previousLimit != null)
+                  builderContext.CurrentSelect.Limit = Expression.Condition(Expression.LessThan(previousLimit, limit),
+     

@@ -1,0 +1,24 @@
+id: 24018149-0
+diagnostic: CC0034
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 8
+<<<<<<<< CORRECT >>>>>>>>
+   public abstract partial class SslClientBase
+      {
+          private class StressResultAggregator
+          {
+<<<< DIAGNOSTIC: field _totalconnections is assigning to default value 0. remove the assignment. >>>>
+-             private long _totalConnections = 0;
++             private long _totalConnections;
+              private readonly long[] _successes, _failures, _cancellations;
+              private
+<<<<<<<< INFERRED >>>>>>>>
+   public abstract partial class SslClientBase
+      {
+          private class StressResultAggregator
+          {
+<<<< DIAGNOSTIC: field _totalconnections is assigning to default value 0. remove the assignment. >>>>
+-             private long _totalConnections = 0;
++         private long _totalConnections;
+              private readonly long[] _successes, _failures, _cancellations;
+              private

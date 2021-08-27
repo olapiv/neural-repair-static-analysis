@@ -1,0 +1,26 @@
+id: 4184718-0
+diagnostic: EPS05
+perc_correct_in_test: 0.42857142857142855
+num_datapoints_in_train: 18
+<<<<<<<< CORRECT >>>>>>>>
+    void Prepend(string value);
+          void Append(string value);
+          string RemoveStart();
+<<<< DIAGNOSTIC: use in-modifier for passing readonly struct 'Nullable' >>>>
+-         string BlockingRemoveStart(TimeSpan? timeOut);
++         string BlockingRemoveStart(in TimeSpan? timeOut);
+          string RemoveEnd();
+  
+          void Enqueue(string value);
+          string Dequeue
+<<<<<<<< INFERRED >>>>>>>>
+    void Prepend(string value);
+          void Append(string value);
+          string RemoveStart();
+<<<< DIAGNOSTIC: use in-modifier for passing readonly struct 'Nullable' >>>>
+-         string BlockingRemoveStart(TimeSpan? timeOut);
++         string BlockingRemoveStartFromSeconds(in TimeSpan? timeOut);
+          string RemoveEnd();
+  
+          void Enqueue(string value);
+          string Dequeue

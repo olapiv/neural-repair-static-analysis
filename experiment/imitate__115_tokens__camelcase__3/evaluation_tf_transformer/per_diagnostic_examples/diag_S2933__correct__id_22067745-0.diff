@@ -1,0 +1,17 @@
+id: 22067745-0
+diagnostic: S2933
+perc_correct_in_test: 0.6
+num_datapoints_in_train: 14
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  
+                  tableExpression = value;
+              }
+          }
+  
+<<<< DIAGNOSTIC: make 'builderContext' 'readonly'. >>>>
+-         BuilderContext builderContext;
++         readonly BuilderContext builderContext;
+          public Type EntitySetType;
+          ExpressionDispatcher dispatcher;
+          TableExpression sourceTable;
+      

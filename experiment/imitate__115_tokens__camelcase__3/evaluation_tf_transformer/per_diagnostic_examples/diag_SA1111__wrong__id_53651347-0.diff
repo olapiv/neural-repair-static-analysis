@@ -1,0 +1,22 @@
+id: 53651347-0
+diagnostic: SA1111
+perc_correct_in_test: 0.25
+num_datapoints_in_train: 8
+<<<<<<<< CORRECT >>>>>>>>
+              string url,
+              string httpMethod,
+-             Action<HttpListenerRequest, HttpListenerResponse, Dictionary<string, string>> handlerAction
++             Action<HttpListenerRequest, HttpListenerResponse, Dictionary<string, string>> handlerAction)
+<<<< DIAGNOSTIC: closing parenthesis should be on line of last parameter >>>>
+-         )
+          {
+              Url           =
+<<<<<<<< INFERRED >>>>>>>>
+              string url,
+              string httpMethod,
+-             Action<HttpListenerRequest, HttpListenerResponse, Dictionary<string, string>> handlerAction
++             Action<HttpListenerRequest, HttpListenerResponse, string>> handlerAction
+<<<< DIAGNOSTIC: closing parenthesis should be on line of last parameter >>>>
+-         )
+          {
+              Url           =

@@ -1,0 +1,24 @@
+id: 37624516-1
+diagnostic: DA3005
+perc_correct_in_test: 0.6666666666666666
+num_datapoints_in_train: 8
+<<<<<<<< CORRECT >>>>>>>>
+  / <summary>
+          /// Aborts the currently active polling request thereby forcing a reconnect.
++         /// <param name="connection"></param>
+          /// </summary>
+<<<< DIAGNOSTIC: method 'LostConnection' doesn't have /// parameter in comment >>>>
+          public override void LostConnection(IConnection connection)
+          {
+              if (TryFailStart(new IOException(Resources.Error_
+<<<<<<<< INFERRED >>>>>>>>
+  / <summary>
+          /// Aborts the currently active polling request thereby forcing a reconnect.
++         /// <summary> 
++         /// 
++         /// </summary>
+          /// </summary>
+<<<< DIAGNOSTIC: method 'LostConnection' doesn't have /// parameter in comment >>>>
+          public override void LostConnection(IConnection connection)
+          {
+              if (TryFailStart(new IOException(Resources.Error_

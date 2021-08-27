@@ -1,0 +1,20 @@
+id: 26248166-1
+diagnostic: _MissingConfigureAwait
+perc_correct_in_test: 0.5
+num_datapoints_in_train: 33
+<<<<<<<< CORRECT >>>>>>>>
+           foreach (var svc in _services)
+                  {
+<<<< DIAGNOSTIC: consider using .configureawait(false) on async method 'IsMyClient'. >>>>
+-                     if (await svc.IsMyClient(conn))
++                     if (await svc.IsMyClient(conn).ConfigureAwait(false))
+                      {
+                    
+<<<<<<<< INFERRED >>>>>>>>
+           foreach (var svc in _services)
+                  {
+<<<< DIAGNOSTIC: consider using .configureawait(false) on async method 'IsMyClient'. >>>>
+-                     if (await svc.IsMyClient(conn))
++                     await svc.IsMyClient(conn).ConfigureAwait(false);
+                      {
+                    

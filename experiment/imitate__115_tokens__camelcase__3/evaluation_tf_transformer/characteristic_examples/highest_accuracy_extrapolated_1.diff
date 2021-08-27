@@ -1,0 +1,14 @@
+id: 1190760-0
+diagnostic: FS0034
+perc_correct_in_test: 1.0
+num_datapoints_in_train: 0
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  ] s_crc_table = new ulong[256];
+  
+      // Flag: has the table been computed? Initially false.
+<<<< DIAGNOSTIC: field s_crc_table_computed is assigning to default value false. remove the assignment. >>>>
+-     private static bool s_crc_table_computed = false;
++     private static bool s_crc_table_computed;
+  
+      // Make the table for a fast CRC.
+      // Derivative work of zlib -- https://github.com

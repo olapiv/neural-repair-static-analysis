@@ -1,0 +1,30 @@
+id: 9364851-1
+diagnostic: RS0100
+perc_correct_in_test: 0.4666666666666667
+num_datapoints_in_train: 37
+<<<<<<<< CORRECT >>>>>>>>
+  Load(ReadOnlyMemory<byte> buffer)
+          {
+<<<< DIAGNOSTIC: statements must be placed on their own line >>>>
+-             if (buffer.Length < 2) return (false, 2);
++             if (buffer.Length < 2)
++                 return (false, 2);
+<<<< DIAGNOSTIC: statements must be placed on their own line >>>>
+-             if (buffer.Span[0] != 1) return (false, 0);
++             if (buffer.Span[0] != 1)
++                 return (false, 0);
+  
+              Success = buffer.Span[1
+<<<<<<<< INFERRED >>>>>>>>
+  Load(ReadOnlyMemory<byte> buffer)
+          {
+<<<< DIAGNOSTIC: statements must be placed on their own line >>>>
+-             if (buffer.Length < 2) return (false, 2);
++             if (buffer.Length < 2)
++                 return (false, 2);
+<<<< DIAGNOSTIC: statements must be placed on their own line >>>>
+-             if (buffer.Span[0] != 1) return (false, 0);
++             if (buffer.Span[0] != 5)
++                 return (false, 0);
+  
+              Success = buffer.Span[1

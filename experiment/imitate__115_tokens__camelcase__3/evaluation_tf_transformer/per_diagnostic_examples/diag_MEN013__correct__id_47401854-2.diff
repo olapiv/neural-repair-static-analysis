@@ -1,0 +1,12 @@
+id: 47401854-2
+diagnostic: MEN013
+perc_correct_in_test: 0.8
+num_datapoints_in_train: 18
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+     chunk.Return();
+                      Interlocked.Decrement(ref messagesInFlight);
+<<<< DIAGNOSTIC: use utcnow instead of now. >>>>
+-                     lastRead = DateTime.Now;
++                     lastRead = DateTime.UtcNow;
+                      return Task.CompletedTask;
+                

@@ -1,0 +1,19 @@
+id: 2289924-2
+diagnostic: CC0022
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 3
+<<<<<<<< CORRECT >>>>>>>>
+<<<< DIAGNOSTIC: md5cryptoserviceprovider should be disposed. >>>>
+-             MD5 md5           = new MD5CryptoServiceProvider ();
++             using (MD5 md5 = new MD5CryptoServiceProvider())
++             {
+-             byte [] bytes     = ASCIIEncoding.Default.GetBytes (s);
++                 byte[] bytes = ASCIIEncoding.Default.GetBytes(s);
+-             byte [] md5_bytes = md5.ComputeHash (bytes);
++                 byte[] md5_bytes = md5.ComputeHash(bytes);
+<<<<<<<< INFERRED >>>>>>>>
+<<<< DIAGNOSTIC: md5cryptoserviceprovider should be disposed. >>>>
+-             MD5 md5           = new MD5CryptoServiceProvider ();
+-             byte [] bytes     = ASCIIEncoding.Default.GetBytes (s);
++             PropertyInfo bytes    = ASCIIEncoding.Default.GetBytes (s);
+              byte [] md5_bytes = md5.ComputeHash (bytes);

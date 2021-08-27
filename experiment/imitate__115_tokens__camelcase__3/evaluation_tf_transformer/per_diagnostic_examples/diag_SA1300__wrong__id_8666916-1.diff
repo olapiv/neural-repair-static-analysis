@@ -1,0 +1,22 @@
+id: 8666916-1
+diagnostic: SA1300
+perc_correct_in_test: 0.5714285714285714
+num_datapoints_in_train: 13
+<<<<<<<< CORRECT >>>>>>>>
+  s complement of the final running CRC (see the
+          // crc() routine below)).
+<<<< DIAGNOSTIC: element 'update_crc' should begin with an uppercase letter >>>>
+-         public static ulong update_crc(ulong crc, byte[] buf, int len)
++         public static ulong Update_crc(ulong crc, byte[] buf, int len)
+          {
+              ulong c = crc;
+           
+<<<<<<<< INFERRED >>>>>>>>
+  s complement of the final running CRC (see the
+          // crc() routine below)).
+<<<< DIAGNOSTIC: element 'update_crc' should begin with an uppercase letter >>>>
+-         public static ulong update_crc(ulong crc, byte[] buf, int len)
++     public static ulong UpdateCRC(ulong crc, byte[] buf)
+          {
+              ulong c = crc;
+           

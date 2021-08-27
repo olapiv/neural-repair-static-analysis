@@ -1,0 +1,26 @@
+id: 74624882-1
+diagnostic: CA1822
+perc_correct_in_test: 0.7272727272727273
+num_datapoints_in_train: 24
+<<<<<<<< CORRECT >>>>>>>>
+      return defaultValue;
+              return (T) v;
+          }
+  
+<<<< DIAGNOSTIC: member 'GetSqlToManagedTypeMapping' does not access instance data and can be marked as static >>>>
+-         private Dictionary<string, string> GetSqlToManagedTypeMapping(DbConnection connection)
++         private static Dictionary<string, string> GetSqlToManagedTypeMapping(DbConnection connection)
+          {
+              var dataTypes = connection.GetSchema("DataTypes");
+   
+<<<<<<<< INFERRED >>>>>>>>
+      return defaultValue;
+              return (T) v;
+          }
+  
+<<<< DIAGNOSTIC: member 'GetSqlToManagedTypeMapping' does not access instance data and can be marked as static >>>>
+-         private Dictionary<string, string> GetSqlToManagedTypeMapping(DbConnection connection)
++         private static Dictionary<string, SqlType> GetMapping(DbConnection connection, string vH)
+          {
+              var dataTypes = connection.GetSchema("DataTypes");
+   

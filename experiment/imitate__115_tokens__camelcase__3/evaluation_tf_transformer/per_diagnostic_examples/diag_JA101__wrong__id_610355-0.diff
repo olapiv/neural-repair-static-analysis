@@ -1,0 +1,26 @@
+id: 610355-0
+diagnostic: JA101
+perc_correct_in_test: 0.10606060606060606
+num_datapoints_in_train: 231
+<<<<<<<< CORRECT >>>>>>>>
+       }
+  
+          public TMappingExpression IgnoreAllPropertiesWithAnInaccessibleSetter()
+          {
+<<<< DIAGNOSTIC: handle the return value of 'PropertiesWithAnInaccessibleSetter(DestinationType)'. >>>>
+-             foreach(var property in PropertiesWithAnInaccessibleSetter(DestinationType))
++             foreach(var property in _ = PropertiesWithAnInaccessibleSetter(DestinationType))
+              {
+                  IgnoreDestinationMember(property);
+      
+<<<<<<<< INFERRED >>>>>>>>
+       }
+  
+          public TMappingExpression IgnoreAllPropertiesWithAnInaccessibleSetter()
+          {
+<<<< DIAGNOSTIC: handle the return value of 'PropertiesWithAnInaccessibleSetter(DestinationType)'. >>>>
+-             foreach(var property in PropertiesWithAnInaccessibleSetter(DestinationType))
++             foreach (var propertyInfo in _ = PropertiesWithAnInaccessibleSetter(Type))
+              {
+                  IgnoreDestinationMember(property);
+      

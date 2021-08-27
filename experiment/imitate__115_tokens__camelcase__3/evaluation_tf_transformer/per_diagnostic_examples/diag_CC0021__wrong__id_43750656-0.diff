@@ -1,0 +1,22 @@
+id: 43750656-0
+diagnostic: CC0021
+perc_correct_in_test: 0.3448275862068966
+num_datapoints_in_train: 81
+<<<<<<<< CORRECT >>>>>>>>
+  , membersToExpand);
+          readonly struct ProjectionExpression
+          {
+<<<< DIAGNOSTIC: use 'nameof(Select)' instead of specifying the program element name. >>>>
+-             private static readonly MethodInfo SelectMethod = typeof(Queryable).StaticGenericMethod("Select", parametersCount: 2);
++             private static readonly MethodInfo SelectMethod = typeof(Queryable).StaticGenericMethod(nameof(Select), parametersCount: 2);
+              private readonly IQueryable _source;
+             
+<<<<<<<< INFERRED >>>>>>>>
+  , membersToExpand);
+          readonly struct ProjectionExpression
+          {
+<<<< DIAGNOSTIC: use 'nameof(Select)' instead of specifying the program element name. >>>>
+-             private static readonly MethodInfo SelectMethod = typeof(Queryable).StaticGenericMethod("Select", parametersCount: 2);
++             static readonly MethodInfo Queryable = typeof(SelectQueryable).StaticGenericMethod(nameof(Queryable));
+              private readonly IQueryable _source;
+             

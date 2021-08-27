@@ -1,0 +1,20 @@
+id: 66952635-0
+diagnostic: SA1309
+perc_correct_in_test: 0.7142857142857143
+num_datapoints_in_train: 38
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  BytesWritten = BytesWritten };
+      }
+  
+      public class CountingStream : Stream
+      {
+<<<< DIAGNOSTIC: field '_stream' should not begin with an underscore >>>>
+-         private readonly Stream _stream;
++         private readonly Stream stream;
+<<<< DIAGNOSTIC: field '_counter' should not begin with an underscore >>>>
+-         private readonly StreamCounter _counter;
++         private readonly StreamCounter counter;
+  
+          public CountingStream(Stream stream, StreamCounter counters)
+          {
+      

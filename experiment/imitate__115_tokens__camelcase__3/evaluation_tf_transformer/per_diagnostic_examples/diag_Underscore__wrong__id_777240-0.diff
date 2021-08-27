@@ -1,0 +1,26 @@
+id: 777240-0
+diagnostic: Underscore
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 12
+<<<<<<<< CORRECT >>>>>>>>
+  object ReturnValue { get; set; }
+  
+              public void Dispose() { }
+  
+<<<< DIAGNOSTIC: the name 'outParamValues_' includes an underscore. >>>>
+-             public ProcedureResult(object retVal, object[] outParamValues_)
++             public ProcedureResult(object retVal, object[] outParamValues)
+              {
+                  ReturnValue = retVal;
+    
+<<<<<<<< INFERRED >>>>>>>>
+  object ReturnValue { get; set; }
+  
+              public void Dispose() { }
+  
+<<<< DIAGNOSTIC: the name 'outParamValues_' includes an underscore. >>>>
+-             public ProcedureResult(object retVal, object[] outParamValues_)
++             public void ProcedureResult(object retVal, object[] outParamValues_)
+              {
+                  ReturnValue = retVal;
+    
