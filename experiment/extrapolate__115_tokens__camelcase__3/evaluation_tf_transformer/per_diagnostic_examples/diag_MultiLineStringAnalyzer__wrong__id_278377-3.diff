@@ -1,0 +1,33 @@
+id: 278377-3
+diagnostic: MultiLineStringAnalyzer
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 0
+<<<<<<<< CORRECT >>>>>>>>
+        {
+<<<< DIAGNOSTIC: use environment.newline explicitly >>>>
+-             const string sql = @"
++             const string sql = ""
+- DECLARE @since DATETIME, @customerCode nvarchar(10)
++ + Environment.NewLine + "DECLARE @since DATETIME, @customerCode nvarchar(10)"
+- SET @since = ? -- ODBC parameter
++ + Environment.NewLine + "SET @since = ? -- ODBC parameter"
+- SET @customerCode = ? -- ODBC parameter
++ + Environment.NewLine + "SET @customerCode = ? -- ODBC parameter"
+- 
++ + Environment.NewLine + ""
+- SELECT @since as [Since], @customerCode as [Code]";
++ + Environment.NewLine + "SELECT @since as [Since], @customerCode as [Code]";
+  
+          
+<<<<<<<< INFERRED >>>>>>>>
+        {
+<<<< DIAGNOSTIC: use environment.newline explicitly >>>>
+-             const string sql = @"
++ }
+  DECLARE @since DATETIME, @customerCode nvarchar(10)
+  SET @since = ? -- ODBC parameter
+  SET @customerCode = ? -- ODBC parameter
+  
+  SELECT @since as [Since], @customerCode as [Code]";
+  
+          

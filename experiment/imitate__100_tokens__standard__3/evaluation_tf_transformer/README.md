@@ -10,17 +10,19 @@
 * Humanly readable output examples are saved in [characteristic_examples](characteristic_examples) and in [per_diagnostic_examples](per_diagnostic_examples)
 * Pearson Number calculated with [scipy.stats.pearsonr](https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.pearsonr.html)
 
-## Results after 5k steps
+## Results after 10k steps
 
-Convergence after around 3k steps (1h35min); Loss function:
+Best evaluation results after 5k steps (3h25min); Loss function:
 
-![Loss Function](loss_function_20k_steps.png)
+![Loss Function](imitate_loss_function.svg)
+
+All data in [Tensorflow Board](https://tensorboard.dev/experiment/duPJ0ilATYOLvTWnaYY2Ag/#scalars).
 
 ### Influence of Datapoints per Diagnostic on Diagnostics' Accuracy
 
 ![Impact data per Diagnostic on Accuracy](imitate_impact_data_on_accuracy.svg)
 
-pearsonr: (0.10934174253963695, 0.12137157877175254)
+pearsonr: (0.0634902867694032, 0.25447036235119896)
 
 Each datapoint represents a diagnostic. It is hard to decipher a correlation between number of data points a diagnostic requires in train to be successfully predicted in test.
 

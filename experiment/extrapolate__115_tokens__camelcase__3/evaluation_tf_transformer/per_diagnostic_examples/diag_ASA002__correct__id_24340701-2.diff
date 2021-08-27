@@ -1,0 +1,15 @@
+id: 24340701-2
+diagnostic: ASA002
+perc_correct_in_test: 0.9166666666666666
+num_datapoints_in_train: 0
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  sessionId
+          /// </summary>
+          /// <param name="sessionId"></param>
+          /// <returns></returns>
+          ISession CreateSession(string sessionId);
+<<<< DIAGNOSTIC: method 'CreateSessionAsync' returns isessionasync and so it should rather be called 'CreateSession' >>>>
+-         ISessionAsync CreateSessionAsync(string sessionId);
++         ISessionAsync CreateSession(string sessionId);
+      }
+  }

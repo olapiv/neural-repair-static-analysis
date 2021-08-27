@@ -1,0 +1,26 @@
+id: 12294102-0
+diagnostic: FirstAnalyzerCS
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 0
+<<<<<<<< CORRECT >>>>>>>>
+  /// <summary>
+  	/// Collection that validates that inserted nodes do not have another parent.
+  	/// </summary>
+<<<< DIAGNOSTIC: type name 'SharpTreeNodeCollection' contains lowercase letters >>>>
+- 	public sealed class SharpTreeNodeCollection : IList<SharpTreeNode>, INotifyCollectionChanged
++ 	public sealed class SHARPTREENODECOLLECTION : IList<SHARPTREENODE>, INotifyCollectionChanged
+  	{
+  		readonly SharpTreeNode parent;
+  		List<SharpTreeNode> list = new List<SharpTreeNode>();
+  		bool is
+<<<<<<<< INFERRED >>>>>>>>
+  /// <summary>
+  	/// Collection that validates that inserted nodes do not have another parent.
+  	/// </summary>
+<<<< DIAGNOSTIC: type name 'SharpTreeNodeCollection' contains lowercase letters >>>>
+- 	public sealed class SharpTreeNodeCollection : IList<SharpTreeNode>, INotifyCollectionChanged
++ 	public sealed class SHARPTREENODE : IList<SHARPTREENODE>, INotifyCollectionChanged
+  	{
+  		readonly SharpTreeNode parent;
+  		List<SharpTreeNode> list = new List<SharpTreeNode>();
+  		bool is

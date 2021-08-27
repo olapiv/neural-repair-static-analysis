@@ -1,0 +1,18 @@
+id: 82385597-1
+diagnostic: SA1312
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 0
+<<<<<<<< CORRECT >>>>>>>>
+  
+                          {
+<<<< DIAGNOSTIC: variable 'ValueProperty' should begin with lower-case letter >>>>
+-                             var ValueProperty = otherTableMember.PropertyType.GetProperty("Value");
++                             var valueProperty = otherTableMember.PropertyType.GetProperty("Value");
+                             
+<<<<<<<< INFERRED >>>>>>>>
+  
+                          {
+<<<< DIAGNOSTIC: variable 'ValueProperty' should begin with lower-case letter >>>>
+-                             var ValueProperty = otherTableMember.PropertyType.GetProperty("Value");
++                         last_poll = DateTime.UtcNow;
+                             

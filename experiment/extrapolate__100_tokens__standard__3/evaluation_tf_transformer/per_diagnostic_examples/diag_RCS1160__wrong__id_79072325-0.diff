@@ -1,0 +1,22 @@
+id: 79072325-0
+diagnostic: RCS1160
+perc_correct_in_test: 0.3333333333333333
+num_datapoints_in_train: 0
+<<<<<<<< CORRECT >>>>>>>>
+     private readonly Lazy<Task> _clientTask;
+          private readonly Stopwatch _stopwatch = new Stopwatch();
+  
+<<<< DIAGNOSTIC: abstract type should not have public constructors. >>>>
+-         public SslClientBase(Configuration config)
++         protected SslClientBase(Configuration config)
+          {
+              if (config.MaxConnections < 1) throw new ArgumentOutOfRangeException(nameof(
+<<<<<<<< INFERRED >>>>>>>>
+     private readonly Lazy<Task> _clientTask;
+          private readonly Stopwatch _stopwatch = new Stopwatch();
+- 
+<<<< DIAGNOSTIC: abstract type should not have public constructors. >>>>
+-         public SslClientBase(Configuration config)
++ SslClientBase(Configuration config)
+          {
+              if (config.MaxConnections < 1) throw new ArgumentOutOfRangeException(nameof(

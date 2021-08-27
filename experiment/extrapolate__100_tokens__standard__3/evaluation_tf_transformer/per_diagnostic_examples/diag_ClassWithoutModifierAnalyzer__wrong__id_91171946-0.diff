@@ -1,0 +1,30 @@
+id: 91171946-0
+diagnostic: ClassWithoutModifierAnalyzer
+perc_correct_in_test: 0.09090909090909091
+num_datapoints_in_train: 0
+<<<<<<<< CORRECT >>>>>>>>
+   Expression.Convert(invoke, columnType);
+              return invoke;
+          }
+      }
+  
+<<<< DIAGNOSTIC: your class must have at least one modifier. (public, internal, etc) >>>>
+-     class ParameterBinder
++     public class ParameterBinder
+      {
+          Dictionary<Expression, Expression> map;
+  
+          public Expression BindParams(LambdaExpression expr, params
+<<<<<<<< INFERRED >>>>>>>>
+   Expression.Convert(invoke, columnType);
+              return invoke;
+          }
+      }
+  
+<<<< DIAGNOSTIC: your class must have at least one modifier. (public, internal, etc) >>>>
+-     class ParameterBinder
++     private class ParameterBinder
+      {
+          Dictionary<Expression, Expression> map;
+  
+          public Expression BindParams(LambdaExpression expr, params

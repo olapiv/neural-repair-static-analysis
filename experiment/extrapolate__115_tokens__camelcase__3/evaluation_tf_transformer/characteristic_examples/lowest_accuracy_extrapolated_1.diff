@@ -1,0 +1,26 @@
+id: 26718787-0
+diagnostic: JA101
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 0
+<<<<<<<< CORRECT >>>>>>>>
+  Specified");
+              // then we set it to true
+              if (specifiedPropertyInfo != null)
+<<<< DIAGNOSTIC: handle the return value of 'specifiedPropertyInfo.GetSetMethod().Invoke(sender, new object[] {true})'. >>>>
+<<<< DIAGNOSTIC: handle the return value of 'specifiedPropertyInfo.GetSetMethod()'. >>>>
+-                 specifiedPropertyInfo.GetSetMethod().Invoke(sender, new object[] {true});
++                 _ = specifiedPropertyInfo.GetSetMethod().Invoke(sender, new object[] {true});
+          }
+      }
+  }
+<<<<<<<< INFERRED >>>>>>>>
+  Specified");
+              // then we set it to true
+              if (specifiedPropertyInfo != null)
+<<<< DIAGNOSTIC: handle the return value of 'specifiedPropertyInfo.GetSetMethod().Invoke(sender, new object[] {true})'. >>>>
+<<<< DIAGNOSTIC: handle the return value of 'specifiedPropertyInfo.GetSetMethod()'. >>>>
+-                 specifiedPropertyInfo.GetSetMethod().Invoke(sender, new object[] {true});
++             if (specifiedPropertyInfo != object)
+          }
+      }
+  }

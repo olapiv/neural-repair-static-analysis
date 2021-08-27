@@ -1,0 +1,22 @@
+id: 4564007-0
+diagnostic: CC0002
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 0
+<<<<<<<< CORRECT >>>>>>>>
+  {splitOnColumnName}' was not found - please ensure your splitOn parameter is set and in the correct order", 
+<<<< DIAGNOSTIC: type argument 'splitOn' is not in the argument list. >>>>
+-                     "splitOn");
++ "reader");
+              }
+              else
+              {
+    
+<<<<<<<< INFERRED >>>>>>>>
+  {splitOnColumnName}' was not found - please ensure your splitOn parameter is set and in the correct order", 
++                     {
+<<<< DIAGNOSTIC: type argument 'splitOn' is not in the argument list. >>>>
+                      "splitOn");
+              }
+              else
+              {
+    

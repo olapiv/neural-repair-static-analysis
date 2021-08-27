@@ -1,0 +1,24 @@
+id: 50966331-0
+diagnostic: ASA002
+perc_correct_in_test: 0.9166666666666666
+num_datapoints_in_train: 0
+<<<<<<<< CORRECT >>>>>>>>
+          void Register(string contentType,
+              StreamSerializerDelegate streamSerializer, StreamDeserializerDelegate streamDeserializer);
+  
+<<<< DIAGNOSTIC: method 'RegisterAsync' returns void and so it should rather be called 'Register' >>>>
+-         void RegisterAsync(string contentType,
++         void Register(string contentType,
+              StreamSerializerDelegateAsync responseSerializer, StreamDeserializerDelegateAsync streamDeserializer);
+  
+          void Remove(string contentType);
+<<<<<<<< INFERRED >>>>>>>>
+          void Register(string contentType,
+              StreamSerializerDelegate streamSerializer, StreamDeserializerDelegate streamDeserializer);
+- 
+<<<< DIAGNOSTIC: method 'RegisterAsync' returns void and so it should rather be called 'Register' >>>>
+-         void RegisterAsync(string contentType,
++         void Register(string contentType,
+              StreamSerializerDelegateAsync responseSerializer, StreamDeserializerDelegateAsync streamDeserializer);
+  
+          void Remove(string contentType);

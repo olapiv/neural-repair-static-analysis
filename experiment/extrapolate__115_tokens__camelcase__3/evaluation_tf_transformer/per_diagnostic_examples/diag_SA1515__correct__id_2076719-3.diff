@@ -1,0 +1,12 @@
+id: 2076719-3
+diagnostic: SA1515
+perc_correct_in_test: 0.04132231404958678
+num_datapoints_in_train: 0
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+   dbColumnName;
+              }
++ 
+              var columnName = NameFormatter.GetColumnName(columnNameAlias, extraction, nameFormat);
+<<<< DIAGNOSTIC: single-line comment should be preceded by blank line >>>>
+              // The member name can not be the same as the class
+              // we add a 

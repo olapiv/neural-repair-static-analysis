@@ -1,0 +1,19 @@
+id: 95873847-2
+diagnostic: AvNextPropertyCodeFix
+perc_correct_in_test: 0.007194244604316547
+num_datapoints_in_train: 0
+<<<<<<<< CORRECT >>>>>>>>
+   | AttributeTargets.Property, AllowMultiple = false, Inherited = true)]
+      public class AutoMapAttribute : AttributeBase
++         [System.ComponentModel.DataAnnotations.MaxLength(200)]//Roslyn auto generated
+      {
+<<<< DIAGNOSTIC: type name 'To' should be decorated with maxlength attribute >>>>
+          public string To { get; set; }
+          public AutoMapAttribute(string to) => To = to ?? throw new ArgumentNullException(nameof(to)
+<<<<<<<< INFERRED >>>>>>>>
+   | AttributeTargets.Property, AllowMultiple = false, Inherited = true)]
+      public class AutoMapAttribute : AttributeBase
+      {
+<<<< DIAGNOSTIC: type name 'To' should be decorated with maxlength attribute >>>>
+          public string To { get; set; }
+          public AutoMapAttribute(string to) => To = to ?? throw new ArgumentNullException(nameof(to)

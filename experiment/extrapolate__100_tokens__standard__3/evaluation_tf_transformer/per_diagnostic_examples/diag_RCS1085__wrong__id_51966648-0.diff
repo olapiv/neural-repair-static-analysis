@@ -1,0 +1,26 @@
+id: 51966648-0
+diagnostic: RCS1085
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 0
+<<<<<<<< CORRECT >>>>>>>>
+  
+<<<< DIAGNOSTIC: use auto-implemented property. >>>>
+-         public IDbCommand Command
++         public IDbCommand Command { get; }
+-         {
+-             get
+-             {
+-                 return _command;
+-             }
+-         }
+<<<<<<<< INFERRED >>>>>>>>
+  
+<<<< DIAGNOSTIC: use auto-implemented property. >>>>
+-         public IDbCommand Command
++         public IDbCommand _command { get; }
+          {
+              get
+              {
+                  return _command;
+              }
+          }

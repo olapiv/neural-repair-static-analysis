@@ -1,0 +1,21 @@
+id: 34385973-0
+diagnostic: CH0001
+perc_correct_in_test: 0.2122905027932961
+num_datapoints_in_train: 0
+<<<<<<<< CORRECT >>>>>>>>
+  is free software: you can redistribute it and/or modify
+<<<< DIAGNOSTIC: remove trailing whitespace. whilst this analyzer includes a code fix provider, it is recommended you install the trailing whitespace visualizer add-in to automatically remove all trailing whitespace. see https://marketplace.visualstudio.com/items?itemname=madskristensen.trailingwhitespacevisualizer. >>>>
+- //   it under the terms of the GNU Lesser General Public License as 
++ //   it under the terms of the GNU Lesser General Public License as
+<<<< DIAGNOSTIC: remove trailing whitespace. whilst this analyzer includes a code fix provider, it is recommended you install the trailing whitespace visualizer add-in to automatically remove all trailing whitespace. see https://marketplace.visualstudio.com/items?itemname=madskristensen.trailingwhitespacevisualizer. >>>>
+- //   published by the Free Software Foundation, either version 3 of the 
++ //   published by the Free Software Foundation, either version 3 of the
+  //   License, or (at your option) any later version
+<<<<<<<< INFERRED >>>>>>>>
+  is free software: you can redistribute it and/or modify
+<<<< DIAGNOSTIC: remove trailing whitespace. whilst this analyzer includes a code fix provider, it is recommended you install the trailing whitespace visualizer add-in to automatically remove all trailing whitespace. see https://marketplace.visualstudio.com/items?itemname=madskristensen.trailingwhitespacevisualizer. >>>>
+- //   it under the terms of the GNU Lesser General Public License as 
++                 _currentPath.Reverse().Select(underscore => new instance => {
+<<<< DIAGNOSTIC: remove trailing whitespace. whilst this analyzer includes a code fix provider, it is recommended you install the trailing whitespace visualizer add-in to automatically remove all trailing whitespace. see https://marketplace.visualstudio.com/items?itemname=madskristensen.trailingwhitespacevisualizer. >>>>
+  //   published by the Free Software Foundation, either version 3 of the 
+  //   License, or (at your option) any later version

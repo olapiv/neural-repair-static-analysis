@@ -1,0 +1,12 @@
+id: 20450579-0
+diagnostic: VSD0034
+perc_correct_in_test: 0.8888888888888888
+num_datapoints_in_train: 0
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  ,
+                  Path.Combine(
+<<<< DIAGNOSTIC: empty string literal detected. >>>>
+-                     context.Request.Url.Segments.Select(s => s.Replace("/", "")).ToArray()
++                     context.Request.Url.Segments.Select(s => s.Replace("/", string.Empty)).ToArray()
+                  )
+        

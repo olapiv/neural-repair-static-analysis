@@ -1,0 +1,24 @@
+id: 43563022-0
+diagnostic: DOC105
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 0
+<<<<<<<< CORRECT >>>>>>>>
+   to SQL generation.
+          ///  </para>
+          ///  <para>
+<<<< DIAGNOSTIC: prefer '<paramref name="parameter"/>' to '<c>parameter</c>' for referencing parameters >>>>
+-         ///   The default implementation returns <c>e</c> unchanged.
++         ///   The default implementation returns <paramref name="e"/> unchanged.
+          ///  </para>
+          /// </remarks>
+          
+<<<<<<<< INFERRED >>>>>>>>
+   to SQL generation.
+          ///  </para>
+          ///  <para>
+<<<< DIAGNOSTIC: prefer '<paramref name="parameter"/>' to '<c>parameter</c>' for referencing parameters >>>>
+-         ///   The default implementation returns <c>e</c> unchanged.
++         ///  <para>The default implementation</c> if <see langword="implementation" />.
+          ///  </para>
+          /// </remarks>
+          

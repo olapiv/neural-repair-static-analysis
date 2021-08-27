@@ -1,0 +1,13 @@
+id: 88622297-0
+diagnostic: FS0065
+perc_correct_in_test: 1.0
+num_datapoints_in_train: 0
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+   /// </summary>
+      public class SwatchesProvider
+      {
+          /// <summary>
+<<<< DIAGNOSTIC: remove trailing whitespace >>>>
+-         /// Generates an instance reading swatches from the provided assembly, allowing 
++         /// Generates an instance reading swatches from the provided assembly, allowing
+          /// colours outside of the standard material palette to be loaded provided the are stored in 

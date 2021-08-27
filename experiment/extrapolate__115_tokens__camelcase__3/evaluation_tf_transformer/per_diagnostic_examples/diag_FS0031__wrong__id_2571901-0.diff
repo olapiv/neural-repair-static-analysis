@@ -1,0 +1,29 @@
+id: 2571901-0
+diagnostic: FS0031
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 0
+<<<<<<<< CORRECT >>>>>>>>
+  else
+                      newOperands.Add(null);
+              }
+              // then on expression itself (top)
++             var handler = analyzer;
++             if (handler != null)
++                 // then on expression itself (top)
+<<<< DIAGNOSTIC: verify if delegate 'analyzer' is null before invoking it. >>>>
+-             return analyzer(expression.ChangeOperands(newOperands));
++                 return handler(expression.ChangeOperands(newOperands));
+          }
+      }
+  }
+<<<<<<<< INFERRED >>>>>>>>
+  else
+                      newOperands.Add(null);
+              }
+              // then on expression itself (top)
+<<<< DIAGNOSTIC: verify if delegate 'analyzer' is null before invoking it. >>>>
+-             return analyzer(expression.ChangeOperands(newOperands));
++                 return dispatcher.ChangeOperands(newOperands);
+          }
+      }
+  }

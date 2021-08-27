@@ -8,6 +8,7 @@ import difflib
 import statistics
 from enum import Enum
 from pathlib import Path
+import pandas as pd
 from collections import Counter
 import plotly.graph_objects as go
 import plotly.express as px
@@ -34,14 +35,17 @@ class NNModel(Enum):
     transformer_copy_mechanism = "transformer_copy_mech"  # Never used
 
 
-experiment = Experiment.imitate
+experiment = Experiment.extrap
 tokenization = Tokenization.standard
 dataset_version = "3"
 nn_framework = NNFramework.tensorflow
 nn_model = NNModel.transformer
 
-final_dataset_dir = f"experiment/{experiment.value}__{tokenization.value}__{dataset_version}"
-eval_dir = f"{final_dataset_dir}/evaluation_{nn_framework.value}_{nn_model.value}"
+data_config_str = f"{experiment.value}__{tokenization.value}__{dataset_version}"
+final_dataset_dir = f"experiment/{data_config_str}"
+
+nn_config_str = f"{nn_framework.value}_{nn_model.value}"
+eval_dir = f"{final_dataset_dir}/evaluation_{nn_config_str}"
 
 # OUTPUT DIRS:
 characteristic_examples_dir = f"{eval_dir}/characteristic_examples"
@@ -56,6 +60,8 @@ src_test_file = f"{final_dataset_dir}/src-test.txt"
 tgt_test_file = f"{final_dataset_dir}/tgt-test.txt"
 inference_test_file = f"{eval_dir}/inference-test.txt"
 inference_eval_file = f"{eval_dir}/inference-eval.json"
+# Only available for Tensorflow
+experiment_csv_file = f"{eval_dir}/experiment.csv"
 
 FORMATTING_TOKENS = ["WHITESPACE", "NEWLINE", "TAB"]
 
@@ -136,7 +142,7 @@ def recreate_diff(diff_string):
         recreated_diff["previous_source_location"] = 0
         recreated_diff["target_lines"] = []
         return recreated_diff
-    
+
     token_list = diff_string.split()
     diff_type = token_list[0]
     recreated_diff["diff_type"] = diff_type
@@ -625,7 +631,8 @@ def sort_for_characteristic_examples(evaluation_dict):
     lowest_accuracy_copied.sort(key=lambda x: x.get('perc_correct_in_test'))
     lowest_accuracy_extrapolated = [
         result for result in result_per_diagnostic if result["num_datapoints_in_train"] == 0]
-    lowest_accuracy_extrapolated.sort(key=lambda x: x.get('perc_correct_in_test'))
+    lowest_accuracy_extrapolated.sort(
+        key=lambda x: x.get('perc_correct_in_test'))
 
     ambiguous_accuracy_copied = [
         result for result in result_per_diagnostic if result["num_datapoints_in_train"] > 0]
@@ -755,6 +762,37 @@ def plot_num_tokens_vs_success(x, y, x_axis, legend, fig=None):
     return fig
 
 
+def plot_loss_curve(tf_csv_path):
+    """
+    Only works with Tensorflow data (not Pytorch)
+    """
+
+    try:
+        df = pd.read_csv(tf_csv_path)
+    except FileNotFoundError as e:
+        print(e)
+        return
+        
+    df = df.loc[df['tag'] == "loss"]
+
+    fig = go.Figure()
+    fig.update_xaxes(title_text='Steps')
+    fig.update_yaxes(title_text='Loss')
+    markers = dict(size=6, color="rgba(255,0,0,0.65)")
+
+    fig.add_trace(
+        go.Scatter(
+            x=df['step'].tolist(),
+            y=df['value'].tolist(),
+            mode="markers",
+            marker=markers
+        )
+    )
+
+    filename = f"{experiment.name}_loss_function.svg"
+    fig.write_image(f"{eval_dir}/{filename}")
+
+
 def remove_redundant_data(evaluation_dict):
 
     for diagnostic_id, result in evaluation_dict["result_per_diagnostic"].items():
@@ -858,6 +896,9 @@ def main():
 
     plot_src_format_tokens_vs_success(evaluation_dict)
     plot_tgt_tokens_vs_success(evaluation_dict)
+
+    if nn_framework == NNFramework.tensorflow:
+        plot_loss_curve(experiment_csv_file)
 
     remove_redundant_data(evaluation_dict)
 

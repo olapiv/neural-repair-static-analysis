@@ -1,0 +1,36 @@
+id: 31086010-3
+diagnostic: SA1008
+perc_correct_in_test: 0.08333333333333333
+num_datapoints_in_train: 0
+<<<<<<<< CORRECT >>>>>>>>
+   void OnInit (EventArgs e)
+  		{
+  			Debug.WriteLine ("child.OnInit");
+  			base.OnInit (e);
+  		}
+<<<< DIAGNOSTIC: opening parenthesis should not be preceded by a space. >>>>
+- 		[Themeable (true)]
++ 		[Themeable(true)]
+  		public string ImageUrl
+  		{
+  			get
+  			{
+  				return ((Image) Controls[0]).ImageUrl;
+  			}
+  			set
+<<<<<<<< INFERRED >>>>>>>>
+   void OnInit (EventArgs e)
+  		{
+  			Debug.WriteLine ("child.OnInit");
+  			base.OnInit (e);
+  		}
+<<<< DIAGNOSTIC: opening parenthesis should not be preceded by a space. >>>>
+- 		[Themeable (true)]
++ 			public string ImageUrl
+  		public string ImageUrl
+  		{
+  			get
+  			{
+  				return ((Image) Controls[0]).ImageUrl;
+  			}
+  			set

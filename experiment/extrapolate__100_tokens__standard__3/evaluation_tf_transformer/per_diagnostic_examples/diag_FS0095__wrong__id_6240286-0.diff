@@ -1,0 +1,18 @@
+id: 6240286-0
+diagnostic: FS0095
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 0
+<<<<<<<< CORRECT >>>>>>>>
+  1)
+                  {
+<<<< DIAGNOSTIC: use string interpolation >>>>
+-                     Console.WriteLine("couldn't find {0} in \"{1}\"!!!", strStart, str);
++                     Console.WriteLine($"couldn't find {strStart} in \"{str}\"!!!");
+                      strRemaining 
+<<<<<<<< INFERRED >>>>>>>>
+  1)
+                  {
+<<<< DIAGNOSTIC: use string interpolation >>>>
+-                     Console.WriteLine("couldn't find {0} in \"{1}\"!!!", strStart, str);
++                     keyValue = $"{strRemaining}";
+                      strRemaining 

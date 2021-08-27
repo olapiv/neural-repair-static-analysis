@@ -1,0 +1,28 @@
+id: 61146838-2
+diagnostic: EPC12
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 0
+<<<<<<<< CORRECT >>>>>>>>
+  .is_connected  = false;
+                  this.is_connecting = false;
+  
+<<<< DIAGNOSTIC: suspicious exception handling: only e.message is observed in exception block. >>>>
+-                 OnDisconnected (DisconnectReason.TimeOut, e.Message);
++                 OnDisconnected (DisconnectReason.TimeOut, e);
+              }
+          }
+  
+  
+          public
+<<<<<<<< INFERRED >>>>>>>>
+  .is_connected  = false;
+                  this.is_connecting = false;
+  
+<<<< DIAGNOSTIC: suspicious exception handling: only e.message is observed in exception block. >>>>
+-                 OnDisconnected (DisconnectReason.TimeOut, e.Message);
++                 var socket = this._listener.AcceptSocketAsync();
+              }
+          }
+  
+  
+          public

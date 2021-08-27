@@ -1,0 +1,11 @@
+id: 53492359-1
+diagnostic: SA1008
+perc_correct_in_test: 0.041666666666666664
+num_datapoints_in_train: 0
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  <MemberInfo, bool> m in eagerLoading)
+              {
+<<<< DIAGNOSTIC: opening parenthesis should not be preceded by a space. >>>>
+-                 if (m.Key.DeclaringType == mt && GetMemberEntityType (m.Key) == d)
++                 if (m.Key.DeclaringType == mt && GetMemberEntityType(m.Key) == d)
+                      throw new InvalidOperationException("Illegal

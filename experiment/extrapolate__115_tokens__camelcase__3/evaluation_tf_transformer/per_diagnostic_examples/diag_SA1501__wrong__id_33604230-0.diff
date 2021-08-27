@@ -1,0 +1,26 @@
+id: 33604230-0
+diagnostic: SA1501
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 0
+<<<<<<<< CORRECT >>>>>>>>
+            {
+                          File.Delete(filename);
+<<<< DIAGNOSTIC: statement should not be on a single line >>>>
+-                     } catch {}
++                     } catch
++                     {
++                     }
+                  }
+  
+                  loggerConfiguration = loggerConfiguration
+   
+<<<<<<<< INFERRED >>>>>>>>
+            {
+                          File.Delete(filename);
+<<<< DIAGNOSTIC: statement should not be on a single line >>>>
+-                     } catch {}
++                     } catch { }
+                  }
+  
+                  loggerConfiguration = loggerConfiguration
+   

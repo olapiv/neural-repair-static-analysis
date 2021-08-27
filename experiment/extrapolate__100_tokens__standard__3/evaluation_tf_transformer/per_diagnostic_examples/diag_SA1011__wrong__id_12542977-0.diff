@@ -1,0 +1,21 @@
+id: 12542977-0
+diagnostic: SA1011
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 0
+<<<<<<<< CORRECT >>>>>>>>
+  >).MakeGenericType(declaringType, memberType);
+  			
+  			ParameterExpression p = Expression.Parameter(declaringType, "e");
+<<<< DIAGNOSTIC: closing square bracket should be followed by a space. >>>>
+- 			return (MetaAccessor)Activator.CreateInstance(accessorType, new object[]{ 
++ 			return (MetaAccessor)Activator.CreateInstance(accessorType, new object[] { 
+  				Expression.Lambda(Expression.MakeMemberAccess(p, member), p).Compile(),
+  				MakeSetter(member, memberType, 
+<<<<<<<< INFERRED >>>>>>>>
+  >).MakeGenericType(declaringType, memberType);
+  			
+  			ParameterExpression p = Expression.Parameter(declaringType, "e");
+<<<< DIAGNOSTIC: closing square bracket should be followed by a space. >>>>
+  			return (MetaAccessor)Activator.CreateInstance(accessorType, new object[]{ 
+  				Expression.Lambda(Expression.MakeMemberAccess(p, member), p).Compile(),
+  				MakeSetter(member, memberType, 

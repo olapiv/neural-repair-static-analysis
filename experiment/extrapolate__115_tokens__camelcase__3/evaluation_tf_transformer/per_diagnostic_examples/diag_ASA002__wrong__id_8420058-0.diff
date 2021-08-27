@@ -1,0 +1,24 @@
+id: 8420058-0
+diagnostic: ASA002
+perc_correct_in_test: 0.9166666666666666
+num_datapoints_in_train: 0
+<<<<<<<< CORRECT >>>>>>>>
+    /// <summary>
+          /// Non blocking get message
+          /// </summary>
+<<<< DIAGNOSTIC: method 'GetAsync' returns imessage and so it should rather be called 'Get' >>>>
+-         IMessage<T> GetAsync<T>(string queueName);
++         IMessage<T> Get<T>(string queueName);
+  
+          /// <summary>
+          /// Acknowledge the message has been successfully received or processed
+<<<<<<<< INFERRED >>>>>>>>
+    /// <summary>
+          /// Non blocking get message
+          /// </summary>
++         /// <returns></returns>
+<<<< DIAGNOSTIC: method 'GetAsync' returns imessage and so it should rather be called 'Get' >>>>
+          IMessage<T> GetAsync<T>(string queueName);
+  
+          /// <summary>
+          /// Acknowledge the message has been successfully received or processed

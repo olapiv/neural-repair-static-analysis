@@ -1,0 +1,15 @@
+id: 51037048-1
+diagnostic: CH0001
+perc_correct_in_test: 0.2122905027932961
+num_datapoints_in_train: 0
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  #region MIT license
+  // 
+  // MIT license
+  //
+  // Copyright (c) 2007-2008 Jiri Moudry, Pascal Craponne
+<<<< DIAGNOSTIC: remove trailing whitespace. whilst this analyzer includes a code fix provider, it is recommended you install the trailing whitespace visualizer add-in to automatically remove all trailing whitespace. see https://marketplace.visualstudio.com/items?itemname=madskristensen.trailingwhitespacevisualizer. >>>>
+- // 
++ //
+  // Permission is hereby granted, free of charge, to any person obtaining a copy
+  // of this software and associated documentation files (the "Software"

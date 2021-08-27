@@ -1,0 +1,20 @@
+id: 96605690-1
+diagnostic: VSD0034
+perc_correct_in_test: 0.8888888888888888
+num_datapoints_in_train: 0
+<<<<<<<< CORRECT >>>>>>>>
+        string response = await m.Content.ReadAsStringAsync();
+<<<< DIAGNOSTIC: empty string literal detected. >>>>
+-                     if (response != "") throw new Exception($"Got unexpected response: {response}");
++                     if (response != string.Empty) throw new Exception($"Got unexpected response: {response}");
+                  }),
+  
+     
+<<<<<<<< INFERRED >>>>>>>>
+        string response = await m.Content.ReadAsStringAsync();
+<<<< DIAGNOSTIC: empty string literal detected. >>>>
+-                     if (response != "") throw new Exception($"Got unexpected response: {response}");
++                     if (response != string.Empty) throw new Exception($"Got unexpected response: {response}"); } }),
+-                 }),
+  
+     

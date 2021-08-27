@@ -1,0 +1,21 @@
+id: 33266809-0
+diagnostic: SA1308
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 0
+<<<<<<<< CORRECT >>>>>>>>
+  
+      public static class HumanReadableByteSizeFormatter
+      {
+<<<< DIAGNOSTIC: field 's_suffixes' should not begin with the prefix 's_' >>>>
+-         private static readonly string[] s_suffixes = { "B", "KiB", "MiB", "GiB", "TiB", "PiB", "EiB" };
++         private static readonly string[] suffixes = { "B", "KiB", "MiB", "GiB", "TiB", "PiB", "EiB" };
+  
+          public static string Format(long byteCount
+<<<<<<<< INFERRED >>>>>>>>
+  
+      public static class HumanReadableByteSizeFormatter
+      {
+<<<< DIAGNOSTIC: field 's_suffixes' should not begin with the prefix 's_' >>>>
+          private static readonly string[] s_suffixes = { "B", "KiB", "MiB", "GiB", "TiB", "PiB", "EiB" };
+  
+          public static string Format(long byteCount
