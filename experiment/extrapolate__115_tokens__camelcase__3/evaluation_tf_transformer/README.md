@@ -11,11 +11,11 @@
 
 ## Results after n steps
 
-Convergence after xk steps (yh zmin); Loss function:
+Convergence after 10k steps (2h 48min); Loss function:
 
 ![Loss Function](extrap_loss_function.svg)
 
-All data in [Tensorflow Board](https://tensorboard.dev/experiment/xxxx/#scalars).
+All data in [Tensorflow Board](https://tensorboard.dev/experiment/VZdnDwuxRNG91lxzi6vcjg/#scalars).
 
 ### Influence of Number of **Formatting** Tokens in Source on Success Rate of Predictions
 
