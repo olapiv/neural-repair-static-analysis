@@ -4,8 +4,8 @@ perc_correct_in_test: 1.0
 num_datapoints_in_train: 147
 <<<<<<<< CORRECTLY INFERRED >>>>>>>>
   6EE9C");
-+ 
           public static Color Lime300 { get; } = (Color)ColorConverter.ConvertFromString("#DCE775");
++ 
 <<<< DIAGNOSTIC: elements should be separated by blank line >>>>
           public static Color Lime400 { get; } = (Color)ColorConverter.ConvertFromString("#D4E157");
           public

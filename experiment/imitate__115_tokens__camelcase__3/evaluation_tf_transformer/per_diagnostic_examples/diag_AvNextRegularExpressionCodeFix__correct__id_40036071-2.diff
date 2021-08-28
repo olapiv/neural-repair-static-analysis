@@ -6,8 +6,8 @@ num_datapoints_in_train: 87
   AttributeBase
       {
           public string Name { get; set; }
-+         [System.ComponentModel.DataAnnotations.RegularExpression(@"^[a-zA-Z0-9]*$")]//Roslyn auto generated
           public string Title { get; set; }
++         [System.ComponentModel.DataAnnotations.RegularExpression(@"^[a-zA-Z0-9]*$")]//Roslyn auto generated
 <<<< DIAGNOSTIC: type name 'Description' should be decorated with regularexpress attribute >>>>
           public string Description { get; set; }
           public string IconUrl { get; set; }

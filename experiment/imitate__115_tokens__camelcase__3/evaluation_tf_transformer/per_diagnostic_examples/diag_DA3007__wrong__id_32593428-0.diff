@@ -7,10 +7,10 @@ num_datapoints_in_train: 819
               get;
               set;
           }
+  
 +         /// <summary> 
 +         /// 
 +         /// </summary>
-  
 <<<< DIAGNOSTIC: property name 'DisconnectTimeout' doesn't have /// comment >>>>
           public TimeSpan DisconnectTimeout
           {
@@ -22,11 +22,11 @@ num_datapoints_in_train: 819
               get;
               set;
           }
+  
 + 
 +         /// <summary> 
 +         /// 
 +         /// </summary>
-  
 <<<< DIAGNOSTIC: property name 'DisconnectTimeout' doesn't have /// comment >>>>
           public TimeSpan DisconnectTimeout
           {

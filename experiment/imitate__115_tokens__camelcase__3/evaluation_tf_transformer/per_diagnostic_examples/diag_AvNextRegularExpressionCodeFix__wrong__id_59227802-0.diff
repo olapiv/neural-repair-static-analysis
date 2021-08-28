@@ -19,8 +19,8 @@ num_datapoints_in_train: 87
       class NamedConstructorArgs
       {
           public Type Type { get; private set; }
-+         [System.ComponentModel.DataAnnotations.RegularExpression(@"^[a-zA-Z0-9]*$")]//Roslyn auto generated
   
++         [System.ComponentModel.DataAnnotations.RegularExpression(@"^[a-zA-Z0-9]*$")]//Roslyn auto generated
 <<<< DIAGNOSTIC: type name 'ParameterNames' should be decorated with regularexpress attribute >>>>
           public string[] ParameterNames { get; private set; }
   

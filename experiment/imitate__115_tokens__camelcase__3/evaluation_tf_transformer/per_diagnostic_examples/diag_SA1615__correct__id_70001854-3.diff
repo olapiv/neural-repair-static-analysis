@@ -4,8 +4,8 @@ perc_correct_in_test: 1.0
 num_datapoints_in_train: 11
 <<<<<<<< CORRECTLY INFERRED >>>>>>>>
           /// Execute raw SQL query and return object
-+         /// <returns></returns>
           /// </summary>
++         /// <returns></returns>
 <<<< DIAGNOSTIC: element return value should be documented >>>>
           public IEnumerable<TResult> ExecuteQuery<TResult>(string query, params object[] parameters) where TResult : new()
           {

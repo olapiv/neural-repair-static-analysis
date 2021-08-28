@@ -5,9 +5,9 @@ num_datapoints_in_train: 198
 <<<<<<<< CORRECT >>>>>>>>
             {
                   var key = keyMember.GetMemberValue(entity);
-+                 {
 <<<< DIAGNOSTIC: an if statement should be written with braces >>>>
                   if(key != null)
++                 {
                       keys.Add(key);
               }
      

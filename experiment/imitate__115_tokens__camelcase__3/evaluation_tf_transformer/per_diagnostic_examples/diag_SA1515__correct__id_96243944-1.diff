@@ -4,8 +4,8 @@ perc_correct_in_test: 1.0
 num_datapoints_in_train: 75
 <<<<<<<< CORRECTLY INFERRED >>>>>>>>
   , update ? AutoSync.OnUpdate : AutoSync.OnInsert);
-+ 
                   var memberInfo = dataMember.Member;
++ 
 <<<< DIAGNOSTIC: single-line comment should be preceded by blank line >>>>
                   // if the column is generated AND not specified, we may have:
                   // - an 

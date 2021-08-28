@@ -6,8 +6,8 @@ num_datapoints_in_train: 79
       partial class SchemaLoader
       {
           public class DataName : IDataName
-+             [System.ComponentModel.DataAnnotations.MaxLength(200)]//Roslyn auto generated
           {
++             [System.ComponentModel.DataAnnotations.MaxLength(200)]//Roslyn auto generated
 <<<< DIAGNOSTIC: type name 'Name' should be decorated with maxlength attribute >>>>
               public string Name { get; set; }
               public string Schema { get; set; }

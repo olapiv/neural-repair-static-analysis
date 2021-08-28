@@ -5,8 +5,8 @@ num_datapoints_in_train: 60
 <<<<<<<< CORRECTLY INFERRED >>>>>>>>
    <summary>
           /// Create a typed message from a raw MQ Response artefact
-+         /// <returns></returns>
           /// </summary>
++         /// <returns></returns>
 <<<< DIAGNOSTIC: method 'CreateMessage' doesn't have /// returns in comment >>>>
           IMessage<T> CreateMessage<T>(object mqResponse);
   

@@ -6,8 +6,8 @@ num_datapoints_in_train: 15
   
       /// <summary>
       /// Specifies the member serialization options for the <see cref="JsonSerializer"/>.
-+     /// <example></example>
       /// </summary>
++     /// <example></example>
 <<<< DIAGNOSTIC: type 'MemberSerialization' doesn't have example in the comment >>>>
       public enum MemberSerialization
       {

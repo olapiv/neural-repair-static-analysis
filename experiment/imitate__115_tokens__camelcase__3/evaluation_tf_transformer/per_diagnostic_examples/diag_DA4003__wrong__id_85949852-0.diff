@@ -12,8 +12,8 @@ num_datapoints_in_train: 38
               QueryMapperVisitor.Map(sourceQuery, destQuery, 
 <<<<<<<< INFERRED >>>>>>>>
   
-+         /// <example></example>
           /// <returns>Mapped destination queryable</returns>
++         /// <example></example>
 <<<< DIAGNOSTIC: method 'Map' doesn't have example the comment >>>>
           public static IQueryable<TDestination> Map<TSource, TDestination>(this IQueryable<TSource> sourceQuery, IQueryable<TDestination> destQuery, IConfigurationProvider config) => 
               QueryMapperVisitor.Map(sourceQuery, destQuery, 

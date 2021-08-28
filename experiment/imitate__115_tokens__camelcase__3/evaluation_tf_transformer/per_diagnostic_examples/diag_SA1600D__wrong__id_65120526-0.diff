@@ -9,10 +9,10 @@ num_datapoints_in_train: 228
           {
               this.typeId = Guid.NewGuid();
           }
+  
 +         /// <summary>
 +         /// the type id.
 +         /// </summary>
-  
 <<<< DIAGNOSTIC: members must be correctly documented. >>>>
           protected readonly Guid typeId; //Hack required to give Attributes unique identity
       }
@@ -24,10 +24,10 @@ num_datapoints_in_train: 228
           {
               this.typeId = Guid.NewGuid();
           }
+  
 +         /// <summary>
 +         /// the unique type.
 +         /// </summary>
-  
 <<<< DIAGNOSTIC: members must be correctly documented. >>>>
           protected readonly Guid typeId; //Hack required to give Attributes unique identity
       }

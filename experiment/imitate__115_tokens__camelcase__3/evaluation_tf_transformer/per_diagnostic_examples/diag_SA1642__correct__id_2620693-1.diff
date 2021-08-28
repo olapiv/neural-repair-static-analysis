@@ -7,9 +7,9 @@ num_datapoints_in_train: 4
               }
           }
   
-+         /// Initializes a new instance of the <see cref="SqlStatement"/> class.
 <<<< DIAGNOSTIC: constructor summary documentation should begin with standard text >>>>
           /// <summary>
++         /// Initializes a new instance of the <see cref="SqlStatement"/> class.
           /// Builds SqlStatement
           /// </summary>
           /// <param name="sql

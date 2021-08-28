@@ -6,8 +6,8 @@ num_datapoints_in_train: 10
            Latitude = latitude;
               Member = member;
           }
-+         [RegularExpression(@"^[0-9]*(?:\.[0-9]{0,2})?$")]//Roslyn auto generated to restrict decimal points.
   
++         [RegularExpression(@"^[0-9]*(?:\.[0-9]{0,2})?$")]//Roslyn auto generated to restrict decimal points.
 <<<< DIAGNOSTIC: apply restriction on decimal points >>>>
           public double Longitude { get; set; }
           public double Latitude { get; set; }

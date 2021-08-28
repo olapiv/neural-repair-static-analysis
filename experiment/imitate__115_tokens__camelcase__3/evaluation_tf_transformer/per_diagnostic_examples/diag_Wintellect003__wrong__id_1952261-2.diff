@@ -4,15 +4,15 @@ perc_correct_in_test: 0.9117647058823529
 num_datapoints_in_train: 212
 <<<<<<<< CORRECT >>>>>>>>
   strRemaining.Contains("m"))
-+                                 }
                                       multiple_procs_p = true;
++                                 }
 <<<< DIAGNOSTIC: 'if' statements must have braces >>>>
                                   if (strRemaining.Contains("p"))
              
 <<<<<<<< INFERRED >>>>>>>>
   strRemaining.Contains("m"))
                                       multiple_procs_p = true;
-+             }
 <<<< DIAGNOSTIC: 'if' statements must have braces >>>>
                                   if (strRemaining.Contains("p"))
++             }
              

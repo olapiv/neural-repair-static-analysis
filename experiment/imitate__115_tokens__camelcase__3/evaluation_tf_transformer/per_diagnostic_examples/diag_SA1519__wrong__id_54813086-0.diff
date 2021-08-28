@@ -5,16 +5,16 @@ num_datapoints_in_train: 12
 <<<<<<<< CORRECT >>>>>>>>
   )));
                       }
-+                     {
                       else
++                     {
 <<<< DIAGNOSTIC: braces should not be omitted from multi-line child statement >>>>
                           foreach (int whereIndex in whereToRemove)
                              
 <<<<<<<< INFERRED >>>>>>>>
   )));
                       }
-+                         {
                       else
++                         {
 <<<< DIAGNOSTIC: braces should not be omitted from multi-line child statement >>>>
                           foreach (int whereIndex in whereToRemove)
                              

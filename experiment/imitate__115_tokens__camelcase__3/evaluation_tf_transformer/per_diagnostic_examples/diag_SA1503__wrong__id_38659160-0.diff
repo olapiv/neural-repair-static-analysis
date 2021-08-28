@@ -19,9 +19,9 @@ num_datapoints_in_train: 206
   		
 <<<<<<<< INFERRED >>>>>>>>
   .LocalName != "Database" || Reader.NamespaceURI != "http://schemas.microsoft.com/linqtosql/dbml/2007")
-+             {
 <<<< DIAGNOSTIC: braces should not be omitted >>>>
   				throw CreateUnknownNodeException();
++             {
   			return ReadObject_Database (false, true);
   		}
   

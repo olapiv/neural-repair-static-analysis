@@ -12,10 +12,10 @@ num_datapoints_in_train: 222
   #endif
   
   namespace DbLinq.Data.Linq.Sugar
+  {
 +     /// <summary>
 +     /// i query runner.
 +     /// </summary>
-  {
 <<<< DIAGNOSTIC: interface documentation: no documentation. >>>>
       internal interface IQueryRunner
       {

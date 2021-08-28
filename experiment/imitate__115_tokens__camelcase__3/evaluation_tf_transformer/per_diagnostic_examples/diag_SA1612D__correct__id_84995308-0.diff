@@ -6,12 +6,12 @@ num_datapoints_in_train: 567
    NewExpressionMutator : IMutableExpression
       {
           protected NewExpression NewExpression { get; private set; }
+  
 +         /// <summary>
 +         /// mutate the operands.
 +         /// </summary>
 +         /// <param name="operands">the operands.</param>
 +         /// <returns>the expression.</returns>
-  
 <<<< DIAGNOSTIC: method documentation: no documentation. >>>>
           public Expression Mutate(IList<Expression> operands)
           {

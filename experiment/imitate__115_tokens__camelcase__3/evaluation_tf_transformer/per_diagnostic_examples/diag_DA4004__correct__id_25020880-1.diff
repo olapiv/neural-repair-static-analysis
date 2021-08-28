@@ -5,8 +5,8 @@ num_datapoints_in_train: 91
 <<<<<<<< CORRECTLY INFERRED >>>>>>>>
    by an attribute
       /// which adds an response filter for the specific response DTO the attribute marked.
-+     /// <example></example>
       /// </summary>
++     /// <example></example>
 <<<< DIAGNOSTIC: type 'IHasResponseFilterAsync' doesn't have example in the comment >>>>
       public interface IHasResponseFilterAsync : IResponseFilterBase
       {

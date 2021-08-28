@@ -9,8 +9,8 @@ num_datapoints_in_train: 113
   {
       /// <summary>
       /// Simple definition of an MQ Host
-+     /// <remarks></remarks>
       /// </summary>
++     /// <remarks></remarks>
 <<<< DIAGNOSTIC: type 'IMessageService' doesn't have remark in the comment >>>>
       public interface IMessageService
           : IDisposable

@@ -11,8 +11,8 @@ num_datapoints_in_train: 4
   using System.Threading.Tasks;
   
   namespace Dapper
-+     [TypeHasDebt(LineCount = 1208, FieldCount = 2)]
   {
++     [TypeHasDebt(LineCount = 1208, FieldCount = 2)]
 <<<< DIAGNOSTIC: type sqlmapper is 1208 lines long while it should not be longer than 1000 lines. >>>>
       public static partial class SqlMapper
       {
@@ -28,8 +28,8 @@ num_datapoints_in_train: 4
   using System.Threading.Tasks;
   
   namespace Dapper
-+     [TypeHasDebt(LineCount = 109, FieldCount = 0)]
   {
++     [TypeHasDebt(LineCount = 109, FieldCount = 0)]
 <<<< DIAGNOSTIC: type sqlmapper is 1208 lines long while it should not be longer than 1000 lines. >>>>
       public static partial class SqlMapper
       {

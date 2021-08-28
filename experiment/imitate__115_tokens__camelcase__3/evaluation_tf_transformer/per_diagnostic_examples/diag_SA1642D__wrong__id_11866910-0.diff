@@ -8,10 +8,10 @@ num_datapoints_in_train: 43
       }
   
       public class PgSqlJsonAttribute : CustomFieldAttribute
+      {
 +         /// <summary>
 +         /// Initializes a new instance of the <see cref="PgSqlJsonAttribute"/> class.
 +         /// </summary>
-      {
 <<<< DIAGNOSTIC: constructors must be correctly documented. >>>>
           public PgSqlJsonAttribute() : base("json") { }
       }
@@ -25,10 +25,10 @@ num_datapoints_in_train: 43
       }
   
       public class PgSqlJsonAttribute : CustomFieldAttribute
+      {
 +         /// <summary>
 +         /// Initializes a new instance of the <see cref="PgSqlJsonBAttribute"/> class.
 +         /// </summary>
-      {
 <<<< DIAGNOSTIC: constructors must be correctly documented. >>>>
           public PgSqlJsonAttribute() : base("json") { }
       }

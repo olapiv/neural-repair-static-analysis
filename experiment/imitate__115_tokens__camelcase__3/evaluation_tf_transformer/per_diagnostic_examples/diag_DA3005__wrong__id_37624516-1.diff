@@ -5,8 +5,8 @@ num_datapoints_in_train: 8
 <<<<<<<< CORRECT >>>>>>>>
   / <summary>
           /// Aborts the currently active polling request thereby forcing a reconnect.
-+         /// <param name="connection"></param>
           /// </summary>
++         /// <param name="connection"></param>
 <<<< DIAGNOSTIC: method 'LostConnection' doesn't have /// parameter in comment >>>>
           public override void LostConnection(IConnection connection)
           {
@@ -14,9 +14,9 @@ num_datapoints_in_train: 8
 <<<<<<<< INFERRED >>>>>>>>
   / <summary>
           /// Aborts the currently active polling request thereby forcing a reconnect.
++         /// </summary>
 +         /// <summary> 
 +         /// 
-+         /// </summary>
           /// </summary>
 <<<< DIAGNOSTIC: method 'LostConnection' doesn't have /// parameter in comment >>>>
           public override void LostConnection(IConnection connection)

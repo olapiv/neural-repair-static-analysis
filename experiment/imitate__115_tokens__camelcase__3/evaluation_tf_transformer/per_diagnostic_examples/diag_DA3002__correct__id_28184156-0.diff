@@ -7,11 +7,11 @@ num_datapoints_in_train: 274
   using System.Windows.Media;
   
   namespace MaterialDesignColors.Recommended
+  {
 + 
 +     /// <summary> 
 +     /// 
 +     /// </summary>
-  {
 <<<< DIAGNOSTIC: type 'BlueGreySwatch' doesn't have /// comments >>>>
       public class BlueGreySwatch : ISwatch
       {

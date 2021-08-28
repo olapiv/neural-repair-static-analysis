@@ -5,8 +5,8 @@ num_datapoints_in_train: 132
 <<<<<<<< CORRECTLY INFERRED >>>>>>>>
              }
                       scopeExpression.Where[whereIndex] = whereClausole;
-+ 
 <<<< DIAGNOSTIC: closing brace should be followed by blank line >>>>
                   }
++ 
                   if (scopeExpression.Where.Count > 0)
                   {

@@ -4,11 +4,11 @@ perc_correct_in_test: 0.36075949367088606
 num_datapoints_in_train: 407
 <<<<<<<< CORRECTLY INFERRED >>>>>>>>
   6C9");
+          public static Color Green200 { get; } = (Color)ColorConverter.ConvertFromString("#A5D6A7");
 + 
 +         /// <summary>
 +         /// Gets the green300.
 +         /// </summary>
-          public static Color Green200 { get; } = (Color)ColorConverter.ConvertFromString("#A5D6A7");
 <<<< DIAGNOSTIC: property documentation: no documentation. >>>>
           public static Color Green300 { get; } = (Color)ColorConverter.ConvertFromString("#81C784");
           

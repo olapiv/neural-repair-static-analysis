@@ -6,8 +6,8 @@ num_datapoints_in_train: 82
    with Config.StrictMode = false;
       /// </summary>
       public class StrictModeException : ArgumentException
-+         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.RegexConverter), @"^[a-zA-Z0-9]*$")]//Roslyn auto generated
       {
++         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.RegexConverter), @"^[a-zA-Z0-9]*$")]//Roslyn auto generated
 <<<< DIAGNOSTIC: type name 'Code' should be decorated with regexconverter attribute >>>>
           public string Code { get; set; }
   

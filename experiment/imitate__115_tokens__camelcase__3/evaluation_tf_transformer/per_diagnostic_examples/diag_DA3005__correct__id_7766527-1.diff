@@ -7,8 +7,8 @@ num_datapoints_in_train: 8
   
   		/// <summary>
   		/// Gets called when the item is clicked with the middle mouse button.
-+ 		/// <param name="e"></param>
   		/// </summary>
++ 		/// <param name="e"></param>
 <<<< DIAGNOSTIC: method 'ActivateItemSecondary' doesn't have /// parameter in comment >>>>
   		public virtual void ActivateItemSecondary(RoutedEventArgs e)
   		{

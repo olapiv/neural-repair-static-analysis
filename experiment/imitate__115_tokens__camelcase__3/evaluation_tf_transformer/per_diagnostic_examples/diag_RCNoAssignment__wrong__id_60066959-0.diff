@@ -11,14 +11,14 @@ num_datapoints_in_train: 10
           /// <summary>
           /// Name of the public property
           /// </summary>
+<<<< DIAGNOSTIC: there is no assignment to a get-only auto-property 'PropertyName'. >>>>
+          public string PropertyName { get; set; }
 +         /// <summary>Copy Constructor</summary>
 +         /// <param name="propertyName"><see cref="PropertyName"/></param>
 +         public ColumnName(ColumnName obj)
 +         {
 +             PropertyName = obj.PropertyName;
 +         }
-<<<< DIAGNOSTIC: there is no assignment to a get-only auto-property 'PropertyName'. >>>>
-          public string PropertyName { get; set; }
       }
   }
 <<<<<<<< INFERRED >>>>>>>>
@@ -29,13 +29,13 @@ num_datapoints_in_train: 10
       {
           /// <summary>
           /// Name of the public property
+          /// </summary>
 +         /// <summary>Copy Constructor</summary>
 +         /// <param name="propertyName"><see cref="ColumnName"/></param>
 +         public SchemaName(ParameterName obj)
 +         {
 +             PropertyName = obj.Name;
 +         }
-          /// </summary>
 <<<< DIAGNOSTIC: there is no assignment to a get-only auto-property 'PropertyName'. >>>>
           public string PropertyName { get; set; }
       }

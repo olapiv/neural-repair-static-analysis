@@ -7,9 +7,9 @@ num_datapoints_in_train: 4
                   .ToList();
           }
   
-+         /// Initializes a new instance of the <see cref="SwatchesProvider"/> class.
 <<<< DIAGNOSTIC: constructor summary documentation should begin with standard text >>>>
           /// <summary>
++         /// Initializes a new instance of the <see cref="SwatchesProvider"/> class.
           /// Creates a new swatch provider based on standard Material Design colors.
           /// </summary>
 <<<<<<<< INFERRED >>>>>>>>
@@ -17,8 +17,8 @@ num_datapoints_in_train: 4
                   .ToList();
           }
   
-+         /// Initializes a new instance of the <see cref="TableExpression"/> class.
 <<<< DIAGNOSTIC: constructor summary documentation should begin with standard text >>>>
           /// <summary>
++         /// Initializes a new instance of the <see cref="TableExpression"/> class.
           /// Creates a new swatch provider based on standard Material Design colors.
           /// </summary>

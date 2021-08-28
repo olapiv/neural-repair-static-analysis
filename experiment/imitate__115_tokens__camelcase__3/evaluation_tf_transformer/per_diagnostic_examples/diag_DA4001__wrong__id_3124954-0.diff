@@ -4,16 +4,16 @@ perc_correct_in_test: 0.9390243902439024
 num_datapoints_in_train: 233
 <<<<<<<< CORRECT >>>>>>>>
    bytes should be enqueued. Do not dequeue from this buffer.</param>
-+ 		/// <remarks></remarks>
   		/// <returns>Return true if all data has been read; otherwise, false.</returns>
++ 		/// <remarks></remarks>
 <<<< DIAGNOSTIC: method 'BufferData' doesn't have remark in the comment >>>>
   		protected abstract bool BufferData(Stream baseStream, Queue<byte> data);
   
   		void ConsumeData(byte[] buffer, int offset, int count, ref 
 <<<<<<<< INFERRED >>>>>>>>
    bytes should be enqueued. Do not dequeue from this buffer.</param>
-+         /// <remarks></remarks>
   		/// <returns>Return true if all data has been read; otherwise, false.</returns>
++         /// <remarks></remarks>
 <<<< DIAGNOSTIC: method 'BufferData' doesn't have remark in the comment >>>>
   		protected abstract bool BufferData(Stream baseStream, Queue<byte> data);
   

@@ -5,10 +5,10 @@ num_datapoints_in_train: 222
 <<<<<<<< CORRECT >>>>>>>>
     [TypeDescriptionProvider(typeof(DapperRowTypeDescriptionProvider))]
           private sealed partial class DapperRow
+          {
 +             /// <summary>
 +             /// dapper row type description provider.
 +             /// </summary>
-          {
 <<<< DIAGNOSTIC: class documentation: no documentation. >>>>
               private sealed class DapperRowTypeDescriptionProvider : TypeDescriptionProvider
               {
@@ -16,10 +16,10 @@ num_datapoints_in_train: 222
 <<<<<<<< INFERRED >>>>>>>>
     [TypeDescriptionProvider(typeof(DapperRowTypeDescriptionProvider))]
           private sealed partial class DapperRow
+          {
 +     /// <summary>
 +     /// sql mapper.
 +     /// </summary>
-          {
 <<<< DIAGNOSTIC: class documentation: no documentation. >>>>
               private sealed class DapperRowTypeDescriptionProvider : TypeDescriptionProvider
               {

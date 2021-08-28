@@ -6,8 +6,8 @@ num_datapoints_in_train: 14
   
               get
               {
-+                 {
                   if (expressionList == null)
++                 {
 <<<< DIAGNOSTIC: add braces to if statement (when expression spans over multiple lines). >>>>
                       if (expressions == null)
                           expressionList = 

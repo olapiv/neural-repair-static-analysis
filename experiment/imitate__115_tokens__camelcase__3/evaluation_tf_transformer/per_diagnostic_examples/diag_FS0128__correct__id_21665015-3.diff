@@ -5,8 +5,8 @@ num_datapoints_in_train: 207
 <<<<<<<< CORRECTLY INFERRED >>>>>>>>
         public virtual string GetParameterName(Expression expression)
           {
-+             {
               if (expression is ParameterExpression)
++             {
 <<<< DIAGNOSTIC: add braces to single statement in this if >>>>
                   return ((ParameterExpression)expression).Name;
               return null;

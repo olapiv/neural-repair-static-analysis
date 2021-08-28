@@ -7,10 +7,10 @@ num_datapoints_in_train: 819
               : base(expressionType, type)
           {
           }
+  
 +         /// <summary> 
 +         /// 
 +         /// </summary>
-  
 <<<< DIAGNOSTIC: property name 'Operands' doesn't have /// comment >>>>
           public virtual IEnumerable<Expression> Operands
           {

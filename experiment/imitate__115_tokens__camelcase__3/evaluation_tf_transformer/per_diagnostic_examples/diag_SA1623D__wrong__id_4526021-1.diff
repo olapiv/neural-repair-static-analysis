@@ -5,10 +5,10 @@ num_datapoints_in_train: 407
 <<<<<<<< CORRECT >>>>>>>>
      /// </summary>
           int IGlobalConfigurationExpression.RecursiveQueriesMaxDepth { get; set; }
+  
 +         /// <summary>
 +         /// Gets the profiles.
 +         /// </summary>
-  
 <<<< DIAGNOSTIC: property documentation: no documentation. >>>>
           IReadOnlyCollection<IProfileConfiguration> IGlobalConfigurationExpression.Profiles => _profiles;
           Func<Type, object> IGlobalConfigurationExpression.ServiceCtor => _serviceCtor;
@@ -17,11 +17,11 @@ num_datapoints_in_train: 407
 <<<<<<<< INFERRED >>>>>>>>
      /// </summary>
           int IGlobalConfigurationExpression.RecursiveQueriesMaxDepth { get; set; }
+  
 + 
 +         /// <summary>
 +         /// Gets the service ctor.
 +         /// </summary>
-  
 <<<< DIAGNOSTIC: property documentation: no documentation. >>>>
           IReadOnlyCollection<IProfileConfiguration> IGlobalConfigurationExpression.Profiles => _profiles;
           Func<Type, object> IGlobalConfigurationExpression.ServiceCtor => _serviceCtor;

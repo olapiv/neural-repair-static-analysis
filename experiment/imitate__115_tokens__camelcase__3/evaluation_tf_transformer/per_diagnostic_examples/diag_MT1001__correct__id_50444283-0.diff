@@ -8,8 +8,8 @@ num_datapoints_in_train: 5
   using NUnit.Framework.Internal;
   
   namespace RestSharp.Tests.Shared.Fixtures
-+     [TestClass]
   {
++     [TestClass]
 <<<< DIAGNOSTIC: the class 'SimpleServer' should be marked with the [testclass] attribute >>>>
       public class SimpleServer : IDisposable
       {

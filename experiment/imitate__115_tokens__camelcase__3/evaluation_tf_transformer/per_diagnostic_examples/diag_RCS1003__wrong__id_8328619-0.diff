@@ -6,16 +6,16 @@ num_datapoints_in_train: 10
    BuilderContext builderContext)
           {
               var previousLimit = builderContext.CurrentSelect.Limit;
-+             {
 <<<< DIAGNOSTIC: add braces to if-else (when expression spans over multiple lines). >>>>
               if (previousLimit != null)
++             {
                   builderContext.CurrentSelect.Limit = Expression.Condition(Expression.LessThan(previousLimit, limit),
      
 <<<<<<<< INFERRED >>>>>>>>
    BuilderContext builderContext)
           {
-+                 {
               var previousLimit = builderContext.CurrentSelect.Limit;
++                 {
 <<<< DIAGNOSTIC: add braces to if-else (when expression spans over multiple lines). >>>>
               if (previousLimit != null)
                   builderContext.CurrentSelect.Limit = Expression.Condition(Expression.LessThan(previousLimit, limit),

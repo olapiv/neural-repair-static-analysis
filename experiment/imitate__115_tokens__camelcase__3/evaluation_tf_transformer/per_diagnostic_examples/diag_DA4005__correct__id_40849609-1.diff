@@ -8,8 +8,8 @@ num_datapoints_in_train: 19
       
       /// <summary>
       /// Type of Value used in the SQL Template
-+     /// <remarks></remarks>
       /// </summary>
++     /// <remarks></remarks>
 <<<< DIAGNOSTIC: type 'ValueStyle' doesn't have remark in the comment >>>>
       public enum ValueStyle
       {

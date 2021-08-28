@@ -5,8 +5,8 @@ num_datapoints_in_train: 113
 <<<<<<<< CORRECT >>>>>>>>
   <summary>
           /// Implement this interface to perform custom type-based parameter handling and value parsing
-+         /// <remarks></remarks>
           /// </summary>
++         /// <remarks></remarks>
 <<<< DIAGNOSTIC: type 'ITypeHandler' doesn't have remark in the comment >>>>
           public interface ITypeHandler
           {
@@ -15,8 +15,8 @@ num_datapoints_in_train: 113
 <<<<<<<< INFERRED >>>>>>>>
   <summary>
           /// Implement this interface to perform custom type-based parameter handling and value parsing
-+     /// <remarks></remarks>
           /// </summary>
++     /// <remarks></remarks>
 <<<< DIAGNOSTIC: type 'ITypeHandler' doesn't have remark in the comment >>>>
           public interface ITypeHandler
           {

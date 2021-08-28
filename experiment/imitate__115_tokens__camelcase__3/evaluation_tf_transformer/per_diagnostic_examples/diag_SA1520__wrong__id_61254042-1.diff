@@ -5,8 +5,8 @@ num_datapoints_in_train: 16
 <<<<<<<< CORRECT >>>>>>>>
    ParameterType.Output;
                       }
-+                     {
                       else
++                     {
 <<<< DIAGNOSTIC: use braces consistently >>>>
                           type = ParameterType.Input;
                   }
@@ -14,8 +14,8 @@ num_datapoints_in_train: 16
 <<<<<<<< INFERRED >>>>>>>>
    ParameterType.Output;
                       }
-+                         {
                       else
++                         {
 <<<< DIAGNOSTIC: use braces consistently >>>>
                           type = ParameterType.Input;
                   }

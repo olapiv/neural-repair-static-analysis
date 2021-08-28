@@ -4,8 +4,8 @@ perc_correct_in_test: 0.875
 num_datapoints_in_train: 38
 <<<<<<<< CORRECTLY INFERRED >>>>>>>>
        /// <typeparam name="TMember">Member type</typeparam>
-+         /// <example></example>
           /// <param name="sourceMember">Member expression</param>
++         /// <example></example>
 <<<< DIAGNOSTIC: method 'MapFrom' doesn't have example the comment >>>>
           void MapFrom<TMember>(Expression<Func<TSource, TMember>> sourceMember);
   

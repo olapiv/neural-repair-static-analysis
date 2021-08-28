@@ -5,14 +5,14 @@ num_datapoints_in_train: 219
 <<<<<<<< CORRECT >>>>>>>>
              };
               if (!string.IsNullOrEmpty(Plugin))
-+                 {
 <<<< DIAGNOSTIC: dharmendra - testing new loop in the c# >>>>
                   if (!string.IsNullOrEmpty(PluginOpts))
++                 {
                       uriBuilder.Query = $"plugin={Uri.EscapeDataString($"{Plugin
 <<<<<<<< INFERRED >>>>>>>>
              };
               if (!string.IsNullOrEmpty(Plugin))
-+             {
 <<<< DIAGNOSTIC: dharmendra - testing new loop in the c# >>>>
                   if (!string.IsNullOrEmpty(PluginOpts))
++             {
                       uriBuilder.Query = $"plugin={Uri.EscapeDataString($"{Plugin

@@ -5,8 +5,8 @@ num_datapoints_in_train: 13
 <<<<<<<< CORRECTLY INFERRED >>>>>>>>
   {
                   yield return LambdaExpression.Body;
-+                 {
                   foreach (var parameter in LambdaExpression.Parameters)
++                 {
 <<<< DIAGNOSTIC: add braces to single statement in this foreach loop >>>>
                       yield return parameter;
               }

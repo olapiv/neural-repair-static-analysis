@@ -16,8 +16,8 @@ num_datapoints_in_train: 0
   
       /// Describes dependency between method input and output.
       /// </summary>
-+         /// <param name="p">the types.</param>
       /// <syntax>
++         /// <param name="p">the types.</param>
 <<<< DIAGNOSTIC: use xml documentation syntax >>>>
       /// <p>Function Definition Table syntax:</p>
       /// <list>

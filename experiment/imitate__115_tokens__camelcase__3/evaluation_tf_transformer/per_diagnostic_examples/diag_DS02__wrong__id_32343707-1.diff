@@ -7,9 +7,9 @@ num_datapoints_in_train: 2
               Log(Levels.DEBUG, message, exception);
           }
   
-+             if (message == null) throw new ArgumentNullException(nameof(message));
 <<<< DIAGNOSTIC: 'Debug's' parameters needs to be checked for nulls >>>>
           public void Debug(object message) {
++             if (message == null) throw new ArgumentNullException(nameof(message));
               Log(Levels.DEBUG, message);
           }
   
@@ -19,10 +19,10 @@ num_datapoints_in_train: 2
               Log(Levels.DEBUG, message, exception);
           }
   
-+             if (message == null) throw new ArgumentNullException(nameof(message));
-+             if (exception == null) throw new ArgumentNullException(nameof(exception));
 <<<< DIAGNOSTIC: 'Debug's' parameters needs to be checked for nulls >>>>
           public void Debug(object message) {
++             if (message == null) throw new ArgumentNullException(nameof(message));
++             if (exception == null) throw new ArgumentNullException(nameof(exception));
               Log(Levels.DEBUG, message);
           }
   

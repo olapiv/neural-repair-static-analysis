@@ -5,13 +5,13 @@ num_datapoints_in_train: 567
 <<<<<<<< CORRECT >>>>>>>>
          /// </summary>
           public CancellationToken CancellationToken { get; }
+  
 +         /// <summary>
 +         /// setup the command.
 +         /// </summary>
 +         /// <param name="cnn">the db connection.</param>
 +         /// <param name="paramReader">the param reader.</param>
 +         /// <returns>the db command.</returns>
-  
 <<<< DIAGNOSTIC: method documentation: no documentation. >>>>
           internal IDbCommand SetupCommand(IDbConnection cnn, Action<IDbCommand, object> paramReader)
           {
@@ -20,13 +20,13 @@ num_datapoints_in_train: 567
 <<<<<<<< INFERRED >>>>>>>>
          /// </summary>
           public CancellationToken CancellationToken { get; }
+  
 +         /// <summary>
 +         /// create the command.
 +         /// </summary>
 +         /// <param name="cnn">the db command.</param>
 +         /// <param name="dbCommand">the object.</param>
 +         /// <returns>the transactional command.</returns>
-  
 <<<< DIAGNOSTIC: method documentation: no documentation. >>>>
           internal IDbCommand SetupCommand(IDbConnection cnn, Action<IDbCommand, object> paramReader)
           {

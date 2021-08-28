@@ -5,8 +5,8 @@ num_datapoints_in_train: 5
 <<<<<<<< CORRECT >>>>>>>>
   CRC(AsSpan());
           public void Return() => ArrayPool<byte>.Shared.Return(_buffer);
-+         /// <summary>
   
++         /// <summary>
 <<<< DIAGNOSTIC: add summary element to documentation comment. >>>>
           /// Create and populate a segment with random data
           public static DataSegment CreateRandom(Random random, int maxLength)

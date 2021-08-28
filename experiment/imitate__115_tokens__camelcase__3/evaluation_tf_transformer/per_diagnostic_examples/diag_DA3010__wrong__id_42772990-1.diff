@@ -12,10 +12,10 @@ num_datapoints_in_train: 46
   		GameStarted = 2,
   		ShuttingDown = 3
   	}
+  
 + 	/// <summary> 
 + 	/// 
 + 	/// </summary>
-  
 <<<< DIAGNOSTIC: type 'ServerType' doesn't have /// comments >>>>
   	public enum ServerType
   	{
@@ -37,11 +37,11 @@ num_datapoints_in_train: 46
   		GameStarted = 2,
   		ShuttingDown = 3
   	}
+  
 + 
 + 	/// <summary> 
 + 	/// 
 + 	/// </summary>
-  
 <<<< DIAGNOSTIC: type 'ServerType' doesn't have /// comments >>>>
   	public enum ServerType
   	{

@@ -4,8 +4,8 @@ perc_correct_in_test: 0.9
 num_datapoints_in_train: 206
 <<<<<<<< CORRECTLY INFERRED >>>>>>>>
           // Only look for Fields & Properties.
-+                 {
                   if (info.MemberType != MemberTypes.Field && info.MemberType != MemberTypes.Property)
++                 {
 <<<< DIAGNOSTIC: braces should not be omitted >>>>
                       continue;
                   Type memberType = 
