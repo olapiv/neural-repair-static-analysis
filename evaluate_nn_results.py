@@ -35,8 +35,8 @@ class NNModel(Enum):
     transformer_copy_mechanism = "transformer_copy_mech"  # Never used
 
 
-experiment = Experiment.extrap
-tokenization = Tokenization.standard
+experiment = Experiment.imitate
+tokenization = Tokenization.camelcase
 dataset_version = "3"
 nn_framework = NNFramework.tensorflow
 nn_model = NNModel.transformer
@@ -211,7 +211,7 @@ def create_diff_with_diags(src_dict, tgt_dict):
     try:
         if diff_type == "ADD":
             prev_src_loc = int(tgt_dict["previous_source_location"])
-            changed_file[prev_src_loc:prev_src_loc] = tgt_dict["target_lines"]
+            changed_file[prev_src_loc + 1:prev_src_loc + 1] = tgt_dict["target_lines"]
 
         elif diff_type == "REMOVE":
             src_start = int(tgt_dict["source_location_start"])
