@@ -5,8 +5,8 @@ num_datapoints_in_train: 4
 <<<<<<<< CORRECTLY INFERRED >>>>>>>>
      {
               bool lockAcquired = false;
-+             {
               while (!lockAcquired)
++             {
 <<<< DIAGNOSTIC: add braces to single statement in this while loop >>>>
                   lockAcquired = locks.TryEnterWriteLock(1);
           }

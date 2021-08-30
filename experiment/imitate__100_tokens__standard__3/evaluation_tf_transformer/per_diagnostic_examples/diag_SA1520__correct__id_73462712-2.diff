@@ -5,8 +5,8 @@ num_datapoints_in_train: 21
 <<<<<<<< CORRECTLY INFERRED >>>>>>>>
        dbParameter.Value = DBNull.Value;
               }
-+             {
               else
++             {
 <<<< DIAGNOSTIC: use braces consistently >>>>
                   dbParameter.Value = value;
           }

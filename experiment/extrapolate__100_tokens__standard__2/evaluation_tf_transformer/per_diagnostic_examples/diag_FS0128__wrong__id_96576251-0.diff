@@ -16,8 +16,8 @@ num_datapoints_in_train: 0
      
 <<<<<<<< INFERRED >>>>>>>>
    public override int Serialize(Memory<byte> buffer)
-+             {
           {
++             {
 <<<< DIAGNOSTIC: add braces to single statement in this if >>>>
               if (buffer.Length < 2) throw Util.BufferTooSmall(2, buffer.Length, nameof(buffer));
   

@@ -8,9 +8,9 @@ num_datapoints_in_train: 98
   using DbLinq.Util;
   
   namespace DbLinq.Data.Linq.Sugar.Implementation
+  {
 + 
 +     /// <remarks></remarks>
-  {
 <<<< DIAGNOSTIC: type 'QueryBuilder' doesn't have remark in the comment >>>>
       partial class QueryBuilder
       {
@@ -23,8 +23,8 @@ num_datapoints_in_train: 98
   using DbLinq.Util;
   
   namespace DbLinq.Data.Linq.Sugar.Implementation
-+     /// <remarks></remarks>
   {
++     /// <remarks></remarks>
 <<<< DIAGNOSTIC: type 'QueryBuilder' doesn't have remark in the comment >>>>
       partial class QueryBuilder
       {

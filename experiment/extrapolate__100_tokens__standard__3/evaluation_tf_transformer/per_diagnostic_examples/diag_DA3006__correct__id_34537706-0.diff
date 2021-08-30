@@ -5,8 +5,8 @@ num_datapoints_in_train: 0
 <<<<<<<< CORRECTLY INFERRED >>>>>>>>
   / <summary>
   		/// Gets the selected items which do not have any of their ancestors selected.
-+ 		/// <returns></returns>
   		/// </summary>
++ 		/// <returns></returns>
 <<<< DIAGNOSTIC: method 'GetTopLevelSelection' doesn't have /// returns in comment >>>>
   		public IEnumerable<SharpTreeNode> GetTopLevelSelection()
   		{

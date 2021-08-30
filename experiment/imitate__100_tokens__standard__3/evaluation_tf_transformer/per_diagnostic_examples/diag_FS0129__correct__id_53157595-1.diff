@@ -4,8 +4,8 @@ perc_correct_in_test: 0.7142857142857143
 num_datapoints_in_train: 38
 <<<<<<<< CORRECTLY INFERRED >>>>>>>>
          tableName.ClassName = tableName.DbName;
-+             {
               else
++             {
 <<<< DIAGNOSTIC: add braces to single statement in this else >>>>
                   tableName.ClassName = Format(words, tableName.NameWords, nameFormat.Case, GetSingularization(Singularization.Singular, nameFormat));
               tableName.MemberName = Format

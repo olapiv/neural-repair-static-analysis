@@ -4,8 +4,8 @@ perc_correct_in_test: 0.8552631578947368
 num_datapoints_in_train: 220
 <<<<<<<< CORRECTLY INFERRED >>>>>>>>
    date will be converted to.</param>
-+         /// <remarks></remarks>
           /// <returns>A JSON string representation of the <see cref="DateTimeOffset"/>.</returns>
++         /// <remarks></remarks>
 <<<< DIAGNOSTIC: method 'ToString' doesn't have remark in the comment >>>>
           public static string ToString(DateTimeOffset value, DateFormatHandling format)
           {

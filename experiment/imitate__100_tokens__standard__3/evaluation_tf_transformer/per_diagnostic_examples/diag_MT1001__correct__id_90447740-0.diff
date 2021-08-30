@@ -8,8 +8,8 @@ num_datapoints_in_train: 9
   using System.Text.Json.Serialization;
   
   namespace Shadowsocks.Models
-+     [TestClass]
   {
++     [TestClass]
 <<<< DIAGNOSTIC: the class 'Group' should be marked with the [testclass] attribute >>>>
       public class Group : IGroup<Server>
       {

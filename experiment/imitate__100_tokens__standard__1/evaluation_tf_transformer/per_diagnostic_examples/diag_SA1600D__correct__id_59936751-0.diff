@@ -6,11 +6,11 @@ num_datapoints_in_train: 124
     /// Made public so its testable
       /// </summary>
   	public class NullLogFactory : ILogFactory
+      {
 + 
 +         /// <summary>
 +         /// the debug enabled.
 +         /// </summary>
-      {
 <<<< DIAGNOSTIC: members must be correctly documented. >>>>
           private readonly bool debugEnabled;
   

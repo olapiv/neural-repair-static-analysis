@@ -5,8 +5,8 @@ num_datapoints_in_train: 0
 <<<<<<<< CORRECT >>>>>>>>
    the mod assets.
   		/// Returns false if mod loading should be aborted (e.g. switching to another mod instead).
-+ 		/// <returns></returns>
   		/// </summary>
++ 		/// <returns></returns>
 <<<< DIAGNOSTIC: method 'BeforeLoad' doesn't have /// returns in comment >>>>
   		bool BeforeLoad();
   
@@ -15,8 +15,8 @@ num_datapoints_in_train: 0
 <<<<<<<< INFERRED >>>>>>>>
    the mod assets.
   		/// Returns false if mod loading should be aborted (e.g. switching to another mod instead).
-+ 		/// <param name="keyevent"></param>
   		/// </summary>
++ 		/// <param name="keyevent"></param>
 <<<< DIAGNOSTIC: method 'BeforeLoad' doesn't have /// returns in comment >>>>
   		bool BeforeLoad();
   

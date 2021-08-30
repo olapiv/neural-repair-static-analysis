@@ -3,11 +3,11 @@ diagnostic: SA1633
 perc_correct_in_test: 0.2727272727272727
 num_datapoints_in_train: 67
 <<<<<<<< CORRECT >>>>>>>>
+<<<< DIAGNOSTIC: the file header is missing or not located at the top of the file. >>>>
+  using System;
 + // <copyright file="Default.aspx.cs" company="PlaceholderCompany">
 + // Copyright (c) PlaceholderCompany. All rights reserved.
 + // </copyright>
-<<<< DIAGNOSTIC: the file header is missing or not located at the top of the file. >>>>
-  using System;
   using System.Web;
   using System.Web.UI;
   using System.Web.UI.WebControls;
@@ -21,11 +21,11 @@ num_datapoints_in_train: 67
   
   		}
 <<<<<<<< INFERRED >>>>>>>>
+<<<< DIAGNOSTIC: the file header is missing or not located at the top of the file. >>>>
+  using System;
 + // <copyright file="MyDefault.ascx.cs" company="PlaceholderCompany">
 + // Copyright (c) PlaceholderCompany. All rights reserved.
 + // </copyright>
-<<<< DIAGNOSTIC: the file header is missing or not located at the top of the file. >>>>
-  using System;
   using System.Web;
   using System.Web.UI;
   using System.Web.UI.WebControls;

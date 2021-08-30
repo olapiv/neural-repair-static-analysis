@@ -10,8 +10,8 @@ num_datapoints_in_train: 3
   namespace ICSharpCode.TreeView
   {
   	public class GeneralAdorner : Adorner
-+ 		private readonly UIElement _target;
   	{
++ 		private readonly UIElement _target;
 <<<< DIAGNOSTIC: 'GeneralAdorner's' parameters needs to be checked for nulls >>>>
   		public GeneralAdorner(UIElement target)
   			: base(target)

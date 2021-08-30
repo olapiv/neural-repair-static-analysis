@@ -5,8 +5,8 @@ num_datapoints_in_train: 0
 <<<<<<<< CORRECTLY INFERRED >>>>>>>>
          {
               get {
-+                 {
                   if (identityMembers == null)
++                 {
 <<<< DIAGNOSTIC: braces should not be omitted from multi-line child statement >>>>
                       identityMembers =
                           DataMembers

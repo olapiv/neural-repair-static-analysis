@@ -5,8 +5,8 @@ num_datapoints_in_train: 0
 <<<<<<<< CORRECTLY INFERRED >>>>>>>>
    public void Append(IList<SqlPart> newParts)
           {
-+             {
               foreach (var part in newParts)
++             {
 <<<< DIAGNOSTIC: add braces to single statement in this foreach loop >>>>
                   AddPart(Parts, part);
           }

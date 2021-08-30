@@ -5,8 +5,8 @@ num_datapoints_in_train: 0
 <<<<<<<< CORRECT >>>>>>>>
   / <summary>
   		/// Gets the selected items which do not have any of their ancestors selected.
-+ 		/// <returns></returns>
   		/// </summary>
++ 		/// <returns></returns>
 <<<< DIAGNOSTIC: element return value should be documented >>>>
   		public IEnumerable<SharpTreeNode> GetTopLevelSelection()
   		{

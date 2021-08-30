@@ -17,8 +17,8 @@ num_datapoints_in_train: 76
     {
               Unique = unique;
           }
-+         [System.ComponentModel.DataAnnotations.MaxLength(200)]//Roslyn auto generated
           
++         [System.ComponentModel.DataAnnotations.MaxLength(200)]//Roslyn auto generated
 <<<< DIAGNOSTIC: type name 'Name' should be decorated with maxlength attribute >>>>
           public string Name { get; set; }
   

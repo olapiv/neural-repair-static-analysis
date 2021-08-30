@@ -6,8 +6,8 @@ num_datapoints_in_train: 42
              //  throw new NotImplementedException();
           }
   #endif
-+         [MethodHasDebt(LineCount = 58, ParameterCount = 2)]
   
++         [MethodHasDebt(LineCount = 58, ParameterCount = 2)]
 <<<< DIAGNOSTIC: method readcolumns is 58 lines long while it should not be longer than 50 lines. >>>>
           protected override IList<IDataTableColumn> ReadColumns(IDbConnection connection, string databaseName)
           {
@@ -16,8 +16,8 @@ num_datapoints_in_train: 42
              //  throw new NotImplementedException();
           }
   #endif
-+         [MethodHasDebt(LineCount = 84, ParameterCount = 2)]
   
++         [MethodHasDebt(LineCount = 84, ParameterCount = 2)]
 <<<< DIAGNOSTIC: method readcolumns is 58 lines long while it should not be longer than 50 lines. >>>>
           protected override IList<IDataTableColumn> ReadColumns(IDbConnection connection, string databaseName)
           {

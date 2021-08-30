@@ -4,8 +4,8 @@ perc_correct_in_test: 0.5
 num_datapoints_in_train: 5
 <<<<<<<< CORRECT >>>>>>>>
    name="error">The error due to which the connection is being stopped.</param>
-+         /// <param name="error"></param>
           /// </summary>
++         /// <param name="error"></param>
 <<<< DIAGNOSTIC: method 'Stop' doesn't have /// parameter in comment >>>>
           public void Stop(Exception error)
           {
@@ -13,8 +13,8 @@ num_datapoints_in_train: 5
     
 <<<<<<<< INFERRED >>>>>>>>
    name="error">The error due to which the connection is being stopped.</param>
-+         /// <returns></returns>
           /// </summary>
++         /// <returns></returns>
 <<<< DIAGNOSTIC: method 'Stop' doesn't have /// parameter in comment >>>>
           public void Stop(Exception error)
           {

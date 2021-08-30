@@ -5,11 +5,11 @@ num_datapoints_in_train: 12
 <<<<<<<< CORRECT >>>>>>>>
   (int sourceColumn, int destinationColumn)
               => _wrapped.ColumnMappings.Add(sourceColumn, destinationColumn);
+  
 +         /// <summary> 
 +         /// 
 +         /// </summary>
 +         /// <param name="source"></param>
-  
 <<<< DIAGNOSTIC: method 'WriteToServer' doesn't have /// comment for documentation >>>>
           public override void WriteToServer(DataTable source)
               => _wrapped.WriteToServer(source);
@@ -17,12 +17,12 @@ num_datapoints_in_train: 12
 <<<<<<<< INFERRED >>>>>>>>
   (int sourceColumn, int destinationColumn)
               => _wrapped.ColumnMappings.Add(sourceColumn, destinationColumn);
+  
 +         /// <summary> 
 +         /// 
 +         /// </summary>
 +         /// <param name="sourceColumn"></param>
 +         /// <param name="destinationColumn"></param>
-  
 <<<< DIAGNOSTIC: method 'WriteToServer' doesn't have /// comment for documentation >>>>
           public override void WriteToServer(DataTable source)
               => _wrapped.WriteToServer(source);

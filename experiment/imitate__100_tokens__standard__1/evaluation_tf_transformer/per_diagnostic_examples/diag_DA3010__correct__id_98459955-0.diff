@@ -12,11 +12,11 @@ num_datapoints_in_train: 21
   using System.Linq;
   
   namespace parse_hb_log
+  {
 + 
 +     /// <summary> 
 +     /// 
 +     /// </summary>
-  {
 <<<< DIAGNOSTIC: type 'HeapBalanceFlagMask' doesn't have /// comments >>>>
       enum HeapBalanceFlagMask
       {

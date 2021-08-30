@@ -4,8 +4,8 @@ perc_correct_in_test: 0.03305785123966942
 num_datapoints_in_train: 0
 <<<<<<<< CORRECTLY INFERRED >>>>>>>>
                   mappingContextParameter, builderContext);
-+ 
                   }
++ 
 <<<< DIAGNOSTIC: single-line comment should be preceded by blank line >>>>
                   // for EntitySets, we have a special EntitySet builder
                   if (expression is EntitySetExpression

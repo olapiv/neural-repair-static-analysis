@@ -5,9 +5,9 @@ num_datapoints_in_train: 0
 <<<<<<<< CORRECT >>>>>>>>
   ="config">Profile configuration</param>
           void CreateProfile(string profileName, Action<IProfileExpression> config);
+      }
 + 
 +     [Migration(20210629181357)]
-      }
 <<<< DIAGNOSTIC: the migration attribute is missing >>>>
       public class MapperConfigurationExpression : Profile, IGlobalConfigurationExpression
       {

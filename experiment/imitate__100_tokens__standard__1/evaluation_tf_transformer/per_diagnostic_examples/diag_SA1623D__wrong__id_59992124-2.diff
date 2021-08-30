@@ -5,11 +5,11 @@ num_datapoints_in_train: 316
 <<<<<<<< CORRECT >>>>>>>>
      /// </summary>
           public class Identity : IEquatable<Identity>
+          {
 + 
 +             /// <summary>
 +             /// Gets the type count.
 +             /// </summary>
-          {
 <<<< DIAGNOSTIC: property documentation: no documentation. >>>>
               internal virtual int TypeCount => 0;
   
@@ -17,10 +17,10 @@ num_datapoints_in_train: 316
 <<<<<<<< INFERRED >>>>>>>>
      /// </summary>
           public class Identity : IEquatable<Identity>
+          {
 +             /// <summary>
 +             /// Gets the type count.
 +             /// </summary>
-          {
 <<<< DIAGNOSTIC: property documentation: no documentation. >>>>
               internal virtual int TypeCount => 0;
   

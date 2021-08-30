@@ -5,8 +5,8 @@ num_datapoints_in_train: 0
 <<<<<<<< CORRECTLY INFERRED >>>>>>>>
   param name="destExpression">Destination parameter</param>
           /// 
-+         /// <example></example>
           /// <returns>Map expression</returns>
++         /// <example></example>
 <<<< DIAGNOSTIC: method 'MapExpression' doesn't have example the comment >>>>
           Expression MapExpression(IGlobalConfiguration configurationProvider, ProfileMap profileMap,
               MemberMap memberMap, Expression sourceExpression, Expression destExpression);

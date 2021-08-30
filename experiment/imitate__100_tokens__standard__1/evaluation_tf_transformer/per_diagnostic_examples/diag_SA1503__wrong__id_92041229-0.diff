@@ -29,8 +29,8 @@ num_datapoints_in_train: 54
   Brightness;
   
               b *= 255;
-+             {
   
++             {
 <<<< DIAGNOSTIC: braces should not be omitted >>>>
               if (s.IsCloseTo(0)) return Color.FromRgb((byte)b, (byte)b, (byte)b);
   

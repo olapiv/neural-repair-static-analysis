@@ -12,8 +12,8 @@ num_datapoints_in_train: 3
       
 <<<<<<<< INFERRED >>>>>>>>
    <param name="sqlStatement"></param>
-+         /// <typeparam name="SqlStatement">a type of {SqlStatement}.</typeparam>
           /// <param name="sqlStatements"></param>
++         /// <typeparam name="SqlStatement">a type of {SqlStatement}.</typeparam>
 <<<< DIAGNOSTIC: void return value should not be documented >>>>
           /// <returns></returns>
           public void AppendJoin(SqlStatement sqlStatement, IList<SqlStatement> sqlStatements)

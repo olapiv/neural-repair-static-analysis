@@ -8,11 +8,11 @@ num_datapoints_in_train: 216
       public
   #endif
       class EntitySetExpression : MutableExpression
+      {
 + 
 +         /// <summary>
 +         /// the expression type.
 +         /// </summary>
-      {
 <<<< DIAGNOSTIC: members must be correctly documented. >>>>
           public const ExpressionType ExpressionType = (ExpressionType)CustomExpressionType.EntitySet;
   

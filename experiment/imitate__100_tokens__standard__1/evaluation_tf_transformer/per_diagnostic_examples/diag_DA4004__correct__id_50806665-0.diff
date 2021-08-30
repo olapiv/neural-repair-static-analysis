@@ -9,8 +9,8 @@ num_datapoints_in_train: 16
   {
       /// <summary>
       /// Defines a single colour swatch.
-+     /// <example></example>
       /// </summary>
++     /// <example></example>
 <<<< DIAGNOSTIC: type 'Swatch' doesn't have example in the comment >>>>
       public class Swatch
       {

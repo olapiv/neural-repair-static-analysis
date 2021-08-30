@@ -7,12 +7,12 @@ num_datapoints_in_train: 168
   //   along with this program. If not, see <http://www.gnu.org/licenses/>.
   
   
-+ using System.Collections.Generic;
-+ using System.Linq;
 <<<< DIAGNOSTIC: missing these usings:
 system.collections.generic
 system.linq >>>>
   using System;
++ using System.Collections.Generic;
++ using System.Linq;
   using System.IO;
   
   namespace Sparkles {

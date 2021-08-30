@@ -14,8 +14,8 @@ num_datapoints_in_train: 197
 <<<<<<<< INFERRED >>>>>>>>
        {
                   var key = keyMember.GetMemberValue(entity);
-+                 {
 <<<< DIAGNOSTIC: 'if' statements must have braces >>>>
                   if(key != null)
++                 {
                       keys.Add(key);
             

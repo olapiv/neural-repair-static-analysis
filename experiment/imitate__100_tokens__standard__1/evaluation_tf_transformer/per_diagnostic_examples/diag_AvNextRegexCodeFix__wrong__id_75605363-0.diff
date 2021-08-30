@@ -19,8 +19,8 @@ num_datapoints_in_train: 76
   
           /// <summary>
           /// Gets or sets parameter name with which allowable values will be associated.
-+         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.RegexConverter), @"^[a-zA-Z0-9]*$")]//Roslyn auto generated
           /// </summary>
++         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.RegexConverter), @"^[a-zA-Z0-9]*$")]//Roslyn auto generated
 <<<< DIAGNOSTIC: type name 'Name' should be decorated with regexconverter attribute >>>>
           public string Name { get; set; }
   

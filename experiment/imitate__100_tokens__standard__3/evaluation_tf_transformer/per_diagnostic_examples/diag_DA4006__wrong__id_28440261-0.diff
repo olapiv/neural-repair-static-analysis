@@ -5,8 +5,8 @@ num_datapoints_in_train: 16
 <<<<<<<< CORRECT >>>>>>>>
      /// <summary>
           /// Specifies the state of the reader.
-+         /// <example></example>
           /// </summary>
++         /// <example></example>
 <<<< DIAGNOSTIC: type 'State' doesn't have example in the comment >>>>
           protected internal enum State
           {
@@ -15,8 +15,8 @@ num_datapoints_in_train: 16
 <<<<<<<< INFERRED >>>>>>>>
      /// <summary>
           /// Specifies the state of the reader.
-+     /// <example></example>
           /// </summary>
++     /// <example></example>
 <<<< DIAGNOSTIC: type 'State' doesn't have example in the comment >>>>
           protected internal enum State
           {

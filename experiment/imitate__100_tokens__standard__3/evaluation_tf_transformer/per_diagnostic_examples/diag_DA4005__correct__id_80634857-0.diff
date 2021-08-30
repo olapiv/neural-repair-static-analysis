@@ -5,8 +5,8 @@ num_datapoints_in_train: 11
 <<<<<<<< CORRECTLY INFERRED >>>>>>>>
      /// <summary>
       /// Specifies formatting options for the <see cref="JsonTextWriter"/>.
-+     /// <remarks></remarks>
       /// </summary>
++     /// <remarks></remarks>
 <<<< DIAGNOSTIC: type 'Formatting' doesn't have remark in the comment >>>>
       public enum Formatting
       {

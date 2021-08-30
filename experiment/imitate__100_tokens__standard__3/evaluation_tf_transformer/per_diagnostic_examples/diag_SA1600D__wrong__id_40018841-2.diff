@@ -7,11 +7,11 @@ num_datapoints_in_train: 216
       }
       public readonly struct ValueTransformerConfiguration
       {
+          public readonly Type ValueType;
 + 
 +         /// <summary>
 +         /// the transformer expression.
 +         /// </summary>
-          public readonly Type ValueType;
 <<<< DIAGNOSTIC: members must be correctly documented. >>>>
           public readonly LambdaExpression TransformerExpression;
           public ValueTransformerConfiguration(Type valueType, LambdaExpression transformerExpression)
@@ -22,11 +22,11 @@ num_datapoints_in_train: 216
       }
       public readonly struct ValueTransformerConfiguration
       {
+          public readonly Type ValueType;
 + 
 +         /// <summary>
 +         /// the source type.
 +         /// </summary>
-          public readonly Type ValueType;
 <<<< DIAGNOSTIC: members must be correctly documented. >>>>
           public readonly LambdaExpression TransformerExpression;
           public ValueTransformerConfiguration(Type valueType, LambdaExpression transformerExpression)

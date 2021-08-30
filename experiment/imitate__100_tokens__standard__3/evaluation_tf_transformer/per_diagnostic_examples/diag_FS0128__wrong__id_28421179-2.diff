@@ -13,7 +13,7 @@ num_datapoints_in_train: 233
                       throw new
 <<<<<<<< INFERRED >>>>>>>>
          var arr = Util.GetArray(frame).Array;
-+                     {
 <<<< DIAGNOSTIC: add braces to single statement in this if >>>>
                       if (arr == null) throw new FormatException($"Message {typeof(T)} parse error");
++                     {
                       throw new

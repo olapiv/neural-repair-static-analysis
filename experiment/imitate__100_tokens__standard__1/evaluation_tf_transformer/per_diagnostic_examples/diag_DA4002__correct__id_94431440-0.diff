@@ -5,8 +5,8 @@ num_datapoints_in_train: 98
 <<<<<<<< CORRECTLY INFERRED >>>>>>>>
    /// <summary>
       /// Implement on Request DTOs that need access to the raw Request Stream
-+     /// <remarks></remarks>
       /// </summary>
++     /// <remarks></remarks>
 <<<< DIAGNOSTIC: type 'IRequiresRequestStream' doesn't have remark in the comment >>>>
       public interface IRequiresRequestStream
       {

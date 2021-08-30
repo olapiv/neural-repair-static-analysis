@@ -4,15 +4,15 @@ perc_correct_in_test: 0.25
 num_datapoints_in_train: 14
 <<<<<<<< CORRECT >>>>>>>>
   "m"))
-+                                 }
                                       multiple_procs_p = true;
++                                 }
 <<<< DIAGNOSTIC: an if statement should be written with braces >>>>
                                   if (strRemaining.Contains("p"))
         
 <<<<<<<< INFERRED >>>>>>>>
   "m"))
-+                                 {
                                       multiple_procs_p = true;
++                                 {
 <<<< DIAGNOSTIC: an if statement should be written with braces >>>>
                                   if (strRemaining.Contains("p"))
         

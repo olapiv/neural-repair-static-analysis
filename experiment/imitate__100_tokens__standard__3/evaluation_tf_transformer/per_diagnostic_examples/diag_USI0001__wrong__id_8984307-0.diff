@@ -4,10 +4,11 @@ perc_correct_in_test: 0.7258064516129032
 num_datapoints_in_train: 168
 <<<<<<<< CORRECT >>>>>>>>
   
-+ // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-+ // THE SOFTWARE.
-+ // 
-+ #endregion
+  // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+  // THE SOFTWARE.
+  // 
+  #endregion
+  
 + using System;
 + using System.Collections.Generic;
 + using System.Linq;
@@ -32,11 +33,10 @@ num_datapoints_in_train: 168
 + // FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
 + // AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 + // LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-  // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-  // THE SOFTWARE.
-  // 
-  #endregion
-  
++ // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
++ // THE SOFTWARE.
++ // 
++ #endregion
 <<<< DIAGNOSTIC: missing these usings:
 system
 system.collections.generic
@@ -56,13 +56,13 @@ system.linq >>>>
   // 
   #endregion
   
-+ using System.Collections.Generic;
-+ using System.Linq;
 <<<< DIAGNOSTIC: missing these usings:
 system
 system.collections.generic
 system.linq >>>>
   using System.Linq.Expressions;
++ using System.Collections.Generic;
++ using System.Linq;
   
   namespace DbLinq.Data.Linq.Sugar
   {

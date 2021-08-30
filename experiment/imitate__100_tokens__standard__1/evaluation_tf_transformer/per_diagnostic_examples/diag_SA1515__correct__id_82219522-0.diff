@@ -5,8 +5,8 @@ num_datapoints_in_train: 4
 <<<<<<<< CORRECTLY INFERRED >>>>>>>>
   public int tid;
           public int allocHeap;
-+ 
           public int countSamples;
++ 
 <<<< DIAGNOSTIC: single-line comment should be preceded by blank line >>>>
           // This is to present m/p/i - each takes 4 bits, mask for them
           // is defined in HeapBalanceFlagMask. Most of

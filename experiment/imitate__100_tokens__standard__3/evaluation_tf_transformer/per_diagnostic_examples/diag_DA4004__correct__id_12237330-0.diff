@@ -5,8 +5,8 @@ num_datapoints_in_train: 79
 <<<<<<<< CORRECTLY INFERRED >>>>>>>>
   /// <summary>
       /// The service for updating a group from an SIP008 online configuration source.
-+     /// <example></example>
       /// </summary>
++     /// <example></example>
 <<<< DIAGNOSTIC: type 'OnlineConfigService' doesn't have example in the comment >>>>
       public class OnlineConfigService
       {

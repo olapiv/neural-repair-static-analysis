@@ -5,6 +5,7 @@ num_datapoints_in_train: 0
 <<<<<<<< CORRECT >>>>>>>>
         private class PracticeRebateOrders
           {
+              public string fTaxInvoiceNumber;
 + After:
 +             public string TaxInvoiceNumber;
 + */
@@ -15,7 +16,6 @@ num_datapoints_in_train: 0
 + After:
 +             public string TaxInvoiceNumber;
 + */
-              public string fTaxInvoiceNumber;
 <<<< DIAGNOSTIC: change taxinvoicenumber to an auto property >>>>
               [System.Xml.Serialization.XmlElement(Form = System.Xml.Schema.XmlSchemaForm.Unqualified)]
               public string TaxInvoiceNumber

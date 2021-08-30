@@ -8,11 +8,11 @@ num_datapoints_in_train: 765
   namespace ServiceStack
   {
       public class UploadFile
+      {
 + 
 +         /// <summary> 
 +         /// 
 +         /// </summary>
-      {
 <<<< DIAGNOSTIC: property name 'FileName' doesn't have /// comment >>>>
           public string FileName { get; set; }
           public Stream Stream { get; set; }

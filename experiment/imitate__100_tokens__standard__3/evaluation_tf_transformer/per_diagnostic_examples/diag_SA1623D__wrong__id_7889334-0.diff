@@ -7,10 +7,10 @@ num_datapoints_in_train: 435
                   return b.ToArray();
               return value;
           }
+  
 +         /// <summary>
 +         /// Gets or sets the target.
 +         /// </summary>
-  
 <<<< DIAGNOSTIC: property documentation: no documentation. >>>>
           public object Target { get; set; }
       }
@@ -21,10 +21,10 @@ num_datapoints_in_train: 435
               return value;
           }
   
++ 
 +         /// <summary>
 +         /// Gets a value indicating whether is null.
 +         /// </summary>
-+ 
 <<<< DIAGNOSTIC: property documentation: no documentation. >>>>
           public object Target { get; set; }
       }

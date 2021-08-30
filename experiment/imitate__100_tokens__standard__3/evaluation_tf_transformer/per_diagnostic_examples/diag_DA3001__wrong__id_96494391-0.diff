@@ -5,12 +5,12 @@ num_datapoints_in_train: 8
 <<<<<<<< CORRECT >>>>>>>>
   
               = new ConcurrentDictionary<Type, Func<DbConnection, object>?>();
+  
 +         /// <summary> 
 +         /// 
 +         /// </summary>
 +         /// <param name="connectionType"></param>
 +         /// <returns></returns>
-  
 <<<< DIAGNOSTIC: method 'CreateBcpFactory' doesn't have /// comment for documentation >>>>
           internal static Func<DbConnection, object>? CreateBcpFactory(Type connectionType)
           {
@@ -19,13 +19,13 @@ num_datapoints_in_train: 8
 <<<<<<<< INFERRED >>>>>>>>
   
               = new ConcurrentDictionary<Type, Func<DbConnection, object>?>();
+  
 + 
 +         /// <summary> 
 +         /// 
 +         /// </summary>
 +         /// <param name="owner"></param>
 +         /// <returns></returns>
-  
 <<<< DIAGNOSTIC: method 'CreateBcpFactory' doesn't have /// comment for documentation >>>>
           internal static Func<DbConnection, object>? CreateBcpFactory(Type connectionType)
           {

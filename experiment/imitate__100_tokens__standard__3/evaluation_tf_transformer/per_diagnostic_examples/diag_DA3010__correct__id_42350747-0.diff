@@ -13,11 +13,11 @@ num_datapoints_in_train: 42
   using System.Linq;
   
   namespace OpenRA
+  {
 + 
 + 	/// <summary> 
 + 	/// 
 + 	/// </summary>
-  {
 <<<< DIAGNOSTIC: type 'RunStatus' doesn't have /// comments >>>>
   	public enum RunStatus
   	{

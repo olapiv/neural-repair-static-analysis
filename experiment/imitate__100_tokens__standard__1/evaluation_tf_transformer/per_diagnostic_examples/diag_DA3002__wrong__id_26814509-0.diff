@@ -10,11 +10,11 @@ num_datapoints_in_train: 101
   using System.Collections.Generic;
   
   namespace DbLinq.Data.Linq.Mapping
+  {
 + 
 +     /// <summary> 
 +     /// 
 +     /// </summary>
-  {
 <<<< DIAGNOSTIC: type 'AttributedMetaAssociation' doesn't have /// comments >>>>
       internal class AttributedMetaAssociation : MetaAssociation
       {
@@ -28,10 +28,10 @@ num_datapoints_in_train: 101
   using System.Collections.Generic;
   
   namespace DbLinq.Data.Linq.Mapping
+  {
 +     /// <summary> 
 +     /// 
 +     /// </summary>
-  {
 <<<< DIAGNOSTIC: type 'AttributedMetaAssociation' doesn't have /// comments >>>>
       internal class AttributedMetaAssociation : MetaAssociation
       {

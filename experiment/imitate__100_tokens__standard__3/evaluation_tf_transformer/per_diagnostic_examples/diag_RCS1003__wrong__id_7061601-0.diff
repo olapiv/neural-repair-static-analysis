@@ -18,8 +18,8 @@ num_datapoints_in_train: 11
         
 <<<<<<<< INFERRED >>>>>>>>
    + 1;
-+                         {
 <<<< DIAGNOSTIC: add braces to if-else (when expression spans over multiple lines). >>>>
                       if (n == 1) return Rnd(latencies[0]);
++                         {
                       else if (n == N) return Rnd(latencies[N - 1]);
         

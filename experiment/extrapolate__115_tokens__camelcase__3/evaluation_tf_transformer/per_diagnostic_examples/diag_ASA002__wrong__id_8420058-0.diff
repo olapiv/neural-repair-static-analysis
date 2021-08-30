@@ -16,9 +16,9 @@ num_datapoints_in_train: 0
     /// <summary>
           /// Non blocking get message
           /// </summary>
-+         /// <returns></returns>
 <<<< DIAGNOSTIC: method 'GetAsync' returns imessage and so it should rather be called 'Get' >>>>
           IMessage<T> GetAsync<T>(string queueName);
++         /// <returns></returns>
   
           /// <summary>
           /// Acknowledge the message has been successfully received or processed

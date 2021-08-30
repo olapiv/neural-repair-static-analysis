@@ -5,9 +5,9 @@ num_datapoints_in_train: 0
 <<<<<<<< CORRECTLY INFERRED >>>>>>>>
    case ExpressionType.NewArrayInit:
                       return Expression.NewArrayInit(NewArrayExpression.Type, operands);
-+ 
 <<<< DIAGNOSTIC: closing brace should be followed by blank line >>>>
               }
++ 
               throw new Exception();
           }
   

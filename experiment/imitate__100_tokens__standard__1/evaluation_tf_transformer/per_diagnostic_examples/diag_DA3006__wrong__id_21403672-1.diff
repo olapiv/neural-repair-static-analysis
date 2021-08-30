@@ -19,8 +19,8 @@ num_datapoints_in_train: 33
   
           /// <summary>
           /// Delete all Cache Entries (requires ICacheClient that implements IRemoveByPattern)
-+         /// <returns></returns>
           /// </summary>
++         /// <returns></returns>
 <<<< DIAGNOSTIC: method 'RemoveAllAsync' doesn't have /// returns in comment >>>>
           Task RemoveAllAsync(CancellationToken token=default);
       }

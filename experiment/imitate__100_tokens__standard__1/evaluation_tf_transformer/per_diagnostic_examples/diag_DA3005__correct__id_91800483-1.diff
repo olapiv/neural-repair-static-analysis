@@ -5,8 +5,8 @@ num_datapoints_in_train: 3
 <<<<<<<< CORRECTLY INFERRED >>>>>>>>
   	/// <summary>
   		/// Scrolls the specified node in view and sets keyboard focus on it.
-+ 		/// <param name="node"></param>
   		/// </summary>
++ 		/// <param name="node"></param>
 <<<< DIAGNOSTIC: method 'FocusNode' doesn't have /// parameter in comment >>>>
   		public void FocusNode(SharpTreeNode node)
   		{

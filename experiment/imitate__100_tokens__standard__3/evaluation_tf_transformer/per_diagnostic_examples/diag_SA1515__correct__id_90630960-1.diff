@@ -4,9 +4,9 @@ perc_correct_in_test: 0.9473684210526315
 num_datapoints_in_train: 77
 <<<<<<<< CORRECTLY INFERRED >>>>>>>>
   = new Dictionary<Type, ITable>();
-+ 
   
           public MetaModel Mapping { get; private set; }
++ 
 <<<< DIAGNOSTIC: single-line comment should be preceded by blank line >>>>
           // PC question: at ctor, we get a IDbConnection and the Connection property exposes a DbConnection
           //       

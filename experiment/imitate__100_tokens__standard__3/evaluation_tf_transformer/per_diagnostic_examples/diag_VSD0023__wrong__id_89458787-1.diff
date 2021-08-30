@@ -19,9 +19,9 @@ num_datapoints_in_train: 195
         
 <<<<<<<< INFERRED >>>>>>>>
    + 1;
-+                         {
 <<<< DIAGNOSTIC: an if statement should be written with braces >>>>
                       if (n == 1) return Rnd(latencies[0]);
++                         {
 <<<< DIAGNOSTIC: an if statement should be written with braces >>>>
                       else if (n == N) return Rnd(latencies[N - 1]);
         

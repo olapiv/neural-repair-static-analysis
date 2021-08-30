@@ -11,12 +11,12 @@ num_datapoints_in_train: 3
       
 <<<<<<<< INFERRED >>>>>>>>
                                    WordsExtraction extraction, NameFormat nameFormat);
+<<<< DIAGNOSTIC: comments should contain text >>>>
+          // 
 + 
 +     /// <summary> 
 +     /// 
 +     /// </summary>
-<<<< DIAGNOSTIC: comments should contain text >>>>
-          // 
           /// <summary>
           /// Reformats a name by adjusting its case.
       

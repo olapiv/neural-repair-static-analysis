@@ -5,8 +5,8 @@ num_datapoints_in_train: 214
 <<<<<<<< CORRECTLY INFERRED >>>>>>>>
   {
               var name = t.Name;
-+             {
               if (t.IsGenericTypeDefinition)
++             {
 <<<< DIAGNOSTIC: braces should not be omitted >>>>
                   return name.Split('`')[0];
               return name;

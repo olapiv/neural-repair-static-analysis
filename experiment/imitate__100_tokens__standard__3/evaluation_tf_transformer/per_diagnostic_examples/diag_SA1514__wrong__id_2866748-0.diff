@@ -3,12 +3,12 @@ diagnostic: SA1514
 perc_correct_in_test: 0.875
 num_datapoints_in_train: 37
 <<<<<<<< CORRECT >>>>>>>>
-+ 
           private static readonly Regex rawTypeEx = new Regex(@"(?<type>\w+)(\((?<length>\d+)(,(?<scale>\d+))?\))?( (?<qualifier>\w+))?", RegexOptions.Compiled);
++ 
 <<<< DIAGNOSTIC: element documentation header should be preceded by blank line >>>>
           /// <summary>
 <<<<<<<< INFERRED >>>>>>>>
           private static readonly Regex rawTypeEx = new Regex(@"(?<type>\w+)(\((?<length>\d+)(,(?<scale>\d+))?\))?( (?<qualifier>\w+))?", RegexOptions.Compiled);
-+ 
 <<<< DIAGNOSTIC: element documentation header should be preceded by blank line >>>>
           /// <summary>
++ 

@@ -5,8 +5,8 @@ num_datapoints_in_train: 11
 <<<<<<<< CORRECT >>>>>>>>
   satisfies the condition,
       /// then the execution continues. Otherwise, execution is assumed to be halted.
-+     /// <remarks></remarks>
       /// </summary>
++     /// <remarks></remarks>
 <<<< DIAGNOSTIC: type 'AssertionConditionType' doesn't have remark in the comment >>>>
       internal enum AssertionConditionType
       {
@@ -14,8 +14,8 @@ num_datapoints_in_train: 11
 <<<<<<<< INFERRED >>>>>>>>
   satisfies the condition,
       /// then the execution continues. Otherwise, execution is assumed to be halted.
-+         /// <remarks></remarks>
       /// </summary>
++         /// <remarks></remarks>
 <<<< DIAGNOSTIC: type 'AssertionConditionType' doesn't have remark in the comment >>>>
       internal enum AssertionConditionType
       {

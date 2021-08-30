@@ -6,11 +6,11 @@ num_datapoints_in_train: 396
   
       [AttributeUsage(AttributeTargets.Class, AllowMultiple = true)]
       public class PostDropTableAttribute : AttributeBase
+      {
 + 
 +         /// <summary> 
 +         /// 
 +         /// </summary>
-      {
 <<<< DIAGNOSTIC: property name 'Sql' doesn't have /// comment >>>>
           public string Sql { get; set; }
   

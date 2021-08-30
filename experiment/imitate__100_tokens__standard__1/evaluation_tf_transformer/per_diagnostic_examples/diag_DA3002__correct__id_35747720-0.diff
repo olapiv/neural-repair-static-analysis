@@ -7,11 +7,11 @@ num_datapoints_in_train: 101
   using System.Reflection;
   
   namespace Dapper
+  {
 + 
 +     /// <summary> 
 +     /// 
 +     /// </summary>
-  {
 <<<< DIAGNOSTIC: type 'TypeExtensions' doesn't have /// comments >>>>
       internal static class TypeExtensions
       {

@@ -5,8 +5,8 @@ num_datapoints_in_train: 79
 <<<<<<<< CORRECT >>>>>>>>
   <summary>
       /// Wraps mapping exceptions. Check exception.ToString() for the full error message.
-+     /// <example></example>
       /// </summary>
++     /// <example></example>
 <<<< DIAGNOSTIC: type 'AutoMapperMappingException' doesn't have example in the comment >>>>
       public class AutoMapperMappingException : Exception
       {
@@ -16,9 +16,9 @@ num_datapoints_in_train: 79
 <<<<<<<< INFERRED >>>>>>>>
   <summary>
       /// Wraps mapping exceptions. Check exception.ToString() for the full error message.
+      /// </summary>
 + 
 +     /// <example></example>
-      /// </summary>
 <<<< DIAGNOSTIC: type 'AutoMapperMappingException' doesn't have example in the comment >>>>
       public class AutoMapperMappingException : Exception
       {

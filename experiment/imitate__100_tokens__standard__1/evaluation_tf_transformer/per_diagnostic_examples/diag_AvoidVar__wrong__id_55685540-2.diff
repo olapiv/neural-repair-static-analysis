@@ -12,7 +12,7 @@ num_datapoints_in_train: 224
 <<<<<<<< INFERRED >>>>>>>>
      if (resourceDictionary != null)
                   {
-+ 
 <<<< DIAGNOSTIC: use 'DictionaryEntry' instead of 'var' >>>>
                       foreach (var entry in resourceDictionary.OfType<DictionaryEntry>()
++ 
                           .OrderBy(de =>

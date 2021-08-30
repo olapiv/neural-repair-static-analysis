@@ -4,7 +4,7 @@ perc_correct_in_test: 0.8214285714285714
 num_datapoints_in_train: 62
 <<<<<<<< CORRECTLY INFERRED >>>>>>>>
     strAllocHeap = ParseString(strRemaining, ",", "|", out strRemaining);
-+                                 {
 <<<< DIAGNOSTIC: 'if' statements must have braces >>>>
                                   if (strRemaining.Contains("m"))
++                                 {
                               

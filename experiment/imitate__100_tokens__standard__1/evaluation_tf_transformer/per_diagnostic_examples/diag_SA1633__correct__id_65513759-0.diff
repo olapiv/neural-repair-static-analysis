@@ -3,11 +3,11 @@ diagnostic: SA1633
 perc_correct_in_test: 0.7777777777777778
 num_datapoints_in_train: 30
 <<<<<<<< CORRECTLY INFERRED >>>>>>>>
+<<<< DIAGNOSTIC: the file header is missing or not located at the top of the file. >>>>
+  using System.Collections.Generic;
 + // <copyright file="IndigoSwatch.cs" company="PlaceholderCompany">
 + // Copyright (c) PlaceholderCompany. All rights reserved.
 + // </copyright>
-<<<< DIAGNOSTIC: the file header is missing or not located at the top of the file. >>>>
-  using System.Collections.Generic;
   using System.Windows.Media;
   
   namespace MaterialDesignColors.Recommended

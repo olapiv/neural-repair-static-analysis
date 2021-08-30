@@ -6,12 +6,12 @@ num_datapoints_in_train: 8
   ;
                   return true;
               }
+  
 +             /// <summary> 
 +             /// 
 +             /// </summary>
 +             /// <param name="type"></param>
 +             /// <returns></returns>
-  
 <<<< DIAGNOSTIC: method 'Get' doesn't have /// comment for documentation >>>>
               public static ByTypeHelpers Get(Type type)
               {

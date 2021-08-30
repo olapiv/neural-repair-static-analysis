@@ -4,8 +4,8 @@ perc_correct_in_test: 1.0
 num_datapoints_in_train: 135
 <<<<<<<< CORRECTLY INFERRED >>>>>>>>
   ColorConverter.ConvertFromString("#C8E6C9");
-+ 
           public static Color Green200 { get; } = (Color)ColorConverter.ConvertFromString("#A5D6A7");
++ 
 <<<< DIAGNOSTIC: elements should be separated by blank line >>>>
           public static Color Green300 { get; } = (Color)ColorConverter.ConvertFromString("#81C784");
           public static

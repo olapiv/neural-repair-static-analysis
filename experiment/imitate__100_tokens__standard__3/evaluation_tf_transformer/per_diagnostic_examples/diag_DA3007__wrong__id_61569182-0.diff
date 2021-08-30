@@ -6,10 +6,10 @@ num_datapoints_in_train: 765
    : MutableExpression
       {
           public const ExpressionType ExpressionType = (ExpressionType)CustomExpressionType.OrderBy;
+  
 +         /// <summary> 
 +         /// 
 +         /// </summary>
-  
 <<<< DIAGNOSTIC: property name 'Descending' doesn't have /// comment >>>>
           public bool Descending { get; set; }
           public Expression ColumnExpression { get; set; }
@@ -19,11 +19,11 @@ num_datapoints_in_train: 765
    : MutableExpression
       {
           public const ExpressionType ExpressionType = (ExpressionType)CustomExpressionType.OrderBy;
+  
 + 
 +         /// <summary> 
 +         /// 
 +         /// </summary>
-  
 <<<< DIAGNOSTIC: property name 'Descending' doesn't have /// comment >>>>
           public bool Descending { get; set; }
           public Expression ColumnExpression { get; set; }

@@ -6,9 +6,9 @@ num_datapoints_in_train: 29
   != null)
   						UpdateIsVisible(modelParent.isVisible && modelParent.isExpanded, true);
   					RaisePropertyChanged(nameof(IsHidden));
-+ 					{
 <<<< DIAGNOSTIC: dharmendra - testing new loop in the c# >>>>
   					if (Parent != null)
++ 					{
   						Parent.RaisePropertyChanged(nameof(ShowExpander));
   				}
   			}

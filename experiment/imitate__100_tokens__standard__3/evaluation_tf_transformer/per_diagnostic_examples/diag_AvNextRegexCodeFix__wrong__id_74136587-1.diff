@@ -18,8 +18,8 @@ num_datapoints_in_train: 80
 <<<<<<<< INFERRED >>>>>>>>
    NotImplementedException(); }
           }
-+                 [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.RegexConverter), @"^[a-zA-Z0-9]*$")]//Roslyn auto generated
   
++                 [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.RegexConverter), @"^[a-zA-Z0-9]*$")]//Roslyn auto generated
 <<<< DIAGNOSTIC: type name 'Name' should be decorated with regexconverter attribute >>>>
           public override string Name
           {

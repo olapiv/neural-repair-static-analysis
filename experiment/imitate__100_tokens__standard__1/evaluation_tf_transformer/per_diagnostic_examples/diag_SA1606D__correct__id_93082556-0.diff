@@ -10,10 +10,10 @@ num_datapoints_in_train: 156
   using System.Collections.Generic;
   
   namespace DbLinq.Vendor.Implementation
+  {
 +     /// <summary>
 +     /// schema loader.
 +     /// </summary>
-  {
 <<<< DIAGNOSTIC: class documentation: no documentation. >>>>
       partial class SchemaLoader
       {

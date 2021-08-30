@@ -13,8 +13,8 @@ num_datapoints_in_train: 220
           /// <
 <<<<<<<< INFERRED >>>>>>>>
   ">SQL update query</param>
-+         /// <remarks></remarks>
           /// <param name="modifiedMembers">List of modified members, or null to update all members</param>
++         /// <remarks></remarks>
 <<<< DIAGNOSTIC: method 'Update' doesn't have remark in the comment >>>>
           void Update(object target, UpsertQuery updateQuery,IList<MemberInfo> modifiedMembers);
   

@@ -5,8 +5,8 @@ num_datapoints_in_train: 9
 <<<<<<<< CORRECTLY INFERRED >>>>>>>>
     Fragment = Name,
               };
-+             {
               if (!string.IsNullOrEmpty(Plugin))
++             {
 <<<< DIAGNOSTIC: braces should not be omitted from multi-line child statement >>>>
                   if (!string.IsNullOrEmpty(PluginOpts))
                       uriBuilder.Query 

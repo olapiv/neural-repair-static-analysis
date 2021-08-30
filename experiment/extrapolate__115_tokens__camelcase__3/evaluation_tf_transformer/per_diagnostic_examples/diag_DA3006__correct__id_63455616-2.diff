@@ -4,8 +4,8 @@ perc_correct_in_test: 0.06521739130434782
 num_datapoints_in_train: 0
 <<<<<<<< CORRECTLY INFERRED >>>>>>>>
           /// </summary>
-+             /// <returns></returns>
               /// <typeparam name="T">The type to read.</typeparam>
++             /// <returns></returns>
 <<<< DIAGNOSTIC: method 'ReadSingle' doesn't have /// returns in comment >>>>
               public T ReadSingle<T>() => ReadRow<T>(typeof(T), Row.Single);
   

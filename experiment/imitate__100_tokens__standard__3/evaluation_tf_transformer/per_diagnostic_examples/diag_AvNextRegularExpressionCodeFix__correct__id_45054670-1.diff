@@ -5,8 +5,8 @@ num_datapoints_in_train: 94
 <<<<<<<< CORRECTLY INFERRED >>>>>>>>
   }
           public int StatusCode { get; set; }
-+         [System.ComponentModel.DataAnnotations.RegularExpression(@"^[a-zA-Z0-9]*$")]//Roslyn auto generated
           public string StatusDescription { get; set; }
++         [System.ComponentModel.DataAnnotations.RegularExpression(@"^[a-zA-Z0-9]*$")]//Roslyn auto generated
 <<<< DIAGNOSTIC: type name 'HttpMethod' should be decorated with regularexpress attribute >>>>
           public string HttpMethod { get; set; }
           public string AbsoluteUri { get; set; }

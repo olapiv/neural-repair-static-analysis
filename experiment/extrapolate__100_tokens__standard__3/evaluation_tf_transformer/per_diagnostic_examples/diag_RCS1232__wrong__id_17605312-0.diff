@@ -11,8 +11,8 @@ num_datapoints_in_train: 0
           public static void
 <<<<<<<< INFERRED >>>>>>>>
           /// unpacks a raw db type
-+         /// <param name="dataType">the type.</param>
           /// </summary>
++         /// <param name="dataType">the type.</param>
 <<<< DIAGNOSTIC: order elements in documentation comment. >>>>
           /// <param name="rawType"></param>
           /// <param name="dataType"></param>

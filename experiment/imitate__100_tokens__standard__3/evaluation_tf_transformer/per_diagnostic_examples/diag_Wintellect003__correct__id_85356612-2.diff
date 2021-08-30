@@ -6,8 +6,8 @@ num_datapoints_in_train: 197
   Type type)
           {
               var metaTable = GetTable(type);
-+             {
 <<<< DIAGNOSTIC: 'if' statements must have braces >>>>
               if (metaTable == null)
++             {
                   return null;
               return metaTable.RowType;

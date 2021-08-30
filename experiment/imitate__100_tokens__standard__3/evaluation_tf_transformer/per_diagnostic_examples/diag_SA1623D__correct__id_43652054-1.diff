@@ -6,10 +6,10 @@ num_datapoints_in_train: 435
           }
               throw new Exception();
           }
+  
 +         /// <summary>
 +         /// Gets the operands.
 +         /// </summary>
-  
 <<<< DIAGNOSTIC: property documentation: no documentation. >>>>
           public IEnumerable<Expression> Operands
           {

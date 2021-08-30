@@ -5,9 +5,9 @@ num_datapoints_in_train: 280
 <<<<<<<< CORRECTLY INFERRED >>>>>>>>
   / <param name="text">The text.</param>
           /// <returns></returns>
-+         private
 <<<< DIAGNOSTIC: message format: need to specify access modifier  >>>>
           IList<string> GetWords(string text);
++         private
   
           /// <summary>
           /// Returns true if the required culture is

@@ -4,8 +4,8 @@ perc_correct_in_test: 0.12352941176470589
 num_datapoints_in_train: 596
 <<<<<<<< CORRECT >>>>>>>>
   The retrieved item, or <value>null</value> if the key was not found.
-+         /// <typeparam name="T">a type of {T}.</typeparam>
           /// </returns>
++         /// <typeparam name="T">a type of {T}.</typeparam>
 <<<< DIAGNOSTIC: method documentation: missing 'T'. >>>>
           T Get<T>(string key);
   
@@ -13,9 +13,9 @@ num_datapoints_in_train: 596
           /// Increments the value
 <<<<<<<< INFERRED >>>>>>>>
   The retrieved item, or <value>null</value> if the key was not found.
+          /// </returns>
 +         /// <param name="key">the key.</param>
 +         /// <returns>the t.</returns>
-          /// </returns>
 <<<< DIAGNOSTIC: method documentation: missing 'T'. >>>>
           T Get<T>(string key);
   

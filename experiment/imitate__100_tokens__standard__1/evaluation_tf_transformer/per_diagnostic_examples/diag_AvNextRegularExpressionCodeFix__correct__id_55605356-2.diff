@@ -4,8 +4,8 @@ perc_correct_in_test: 0.6666666666666666
 num_datapoints_in_train: 93
 <<<<<<<< CORRECTLY INFERRED >>>>>>>>
          public ResponseStatus Error { get; set; }
-+         [System.ComponentModel.DataAnnotations.RegularExpression(@"^[a-zA-Z0-9]*$")]//Roslyn auto generated
           public string Tag { get; set; }
++         [System.ComponentModel.DataAnnotations.RegularExpression(@"^[a-zA-Z0-9]*$")]//Roslyn auto generated
 <<<< DIAGNOSTIC: type name 'Meta' should be decorated with regularexpress attribute >>>>
           public Dictionary<string, string> Meta { get; set; }
           public object Body { get; set; }

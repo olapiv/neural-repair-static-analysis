@@ -5,8 +5,8 @@ num_datapoints_in_train: 14
 <<<<<<<< CORRECTLY INFERRED >>>>>>>>
          {
               get {
-+                 {
                   if (_persistentDataMembers == null)
++                 {
 <<<< DIAGNOSTIC: add braces to if statement (when expression spans over multiple lines). >>>>
                       _persistentDataMembers =
                           DataMembers

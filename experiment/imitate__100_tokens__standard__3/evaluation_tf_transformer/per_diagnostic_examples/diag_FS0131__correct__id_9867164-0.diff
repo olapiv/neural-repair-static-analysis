@@ -5,8 +5,8 @@ num_datapoints_in_train: 24
 <<<<<<<< CORRECTLY INFERRED >>>>>>>>
       public void Unregister(Type implementationType)
           {
-+             {
               foreach (var entry in Implementations)
++             {
 <<<< DIAGNOSTIC: add braces to single statement in this foreach loop >>>>
                   entry.Value.Remove(implementationType);
           }

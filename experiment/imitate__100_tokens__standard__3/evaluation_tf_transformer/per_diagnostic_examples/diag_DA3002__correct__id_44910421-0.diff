@@ -9,11 +9,11 @@ num_datapoints_in_train: 284
   using DbLinq.Data.Linq.Sugar.Expressions;
   
   namespace DbLinq.Data.Linq.Sugar.ExpressionMutator.Implementation
+  {
 + 
 +     /// <summary> 
 +     /// 
 +     /// </summary>
-  {
 <<<< DIAGNOSTIC: type 'LambdaExpressionMutator' doesn't have /// comments >>>>
       internal class LambdaExpressionMutator : IMutableExpression
       {

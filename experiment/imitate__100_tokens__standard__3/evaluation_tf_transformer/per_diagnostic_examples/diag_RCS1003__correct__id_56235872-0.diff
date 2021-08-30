@@ -5,8 +5,8 @@ num_datapoints_in_train: 11
 <<<<<<<< CORRECTLY INFERRED >>>>>>>>
           public void ReadEmptyContent(XmlReader r, string name)
               {
-+                 {
 <<<< DIAGNOSTIC: add braces to if-else (when expression spans over multiple lines). >>>>
                   if (r.IsEmptyElement)
++                 {
                       r.ReadStartElement(name, DbmlNamespace);
          

@@ -5,9 +5,9 @@ num_datapoints_in_train: 3
 <<<<<<<< CORRECT >>>>>>>>
   
                   case SpecialExpressionType.Remove:
+                      return typeof(string);
 +                 case SpecialExpressionType.Count:
 +                 case SpecialExpressionType.StringLength:
-                      return typeof(string);
 <<<< DIAGNOSTIC: switch statements with equivalent content should be merged >>>>
                   case SpecialExpressionType.IndexOf:
                       return typeof(int

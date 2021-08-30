@@ -8,10 +8,10 @@ num_datapoints_in_train: 156
   using DbLinq.Util;
   
   namespace DbLinq.Data.Linq.Sugar.Implementation
+  {
 +     /// <summary>
 +     /// data record reader.
 +     /// </summary>
-  {
 <<<< DIAGNOSTIC: class documentation: no documentation. >>>>
       internal class DataRecordReader : IDataRecordReader
       {
@@ -23,10 +23,10 @@ num_datapoints_in_train: 156
   using DbLinq.Util;
   
   namespace DbLinq.Data.Linq.Sugar.Implementation
+  {
 +     /// <summary>
 +     /// sql mapper.
 +     /// </summary>
-  {
 <<<< DIAGNOSTIC: class documentation: no documentation. >>>>
       internal class DataRecordReader : IDataRecordReader
       {

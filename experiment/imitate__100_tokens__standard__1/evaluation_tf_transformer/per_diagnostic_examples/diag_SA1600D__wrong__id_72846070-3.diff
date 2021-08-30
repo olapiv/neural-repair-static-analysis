@@ -6,11 +6,11 @@ num_datapoints_in_train: 124
   private readonly Action<TEntity> onAdd;
           private readonly Action<TEntity> onRemove;
   
+          private IEnumerable<TEntity> deferredSource;
 + 
 +         /// <summary>
 +         /// the deferred.
 +         /// </summary>
-          private IEnumerable<TEntity> deferredSource;
 <<<< DIAGNOSTIC: members must be correctly documented. >>>>
           private bool deferred;
   		private bool assignedValues;
@@ -20,10 +20,10 @@ num_datapoints_in_train: 124
   private readonly Action<TEntity> onAdd;
           private readonly Action<TEntity> onRemove;
   
+          private IEnumerable<TEntity> deferredSource;
 +         /// <summary>
 +         /// the deferred source.
 +         /// </summary>
-          private IEnumerable<TEntity> deferredSource;
 <<<< DIAGNOSTIC: members must be correctly documented. >>>>
           private bool deferred;
   		private bool assignedValues;

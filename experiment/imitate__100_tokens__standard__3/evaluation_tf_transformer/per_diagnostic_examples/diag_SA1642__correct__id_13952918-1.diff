@@ -7,9 +7,9 @@ num_datapoints_in_train: 5
               JoinID = joinID;
           }
   
-+         /// Initializes a new instance of the <see cref="TableExpression"/> class.
 <<<< DIAGNOSTIC: constructor summary documentation should begin with standard text >>>>
           /// <summary>
++         /// Initializes a new instance of the <see cref="TableExpression"/> class.
           /// Ctor for default table
           /// </summary>
           

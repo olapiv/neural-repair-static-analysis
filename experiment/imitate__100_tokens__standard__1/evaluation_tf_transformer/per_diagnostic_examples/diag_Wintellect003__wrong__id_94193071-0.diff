@@ -8,9 +8,9 @@ num_datapoints_in_train: 62
   				UpdateChildIsVisible(false);
   
   				// Validate our invariants:
-+ 				{
 <<<< DIAGNOSTIC: 'if' statements must have braces >>>>
   				if (updateFlattener)
++ 				{
   					CheckRootInvariants();
   
   				// Tell the flattener about the removed nodes:
@@ -20,8 +20,8 @@ num_datapoints_in_train: 62
   				// also update the model children:
   				UpdateChildIsVisible(false);
   
-+ 				{
   				// Validate our invariants:
++ 				{
 <<<< DIAGNOSTIC: 'if' statements must have braces >>>>
   				if (updateFlattener)
   					CheckRootInvariants();

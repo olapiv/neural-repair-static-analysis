@@ -5,8 +5,8 @@ num_datapoints_in_train: 45
 <<<<<<<< CORRECTLY INFERRED >>>>>>>>
    and can be created as needed.
           /// </summary>
-+         /// <example></example>
           /// <returns>The mapper instance</returns>
++         /// <example></example>
 <<<< DIAGNOSTIC: method 'CreateMapper' doesn't have example the comment >>>>
           IMapper CreateMapper();
   

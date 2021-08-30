@@ -6,10 +6,10 @@ num_datapoints_in_train: 63
    queryCacheEnabled; }
               set { queryCacheEnabled = value; }
           }
-+ 
   
 <<<< DIAGNOSTIC: add empty line between declarations. >>>>
           private IEntityTracker currentTransactionEntities;
++ 
           private IEntityTracker CurrentTransactionEntities
           {
               get

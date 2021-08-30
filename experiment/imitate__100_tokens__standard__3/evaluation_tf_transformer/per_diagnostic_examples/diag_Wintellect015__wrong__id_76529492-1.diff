@@ -4,15 +4,15 @@ perc_correct_in_test: 0.9324324324324325
 num_datapoints_in_train: 206
 <<<<<<<< CORRECT >>>>>>>>
         if ((c & 1) > 0)
-+                 }
                       c = 0xedb88320L ^ (c >> 1);
++                 }
 <<<< DIAGNOSTIC: dharmendra - testing new loop in the c# >>>>
                   else
                       c 
 <<<<<<<< INFERRED >>>>>>>>
         if ((c & 1) > 0)
-+                     }
                       c = 0xedb88320L ^ (c >> 1);
++                     }
 <<<< DIAGNOSTIC: dharmendra - testing new loop in the c# >>>>
                   else
                       c 

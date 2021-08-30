@@ -5,8 +5,8 @@ num_datapoints_in_train: 47
 <<<<<<<< CORRECT >>>>>>>>
    high-level typed client API
           /// </summary>
-+         /// <returns></returns>
           /// <typeparam name="T"></typeparam>
++         /// <returns></returns>
 <<<< DIAGNOSTIC: method 'As' doesn't have /// returns in comment >>>>
           IRedisTypedClient<T> As<T>();
   
@@ -15,9 +15,9 @@ num_datapoints_in_train: 47
 <<<<<<<< INFERRED >>>>>>>>
    high-level typed client API
           /// </summary>
+          /// <typeparam name="T"></typeparam>
 + 
 +         /// <returns></returns>
-          /// <typeparam name="T"></typeparam>
 <<<< DIAGNOSTIC: method 'As' doesn't have /// returns in comment >>>>
           IRedisTypedClient<T> As<T>();
   

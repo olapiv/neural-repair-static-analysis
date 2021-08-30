@@ -5,17 +5,17 @@ num_datapoints_in_train: 214
 <<<<<<<< CORRECT >>>>>>>>
   )
                   {
-+                     {
                       if (aScope == bScope)
++                     {
 <<<< DIAGNOSTIC: braces should not be omitted >>>>
                           return aScope;
                   }
      
 <<<<<<<< INFERRED >>>>>>>>
   )
-+                 {
                   {
                       if (aScope == bScope)
++                 {
 <<<< DIAGNOSTIC: braces should not be omitted >>>>
                           return aScope;
                   }

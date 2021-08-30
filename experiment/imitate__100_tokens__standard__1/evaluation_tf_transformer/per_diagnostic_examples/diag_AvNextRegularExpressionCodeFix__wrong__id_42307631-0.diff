@@ -16,8 +16,8 @@ num_datapoints_in_train: 93
               public virtual bool Nullable 
 <<<<<<<< INFERRED >>>>>>>>
   public class DataType : IDataType
-+             [System.ComponentModel.DataAnnotations.RegularExpression(@"^[a-zA-Z0-9]*$")]//Roslyn auto generated
           {
++             [System.ComponentModel.DataAnnotations.RegularExpression(@"^[a-zA-Z0-9]*$")]//Roslyn auto generated
 <<<< DIAGNOSTIC: type name 'SqlType' should be decorated with regularexpress attribute >>>>
               public virtual string SqlType { get; set; }
 <<<< DIAGNOSTIC: type name 'ManagedType' should be decorated with regularexpress attribute >>>>

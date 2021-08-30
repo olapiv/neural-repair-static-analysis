@@ -5,8 +5,8 @@ num_datapoints_in_train: 0
 <<<<<<<< CORRECT >>>>>>>>
    t, DataContext dataContext)
           {
-+             {
               foreach (var member in dataContext.Mapping.GetTable(t).RowType.IdentityMembers)
++             {
 <<<< DIAGNOSTIC: add braces to single statement in this foreach loop >>>>
                   keyMembers.Add(member.Member);
               type = t;
@@ -15,8 +15,8 @@ num_datapoints_in_train: 0
    t, DataContext dataContext)
           {
               foreach (var member in dataContext.Mapping.GetTable(t).RowType.IdentityMembers)
-+             {
 <<<< DIAGNOSTIC: add braces to single statement in this foreach loop >>>>
                   keyMembers.Add(member.Member);
++             {
               type = t;
    

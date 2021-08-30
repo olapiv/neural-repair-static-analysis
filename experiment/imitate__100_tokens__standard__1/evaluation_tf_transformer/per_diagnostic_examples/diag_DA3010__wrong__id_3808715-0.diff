@@ -31,11 +31,11 @@ num_datapoints_in_train: 21
   using System.Reflection;
   
   namespace Sparkles {
+      
 + 
 +     /// <summary> 
 +     /// 
 +     /// </summary>
-      
 <<<< DIAGNOSTIC: type 'OS' doesn't have /// comments >>>>
       public enum OS {
           Unknown,

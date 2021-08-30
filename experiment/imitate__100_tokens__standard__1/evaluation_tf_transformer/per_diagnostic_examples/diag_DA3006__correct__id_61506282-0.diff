@@ -4,8 +4,8 @@ perc_correct_in_test: 0.625
 num_datapoints_in_train: 33
 <<<<<<<< CORRECTLY INFERRED >>>>>>>>
   the cache at the cache key specified regardless if it already exists or not.
-+         /// <returns></returns>
           /// </summary>
++         /// <returns></returns>
 <<<< DIAGNOSTIC: method 'Set' doesn't have /// returns in comment >>>>
           bool Set<T>(string key, T value);
   

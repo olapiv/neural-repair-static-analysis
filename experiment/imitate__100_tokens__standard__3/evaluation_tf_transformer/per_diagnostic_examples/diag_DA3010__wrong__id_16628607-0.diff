@@ -21,11 +21,11 @@ num_datapoints_in_train: 42
   type">The type.</param>
           public TestLogger(Type type) {
           }
+  
 + 
 +     /// <summary> 
 +     /// 
 +     /// </summary>
-  
 <<<< DIAGNOSTIC: type 'Levels' doesn't have /// comments >>>>
           public enum Levels {
               DEBUG,

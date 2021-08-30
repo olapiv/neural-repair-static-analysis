@@ -21,8 +21,8 @@ num_datapoints_in_train: 89
   {
       [AttributeUsage(AttributeTargets.Property)]
       public class CheckConstraintAttribute : AttributeBase
-+         [System.ComponentModel.DataAnnotations.MaxLength(200)]//Roslyn auto generated
       {
++         [System.ComponentModel.DataAnnotations.MaxLength(200)]//Roslyn auto generated
 <<<< DIAGNOSTIC: type name 'Constraint' should be decorated with maxlength attribute >>>>
           public string Constraint { get; }
   

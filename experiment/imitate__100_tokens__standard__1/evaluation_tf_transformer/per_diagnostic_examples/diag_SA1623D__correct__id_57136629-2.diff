@@ -6,10 +6,10 @@ num_datapoints_in_train: 316
   ColumnExpression = newOperands[0];
               return this;
           }
+  
 +         /// <summary>
 +         /// Gets the operands.
 +         /// </summary>
-  
 <<<< DIAGNOSTIC: property documentation: no documentation. >>>>
           public override System.Collections.Generic.IEnumerable<Expression> Operands
           {

@@ -5,13 +5,13 @@ num_datapoints_in_train: 596
 <<<<<<<< CORRECTLY INFERRED >>>>>>>>
       /// </summary>
           Regex SplittingExpression { get; }
+          string SeparatorCharacter { get; }
 + 
 +         /// <summary>
 +         /// replace the value.
 +         /// </summary>
 +         /// <param name="match">the match.</param>
 +         /// <returns>a string containing the replace value.</returns>
-          string SeparatorCharacter { get; }
 <<<< DIAGNOSTIC: method documentation: no documentation. >>>>
           string ReplaceValue(Match match);
       }

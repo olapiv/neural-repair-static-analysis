@@ -6,11 +6,11 @@ num_datapoints_in_train: 49
    AttributeTargets.Field,
         AllowMultiple = true)]
       internal sealed class ValueProviderAttribute : Attribute
+      {
 +         /// <summary>
 +         /// Initializes a new instance of the <see cref="ValueProviderAttribute"/> class.
 +         /// </summary>
 +         /// <param name="name">the name.</param>
-      {
 <<<< DIAGNOSTIC: constructors must be correctly documented. >>>>
           public ValueProviderAttribute([NotNull] string name)
           {

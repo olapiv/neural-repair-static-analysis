@@ -6,11 +6,11 @@ num_datapoints_in_train: 49
      /// </summary>
       [AttributeUsage(AttributeTargets.Class)]
       public class SchemaAttribute : AttributeBase
+      {
 +         /// <summary>
 +         /// Initializes a new instance of the <see cref="SchemaAttribute"/> class.
 +         /// </summary>
 +         /// <param name="name">the name.</param>
-      {
 <<<< DIAGNOSTIC: constructors must be correctly documented. >>>>
           public SchemaAttribute(string name)
           {
@@ -20,11 +20,11 @@ num_datapoints_in_train: 49
      /// </summary>
       [AttributeUsage(AttributeTargets.Class)]
       public class SchemaAttribute : AttributeBase
+      {
 +         /// <summary>
 +         /// Initializes a new instance of the <see cref="FallbackRouteAttribute"/> class.
 +         /// </summary>
 +         /// <param name="name">the name.</param>
-      {
 <<<< DIAGNOSTIC: constructors must be correctly documented. >>>>
           public SchemaAttribute(string name)
           {

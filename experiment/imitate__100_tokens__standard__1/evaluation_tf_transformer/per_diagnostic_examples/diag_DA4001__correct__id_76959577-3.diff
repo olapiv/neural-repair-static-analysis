@@ -4,8 +4,8 @@ perc_correct_in_test: 0.9452054794520548
 num_datapoints_in_train: 208
 <<<<<<<< CORRECTLY INFERRED >>>>>>>>
   param name="comparisonType">Type property name string comparison.</param>
-+         /// <remarks></remarks>
           /// <returns>A matching property if found.</returns>
++         /// <remarks></remarks>
 <<<< DIAGNOSTIC: method 'GetProperty' doesn't have remark in the comment >>>>
           public JsonProperty? GetProperty(string propertyName, StringComparison comparisonType)
           {

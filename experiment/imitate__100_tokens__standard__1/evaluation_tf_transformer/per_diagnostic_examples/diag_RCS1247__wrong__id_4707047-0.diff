@@ -13,8 +13,8 @@ num_datapoints_in_train: 0
       public sealed class IncludeInNancyAssemblyScanningAttribute : Attribute
 <<<<<<<< INFERRED >>>>>>>>
    <example>
-+     /// <example></example>
       /// Apply the attribute, typically in AssemblyInfo.(cs|fs|vb), as follows:
++     /// <example></example>
 <<<< DIAGNOSTIC: fix documentation comment tag. >>>>
       /// <code>[assembly: IncludeInNancyAssemblyScanning]</code>
       /// </example>

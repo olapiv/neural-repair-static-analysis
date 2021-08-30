@@ -12,8 +12,8 @@ num_datapoints_in_train: 0
            
 <<<<<<<< INFERRED >>>>>>>>
          /// </summary>
-+         /// <returns></returns>
           /// <param name="newParts"></param>
++         /// <returns></returns>
 <<<< DIAGNOSTIC: void return value should not be documented >>>>
           /// <returns></returns>
           public void Append(IList<SqlPart> newParts)

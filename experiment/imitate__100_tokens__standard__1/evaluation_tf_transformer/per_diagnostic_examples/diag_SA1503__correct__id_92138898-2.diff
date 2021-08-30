@@ -6,8 +6,8 @@ num_datapoints_in_train: 54
    int startIndex, bool tryBackward, out bool charWasUsed)
   		{
   			charWasUsed = false;
-+ 			{
   			if (treeView.Items.Count == 0 || string.IsNullOrEmpty(needle))
++ 			{
 <<<< DIAGNOSTIC: braces should not be omitted >>>>
   				return -1;
   			int index = -1;

@@ -6,8 +6,8 @@ num_datapoints_in_train: 0
         Profiler.At("END DataContext(string, MappingSource)");
           }
   
-+         /// <para>
           /// <summary>
++         /// <para>
 <<<< DIAGNOSTIC: add paragraph to documentation comment. >>>>
           /// Construct DataContext, given a connectionString.
           /// To determine which DB type to go against, we look for 'DbLinqProvider

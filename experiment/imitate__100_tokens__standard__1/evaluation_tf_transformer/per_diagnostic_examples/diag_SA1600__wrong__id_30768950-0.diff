@@ -6,6 +6,7 @@ num_datapoints_in_train: 3
   
           public int flags;
           public int idealProcNo;
+  
 +         /// <summary>
 +         /// Initializes a new instance of the <see cref="SampleInfo"/> struct.
 +         /// </summary>
@@ -14,7 +15,6 @@ num_datapoints_in_train: 3
 +         /// <param name="_countSamples"></param>
 +         /// <param name="_flags"></param>
 +         /// <param name="_idealProcNo"></param>
-  
 <<<< DIAGNOSTIC: elements should be documented >>>>
           public SampleInfo(int _tid, int _allocHeap, int _countSamples, int _flags, int _idealProcNo)
           {
