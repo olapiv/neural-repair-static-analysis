@@ -10,7 +10,7 @@
 * Humanly readable output examples are saved in [characteristic_examples](characteristic_examples) and in [per_diagnostic_examples](per_diagnostic_examples)
 * Pearson Number calculated with [scipy.stats.pearsonr](https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.pearsonr.html)
 
-## Results after 10k steps
+## Results after 5k steps
 
 Best evaluation results after 5k steps (3h25min); Loss function:
 

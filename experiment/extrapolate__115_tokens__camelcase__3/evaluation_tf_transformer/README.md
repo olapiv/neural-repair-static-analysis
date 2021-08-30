@@ -9,7 +9,7 @@
 * Evaluation results to be found in [inference-eval.json](inference-eval.json)
 * Humanly readable output examples are saved in [characteristic_examples](characteristic_examples) and in [per_diagnostic_examples](per_diagnostic_examples)
 
-## Results after n steps
+## Results after 5k steps
 
 Convergence after 5k steps (1h 20min); Loss function:
 
