@@ -14,6 +14,10 @@
     "avg_src_len_incorrect_result": 130.34236675700092,
     "avg_tgt_len_correct_result": 23.154545454545456,
     "avg_tgt_len_incorrect_result": 36.31616982836495,
+    "avg_src_formatting_len_correct_result": 74.44545454545455,
+    "avg_src_formatting_len_incorrect_result": 74.34778681120144,
+    "avg_tgt_formatting_len_correct_result": 10.881818181818181,
+    "avg_tgt_formatting_len_incorrect_result": 17.693766937669377,
     "avg_success_perc_per_src_len": {
         "265": 0.0,
         "183": 0.2275449101796407,
