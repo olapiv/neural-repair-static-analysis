@@ -89,6 +89,12 @@ evaluation_dict = {
     "avg_tgt_len_correct_result": None,
     "avg_tgt_len_incorrect_result": None,
 
+    "avg_src_formatting_len_correct_result": None,
+    "avg_src_formatting_len_incorrect_result": None,
+
+    "avg_tgt_formatting_len_correct_result": None,
+    "avg_tgt_formatting_len_incorrect_result": None,
+
     "avg_success_perc_per_src_len": {
         # 23: 0.7
     },
@@ -211,7 +217,8 @@ def create_diff_with_diags(src_dict, tgt_dict):
     try:
         if diff_type == "ADD":
             prev_src_loc = int(tgt_dict["previous_source_location"])
-            changed_file[prev_src_loc + 1:prev_src_loc + 1] = tgt_dict["target_lines"]
+            changed_file[prev_src_loc + 1:prev_src_loc +
+                         1] = tgt_dict["target_lines"]
 
         elif diff_type == "REMOVE":
             src_start = int(tgt_dict["source_location_start"])
@@ -324,11 +331,17 @@ def save_diagnostic_avg_results(evaluation_dict):
 
 def save_num_tokens_vs_success_perc(evaluation_dict, metadata_train, metadata_test, src_test_list, tgt_test_list, inference_test_list):
 
+    total_src_tokens_correct = 0
+    total_tgt_tokens_correct = 0
+
+    total_src_formatting_tokens_correct = 0
+    total_tgt_formatting_tokens_correct = 0
+
     total_src_tokens_incorrect = 0
     total_tgt_tokens_incorrect = 0
 
-    total_src_tokens_correct = 0
-    total_tgt_tokens_correct = 0
+    total_src_formatting_tokens_incorrect = 0
+    total_tgt_formatting_tokens_incorrect = 0
 
     result_per_src_len = {}
     result_per_tgt_len = {}
@@ -342,15 +355,29 @@ def save_num_tokens_vs_success_perc(evaluation_dict, metadata_train, metadata_te
         src_test_line = src_test_line.rstrip('\n').split(" ")
         tgt_test_line = tgt_test_line.rstrip('\n').split(" ")
 
+        src_test_line_formatting = [token for token in src_test_line if token in FORMATTING_TOKENS]
+        tgt_test_line_formatting = [token for token in tgt_test_line if token in FORMATTING_TOKENS]
+
         src_len = len(src_test_line)
         tgt_len = len(tgt_test_line)
+        
+        src_formatting_len = len(src_test_line_formatting)
+        tgt_formatting_len = len(tgt_test_line_formatting)
+
         if is_correct:
             num_correct_datapoints += 1
+
             total_src_tokens_correct += src_len
             total_tgt_tokens_correct += tgt_len
+
+            total_src_formatting_tokens_correct += src_formatting_len
+            total_tgt_formatting_tokens_correct += tgt_formatting_len
         else:
             total_src_tokens_incorrect += src_len
             total_tgt_tokens_incorrect += tgt_len
+
+            total_src_formatting_tokens_incorrect += src_formatting_len
+            total_tgt_formatting_tokens_incorrect += tgt_formatting_len
 
         if src_len not in result_per_src_len:
             result_per_src_len[src_len] = {}
@@ -376,11 +403,21 @@ def save_num_tokens_vs_success_perc(evaluation_dict, metadata_train, metadata_te
         evaluation_dict["avg_tgt_len_correct_result"] = total_tgt_tokens_correct / \
             num_correct_datapoints
 
+        evaluation_dict["avg_src_formatting_len_correct_result"] = total_src_formatting_tokens_correct / \
+            num_correct_datapoints
+        evaluation_dict["avg_tgt_formatting_len_correct_result"] = total_tgt_formatting_tokens_correct / \
+            num_correct_datapoints
+
     num_incorrect_datapoints = num_datapoints - num_correct_datapoints
     if num_incorrect_datapoints != 0:
         evaluation_dict["avg_src_len_incorrect_result"] = total_src_tokens_incorrect / \
             num_incorrect_datapoints
         evaluation_dict["avg_tgt_len_incorrect_result"] = total_tgt_tokens_incorrect / \
+            num_incorrect_datapoints
+
+        evaluation_dict["avg_src_formatting_len_incorrect_result"] = total_src_formatting_tokens_incorrect / \
+            num_incorrect_datapoints
+        evaluation_dict["avg_tgt_formatting_len_incorrect_result"] = total_tgt_formatting_tokens_incorrect / \
             num_incorrect_datapoints
 
     success_perc_per_src_len = {}
@@ -772,7 +809,7 @@ def plot_loss_curve(tf_csv_path):
     except FileNotFoundError as e:
         print(e)
         return
-        
+
     df = df.loc[df['tag'] == "loss"]
 
     fig = go.Figure()
