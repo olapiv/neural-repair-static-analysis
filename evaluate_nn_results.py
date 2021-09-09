@@ -682,12 +682,12 @@ def sort_for_characteristic_examples(evaluation_dict):
         key=lambda x: abs(x.get('perc_correct_in_test') - 0.5))
 
     low_accuracy_many_datapoints_in_train = [
-        result for result in lowest_accuracy_copied if result["perc_correct_in_test"] < 0.05]
+        result for result in result_per_diagnostic if result["perc_correct_in_test"] < 0.05]
     low_accuracy_many_datapoints_in_train.sort(
         key=lambda x: x.get('num_datapoints_in_train'), reverse=True)
     
     high_accuracy_few_datapoints_in_train = [
-        result for result in highest_accuracy_copied if result["perc_correct_in_test"] > 0.95]
+        result for result in result_per_diagnostic if result["perc_correct_in_test"] > 0.95]
     high_accuracy_few_datapoints_in_train.sort(
         key=lambda x: x.get('num_datapoints_in_train'))
 
