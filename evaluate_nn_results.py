@@ -582,7 +582,7 @@ def save_characteristic_examples(
                 break
 
             # Get a correct datapoint
-            if key in ["highest_accuracy_copied", "highest_accuracy_extrapolated"]:
+            if key in ["highest_accuracy_copied", "highest_accuracy_extrapolated", "high_accuracy_few_datapoints_in_train"]:
 
                 _, diff_with_diags = generate_diff(
                     diagnostic_result,
@@ -595,7 +595,8 @@ def save_characteristic_examples(
 
             # Get an incorrect or ambiguous datapoint
             # key in (lowest_accuracy_copied, lowest_accuracy_extrapolated,
-            # ambiguous_accuracy_copied & ambiguous_accuracy_extrapolated)
+            # ambiguous_accuracy_copied & ambiguous_accuracy_extrapolated, 
+            # low_accuracy_many_datapoints_in_train)
             else:
 
                 _, diff_with_diags = generate_diff(
@@ -680,13 +681,25 @@ def sort_for_characteristic_examples(evaluation_dict):
     ambiguous_accuracy_extrapolated.sort(
         key=lambda x: abs(x.get('perc_correct_in_test') - 0.5))
 
+    low_accuracy_many_datapoints_in_train = [
+        result for result in lowest_accuracy_copied if result["perc_correct_in_test"] < 0.05]
+    low_accuracy_many_datapoints_in_train.sort(
+        key=lambda x: x.get('num_datapoints_in_train'), reverse=True)
+    
+    high_accuracy_few_datapoints_in_train = [
+        result for result in highest_accuracy_copied if result["perc_correct_in_test"] > 0.95]
+    high_accuracy_few_datapoints_in_train.sort(
+        key=lambda x: x.get('num_datapoints_in_train'))
+
     return {
         "highest_accuracy_copied": highest_accuracy_copied,
         "highest_accuracy_extrapolated": highest_accuracy_extrapolated,
         "lowest_accuracy_copied": lowest_accuracy_copied,
         "lowest_accuracy_extrapolated": lowest_accuracy_extrapolated,
         "ambiguous_accuracy_copied": ambiguous_accuracy_copied,
-        "ambiguous_accuracy_extrapolated": ambiguous_accuracy_extrapolated
+        "ambiguous_accuracy_extrapolated": ambiguous_accuracy_extrapolated,
+        "low_accuracy_many_datapoints_in_train": low_accuracy_many_datapoints_in_train,
+        "high_accuracy_few_datapoints_in_train": high_accuracy_few_datapoints_in_train
     }
 
 
