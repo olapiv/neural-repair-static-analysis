@@ -1,0 +1,18 @@
+id: 56030505-0
+diagnostic: DA3004
+perc_correct_in_test: 1.0
+num_datapoints_in_train: 0
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  ): {2} ({3})", Member, Name, Type, DbType);
+          }
+      }
+  
++     /// <summary> 
++     /// 
++     /// </summary>
+<<<< DIAGNOSTIC: type 'Connection' doesn't have /// summary in comment >>>>
+      partial class Connection
+      {
+          public Connection()
+          {
+              SpecifiedPropertyUpdater.Register

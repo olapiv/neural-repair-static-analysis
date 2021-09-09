@@ -1,0 +1,24 @@
+id: 89305240-0
+diagnostic: AT001
+perc_correct_in_test: 0.0
+num_datapoints_in_train: 132
+<<<<<<<< CORRECT >>>>>>>>
+              private readonly DapperRow _row;
+<<<< DIAGNOSTIC: readonly field(s) not assigned in constructor: _row. >>>>
+-                 public DapperRowTypeDescriptor(object instance)
++                 public DapperRowTypeDescriptor(object instance, DapperRow _row)
++                 {
++                     this._row = _row;
++                 }
++ 
+-                     => _row = (DapperRow)instance;
++                 => _row = (DapperRow)instance;
+  
+                  AttributeCollection ICustomTypeDescriptor.
+<<<<<<<< INFERRED >>>>>>>>
+              private readonly DapperRow _row;
+<<<< DIAGNOSTIC: readonly field(s) not assigned in constructor: _row. >>>>
+                  public DapperRowTypeDescriptor(object instance)
+                      => _row = (DapperRow)instance;
+  
+                  AttributeCollection ICustomTypeDescriptor.

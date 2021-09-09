@@ -1,0 +1,20 @@
+id: 58210062-0
+diagnostic: WTG1009
+perc_correct_in_test: 1.0
+num_datapoints_in_train: 0
+<<<<<<<< CORRECTLY INFERRED >>>>>>>>
+  Linq.DataContext;
+  using System.Data.Linq;
+  #else
+  using DataContext = DbLinq.Data.Linq.DataContext;
+  #endif
+  
+  using Data = DbLinq.Data;
+<<<< DIAGNOSTIC: 'using' directives should be placed before 'usingstatic' directives, which in turn must be placed before 'using' alias directives. >>>>
+- using DbLinq.Data.Linq;
+  using IExecuteResult = System.Data.Linq.IExecuteResult;
+  
+  namespace DbLinq.Vendor
+  {
+      /// <summary>
+      /// Vendor - 
