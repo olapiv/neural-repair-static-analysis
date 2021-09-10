@@ -26,6 +26,14 @@ pearsonr: (0.0634902867694032, 0.25447036235119896)
 
 Each datapoint represents a diagnostic. It is hard to decipher a correlation between number of data points a diagnostic requires in train to be successfully predicted in test.
 
+### Influence of Percentage of **Formatting** Tokens in Source on Success Rate of Predictions
+
+![Source Formatting Percentage vs Success Rate](imitate_success_rate_formatting_perc_src.svg)
+
+### Influence of Percentage of **Formatting** Tokens in Target on Success Rate of Predictions
+
+![Target Formatting Percentage vs Success Rate](imitate_success_rate_formatting_perc_tgt.svg)
+
 ### Influence of Number of **Formatting** Tokens in Source on Success Rate of Predictions
 
 ![Source Formatting Length vs Success Rate](imitate_success_rate_formatting_len_src.svg)

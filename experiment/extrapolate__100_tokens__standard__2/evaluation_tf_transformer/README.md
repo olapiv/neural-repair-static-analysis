@@ -19,6 +19,14 @@ Convergence after 5k steps (3h 16min); Loss function:
 
 ![Loss Function](loss_function_20k_steps.png)
 
+### Influence of Percentage of **Formatting** Tokens in Source on Success Rate of Predictions
+
+![Source Formatting Percentage vs Success Rate](extrap_success_rate_formatting_perc_src.svg)
+
+### Influence of Percentage of **Formatting** Tokens in Target on Success Rate of Predictions
+
+![Target Formatting Percentage vs Success Rate](extrap_success_rate_formatting_perc_tgt.svg)
+
 ### Influence of Number of **Formatting** Tokens in Source on Success Rate of Predictions
 
 ![Source Formatting Length vs Success Rate](extrap_success_rate_formatting_len_src.svg)
