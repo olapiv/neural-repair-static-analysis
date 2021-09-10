@@ -81,7 +81,22 @@ $new_path = "C:\Users\vlohse\Desktop\cuDNN\bin"
 
 ```
 
-### OpenNMT Commands
+### Launch Experiments on Unix
+
+```bash
+
+# Use directory folder as argument
+
+# TENSORFLOW
+./run_opennmt_tf_transformer.sh imitate__115_tokens__camelcase__3
+
+## OR
+
+# PYTORCH
+./run_opennmt_py_transformer.sh imitate__115_tokens__camelcase__3
+```
+
+### Cheatsheet OpenNMT Commands
 
 ```Powershell
 
