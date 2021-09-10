@@ -355,12 +355,14 @@ def save_num_tokens_vs_success_perc(evaluation_dict, metadata_train, metadata_te
         src_test_line = src_test_line.rstrip('\n').split(" ")
         tgt_test_line = tgt_test_line.rstrip('\n').split(" ")
 
-        src_test_line_formatting = [token for token in src_test_line if token in FORMATTING_TOKENS]
-        tgt_test_line_formatting = [token for token in tgt_test_line if token in FORMATTING_TOKENS]
+        src_test_line_formatting = [
+            token for token in src_test_line if token in FORMATTING_TOKENS]
+        tgt_test_line_formatting = [
+            token for token in tgt_test_line if token in FORMATTING_TOKENS]
 
         src_len = len(src_test_line)
         tgt_len = len(tgt_test_line)
-        
+
         src_formatting_len = len(src_test_line_formatting)
         tgt_formatting_len = len(tgt_test_line_formatting)
 
@@ -482,6 +484,59 @@ def save_num_formatting_tokens_vs_success_perc(evaluation_dict, src_test_list, t
     evaluation_dict["avg_success_perc_per_tgt_formatting_token"] = success_perc_per_tgt_format_token
 
 
+def save_perc_formatting_tokens_vs_success_perc(evaluation_dict, src_test_list, tgt_test_list, inference_test_list):
+
+    result_per_src_perc_format_tokens = {}
+    result_per_tgt_perc_format_tokens = {}
+
+    for index, tgt_test_line in enumerate(tgt_test_list):
+        is_correct = tgt_test_line == inference_test_list[index]
+
+        src_test_line = src_test_list[index]
+
+        src_test_line = src_test_line.rstrip('\n').split(" ")
+        tgt_test_line = tgt_test_line.rstrip('\n').split(" ")
+
+        src_num_format_token = len(
+            [token for token in src_test_line if token in FORMATTING_TOKENS])
+        tgt_perc_format_token = len(
+            [token for token in tgt_test_line if token in FORMATTING_TOKENS])
+
+        src_perc_format_token = round(
+            src_num_format_token / len(src_test_line), 2)
+        tgt_perc_format_token = round(
+            tgt_perc_format_token / len(tgt_test_line), 2)
+
+        if src_perc_format_token not in result_per_src_perc_format_tokens:
+            result_per_src_perc_format_tokens[src_perc_format_token] = {}
+            result_per_src_perc_format_tokens[src_perc_format_token]["correct"] = 0
+            result_per_src_perc_format_tokens[src_perc_format_token]["wrong"] = 0
+        if tgt_perc_format_token not in result_per_tgt_perc_format_tokens:
+            result_per_tgt_perc_format_tokens[tgt_perc_format_token] = {}
+            result_per_tgt_perc_format_tokens[tgt_perc_format_token]["correct"] = 0
+            result_per_tgt_perc_format_tokens[tgt_perc_format_token]["wrong"] = 0
+
+        if is_correct:
+            result_per_src_perc_format_tokens[src_perc_format_token]["correct"] += 1
+            result_per_tgt_perc_format_tokens[tgt_perc_format_token]["correct"] += 1
+        else:
+            result_per_src_perc_format_tokens[src_perc_format_token]["wrong"] += 1
+            result_per_tgt_perc_format_tokens[tgt_perc_format_token]["wrong"] += 1
+
+    success_perc_per_src_format_token = {}
+    for format_perc, value in result_per_src_perc_format_tokens.items():
+        success_perc_per_src_format_token[format_perc] = value["correct"] / (
+            value["correct"] + value["wrong"])
+
+    success_perc_per_tgt_format_token = {}
+    for format_perc, value in result_per_tgt_perc_format_tokens.items():
+        success_perc_per_tgt_format_token[format_perc] = value["correct"] / (
+            value["correct"] + value["wrong"])
+
+    evaluation_dict["avg_success_perc_per_src_formatting_perc"] = success_perc_per_src_format_token
+    evaluation_dict["avg_success_perc_per_tgt_formatting_perc"] = success_perc_per_tgt_format_token
+
+
 def flatten_result_per_diagnostic(result_per_diagnostic_dict):
     flattened = []
     for key, value in result_per_diagnostic_dict.items():
@@ -595,7 +650,7 @@ def save_characteristic_examples(
 
             # Get an incorrect or ambiguous datapoint
             # key in (lowest_accuracy_copied, lowest_accuracy_extrapolated,
-            # ambiguous_accuracy_copied & ambiguous_accuracy_extrapolated, 
+            # ambiguous_accuracy_copied & ambiguous_accuracy_extrapolated,
             # low_accuracy_many_datapoints_in_train)
             else:
 
@@ -685,7 +740,7 @@ def sort_for_characteristic_examples(evaluation_dict):
         result for result in result_per_diagnostic if result["perc_correct_in_test"] < 0.05]
     low_accuracy_many_datapoints_in_train.sort(
         key=lambda x: x.get('num_datapoints_in_train'), reverse=True)
-    
+
     high_accuracy_few_datapoints_in_train = [
         result for result in result_per_diagnostic if result["perc_correct_in_test"] > 0.95]
     high_accuracy_few_datapoints_in_train.sort(
@@ -789,6 +844,40 @@ def plot_tgt_tokens_vs_success(evaluation_dict):
     fig.write_image(f"{eval_dir}/{filename}")
 
 
+def plot_src_format_perc_vs_success(evaluation_dict):
+
+    filename = f"{experiment.name}_success_rate_formatting_perc_src.svg"
+    x_axis = "Percentage of Formatting Source Tokens"
+
+    x = list(
+        evaluation_dict["avg_success_perc_per_src_formatting_perc"].keys())
+    y = [success_perc for success_perc in evaluation_dict["avg_success_perc_per_src_formatting_perc"].values()]
+
+    fig = plot_num_tokens_vs_success(x, y, x_axis, "")
+
+    fig.show()
+    fig.write_image(f"{eval_dir}/{filename}")
+
+    # print(f"for {filename}; pearsonr: {pearsonr(x, y)}")
+
+
+def plot_tgt_format_perc_vs_success(evaluation_dict):
+
+    filename = f"{experiment.name}_success_rate_formatting_perc_tgt.svg"
+    x_axis = "Percentage of Formatting Target Tokens"
+
+    x = list(
+        evaluation_dict["avg_success_perc_per_tgt_formatting_perc"].keys())
+    y = [success_perc for success_perc in evaluation_dict["avg_success_perc_per_tgt_formatting_perc"].values()]
+
+    fig = plot_num_tokens_vs_success(x, y, x_axis, "")
+
+    fig.show()
+    fig.write_image(f"{eval_dir}/{filename}")
+
+    # print(f"for {filename}; pearsonr: {pearsonr(x, y)}")
+
+
 def plot_num_tokens_vs_success(x, y, x_axis, legend, fig=None):
 
     if not fig:
@@ -884,6 +973,9 @@ def main():
     save_num_formatting_tokens_vs_success_perc(
         evaluation_dict, src_test_list, tgt_test_list, inference_test_list)
 
+    save_perc_formatting_tokens_vs_success_perc(
+        evaluation_dict, src_test_list, tgt_test_list, inference_test_list)
+
     save_result_per_diagnostic(
         evaluation_dict, metadata_train, metadata_test, tgt_test_list, inference_test_list)
 
@@ -946,6 +1038,9 @@ def main():
 
     plot_src_format_tokens_vs_success(evaluation_dict)
     plot_tgt_tokens_vs_success(evaluation_dict)
+
+    plot_src_format_perc_vs_success(evaluation_dict)
+    plot_tgt_format_perc_vs_success(evaluation_dict)
 
     if nn_framework == NNFramework.tensorflow:
         plot_loss_curve(experiment_csv_file)
