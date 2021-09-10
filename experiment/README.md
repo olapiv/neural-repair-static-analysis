@@ -54,7 +54,7 @@ Each directory represents a different dataset. They all contain the same fixes a
 
 ## NN - How To
 
-### Setup CUDA
+### Setup CUDA on Windows
 
 ```Command
 SET PATH=C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.2\bin;%PATH%
@@ -98,3 +98,20 @@ onmt-main --model_type Transformer --config data.yml --auto_config train --with_
 
 onmt-main --model_type Transformer --config data.yml --auto_config infer --features_file data/src-test.txt --predictions_file data/inference-test.txt
 ```
+
+### Comparing Training Steps
+
+* v3 Datasets
+* Tensorflow Transformer Model
+
+#### Imitation Experiments
+
+![Training Loss for Imitation](imitate_train_loss_function.svg)
+
+![Validation Loss for Imitation](imitate_validation_loss_function.svg)
+
+#### Extrapolation Experiments
+
+![Training Loss for Extrapolation](extrap_train_loss_function.svg)
+
+![Validation Loss for Extrapolation](extrap_validation_loss_function.svg)
