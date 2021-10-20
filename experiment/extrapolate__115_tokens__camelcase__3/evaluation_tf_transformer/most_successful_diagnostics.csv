@@ -1,0 +1,6 @@
+NuGetAnalyzerPackage,DiagnosticID,DiagnosticTitle,DiagnosticDescription,DiagnosticDefaultSeverity,DiagnosticCategory
+Agoda.Analyzers.1.0.517,SA1123,Do not place regions within elements,The C# code contains a region within the body of a code element.,Warning,StyleCop.CSharp.ReadabilityRules
+StyleCop.Analyzers.1.1.118,SA1123,Do not place regions within elements,The C# code contains a region within the body of a code element.,Warning,StyleCop.CSharp.ReadabilityRules
+StyleCop.Analyzers.Unstable.1.2.0.333,SA1123,Do not place regions within elements,The C# code contains a region within the body of a code element.,Warning,StyleCop.CSharp.ReadabilityRules
+VSDiagnostics.1.10.0,VSD0001,Asynchronous methods should end with the -Async suffix.,,Warning,Async
+ZWA.Infrastructure.CodeAnalysis.1.0.0,FS0065,Remove trailing whitespace,Trailing whitespaces are ugly and show sloppiness. Remove them.,Info,Style

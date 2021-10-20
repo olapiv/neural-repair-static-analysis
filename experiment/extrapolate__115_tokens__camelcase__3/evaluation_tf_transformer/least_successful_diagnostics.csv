@@ -1,0 +1,47 @@
+NuGetAnalyzerPackage,DiagnosticID,DiagnosticTitle,DiagnosticDescription,DiagnosticDefaultSeverity,DiagnosticCategory
+AsyncFixer.1.5.1,AsyncFixer03,Fire-and-forget async-void methods or delegates,,Warning,AsyncUsage
+Bit.Tooling.CodeAnalyzer.7.2.0,ClassWithoutModifierAnalyzer,Add modifier to your class.,"Your class must have at least one modifier. (Public, internal, etc)",Error,System
+BitCodeAnalyzer.4.1.0,ClassWithoutModifierAnalyzer,Add modifier to your class.,"Your class must have at least one modifier. (Public, internal, etc)",Error,System
+CleanCodeHelper.Analyzer.0.0.7,CC0002,Use one level of indentation per constructor.,,Warning,CleanCode
+DotNetAnalyzers.DocumentationAnalyzers.Unstable.1.0.0.59,DOC105,Use 'paramref',"Prefer '<paramref name=""parameter""/>' to '<c>parameter</c>' for referencing parameters",Info,DocumentationAnalyzers.StyleRules
+EdaAnalyzer.1.0.4,PropertyDiagnosticId,Property encapsulation problem,Property should have public get and protected set,Warning,Entities and Aggregates
+ErrorProne.NET.CoreAnalyzers.0.1.2,EPC12,Suspicious exception handling: only Message property is observed in exception block.,In many cases Message property contains irrelevant information and actual data is kept in inner exceptions.,Warning,CodeSmell
+ErrorProne.NET.CoreAnalyzers.0.1.2,EPC12,foo,,Hidden,Style
+FirstAnalyzerCS.1.0.6220.35232,FirstAnalyzerCS,Type name contains lowercase letters,Type names should be all uppercase.,Warning,Naming
+FluentMigratorAnalyzer.1.0.2,FM_Missing,Missing migration attribute,Migration attribute is missing but can be generated,Warning,Migrations
+FluentMigratorMigrationNumberAnalyzer.1.0.2,FM_Missing,Missing migration attribute,Migration attribute is missing but can be generated,Warning,Migrations
+Jacobi.VisualStudio.Analyzers.1.0.0,JA101,Handle Method return values.,The return value of a method call must be used or explicitly discarded.,Warning,Correctness
+Microsoft.CodeAnalysis.NetAnalyzers.5.0.3,CA1028,Enum Storage should be Int32,"An enumeration is a value type that defines a set of related named constants. By default, the System.Int32 data type is used to store the constant value. Although you can change this underlying type, it is not required or recommended for most scenarios.",Warning,Design
+Microsoft.CodeQuality.Analyzers.3.3.2,CA1028,Enum Storage should be Int32,"An enumeration is a value type that defines a set of related named constants. By default, the System.Int32 data type is used to store the constant value. Although you can change this underlying type, it is not required or recommended for most scenarios.",Warning,Design
+MultiLineStringAnalyzer.1.2.0,MultiLineStringAnalyzer,String literal contains embedded CrLf,Use Environment.NewLine explicitly rather than string literals with embedded Windows CarriageReturn NewLine,Info,Formatting
+NI.CSharp.Analyzers.1.2.8,NI1018,Do not use LINQ query syntax.,,Warning,NationalInstruments
+NINNES.RoslynAnalyzers.0.1.3,NES003,The NES CPU cannot perform multiplications directly,Use bit-shifting multiplication or NESMath.Multiply to multiply two numbers with an algorithm that can be run on the NES CPU,Error,NES CPU Limitations
+RefactoringEssentials.5.6.0,RECS0092,Convert field to readonly,,Info,Common Practices and Code Improvements
+Roslynator.Analyzers.3.1.0,RCS1160,Abstract type should not have public constructors.,,Info,Design
+Roslynator.Analyzers.3.1.0,RCS1226,Add paragraph to documentation comment.,,Info,Usage
+Roslynator.Analyzers.3.1.0,RCS1123,Add parentheses when necessary.,,Info,Readability
+Roslynator.Analyzers.3.1.0,RCS1073,Convert 'if' to 'return' statement.,,Info,Simplification
+Roslynator.Analyzers.3.1.0,RCS1218,Simplify code branching.,,Info,Readability
+Roslynator.Analyzers.3.1.0,RCS1171,Simplify lazy initialization.,,Info,Simplification
+Roslynator.Analyzers.3.1.0,RCS1232,Order elements in documentation comment.,,Info,Readability
+Roslynator.Analyzers.3.1.0,RCS1085,Use auto-implemented property.,,Info,Simplification
+Roslynator.Analyzers.Unity.2.1.0,RCS1160,Abstract type should not have public constructors.,,Info,Design
+Roslynator.Analyzers.Unity.2.1.0,RCS1226,Add paragraph to documentation comment.,,Info,Usage
+Roslynator.Analyzers.Unity.2.1.0,RCS1123,Add parentheses according to operator precedence.,,Info,Readability
+Roslynator.Analyzers.Unity.2.1.0,RCS1073,Replace if statement with return statement.,,Info,Simplification
+Roslynator.Analyzers.Unity.2.1.0,RCS1218,Simplify code branching.,,Info,Readability
+Roslynator.Analyzers.Unity.2.1.0,RCS1171,Simplify lazy initialization.,,Info,Simplification
+Roslynator.Analyzers.Unity.2.1.0,RCS1232,Order elements in documentation comment.,,Info,Readability
+Roslynator.Analyzers.Unity.2.1.0,RCS1085,Use auto-implemented property.,,Info,Simplification
+StyleCop.Analyzers.1.1.118,SA1308,Variable names should not be prefixed,"A field name in C# is prefixed with 'm_', 's_', or 't_'.",Warning,StyleCop.CSharp.NamingRules
+StyleCop.Analyzers.1.1.118,SA1312,Variable names should begin with lower-case letter,The name of a variable in C# does not begin with a lower-case letter.,Warning,StyleCop.CSharp.NamingRules
+StyleCop.Analyzers.1.1.118,SA1501,Statement should not be on a single line,A C# statement containing opening and closing braces is written completely on a single line.,Warning,StyleCop.CSharp.LayoutRules
+StyleCop.Analyzers.Unstable.1.2.0.333,SA1308,Variable names should not be prefixed,"A field name in C# is prefixed with 'm_', 's_', or 't_'.",Warning,StyleCop.CSharp.NamingRules
+StyleCop.Analyzers.Unstable.1.2.0.333,SA1312,Variable names should begin with lower-case letter,The name of a variable in C# does not begin with a lower-case letter.,Warning,StyleCop.CSharp.NamingRules
+StyleCop.Analyzers.Unstable.1.2.0.333,SA1501,Statement should not be on a single line,A C# statement containing opening and closing braces is written completely on a single line.,Warning,StyleCop.CSharp.LayoutRules
+WhitespaceAnalyzers.1.0.5716.21417,WS001,File starts with whitespace,Files must not start with whitespace.,Warning,Whitespace
+ZWA.Infrastructure.CodeAnalysis.1.0.0,FS0095,Use string interpolation instead of arguments on Console.WriteLine,String interpolation allows for better reading of the resulting string when compared to Console.WriteLine arguments. You should use Console.WriteLine with arguments only when another method is supplying the format string.,Info,Style
+ZWA.Infrastructure.CodeAnalysis.1.0.0,FS0031,Check for null before calling a delegate,In C#6 a delegate can be invoked using the null-propagating operator (?.) and it's invoke method to avoid throwing a NullReference exception when there is no method attached to the delegate. Or you can check for null before calling the delegate.,Warning,Design
+codecracker.CSharp.1.1.0,CC0118,Unnecessary '.ToString()' call in string concatenation.,The runtime automatically calls '.ToString()' method for string concatenation operations when there is no parameters. Remove them.,Info,Style
+codecracker.CSharp.1.1.0,CC0002,Invalid argument name,"The string passed as the 'paramName' argument of ArgumentException constructor must be the name of one of the method arguments.
+It can be either specified directly or using the nameof() operator (C#6 only)",Warning,Usage

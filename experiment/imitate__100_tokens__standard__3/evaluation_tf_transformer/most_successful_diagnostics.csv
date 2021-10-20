@@ -1,0 +1,82 @@
+NuGetAnalyzerPackage,DiagnosticID,DiagnosticTitle,DiagnosticDescription,DiagnosticDefaultSeverity,DiagnosticCategory
+APIDocCodeAnalyzer.1.0.6253.30470,DA4003,Method doesn't have example in the comment,Method should have example in the comment,Warning,Documentation
+APIDocCodeAnalyzer.1.0.6253.30470,DA3004,Type doesn't have /// summary in comment,Types should have /// summary in comment,Error,Documentation
+Agoda.Analyzers.1.0.517,SA1107,Code must not contain multiple statements on one line,The C# code contains more than one statement on a single line.,Warning,StyleCop.CSharp.ReadabilityRules
+AsyncAnalyzers.1.1.7.0,_MissingAsync,TAP methods must end with Async.,TAP methods should have the Async suffix.,Warning,Naming
+AsyncSuffixAnalyzer.1.0.6285.32977,ASA001,Async method names ends with 'Async' suffix,Async method names ends with 'Async' suffix,Warning,Naming
+AsyncSuffixAnalyzer.1.0.6285.32977,ASA002,Method that does not return some kind of Task should not have name that ends with 'Async' suffix,Method that does not return some kind of Task should not have name that ends with 'Async' suffix,Warning,Naming
+DA4003DA4004DA4013DA4014ExampleComment.1.0.0,DA4003,Method doesn't have example in the comment,Method should have example in the comment,Warning,Documentation
+DelSole.CrossAnalyzers.CSharp.1.0.6094.37613,CRA002,Names of asynchronous methods whould end with Async,,Warning,Naming
+Directum.DocumentationChecker.1.0.4,SA1600,Elements should be documented,A C# code element is missing a documentation header.,Error,Directum.Documentation
+DisableDateTimeNow.1.0.5883.39470,DDTN0001,Illegal DateTime.Now Call,Call DateTime.UtcNow rather than DateTime.Now,Error,Illegal Method Calls
+DotNetAnalyzers.DocumentationAnalyzers.Unstable.1.0.0.59,DOC203,Use block elements correctly,Use block elements correctly,Info,DocumentationAnalyzers.PortabilityRules
+ErrorProne.NET.CoreAnalyzers.0.1.2,EPC12,Suspicious exception handling: only Message property is observed in exception block.,In many cases Message property contains irrelevant information and actual data is kept in inner exceptions.,Warning,CodeSmell
+ErrorProne.NET.CoreAnalyzers.0.1.2,EPC12,foo,,Hidden,Style
+IntelliTect.Analyzers.0.1.8,INTL0101,Attributes separate lines,All attributes should be on separate lines and be wrapped in their own braces.,Warning,Formatting
+IntelliTect.Analyzers.0.1.8,INTL0002,Properties PascalCase,All properties should be in the format PascalCase,Warning,Naming
+MalikP.Analyzers.AsyncMethodAnalyzer.0.3.18,AANA001,"Method returning 'Task', 'Task<T>' missing 'Async' suffix",Method returning 'Task' or 'Task<T>' should have 'Async' suffix.,Info,Naming
+Microsoft.VisualStudio.Threading.Analyzers.16.9.60,VSTHRD200,"Use ""Async"" suffix for async methods",,Warning,Style
+RefactoringEssentials.5.6.0,RECS0163,Suggest the usage of the nameof operator,,Warning,Potential Code Quality Issues
+RefactoringEssentials.5.6.0,RECS0010,'?:' expression can be converted to '??' expression,,Info,Language Usage Opportunities
+RefactoringEssentials.5.6.0,RECS0057,Redundant Where() call with predicate followed by Single(),,Info,Common Practices and Code Improvements
+ReflectionIT.Analyzer.3.5.0,RIT0002,Use Array.Empty<T>() to create an empty array,"Use Array.Empty<T>() to create an empty array, it supports caching",Warning,Naming
+Roslyn.Analyzers.1.0.3.4,ASYNC0002,Non asynchronous method names should end with Async,,Warning,Naming
+Roslyn.Analyzers.1.0.3.4,ASYNC0001,Asynchronous method names should end with Async,,Warning,Naming
+Roslynator.Analyzers.3.1.0,RCS1173,Use coalesce expression instead of 'if'.,,Info,Simplification
+Roslynator.Analyzers.3.1.0,RCS1102,Make class static.,,Warning,Design
+Roslynator.Analyzers.3.1.0,RCS1139,Add summary element to documentation comment.,,Warning,Maintainability
+Roslynator.Analyzers.3.1.0,RCS1213,Remove unused member declaration.,,Info,Redundancy
+Roslynator.Analyzers.Unity.2.1.0,RCS1173,Use coalesce expression instead of if.,,Info,Simplification
+Roslynator.Analyzers.Unity.2.1.0,RCS1102,Make class static.,,Warning,Design
+Roslynator.Analyzers.Unity.2.1.0,RCS1139,Add summary element to documentation comment.,,Warning,Maintainability
+Roslynator.Analyzers.Unity.2.1.0,RCS1213,Remove unused member declaration.,,Info,Redundancy
+SmartAnalyzers.MultithreadingAnalyzer.1.1.31,MT1001,Lock on this reference,,Error,Locking
+StyleChecker.1.0.27,SpaceBeforeSemicolon,Semicolon is preceded by a white space.,Semicolon should not be preceded by a white space.,Warning,Spacing
+StyleCop.Analyzers.1.1.118,SA1002,Semicolons should be spaced correctly,"The spacing around a semicolon is incorrect, within a C# code file.",Warning,StyleCop.CSharp.SpacingRules
+StyleCop.Analyzers.1.1.118,SA1010,Opening square brackets should be spaced correctly,An opening square bracket within a C# statement is not spaced correctly.,Warning,StyleCop.CSharp.SpacingRules
+StyleCop.Analyzers.1.1.118,SA1013,Closing braces should be spaced correctly,A closing brace within a C# element is not spaced correctly.,Warning,StyleCop.CSharp.SpacingRules
+StyleCop.Analyzers.1.1.118,SA1107,Code should not contain multiple statements on one line,The C# code contains more than one statement on a single line.,Warning,StyleCop.CSharp.ReadabilityRules
+StyleCop.Analyzers.1.1.118,SA1110,Opening parenthesis or bracket should be on declaration line,The opening parenthesis or bracket is not placed on the same line as the method/indexer/attribute/array name.,Warning,StyleCop.CSharp.ReadabilityRules
+StyleCop.Analyzers.1.1.118,SA1313,Parameter names should begin with lower-case letter,The name of a parameter in C# does not begin with a lower-case letter.,Warning,StyleCop.CSharp.NamingRules
+StyleCop.Analyzers.1.1.118,SA1411,Attribute constructor should not use unnecessary parenthesis,TODO.,Warning,StyleCop.CSharp.MaintainabilityRules
+StyleCop.Analyzers.1.1.118,SA1501,Statement should not be on a single line,A C# statement containing opening and closing braces is written completely on a single line.,Warning,StyleCop.CSharp.LayoutRules
+StyleCop.Analyzers.1.1.118,SA1516,Elements should be separated by blank line,Adjacent C# elements are not separated by a blank line.,Warning,StyleCop.CSharp.LayoutRules
+StyleCop.Analyzers.1.1.118,SA1520,Use braces consistently,"The opening and closing braces of a chained if/else if/else construct were included for some clauses, but omitted for others.",Warning,StyleCop.CSharp.LayoutRules
+StyleCop.Analyzers.1.1.118,SA1205,Partial elements should declare access,The partial element does not have an access modifier defined.,Warning,StyleCop.CSharp.OrderingRules
+StyleCop.Analyzers.1.1.118,SA1209,Using alias directives should be placed after other using directives,A using-alias directive is positioned before a regular using directive.,Warning,StyleCop.CSharp.OrderingRules
+StyleCop.Analyzers.1.1.118,SA1210,Using directives should be ordered alphabetically by namespace,The using directives within a C# code file are not sorted alphabetically by namespace.,Warning,StyleCop.CSharp.OrderingRules
+StyleCop.Analyzers.1.1.118,SA1212,Property accessors should follow order,A get accessor appears after a set accessor within a property or indexer.,Warning,StyleCop.CSharp.OrderingRules
+StyleCop.Analyzers.1.1.118,SA1600,Elements should be documented,A C# code element is missing a documentation header.,Warning,StyleCop.CSharp.DocumentationRules
+StyleCop.Analyzers.1.1.118,SA1615,Element return value should be documented,A C# element is missing documentation for its return value.,Warning,StyleCop.CSharp.DocumentationRules
+StyleCop.Analyzers.1.1.118,SA1642,Constructor summary documentation should begin with standard text,The XML documentation header for a C# constructor does not contain the appropriate summary text.,Warning,StyleCop.CSharp.DocumentationRules
+StyleCop.Analyzers.Unstable.1.2.0.333,SA1002,Semicolons should be spaced correctly,"The spacing around a semicolon is incorrect, within a C# code file.",Warning,StyleCop.CSharp.SpacingRules
+StyleCop.Analyzers.Unstable.1.2.0.333,SA1010,Opening square brackets should be spaced correctly,An opening square bracket within a C# statement is not spaced correctly.,Warning,StyleCop.CSharp.SpacingRules
+StyleCop.Analyzers.Unstable.1.2.0.333,SA1013,Closing braces should be spaced correctly,A closing brace within a C# element is not spaced correctly.,Warning,StyleCop.CSharp.SpacingRules
+StyleCop.Analyzers.Unstable.1.2.0.333,SA1107,Code should not contain multiple statements on one line,The C# code contains more than one statement on a single line.,Warning,StyleCop.CSharp.ReadabilityRules
+StyleCop.Analyzers.Unstable.1.2.0.333,SA1110,Opening parenthesis or bracket should be on declaration line,The opening parenthesis or bracket is not placed on the same line as the method/indexer/attribute/array name.,Warning,StyleCop.CSharp.ReadabilityRules
+StyleCop.Analyzers.Unstable.1.2.0.333,SA1313,Parameter names should begin with lower-case letter,The name of a parameter in C# does not begin with a lower-case letter.,Warning,StyleCop.CSharp.NamingRules
+StyleCop.Analyzers.Unstable.1.2.0.333,SA1411,Attribute constructor should not use unnecessary parenthesis,TODO.,Warning,StyleCop.CSharp.MaintainabilityRules
+StyleCop.Analyzers.Unstable.1.2.0.333,SA1501,Statement should not be on a single line,A C# statement containing opening and closing braces is written completely on a single line.,Warning,StyleCop.CSharp.LayoutRules
+StyleCop.Analyzers.Unstable.1.2.0.333,SA1516,Elements should be separated by blank line,Adjacent C# elements are not separated by a blank line.,Warning,StyleCop.CSharp.LayoutRules
+StyleCop.Analyzers.Unstable.1.2.0.333,SA1520,Use braces consistently,"The opening and closing braces of a chained if/else if/else construct were included for some clauses, but omitted for others.",Warning,StyleCop.CSharp.LayoutRules
+StyleCop.Analyzers.Unstable.1.2.0.333,SA1205,Partial elements should declare access,The partial element does not have an access modifier defined.,Warning,StyleCop.CSharp.OrderingRules
+StyleCop.Analyzers.Unstable.1.2.0.333,SA1209,Using alias directives should be placed after other using directives,A using-alias directive is positioned before a regular using directive.,Warning,StyleCop.CSharp.OrderingRules
+StyleCop.Analyzers.Unstable.1.2.0.333,SA1210,Using directives should be ordered alphabetically by namespace,The using directives within a C# code file are not sorted alphabetically by namespace.,Warning,StyleCop.CSharp.OrderingRules
+StyleCop.Analyzers.Unstable.1.2.0.333,SA1212,Property accessors should follow order,A get accessor appears after a set accessor within a property or indexer.,Warning,StyleCop.CSharp.OrderingRules
+StyleCop.Analyzers.Unstable.1.2.0.333,SA1600,Elements should be documented,A C# code element is missing a documentation header.,Warning,StyleCop.CSharp.DocumentationRules
+StyleCop.Analyzers.Unstable.1.2.0.333,SA1615,Element return value should be documented,A C# element is missing documentation for its return value.,Warning,StyleCop.CSharp.DocumentationRules
+StyleCop.Analyzers.Unstable.1.2.0.333,SA1642,Constructor summary documentation should begin with standard text,The XML documentation header for a C# constructor does not contain the appropriate summary text.,Warning,StyleCop.CSharp.DocumentationRules
+VSDiagnostics.1.10.0,VSD0034,Replaces an empty string literal with the more expressive string.Empty.,,Warning,Strings
+VSDiagnostics.1.10.0,VSD0001,Asynchronous methods should end with the -Async suffix.,,Warning,Async
+WTG.Analyzers.2.10.4,WTG3002,Prefer direct member access over linq.,Don't use linq extension methods when there is a better alternative.,Info,Decruftification
+WTG.Analyzers.2.10.4,WTG1009,Using directives must be ordered by kind.,"Move all 'using static' statements after 'using' statements, and move 'using X=Y' to the end.",Info,CodingConvention
+WhitespaceAnalyzers.1.0.5716.21417,WS002,File does not end with newline,Files must end with a newline.,Warning,Whitespace
+WhitespaceAnalyzers.1.0.5716.21417,WS001,File starts with whitespace,Files must not start with whitespace.,Warning,Whitespace
+ZWA.Infrastructure.CodeAnalysis.1.0.0,FS0037,Remove commented code.,,Info,Style
+ZWA.Infrastructure.CodeAnalysis.1.0.0,FS0065,Remove trailing whitespace,Trailing whitespaces are ugly and show sloppiness. Remove them.,Info,Style
+ZWA.Infrastructure.CodeAnalysis.1.0.0,FS0132,Add braces to single while statement.,,Warning,Refactoring
+ZWA.Infrastructure.CodeAnalysis.1.0.0,FS0049,Simplify expression,,Info,Usage
+codecracker.CSharp.1.1.0,CC0072,Remove Async termination when method is not asynchronous.,Remove Async termination when method is not asynchronous.,Info,Style
+codecracker.CSharp.1.1.0,CC0061,Asynchronous method can be terminated with the 'Async' keyword.,Asynchronous method can be terminated with the 'Async' keyword.,Info,Style
+codecracker.CSharp.1.1.0,CC0049,Simplify expression,,Info,Usage
+mstest-analyzer.0.6.1,MT1001,Public class should have a test attribute,,Warning,Maintainability

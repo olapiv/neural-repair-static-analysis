@@ -1,0 +1,163 @@
+NuGetAnalyzerPackage,DiagnosticID,DiagnosticTitle,DiagnosticDescription,DiagnosticDefaultSeverity,DiagnosticCategory
+AnalyzeThis.1.0.13.135,AT001,Readonly fields must be assigned.,Readonly fields which are not assigned on declaration must be assigned in every non-chained constructor.,Error,TODO
+Analyzer1.1.0.0,Analyzer1,Type name contains lowercase letters,Type names should be all uppercase.,Warning,Naming
+Analyzer12.1.0.0,Analyzer1,Type name contains lowercase letters,Type names should be all uppercase.,Warning,Naming
+AnalyzerFinal2.1.0.0,AnalyzerFinal2,Type name contains lowercase letters,Type names should be all uppercase.,Warning,Naming
+CSharpAnalyzer.1.0.0,CSharpAnalyzer,Type name contains lowercase letters,Type names should be all uppercase.,Warning,Naming
+CSharpAnalyzer_Ashok.1.0.0,CSharpAnalyzer,Type name contains lowercase letters,Type names should be all uppercase.,Warning,Naming
+CSharpAnalyzer_Test.1.0.0,CSharpAnalyzer,Type name contains lowercase letters,Type names should be all uppercase.,Warning,Naming
+CancellationTokenAnalyzers.1.0.1,CTU0001,"CancellationToken available, but not supplied","This method, or an equivalent overload, accepts a CancellationToken, but was not given one, even though an in-scope CancellationToken value was found.",Warning,Usage
+CleanCodeHelper.Analyzer.0.0.7,CC0004,Conditionals should be expressed as positives.,,Warning,CleanCode
+CodeFix.1.2.1.0,UniversalTimeStamp,Use DateTime.Now.ToUniversalTime() insted of DateTime.Now,DateTime.Now.ToUniversalTime() should be used insted of DateTime.Now,Info,UniversalTimeStamp
+CodeFix.1.2.1.0,DictionaryVariableFix,Dictionary should be replaced with ,Dictionary should be replaced with ConcurrentDictionary,Info,DictionaryVariableFix
+CodeFix.1.2.1.0,DecimalPoints,Apply restriction on decimal points,Apply restriction on decimal points,Info,DecimalPoints
+ConstructorNullAnalyzer.0.4.1,CCN0011,Not checked reference parameter in constructor,All reference type parameters should be checked for not-null,Warning,Correctness
+DSharpAnalyzer.1.1.0,DS01,Constructor Null Checks,Parameters should be checked for null references,Info,Initialization
+DebtRatchet.1.0.5,MethodLengthAnalyzer,Method is too long.,,Warning,Debt
+DebtRatchet.1.0.5,TypeLengthAnalyzer,Type is too long.,,Warning,Debt
+DebtRatchet.1.0.5,MaxFieldCount,Type has too many fields,,Warning,Debt
+DotNetAnalyzers.DocumentationAnalyzers.Unstable.1.0.0.59,DOC105,Use 'paramref',"Prefer '<paramref name=""parameter""/>' to '<c>parameter</c>' for referencing parameters",Info,DocumentationAnalyzers.StyleRules
+EqualsMethodAnalyzer.0.1.0,EMA0001,Use == operator instead of Equals method,,Warning,Style
+FindStatics.1.1.1,RB002,Field is marked static,Static variable found,Warning,Design
+FirstAnalyzerCS.1.0.6220.35232,FirstAnalyzerCS,Type name contains lowercase letters,Type names should be all uppercase.,Warning,Naming
+Flyntax.All.1.1.2.41,StoreCtorArg,Store constructor arguments in fields,Add a readonly field and store this constructor argument in that field.,Warning,Naming
+Flyntax.StoreCtorArg.1.1.2.41,StoreCtorArg,Store constructor arguments in fields,Add a readonly field and store this constructor argument in that field.,Warning,Naming
+IDisposableAnalyzers.3.4.13,IDISP004,Don't ignore created IDisposable.,Don't ignore created IDisposable.,Warning,IDisposableAnalyzers.Correctness
+IntelliTect.Analyzers.0.1.8,INTL0201,Async void methods,Async methods must return either Task or Task<T>.,Warning,Reliability
+Izzy.DemystifierAnalyzers.1.1.0,DEM0001,No Implicit String Conversion For Exceptions,Exceptions should be converted to strings through the demystifier.,Warning,Usage
+LowerChar.1.0.0,LowerChar,Type name contains lowercase letters,Type names should be all uppercase.,Warning,Naming
+MakeConst.1.0.0,MakeConst,Variable can be made constant.,Make Constant.,Warning,Usage
+MalikP.Analyzers.AsyncMethodAnalyzer.0.3.18,AADE003,Asynchronous 'void' method missing 'CancellationToken' parameter,Asynchronous 'void' method should contain 'CancellationToken' parameter.,Info,Design
+MethodLength.1.1.0,Method_length_60,Method length should be less than 60 lines.,Make Method smaller.,Warning,Usage
+Microsoft.AnalyzerPowerPack.1.1.0,CA1052,Static holder types should be Static or NotInheritable,,Warning,Design
+Microsoft.CodeAnalysis.NetAnalyzers.5.0.3,CA1836,Prefer IsEmpty over Count,"For determining whether the object contains or not any items, prefer using 'IsEmpty' property rather than retrieving the number of items from the 'Count' property and comparing it to 0 or 1.",Info,Performance
+Microsoft.CodeAnalysis.NetAnalyzers.5.0.3,CA1052,Static holder types should be Static or NotInheritable,,Warning,Design
+Microsoft.CodeAnalysis.NetAnalyzers.5.0.3,CA1805,Do not initialize unnecessarily,"The .NET runtime initializes all fields of reference types to their default values before running the constructor. In most cases, explicitly initializing a field to its default value in a constructor is redundant, adding maintenance costs and potentially degrading performance (such as with increased assembly size), and the explicit initialization can be removed.  In some cases, such as with static readonly fields that permanently retain their default value, consider instead changing them to be constants or properties.",Hidden,Performance
+Microsoft.CodeAnalysis.NetAnalyzers.5.0.3,CA1801,Review unused parameters,"Avoid unused paramereters in your code. If the parameter cannot be removed, then change its name so it starts with an underscore and is optionally followed by an integer, such as '_', '_1', '_2', etc. These are treated as special discard symbol names.",Warning,Usage
+Microsoft.CodeAnalysis.NetAnalyzers.5.0.3,CA1001,Types that own disposable fields should be disposable,"A class declares and implements an instance field that is a System.IDisposable type, and the class does not implement IDisposable. A class that declares an IDisposable field indirectly owns an unmanaged resource and should implement the IDisposable interface.",Hidden,Design
+Microsoft.CodeQuality.Analyzers.3.3.2,CA1001,Types that own disposable fields should be disposable,"A class declares and implements an instance field that is a System.IDisposable type, and the class does not implement IDisposable. A class that declares an IDisposable field indirectly owns an unmanaged resource and should implement the IDisposable interface.",Warning,Design
+Microsoft.CodeQuality.Analyzers.3.3.2,CA1805,Do not initialize unnecessarily,"The .NET runtime initializes all fields of reference types to their default values before running the constructor. In most cases, explicitly initializing a field to its default value in a constructor is redundant, adding maintenance costs and potentially degrading performance (such as with increased assembly size), and the explicit initialization can be removed.  In some cases, such as with static readonly fields that permanently retain their default value, consider instead changing them to be constants or properties.",Warning,Performance
+Microsoft.CodeQuality.Analyzers.3.3.2,CA1801,Review unused parameters,"Avoid unused paramereters in your code. If the parameter cannot be removed, then change its name so it starts with an underscore and is optionally followed by an integer, such as '_', '_1', '_2', etc. These are treated as special discard symbol names.",Warning,Usage
+Microsoft.CodeQuality.Analyzers.3.3.2,CA1052,Static holder types should be Static or NotInheritable,,Warning,Design
+Microsoft.NetCore.Analyzers.3.3.2,CA1836,Prefer IsEmpty over Count,"For determining whether the object contains or not any items, prefer using 'IsEmpty' property rather than retrieving the number of items from the 'Count' property and comparing it to 0 or 1.",Warning,Performance
+Microsoft.VisualStudio.Threading.Analyzers.16.9.60,VSTHRD103,Call async methods when in an async method,,Warning,Usage
+MindTouch.RoslynAnalyzers.1.0.5917.3542,MindTouchMaterializedEnumerableAnalyzer,Unmaterialized collection,All cases of enum should be covered in switch statement,Warning,Performance
+MindTouch.RoslynAnalyzers.1.0.5917.3542,MindTouchMaterializedEnumerableAnalyzer,MindTouchMaterializedEnumerableAnalyzer Exception,MindTouchMaterializedEnumerableAnalyzer Exception,Hidden,Performance
+MindTouch.RoslynAnalyzers.1.0.5917.3542,MindTouchEnumSwitchAnalyzer,Not at all cases of enum covered in switch statement,All cases of enum should be covered in switch statement,Error,Correctness
+MindTouch.RoslynAnalyzers.1.0.5917.3542,MindTouchEnumSwitchAnalyzer,MindTouchEnumSwitchAnalyzer Exception,MindTouchEnumSwitchAnalyzer Exception,Hidden,Correctness
+MultiLineStringAnalyzer.1.2.0,MultiLineStringAnalyzer,String literal contains embedded CrLf,Use Environment.NewLine explicitly rather than string literals with embedded Windows CarriageReturn NewLine,Info,Formatting
+NI.CSharp.Analyzers.1.2.8,NI1018,Do not use LINQ query syntax.,,Warning,NationalInstruments
+NINNES.RoslynAnalyzers.0.1.3,NES003,The NES CPU cannot perform multiplications directly,Use bit-shifting multiplication or NESMath.Multiply to multiply two numbers with an algorithm that can be run on the NES CPU,Error,NES CPU Limitations
+NetFabric.Hyperlinq.Analyzer.2.0.1,HLQ005,Avoid Single() and SingleOrDefault(),Single() and SingleOrDefault() may perform much more iterations to perform unnecessary validation. Use First() or FirstOrDefault() instead.,Warning,Performance
+Noria.Common.Roslyn.0.3.5,NA03,As operator usage analyzer,Checks if casting with 'as' won't cause null reference exception,Warning,Code usage
+Noria.Common.Roslyn.0.3.5,NA06,Analyzer for view model property refactoring,Enables change of property to support property changed notification.,Info,Code usage
+ODS.UnusedCodeAnalyser.1.0.0,ODSUnusedCodeAnalyser,Type name contains lowercase letters,Type names should be all uppercase.,Warning,Naming
+OhNoPub.ImplicitCastAnalyzer.1.0.0,OhNoPubImplicitCastForeach,Looping construct uses implicit runtime cast,Avoid implicit runtime casts in looping constructs.,Warning,ImplicitCast
+RecordConstructorGenerator.3.3.0,RCNoAssignment,No assignment to a get-only auto-property.,You can generate the record constructor and assignments.,Info,Refactoring
+RefactoringEssentials.5.6.0,RECS0093,Convert 'if' to '&&' expression,,Info,Common Practices and Code Improvements
+RefactoringEssentials.5.6.0,RECS0033,Convert 'if' to '||' expression,,Info,Common Practices and Code Improvements
+RefactoringEssentials.5.6.0,RECS0092,Convert field to readonly,,Info,Common Practices and Code Improvements
+RefactoringEssentials.5.6.0,RECS0120,Constructor in abstract class should not be public,,Info,Common Practices and Code Improvements
+RefactoringEssentials.5.6.0,RECS0116,Replace usages of 'Count()' with call to 'Any()',,Info,Common Practices and Code Improvements
+RefactoringEssentials.5.6.0,RECS0085,"When initializing explicitly typed local variable or array type, array creation expression can be replaced with array initializer.",,Warning,Redundancies in Code
+RefactoringEssentials.5.6.0,RECS0004,An empty public constructor without parameters is redundant.,,Info,Redundancies in Symbol Declarations
+RefactoringEssentials.5.6.0,RECS0122,Initializing field with default value is redundant,,Info,Redundancies in Symbol Declarations
+ReflectionIT.Analyzer.3.5.0,RIT0009,Struct must use Fields and not Auto Properties,Struct must use Fields and not Auto Properties,Warning,Common Practices and Code Improvements
+Roslyn.Analyzers.1.0.3.4,ENUM0003,Merge switch sections,,Warning,Simplification
+Roslyn.Analyzers.1.0.3.4,ASYNC0003,Avoid void returning asynchronous method,,Warning,Maintainability
+RoslynAnalyzers.SA1413.1.0.6607.40893,SA1413,Use trailing comma in multi-line initializers,A multi-line initializer in a C# code file should use a comma on the last line.,Warning,StyleCop.CSharp.MaintainabilityRules
+Roslynator.Analyzers.3.1.0,RCS1160,Abstract type should not have public constructors.,,Info,Design
+Roslynator.Analyzers.3.1.0,RCS1063,Avoid usage of do statement to create an infinite loop.,,Info,Style
+Roslynator.Analyzers.3.1.0,RCS1096,Convert 'HasFlag' call to bitwise operation (or vice versa).,,Info,Performance
+Roslynator.Analyzers.3.1.0,RCS1197,Optimize StringBuilder.Append/AppendLine call.,,Info,Performance
+Roslynator.Analyzers.3.1.0,RCS1212,Remove redundant assignment.,,Info,Redundancy
+Roslynator.Analyzers.3.1.0,RCS1171,Simplify lazy initialization.,,Info,Simplification
+Roslynator.Analyzers.3.1.0,RCS1232,Order elements in documentation comment.,,Info,Readability
+Roslynator.Analyzers.3.1.0,RCS1214,Unnecessary interpolated string.,,Info,Simplification
+Roslynator.Analyzers.3.1.0,RCS1192,Unnecessary usage of verbatim string literal.,,Info,Readability
+Roslynator.Analyzers.3.1.0,RCS1058,Use compound assignment.,,Info,Simplification
+Roslynator.Analyzers.3.1.0,RCS1156,Use string.Length instead of comparison with empty string.,,Info,Usage
+Roslynator.Analyzers.3.1.0,RCS1221,Use pattern matching instead of combination of 'as' operator and null check.,,Info,Usage
+Roslynator.Analyzers.3.1.0,RCS1118,Mark local variable as const.,,Info,General
+Roslynator.Analyzers.Unity.2.1.0,RCS1160,Abstract type should not have public constructors.,,Info,Design
+Roslynator.Analyzers.Unity.2.1.0,RCS1063,Avoid usage of do statement to create an infinite loop.,,Info,Style
+Roslynator.Analyzers.Unity.2.1.0,RCS1029,Format binary operator on next line.,,Info,Formatting
+Roslynator.Analyzers.Unity.2.1.0,RCS1096,Use bitwise operation instead of calling 'HasFlag'.,,Info,Performance
+Roslynator.Analyzers.Unity.2.1.0,RCS1197,Optimize StringBuilder.Append/AppendLine call.,,Info,Performance
+Roslynator.Analyzers.Unity.2.1.0,RCS1212,Remove redundant assignment.,,Info,Redundancy
+Roslynator.Analyzers.Unity.2.1.0,RCS1171,Simplify lazy initialization.,,Info,Simplification
+Roslynator.Analyzers.Unity.2.1.0,RCS1232,Order elements in documentation comment.,,Info,Readability
+Roslynator.Analyzers.Unity.2.1.0,RCS1214,Unnecessary interpolated string.,,Info,Simplification
+Roslynator.Analyzers.Unity.2.1.0,RCS1058,Use compound assignment.,,Info,Simplification
+Roslynator.Analyzers.Unity.2.1.0,RCS1192,Use regular string literal instead of verbatim string literal.,,Info,Readability
+Roslynator.Analyzers.Unity.2.1.0,RCS1156,Use string.Length instead of comparison with empty string.,,Info,Usage
+Roslynator.Analyzers.Unity.2.1.0,RCS1221,Use pattern matching instead of combination of 'as' operator and null check.,,Info,Usage
+Roslynator.Analyzers.Unity.2.1.0,RCS1118,Mark local variable as const.,,Info,General
+SharpSource.0.3.0,SS033,An async overload is available,,Warning,Async
+SmartAnalyzers.CSharpExtensions.Annotations.3.9.0,CSE006,Expression too complex,,Info,CSharp Extensions
+SonarAnalyzer.CSharp.8.20.0.28934,S1144,Unused private types or members should be removed,"private or internal types or private members that are never executed or referenced are dead code: unnecessary, inoperative code that should be removed. Cleaning out dead code decreases the size of the maintained codebase, making it easier to understand the program and preventing bugs from being introduced.",Info,Major Code Smell
+StyleChecker.1.0.27,NoSingleSpaceAfterTripleSlash,Triple slash is not followed by a single space.,Triple slash should be followed by a single space.,Warning,Spacing
+StyleChecker.1.0.27,IsNull,Do not use 'is' pattern matching with 'null'.,Use '==' or '!=' operator when a variable is compared to null.,Info,Refactoring
+StyleChecker.1.0.27,EmptyArrayCreation,Do not create an empty array.,Creating empty arrays is not effective.,Warning,Refactoring
+StyleChecker.1.0.27,Underscore,The name of local variables must not include underscores.,The name of local variables must not include underscores.,Warning,Naming
+StyleChecker.1.0.27,RedundantTypedArrayCreation,Use an implicitly-typed array creation instead of an explicitly-typed one.,Specifying the explicit type of the array creation is redundant if the type of the array instance is inferred from the elements specified in the array initializer.,Warning,Cleaning
+StyleCop.Analyzers.1.1.118,SA1100,Do not prefix calls with base unless local implementation exists,"A call to a member from an inherited class begins with 'base.', and the local class does not contain an override or implementation of the member.",Warning,StyleCop.CSharp.ReadabilityRules
+StyleCop.Analyzers.1.1.118,SA1116,Split parameters should start on line after declaration,"The parameters to a C# method or indexer call or declaration span across multiple lines, but the first parameter does not start on the line after the opening bracket.",Warning,StyleCop.CSharp.ReadabilityRules
+StyleCop.Analyzers.1.1.118,SA1120,Comments should contain text,The C# comment does not contain any comment text.,Warning,StyleCop.CSharp.ReadabilityRules
+StyleCop.Analyzers.1.1.118,SA1128,Put constructor initializers on their own line,"A constructor initializer, including the colon character, should be on its own line.",Warning,StyleCop.CSharp.ReadabilityRules
+StyleCop.Analyzers.1.1.118,SA1129,Do not use default value type constructor,"When creating a new instance of a value type T, the syntax 'default(T)' is functionally equivalent to the syntax 'new T()'. To avoid confusion regarding the behavior of the resulting instance, the first form is preferred.",Warning,StyleCop.CSharp.ReadabilityRules
+StyleCop.Analyzers.1.1.118,SA1132,Do not combine fields,"Each field should be declared on its own line, in order to clearly see each field of a type and allow for proper documentation of the behavior of each field.",Warning,StyleCop.CSharp.ReadabilityRules
+StyleCop.Analyzers.1.1.118,SA1306,Field names should begin with lower-case letter,The name of a field in C# does not begin with a lower-case letter.,Warning,StyleCop.CSharp.NamingRules
+StyleCop.Analyzers.1.1.118,SA1307,Accessible fields should begin with upper-case letter,The name of a public or internal field in C# does not begin with an upper-case letter.,Warning,StyleCop.CSharp.NamingRules
+StyleCop.Analyzers.1.1.118,SA1308,Variable names should not be prefixed,"A field name in C# is prefixed with 'm_', 's_', or 't_'.",Warning,StyleCop.CSharp.NamingRules
+StyleCop.Analyzers.1.1.118,SA1310,Field names should not contain underscore,A field name in C# contains an underscore.,Warning,StyleCop.CSharp.NamingRules
+StyleCop.Analyzers.1.1.118,SA1311,Static readonly fields should begin with upper-case letter,The name of a static readonly field does not begin with an upper-case letter.,Warning,StyleCop.CSharp.NamingRules
+StyleCop.Analyzers.1.1.118,SA1413,Use trailing comma in multi-line initializers,A multi-line initializer in a C# code file should use a comma on the last line.,Warning,StyleCop.CSharp.ReadabilityRules
+StyleCop.Analyzers.1.1.118,SA1502,Element should not be on a single line,A C# element containing opening and closing braces is written completely on a single line.,Warning,StyleCop.CSharp.LayoutRules
+StyleCop.Analyzers.1.1.118,SA1504,All accessors should be single-line or multi-line,"Within a C# property, indexer or event, at least one of the child accessors is written on a single line, and at least one of the child accessors is written across multiple lines.",Warning,StyleCop.CSharp.LayoutRules
+StyleCop.Analyzers.1.1.118,SA1617,Void return value should not be documented,"A C# code element does not contain a return value, or returns void, but the documentation header for the element contains a <returns> tag.",Warning,StyleCop.CSharp.DocumentationRules
+StyleCop.Analyzers.1.1.118,SA1626,Single-line comments should not use documentation style slashes,The C# code contains a single-line comment which begins with three forward slashes in a row.,Warning,StyleCop.CSharp.DocumentationRules
+StyleCop.Analyzers.Unstable.1.2.0.333,SA1100,Do not prefix calls with base unless local implementation exists,"A call to a member from an inherited class begins with 'base.', and the local class does not contain an override or implementation of the member.",Warning,StyleCop.CSharp.ReadabilityRules
+StyleCop.Analyzers.Unstable.1.2.0.333,SA1116,Split parameters should start on line after declaration,"The parameters to a C# method or indexer call or declaration span across multiple lines, but the first parameter does not start on the line after the opening bracket.",Warning,StyleCop.CSharp.ReadabilityRules
+StyleCop.Analyzers.Unstable.1.2.0.333,SA1120,Comments should contain text,The C# comment does not contain any comment text.,Warning,StyleCop.CSharp.ReadabilityRules
+StyleCop.Analyzers.Unstable.1.2.0.333,SA1128,Put constructor initializers on their own line,"A constructor initializer, including the colon character, should be on its own line.",Warning,StyleCop.CSharp.ReadabilityRules
+StyleCop.Analyzers.Unstable.1.2.0.333,SA1129,Do not use default value type constructor,"When creating a new instance of a value type T, the syntax 'default(T)' is functionally equivalent to the syntax 'new T()'. To avoid confusion regarding the behavior of the resulting instance, the first form is preferred.",Warning,StyleCop.CSharp.ReadabilityRules
+StyleCop.Analyzers.Unstable.1.2.0.333,SA1132,Do not combine fields,"Each field should be declared on its own line, in order to clearly see each field of a type and allow for proper documentation of the behavior of each field.",Warning,StyleCop.CSharp.ReadabilityRules
+StyleCop.Analyzers.Unstable.1.2.0.333,SA1306,Field names should begin with lower-case letter,The name of a field in C# does not begin with a lower-case letter.,Warning,StyleCop.CSharp.NamingRules
+StyleCop.Analyzers.Unstable.1.2.0.333,SA1307,Accessible fields should begin with upper-case letter,The name of a public or internal field in C# does not begin with an upper-case letter.,Warning,StyleCop.CSharp.NamingRules
+StyleCop.Analyzers.Unstable.1.2.0.333,SA1308,Variable names should not be prefixed,"A field name in C# is prefixed with 'm_', 's_', or 't_'.",Warning,StyleCop.CSharp.NamingRules
+StyleCop.Analyzers.Unstable.1.2.0.333,SA1310,Field names should not contain underscore,A field name in C# contains an underscore.,Warning,StyleCop.CSharp.NamingRules
+StyleCop.Analyzers.Unstable.1.2.0.333,SA1311,Static readonly fields should begin with upper-case letter,The name of a static readonly field does not begin with an upper-case letter.,Warning,StyleCop.CSharp.NamingRules
+StyleCop.Analyzers.Unstable.1.2.0.333,SA1413,Use trailing comma in multi-line initializers,A multi-line initializer in a C# code file should use a comma on the last line.,Warning,StyleCop.CSharp.MaintainabilityRules
+StyleCop.Analyzers.Unstable.1.2.0.333,SA1502,Element should not be on a single line,A C# element containing opening and closing braces is written completely on a single line.,Warning,StyleCop.CSharp.LayoutRules
+StyleCop.Analyzers.Unstable.1.2.0.333,SA1504,All accessors should be single-line or multi-line,"Within a C# property, indexer or event, at least one of the child accessors is written on a single line, and at least one of the child accessors is written across multiple lines.",Warning,StyleCop.CSharp.LayoutRules
+StyleCop.Analyzers.Unstable.1.2.0.333,SA1617,Void return value should not be documented,"A C# code element does not contain a return value, or returns void, but the documentation header for the element contains a <returns> tag.",Warning,StyleCop.CSharp.DocumentationRules
+StyleCop.Analyzers.Unstable.1.2.0.333,SA1626,Single-line comments should not use documentation style slashes,The C# code contains a single-line comment which begins with three forward slashes in a row.,Warning,StyleCop.CSharp.DocumentationRules
+System.Runtime.Analyzers.1.1.0,CA1001,Types that own disposable fields should be disposable,,Warning,Design
+TestAnalyzer.3.0.0,TestAnalyzer,Type name contains lowercase letters,Type names should be all uppercase.,Warning,Naming
+Tocsoft.DateTimeAbstractions.0.1.4,TOCSOFT0001,DateTime static properties are not testable,DateTime static properties are not testable,Warning,Testability
+VSDiagnostics.1.10.0,VSD0026,Internal or public fields should be immutable or a property.,,Warning,General
+WTG.Analyzers.2.10.4,WTG1018,The meaning of boolean literals may not be easy to understand at the call-site.,Improve clarity by using named arguments.,Info,CodingConvention
+WTG.Analyzers.2.10.4,WTG1004,Indent with tabs rather than spaces.,Replace the leading spaces with tabs.,Info,CodingConvention
+Wintellect.Analyzers.1.0.6.0,Wintellect002,Always use Debug.Assert methods that have a message parameter,Always use the multiple parameter version of Debug.Assert for better error reporting,Error,Usage
+Wintellect.Analyzers.WXF.1.0.7.8,Wintellect002,Always use Debug.Assert methods that have a message parameter,Always use the multiple parameter version of Debug.Assert for better error reporting,Error,Usage
+Wintellect.Analyzers.dk.1.0.6,Wintellect002,Always use Debug.Assert methods that have a message parameter,Always use the multiple parameter version of Debug.Assert for better error reporting,Error,Usage
+Wintellect.Analyzers.myhx1114.1.0.6,Wintellect002,Always use Debug.Assert methods that have a message parameter,Always use the multiple parameter version of Debug.Assert for better error reporting,Error,Usage
+ZWA.Infrastructure.CodeAnalysis.1.0.0,FS0048,Use string interpolation instead of String.Format,String interpolation allows for better reading of the resulting string when compared to String.Format. You should use String.Format only when another method is supplying the format string.,Info,Style
+ZWA.Infrastructure.CodeAnalysis.1.0.0,FS0015,Unnecessary Parenthesis,There is no need to specify that the no-parameter constructor is used with  an initializer as it is implicit,Warning,Style
+ZWA.Infrastructure.CodeAnalysis.1.0.0,FS0057,Unused parameters,A method with an unused parameter creates unnecessary confusion and should be deleted.,Warning,Usage
+ZWA.Infrastructure.CodeAnalysis.1.0.0,FS0004,Catch block cannot be empty,An empty catch block suppress all errors and shouldn't be used.\r\nIf the error is expected consider logging it or changing the control flow such that it is explicit.,Warning,Design
+codecracker.CSharp.1.1.0,CC0095,Use string interpolation instead of arguments on Console.WriteLine,String interpolation allows for better reading of the resulting string when compared to Console.WriteLine arguments. You should use Console.WriteLine with arguments only when another method is supplying the format string.,Info,Style
+codecracker.CSharp.1.1.0,CC0017,Use auto property,Auto properties offer a more concise way of defining a property. If you are using simple getters and setters you are able to simplify your code with autoproperties.,Info,Style
+codecracker.CSharp.1.1.0,CC0048,Use string interpolation instead of String.Format,String interpolation allows for better reading of the resulting string when compared to String.Format. You should use String.Format only when another method is supplying the format string.,Info,Style
+codecracker.CSharp.1.1.0,CC0013,Use ternary operator,,Info,Style
+codecracker.CSharp.1.1.0,CC0014,Use ternary operator,,Info,Style
+codecracker.CSharp.1.1.0,CC0015,Unnecessary Parenthesis,There is no need to specify that the no-parameter constructor is used with  an initializer as it is implicit,Warning,Style
+codecracker.CSharp.1.1.0,CC0060,Abstract class should not have public constructors.,,Warning,Usage
+codecracker.CSharp.1.1.0,CC0022,Should dispose object,"When a disposable object is created it should be disposed as soon as possible.
+This warning will appear if you create a disposable object and don't store, return or dispose it.",Warning,Usage
+codecracker.CSharp.1.1.0,CC0034,Redundant field assignment,It's recommend not to assign the default value to a field as a performance optimization.,Info,Usage
+codecracker.CSharp.1.1.0,CC0057,Unused parameters,A method with an unused parameter creates unnecessary confusion and should be deleted.,Warning,Usage
+codecracker.CSharp.1.1.0,CC0030,Make Local Variable Constant.,This variable is assigned a constant value and never changed it can be made 'const',Info,Performance
+codecracker.CSharp.1.1.0,CC0011,You should remove the 'Where' invocation when it is possible.,When a linq operator support a predicate parameter it should be used instead of using 'Where' followed by the operator,Warning,Performance
+codecracker.CSharp.1.1.0,CC0004,Catch block cannot be empty,An empty catch block suppress all errors and shouldn't be used.\r\nIf the error is expected consider logging it or changing the control flow such that it is explicit.,Warning,Design

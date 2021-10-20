@@ -1,0 +1,2 @@
+NuGetAnalyzerPackage,DiagnosticID,DiagnosticTitle,DiagnosticDescription,DiagnosticDefaultSeverity,DiagnosticCategory
+VSDiagnostics.1.10.0,VSD0001,Asynchronous methods should end with the -Async suffix.,,Warning,Async
