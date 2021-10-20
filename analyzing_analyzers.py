@@ -365,12 +365,23 @@ def average_diagnostic_ids_per_package(df, print_bool=True):
     average_num_cp_diagnostics = cp["DiagnosticID"].mean()
     average_num_re_refactoring_names = re["RefactoringName"].mean()
 
+    median_num_all_diagnostics = all["DiagnosticID"].median()
+    median_num_da_diagnostics = da["DiagnosticID"].median()
+    median_num_cp_diagnostics = cp["DiagnosticID"].median()
+    median_num_re_refactoring_names = re["RefactoringName"].median()
+
     if print_bool:
         print("average_num_all_diagnostics: ", average_num_all_diagnostics)
         print("average_num_da_diagnostics: ", average_num_da_diagnostics)
         print("average_num_cp_diagnostics: ", average_num_cp_diagnostics)
         print("average_num_re_refactoring_names: ",
               average_num_re_refactoring_names)
+
+        print("median_num_all_diagnostics: ", median_num_all_diagnostics)
+        print("median_num_da_diagnostics: ", median_num_da_diagnostics)
+        print("median_num_cp_diagnostics: ", median_num_cp_diagnostics)
+        print("median_num_re_refactoring_names: ",
+              median_num_re_refactoring_names)
 
 
 def create_relevant_source_package_list(df):
@@ -436,13 +447,13 @@ def calculate_analyzer_statistics(csv_file="analyzer_package_details.csv"):
 
     ###### Requires *filtered* dataframe ######
 
-    availability_fix_all_provider(df)
+    # availability_fix_all_provider(df)
 
     # total_each_type(df)
 
     # das_cps_intersections(df)
     # das_cps_averages(df)
-    # average_diagnostic_ids_per_package(df)
+    average_diagnostic_ids_per_package(df)
 
     ###########################################
 
