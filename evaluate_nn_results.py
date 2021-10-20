@@ -60,6 +60,8 @@ src_test_file = f"{final_dataset_dir}/src-test.txt"
 tgt_test_file = f"{final_dataset_dir}/tgt-test.txt"
 inference_test_file = f"{eval_dir}/inference-test.txt"
 inference_eval_file = f"{eval_dir}/inference-eval.json"
+most_successful_diagnostics = f"{eval_dir}/most_successful_diagnostics.csv"
+least_successful_diagnostics = f"{eval_dir}/least_successful_diagnostics.csv"
 # Only available for Tensorflow
 experiment_csv_file = f"{eval_dir}/experiment.csv"
 
@@ -291,6 +293,50 @@ def save_result_per_diagnostic(evaluation_dict, metadata_train, metadata_test, t
             else:
                 evaluation_dict["result_per_diagnostic"][diagnostic_id]["wrong"].append(
                     index)
+
+
+# def save_result_per_nuget_diagnostic(evaluation_dict, metadata_train, metadata_test, tgt_test_list, inference_test_list):
+
+"""
+Not being run because grouping by NuGet & diagnostic would already have to be run in an earlier stage.
+At least avoids having same diagnostic from different packages be counted separately and placed in different
+dataset (train/validation/test) for Extrapolation. This is because only list of diagnostics is mixed, not
+nuget__diagnostic. 
+Also, when normalizing results per diagnostic, these diagnostics are counted
+together and not given stronger weightings (e.g. StyleCop.Analyzers.1.1.118____SA1004 and
+StyleCop.Analyzers.Unstable.1.2.0.333____SA1004)
+"""
+
+#     for index, tgt_test_line in enumerate(tgt_test_list):
+#         is_correct = tgt_test_line == inference_test_list[index]
+
+#         # ID, DiagnosticID
+#         diagnostic_id = metadata_test["datapoints"][index]["DiagnosticID"]
+#         nuget = metadata_test["datapoints"][index]["Nuget"]
+#         nuget_diagnostic = f"""{nuget}____{diagnostic_id}"""
+
+#         # TODO: Would technically have to check for combination of diagnostic and nuget...
+#         if diagnostic_id in metadata_train["diagnostics"]:
+#             num_datapoints_in_train = metadata_train["diagnostics"][diagnostic_id]
+#         else:
+#             num_datapoints_in_train = 0
+
+#         if nuget_diagnostic not in evaluation_dict["result_per_diagnostic"]:
+
+#             evaluation_dict["result_per_diagnostic"][nuget_diagnostic] = {
+#                 # "perc_correct_in_test": 0,  # Calculate later
+#                 "correct": [index] if is_correct else [],
+#                 "wrong": [] if is_correct else [index],
+#                 "num_datapoints_in_train": num_datapoints_in_train,
+#             }
+
+#         else:
+#             if is_correct:
+#                 evaluation_dict["result_per_diagnostic"][nuget_diagnostic]["correct"].append(
+#                     index)
+#             else:
+#                 evaluation_dict["result_per_diagnostic"][nuget_diagnostic]["wrong"].append(
+#                     index)
 
 
 def save_diagnostic_avg_results(evaluation_dict):
@@ -932,6 +978,38 @@ def plot_loss_curve(tf_csv_path):
     fig.write_image(f"{eval_dir}/{filename}")
 
 
+def filter_csv_least_or_most_successful_diagnostics(evaluation_dict, most_successful=True):
+
+    result_per_diagnostic = flatten_result_per_diagnostic(
+        evaluation_dict["result_per_diagnostic"])
+
+    if most_successful:
+        csv_filepath = most_successful_diagnostics
+        filtered_results = [
+            result for result in result_per_diagnostic if result["perc_correct_in_test"] == 1.0]
+    else:
+        csv_filepath = least_successful_diagnostics
+        filtered_results = [
+            result for result in result_per_diagnostic if result["perc_correct_in_test"] == 0.0]
+
+    list_diagnostics = [result["diagnostic_id"] for result in filtered_results]
+
+    df = pd.read_csv("analyzer_package_details_filtered.csv")
+    df = df[df["Type"] == "DIAGNOSTIC_ANALYZER"]
+
+    # Would require save_result_per_nuget_diagnostic() to be called:
+    # Annotate f"""{nuget}____{diagnostic_id}"""
+    # df['nuget_diagnostic'] = df.apply (lambda row: f"""{row["NuGetAnalyzerPackage"]}____{row["DiagnosticID"]}""", axis=1)
+
+    df = df[df['DiagnosticID'].isin(list_diagnostics)]
+
+    cols_to_remove = ["AssemblyName", "Type", "DiagnosticCustomTags",
+                      "ContainsFixAllProvider", "FixAllProviderSupportedScopes", "RefactoringName"]
+    df.drop(columns=cols_to_remove, inplace=True)
+
+    df.to_csv(csv_filepath, index=False)
+
+
 def remove_redundant_data(evaluation_dict):
 
     for diagnostic_id, result in evaluation_dict["result_per_diagnostic"].items():
@@ -1032,6 +1110,9 @@ def main():
         inference_test_list,
         metadata_test
     )
+
+    filter_csv_least_or_most_successful_diagnostics(evaluation_dict, True)
+    filter_csv_least_or_most_successful_diagnostics(evaluation_dict, False)
 
     plot_num_datapoints_vs_success(
         evaluation_dict, f"{experiment.name}_impact_data_on_accuracy.svg")
