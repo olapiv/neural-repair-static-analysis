@@ -296,6 +296,18 @@ def filter_df_latest_analyzer_versions(df, csv_file="analyzer_package_details_fi
 
 
 def das_cps_intersections(df, print_bool=True):
+    """
+    Assumes that diagnostic IDs from different NuGets are not identical.
+
+    In any case, when building a fix-set, it is easiest to iterate over NuGet
+    packages and then both look for suppoorting & fixing a diagnostic in the package.
+    
+    However, in NN extrapolation experiments, it is still better to be conservative
+    and assume that identical diagnostics from different NuGets are also semantically
+    equivalent. This leaves less space to observe a NN extrapolating to a "new" fix,
+    when it has already seen the same diagnostic (from a different NuGet) in training.
+    The latter is done with intersection_unique_diagnostic.
+    """
     diagnostic_analyzers, codefix_providers, _ = total_each_type(df, False)
 
     da_keys = list(diagnostic_analyzers.groupby(
@@ -308,12 +320,16 @@ def das_cps_intersections(df, print_bool=True):
     cp_missing = sorted(list(set(da_keys) - set(cp_keys)))
     da_missing = sorted(list(set(cp_keys) - set(da_keys)))
 
+    # Merging intersected diagnostics together; Important for NN extrapolation training.
+    intersection_unique_diagnostic = list(set([diagnostic[1] for diagnostic in intersection]))
+
     if print_bool:
         print("Number union: ", len(union))
         print("Number intersection: ", len(intersection))
+        print("Number intersection_unique_diagnostic: ", len(intersection_unique_diagnostic))
         print("Number cp_missing: ", len(cp_missing))
         print("Number da_missing: ", len(da_missing))
-        print("da_missing: ", da_missing)
+        print("intersection_unique_diagnostic: ", intersection_unique_diagnostic)
 
     return union, intersection, cp_missing, da_missing
 
