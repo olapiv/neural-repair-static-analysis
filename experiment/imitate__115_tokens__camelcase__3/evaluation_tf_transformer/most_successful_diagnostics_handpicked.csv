@@ -1,0 +1,48 @@
+NuGetAnalyzerPackage,DiagnosticID,DiagnosticTitle,DiagnosticDescription,DiagnosticDefaultSeverity,DiagnosticCategory
+
+Pure Formatting:
+MR.Analyzers.Whitespace.1.0.1,WS1001,Missing final newline.,,Error,Trivia
+Roslynator.Analyzers.3.1.0,RCS1036,Remove redundant empty line.,,Info,Redundancy
+StyleCop.Analyzers.1.1.118,SA1000,Keywords should be spaced correctly,The spacing around a C# keyword is incorrect.,Warning,StyleCop.CSharp.SpacingRules
+StyleCop.Analyzers.1.1.118,SA1012,Opening braces should be spaced correctly,An opening brace within a C# element is not spaced correctly.,Warning,StyleCop.CSharp.SpacingRules
+StyleCop.Analyzers.1.1.118,SA1513,Closing brace should be followed by blank line,"A closing brace within a C# element, statement, or expression is not followed by a blank line.",Warning,StyleCop.CSharp.LayoutRules
+StyleCop.Analyzers.1.1.118,SA1107,Code should not contain multiple statements on one line,The C# code contains more than one statement on a single line.,Warning,StyleCop.CSharp.ReadabilityRules
+StyleCop.Analyzers.1.1.118,SA1514,Element documentation header should be preceded by blank line,An element documentation header above a C# element is not preceded by a blank line.,Warning,StyleCop.CSharp.LayoutRules
+StyleCop.Analyzers.1.1.118,SA1515,Single-line comment should be preceded by blank line,A single-line comment within C# code is not preceded by a blank line.,Warning,StyleCop.CSharp.LayoutRules
+StyleCop.Analyzers.1.1.118,SA1516,Elements should be separated by blank line,Adjacent C# elements are not separated by a blank line.,Warning,StyleCop.CSharp.LayoutRules
+ZWA.Infrastructure.CodeAnalysis.1.0.0,FS0065,Remove trailing whitespace,Trailing whitespaces are ugly and show sloppiness. Remove them.,Info,Style
+
+Documentation:
+APIDocCodeAnalyzer.1.0.6253.30470,DA4004,Type doesn't have example in the comment,Type should have example in the comment,Warning,Documentation
+APIDocCodeAnalyzer.1.0.6253.30470,DA3006,Method doesn't have /// returns in comment,Method with return value should have /// returns in comment,Error,Documentation
+
+Style/Coding Convention:
+Agoda.Analyzers.1.0.517,SA1107,Code must not contain multiple statements on one line,The C# code contains more than one statement on a single line.,Warning,StyleCop.CSharp.ReadabilityRules
+AsyncAnalyzers.1.1.7.0,_MissingAsync,TAP methods must end with Async.,TAP methods should have the Async suffix.,Warning,Naming
+WTG.Analyzers.2.10.4,WTG1009,Using directives must be ordered by kind.,"Move all 'using static' statements after 'using' statements, and move 'using X=Y' to the end.",Info,CodingConvention
+Roslynator.Analyzers.3.1.0,RCS1001,Add braces (when expression spans over multiple lines).,,Info,Style
+ZWA.Infrastructure.CodeAnalysis.1.0.0,FS0037,Remove commented code.,,Info,Style
+codecracker.CSharp.1.1.0,CC0049,Simplify expression,,Info,Usage
+
+Fixes:
+BND.Convention.Analyzer.1.0.0,ConstantAnalyzer,Variable can be made constant,Make Constant,Warning,Usage
+CodeFix.1.2.1.0,UniversalTimeStamp,Use DateTime.Now.ToUniversalTime() insted of DateTime.Now,DateTime.Now.ToUniversalTime() should be used insted of DateTime.Now,Info,UniversalTimeStamp
+DebuggerStepThroughRemover.1.0.5823.28645,DebuggerStepThroughRemover,Type is decorated with DebuggerStepThrough attribute,,Warning,Debugging
+Menees.Analyzers.2017.2.0.3,MEN009,Use the preferred exception type,Using preferred exception types makes calling code more consistent and maintainable.,Warning,Usage
+Microsoft.AnalyzerPowerPack.1.1.0,CA1052,Static holder types should be Static or NotInheritable,,Warning,Design
+Microsoft.CodeAnalysis.NetAnalyzers.5.0.3,CA1836,Prefer IsEmpty over Count,"For determining whether the object contains or not any items, prefer using 'IsEmpty' property rather than retrieving the number of items from the 'Count' property and comparing it to 0 or 1.",Info,Performance
+Microsoft.CodeAnalysis.NetAnalyzers.5.0.3,CA1805,Do not initialize unnecessarily,"The .NET runtime initializes all fields of reference types to their default values before running the constructor. In most cases, explicitly initializing a field to its default value in a constructor is redundant, adding maintenance costs and potentially degrading performance (such as with increased assembly size), and the explicit initialization can be removed.  In some cases, such as with static readonly fields that permanently retain their default value, consider instead changing them to be constants or properties.",Hidden,Performance
+RefactoringEssentials.5.6.0,RECS0014,"If all fields, properties and methods members are static, the class can be made static.",,Info,Language Usage Opportunities
+RefactoringEssentials.5.6.0,RECS0122,Initializing field with default value is redundant,,Info,Redundancies in Symbol Declarations
+Roslynator.Analyzers.3.1.0,RCS1090,Add call to 'ConfigureAwait' (or vice versa).,,Info,Design
+Roslynator.Analyzers.3.1.0,RCS1015,Use nameof operator.,,Info,Maintainability
+Roslynator.Analyzers.3.1.0,RCS1156,Use string.Length instead of comparison with empty string.,,Info,Usage
+SmartAnalyzers.MultithreadingAnalyzer.1.1.31,MT1001,Lock on this reference,,Error,Locking
+StyleCop.Analyzers.1.1.118,SA1205,Partial elements should declare access,The partial element does not have an access modifier defined.,Warning,StyleCop.CSharp.OrderingRules
+StyleCop.Analyzers.1.1.118,SA1209,Using alias directives should be placed after other using directives,A using-alias directive is positioned before a regular using directive.,Warning,StyleCop.CSharp.OrderingRules
+VSDiagnostics.1.10.0,VSD0007,An ArgumentException should use nameof() to refer to a variable.,,Warning,Exceptions
+WTG.Analyzers.2.10.4,WTG1007,Do not compare bool to a constant value.,"Either use the original value as-is, or use a logical-not operator ('!')",Info,CodingConvention
+ZWA.Infrastructure.CodeAnalysis.1.0.0,FS0052,Make field readonly,A field that is only assigned on the constructor can be made readonly.,Info,Usage
+ZWA.Infrastructure.CodeAnalysis.1.0.0,FS0034,Redundant field assignment,It's recommend not to assign the default value to a field as a performance optimization.,Info,Usage
+codecracker.CSharp.1.1.0,CC0060,Abstract class should not have public constructors.,,Warning,Usage
+mstest-analyzer.0.6.1,MT1001,Public class should have a test attribute,,Warning,Maintainability
