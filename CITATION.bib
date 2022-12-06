@@ -1,0 +1,12 @@
+@mastersthesis{Lohse1624586,
+   author = {Lohse, Vincent Paul},
+   institution = {KTH, School of Electrical Engineering and Computer Science (EECS)},
+   pages = {70},
+   school = {KTH, School of Electrical Engineering and Computer Science (EECS)},
+   title = {Exploring the Usage of Neural Networks for Repairing Static Analysis Warnings},
+   series = {TRITA-EECS-EX},
+   number = {2021:830},
+   keywords = {Automatic Program Repair, Neural Machine Translation, Static Analysis, Transformer Model, Formatting, Automatisk programreparation, neural maskinöversättning, statisk analys, transformatormodell, formatering},
+   abstract = {C# provides static analysis libraries for template-based code analysis and code fixing. These libraries have been used by the open-source community to generate numerous NuGet packages for different use-cases. However, due to the unstructured vastness of these packages, it is difficult to find the ones required for a project and creating new analyzers and fixers take time and effort to create. Therefore, this thesis proposes a neural network, which firstly imitates existing fixers and secondly extrapolates to fixes of unseen diagnostics. To do so, the state-of-the-art of static analysis NuGet packages is examined and further used to generate a dataset with diagnostics and corresponding code fixes for 24,622 data points. Since many C# fixers apply formatting changes, all formatting is preserved in the dataset. Furthermore, since the fixers also apply identifier changes, the tokenization of the dataset is varied between splitting identifiers by camelcase and preserving them. The neural network uses a sequence-to-sequence learning approach with the Transformer model and takes file context, diagnostic message and location as input and predicts a diff as output. It is capable of imitating 46.3% of the fixes, normalized by diagnostic type, and for data points with unseen diagnostics, it is able to extrapolate to 11.9% of normalized data points. For both experiments, splitting identifiers by camelcase produces the best results. Lastly, it is found that a higher proportion of formatting tokens in input has minimal positive impact on prediction success rates, whereas the proportion of formatting in output has no impact on success rates.  },
+   year = {2021}
+}
